@@ -682,17 +682,17 @@ func (v *Object) Emit(s string, args ...interface{}) (interface{}, error) {
 
 // HandlerBlock is a wrapper around g_signal_handler_block().
 func (v *Object) HandlerBlock(handle SignalHandle) {
-	C.g_signal_handler_block(C.gpointer(v.GObject), C.gulong(handle))
+	C.g_signal_handler_block(C.gpointer(v.GObject), C.gsize(handle))
 }
 
 // HandlerUnblock is a wrapper around g_signal_handler_unblock().
 func (v *Object) HandlerUnblock(handle SignalHandle) {
-	C.g_signal_handler_unblock(C.gpointer(v.GObject), C.gulong(handle))
+	C.g_signal_handler_unblock(C.gpointer(v.GObject), C.gsize(handle))
 }
 
 // HandlerDisconnect is a wrapper around g_signal_handler_disconnect().
 func (v *Object) HandlerDisconnect(handle SignalHandle) {
-	C.g_signal_handler_disconnect(C.gpointer(v.GObject), C.gulong(handle))
+	C.g_signal_handler_disconnect(C.gpointer(v.GObject), C.gsize(handle))
 
 	signals.Lock()
 	closure := signals.m[handle]
