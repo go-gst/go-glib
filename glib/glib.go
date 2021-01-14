@@ -616,20 +616,36 @@ func (v *Object) GetProperty(name string) (interface{}, error) {
 	return p.GoValue()
 }
 
-// SetProperty is a wrapper around g_object_set_property().
+// SetProperty is a wrapper around g_object_set_property(). It attempts to convert
+// the given Go value to a GValue before setting the property.
 func (v *Object) SetProperty(name string, value interface{}) error {
-	cstr := C.CString(name)
-	defer C.free(unsafe.Pointer(cstr))
-
 	if _, ok := value.(Object); ok {
 		value = value.(Object).GObject
 	}
-
 	p, err := GValue(value)
 	if err != nil {
 		return errors.New("Unable to perform type conversion")
 	}
-	C.g_object_set_property(v.GObject, (*C.gchar)(cstr), p.native())
+	return v.SetPropertyValue(name, p)
+}
+
+// SetPropertyValue is like SetProperty except it operates on native
+// GValues instead of first trying to convert from a Go value.
+func (v *Object) SetPropertyValue(name string, value *Value) error {
+	propType, err := v.GetPropertyType(name)
+	if err != nil {
+		return err
+	}
+	valType, _, err := value.Type()
+	if err != nil {
+		return err
+	}
+	if valType != propType {
+		return fmt.Errorf("Invalid type %s for property %s", value.TypeName(), name)
+	}
+	cstr := C.CString(name)
+	defer C.free(unsafe.Pointer(cstr))
+	C.g_object_set_property(v.GObject, (*C.gchar)(cstr), value.native())
 	return nil
 }
 
