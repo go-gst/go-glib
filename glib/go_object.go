@@ -73,8 +73,29 @@ type GoObjectSubclass interface {
 // TypeInstance is a loose binding around the glib GTypeInstance. It holds the information required to register
 // various capabilities of a GoObjectSubclass.
 type TypeInstance struct {
-	gtype  C.GType
-	gotype GoObjectSubclass
+	GType  Type
+	GoType GoObjectSubclass
+}
+
+// Interface can be implemented by extending packages and provides a the base type for the interface and
+// a pointer to a C function that can be used for the interface_init in a GInterfaceInfo.
+type Interface interface {
+	Type() Type
+	InitFunc(t *TypeInstance) unsafe.Pointer
+}
+
+// AddInterface will add an interface implementation for the type referenced by this object.
+func (t *TypeInstance) AddInterface(iface Interface) {
+	ifaceInfo := C.GInterfaceInfo{
+		interface_data:     nil,
+		interface_finalize: nil,
+	}
+	ifaceInfo.interface_init = C.GInterfaceInitFunc(iface.InitFunc(t))
+	C.g_type_add_interface_static(
+		(C.GType)(t.GType),
+		(C.GType)(iface.Type()),
+		&ifaceInfo,
+	)
 }
 
 // FromObjectUnsafePrivate will return the GoObjectSubclass addressed in the private data of the given GObject.
@@ -120,7 +141,7 @@ func RegisterGoType(name string, elem GoObjectSubclass, extendable Extendable) C
 		typeInfo,
 		C.GTypeFlags(0),
 	)
-	elem.TypeInit(&TypeInstance{gtype: gtype, gotype: elem})
+	elem.TypeInit(&TypeInstance{GType: Type(gtype), GoType: elem})
 	registeredTypes[reflect.TypeOf(elem).String()] = gtype
 	return gtype
 }
