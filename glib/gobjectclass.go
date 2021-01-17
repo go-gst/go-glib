@@ -33,6 +33,25 @@ func (o *ObjectClass) InstallProperties(params []*ParamSpec) {
 	}
 }
 
+// ListProperties returns a list of the properties associated with this object.
+// The default values assumed in the parameter spec reflect the values currently
+// set in this object, or their defaults.
+//
+// Unref params after usage.
+func (o *ObjectClass) ListProperties() []*ParamSpec {
+	var size C.guint
+	props := C.g_object_class_list_properties((*C.GObjectClass)(o.Instance()), &size)
+	if props == nil {
+		return nil
+	}
+	defer C.g_free((C.gpointer)(props))
+	out := make([]*ParamSpec, 0)
+	for _, prop := range (*[1 << 30]*C.GParamSpec)(unsafe.Pointer(props))[:size:size] {
+		out = append(out, ToParamSpec(unsafe.Pointer(prop)))
+	}
+	return out
+}
+
 func wrapObjectClass(klass C.gpointer) *ObjectClass {
 	return &ObjectClass{ptr: C.toGObjectClass(unsafe.Pointer(klass))}
 }

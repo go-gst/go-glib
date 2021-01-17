@@ -1,6 +1,10 @@
 package glib
 
-// #include "glib.go.h"
+/*
+#include "glib.go.h"
+
+GObjectClass *  getGObjectClass (void * p)  { return (G_OBJECT_GET_CLASS(p)); }
+*/
 import "C"
 import (
 	"errors"
@@ -78,6 +82,20 @@ func Take(ptr unsafe.Pointer) *Object {
 // Native returns a pointer to the underlying GObject.
 func (v *Object) Native() uintptr {
 	return uintptr(unsafe.Pointer(v.native()))
+}
+
+// Unsafe returns the unsafe pointer to the underlying object. This method is primarily
+// for internal usage and is exposed for visibility in other packages.
+func (v *Object) Unsafe() unsafe.Pointer {
+	if v == nil || v.GObject == nil {
+		return nil
+	}
+	return unsafe.Pointer(v.GObject)
+}
+
+// Class returns the GObjectClass of this instance.
+func (v *Object) Class() *ObjectClass {
+	return &ObjectClass{ptr: C.getGObjectClass(v.Unsafe())}
 }
 
 // IsA is a wrapper around g_type_is_a().
@@ -201,6 +219,21 @@ func (v *Object) SetPropertyValue(name string, value *Value) error {
 	defer C.free(unsafe.Pointer(cstr))
 	C.g_object_set_property(v.GObject, (*C.gchar)(cstr), value.native())
 	return nil
+}
+
+// ListInterfaces returns the interfaces associated with this object.
+func (v *Object) ListInterfaces() []string {
+	var size C.guint
+	ifaces := C.g_type_interfaces(C.gsize(v.TypeFromInstance()), &size)
+	if int(size) == 0 {
+		return nil
+	}
+	defer C.g_free((C.gpointer)(ifaces))
+	out := make([]string, int(size))
+	for _, t := range (*[1 << 30]int)(unsafe.Pointer(ifaces))[:size:size] {
+		out = append(out, Type(t).Name())
+	}
+	return out
 }
 
 /*
