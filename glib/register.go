@@ -6,5 +6,5 @@ import "sync"
 
 var registerMutex sync.RWMutex
 
-var registeredTypes = make(map[string]C.GType)
+var registeredTypes = make(map[string]Type)
 var registeredClasses = make(map[C.gpointer]GoObjectSubclass)

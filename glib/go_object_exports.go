@@ -77,6 +77,6 @@ func goInstanceInit(obj *C.GTypeInstance, klass C.gpointer) {
 	registeredClasses[klass] = elem
 
 	ptr := gopointer.Save(elem)
-	private := C.g_type_instance_get_private(obj, registeredTypes[reflect.TypeOf(registeredClasses[klass]).String()])
+	private := C.g_type_instance_get_private(obj, C.GType(registeredTypes[reflect.TypeOf(registeredClasses[klass]).String()]))
 	C.memcpy(unsafe.Pointer(private), unsafe.Pointer(&ptr), C.gsize(unsafe.Sizeof(uintptr(0))))
 }

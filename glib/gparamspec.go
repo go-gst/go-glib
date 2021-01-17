@@ -24,6 +24,13 @@ import (
 // ParamSpec is a go representation of a C GParamSpec
 type ParamSpec struct{ paramSpec *C.GParamSpec }
 
+// ToParamSpec wraps the given pointer in a ParamSpec instance.
+func ToParamSpec(paramspec unsafe.Pointer) *ParamSpec {
+	return &ParamSpec{
+		paramSpec: (*C.GParamSpec)(paramspec),
+	}
+}
+
 // Name returns the name of this parameter.
 func (p *ParamSpec) Name() string {
 	return C.GoString(C.g_param_spec_get_name(p.paramSpec))

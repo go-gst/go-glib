@@ -109,7 +109,12 @@ type classData struct {
 	ext  Extendable
 }
 
-func RegisterGoType(name string, elem GoObjectSubclass, extendable Extendable) C.GType {
+// RegisterGoType is used to register an interface implemented in the Go runtime with the GType
+// system. It takes the name to assign the type, the interface itself, and an Extendable denoting
+// the subclasses it extends. It's the responsibility of packages using these bindings to implement
+// Extendables that call up to the ExtendsObject.InitClass included in this package during their
+// own implementation.
+func RegisterGoType(name string, elem GoObjectSubclass, extendable Extendable) Type {
 	registerMutex.Lock()
 	defer registerMutex.Unlock()
 	if registered, ok := registeredTypes[reflect.TypeOf(elem).String()]; ok {
@@ -142,8 +147,8 @@ func RegisterGoType(name string, elem GoObjectSubclass, extendable Extendable) C
 		C.GTypeFlags(0),
 	)
 	elem.TypeInit(&TypeInstance{GType: Type(gtype), GoType: elem})
-	registeredTypes[reflect.TypeOf(elem).String()] = gtype
-	return gtype
+	registeredTypes[reflect.TypeOf(elem).String()] = Type(gtype)
+	return Type(gtype)
 }
 
 // privateFromObj returns the actual value of the address we stored in the object's private data.
