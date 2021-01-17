@@ -543,29 +543,42 @@ func ValueAlloc() (*Value, error) {
 	return v, nil
 }
 
-// ValueInit is a wrapper around g_value_init() and allocates and
-// initializes a new Value with the Type t.  A runtime finalizer is set
-// to call g_value_unset() on the underlying GValue after leaving scope.
-// ValueInit() returns a non-nil error if the allocation failed.
-func ValueInit(t Type) (*Value, error) {
+// ValueInitUnowned is the same as ValueInit except it does not place
+// a runtime finalizer on the allocated GValue.
+func ValueInitUnowned(t Type) (*Value, error) {
 	c := C._g_value_init(C.GType(t))
 	if c == nil {
 		return nil, nilPtrErr
 	}
 
 	v := &Value{c}
+	return v, nil
+}
 
+// ValueInit is a wrapper around g_value_init() and allocates and
+// initializes a new Value with the Type t.  A runtime finalizer is set
+// to call g_value_unset() on the underlying GValue after leaving scope.
+// ValueInit() returns a non-nil error if the allocation failed.
+func ValueInit(t Type) (*Value, error) {
+	v, err := ValueInitUnowned(t)
+	if err != nil {
+		return nil, err
+	}
 	runtime.SetFinalizer(v, (*Value).unset)
 	return v, nil
 }
 
 // ValueFromNative returns a type-asserted pointer to the Value.
 func ValueFromNative(l unsafe.Pointer) *Value {
-	//TODO why it does not add finalizer to the value?
 	return &Value{(*C.GValue)(l)}
 }
 
-func (v *Value) unset() {
+func (v *Value) unset() { v.Unset() }
+
+// Unset clears the current value in value (if any) and "unsets" the type, this releases all
+// resources associated with this GValue. An unset value is the same as an uninitialized
+// (zero-filled) GValue structure.
+func (v *Value) Unset() {
 	C.g_value_unset(v.native())
 }
 
@@ -581,11 +594,21 @@ func (v *Value) Type() (actual Type, fundamental Type, err error) {
 	return Type(cActual), Type(cFundamental), nil
 }
 
+// GValueUnowned is the same as GValue except it does not place a runtime finalizer
+// on the allocated GValue
+func GValueUnowned(v interface{}) (*Value, error) {
+	return gValue(v, ValueInitUnowned)
+}
+
 // GValue converts a Go type to a comparable GValue.  GValue()
 // returns a non-nil error if the conversion was unsuccessful.
-func GValue(v interface{}) (gvalue *Value, err error) {
+func GValue(v interface{}) (*Value, error) {
+	return gValue(v, ValueInit)
+}
+
+func gValue(v interface{}, initFunc func(Type) (*Value, error)) (gvalue *Value, err error) {
 	if v == nil {
-		val, err := ValueInit(TYPE_POINTER)
+		val, err := initFunc(TYPE_POINTER)
 		if err != nil {
 			return nil, err
 		}
@@ -595,7 +618,7 @@ func GValue(v interface{}) (gvalue *Value, err error) {
 
 	switch e := v.(type) {
 	case bool:
-		val, err := ValueInit(TYPE_BOOLEAN)
+		val, err := initFunc(TYPE_BOOLEAN)
 		if err != nil {
 			return nil, err
 		}
@@ -603,7 +626,7 @@ func GValue(v interface{}) (gvalue *Value, err error) {
 		return val, nil
 
 	case int8:
-		val, err := ValueInit(TYPE_CHAR)
+		val, err := initFunc(TYPE_CHAR)
 		if err != nil {
 			return nil, err
 		}
@@ -611,7 +634,7 @@ func GValue(v interface{}) (gvalue *Value, err error) {
 		return val, nil
 
 	case int64:
-		val, err := ValueInit(TYPE_INT64)
+		val, err := initFunc(TYPE_INT64)
 		if err != nil {
 			return nil, err
 		}
@@ -619,7 +642,7 @@ func GValue(v interface{}) (gvalue *Value, err error) {
 		return val, nil
 
 	case int:
-		val, err := ValueInit(TYPE_INT)
+		val, err := initFunc(TYPE_INT)
 		if err != nil {
 			return nil, err
 		}
@@ -627,7 +650,7 @@ func GValue(v interface{}) (gvalue *Value, err error) {
 		return val, nil
 
 	case uint8:
-		val, err := ValueInit(TYPE_UCHAR)
+		val, err := initFunc(TYPE_UCHAR)
 		if err != nil {
 			return nil, err
 		}
@@ -635,7 +658,7 @@ func GValue(v interface{}) (gvalue *Value, err error) {
 		return val, nil
 
 	case uint64:
-		val, err := ValueInit(TYPE_UINT64)
+		val, err := initFunc(TYPE_UINT64)
 		if err != nil {
 			return nil, err
 		}
@@ -643,7 +666,7 @@ func GValue(v interface{}) (gvalue *Value, err error) {
 		return val, nil
 
 	case uint:
-		val, err := ValueInit(TYPE_UINT)
+		val, err := initFunc(TYPE_UINT)
 		if err != nil {
 			return nil, err
 		}
@@ -651,7 +674,7 @@ func GValue(v interface{}) (gvalue *Value, err error) {
 		return val, nil
 
 	case float32:
-		val, err := ValueInit(TYPE_FLOAT)
+		val, err := initFunc(TYPE_FLOAT)
 		if err != nil {
 			return nil, err
 		}
@@ -659,7 +682,7 @@ func GValue(v interface{}) (gvalue *Value, err error) {
 		return val, nil
 
 	case float64:
-		val, err := ValueInit(TYPE_DOUBLE)
+		val, err := initFunc(TYPE_DOUBLE)
 		if err != nil {
 			return nil, err
 		}
@@ -667,7 +690,7 @@ func GValue(v interface{}) (gvalue *Value, err error) {
 		return val, nil
 
 	case string:
-		val, err := ValueInit(TYPE_STRING)
+		val, err := initFunc(TYPE_STRING)
 		if err != nil {
 			return nil, err
 		}
@@ -675,7 +698,7 @@ func GValue(v interface{}) (gvalue *Value, err error) {
 		return val, nil
 
 	case *Object:
-		val, err := ValueInit(TYPE_OBJECT)
+		val, err := initFunc(TYPE_OBJECT)
 		if err != nil {
 			return nil, err
 		}
@@ -687,7 +710,7 @@ func GValue(v interface{}) (gvalue *Value, err error) {
 		rval := reflect.ValueOf(v)
 		switch rval.Kind() {
 		case reflect.Int8:
-			val, err := ValueInit(TYPE_CHAR)
+			val, err := initFunc(TYPE_CHAR)
 			if err != nil {
 				return nil, err
 			}
@@ -701,7 +724,7 @@ func GValue(v interface{}) (gvalue *Value, err error) {
 			return nil, errors.New("Type not implemented")
 
 		case reflect.Int64:
-			val, err := ValueInit(TYPE_INT64)
+			val, err := initFunc(TYPE_INT64)
 			if err != nil {
 				return nil, err
 			}
@@ -709,7 +732,7 @@ func GValue(v interface{}) (gvalue *Value, err error) {
 			return val, nil
 
 		case reflect.Int:
-			val, err := ValueInit(TYPE_INT)
+			val, err := initFunc(TYPE_INT)
 			if err != nil {
 				return nil, err
 			}
@@ -717,7 +740,7 @@ func GValue(v interface{}) (gvalue *Value, err error) {
 			return val, nil
 
 		case reflect.Uintptr, reflect.Ptr:
-			val, err := ValueInit(TYPE_POINTER)
+			val, err := initFunc(TYPE_POINTER)
 			if err != nil {
 				return nil, err
 			}
