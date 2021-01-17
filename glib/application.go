@@ -24,6 +24,7 @@ func (v *Application) native() *C.GApplication {
 	return C.toGApplication(unsafe.Pointer(v.GObject))
 }
 
+// Native returns the pointer to the underlying C instance.
 func (v *Application) Native() uintptr {
 	return uintptr(unsafe.Pointer(v.native()))
 }
