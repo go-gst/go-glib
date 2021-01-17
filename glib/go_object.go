@@ -62,8 +62,8 @@ type GoObject interface {
 type GoObjectSubclass interface {
 	// New should return a new instantiated GoElement ready to be used.
 	New() GoObjectSubclass
-	// TypeInit is called after the GType is registered and right before ClassInit. It is when the
-	// element should add any interfaces it plans to implement.
+	// TypeInit is called after the GType is registered and object constructed, and right before ClassInit.
+	// It is when the element should add any interfaces it plans to implement.
 	TypeInit(*TypeInstance)
 	// ClassInit is called on the element after registering it with the type system. This is when the element
 	// should install its properties and pad templates.
@@ -146,7 +146,7 @@ func RegisterGoType(name string, elem GoObjectSubclass, extendable Extendable) T
 		typeInfo,
 		C.GTypeFlags(0),
 	)
-	elem.TypeInit(&TypeInstance{GType: Type(gtype), GoType: elem})
+	// elem.TypeInit(&TypeInstance{GType: Type(gtype), GoType: elem})
 	registeredTypes[reflect.TypeOf(elem).String()] = Type(gtype)
 	return Type(gtype)
 }

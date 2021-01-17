@@ -573,6 +573,14 @@ func ValueFromNative(l unsafe.Pointer) *Value {
 	return &Value{(*C.GValue)(l)}
 }
 
+// ValueFromNativeOwned is the same as ValueFromNative except a finalizer
+// is placed on the Value afterwards to clear it when it leaves scope.
+func ValueFromNativeOwned(l unsafe.Pointer) *Value {
+	v := &Value{(*C.GValue)(l)}
+	runtime.SetFinalizer(v, (*Value).unset)
+	return v
+}
+
 func (v *Value) unset() { v.Unset() }
 
 // Unset clears the current value in value (if any) and "unsets" the type, this releases all

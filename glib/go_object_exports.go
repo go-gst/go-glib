@@ -75,6 +75,10 @@ func goInstanceInit(obj *C.GTypeInstance, klass C.gpointer) {
 
 	elem := registeredClasses[klass].New()
 	registeredClasses[klass] = elem
+	elem.TypeInit(&TypeInstance{
+		GType:  registeredTypes[reflect.TypeOf(elem).String()],
+		GoType: elem,
+	})
 
 	ptr := gopointer.Save(elem)
 	private := C.g_type_instance_get_private(obj, C.GType(registeredTypes[reflect.TypeOf(registeredClasses[klass]).String()]))
