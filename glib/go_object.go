@@ -10,6 +10,7 @@ extern void   goObjectFinalize     (GObject * object, gpointer klass);
 
 extern void   goClassInit     (gpointer g_class, gpointer class_data);
 extern void   goInstanceInit  (GTypeInstance * instance, gpointer g_class);
+extern void   goInterfaceInit (gpointer iface, gpointer iface_data);
 
 void objectFinalize (GObject * object)
 {
@@ -30,8 +31,9 @@ void  setGObjectClassGetProperty  (void * klass)  { ((GObjectClass *)klass)->get
 void  setGObjectClassConstructed  (void * klass)  { ((GObjectClass *)klass)->constructed = objectConstructed; }
 void  setGObjectClassFinalize     (void * klass)  { ((GObjectClass *)klass)->finalize = objectFinalize; }
 
-void  cgoClassInit     (gpointer g_class, gpointer class_data)       { goClassInit(g_class, class_data); }
-void  cgoInstanceInit  (GTypeInstance * instance, gpointer g_class)  { goInstanceInit(instance, g_class); }
+void  cgoClassInit      (gpointer g_class, gpointer class_data)       { goClassInit(g_class, class_data); }
+void  cgoInstanceInit   (GTypeInstance * instance, gpointer g_class)  { goInstanceInit(instance, g_class); }
+void  cgoInterfaceInit  (gpointer iface, gpointer iface_data)         { goInterfaceInit(iface, iface_data); }
 
 GType  objectGType   (GObject *obj) { return G_OBJECT_TYPE(obj); };
 
@@ -62,40 +64,33 @@ type GoObject interface {
 type GoObjectSubclass interface {
 	// New should return a new instantiated GoElement ready to be used.
 	New() GoObjectSubclass
-	// TypeInit is called after the GType is registered and object constructed, and right before ClassInit.
-	// It is when the element should add any interfaces it plans to implement.
-	TypeInit(*TypeInstance)
 	// ClassInit is called on the element after registering it with the type system. This is when the element
-	// should install its properties and pad templates.
+	// should install its properties and metadata.
 	ClassInit(*ObjectClass)
 }
 
 // TypeInstance is a loose binding around the glib GTypeInstance. It holds the information required to register
 // various capabilities of a GoObjectSubclass.
 type TypeInstance struct {
-	GType  Type
-	GoType GoObjectSubclass
+	GType         Type
+	GTypeInstance unsafe.Pointer
+	GoType        GoObjectSubclass
 }
+
+// InterfaceInitFunc is a method to be implemented and returned by Interfaces. It is called
+// with the initializing instance.
+type InterfaceInitFunc func(*TypeInstance)
 
 // Interface can be implemented by extending packages and provides a the base type for the interface and
 // a pointer to a C function that can be used for the interface_init in a GInterfaceInfo.
 type Interface interface {
 	Type() Type
-	InitFunc(t *TypeInstance) unsafe.Pointer
+	InitFunc() InterfaceInitFunc
 }
 
-// AddInterface will add an interface implementation for the type referenced by this object.
-func (t *TypeInstance) AddInterface(iface Interface) {
-	ifaceInfo := C.GInterfaceInfo{
-		interface_data:     nil,
-		interface_finalize: nil,
-	}
-	ifaceInfo.interface_init = C.GInterfaceInitFunc(iface.InitFunc(t))
-	C.g_type_add_interface_static(
-		(C.GType)(t.GType),
-		(C.GType)(iface.Type()),
-		&ifaceInfo,
-	)
+type interfaceData struct {
+	init     InterfaceInitFunc
+	instance *TypeInstance
 }
 
 // FromObjectUnsafePrivate will return the GoObjectSubclass addressed in the private data of the given GObject.
@@ -114,14 +109,18 @@ type classData struct {
 // the subclasses it extends. It's the responsibility of packages using these bindings to implement
 // Extendables that call up to the ExtendsObject.InitClass included in this package during their
 // own implementation.
-func RegisterGoType(name string, elem GoObjectSubclass, extendable Extendable) Type {
+//
+// Interfaces are optional and flags additional interfaces as implemented on the class. Similar to the
+// extendables, libraries using these bindings can implement the Interface interface to provide support
+// for other GInterfaces.
+func RegisterGoType(name string, elem GoObjectSubclass, extendable Extendable, interfaces ...Interface) Type {
 	registerMutex.Lock()
 	defer registerMutex.Unlock()
 	if registered, ok := registeredTypes[reflect.TypeOf(elem).String()]; ok {
 		return registered
 	}
 	classData := &classData{
-		elem: elem,
+		elem: elem.New(),
 		ext:  extendable,
 	}
 	ptr := gopointer.Save(classData)
@@ -146,7 +145,27 @@ func RegisterGoType(name string, elem GoObjectSubclass, extendable Extendable) T
 		typeInfo,
 		C.GTypeFlags(0),
 	)
-	// elem.TypeInit(&TypeInstance{GType: Type(gtype), GoType: elem})
+	for _, iface := range interfaces {
+		gofuncPtr := gopointer.Save(&interfaceData{
+			init: iface.InitFunc(),
+			instance: &TypeInstance{
+				GType:  Type(gtype),
+				GoType: classData.elem,
+				// GTypeInstance populated when the function is called
+			},
+		})
+		ifaceInfo := C.GInterfaceInfo{
+			interface_data:     (C.gpointer)(unsafe.Pointer(gofuncPtr)),
+			interface_finalize: nil,
+			interface_init:     C.GInterfaceInitFunc(C.cgoInterfaceInit),
+		}
+		C.g_type_add_interface_static(
+			(C.GType)(gtype),
+			(C.GType)(iface.Type()),
+			&ifaceInfo,
+		)
+	}
+
 	registeredTypes[reflect.TypeOf(elem).String()] = Type(gtype)
 	return Type(gtype)
 }

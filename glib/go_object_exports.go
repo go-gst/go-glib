@@ -54,18 +54,28 @@ func goClassInit(klass C.gpointer, klassData C.gpointer) {
 	registerMutex.Lock()
 	defer registerMutex.Unlock()
 
+	// deref the classdata and register this C pointer to the instantiated go type
 	ptr := unsafe.Pointer(klassData)
-	iface := gopointer.Restore(ptr)
+	data := gopointer.Restore(ptr).(*classData)
 	defer gopointer.Unref(ptr)
-
-	data := iface.(*classData)
 	registeredClasses[klass] = data.elem
 
-	data.ext.InitClass(unsafe.Pointer(klass), data.elem)
-
+	// add private data where we will store the actual pointer to the go object later
 	C.g_type_class_add_private(klass, C.gsize(unsafe.Sizeof(uintptr(0))))
 
+	// Run the downstream class extensions
+	data.ext.InitClass(unsafe.Pointer(klass), data.elem)
 	data.elem.ClassInit(wrapObjectClass(klass))
+}
+
+//export goInterfaceInit
+func goInterfaceInit(iface C.gpointer, ifaceData C.gpointer) {
+	ptr := unsafe.Pointer(ifaceData)
+	defer gopointer.Unref(ptr)
+	// Call the downstream interface init handlers
+	data := gopointer.Restore(ptr).(*interfaceData)
+	data.instance.GTypeInstance = unsafe.Pointer(iface)
+	data.init(data.instance)
 }
 
 //export goInstanceInit
@@ -73,14 +83,8 @@ func goInstanceInit(obj *C.GTypeInstance, klass C.gpointer) {
 	registerMutex.Lock()
 	defer registerMutex.Unlock()
 
-	elem := registeredClasses[klass].New()
-	registeredClasses[klass] = elem
-	elem.TypeInit(&TypeInstance{
-		GType:  registeredTypes[reflect.TypeOf(elem).String()],
-		GoType: elem,
-	})
-
-	ptr := gopointer.Save(elem)
+	// Save the goelement that was registered to this pointer to the private data of the GObject
+	ptr := gopointer.Save(registeredClasses[klass])
 	private := C.g_type_instance_get_private(obj, C.GType(registeredTypes[reflect.TypeOf(registeredClasses[klass]).String()]))
 	C.memcpy(unsafe.Pointer(private), unsafe.Pointer(&ptr), C.gsize(unsafe.Sizeof(uintptr(0))))
 }
