@@ -77,7 +77,7 @@ func goInterfaceInit(iface C.gpointer, ifaceData C.gpointer) {
 	// Call the downstream interface init handlers
 	data := gopointer.Restore(ptr).(*interfaceData)
 	data.init(&TypeInstance{
-		GoType:        FromObjectUnsafePrivate(unsafe.Pointer(iface)),
+		GoType:        data.classData.elem,
 		GType:         data.gtype,
 		GTypeInstance: unsafe.Pointer(iface),
 	})
