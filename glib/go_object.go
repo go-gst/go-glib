@@ -59,8 +59,8 @@ type GoObject interface {
 	Constructed(*Object)
 }
 
-// GoObjectSubclass is an interface that abstracts on the GObjectClass. It should be implemented
-// by plugins using the go bindings.
+// GoObjectSubclass is an interface that abstracts on the GObjectClass. It is the minimum that should be implemented
+// by Go types that get registered as GTypes. For more information see RegisterGoType.
 type GoObjectSubclass interface {
 	// New should return a new instantiated GoElement ready to be used.
 	New() GoObjectSubclass
@@ -81,8 +81,15 @@ type TypeInstance struct {
 // with the initializing instance.
 type InterfaceInitFunc func(*TypeInstance)
 
-// Interface can be implemented by extending packages and provides a the base type for the interface and
-// a pointer to a C function that can be used for the interface_init in a GInterfaceInfo.
+// Interface can be implemented by extending packages. They provide the base type for the interface and
+// a function to call during interface_init retrieved by InitFunc. The function returned by InitFunc is
+// called after the class has already been initialized. It is passed a TypeInstance populated with the GType
+// corresponding to the Go object, a pointer to the underlying C object, and a pointer to the initialized
+// Go object. When the object is actually used, a pointer to it can be retrieved from the C object with
+// FromObjectUnsafePrivate.
+//
+// The user of the Interface is responsible for implementing the methods required by the interface. The GoType
+// provided to the InterfaceInitFunc will be the object that is expected to carry the implementation.
 type Interface interface {
 	Type() Type
 	InitFunc() InterfaceInitFunc
@@ -177,8 +184,9 @@ func privateFromObj(obj unsafe.Pointer) unsafe.Pointer {
 	return *privAddr
 }
 
-// Extendable is an interface implemented by extendable classes. It provides
-// the methods necessary to setup the vmethods on the object it represents.
+// Extendable is an interface implemented by extendable classes. It provides the methods necessary to setup
+// the vmethods on the object it represents. When the object is actually used, a pointer to the Go object
+// can be retrieved from the C object with FromObjectUnsafePrivate.
 type Extendable interface {
 	// Type should return the type of the extended object
 	Type() Type
@@ -192,7 +200,7 @@ type Extendable interface {
 }
 
 // ExtendsObject signifies a GoElement that extends a GObject. It is the base Extendable
-// that all other implementations derive from.
+// that all other implementations should derive from.
 var ExtendsObject Extendable = &extendObject{}
 
 type extendObject struct{}
