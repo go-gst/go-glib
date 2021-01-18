@@ -32,6 +32,7 @@ func NewMainLoop(ctx *MainContext, isRunning bool) *MainLoop {
 	loop := C.g_main_loop_new(gCtx, gbool(isRunning))
 	ml := wrapMainLoop(loop)
 	runtime.SetFinalizer(ml, (*MainLoop).Unref)
+	return ml
 }
 
 // Instance returns the underlying GMainLoop instance.
