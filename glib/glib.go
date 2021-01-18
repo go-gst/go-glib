@@ -588,6 +588,7 @@ func (v *Value) unset() { v.Unset() }
 // (zero-filled) GValue structure.
 func (v *Value) Unset() {
 	C.g_value_unset(v.native())
+	C.g_free((C.gpointer)(unsafe.Pointer(v.native())))
 }
 
 // Type is a wrapper around the G_VALUE_HOLDS_GTYPE() macro and
