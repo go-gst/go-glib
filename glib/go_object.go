@@ -96,8 +96,9 @@ type Interface interface {
 }
 
 type interfaceData struct {
-	init     InterfaceInitFunc
-	instance *TypeInstance
+	init      InterfaceInitFunc
+	gtype     Type
+	classData *classData
 }
 
 // FromObjectUnsafePrivate will return the GoObjectSubclass addressed in the private data of the given GObject.
@@ -127,7 +128,7 @@ func RegisterGoType(name string, elem GoObjectSubclass, extendable Extendable, i
 		return registered
 	}
 	classData := &classData{
-		elem: elem.New(),
+		elem: elem,
 		ext:  extendable,
 	}
 	ptr := gopointer.Save(classData)
@@ -154,12 +155,9 @@ func RegisterGoType(name string, elem GoObjectSubclass, extendable Extendable, i
 	)
 	for _, iface := range interfaces {
 		gofuncPtr := gopointer.Save(&interfaceData{
-			init: iface.InitFunc(),
-			instance: &TypeInstance{
-				GType:  Type(gtype),
-				GoType: classData.elem,
-				// GTypeInstance populated when the function is called
-			},
+			init:      iface.InitFunc(),
+			gtype:     Type(gtype),
+			classData: classData,
 		})
 		ifaceInfo := C.GInterfaceInfo{
 			interface_data:     (C.gpointer)(unsafe.Pointer(gofuncPtr)),

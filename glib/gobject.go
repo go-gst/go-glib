@@ -64,8 +64,9 @@ func (v *Object) goValue() (interface{}, error) {
 }
 
 // Take wraps a unsafe.Pointer as a glib.Object, taking ownership of it.
-// This function is exported for visibility in other gotk3 packages and
-// is not meant to be used by applications.
+// If the object is a floating reference a RefSink is taken, otherwise a
+// Ref. A runtime finalizer is placed on the object to clear the ref
+// when the object leaves scope.
 func Take(ptr unsafe.Pointer) *Object {
 	obj := newObject(ToGObject(ptr))
 
@@ -75,6 +76,18 @@ func Take(ptr unsafe.Pointer) *Object {
 		obj.Ref()
 	}
 
+	runtime.SetFinalizer(obj, (*Object).Unref)
+	return obj
+}
+
+// TransferNone is an alias to Take.
+func TransferNone(ptr unsafe.Pointer) *Object { return Take(ptr) }
+
+// TransferFull wraps a unsafe.Pointer as a glib.Object, taking ownership of it.
+// it does not increase the ref count on the object. A finalizer is placed on the object
+// to clear the transfered ref.
+func TransferFull(ptr unsafe.Pointer) *Object {
+	obj := newObject(ToGObject(ptr))
 	runtime.SetFinalizer(obj, (*Object).Unref)
 	return obj
 }

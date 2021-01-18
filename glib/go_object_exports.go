@@ -57,8 +57,10 @@ func goClassInit(klass C.gpointer, klassData C.gpointer) {
 	// deref the classdata and register this C pointer to the instantiated go type
 	ptr := unsafe.Pointer(klassData)
 	data := gopointer.Restore(ptr).(*classData)
-	defer gopointer.Unref(ptr)
-	registeredClasses[klass] = data.elem
+	// gopointer.Unref(ptr)
+
+	registeredClasses[klass] = data.elem.New()
+	data.elem = registeredClasses[klass]
 
 	// add private data where we will store the actual pointer to the go object later
 	C.g_type_class_add_private(klass, C.gsize(unsafe.Sizeof(uintptr(0))))
@@ -74,8 +76,11 @@ func goInterfaceInit(iface C.gpointer, ifaceData C.gpointer) {
 	defer gopointer.Unref(ptr)
 	// Call the downstream interface init handlers
 	data := gopointer.Restore(ptr).(*interfaceData)
-	data.instance.GTypeInstance = unsafe.Pointer(iface)
-	data.init(data.instance)
+	data.init(&TypeInstance{
+		GoType:        FromObjectUnsafePrivate(unsafe.Pointer(iface)),
+		GType:         data.gtype,
+		GTypeInstance: unsafe.Pointer(iface),
+	})
 }
 
 //export goInstanceInit
