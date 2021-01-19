@@ -103,13 +103,38 @@ type interfaceData struct {
 
 // FromObjectUnsafePrivate will return the GoObjectSubclass addressed in the private data of the given GObject.
 func FromObjectUnsafePrivate(obj unsafe.Pointer) GoObjectSubclass {
-	ptr := gopointer.Restore(privateFromObj(obj))
-	return ptr.(GoObjectSubclass)
+	objPriv := privateFromObj(obj)
+	if objPriv == nil {
+		return nil
+	}
+	ptr := gopointer.Restore(objPriv)
+	if ptr == nil {
+		return nil
+	}
+	class, ok := ptr.(GoObjectSubclass)
+	if !ok {
+		return nil
+	}
+	return class
+}
+
+// privateFromObj returns the actual value of the address we stored in the object's private data.
+func privateFromObj(obj unsafe.Pointer) unsafe.Pointer {
+	private := C.g_type_instance_get_private((*C.GTypeInstance)(obj), C.objectGType((*C.GObject)(obj)))
+	if private == nil {
+		return nil
+	}
+	privAddr := (*unsafe.Pointer)(unsafe.Pointer(private))
+	if privAddr == nil {
+		return nil
+	}
+	return *privAddr
 }
 
 type classData struct {
-	elem GoObjectSubclass
-	ext  Extendable
+	elem  GoObjectSubclass
+	ext   Extendable
+	gtype Type
 }
 
 // RegisterGoType is used to register an interface implemented in the Go runtime with the GType
@@ -153,6 +178,9 @@ func RegisterGoType(name string, elem GoObjectSubclass, extendable Extendable, i
 		typeInfo,
 		C.GTypeFlags(0),
 	)
+
+	// classData.gtype = Type(gtype)
+
 	for _, iface := range interfaces {
 		gofuncPtr := gopointer.Save(&interfaceData{
 			init:      iface.InitFunc(),
@@ -173,13 +201,6 @@ func RegisterGoType(name string, elem GoObjectSubclass, extendable Extendable, i
 
 	registeredTypes[reflect.TypeOf(elem).String()] = Type(gtype)
 	return Type(gtype)
-}
-
-// privateFromObj returns the actual value of the address we stored in the object's private data.
-func privateFromObj(obj unsafe.Pointer) unsafe.Pointer {
-	private := C.g_type_instance_get_private((*C.GTypeInstance)(obj), C.objectGType((*C.GObject)(obj)))
-	privAddr := (*unsafe.Pointer)(unsafe.Pointer(private))
-	return *privAddr
 }
 
 // Extendable is an interface implemented by extendable classes. It provides the methods necessary to setup

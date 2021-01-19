@@ -123,15 +123,16 @@ func (v *Object) TypeFromInstance() Type {
 }
 
 // ToGObject type converts an unsafe.Pointer as a native C GObject.
-// This function is exported for visibility in other gotk3 packages and
+// This function is exported for visibility in other go-gst packages and
 // is not meant to be used by applications.
 func ToGObject(p unsafe.Pointer) *C.GObject {
 	return C.toGObject(p)
 }
 
 // Ref is a wrapper around g_object_ref().
-func (v *Object) Ref() {
+func (v *Object) Ref() *Object {
 	C.g_object_ref(C.gpointer(v.GObject))
+	return v
 }
 
 // Unref is a wrapper around g_object_unref().
@@ -319,6 +320,69 @@ func (v *Object) HandlerDisconnect(handle SignalHandle) {
 	closures.Lock()
 	delete(closures.m, closure)
 	closures.Unlock()
+}
+
+// WithTransferOriginal can be used to capture an object from transfer-none
+// with a RefSink, and restore the original floating state of the ref after
+// the given function's execution. Strictly speaking this is not thread safe,
+// since additional references can be taken on the object elsewhere while the
+// closure is executing. But for the lack of a better method for handling
+// virtual methods this will suffice for now.
+func (v *Object) WithTransferOriginal(f func()) {
+	wasFloating := v.IsFloating()
+	v.RefSink()
+	defer func() {
+		if wasFloating {
+			v.ForceFloating()
+		} else {
+			v.Unref()
+		}
+	}()
+	f()
+}
+
+// WithPointerTransferOriginal is a convenience wrapper for wrapping the given pointer
+// in an object, capturing the ref state, executing the given function with that object,
+// and then restoring the original state. It is intended to be used with objects that were
+// extended via the bindings. If the Object has an instantiated Go counterpart, it will be
+// sent to the function as well, otherwise GoObjectSubclass will be nil.
+//
+// See WithTransferOriginal for more information.
+func WithPointerTransferOriginal(o unsafe.Pointer, f func(*Object, GoObjectSubclass)) {
+	obj := wrapObjectClean(o)
+	obj.WithTransferOriginal(func() {
+		f(obj, FromObjectUnsafePrivate(o))
+	})
+}
+
+// WithPointerTransferNone will take a pointer to an object retrieved with transfer-none and call
+// the cooresponding function with it wrapped in an Object. If the object has an instantiated
+// Go counterpart, it will be sent to the function as well. It is an alternative to using finalizers
+// around bindings calls.
+func WithPointerTransferNone(o unsafe.Pointer, f func(*Object, GoObjectSubclass)) {
+	obj := wrapObjectClean(o)
+	if obj.IsFloating() {
+		obj.RefSink()
+	} else {
+		obj.Ref()
+	}
+	defer obj.Unref()
+	f(obj, FromObjectUnsafePrivate(o))
+}
+
+// WithPointerTransferFull will take a pointer to an object retrieved with transfer-full and call
+// the cooresponding function with it wrapped in an Object. If the object has an instantiated
+// Go counterpart, it will be sent to the function as well. It is an alternative to using finalizers
+// around binding calls.
+func WithPointerTransferFull(o unsafe.Pointer, f func(*Object, GoObjectSubclass)) {
+	obj := wrapObjectClean(o)
+	defer obj.Unref()
+	f(obj, FromObjectUnsafePrivate(o))
+}
+
+func wrapObjectClean(ptr unsafe.Pointer) *Object {
+	obj := &Object{ToGObject(ptr)}
+	return obj
 }
 
 // Wrapper function for new objects with reference management.

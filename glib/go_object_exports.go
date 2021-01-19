@@ -15,30 +15,30 @@ import (
 
 //export goObjectSetProperty
 func goObjectSetProperty(obj *C.GObject, propID C.guint, val *C.GValue, param *C.GParamSpec) {
-	iface := FromObjectUnsafePrivate(unsafe.Pointer(obj)).(interface {
-		SetProperty(obj *Object, id uint, value *Value)
+	WithPointerTransferOriginal(unsafe.Pointer(obj), func(object *Object, subclass GoObjectSubclass) {
+		iface := subclass.(interface{ SetProperty(*Object, uint, *Value) })
+		iface.SetProperty(object, uint(propID-1), ValueFromNative(unsafe.Pointer(val)))
 	})
-	iface.SetProperty(wrapObject(unsafe.Pointer(obj)), uint(propID-1), ValueFromNative(unsafe.Pointer(val)))
 }
 
 //export goObjectGetProperty
 func goObjectGetProperty(obj *C.GObject, propID C.guint, value *C.GValue, param *C.GParamSpec) {
-	iface := FromObjectUnsafePrivate(unsafe.Pointer(obj)).(interface {
-		GetProperty(obj *Object, id uint) *Value
+	WithPointerTransferOriginal(unsafe.Pointer(obj), func(object *Object, subclass GoObjectSubclass) {
+		iface := subclass.(interface{ GetProperty(*Object, uint) *Value })
+		val := iface.GetProperty(object, uint(propID-1))
+		if val == nil {
+			return
+		}
+		C.g_value_copy((*C.GValue)(unsafe.Pointer(val.GValue)), value)
 	})
-	val := iface.GetProperty(wrapObject(unsafe.Pointer(obj)), uint(propID-1))
-	if val == nil {
-		return
-	}
-	C.g_value_copy((*C.GValue)(unsafe.Pointer(val.GValue)), value)
 }
 
 //export goObjectConstructed
 func goObjectConstructed(obj *C.GObject) {
-	iface := FromObjectUnsafePrivate(unsafe.Pointer(obj)).(interface {
-		Constructed(*Object)
+	WithPointerTransferOriginal(unsafe.Pointer(obj), func(object *Object, subclass GoObjectSubclass) {
+		iface := subclass.(interface{ Constructed(*Object) })
+		iface.Constructed(object)
 	})
-	iface.Constructed(wrapObject(unsafe.Pointer(obj)))
 }
 
 //export goObjectFinalize
@@ -46,6 +46,8 @@ func goObjectFinalize(obj *C.GObject, klass C.gpointer) {
 	registerMutex.Lock()
 	defer registerMutex.Unlock()
 	delete(registeredClasses, klass)
+	// delete(registeredClassTypes, klass)
+	// delete(registeredIfaces, klass)
 	gopointer.Unref(privateFromObj(unsafe.Pointer(obj)))
 }
 
@@ -57,9 +59,11 @@ func goClassInit(klass C.gpointer, klassData C.gpointer) {
 	// deref the classdata and register this C pointer to the instantiated go type
 	ptr := unsafe.Pointer(klassData)
 	data := gopointer.Restore(ptr).(*classData)
-	// gopointer.Unref(ptr)
+	defer gopointer.Unref(ptr)
 
 	registeredClasses[klass] = data.elem.New()
+	// registeredClassTypes[klass] = data.gtype
+
 	data.elem = registeredClasses[klass]
 
 	// add private data where we will store the actual pointer to the go object later
