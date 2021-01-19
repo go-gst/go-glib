@@ -341,6 +341,12 @@ func (v *Object) WithTransferOriginal(f func()) {
 	f()
 }
 
+// Keep will call runtime.KeepAlive on this or the extending object. It is useful for blocking
+// a pending finalizer on this instance from firing and leaving you with a dangling pointer. Place
+// this call where you are sure to be done with the object. This is a "go-like" equivalent to calling
+// Ref(), defer Unref() in the object's new scope.
+func (v *Object) Keep() { runtime.KeepAlive(v) }
+
 // WithPointerTransferOriginal is a convenience wrapper for wrapping the given pointer
 // in an object, capturing the ref state, executing the given function with that object,
 // and then restoring the original state. It is intended to be used with objects that were
