@@ -72,9 +72,16 @@ type GoObjectSubclass interface {
 // TypeInstance is a loose binding around the glib GTypeInstance. It holds the information required to register
 // various capabilities of a GoObjectSubclass.
 type TypeInstance struct {
-	GType         Type
+	// The GType cooresponding to this GoType
+	GType Type
+	// A pointer to the underlying C instance being instantiated.
 	GTypeInstance unsafe.Pointer
-	GoType        GoObjectSubclass
+	// A representation of the GoType. NOTE: This is the instantiated GoType as passed
+	// to RegisterGoType and is not that which is being instantiated. It is safe to use
+	// to verify implemented methods, but should not be relied on for executing runtime
+	// functionality. It CAN be used in rare cases where methods need to be implemented
+	// that don't pass a pointer to the object implementing the method.
+	GoType GoObjectSubclass
 }
 
 // InterfaceInitFunc is a method to be implemented and returned by Interfaces. It is called

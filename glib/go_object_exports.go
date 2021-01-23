@@ -61,7 +61,7 @@ func goClassInit(klass C.gpointer, klassData C.gpointer) {
 	data := gopointer.Restore(ptr).(*classData)
 	defer gopointer.Unref(ptr)
 
-	registeredClasses[klass] = data.elem.New()
+	registeredClasses[klass] = data.elem
 	// registeredClassTypes[klass] = data.gtype
 
 	data.elem = registeredClasses[klass]
@@ -93,7 +93,7 @@ func goInstanceInit(obj *C.GTypeInstance, klass C.gpointer) {
 	defer registerMutex.Unlock()
 
 	// Save the goelement that was registered to this pointer to the private data of the GObject
-	ptr := gopointer.Save(registeredClasses[klass])
+	ptr := gopointer.Save(registeredClasses[klass].New())
 	private := C.g_type_instance_get_private(obj, C.GType(registeredTypes[reflect.TypeOf(registeredClasses[klass]).String()]))
 	C.memcpy(unsafe.Pointer(private), unsafe.Pointer(&ptr), C.gsize(unsafe.Sizeof(uintptr(0))))
 }
