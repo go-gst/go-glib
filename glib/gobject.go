@@ -347,6 +347,15 @@ func (v *Object) WithTransferOriginal(f func()) {
 // Ref(), defer Unref() in the object's new scope.
 func (v *Object) Keep() { runtime.KeepAlive(v) }
 
+// GetPrivate returns a pointer to the private data stored inside this object.
+func (v *Object) GetPrivate() unsafe.Pointer {
+	private := C.g_type_instance_get_private((*C.GTypeInstance)(v.Unsafe()), C.objectGType(v.GObject))
+	if private == nil {
+		return nil
+	}
+	return unsafe.Pointer(private)
+}
+
 // WithPointerTransferOriginal is a convenience wrapper for wrapping the given pointer
 // in an object, capturing the ref state, executing the given function with that object,
 // and then restoring the original state. It is intended to be used with objects that were

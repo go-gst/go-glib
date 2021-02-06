@@ -32,6 +32,8 @@
 #include <locale.h>
 
 /* GObject Type Casting */
+static GType  objectGType   (GObject *obj) { return G_OBJECT_TYPE(obj); };
+
 static GObject *toGObject(void *p) { return (G_OBJECT(p)); }
 
 static GAction *toGAction(void *p) { return (G_ACTION(p)); }

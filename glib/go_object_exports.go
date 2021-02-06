@@ -43,11 +43,9 @@ func goObjectConstructed(obj *C.GObject) {
 
 //export goObjectFinalize
 func goObjectFinalize(obj *C.GObject, klass C.gpointer) {
-	registerMutex.Lock()
-	defer registerMutex.Unlock()
-	delete(registeredClasses, klass)
-	// delete(registeredClassTypes, klass)
-	// delete(registeredIfaces, klass)
+	// registerMutex.Lock()
+	// defer registerMutex.Unlock()
+	// delete(registeredClasses, klass)
 	gopointer.Unref(privateFromObj(unsafe.Pointer(obj)))
 }
 
@@ -62,9 +60,6 @@ func goClassInit(klass C.gpointer, klassData C.gpointer) {
 	defer gopointer.Unref(ptr)
 
 	registeredClasses[klass] = data.elem
-	// registeredClassTypes[klass] = data.gtype
-
-	data.elem = registeredClasses[klass]
 
 	// add private data where we will store the actual pointer to the go object later
 	C.g_type_class_add_private(klass, C.gsize(unsafe.Sizeof(uintptr(0))))
@@ -80,7 +75,7 @@ func goInterfaceInit(iface C.gpointer, ifaceData C.gpointer) {
 	defer gopointer.Unref(ptr)
 	// Call the downstream interface init handlers
 	data := gopointer.Restore(ptr).(*interfaceData)
-	data.init(&TypeInstance{
+	data.iface.Init(&TypeInstance{
 		GoType:        data.classData.elem,
 		GType:         data.gtype,
 		GTypeInstance: unsafe.Pointer(iface),
@@ -93,7 +88,10 @@ func goInstanceInit(obj *C.GTypeInstance, klass C.gpointer) {
 	defer registerMutex.Unlock()
 
 	// Save the goelement that was registered to this pointer to the private data of the GObject
-	ptr := gopointer.Save(registeredClasses[klass].New())
-	private := C.g_type_instance_get_private(obj, C.GType(registeredTypes[reflect.TypeOf(registeredClasses[klass]).String()]))
+	goelem := registeredClasses[klass].New()
+	typeName := reflect.TypeOf(registeredClasses[klass]).String()
+	ptr := gopointer.Save(goelem)
+	private := C.g_type_instance_get_private(obj, C.GType(registeredTypes[typeName]))
+
 	C.memcpy(unsafe.Pointer(private), unsafe.Pointer(&ptr), C.gsize(unsafe.Sizeof(uintptr(0))))
 }

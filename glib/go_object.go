@@ -35,8 +35,6 @@ void  cgoClassInit      (gpointer g_class, gpointer class_data)       { goClassI
 void  cgoInstanceInit   (GTypeInstance * instance, gpointer g_class)  { goInstanceInit(instance, g_class); }
 void  cgoInterfaceInit  (gpointer iface, gpointer iface_data)         { goInterfaceInit(iface, iface_data); }
 
-GType  objectGType   (GObject *obj) { return G_OBJECT_TYPE(obj); };
-
 */
 import "C"
 import (
@@ -69,7 +67,7 @@ type GoObjectSubclass interface {
 	ClassInit(*ObjectClass)
 }
 
-// TypeInstance is a loose binding around the glib GTypeInstance. It holds the information required to register
+// TypeInstance is a loose binding around the glib GTypeInstance. It holds the information required to assign
 // various capabilities of a GoObjectSubclass.
 type TypeInstance struct {
 	// The GType cooresponding to this GoType
@@ -84,14 +82,11 @@ type TypeInstance struct {
 	GoType GoObjectSubclass
 }
 
-// InterfaceInitFunc is a method to be implemented and returned by Interfaces. It is called
-// with the initializing instance.
-type InterfaceInitFunc func(*TypeInstance)
-
 // Interface can be implemented by extending packages. They provide the base type for the interface and
-// a function to call during interface_init retrieved by InitFunc. The function returned by InitFunc is
-// called after the class has already been initialized. It is passed a TypeInstance populated with the GType
-// corresponding to the Go object, a pointer to the underlying C object, and a pointer to the initialized
+// a function to call during interface_init.
+//
+// The function is called during class_init and  is passed a TypeInstance populated with the GType
+// corresponding to the Go object, a pointer to the underlying C object, and a pointer to a reference
 // Go object. When the object is actually used, a pointer to it can be retrieved from the C object with
 // FromObjectUnsafePrivate.
 //
@@ -99,11 +94,11 @@ type InterfaceInitFunc func(*TypeInstance)
 // provided to the InterfaceInitFunc will be the object that is expected to carry the implementation.
 type Interface interface {
 	Type() Type
-	InitFunc() InterfaceInitFunc
+	Init(*TypeInstance)
 }
 
 type interfaceData struct {
-	init      InterfaceInitFunc
+	iface     Interface
 	gtype     Type
 	classData *classData
 }
@@ -139,9 +134,8 @@ func privateFromObj(obj unsafe.Pointer) unsafe.Pointer {
 }
 
 type classData struct {
-	elem  GoObjectSubclass
-	ext   Extendable
-	gtype Type
+	elem GoObjectSubclass
+	ext  Extendable
 }
 
 // RegisterGoType is used to register an interface implemented in the Go runtime with the GType
@@ -179,18 +173,19 @@ func RegisterGoType(name string, elem GoObjectSubclass, extendable Extendable, i
 	typeInfo.instance_init = C.GInstanceInitFunc(C.cgoInstanceInit)
 	typeInfo.value_table = nil
 
+	cName := C.CString(name)
+	defer C.free(unsafe.Pointer(cName))
+
 	gtype := C.g_type_register_static(
 		C.GType(extendable.Type()),
-		(*C.gchar)(C.CString(name)),
+		(*C.gchar)(cName),
 		typeInfo,
 		C.GTypeFlags(0),
 	)
 
-	// classData.gtype = Type(gtype)
-
 	for _, iface := range interfaces {
 		gofuncPtr := gopointer.Save(&interfaceData{
-			init:      iface.InitFunc(),
+			iface:     iface,
 			gtype:     Type(gtype),
 			classData: classData,
 		})
