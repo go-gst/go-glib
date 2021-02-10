@@ -208,9 +208,9 @@ func (v *Object) SetProperty(name string, value interface{}) error {
 	if _, ok := value.(Object); ok {
 		value = value.(Object).GObject
 	}
-	p, err := GValue(value)
+	p, err := gValue(value)
 	if err != nil {
-		return errors.New("Unable to perform type conversion")
+		return fmt.Errorf("Unable to perform type conversion: %s", err.Error())
 	}
 	return v.SetPropertyValue(name, p)
 }
