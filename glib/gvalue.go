@@ -469,7 +469,8 @@ func marshalVariant(p uintptr) (interface{}, error) {
 // representation of the Value.
 //
 // This function is a wrapper around the many g_value_get_*()
-// functions, depending on the type of the Value.
+// functions, depending on the type of the Value. This will return
+// non-native go-types if marshalers have been implemented for them.
 func (v *Value) GoValue() (interface{}, error) {
 	f, err := gValueMarshalers.lookup(v)
 	if err != nil {

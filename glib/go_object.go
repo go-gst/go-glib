@@ -58,13 +58,19 @@ type GoObject interface {
 }
 
 // GoObjectSubclass is an interface that abstracts on the GObjectClass. It is the minimum that should be implemented
-// by Go types that get registered as GTypes. For more information see RegisterGoType.
+// by Go types that get registered as GObjects. For more information see RegisterGoType.
 type GoObjectSubclass interface {
 	// New should return a new instantiated GoElement ready to be used.
 	New() GoObjectSubclass
 	// ClassInit is called on the element after registering it with the type system. This is when the element
 	// should install its properties and metadata.
 	ClassInit(*ObjectClass)
+}
+
+// Initter is an interface that can be implemented on top of a GoObjectSubclass. It provides a method that gets
+// called with the GObject instance at instance initialization.
+type Initter interface {
+	InstanceInit(*Object)
 }
 
 // TypeInstance is a loose binding around the glib GTypeInstance. It holds the information required to assign
@@ -139,69 +145,83 @@ type classData struct {
 }
 
 // RegisterGoType is used to register an interface implemented in the Go runtime with the GType
-// system. It takes the name to assign the type, the interface itself, and an Extendable denoting
-// the subclasses it extends. It's the responsibility of packages using these bindings to implement
-// Extendables that call up to the ExtendsObject.InitClass included in this package during their
-// own implementation.
+// system. It takes the name to assign the type, the interface containing the object itself, and
+// an Extendable denoting the types it extends. It's the responsibility of packages using these
+// bindings to implement Extendables that call up to the ExtendsObject.InitClass included in this
+// package during their own implementations. ClassSize and InitClass are ignored in the Extendable
+// if the object does not implement a GoObjectSubclass.
 //
 // Interfaces are optional and flags additional interfaces as implemented on the class. Similar to the
 // extendables, libraries using these bindings can implement the Interface interface to provide support
 // for other GInterfaces.
-func RegisterGoType(name string, elem GoObjectSubclass, extendable Extendable, interfaces ...Interface) Type {
+func RegisterGoType(name string, goObject interface{}, extends Extendable, interfaces ...Interface) Type {
 	registerMutex.Lock()
 	defer registerMutex.Unlock()
-	if registered, ok := registeredTypes[reflect.TypeOf(elem).String()]; ok {
+	if registered, ok := registeredTypes[reflect.TypeOf(goObject).String()]; ok {
 		return registered
 	}
-	classData := &classData{
-		elem: elem,
-		ext:  extendable,
-	}
-	ptr := gopointer.Save(classData)
 
 	typeInfo := (*C.GTypeInfo)(C.malloc(C.sizeof_GTypeInfo))
 	defer C.free(unsafe.Pointer(typeInfo))
 
 	typeInfo.base_init = nil
 	typeInfo.base_finalize = nil
-	typeInfo.class_size = C.gushort(extendable.ClassSize())
 	typeInfo.class_finalize = nil
-	typeInfo.class_init = C.GClassInitFunc(C.cgoClassInit)
-	typeInfo.class_data = (C.gconstpointer)(ptr)
-	typeInfo.instance_size = C.gushort(extendable.InstanceSize())
 	typeInfo.n_preallocs = 0
-	typeInfo.instance_init = C.GInstanceInitFunc(C.cgoInstanceInit)
 	typeInfo.value_table = nil
+
+	typeInfo.instance_size = C.gushort(extends.InstanceSize())
+
+	// Register class data if the object implements a GoObjectSubclass
+	var cd *classData
+	if object, ok := goObject.(GoObjectSubclass); ok {
+		cd := &classData{
+			elem: object,
+			ext:  extends,
+		}
+		ptr := gopointer.Save(cd)
+		typeInfo.class_size = C.gushort(extends.ClassSize())
+		typeInfo.class_init = C.GClassInitFunc(C.cgoClassInit)
+		typeInfo.instance_init = C.GInstanceInitFunc(C.cgoInstanceInit)
+		typeInfo.class_data = (C.gconstpointer)(ptr)
+	} else {
+		typeInfo.class_init = nil
+		typeInfo.instance_init = nil
+		typeInfo.class_data = nil
+	}
 
 	cName := C.CString(name)
 	defer C.free(unsafe.Pointer(cName))
 
 	gtype := C.g_type_register_static(
-		C.GType(extendable.Type()),
+		C.GType(extends.Type()),
 		(*C.gchar)(cName),
 		typeInfo,
 		C.GTypeFlags(0),
 	)
 
-	for _, iface := range interfaces {
-		gofuncPtr := gopointer.Save(&interfaceData{
-			iface:     iface,
-			gtype:     Type(gtype),
-			classData: classData,
-		})
-		ifaceInfo := C.GInterfaceInfo{
-			interface_data:     (C.gpointer)(unsafe.Pointer(gofuncPtr)),
-			interface_finalize: nil,
-			interface_init:     C.GInterfaceInitFunc(C.cgoInterfaceInit),
+	// Add interfaces if the go object implements a GoObjectSubclass
+	if _, ok := goObject.(GoObjectSubclass); ok {
+		for _, iface := range interfaces {
+			gofuncPtr := gopointer.Save(&interfaceData{
+				iface:     iface,
+				gtype:     Type(gtype),
+				classData: cd,
+			})
+			ifaceInfo := C.GInterfaceInfo{
+				interface_data:     (C.gpointer)(unsafe.Pointer(gofuncPtr)),
+				interface_finalize: nil,
+				interface_init:     C.GInterfaceInitFunc(C.cgoInterfaceInit),
+			}
+			C.g_type_add_interface_static(
+				(C.GType)(gtype),
+				(C.GType)(iface.Type()),
+				&ifaceInfo,
+			)
 		}
-		C.g_type_add_interface_static(
-			(C.GType)(gtype),
-			(C.GType)(iface.Type()),
-			&ifaceInfo,
-		)
 	}
 
-	registeredTypes[reflect.TypeOf(elem).String()] = Type(gtype)
+	registeredTypes[reflect.TypeOf(goObject).String()] = Type(gtype)
 	return Type(gtype)
 }
 

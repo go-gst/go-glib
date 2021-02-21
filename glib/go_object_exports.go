@@ -87,11 +87,16 @@ func goInstanceInit(obj *C.GTypeInstance, klass C.gpointer) {
 	registerMutex.Lock()
 	defer registerMutex.Unlock()
 
-	// Save the goelement that was registered to this pointer to the private data of the GObject
+	// Save the go object that was registered to this pointer to the private data of the GObject
 	goelem := registeredClasses[klass].New()
 	typeName := reflect.TypeOf(registeredClasses[klass]).String()
 	ptr := gopointer.Save(goelem)
 	private := C.g_type_instance_get_private(obj, C.GType(registeredTypes[typeName]))
 
 	C.memcpy(unsafe.Pointer(private), unsafe.Pointer(&ptr), C.gsize(unsafe.Sizeof(uintptr(0))))
+
+	// If the go type implements an Initter call it.
+	if initter, ok := goelem.(Initter); ok {
+		initter.InstanceInit(newObject(ToGObject(unsafe.Pointer(obj))))
+	}
 }
