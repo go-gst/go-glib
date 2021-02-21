@@ -1,4 +1,4 @@
-GO_VERSION ?= 1.15
+GO_VERSION ?= 1.16
 DOCKER_IMAGE ?= ghcr.io/tinyzimmer/go-gst:$(GO_VERSION)
 
 GOPATH ?= $(shell go env GOPATH)
