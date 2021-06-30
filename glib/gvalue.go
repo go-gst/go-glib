@@ -7,6 +7,7 @@ import (
 	"fmt"
 	"reflect"
 	"runtime"
+	"sync"
 	"unsafe"
 )
 
@@ -306,11 +307,14 @@ func RegisterGValueMarshalers(tm []TypeMarshaler) {
 	gValueMarshalers.register(tm)
 }
 
-type marshalMap map[Type]GValueMarshaler
+type marshalMap struct {
+	marshalMap      map[Type]GValueMarshaler
+	criticalSection sync.RWMutex
+}
 
 // gValueMarshalers is a map of Glib types to functions to marshal a
 // GValue to a native Go type.
-var gValueMarshalers = marshalMap{
+var gValueMarshalers = marshalMap{marshalMap: map[Type]GValueMarshaler{
 	TYPE_INVALID:   marshalInvalid,
 	TYPE_NONE:      marshalNone,
 	TYPE_INTERFACE: marshalInterface,
@@ -332,31 +336,40 @@ var gValueMarshalers = marshalMap{
 	TYPE_BOXED:     marshalBoxed,
 	TYPE_OBJECT:    marshalObject,
 	TYPE_VARIANT:   marshalVariant,
-}
+}}
 
-func (m marshalMap) register(tm []TypeMarshaler) {
+func (m *marshalMap) register(tm []TypeMarshaler) {
+	m.criticalSection.Lock()
+	defer m.criticalSection.Unlock()
+
 	for i := range tm {
-		m[tm[i].T] = tm[i].F
+		m.marshalMap[tm[i].T] = tm[i].F
 	}
 }
 
-func (m marshalMap) lookup(v *Value) (GValueMarshaler, error) {
+func (m *marshalMap) lookup(v *Value) (GValueMarshaler, error) {
 	actual, fundamental, err := v.Type()
 	if err != nil {
 		return nil, err
 	}
 
-	if f, ok := m[actual]; ok {
+	m.criticalSection.RLock()
+	defer m.criticalSection.RUnlock()
+
+	if f, ok := m.marshalMap[actual]; ok {
 		return f, nil
 	}
-	if f, ok := m[fundamental]; ok {
+	if f, ok := m.marshalMap[fundamental]; ok {
 		return f, nil
 	}
 	return nil, fmt.Errorf("missing marshaler for type: %s", v.TypeName())
 }
 
-func (m marshalMap) lookupType(t Type) (GValueMarshaler, error) {
-	if f, ok := m[Type(t)]; ok {
+func (m *marshalMap) lookupType(t Type) (GValueMarshaler, error) {
+	m.criticalSection.RLock()
+	defer m.criticalSection.RUnlock()
+
+	if f, ok := m.marshalMap[Type(t)]; ok {
 		return f, nil
 	}
 	return nil, fmt.Errorf("missing marshaler for type: %s", t.Name())
