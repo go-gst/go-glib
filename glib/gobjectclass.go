@@ -7,7 +7,10 @@ GObjectClass *  toGObjectClass  (void *p)  { return (G_OBJECT_CLASS(p)); }
 */
 import "C"
 
-import "unsafe"
+import (
+	"math"
+	"unsafe"
+)
 
 // ObjectClass is a binding around the glib GObjectClass. It exposes methods
 // to be used during the construction of objects backed by the go runtime.
@@ -46,7 +49,8 @@ func (o *ObjectClass) ListProperties() []*ParamSpec {
 	}
 	defer C.g_free((C.gpointer)(props))
 	out := make([]*ParamSpec, 0)
-	for _, prop := range (*[1 << 30]*C.GParamSpec)(unsafe.Pointer(props))[:size:size] {
+
+	for _, prop := range (*[(math.MaxInt32 - 1) / unsafe.Sizeof((*C.GParamSpec)(nil))]*C.GParamSpec)(unsafe.Pointer(props))[:size:size] {
 		out = append(out, ToParamSpec(unsafe.Pointer(prop)))
 	}
 	return out
