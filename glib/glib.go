@@ -274,7 +274,7 @@ func goMarshal(closure *C.GClosure, retValue *C.GValue,
 			fmt.Fprintf(os.Stderr,
 				"cannot save callback return value: %v", err)
 		} else {
-			*retValue = *g.native()
+			C.g_value_copy(g.native(), retValue)
 		}
 	}
 }
