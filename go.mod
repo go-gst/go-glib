@@ -1,5 +1,5 @@
-module github.com/tinyzimmer/go-glib
+module github.com/go-gst/go-glib
 
-go 1.16
+go 1.21
 
 require github.com/mattn/go-pointer v0.0.1
