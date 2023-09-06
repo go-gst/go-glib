@@ -32,6 +32,11 @@ func ToParamSpec(paramspec unsafe.Pointer) *ParamSpec {
 	}
 }
 
+// newParamSpec creates a new ParamSpec from a GParamSpec pointer.
+func newParamSpec(p *C.GParamSpec) *ParamSpec {
+	return &ParamSpec{paramSpec: p}
+}
+
 // Name returns the name of this parameter.
 func (p *ParamSpec) Name() string {
 	return C.GoString(C.g_param_spec_get_name(p.paramSpec))

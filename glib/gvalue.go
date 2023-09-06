@@ -242,6 +242,13 @@ func gValue(v interface{}) (gvalue *Value, err error) {
 		val.SetInstance(uintptr(unsafe.Pointer(e.GObject)))
 		return val, nil
 
+	case *ParamSpec:
+		val, err := ValueInit(TYPE_PARAM)
+		if err != nil {
+			return nil, err
+		}
+		return val, nil
+
 	default:
 		/* Try this since above doesn't catch constants under other types */
 		rval := reflect.ValueOf(v)
@@ -336,6 +343,7 @@ var gValueMarshalers = marshalMap{marshalMap: map[Type]GValueMarshaler{
 	TYPE_BOXED:     marshalBoxed,
 	TYPE_OBJECT:    marshalObject,
 	TYPE_VARIANT:   marshalVariant,
+	TYPE_PARAM:     marshalParam,
 }}
 
 func (m *marshalMap) register(tm []TypeMarshaler) {
@@ -476,6 +484,11 @@ func marshalVariant(p uintptr) (interface{}, error) {
 	return nil, errors.New("variant conversion not yet implemented")
 }
 
+func marshalParam(p uintptr) (interface{}, error) {
+	c := C.g_value_get_param((*C.GValue)(unsafe.Pointer(p)))
+	return newParamSpec((*C.GParamSpec)(c)), nil
+}
+
 // GoValue converts a Value to comparable Go type.  GoValue()
 // returns a non-nil error if the conversion was unsuccessful.  The
 // returned interface{} must be type asserted as the actual Go
@@ -560,6 +573,11 @@ func (v *Value) SetPointer(p uintptr) {
 // SetEnum is a wrapper around g_value_set_enum().
 func (v *Value) SetEnum(e int) {
 	C.g_value_set_enum(v.native(), C.gint(e))
+}
+
+// SetParam is a wrapper around g_value_set_param().
+func (v *Value) SetParam(p *ParamSpec) {
+	C.g_value_set_param(v.native(), p.paramSpec)
 }
 
 // GetPointer is a wrapper around g_value_get_pointer().
