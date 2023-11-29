@@ -27,8 +27,8 @@ func (v *Binding) native() *C.GBinding {
 	return C.toGBinding(unsafe.Pointer(v.GObject))
 }
 
-func marshalBinding(p uintptr) (interface{}, error) {
-	c := C.g_value_get_object((*C.GValue)(unsafe.Pointer(p)))
+func marshalBinding(p unsafe.Pointer) (interface{}, error) {
+	c := C.g_value_get_object((*C.GValue)(p))
 	return &Binding{wrapObject(unsafe.Pointer(c))}, nil
 }
 

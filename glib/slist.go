@@ -16,8 +16,8 @@ type SList struct {
 	dataWrap func(unsafe.Pointer) interface{}
 }
 
-func WrapSList(obj uintptr) *SList {
-	return wrapSList((*C.struct__GSList)(unsafe.Pointer(obj)))
+func WrapSList(obj unsafe.Pointer) *SList {
+	return wrapSList((*C.struct__GSList)(obj))
 }
 
 func wrapSList(obj *C.struct__GSList) *SList {
@@ -41,8 +41,8 @@ func (v *SList) wrapNewHead(obj *C.struct__GSList) *SList {
 	}
 }
 
-func (v *SList) Native() uintptr {
-	return uintptr(unsafe.Pointer(v.list))
+func (v *SList) Native() unsafe.Pointer {
+	return unsafe.Pointer(v.list)
 }
 
 func (v *SList) native() *C.struct__GSList {
@@ -62,7 +62,7 @@ func (v *SList) DataWrapper(fn func(unsafe.Pointer) interface{}) {
 	v.dataWrap = fn
 }
 
-func (v *SList) Append(data uintptr) *SList {
+func (v *SList) Append(data unsafe.Pointer) *SList {
 	ret := C.g_slist_append(v.native(), C.gpointer(data))
 	if ret == v.native() {
 		return v

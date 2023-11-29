@@ -43,8 +43,8 @@ func (v *Value) Unsafe() unsafe.Pointer {
 }
 
 // Native returns a pointer to the underlying GValue.
-func (v *Value) Native() uintptr {
-	return uintptr(unsafe.Pointer(v.native()))
+func (v *Value) Native() unsafe.Pointer {
+	return unsafe.Pointer(v.native())
 }
 
 // IsValue checks if value is a valid and initialized GValue structure.
@@ -145,7 +145,7 @@ func gValue(v interface{}) (gvalue *Value, err error) {
 		if err != nil {
 			return nil, err
 		}
-		val.SetPointer(uintptr(unsafe.Pointer(nil)))
+		val.SetPointer(unsafe.Pointer(nil))
 		return val, nil
 	}
 
@@ -239,7 +239,7 @@ func gValue(v interface{}) (gvalue *Value, err error) {
 		if err != nil {
 			return nil, err
 		}
-		val.SetInstance(uintptr(unsafe.Pointer(e.GObject)))
+		val.SetInstance(unsafe.Pointer(e.GObject))
 		return val, nil
 
 	case *ParamSpec:
@@ -283,12 +283,14 @@ func gValue(v interface{}) (gvalue *Value, err error) {
 			val.SetInt(int(rval.Int()))
 			return val, nil
 
+		// reflect.Uintptr looks very dangerous here, this could lead to memory errors
 		case reflect.Uintptr, reflect.Ptr:
 			val, err := ValueInit(TYPE_POINTER)
 			if err != nil {
 				return nil, err
 			}
-			val.SetPointer(rval.Pointer())
+			// this is a valid cast, see case (5) of https://pkg.go.dev/unsafe#Pointer
+			val.SetPointer(unsafe.Pointer(rval.Pointer()))
 			return val, nil
 		}
 	}
@@ -297,8 +299,8 @@ func gValue(v interface{}) (gvalue *Value, err error) {
 }
 
 // GValueMarshaler is a marshal function to convert a GValue into an
-// appropriate Go type.  The uintptr parameter is a *C.GValue.
-type GValueMarshaler func(uintptr) (interface{}, error)
+// appropriate Go type.  The unsafe.Pointer parameter is a *C.GValue.
+type GValueMarshaler func(unsafe.Pointer) (interface{}, error)
 
 // TypeMarshaler represents an actual type and it's associated marshaler.
 type TypeMarshaler struct {
@@ -383,109 +385,109 @@ func (m *marshalMap) lookupType(t Type) (GValueMarshaler, error) {
 	return nil, fmt.Errorf("missing marshaler for type: %s", t.Name())
 }
 
-func marshalInvalid(uintptr) (interface{}, error) {
+func marshalInvalid(unsafe.Pointer) (interface{}, error) {
 	return nil, errors.New("invalid type")
 }
 
-func marshalNone(uintptr) (interface{}, error) {
+func marshalNone(unsafe.Pointer) (interface{}, error) {
 	return nil, nil
 }
 
-func marshalInterface(uintptr) (interface{}, error) {
+func marshalInterface(unsafe.Pointer) (interface{}, error) {
 	return nil, errors.New("interface conversion not yet implemented")
 }
 
-func marshalChar(p uintptr) (interface{}, error) {
-	c := C.g_value_get_schar((*C.GValue)(unsafe.Pointer(p)))
+func marshalChar(p unsafe.Pointer) (interface{}, error) {
+	c := C.g_value_get_schar((*C.GValue)(p))
 	return int8(c), nil
 }
 
-func marshalUchar(p uintptr) (interface{}, error) {
-	c := C.g_value_get_uchar((*C.GValue)(unsafe.Pointer(p)))
+func marshalUchar(p unsafe.Pointer) (interface{}, error) {
+	c := C.g_value_get_uchar((*C.GValue)(p))
 	return uint8(c), nil
 }
 
-func marshalBoolean(p uintptr) (interface{}, error) {
-	c := C.g_value_get_boolean((*C.GValue)(unsafe.Pointer(p)))
+func marshalBoolean(p unsafe.Pointer) (interface{}, error) {
+	c := C.g_value_get_boolean((*C.GValue)(p))
 	return gobool(c), nil
 }
 
-func marshalInt(p uintptr) (interface{}, error) {
-	c := C.g_value_get_int((*C.GValue)(unsafe.Pointer(p)))
+func marshalInt(p unsafe.Pointer) (interface{}, error) {
+	c := C.g_value_get_int((*C.GValue)(p))
 	return int(c), nil
 }
 
-func marshalLong(p uintptr) (interface{}, error) {
-	c := C.g_value_get_long((*C.GValue)(unsafe.Pointer(p)))
+func marshalLong(p unsafe.Pointer) (interface{}, error) {
+	c := C.g_value_get_long((*C.GValue)(p))
 	return int(c), nil
 }
 
-func marshalEnum(p uintptr) (interface{}, error) {
-	c := C.g_value_get_enum((*C.GValue)(unsafe.Pointer(p)))
+func marshalEnum(p unsafe.Pointer) (interface{}, error) {
+	c := C.g_value_get_enum((*C.GValue)(p))
 	return int(c), nil
 }
 
-func marshalInt64(p uintptr) (interface{}, error) {
-	c := C.g_value_get_int64((*C.GValue)(unsafe.Pointer(p)))
+func marshalInt64(p unsafe.Pointer) (interface{}, error) {
+	c := C.g_value_get_int64((*C.GValue)(p))
 	return int64(c), nil
 }
 
-func marshalUint(p uintptr) (interface{}, error) {
-	c := C.g_value_get_uint((*C.GValue)(unsafe.Pointer(p)))
+func marshalUint(p unsafe.Pointer) (interface{}, error) {
+	c := C.g_value_get_uint((*C.GValue)(p))
 	return uint(c), nil
 }
 
-func marshalUlong(p uintptr) (interface{}, error) {
-	c := C.g_value_get_ulong((*C.GValue)(unsafe.Pointer(p)))
+func marshalUlong(p unsafe.Pointer) (interface{}, error) {
+	c := C.g_value_get_ulong((*C.GValue)(p))
 	return uint(c), nil
 }
 
-func marshalFlags(p uintptr) (interface{}, error) {
-	c := C.g_value_get_flags((*C.GValue)(unsafe.Pointer(p)))
+func marshalFlags(p unsafe.Pointer) (interface{}, error) {
+	c := C.g_value_get_flags((*C.GValue)(p))
 	return uint(c), nil
 }
 
-func marshalUint64(p uintptr) (interface{}, error) {
-	c := C.g_value_get_uint64((*C.GValue)(unsafe.Pointer(p)))
+func marshalUint64(p unsafe.Pointer) (interface{}, error) {
+	c := C.g_value_get_uint64((*C.GValue)(p))
 	return uint64(c), nil
 }
 
-func marshalFloat(p uintptr) (interface{}, error) {
-	c := C.g_value_get_float((*C.GValue)(unsafe.Pointer(p)))
+func marshalFloat(p unsafe.Pointer) (interface{}, error) {
+	c := C.g_value_get_float((*C.GValue)(p))
 	return float32(c), nil
 }
 
-func marshalDouble(p uintptr) (interface{}, error) {
-	c := C.g_value_get_double((*C.GValue)(unsafe.Pointer(p)))
+func marshalDouble(p unsafe.Pointer) (interface{}, error) {
+	c := C.g_value_get_double((*C.GValue)(p))
 	return float64(c), nil
 }
 
-func marshalString(p uintptr) (interface{}, error) {
-	c := C.g_value_get_string((*C.GValue)(unsafe.Pointer(p)))
+func marshalString(p unsafe.Pointer) (interface{}, error) {
+	c := C.g_value_get_string((*C.GValue)(p))
 	return C.GoString((*C.char)(c)), nil
 }
 
-func marshalBoxed(p uintptr) (interface{}, error) {
-	c := C.g_value_get_boxed((*C.GValue)(unsafe.Pointer(p)))
-	return uintptr(unsafe.Pointer(c)), nil
+func marshalBoxed(p unsafe.Pointer) (interface{}, error) {
+	c := C.g_value_get_boxed((*C.GValue)(p))
+	return unsafe.Pointer(unsafe.Pointer(c)), nil
 }
 
-func marshalPointer(p uintptr) (interface{}, error) {
-	c := C.g_value_get_pointer((*C.GValue)(unsafe.Pointer(p)))
+func marshalPointer(p unsafe.Pointer) (interface{}, error) {
+	c := C.g_value_get_pointer((*C.GValue)(p))
 	return unsafe.Pointer(c), nil
 }
 
-func marshalObject(p uintptr) (interface{}, error) {
-	c := C.g_value_get_object((*C.GValue)(unsafe.Pointer(p)))
+func marshalObject(p unsafe.Pointer) (interface{}, error) {
+	c := C.g_value_get_object((*C.GValue)(p))
 	return newObject((*C.GObject)(c)), nil
 }
 
-func marshalVariant(p uintptr) (interface{}, error) {
+func marshalVariant(p unsafe.Pointer) (interface{}, error) {
 	return nil, errors.New("variant conversion not yet implemented")
 }
 
-func marshalParam(p uintptr) (interface{}, error) {
-	c := C.g_value_get_param((*C.GValue)(unsafe.Pointer(p)))
+func marshalParam(p unsafe.Pointer) (interface{}, error) {
+	c := C.g_value_get_param((*C.GValue)(p))
 	return newParamSpec((*C.GParamSpec)(c)), nil
 }
 
@@ -504,7 +506,7 @@ func (v *Value) GoValue() (interface{}, error) {
 	}
 
 	//No need to add finalizer because it is already done by ValueAlloc and ValueInit
-	rv, err := f(uintptr(unsafe.Pointer(v.native())))
+	rv, err := f(unsafe.Pointer(v.native()))
 	return rv, err
 }
 
@@ -561,12 +563,12 @@ func (v *Value) SetString(val string) {
 }
 
 // SetInstance is a wrapper around g_value_set_instance().
-func (v *Value) SetInstance(instance uintptr) {
+func (v *Value) SetInstance(instance unsafe.Pointer) {
 	C.g_value_set_instance(v.native(), C.gpointer(instance))
 }
 
 // SetPointer is a wrapper around g_value_set_pointer().
-func (v *Value) SetPointer(p uintptr) {
+func (v *Value) SetPointer(p unsafe.Pointer) {
 	C.g_value_set_pointer(v.native(), C.gpointer(p))
 }
 

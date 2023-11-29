@@ -20,12 +20,12 @@ func (v *Settings) native() *C.GSettings {
 	return C.toGSettings(unsafe.Pointer(v.GObject))
 }
 
-func (v *Settings) Native() uintptr {
-	return uintptr(unsafe.Pointer(v.native()))
+func (v *Settings) Native() unsafe.Pointer {
+	return unsafe.Pointer(v.native())
 }
 
-func marshalSettings(p uintptr) (interface{}, error) {
-	c := C.g_value_get_object((*C.GValue)(unsafe.Pointer(p)))
+func marshalSettings(p unsafe.Pointer) (interface{}, error) {
+	c := C.g_value_get_object((*C.GValue)(p))
 	return wrapSettings(wrapObject(unsafe.Pointer(c))), nil
 }
 

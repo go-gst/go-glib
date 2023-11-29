@@ -22,8 +22,8 @@ type List struct {
 	dataWrap func(unsafe.Pointer) interface{}
 }
 
-func WrapList(obj uintptr) *List {
-	return wrapList((*C.struct__GList)(unsafe.Pointer(obj)))
+func WrapList(obj unsafe.Pointer) *List {
+	return wrapList((*C.struct__GList)(obj))
 }
 
 func wrapList(obj *C.struct__GList) *List {
@@ -43,8 +43,8 @@ func (v *List) wrapNewHead(obj *C.struct__GList) *List {
 	}
 }
 
-func (v *List) Native() uintptr {
-	return uintptr(unsafe.Pointer(v.list))
+func (v *List) Native() unsafe.Pointer {
+	return unsafe.Pointer(v.list)
 }
 
 func (v *List) native() *C.struct__GList {
@@ -65,19 +65,19 @@ func (v *List) DataWrapper(fn func(unsafe.Pointer) interface{}) {
 }
 
 // Append is a wrapper around g_list_append().
-func (v *List) Append(data uintptr) *List {
+func (v *List) Append(data unsafe.Pointer) *List {
 	glist := C.g_list_append(v.native(), C.gpointer(data))
 	return v.wrapNewHead(glist)
 }
 
 // Prepend is a wrapper around g_list_prepend().
-func (v *List) Prepend(data uintptr) *List {
+func (v *List) Prepend(data unsafe.Pointer) *List {
 	glist := C.g_list_prepend(v.native(), C.gpointer(data))
 	return v.wrapNewHead(glist)
 }
 
 // Insert is a wrapper around g_list_insert().
-func (v *List) Insert(data uintptr, position int) *List {
+func (v *List) Insert(data unsafe.Pointer, position int) *List {
 	glist := C.g_list_insert(v.native(), C.gpointer(data), C.gint(position))
 	return v.wrapNewHead(glist)
 }

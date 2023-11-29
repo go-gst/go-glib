@@ -47,6 +47,6 @@ func (v *VariantDict) native() *C.GVariantDict {
 }
 
 // Native returns a pointer to the underlying GVariantDict.
-func (v *VariantDict) Native() uintptr {
-	return uintptr(unsafe.Pointer(v.native()))
+func (v *VariantDict) Native() unsafe.Pointer {
+	return unsafe.Pointer(v.native())
 }

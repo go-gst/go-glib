@@ -142,7 +142,7 @@ func TypeFromName(typeName string) Type {
 	return Type(C.g_type_from_name(cstr))
 }
 
-//TypeNextBase is a wrapper around g_type_next_base
+// TypeNextBase is a wrapper around g_type_next_base
 func TypeNextBase(leafType, rootType Type) Type {
 	return Type(C.g_type_next_base(C.GType(leafType), C.GType(rootType)))
 }
@@ -281,10 +281,7 @@ func goMarshal(closure *C.GClosure, retValue *C.GValue,
 
 // gValueSlice converts a C array of GValues to a Go slice.
 func gValueSlice(values *C.GValue, nValues int) (slice []C.GValue) {
-	header := (*reflect.SliceHeader)((unsafe.Pointer(&slice)))
-	header.Cap = nValues
-	header.Len = nValues
-	header.Data = uintptr(unsafe.Pointer(values))
+	slice = unsafe.Slice(values, nValues)
 	return
 }
 
@@ -469,9 +466,9 @@ type InitiallyUnowned struct {
 // Native returns a pointer to the underlying GObject.  This is implemented
 // here rather than calling Native on the embedded Object to prevent a nil
 // pointer dereference.
-func (v *InitiallyUnowned) Native() uintptr {
+func (v *InitiallyUnowned) Native() unsafe.Pointer {
 	if v == nil || v.Object == nil {
-		return uintptr(unsafe.Pointer(nil))
+		return unsafe.Pointer(nil)
 	}
 	return v.Object.Native()
 }

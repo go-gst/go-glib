@@ -10,7 +10,7 @@ import "unsafe"
 // IActionGroup is an interface representation of ActionGroup,
 // used to avoid duplication when embedding the type in a wrapper of another GObject-based type.
 type IActionGroup interface {
-	Native() uintptr
+	Native() unsafe.Pointer
 
 	HasAction(actionName string) bool
 	GetActionEnabled(actionName string) bool
@@ -43,12 +43,12 @@ func (v *ActionGroup) native() *C.GActionGroup {
 	return C.toGActionGroup(unsafe.Pointer(v.GObject))
 }
 
-func (v *ActionGroup) Native() uintptr {
-	return uintptr(unsafe.Pointer(v.native()))
+func (v *ActionGroup) Native() unsafe.Pointer {
+	return unsafe.Pointer(v.native())
 }
 
-func marshalActionGroup(p uintptr) (interface{}, error) {
-	c := C.g_value_get_object((*C.GValue)(unsafe.Pointer(p)))
+func marshalActionGroup(p unsafe.Pointer) (interface{}, error) {
+	c := C.g_value_get_object((*C.GValue)(p))
 	return wrapActionGroup(wrapObject(unsafe.Pointer(c))), nil
 }
 

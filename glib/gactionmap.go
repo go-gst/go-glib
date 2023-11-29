@@ -10,7 +10,7 @@ import "unsafe"
 // IActionMap is an interface representation of ActionMap,
 // used to avoid duplication when embedding the type in a wrapper of another GObject-based type.
 type IActionMap interface {
-	Native() uintptr
+	Native() unsafe.Pointer
 
 	LookupAction(actionName string) *Action
 	AddAction(action IAction)
@@ -33,12 +33,12 @@ func (v *ActionMap) native() *C.GActionMap {
 	return C.toGActionMap(unsafe.Pointer(v.GObject))
 }
 
-func (v *ActionMap) Native() uintptr {
-	return uintptr(unsafe.Pointer(v.native()))
+func (v *ActionMap) Native() unsafe.Pointer {
+	return unsafe.Pointer(v.native())
 }
 
-func marshalActionMap(p uintptr) (interface{}, error) {
-	c := C.g_value_get_object((*C.GValue)(unsafe.Pointer(p)))
+func marshalActionMap(p unsafe.Pointer) (interface{}, error) {
+	c := C.g_value_get_object((*C.GValue)(p))
 	return wrapActionMap(wrapObject(unsafe.Pointer(c))), nil
 }
 

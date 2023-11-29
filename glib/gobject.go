@@ -59,8 +59,8 @@ func (v *Object) goValue() (interface{}, error) {
 	if err != nil {
 		return nil, err
 	}
-	val.SetInstance(uintptr(unsafe.Pointer(v.GObject)))
-	rv, err := f(uintptr(unsafe.Pointer(val.native())))
+	val.SetInstance(unsafe.Pointer(v.GObject))
+	rv, err := f(unsafe.Pointer(val.native()))
 	return rv, err
 }
 
@@ -94,8 +94,8 @@ func TransferFull(ptr unsafe.Pointer) *Object {
 }
 
 // Native returns a pointer to the underlying GObject.
-func (v *Object) Native() uintptr {
-	return uintptr(unsafe.Pointer(v.native()))
+func (v *Object) Native() unsafe.Pointer {
+	return unsafe.Pointer(v.native())
 }
 
 // Unsafe returns the unsafe pointer to the underlying object. This method is primarily

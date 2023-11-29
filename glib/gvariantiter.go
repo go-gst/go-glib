@@ -47,6 +47,6 @@ func (v *VariantIter) native() *C.GVariantIter {
 }
 
 // Native returns a pointer to the underlying GVariantIter.
-func (v *VariantIter) Native() uintptr {
-	return uintptr(unsafe.Pointer(v.native()))
+func (v *VariantIter) Native() unsafe.Pointer {
+	return unsafe.Pointer(v.native())
 }
