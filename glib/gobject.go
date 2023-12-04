@@ -233,6 +233,11 @@ func (v *Object) SetPropertyValue(name string, value *Value) error {
 	cstr := C.CString(name)
 	defer C.free(unsafe.Pointer(cstr))
 	C.g_object_set_property(v.GObject, (*C.gchar)(cstr), value.native())
+
+	// the value object must be alive until after g_object_set_property finished, or else we risk a SIGSEGV
+	// when the value is extracted into a golang defined custom element
+	runtime.KeepAlive(value)
+
 	return nil
 }
 
