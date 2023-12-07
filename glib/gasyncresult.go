@@ -14,18 +14,18 @@ import (
 // IAsyncResult is an interface representation of AsyncResult,
 // used to avoid duplication when embedding the type in a wrapper of another GObject-based type.
 type IAsyncResult interface {
-	GetUserData() uintptr
+	GetUserData() unsafe.Pointer
 	GetSourceObject() *Object
-	IsTagged(sourceTag uintptr) bool
+	IsTagged(sourceTag unsafe.Pointer) bool
 	LegacyPropagateError() error
 }
 
 // AsyncReadyCallback is a representation of GAsyncReadyCallback
-type AsyncReadyCallback func(object *Object, res *AsyncResult, data uintptr)
+type AsyncReadyCallback func(object *Object, res *AsyncResult, data unsafe.Pointer)
 
 type asyncReadyCallbackData struct {
 	fn       AsyncReadyCallback
-	userData uintptr
+	userData unsafe.Pointer
 }
 
 var (
@@ -39,7 +39,7 @@ var (
 	}
 )
 
-func registerAsyncReadyCallback(fn AsyncReadyCallback, userData uintptr) int {
+func registerAsyncReadyCallback(fn AsyncReadyCallback, userData unsafe.Pointer) int {
 	asyncReadyCallbackRegistry.Lock()
 	id := asyncReadyCallbackRegistry.next
 	asyncReadyCallbackRegistry.next++
@@ -67,9 +67,9 @@ func wrapAsyncResult(obj *Object) *AsyncResult {
 }
 
 // GetUserData is a wrapper around g_async_result_get_user_data()
-func (v *AsyncResult) GetUserData() uintptr {
+func (v *AsyncResult) GetUserData() unsafe.Pointer {
 	c := C.g_async_result_get_user_data(v.native())
-	return uintptr(unsafe.Pointer(c))
+	return unsafe.Pointer(c)
 }
 
 // GetSourceObject is a wrapper around g_async_result_get_source_object

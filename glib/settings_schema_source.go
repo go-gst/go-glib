@@ -19,8 +19,8 @@ func wrapSettingsSchemaSource(obj *C.GSettingsSchemaSource) *SettingsSchemaSourc
 	return &SettingsSchemaSource{obj}
 }
 
-func (v *SettingsSchemaSource) Native() uintptr {
-	return uintptr(unsafe.Pointer(v.source))
+func (v *SettingsSchemaSource) Native() unsafe.Pointer {
+	return unsafe.Pointer(v.source)
 }
 
 func (v *SettingsSchemaSource) native() *C.GSettingsSchemaSource {

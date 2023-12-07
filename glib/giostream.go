@@ -60,12 +60,12 @@ func (v *IOStream) NativePrivate() *C.GIOStream {
 }
 
 // Native returns a pointer to the underlying GIOStream.
-func (v *IOStream) Native() uintptr {
-	return uintptr(unsafe.Pointer(v.native()))
+func (v *IOStream) Native() unsafe.Pointer {
+	return unsafe.Pointer(v.native())
 }
 
-func marshalIOStream(p uintptr) (interface{}, error) {
-	c := C.g_value_get_object((*C.GValue)(unsafe.Pointer(p)))
+func marshalIOStream(p unsafe.Pointer) (interface{}, error) {
+	c := C.g_value_get_object((*C.GValue)(p))
 	obj := Take(unsafe.Pointer(c))
 	return wrapIOStream(obj), nil
 }
@@ -133,12 +133,12 @@ func (v *InputStream) NativePrivate() *C.GInputStream {
 }
 
 // Native returns a pointer to the underlying GInputStream.
-func (v *InputStream) Native() uintptr {
-	return uintptr(unsafe.Pointer(v.native()))
+func (v *InputStream) Native() unsafe.Pointer {
+	return unsafe.Pointer(v.native())
 }
 
-func marshalInputStream(p uintptr) (interface{}, error) {
-	c := C.g_value_get_object((*C.GValue)(unsafe.Pointer(p)))
+func marshalInputStream(p unsafe.Pointer) (interface{}, error) {
+	c := C.g_value_get_object((*C.GValue)(p))
 	obj := Take(unsafe.Pointer(c))
 	return wrapInputStream(obj), nil
 }
@@ -271,12 +271,12 @@ func (v *OutputStream) NativePrivate() *C.GOutputStream {
 }
 
 // Native returns a pointer to the underlying GOutputStream.
-func (v *OutputStream) Native() uintptr {
-	return uintptr(unsafe.Pointer(v.native()))
+func (v *OutputStream) Native() unsafe.Pointer {
+	return unsafe.Pointer(v.native())
 }
 
-func marshalOutputStream(p uintptr) (interface{}, error) {
-	c := C.g_value_get_object((*C.GValue)(unsafe.Pointer(p)))
+func marshalOutputStream(p unsafe.Pointer) (interface{}, error) {
+	c := C.g_value_get_object((*C.GValue)(p))
 	obj := Take(unsafe.Pointer(c))
 	return wrapOutputStream(obj), nil
 }

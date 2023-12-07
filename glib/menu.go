@@ -36,12 +36,12 @@ func (v *MenuModel) native() *C.GMenuModel {
 }
 
 // Native returns a pointer to the underlying GMenuModel.
-func (v *MenuModel) Native() uintptr {
-	return uintptr(unsafe.Pointer(v.native()))
+func (v *MenuModel) Native() unsafe.Pointer {
+	return unsafe.Pointer(v.native())
 }
 
-func marshalMenuModel(p uintptr) (interface{}, error) {
-	c := C.g_value_get_object((*C.GValue)(unsafe.Pointer(p)))
+func marshalMenuModel(p unsafe.Pointer) (interface{}, error) {
+	c := C.g_value_get_object((*C.GValue)(p))
 	return wrapMenuModel(wrapObject(unsafe.Pointer(c))), nil
 }
 
@@ -94,8 +94,8 @@ func (v *Menu) native() *C.GMenu {
 	return C.toGMenu(p)
 }
 
-func marshalMenu(p uintptr) (interface{}, error) {
-	c := C.g_value_get_object((*C.GValue)(unsafe.Pointer(p)))
+func marshalMenu(p unsafe.Pointer) (interface{}, error) {
+	c := C.g_value_get_object((*C.GValue)(p))
 	return wrapMenu(wrapObject(unsafe.Pointer(c))), nil
 }
 
@@ -255,7 +255,7 @@ func (v *MenuItem) native() *C.GMenuItem {
 	return C.toGMenuItem(p)
 }
 
-func marshalMenuItem(p uintptr) (interface{}, error) {
+func marshalMenuItem(p unsafe.Pointer) (interface{}, error) {
 	c := C.g_value_get_object((*C.GValue)(unsafe.Pointer(p)))
 	return wrapMenuItem(wrapObject(unsafe.Pointer(c))), nil
 }

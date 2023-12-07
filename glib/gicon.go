@@ -50,12 +50,12 @@ func (v *Icon) NativePrivate() *C.GIcon {
 }
 
 // Native returns a pointer to the underlying GIcon.
-func (v *Icon) Native() uintptr {
-	return uintptr(unsafe.Pointer(v.native()))
+func (v *Icon) Native() unsafe.Pointer {
+	return unsafe.Pointer(v.native())
 }
 
-func marshalIcon(p uintptr) (interface{}, error) {
-	c := C.g_value_get_object((*C.GValue)(unsafe.Pointer(p)))
+func marshalIcon(p unsafe.Pointer) (interface{}, error) {
+	c := C.g_value_get_object((*C.GValue)(p))
 	obj := Take(unsafe.Pointer(c))
 	return wrapIcon(obj), nil
 }
@@ -139,12 +139,12 @@ func (v *FileIcon) NativePrivate() *C.GFileIcon {
 }
 
 // Native returns a pointer to the underlying GFileIcon.
-func (v *FileIcon) Native() uintptr {
-	return uintptr(unsafe.Pointer(v.native()))
+func (v *FileIcon) Native() unsafe.Pointer {
+	return unsafe.Pointer(v.native())
 }
 
-func marshalFileIcon(p uintptr) (interface{}, error) {
-	c := C.g_value_get_object((*C.GValue)(unsafe.Pointer(p)))
+func marshalFileIcon(p unsafe.Pointer) (interface{}, error) {
+	c := C.g_value_get_object((*C.GValue)(p))
 	obj := Take(unsafe.Pointer(c))
 	return wrapFileIcon(obj), nil
 }

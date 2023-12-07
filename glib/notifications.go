@@ -20,12 +20,12 @@ func (v *Notification) native() *C.GNotification {
 	return C.toGNotification(unsafe.Pointer(v.GObject))
 }
 
-func (v *Notification) Native() uintptr {
-	return uintptr(unsafe.Pointer(v.native()))
+func (v *Notification) Native() unsafe.Pointer {
+	return unsafe.Pointer(v.native())
 }
 
-func marshalNotification(p uintptr) (interface{}, error) {
-	c := C.g_value_get_object((*C.GValue)(unsafe.Pointer(p)))
+func marshalNotification(p unsafe.Pointer) (interface{}, error) {
+	c := C.g_value_get_object((*C.GValue)(p))
 	return wrapNotification(wrapObject(unsafe.Pointer(c))), nil
 }
 

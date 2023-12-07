@@ -54,12 +54,12 @@ func (v *File) NativePrivate() *C.GFile {
 }
 
 // Native returns a pointer to the underlying GFile.
-func (v *File) Native() uintptr {
-	return uintptr(unsafe.Pointer(v.native()))
+func (v *File) Native() unsafe.Pointer {
+	return unsafe.Pointer(v.native())
 }
 
-func marshalFile(p uintptr) (interface{}, error) {
-	c := C.g_value_get_object((*C.GValue)(unsafe.Pointer(p)))
+func marshalFile(p unsafe.Pointer) (interface{}, error) {
+	c := C.g_value_get_object((*C.GValue)(p))
 	obj := Take(unsafe.Pointer(c))
 	return wrapFile(obj), nil
 }
@@ -295,12 +295,12 @@ func (v *FileInputStream) NativePrivate() *C.GFileInputStream {
 }
 
 // Native returns a pointer to the underlying GFileInputStream.
-func (v *FileInputStream) Native() uintptr {
-	return uintptr(unsafe.Pointer(v.native()))
+func (v *FileInputStream) Native() unsafe.Pointer {
+	return unsafe.Pointer(v.native())
 }
 
-func marshalFileInputStream(p uintptr) (interface{}, error) {
-	c := C.g_value_get_object((*C.GValue)(unsafe.Pointer(p)))
+func marshalFileInputStream(p unsafe.Pointer) (interface{}, error) {
+	c := C.g_value_get_object((*C.GValue)(p))
 	obj := Take(unsafe.Pointer(c))
 	return wrapFileInputStream(obj), nil
 }
@@ -344,12 +344,12 @@ func (v *FileOutputStream) NativePrivate() *C.GFileOutputStream {
 }
 
 // Native returns a pointer to the underlying GFileOutputStream.
-func (v *FileOutputStream) Native() uintptr {
-	return uintptr(unsafe.Pointer(v.native()))
+func (v *FileOutputStream) Native() unsafe.Pointer {
+	return unsafe.Pointer(v.native())
 }
 
-func marshalFileOutputStream(p uintptr) (interface{}, error) {
-	c := C.g_value_get_object((*C.GValue)(unsafe.Pointer(p)))
+func marshalFileOutputStream(p unsafe.Pointer) (interface{}, error) {
+	c := C.g_value_get_object((*C.GValue)(p))
 	obj := Take(unsafe.Pointer(c))
 	return wrapFileOutputStream(obj), nil
 }

@@ -43,12 +43,12 @@ func (v *Action) native() *C.GAction {
 	return C.toGAction(unsafe.Pointer(v.GObject))
 }
 
-func (v *Action) Native() uintptr {
-	return uintptr(unsafe.Pointer(v.native()))
+func (v *Action) Native() unsafe.Pointer {
+	return unsafe.Pointer(v.native())
 }
 
-func marshalAction(p uintptr) (interface{}, error) {
-	c := C.g_value_get_object((*C.GValue)(unsafe.Pointer(p)))
+func marshalAction(p unsafe.Pointer) (interface{}, error) {
+	c := C.g_value_get_object((*C.GValue)(p))
 	return wrapAction(wrapObject(unsafe.Pointer(c))), nil
 }
 
@@ -130,12 +130,12 @@ func (v *SimpleAction) native() *C.GSimpleAction {
 	return C.toGSimpleAction(unsafe.Pointer(v.GObject))
 }
 
-func (v *SimpleAction) Native() uintptr {
-	return uintptr(unsafe.Pointer(v.native()))
+func (v *SimpleAction) Native() unsafe.Pointer {
+	return unsafe.Pointer(v.native())
 }
 
-func marshalSimpleAction(p uintptr) (interface{}, error) {
-	c := C.g_value_get_object((*C.GValue)(unsafe.Pointer(p)))
+func marshalSimpleAction(p unsafe.Pointer) (interface{}, error) {
+	c := C.g_value_get_object((*C.GValue)(p))
 	return wrapSimpleAction(wrapObject(unsafe.Pointer(c))), nil
 }
 
@@ -186,12 +186,12 @@ func (v *PropertyAction) native() *C.GPropertyAction {
 	return C.toGPropertyAction(unsafe.Pointer(v.GObject))
 }
 
-func (v *PropertyAction) Native() uintptr {
-	return uintptr(unsafe.Pointer(v.native()))
+func (v *PropertyAction) Native() unsafe.Pointer {
+	return unsafe.Pointer(v.native())
 }
 
-func marshalPropertyAction(p uintptr) (interface{}, error) {
-	c := C.g_value_get_object((*C.GValue)(unsafe.Pointer(p)))
+func marshalPropertyAction(p unsafe.Pointer) (interface{}, error) {
+	c := C.g_value_get_object((*C.GValue)(p))
 	return wrapPropertyAction(wrapObject(unsafe.Pointer(c))), nil
 }
 

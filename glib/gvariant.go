@@ -53,8 +53,8 @@ func (v *Variant) native() *C.GVariant {
 }
 
 // Native returns a pointer to the underlying GVariant.
-func (v *Variant) Native() uintptr {
-	return uintptr(unsafe.Pointer(v.native()))
+func (v *Variant) Native() unsafe.Pointer {
+	return unsafe.Pointer(v.native())
 }
 
 // newVariant wraps a native GVariant.

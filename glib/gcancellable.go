@@ -23,8 +23,8 @@ func (v *Cancellable) native() *C.GCancellable {
 	return C.toCancellable(unsafe.Pointer(v.GObject))
 }
 
-func marshalCancellable(p uintptr) (interface{}, error) {
-	c := C.g_value_get_object((*C.GValue)(unsafe.Pointer(p)))
+func marshalCancellable(p unsafe.Pointer) (interface{}, error) {
+	c := C.g_value_get_object((*C.GValue)(p))
 	return wrapCancellable(wrapObject(unsafe.Pointer(c))), nil
 }
 
