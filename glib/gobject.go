@@ -420,3 +420,16 @@ func wrapObject(ptr unsafe.Pointer) *Object {
 	runtime.SetFinalizer(obj, (*Object).Unref)
 	return obj
 }
+
+// this prevents go pointers in cgo when creating a GValue from a struct that extends glib.Object,
+// see (https://github.com/go-gst/go-gst/issues/65)
+// we implement it here so all extending objects in go-gst also implement it
+// ToGValue implements ValueTransformer.
+func (e *Object) ToGValue() (*Value, error) {
+	val, err := ValueInit(TYPE_OBJECT)
+	if err != nil {
+		return nil, err
+	}
+	val.SetInstance(e.Unsafe())
+	return val, nil
+}
