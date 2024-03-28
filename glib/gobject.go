@@ -86,7 +86,7 @@ func TransferNone(ptr unsafe.Pointer) *Object { return Take(ptr) }
 
 // TransferFull wraps a unsafe.Pointer as a glib.Object, taking ownership of it.
 // it does not increase the ref count on the object. A finalizer is placed on the object
-// to clear the transfered ref.
+// to clear the transferred ref.
 func TransferFull(ptr unsafe.Pointer) *Object {
 	obj := newObject(ToGObject(ptr))
 	runtime.SetFinalizer(obj, (*Object).Unref)
@@ -378,7 +378,7 @@ func WithPointerTransferOriginal(o unsafe.Pointer, f func(*Object, GoObjectSubcl
 }
 
 // WithPointerTransferNone will take a pointer to an object retrieved with transfer-none and call
-// the cooresponding function with it wrapped in an Object. If the object has an instantiated
+// the corresponding function with it wrapped in an Object. If the object has an instantiated
 // Go counterpart, it will be sent to the function as well. It is an alternative to using finalizers
 // around bindings calls.
 func WithPointerTransferNone(o unsafe.Pointer, f func(*Object, GoObjectSubclass)) {
@@ -393,7 +393,7 @@ func WithPointerTransferNone(o unsafe.Pointer, f func(*Object, GoObjectSubclass)
 }
 
 // WithPointerTransferFull will take a pointer to an object retrieved with transfer-full and call
-// the cooresponding function with it wrapped in an Object. If the object has an instantiated
+// the corresponding function with it wrapped in an Object. If the object has an instantiated
 // Go counterpart, it will be sent to the function as well. It is an alternative to using finalizers
 // around binding calls.
 func WithPointerTransferFull(o unsafe.Pointer, f func(*Object, GoObjectSubclass)) {
