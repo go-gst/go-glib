@@ -1,5 +1,6 @@
 // Same copyright and license as the rest of the files in this project
 
+//go:build !glib_2_40 && !glib_2_42
 // +build !glib_2_40,!glib_2_42
 
 package glib
