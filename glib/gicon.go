@@ -159,7 +159,7 @@ func FileIconNewN(file *File) (*Icon, error) {
 
 	c := C.g_file_icon_new(file.native())
 	if c == nil {
-		return nil, nilPtrErr
+		return nil, errNilPtr
 	}
 	return wrapIcon(Take(unsafe.Pointer(c))), nil
 }

@@ -211,7 +211,7 @@ func (v *Object) SetProperty(name string, value interface{}) error {
 	}
 	p, err := gValue(value)
 	if err != nil {
-		return fmt.Errorf("Unable to perform type conversion: %s", err.Error())
+		return fmt.Errorf("unable to perform type conversion: %s", err.Error())
 	}
 	return v.SetPropertyValue(name, p)
 }
@@ -228,7 +228,7 @@ func (v *Object) SetPropertyValue(name string, value *Value) error {
 		return err
 	}
 	if valType != propType {
-		return fmt.Errorf("Invalid type %s for property %s", value.TypeName(), name)
+		return fmt.Errorf("invalid type %s for property %s", value.TypeName(), name)
 	}
 	cstr := C.CString(name)
 	defer C.free(unsafe.Pointer(cstr))
@@ -280,13 +280,13 @@ func (v *Object) Emit(s string, args ...interface{}) (interface{}, error) {
 	// Add args and valv
 	val, err := GValue(v)
 	if err != nil {
-		return nil, errors.New("Error converting Object to GValue: " + err.Error())
+		return nil, errors.New("error converting Object to GValue: " + err.Error())
 	}
 	C.val_list_insert(valv, C.int(0), val.native())
 	for i := range args {
 		val, err := GValue(args[i])
 		if err != nil {
-			return nil, fmt.Errorf("Error converting arg %d to GValue: %s", i, err.Error())
+			return nil, fmt.Errorf("error converting arg %d to GValue: %s", i, err.Error())
 		}
 		C.val_list_insert(valv, C.int(i+1), val.native())
 	}
@@ -297,7 +297,7 @@ func (v *Object) Emit(s string, args ...interface{}) (interface{}, error) {
 
 	ret, err := ValueAlloc()
 	if err != nil {
-		return nil, errors.New("Error creating Value for return value")
+		return nil, errors.New("error creating Value for return value")
 	}
 	C.g_signal_emitv(valv, id, C.GQuark(0), ret.native())
 

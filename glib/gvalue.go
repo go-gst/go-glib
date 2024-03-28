@@ -63,7 +63,7 @@ func (v *Value) TypeName() string {
 func ValueAlloc() (*Value, error) {
 	c := C._g_value_alloc()
 	if c == nil {
-		return nil, nilPtrErr
+		return nil, errNilPtr
 	}
 
 	v := &Value{c}
@@ -91,7 +91,7 @@ func ValueAlloc() (*Value, error) {
 func ValueInit(t Type) (*Value, error) {
 	c := C._g_value_init(C.GType(t))
 	if c == nil {
-		return nil, nilPtrErr
+		return nil, errNilPtr
 	}
 	v := &Value{c}
 	runtime.SetFinalizer(v, (*Value).unset)
@@ -594,7 +594,7 @@ func (v *Value) GetPointer() unsafe.Pointer {
 func (v *Value) GetString() (string, error) {
 	c := C.g_value_get_string(v.native())
 	if c == nil {
-		return "", nilPtrErr
+		return "", errNilPtr
 	}
 	return C.GoString((*C.char)(c)), nil
 }
