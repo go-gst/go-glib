@@ -45,10 +45,7 @@ func gbool(b bool) C.gboolean {
 	return C.gboolean(0)
 }
 func gobool(b C.gboolean) bool {
-	if b != 0 {
-		return true
-	}
-	return false
+	return b != 0
 }
 
 /*
@@ -61,7 +58,7 @@ type closureContext struct {
 }
 
 var (
-	nilPtrErr = errors.New("cgo returned unexpected nil pointer")
+	errNilPtr = errors.New("cgo returned unexpected nil pointer")
 
 	closures = struct {
 		sync.RWMutex
@@ -307,7 +304,7 @@ func IdleAdd(f interface{}, args ...interface{}) (SourceHandle, error) {
 	// Create an idle source func to be added to the main loop context.
 	idleSrc := C.g_idle_source_new()
 	if idleSrc == nil {
-		return 0, nilPtrErr
+		return 0, errNilPtr
 	}
 	return sourceAttach(idleSrc, rf, args...)
 }
@@ -329,7 +326,7 @@ func TimeoutAdd(timeout uint, f interface{}, args ...interface{}) (SourceHandle,
 	// Create a timeout source func to be added to the main loop context.
 	timeoutSrc := C.g_timeout_source_new(C.guint(timeout))
 	if timeoutSrc == nil {
-		return 0, nilPtrErr
+		return 0, errNilPtr
 	}
 
 	return sourceAttach(timeoutSrc, rf, args...)
@@ -338,7 +335,7 @@ func TimeoutAdd(timeout uint, f interface{}, args ...interface{}) (SourceHandle,
 // sourceAttach attaches a source to the default main loop context.
 func sourceAttach(src *C.struct__GSource, rf reflect.Value, args ...interface{}) (SourceHandle, error) {
 	if src == nil {
-		return 0, nilPtrErr
+		return 0, errNilPtr
 	}
 
 	// rf must be a func with no parameters.
@@ -434,7 +431,7 @@ func GetUserRuntimeDir() string {
 func GetUserSpecialDir(directory UserDirectory) (string, error) {
 	c := C.g_get_user_special_dir(C.GUserDirectory(directory))
 	if c == nil {
-		return "", nilPtrErr
+		return "", errNilPtr
 	}
 	return C.GoString((*C.char)(c)), nil
 }

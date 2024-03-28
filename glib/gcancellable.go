@@ -36,7 +36,7 @@ func wrapCancellable(obj *Object) *Cancellable {
 func CancellableNew() (*Cancellable, error) {
 	c := C.g_cancellable_new()
 	if c == nil {
-		return nil, nilPtrErr
+		return nil, errNilPtr
 	}
 	return wrapCancellable(wrapObject(unsafe.Pointer(c))), nil
 }

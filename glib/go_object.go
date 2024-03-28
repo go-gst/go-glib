@@ -76,7 +76,7 @@ type Initter interface {
 // TypeInstance is a loose binding around the glib GTypeInstance. It holds the information required to assign
 // various capabilities of a GoObjectSubclass.
 type TypeInstance struct {
-	// The GType cooresponding to this GoType
+	// The GType corresponding to this GoType
 	GType Type
 	// A pointer to the underlying C instance being instantiated.
 	GTypeInstance unsafe.Pointer

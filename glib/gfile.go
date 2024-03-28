@@ -85,7 +85,7 @@ func FileNewForPath(path string) (*File, error) {
 
 	c := C.g_file_new_for_path(cstr)
 	if c == nil {
-		return nil, nilPtrErr
+		return nil, errNilPtr
 	}
 	return wrapFile(Take(unsafe.Pointer(c))), nil
 }
