@@ -82,7 +82,7 @@ func (v *AsyncResult) GetSourceObject() *Object {
 }
 
 // IsTagged is a wrapper around g_async_result_is_tagged
-func (v *AsyncResult) IsTagged(sourceTag uintptr) bool {
+func (v *AsyncResult) IsTagged(sourceTag unsafe.Pointer) bool {
 	c := C.g_async_result_is_tagged(v.native(), C.gpointer(sourceTag))
 	return gobool(c)
 }
