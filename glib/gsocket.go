@@ -1,5 +1,6 @@
 package glib
 
+// #include <gio/gio.h>
 import "C"
 import (
 	"errors"
@@ -7,7 +8,11 @@ import (
 	"unsafe"
 )
 
-func SocketNew(domain, typ, proto int) (*Object, error) {
+type Socket struct {
+	ptr *Object
+}
+
+func SocketNew(domain, typ, proto int) (*Socket, error) {
 	fd, err := syscall.Socket(domain, typ, proto)
 	if err != nil {
 		return nil, err
@@ -15,7 +20,7 @@ func SocketNew(domain, typ, proto int) (*Object, error) {
 	return SocketNewFromFd(fd)
 }
 
-func SocketNewFromFd(fd int) (*Object, error) {
+func SocketNewFromFd(fd int) (*Socket, error) {
 	var gerr *C.GError
 	var socket *C.GSocket
 	socket = C.g_socket_new_from_fd((C.gint)(fd), (**C.GError)(unsafe.Pointer(&gerr)))
@@ -24,5 +29,14 @@ func SocketNewFromFd(fd int) (*Object, error) {
 		return nil, errors.New(C.GoString(gerr.message))
 	}
 
-	return Take(unsafe.Pointer(socket)), nil
+	return &Socket{ptr: Take(unsafe.Pointer(socket))}, nil
+}
+
+func (s *Socket) ToGValue() (*Value, error) {
+	val, err := ValueInit(TYPE_SOCKET)
+	if err != nil {
+		return nil, err
+	}
+	val.SetInstance(unsafe.Pointer(s.ptr.GObject))
+	return val, nil
 }

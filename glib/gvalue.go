@@ -235,7 +235,7 @@ func gValue(v interface{}) (gvalue *Value, err error) {
 		return val, nil
 
 	case *Object:
-		val, err := ValueInit(e.TypeFromInstance())
+		val, err := ValueInit(TYPE_OBJECT)
 		if err != nil {
 			return nil, err
 		}
