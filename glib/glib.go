@@ -107,6 +107,8 @@ const (
 	TYPE_VARIANT   Type = C.G_TYPE_VARIANT
 )
 
+var TYPE_SOCKET Type = Type(C.G_TYPE_SOCKET)
+
 // IsValue checks whether the passed in type can be used for g_value_init().
 func (t Type) IsValue() bool {
 	return gobool(C._g_type_is_value(C.GType(t)))
