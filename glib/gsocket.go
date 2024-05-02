@@ -9,7 +9,7 @@ import (
 )
 
 type Socket struct {
-	ptr *Object
+	Object
 }
 
 func SocketNew(domain, typ, proto int) (*Socket, error) {
@@ -29,7 +29,7 @@ func SocketNewFromFd(fd int) (*Socket, error) {
 		return nil, errors.New(C.GoString(gerr.message))
 	}
 
-	return &Socket{ptr: Take(unsafe.Pointer(socket))}, nil
+	return &Socket{*Take(unsafe.Pointer(socket))}, nil
 }
 
 func (s *Socket) ToGValue() (*Value, error) {
@@ -37,6 +37,6 @@ func (s *Socket) ToGValue() (*Value, error) {
 	if err != nil {
 		return nil, err
 	}
-	val.SetInstance(unsafe.Pointer(s.ptr.GObject))
+	val.SetInstance(unsafe.Pointer(s.GObject))
 	return val, nil
 }

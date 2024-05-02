@@ -107,7 +107,7 @@ const (
 	TYPE_VARIANT   Type = C.G_TYPE_VARIANT
 )
 
-var TYPE_SOCKET Type = Type(C.G_TYPE_SOCKET)
+var TYPE_SOCKET Type = Type(C.G_TYPE_SOCKET) // is function g_socket_get_type() inside macro, can't be const in Go
 
 // IsValue checks whether the passed in type can be used for g_value_init().
 func (t Type) IsValue() bool {
