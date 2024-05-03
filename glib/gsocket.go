@@ -6,6 +6,8 @@ import (
 	"errors"
 	"syscall"
 	"unsafe"
+
+	"golang.org/x/exp/constraints"
 )
 
 type Socket struct {
@@ -20,10 +22,9 @@ func SocketNew(domain, typ, proto int) (*Socket, error) {
 	return SocketNewFromFd(fd)
 }
 
-func SocketNewFromFd(fd int) (*Socket, error) {
+func SocketNewFromFd[T constraints.Integer](fd T) (*Socket, error) {
 	var gerr *C.GError
-	var socket *C.GSocket
-	socket = C.g_socket_new_from_fd((C.gint)(fd), (**C.GError)(unsafe.Pointer(&gerr)))
+	socket := C.g_socket_new_from_fd((C.gint)(fd), (**C.GError)(unsafe.Pointer(&gerr)))
 	if gerr != nil {
 		defer C.g_error_free(gerr)
 		return nil, errors.New(C.GoString(gerr.message))
