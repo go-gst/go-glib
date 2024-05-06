@@ -22,6 +22,8 @@ func SocketNew(domain, typ, proto int) (*Socket, error) {
 	return SocketNewFromFd(fd)
 }
 
+// generic because fd is 'syscall.Handle' (uintptr) for Windows and 'int' for others
+// just to have same code for all platforms.
 func SocketNewFromFd[T constraints.Integer](fd T) (*Socket, error) {
 	var gerr *C.GError
 	socket := C.g_socket_new_from_fd((C.gint)(fd), (**C.GError)(unsafe.Pointer(&gerr)))
