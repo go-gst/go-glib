@@ -349,9 +349,8 @@ func (v *Object) WithTransferOriginal(f func()) {
 }
 
 // Keep will call runtime.KeepAlive on this or the extending object. It is useful for blocking
-// a pending finalizer on this instance from firing and leaving you with a dangling pointer. Place
-// this call where you are sure to be done with the object. This is a "go-like" equivalent to calling
-// Ref(), defer Unref() in the object's new scope.
+// a pending finalizer on this instance from firing and freeing the underlying C object.
+// This is needed in the bindings where the Object goes out of scope but the C pointer is still needed.
 func (v *Object) Keep() { runtime.KeepAlive(v) }
 
 // GetPrivate returns a pointer to the private data stored inside this object.
