@@ -156,6 +156,7 @@ func (v *File) Read(cancellable *Cancellable) (*FileInputStream, error) {
 		defer C.g_error_free(gerr)
 		return nil, errors.New(goString(gerr.message))
 	}
+	// TODO: use a finalizer here, so the caller wont have to Unref()
 	return wrapFileInputStream(Take(unsafe.Pointer(c))), nil
 }
 
