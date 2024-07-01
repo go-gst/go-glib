@@ -9,6 +9,7 @@ import "C"
 
 import (
 	"math"
+	"runtime"
 	"unsafe"
 )
 
@@ -39,8 +40,6 @@ func (o *ObjectClass) InstallProperties(params []*ParamSpec) {
 // ListProperties returns a list of the properties associated with this object.
 // The default values assumed in the parameter spec reflect the values currently
 // set in this object, or their defaults.
-//
-// Unref params after usage.
 func (o *ObjectClass) ListProperties() []*ParamSpec {
 	var size C.guint
 	props := C.g_object_class_list_properties((*C.GObjectClass)(o.Instance()), &size)
@@ -51,8 +50,10 @@ func (o *ObjectClass) ListProperties() []*ParamSpec {
 	out := make([]*ParamSpec, 0)
 
 	for _, prop := range (*[(math.MaxInt32 - 1) / unsafe.Sizeof((*C.GParamSpec)(nil))]*C.GParamSpec)(unsafe.Pointer(props))[:size:size] {
-		// TODO: use a finialized version that does not require an Unref
-		out = append(out, ToParamSpec(unsafe.Pointer(prop)))
+		ps := ToParamSpec(unsafe.Pointer(prop))
+		runtime.SetFinalizer(ps, (*ParamSpec).Unref)
+		out = append(out, ps)
+
 	}
 	return out
 }
