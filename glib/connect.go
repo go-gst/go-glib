@@ -7,6 +7,7 @@ import "C"
 import (
 	"errors"
 	"reflect"
+	"runtime/cgo"
 	"unsafe"
 )
 
@@ -14,6 +15,11 @@ import (
  * Events
  */
 
+// SignalHandle is the identifier for a connected glib signal on a specific object. It is
+// returned when connecting a signal and can be used to disconnect the signal.
+//
+// Important: This is only unique per object. Different objects can return the same SignalHandle
+// for different signals.
 type SignalHandle uint
 
 func (v *Object) connectClosure(after bool, detailedSignal string, f interface{}, userData ...interface{}) (SignalHandle, error) {
@@ -29,16 +35,9 @@ func (v *Object) connectClosure(after bool, detailedSignal string, f interface{}
 		return 0, err
 	}
 
-	C._g_closure_add_finalize_notifier(closure)
-
 	c := C.g_signal_connect_closure(C.gpointer(v.native()),
 		(*C.gchar)(cstr), closure, gbool(after))
 	handle := SignalHandle(c)
-
-	// Map the signal handle to the closure.
-	signals.Lock()
-	signals.m[handle] = closure
-	signals.Unlock()
 
 	return handle, nil
 }
@@ -74,9 +73,10 @@ func (v *Object) ConnectAfter(detailedSignal string, f interface{}, userData ...
 	return v.connectClosure(true, detailedSignal, f, userData...)
 }
 
-// ClosureNew creates a new GClosure and adds its callback function
-// to the internally-maintained map. It's exported for visibility to other
-// gotk3 packages and shouldn't be used in application code.
+// ClosureNew creates a new GClosure with the given function f. The returned closure is floating. This
+// is useful so that the finalizer of the closure gets automatically called when the signal is disconnected.
+//
+// It's exported for visibility to go-gst packages and shouldn't be used in application code.
 func ClosureNew(f interface{}, marshalData ...interface{}) (*C.GClosure, error) {
 	// Create a reflect.Value from f.  This is called when the
 	// returned GClosure runs.
@@ -94,25 +94,25 @@ func ClosureNew(f interface{}, marshalData ...interface{}) (*C.GClosure, error) 
 		cc.userData = reflect.ValueOf(marshalData[0])
 	}
 
-	c := C._g_closure_new()
+	// save the closure context in the closure itself
+	ccHandle := cgo.NewHandle(&cc)
 
-	// Associate the GClosure with rf.  rf will be looked up in this
-	// map by the closure when the closure runs.
-	closures.Lock()
-	closures.m[c] = cc
-	closures.Unlock()
+	c := C._g_closure_new(C.guint(ccHandle))
+
+	C.g_closure_ref(c)
+	C.g_closure_sink(c)
 
 	return c, nil
 }
 
-// removeClosure removes a closure from the internal closures map.  This is
-// needed to prevent a leak where Go code can access the closure context
-// (along with rf and userdata) even after an object has been destroyed and
-// the GClosure is invalidated and will never run.
+// removeClosure removes the go function allowing the GC to collect it.
 //
 //export removeClosure
-func removeClosure(_ C.gpointer, closure *C.GClosure) {
-	closures.Lock()
-	delete(closures.m, closure)
-	closures.Unlock()
+func removeClosure(data C.gpointer, closure *C.GClosure) {
+	ccHandle := cgo.Handle(*(*C.guint)(data))
+
+	ccHandle.Delete()
+
+	C.free(unsafe.Pointer(data))
+	C.g_closure_unref(closure)
 }

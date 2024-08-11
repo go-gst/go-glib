@@ -317,16 +317,6 @@ func (v *Object) HandlerUnblock(handle SignalHandle) {
 // HandlerDisconnect is a wrapper around g_signal_handler_disconnect().
 func (v *Object) HandlerDisconnect(handle SignalHandle) {
 	C.g_signal_handler_disconnect(C.gpointer(v.GObject), C.gulong(handle))
-
-	signals.Lock()
-	closure := signals.m[handle]
-	C.g_closure_invalidate(closure)
-	delete(signals.m, handle)
-	signals.Unlock()
-
-	closures.Lock()
-	delete(closures.m, closure)
-	closures.Unlock()
 }
 
 // WithTransferOriginal can be used to capture an object from transfer-none
