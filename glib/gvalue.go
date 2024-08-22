@@ -582,6 +582,11 @@ func (v *Value) SetParam(p *ParamSpec) {
 	C.g_value_set_param(v.native(), p.paramSpec)
 }
 
+// SetBoxed is a wrapper around g_value_set_boxed().
+func (v *Value) SetBoxed(p unsafe.Pointer) {
+	C.g_value_set_boxed(v.native(), C.gconstpointer(p))
+}
+
 // GetPointer is a wrapper around g_value_get_pointer().
 func (v *Value) GetPointer() unsafe.Pointer {
 	return unsafe.Pointer(C.g_value_get_pointer(v.native()))
