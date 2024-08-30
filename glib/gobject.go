@@ -258,20 +258,38 @@ func (v *Object) ListInterfaces() []string {
 }
 
 /*
- * GObject Signals
+* GObject Signals
  */
+var ErrSignalNotFound = errors.New("signal not found")
+var ErrSignalWrongNumberOfArgs = errors.New("wrong number of arguments")
 
 // Emit is a wrapper around g_signal_emitv() and emits the signal
 // specified by the string s to an Object.  Arguments to callback
 // functions connected to this signal must be specified in args.  Emit()
-// returns an interface{} which must be type asserted as the Go
-// equivalent type to the return value for native C callback.
+// returns an interface{} which contains the go equivalent of the C return value.
 //
-// Note that this code is unsafe in that the types of values in args are
-// not checked against whether they are suitable for the callback.
+// Make sure that the Types are known to go-glib. Special types need to be registered with
+// RegisterGValueMarshalers before calling Emit.
 func (v *Object) Emit(s string, args ...interface{}) (interface{}, error) {
 	cstr := C.CString(s)
 	defer C.free(unsafe.Pointer(cstr))
+
+	t := v.TypeFromInstance()
+	id := C.g_signal_lookup((*C.gchar)(cstr), C.GType(t))
+
+	if id == 0 {
+		return nil, ErrSignalNotFound
+	}
+
+	// query the signal info to determine the number of arguments and the return type
+	var q C.GSignalQuery
+	C.g_signal_query(id, &q)
+
+	if len(args) != int(q.n_params) {
+		return nil, fmt.Errorf("%w for signal %s: expected %d, got %d", ErrSignalWrongNumberOfArgs, s, q.n_params, len(args))
+	}
+
+	return_type := Type(q.return_type)
 
 	// Create array of this instance and arguments
 	valv := C.alloc_gvalue_list(C.int(len(args)) + 1)
@@ -291,17 +309,21 @@ func (v *Object) Emit(s string, args ...interface{}) (interface{}, error) {
 		C.val_list_insert(valv, C.int(i+1), val.native())
 	}
 
-	t := v.TypeFromInstance()
-	// TODO: use just the signal name
-	id := C.g_signal_lookup((*C.gchar)(cstr), C.GType(t))
+	if return_type != TYPE_INVALID {
+		// the return value must have the correct type set
+		ret, err := ValueInit(return_type)
+		if err != nil {
+			return nil, errors.New("error creating Value for return value")
+		}
+		C.g_signal_emitv(valv, id, C.GQuark(0), ret.native())
 
-	ret, err := ValueAlloc()
-	if err != nil {
-		return nil, errors.New("error creating Value for return value")
+		return ret.GoValue()
 	}
-	C.g_signal_emitv(valv, id, C.GQuark(0), ret.native())
 
-	return ret.GoValue()
+	// signal has no return value
+	C.g_signal_emitv(valv, id, C.GQuark(0), nil)
+
+	return nil, nil
 }
 
 // HandlerBlock is a wrapper around g_signal_handler_block().
