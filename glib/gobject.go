@@ -289,7 +289,8 @@ func (v *Object) Emit(s string, args ...interface{}) (interface{}, error) {
 		return nil, fmt.Errorf("%w for signal %s: expected %d, got %d", ErrSignalWrongNumberOfArgs, s, q.n_params, len(args))
 	}
 
-	return_type := Type(q.return_type)
+	// get the return type, remove the static scope flag first
+	return_type := Type(q.return_type &^ C.G_SIGNAL_TYPE_STATIC_SCOPE)
 
 	// Create array of this instance and arguments
 	valv := C.alloc_gvalue_list(C.int(len(args)) + 1)

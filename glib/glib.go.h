@@ -193,4 +193,25 @@ static inline gchar **next_gcharptr(gchar **s) { return (s + 1); }
 extern void goCompareDataFuncs(gconstpointer a, gconstpointer b,
                                gpointer user_data);
 
+
+/**
+ * custom glib type for arbitrary go data
+ */
+
+#define GLIB_GO_TYPE_ARBITRARY_DATA (glib_go_arbitrary_data_get_type())
+
+typedef struct
+{
+  guint data; // Arbitrary data, corresponds to an uintptr in Go
+} GlibGoArbitraryData;
+
+GType glib_go_arbitrary_data_get_type(void);
+
+static GlibGoArbitraryData *glib_go_arbitrary_data_new(guint data);
+static GlibGoArbitraryData *glib_go_arbitrary_data_copy (GlibGoArbitraryData * orig);
+
+/**
+ * end custom glib type for arbitrary go data
+ */
+
 #endif
