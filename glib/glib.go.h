@@ -91,14 +91,14 @@ static void _g_object_set_one(gpointer object, const gchar *property_name,
   g_object_set(object, property_name, *(gpointer **)val, NULL);
 }
 
-static GValue *alloc_gvalue_list(int n) {
+static GValue *_alloc_gvalue_list(int n) {
   GValue *valv;
 
   valv = g_new0(GValue, n);
   return (valv);
 }
 
-static void val_list_insert(GValue *valv, int i, GValue *val) {
+static void _val_list_insert(GValue *valv, int i, GValue *val) {
   valv[i] = *val;
 }
 

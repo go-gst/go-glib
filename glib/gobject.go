@@ -292,22 +292,27 @@ func (v *Object) Emit(s string, args ...interface{}) (interface{}, error) {
 	return_type := Type(q.return_type)
 
 	// Create array of this instance and arguments
-	valv := C.alloc_gvalue_list(C.int(len(args)) + 1)
-	defer C.free(unsafe.Pointer(valv))
+	valv := C._alloc_gvalue_list(C.int(len(args)) + 1)
 
 	// Add args and valv
 	val, err := GValue(v)
 	if err != nil {
 		return nil, errors.New("error converting Object to GValue: " + err.Error())
 	}
-	C.val_list_insert(valv, C.int(0), val.native())
+	C._val_list_insert(valv, C.int(0), val.native())
+	defer runtime.KeepAlive(val) // keep the value alive until the signal has been emitted
+
 	for i := range args {
 		val, err := GValue(args[i])
 		if err != nil {
 			return nil, fmt.Errorf("error converting arg %d to GValue: %s", i, err.Error())
 		}
-		C.val_list_insert(valv, C.int(i+1), val.native())
+		C._val_list_insert(valv, C.int(i+1), val.native())
+		defer runtime.KeepAlive(val) // keep the value alive until the signal has been emitted
 	}
+
+	// free the valv array after the values have been freed
+	defer C.g_free(C.gpointer(valv))
 
 	if return_type != TYPE_INVALID {
 		// the return value must have the correct type set
