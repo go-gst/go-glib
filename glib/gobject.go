@@ -312,7 +312,7 @@ func (v *Object) Emit(s string, args ...interface{}) (interface{}, error) {
 	}
 
 	// free the valv array after the values have been freed
-	defer C.free(unsafe.Pointer(valv))
+	defer C.g_free(C.gpointer(valv))
 
 	if return_type != TYPE_INVALID {
 		// the return value must have the correct type set
