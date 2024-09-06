@@ -314,7 +314,7 @@ func (v *Object) Emit(s string, args ...interface{}) (interface{}, error) {
 	// free the valv array after the values have been freed
 	defer C.g_free(C.gpointer(valv))
 
-	if return_type != TYPE_INVALID {
+	if return_type != TYPE_INVALID && return_type != TYPE_NONE {
 		// the return value must have the correct type set
 		ret, err := ValueInit(return_type)
 		if err != nil {
