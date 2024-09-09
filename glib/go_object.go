@@ -175,7 +175,7 @@ func RegisterGoType(name string, goObject interface{}, extends Extendable, inter
 	// Register class data if the object implements a GoObjectSubclass
 	var cd *classData
 	if object, ok := goObject.(GoObjectSubclass); ok {
-		cd := &classData{
+		cd = &classData{
 			elem: object,
 			ext:  extends,
 		}
@@ -203,6 +203,11 @@ func RegisterGoType(name string, goObject interface{}, extends Extendable, inter
 	// Add interfaces if the go object implements a GoObjectSubclass
 	if _, ok := goObject.(GoObjectSubclass); ok {
 		for _, iface := range interfaces {
+			if cd == nil {
+				// Pre-panic in here to basically assert that aboves classData pointer related
+				// logic was not broken in a subsequent changes to go-glib
+				panic("class data is nil, will panic in goInterfaceInit after registering")
+			}
 			gofuncPtr := gopointer.Save(&interfaceData{
 				iface:     iface,
 				gtype:     Type(gtype),
