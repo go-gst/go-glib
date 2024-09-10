@@ -209,6 +209,7 @@ GType glib_go_arbitrary_data_get_type(void);
 
 static GlibGoArbitraryData *glib_go_arbitrary_data_new(guint data);
 static GlibGoArbitraryData *glib_go_arbitrary_data_copy (GlibGoArbitraryData * orig);
+static void glib_go_arbitrary_data_free (GlibGoArbitraryData * orig);
 
 /**
  * end custom glib type for arbitrary go data

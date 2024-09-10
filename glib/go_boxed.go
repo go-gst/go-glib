@@ -3,9 +3,19 @@ package glib
 /*
 #include "glib.go.h"
 
+extern guint goCopyCgoHandle (guint handle);
+extern void  goFreeCgoHandle (guint handle);
+
 G_DEFINE_BOXED_TYPE(GlibGoArbitraryData, glib_go_arbitrary_data,
                     glib_go_arbitrary_data_copy,
-                    g_free)
+                    glib_go_arbitrary_data_free)
+
+static void glib_go_arbitrary_data_free (GlibGoArbitraryData * d)
+{
+	goFreeCgoHandle(d->data);
+
+	g_free(d);
+}
 
 static GlibGoArbitraryData *glib_go_arbitrary_data_copy (GlibGoArbitraryData * orig)
 {
@@ -15,7 +25,7 @@ static GlibGoArbitraryData *glib_go_arbitrary_data_copy (GlibGoArbitraryData * o
         return NULL;
 
     copy = g_new0 (GlibGoArbitraryData, 1);
-    copy->data = orig->data;
+    copy->data = goCopyCgoHandle(orig->data);
 
     return copy;
 }
@@ -68,6 +78,8 @@ func (v ArbitraryValue) ToGValue() (*Value, error) {
 
 	cv := C.glib_go_arbitrary_data_new(C.guint(handle))
 
+	// TakeBoxed lets the GValue take ownership of the boxed struct
+	// the gvalue will free the data when it is freed
 	gv.TakeBoxed(unsafe.Pointer(cv))
 
 	return gv, nil
