@@ -178,6 +178,14 @@ func gValue(v interface{}) (gvalue *Value, err error) {
 		val.SetInt64(e)
 		return val, nil
 
+	case int32:
+		val, err := ValueInit(TYPE_INT)
+		if err != nil {
+			return nil, err
+		}
+		val.SetInt(int(e))
+		return val, nil
+
 	case int:
 		val, err := ValueInit(TYPE_INT)
 		if err != nil {
@@ -200,6 +208,14 @@ func gValue(v interface{}) (gvalue *Value, err error) {
 			return nil, err
 		}
 		val.SetUInt64(e)
+		return val, nil
+
+	case uint32:
+		val, err := ValueInit(TYPE_UINT)
+		if err != nil {
+			return nil, err
+		}
+		val.SetUInt(uint(e))
 		return val, nil
 
 	case uint:
