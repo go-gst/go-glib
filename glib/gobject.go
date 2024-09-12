@@ -157,6 +157,18 @@ func (v *Object) ForceFloating() {
 	C.g_object_force_floating(v.GObject)
 }
 
+// Notify is a wrapper around g_object_notify().
+func (v *Object) Notify(paramName string) {
+	cstr := C.CString(paramName)
+	defer C.free(unsafe.Pointer(cstr))
+	C.g_object_notify(v.GObject, cstr)
+}
+
+// NotifyByPspec is a wrapper around g_object_notify_by_pspec().
+func (v *Object) NotifyByPspec(pspec *ParamSpec) {
+	C.g_object_notify_by_pspec(v.GObject, pspec.paramSpec)
+}
+
 // StopEmission is a wrapper around g_signal_stop_emission_by_name().
 func (v *Object) StopEmission(s string) {
 	cstr := C.CString(s)
