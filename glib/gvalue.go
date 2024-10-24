@@ -495,7 +495,7 @@ func marshalPointer(p unsafe.Pointer) (interface{}, error) {
 
 func marshalObject(p unsafe.Pointer) (interface{}, error) {
 	c := C.g_value_get_object((*C.GValue)(p))
-	return newObject((*C.GObject)(c)), nil
+	return Take(unsafe.Pointer(c)), nil
 }
 
 func marshalVariant(p unsafe.Pointer) (interface{}, error) {
