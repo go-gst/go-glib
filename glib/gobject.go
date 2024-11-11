@@ -19,6 +19,43 @@ type Object struct {
 	GObject *C.GObject
 }
 
+// NewObjectWithProperties is a wrapper around `g_object_new_with_properties`
+//
+// see https://docs.gtk.org/gobject/ctor.Object.new_with_properties.html for more details
+func NewObjectWithProperties(_type Type, properties map[string]interface{}) (*Object, error) {
+	props := make([]*C.char, 0)
+	values := make([]C.GValue, 0)
+
+	for p, v := range properties {
+		cpropName := C.CString(p)
+		defer C.free(unsafe.Pointer(cpropName))
+
+		props = append(props, cpropName)
+
+		value, err := GValue(v)
+
+		if err != nil {
+			return nil, err
+		}
+
+		// value goes out of scope, but the finalizer must not run until the cgo call is finished
+		defer runtime.KeepAlive(value)
+
+		values = append(values, *(*C.GValue)(value.Unsafe()))
+	}
+
+	propCount := C.uint(len(properties))
+	cProps := unsafe.SliceData(props)
+	cPropValues := unsafe.SliceData(values)
+
+	obj := C.g_object_new_with_properties(C.GType(_type), propCount, cProps, cPropValues)
+
+	if obj == nil {
+		return nil, fmt.Errorf("could not create object")
+	}
+	return TransferFull(unsafe.Pointer(obj)), nil
+}
+
 func (v *Object) toGObject() *C.GObject {
 	if v == nil {
 		return nil
