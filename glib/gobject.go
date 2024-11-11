@@ -342,27 +342,41 @@ func (v *Object) Emit(s string, args ...interface{}) (interface{}, error) {
 	return_type := Type(q.return_type &^ C.G_SIGNAL_TYPE_STATIC_SCOPE)
 
 	// Create array of this instance and arguments
-	valv := C._alloc_gvalue_list(C.int(len(args)) + 1)
+	instanceAndParams := C._alloc_gvalue_list(C.int(len(args)) + 1)
 
 	// Add args and valv
-	val, err := GValue(v)
+	instanceValue, err := GValue(v)
 	if err != nil {
 		return nil, errors.New("error converting Object to GValue: " + err.Error())
 	}
-	C._val_list_insert(valv, C.int(0), val.native())
-	defer runtime.KeepAlive(val) // keep the value alive until the signal has been emitted
+	C._val_list_insert(instanceAndParams, C.int(0), instanceValue.native())
+	defer runtime.KeepAlive(instanceValue) // keep the value alive until the signal has been emitted
 
 	for i := range args {
-		val, err := GValue(args[i])
+		valueArg, err := GValue(args[i])
 		if err != nil {
 			return nil, fmt.Errorf("error converting arg %d to GValue: %s", i, err.Error())
 		}
-		C._val_list_insert(valv, C.int(i+1), val.native())
-		defer runtime.KeepAlive(val) // keep the value alive until the signal has been emitted
+		C._val_list_insert(instanceAndParams, C.int(i+1), valueArg.native())
+		defer runtime.KeepAlive(valueArg) // keep the value alive until the signal has been emitted
 	}
 
 	// free the valv array after the values have been freed
-	defer C.g_free(C.gpointer(valv))
+	defer C.g_free(C.gpointer(instanceAndParams))
+
+	// check the values types against the signals types
+	values := unsafe.Slice(instanceAndParams, len(args)+1)
+	signalArgTypes := unsafe.Slice(q.param_types, q.n_params)
+	for i := range len(args) {
+		v := ValueFromNative(unsafe.Pointer(&values[i+1]))
+
+		actual, fundamental, _ := v.Type()
+		requestedType := Type(signalArgTypes[i])
+
+		if actual != requestedType && fundamental != requestedType {
+			return nil, fmt.Errorf("signal emit argument %d has wrong type, expected %s, got %s (%s)", i, requestedType.Name(), actual.Name(), fundamental.Name())
+		}
+	}
 
 	if return_type != TYPE_INVALID && return_type != TYPE_NONE {
 		// the return value must have the correct type set
@@ -370,13 +384,13 @@ func (v *Object) Emit(s string, args ...interface{}) (interface{}, error) {
 		if err != nil {
 			return nil, errors.New("error creating Value for return value")
 		}
-		C.g_signal_emitv(valv, id, C.GQuark(0), ret.native())
+		C.g_signal_emitv(instanceAndParams, id, C.GQuark(0), ret.native())
 
 		return ret.GoValue()
 	}
 
 	// signal has no return value
-	C.g_signal_emitv(valv, id, C.GQuark(0), nil)
+	C.g_signal_emitv(instanceAndParams, id, C.GQuark(0), nil)
 
 	return nil, nil
 }
