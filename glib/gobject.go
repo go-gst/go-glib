@@ -169,17 +169,20 @@ func ToGObject(p unsafe.Pointer) *C.GObject {
 
 // Ref is a wrapper around g_object_ref().
 func (v *Object) Ref() *Object {
+	gObjectProfile.Add(v, 1)
 	C.g_object_ref(C.gpointer(v.GObject))
 	return v
 }
 
 // Unref is a wrapper around g_object_unref().
 func (v *Object) Unref() {
+	gObjectProfile.Remove(v)
 	C.g_object_unref(C.gpointer(v.GObject))
 }
 
 // RefSink is a wrapper around g_object_ref_sink().
 func (v *Object) RefSink() {
+	gObjectProfile.Add(v, 1)
 	C.g_object_ref_sink(C.gpointer(v.GObject))
 }
 
@@ -191,6 +194,7 @@ func (v *Object) IsFloating() bool {
 
 // ForceFloating is a wrapper around g_object_force_floating().
 func (v *Object) ForceFloating() {
+	gObjectProfile.Remove(v)
 	C.g_object_force_floating(v.GObject)
 }
 

@@ -97,6 +97,8 @@ func ClosureNew(f interface{}, marshalData ...interface{}) (*C.GClosure, error) 
 	// save the closure context in the closure itself
 	ccHandle := cgo.NewHandle(&cc)
 
+	closureProfile.Add(ccHandle, 2)
+
 	c := C._g_closure_new(C.guint(ccHandle))
 
 	C.g_closure_ref(c)
@@ -110,6 +112,8 @@ func ClosureNew(f interface{}, marshalData ...interface{}) (*C.GClosure, error) 
 //export removeClosure
 func removeClosure(data C.gpointer, closure *C.GClosure) {
 	ccHandle := cgo.Handle(*(*C.guint)(data))
+
+	closureProfile.Remove(ccHandle)
 
 	ccHandle.Delete()
 
