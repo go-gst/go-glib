@@ -414,12 +414,7 @@ func (v *Object) HandlerDisconnect(handle SignalHandle) {
 	C.g_signal_handler_disconnect(C.gpointer(v.GObject), C.gulong(handle))
 }
 
-// WithTransferOriginal can be used to capture an object from transfer-none
-// with a RefSink, and restore the original floating state of the ref after
-// the given function's execution. Strictly speaking this is not thread safe,
-// since additional references can be taken on the object elsewhere while the
-// closure is executing. But for the lack of a better method for handling
-// virtual methods this will suffice for now.
+// Deprecated: this is not thread safe
 func (v *Object) WithTransferOriginal(f func()) {
 	wasFloating := v.IsFloating()
 	v.RefSink()
@@ -447,13 +442,7 @@ func (v *Object) GetPrivate() unsafe.Pointer {
 	return unsafe.Pointer(private)
 }
 
-// WithPointerTransferOriginal is a convenience wrapper for wrapping the given pointer
-// in an object, capturing the ref state, executing the given function with that object,
-// and then restoring the original state. It is intended to be used with objects that were
-// extended via the bindings. If the Object has an instantiated Go counterpart, it will be
-// sent to the function as well, otherwise GoObjectSubclass will be nil.
-//
-// See WithTransferOriginal for more information.
+// Deprecated: this is not thread safe against C threads
 func WithPointerTransferOriginal(o unsafe.Pointer, f func(*Object, GoObjectSubclass)) {
 	obj := wrapObjectClean(o)
 	obj.WithTransferOriginal(func() {
@@ -461,10 +450,7 @@ func WithPointerTransferOriginal(o unsafe.Pointer, f func(*Object, GoObjectSubcl
 	})
 }
 
-// WithPointerTransferNone will take a pointer to an object retrieved with transfer-none and call
-// the corresponding function with it wrapped in an Object. If the object has an instantiated
-// Go counterpart, it will be sent to the function as well. It is an alternative to using finalizers
-// around bindings calls.
+// Deprecated: use the equivalent functions in bindings code
 func WithPointerTransferNone(o unsafe.Pointer, f func(*Object, GoObjectSubclass)) {
 	obj := wrapObjectClean(o)
 	if obj.IsFloating() {
@@ -476,10 +462,7 @@ func WithPointerTransferNone(o unsafe.Pointer, f func(*Object, GoObjectSubclass)
 	f(obj, FromObjectUnsafePrivate(o))
 }
 
-// WithPointerTransferFull will take a pointer to an object retrieved with transfer-full and call
-// the corresponding function with it wrapped in an Object. If the object has an instantiated
-// Go counterpart, it will be sent to the function as well. It is an alternative to using finalizers
-// around binding calls.
+// Deprecated: use the equivalent functions in bindings code
 func WithPointerTransferFull(o unsafe.Pointer, f func(*Object, GoObjectSubclass)) {
 	obj := wrapObjectClean(o)
 	defer obj.Unref()
