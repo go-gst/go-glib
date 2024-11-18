@@ -15,37 +15,49 @@ import (
 
 //export goObjectSetProperty
 func goObjectSetProperty(obj *C.GObject, propID C.guint, val *C.GValue, param *C.GParamSpec) {
-	WithPointerTransferOriginal(unsafe.Pointer(obj), func(object *Object, subclass GoObjectSubclass) {
-		iface := subclass.(interface{ SetProperty(*Object, uint, *Value) })
-		iface.SetProperty(object, uint(propID-1), ValueFromNative(unsafe.Pointer(val)))
-	})
+	object := wrapObjectClean(unsafe.Pointer(obj))
+	subclass := FromObjectUnsafePrivate(unsafe.Pointer(obj))
+
+	iface := subclass.(interface{ SetProperty(*Object, uint, *Value) })
+	iface.SetProperty(object, uint(propID-1), ValueFromNative(unsafe.Pointer(val)))
 }
 
 //export goObjectGetProperty
 func goObjectGetProperty(obj *C.GObject, propID C.guint, value *C.GValue, param *C.GParamSpec) {
-	WithPointerTransferOriginal(unsafe.Pointer(obj), func(object *Object, subclass GoObjectSubclass) {
-		iface := subclass.(interface{ GetProperty(*Object, uint) *Value })
-		val := iface.GetProperty(object, uint(propID-1))
-		if val == nil {
-			return
-		}
-		C.g_value_copy((*C.GValue)(unsafe.Pointer(val.GValue)), value)
-	})
+	object := wrapObjectClean(unsafe.Pointer(obj))
+	subclass := FromObjectUnsafePrivate(unsafe.Pointer(obj))
+
+	iface := subclass.(interface{ GetProperty(*Object, uint) *Value })
+	val := iface.GetProperty(object, uint(propID-1))
+	if val == nil {
+		return
+	}
+	C.g_value_copy((*C.GValue)(unsafe.Pointer(val.GValue)), value)
 }
 
 //export goObjectConstructed
 func goObjectConstructed(obj *C.GObject) {
-	WithPointerTransferOriginal(unsafe.Pointer(obj), func(object *Object, subclass GoObjectSubclass) {
-		iface := subclass.(interface{ Constructed(*Object) })
-		iface.Constructed(object)
-	})
+	o := wrapObjectClean(unsafe.Pointer(obj))
+	subclass := FromObjectUnsafePrivate(unsafe.Pointer(obj))
+
+	iface := subclass.(interface{ Constructed(*Object) })
+
+	iface.Constructed(o)
 }
 
 //export goObjectFinalize
 func goObjectFinalize(obj *C.GObject, klass C.gpointer) {
-	// registerMutex.Lock()
-	// defer registerMutex.Unlock()
-	// delete(registeredClasses, klass)
+	o := wrapObjectClean(unsafe.Pointer(obj))
+	subclass := FromObjectUnsafePrivate(unsafe.Pointer(obj))
+
+	iface, ok := subclass.(interface{ Finalize(*Object) })
+
+	if ok {
+		// if the object wants to prevent premature cleanup it can do so in the Finalize function,
+		// since this will block the parent finalize call.
+		iface.Finalize(o)
+	}
+
 	gopointer.Unref(privateFromObj(unsafe.Pointer(obj)))
 }
 
@@ -84,8 +96,8 @@ func goInterfaceInit(iface C.gpointer, ifaceData C.gpointer) {
 
 //export goInstanceInit
 func goInstanceInit(obj *C.GTypeInstance, klass C.gpointer) {
-	registerMutex.Lock()
-	defer registerMutex.Unlock()
+	registerMutex.RLock() // must be read lock, a instance init could instantiate another custom object, which would deadlock
+	defer registerMutex.RUnlock()
 
 	// Save the go object that was registered to this pointer to the private data of the GObject
 	goelem := registeredClasses[klass].New()
