@@ -39,6 +39,8 @@ func (v *Object) connectClosure(after bool, detailedSignal string, f interface{}
 		(*C.gchar)(cstr), closure, gbool(after))
 	handle := SignalHandle(c)
 
+	C.g_closure_unref(closure)
+
 	return handle, nil
 }
 
@@ -118,5 +120,4 @@ func removeClosure(data C.gpointer, closure *C.GClosure) {
 	ccHandle.Delete()
 
 	C.free(unsafe.Pointer(data))
-	C.g_closure_unref(closure)
 }
