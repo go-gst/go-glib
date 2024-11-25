@@ -113,6 +113,19 @@ func ValueFromNativeOwned(l unsafe.Pointer) *Value {
 
 func (v *Value) unset() { v.Unset() }
 
+// Copy creats a Copy of the Value that has a Finalizer attached. This is useful to get ownership of a Value
+func (src *Value) Copy() (*Value, error) {
+	dest, err := ValueInit(Type((*src.GValue).g_type))
+
+	if err != nil {
+		return nil, err
+	}
+
+	C.g_value_copy(src.GValue, dest.GValue)
+
+	return dest, nil
+}
+
 // Unset clears the current value in value (if any) and "unsets" the type, this releases all
 // resources associated with this GValue. An unset value is the same as an uninitialized
 // (zero-filled) GValue structure.
