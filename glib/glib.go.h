@@ -144,19 +144,15 @@ extern void goMarshal(GClosure *, GValue *, guint, GValue *, gpointer, gpointer)
 extern void removeClosure(gpointer, GClosure *);
 
 /**
- * create a new closure, handle must be a cgo.Handle to a *closureContext
+ * create a new closure, handle must be a stored gopointer to a *closureContext
  */
-static GClosure *_g_closure_new(guint handle)
+static GClosure *_g_closure_new(gpointer handle)
 {
   GClosure *closure;
 
-  // this allocation needs to be freed by the finalizer
-  guint *data = (guint *)malloc(sizeof(guint));
-  *data = handle;
-
   closure = g_closure_new_simple(sizeof(GClosure), NULL);
-  g_closure_set_meta_marshal(closure, data, (GClosureMarshal)(goMarshal));
-  g_closure_add_finalize_notifier(closure, data, removeClosure);
+  g_closure_set_meta_marshal(closure, handle, (GClosureMarshal)(goMarshal));
+  g_closure_add_finalize_notifier(closure, handle, removeClosure);
 
   return (closure);
 }

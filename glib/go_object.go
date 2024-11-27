@@ -41,7 +41,7 @@ import (
 	"reflect"
 	"unsafe"
 
-	gopointer "github.com/mattn/go-pointer"
+	gopointer "github.com/go-gst/go-pointer"
 )
 
 // GoObject is an interface that abstracts on the GObject. In almost all cases at least SetProperty and GetProperty

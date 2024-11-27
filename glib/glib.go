@@ -30,8 +30,9 @@ import (
 	"fmt"
 	"os"
 	"reflect"
-	"runtime/cgo"
 	"unsafe"
+
+	gopointer "github.com/go-gst/go-pointer"
 )
 
 /*
@@ -191,9 +192,7 @@ func goMarshal(
 	marshalData C.gpointer,
 ) {
 	// Get the context associated with this callback closure.
-	ccHandle := cgo.Handle(*(*C.guint)(marshalData))
-
-	cc := ccHandle.Value().(*closureContext)
+	cc := gopointer.Restore(unsafe.Pointer(marshalData)).(*closureContext)
 
 	// Get number of parameters passed in.  If user data was saved with the
 	// closure context, increment the total number of parameters.

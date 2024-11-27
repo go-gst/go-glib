@@ -7,8 +7,9 @@ import "C"
 import (
 	"errors"
 	"reflect"
-	"runtime/cgo"
 	"unsafe"
+
+	gopointer "github.com/go-gst/go-pointer"
 )
 
 /*
@@ -97,11 +98,11 @@ func ClosureNew(f interface{}, marshalData ...interface{}) (*C.GClosure, error) 
 	}
 
 	// save the closure context in the closure itself
-	ccHandle := cgo.NewHandle(&cc)
+	ccHandle := gopointer.Save(&cc)
 
 	closureProfile.Add(ccHandle, 2)
 
-	c := C._g_closure_new(C.guint(ccHandle))
+	c := C._g_closure_new(C.gpointer(ccHandle))
 
 	C.g_closure_ref(c)
 	C.g_closure_sink(c)
@@ -112,12 +113,8 @@ func ClosureNew(f interface{}, marshalData ...interface{}) (*C.GClosure, error) 
 // removeClosure removes the go function allowing the GC to collect it.
 //
 //export removeClosure
-func removeClosure(data C.gpointer, closure *C.GClosure) {
-	ccHandle := cgo.Handle(*(*C.guint)(data))
-
+func removeClosure(ccHandle C.gpointer, closure *C.GClosure) {
 	closureProfile.Remove(ccHandle)
 
-	ccHandle.Delete()
-
-	C.free(unsafe.Pointer(data))
+	gopointer.Unref(unsafe.Pointer(ccHandle))
 }
