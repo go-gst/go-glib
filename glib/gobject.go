@@ -476,13 +476,17 @@ func WithPointerTransferFull(o unsafe.Pointer, f func(*Object, GoObjectSubclass)
 }
 
 func wrapObjectClean(ptr unsafe.Pointer) *Object {
-	obj := &Object{ToGObject(ptr)}
+	obj := &Object{
+		GObject: ToGObject(ptr),
+	}
 	return obj
 }
 
 // Wrapper function for new objects with reference management.
 func wrapObject(ptr unsafe.Pointer) *Object {
-	obj := &Object{ToGObject(ptr)}
+	obj := &Object{
+		GObject: ToGObject(ptr),
+	}
 
 	if obj.IsFloating() {
 		obj.RefSink()
