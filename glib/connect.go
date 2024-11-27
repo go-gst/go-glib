@@ -100,9 +100,9 @@ func ClosureNew(f interface{}, marshalData ...interface{}) (*C.GClosure, error) 
 	// save the closure context in the closure itself
 	ccHandle := gopointer.Save(&cc)
 
-	closureProfile.Add(ccHandle, 2)
-
 	c := C._g_closure_new(C.gpointer(ccHandle))
+
+	closureProfile.Add(c, 2)
 
 	C.g_closure_ref(c)
 	C.g_closure_sink(c)
@@ -114,7 +114,7 @@ func ClosureNew(f interface{}, marshalData ...interface{}) (*C.GClosure, error) 
 //
 //export removeClosure
 func removeClosure(ccHandle C.gpointer, closure *C.GClosure) {
-	closureProfile.Remove(ccHandle)
+	closureProfile.Remove(closure)
 
 	gopointer.Unref(unsafe.Pointer(ccHandle))
 }
