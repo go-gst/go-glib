@@ -3,8 +3,8 @@ package glib
 /*
 #include "glib.go.h"
 
-extern guint goCopyCgoHandle (guint handle);
-extern void  goFreeCgoHandle (guint handle);
+extern gpointer goCopyGoPointer (gpointer handle);
+extern void     goFreeGoPointer (gpointer handle);
 
 G_DEFINE_BOXED_TYPE(GlibGoArbitraryData, glib_go_arbitrary_data,
                     glib_go_arbitrary_data_copy,
@@ -12,7 +12,7 @@ G_DEFINE_BOXED_TYPE(GlibGoArbitraryData, glib_go_arbitrary_data,
 
 static void glib_go_arbitrary_data_free (GlibGoArbitraryData * d)
 {
-	goFreeCgoHandle(d->data);
+	goFreeGoPointer(d->data);
 
 	g_free(d);
 }
@@ -25,12 +25,12 @@ static GlibGoArbitraryData *glib_go_arbitrary_data_copy (GlibGoArbitraryData * o
         return NULL;
 
     copy = g_new0 (GlibGoArbitraryData, 1);
-    copy->data = goCopyCgoHandle(orig->data);
+    copy->data = goCopyGoPointer(orig->data);
 
     return copy;
 }
 
-static GlibGoArbitraryData *glib_go_arbitrary_data_new(guint data)
+static GlibGoArbitraryData *glib_go_arbitrary_data_new(gpointer data)
 {
     GlibGoArbitraryData *gdata;
 
@@ -43,8 +43,9 @@ static GlibGoArbitraryData *glib_go_arbitrary_data_new(guint data)
 import "C"
 
 import (
-	"runtime/cgo"
 	"unsafe"
+
+	gopointer "github.com/go-gst/go-pointer"
 )
 
 var TYPE_ARBITRARY_DATA Type = Type(C.GLIB_GO_TYPE_ARBITRARY_DATA)
@@ -68,7 +69,7 @@ type ArbitraryValue struct {
 var _ ValueTransformer = ArbitraryValue{}
 
 func (v ArbitraryValue) ToGValue() (*Value, error) {
-	handle := cgo.NewHandle(v.Data)
+	handle := gopointer.Save(v.Data)
 
 	gv, err := ValueInit(TYPE_ARBITRARY_DATA)
 
@@ -76,7 +77,7 @@ func (v ArbitraryValue) ToGValue() (*Value, error) {
 		return nil, err
 	}
 
-	cv := C.glib_go_arbitrary_data_new(C.guint(handle))
+	cv := C.glib_go_arbitrary_data_new(C.gpointer(handle))
 
 	// TakeBoxed lets the GValue take ownership of the boxed struct
 	// the gvalue will free the data when it is freed
@@ -90,10 +91,10 @@ func marshalArbitraryValue(p unsafe.Pointer) (interface{}, error) {
 
 	cv := (*C.GlibGoArbitraryData)(cp)
 
-	handle := cgo.Handle(cv.data)
+	data := gopointer.Restore(unsafe.Pointer(cv.data))
 
 	arb := ArbitraryValue{
-		Data: handle.Value(),
+		Data: data,
 	}
 
 	return arb, nil

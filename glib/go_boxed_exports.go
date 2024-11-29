@@ -8,20 +8,22 @@ package glib
 #include "glib.go.h"
 */
 import "C"
-import "runtime/cgo"
+import (
+	"unsafe"
 
-//export goCopyCgoHandle
-func goCopyCgoHandle(handle C.guint) C.guint {
-	h1 := cgo.Handle(handle)
+	gopointer "github.com/go-gst/go-pointer"
+)
 
-	h2 := cgo.NewHandle(h1.Value())
+//export goCopyGoPointer
+func goCopyGoPointer(handle C.gpointer) C.gpointer {
+	v1 := gopointer.Restore(unsafe.Pointer(handle))
 
-	return C.guint(h2)
+	h2 := gopointer.Save(v1)
+
+	return C.gpointer(h2)
 }
 
-//export goFreeCgoHandle
-func goFreeCgoHandle(handle C.guint) {
-	h := cgo.Handle(handle)
-
-	h.Delete()
+//export goFreeGoPointer
+func goFreeGoPointer(handle C.gpointer) {
+	gopointer.Unref(unsafe.Pointer(handle))
 }

@@ -198,12 +198,12 @@ extern void goCompareDataFuncs(gconstpointer a, gconstpointer b,
 
 typedef struct
 {
-  guint data; // Arbitrary data, corresponds to an uintptr in Go
+  gpointer data; // Arbitrary data, corresponds to a gopointer handle in Go
 } GlibGoArbitraryData;
 
 GType glib_go_arbitrary_data_get_type(void);
 
-static GlibGoArbitraryData *glib_go_arbitrary_data_new(guint data);
+static GlibGoArbitraryData *glib_go_arbitrary_data_new(gpointer data);
 static GlibGoArbitraryData *glib_go_arbitrary_data_copy (GlibGoArbitraryData * orig);
 static void glib_go_arbitrary_data_free (GlibGoArbitraryData * orig);
 
