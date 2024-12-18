@@ -97,13 +97,18 @@ func NewSignal(
 		cparams = append(cparams, C.GType(t))
 	}
 
-	classHandler, err := ClosureNew(handler)
+	var err error
+	var classHandler *C.GClosure
 
-	if err != nil {
-		return nil, err
+	if handler != nil {
+		classHandler, err = ClosureNew(handler)
+
+		if err != nil {
+			return nil, err
+		}
+
+		defer C.g_closure_unref(classHandler)
 	}
-
-	defer C.g_closure_unref(classHandler)
 
 	var accudata C.gpointer
 	var cAccumulator C.GSignalAccumulator
