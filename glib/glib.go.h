@@ -157,12 +157,6 @@ static GClosure *_g_closure_new(gpointer handle)
   return (closure);
 }
 
-static inline guint _g_signal_new(const gchar *name) {
-  return g_signal_new(name, G_TYPE_OBJECT, G_SIGNAL_RUN_FIRST | G_SIGNAL_ACTION,
-                      0, NULL, NULL, g_cclosure_marshal_VOID__POINTER,
-                      G_TYPE_NONE, 0);
-}
-
 static void init_i18n(const char *domain, const char *dir) {
   setlocale(LC_ALL, "");
   bindtextdomain(domain, dir);
