@@ -458,31 +458,6 @@ func (v *InitiallyUnowned) Native() unsafe.Pointer {
 	return v.Object.Native()
 }
 
-type Signal struct {
-	name     string
-	signalId C.guint
-}
-
-func SignalNew(s string) (*Signal, error) {
-	cstr := C.CString(s)
-	defer C.free(unsafe.Pointer(cstr))
-
-	signalId := C._g_signal_new((*C.gchar)(cstr))
-
-	if signalId == 0 {
-		return nil, fmt.Errorf("invalid signal name: %s", s)
-	}
-
-	return &Signal{
-		name:     s,
-		signalId: signalId,
-	}, nil
-}
-
-func (s *Signal) String() string {
-	return s.name
-}
-
 type Quark uint32
 
 // GetApplicationName is a wrapper around g_get_application_name().
