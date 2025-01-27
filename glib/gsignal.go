@@ -15,7 +15,7 @@ import (
 	gopointer "github.com/go-gst/go-pointer"
 )
 
-// SignalFlags are used to specify a signal's behaviour.
+// SignalFlags are used to specify a signal's behavior.
 type SignalFlags C.GSignalFlags
 
 const (
