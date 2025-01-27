@@ -4,6 +4,7 @@ package glib
 #include "glib.go.h"
 
 GObjectClass *  toGObjectClass  (void *p)  { return (G_OBJECT_CLASS(p)); }
+GType           typeFromGObjectClass  (GObjectClass *c)  { return (G_OBJECT_CLASS_TYPE(c)); }
 */
 import "C"
 
@@ -24,6 +25,11 @@ func (o *ObjectClass) Unsafe() unsafe.Pointer { return unsafe.Pointer(o.ptr) }
 
 // Instance returns the underlying C GObjectClass pointer
 func (o *ObjectClass) Instance() *C.GObjectClass { return o.ptr }
+
+// Instance returns the underlying C GObjectClass pointer
+func (o *ObjectClass) Type() Type {
+	return Type(C.typeFromGObjectClass(o.ptr))
+}
 
 // InstallProperties will install the given ParameterSpecs to the object class.
 // They will be IDed in the order they are provided.
