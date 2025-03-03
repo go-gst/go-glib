@@ -574,6 +574,16 @@ func (v *Value) SetUInt(val uint) {
 	C.g_value_set_uint(v.native(), C.guint(val))
 }
 
+// SetLong is a wrapper around g_value_set_long().
+func (v *Value) SetLong(val int) {
+	C.g_value_set_long(v.native(), C.glong(val))
+}
+
+// SetULong is a wrapper around g_value_set_ulong().
+func (v *Value) SetULong(val uint) {
+	C.g_value_set_ulong(v.native(), C.gulong(val))
+}
+
 // SetFloat is a wrapper around g_value_set_float().
 func (v *Value) SetFloat(val float32) {
 	C.g_value_set_float(v.native(), C.gfloat(val))
@@ -604,6 +614,11 @@ func (v *Value) SetPointer(p unsafe.Pointer) {
 // SetEnum is a wrapper around g_value_set_enum().
 func (v *Value) SetEnum(e int) {
 	C.g_value_set_enum(v.native(), C.gint(e))
+}
+
+// SetFlags is a wrapper around g_value_set_flags().
+func (v *Value) SetFlags(f uint) {
+	C.g_value_set_flags(v.native(), C.guint(f))
 }
 
 // SetParam is a wrapper around g_value_set_param().
