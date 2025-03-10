@@ -172,6 +172,52 @@ func (v *Object) Set(name string, value interface{}) error {
 	return v.SetProperty(name, value)
 }
 
+// GetParamSpec returns the ParamSpec of a property of the underlying GObject.
+func (v *Object) GetParamSpec(name string) (*ParamSpec, error) {
+	cstr := C.CString(name)
+	defer C.free(unsafe.Pointer(cstr))
+
+	paramSpec := C.g_object_class_find_property(C._g_object_get_class(v.native()), (*C.gchar)(cstr))
+	if paramSpec == nil {
+		return nil, errors.New("couldn't find Property")
+	}
+	return ToParamSpec((unsafe.Pointer)(paramSpec)), nil
+}
+
+// GetParamSpecUInt returns the ParamSpecUInt of a property of the underlying GObject.
+func (v *Object) GetParamSpecUInt(name string) (*ParamSpecUInt, error) {
+	cstr := C.CString(name)
+	defer C.free(unsafe.Pointer(cstr))
+
+	paramSpec := C.g_object_class_find_property(C._g_object_get_class(v.native()), (*C.gchar)(cstr))
+	if paramSpec == nil {
+		return nil, errors.New("couldn't find Property")
+	}
+
+	if Type(paramSpec.value_type) != TYPE_UINT {
+		return nil, errors.New("Wrong property type")
+	}
+
+	return ToParamSpecUInt((unsafe.Pointer)(paramSpec)), nil
+}
+
+// GetParamSpecUInt64 returns the ParamSpecUInt64 of a property of the underlying GObject.
+func (v *Object) GetParamSpecUInt64(name string) (*ParamSpecUInt64, error) {
+	cstr := C.CString(name)
+	defer C.free(unsafe.Pointer(cstr))
+
+	paramSpec := C.g_object_class_find_property(C._g_object_get_class(v.native()), (*C.gchar)(cstr))
+	if paramSpec == nil {
+		return nil, errors.New("couldn't find Property")
+	}
+
+	if Type(paramSpec.value_type) != TYPE_UINT {
+		return nil, errors.New("Wrong property type")
+	}
+
+	return ToParamSpecUInt64((unsafe.Pointer)(paramSpec)), nil
+}
+
 // GetPropertyType returns the Type of a property of the underlying GObject.
 // If the property is missing it will return TYPE_INVALID and an error.
 func (v *Object) GetPropertyType(name string) (Type, error) {
