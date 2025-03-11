@@ -211,7 +211,7 @@ func (v *Object) GetParamSpecUInt64(name string) (*ParamSpecUInt64, error) {
 		return nil, errors.New("couldn't find Property")
 	}
 
-	if Type(paramSpec.value_type) != TYPE_UINT {
+	if Type(paramSpec.value_type) != TYPE_UINT64 {
 		return nil, errors.New("Wrong property type")
 	}
 
