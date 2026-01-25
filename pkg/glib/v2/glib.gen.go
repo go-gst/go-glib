@@ -17,7 +17,6 @@ import (
 // #include <glib.h>
 // extern GLogWriterOutput _goglib_glib2_LogWriterFunc(GLogLevelFlags, const GLogField*, gsize, gpointer);
 // extern gboolean _goglib_glib2_SourceFunc(gpointer);
-// extern void _goglib_glib2_ChildWatchFunc(GPid, gint, gpointer);
 // extern void _goglib_glib2_LogFunc(const gchar*, GLogLevelFlags, const gchar*, gpointer);
 // extern void destroyUserdata(gpointer);
 import "C"
@@ -323,10 +322,6 @@ const macro__has_attribute_ifunc = 0
 // 
 // see also https://docs.gtk.org/glib/const.macro__has_attribute_no_sanitize_address.html
 const macro__has_attribute_no_sanitize_address = 0
-// Pid wraps GPid
-// 
-// see also https://docs.gtk.org/glib/alias.Pid.html
-type Pid = int32
 // Quark wraps GQuark
 // 
 // see also https://docs.gtk.org/glib/alias.Quark.html
@@ -5234,11 +5229,6 @@ type TestDataFunc func()
 // see also https://docs.gtk.org/glib/callback.TestLogFatalFunc.html
 type TestLogFatalFunc func(logDomain string, logLevel LogLevelFlags, message string) (goret bool)
 
-// ChildWatchFunc wraps GChildWatchFunc
-// 
-// see also https://docs.gtk.org/glib/callback.ChildWatchFunc.html
-type ChildWatchFunc func(pid Pid, waitStatus int32)
-
 // ASCIIDigitValue wraps g_ascii_digit_value
 // 
 // see also https://docs.gtk.org/glib/func.g_ascii_digit_value.html
@@ -5972,35 +5962,6 @@ func CheckVersion(requiredMajor uint, requiredMinor uint, requiredMicro uint) st
 	if cret != nil {
 		goret = C.GoString((*C.char)(unsafe.Pointer(cret)))
 	}
-
-	return goret
-}
-
-// ChildWatchAddFull wraps g_child_watch_add_full
-// 
-// see also https://docs.gtk.org/glib/func.g_child_watch_add_full.html
-func ChildWatchAddFull(priority int32, pid Pid, function ChildWatchFunc) uint {
-	var carg1 C.gint            // in, none, casted
-	var carg2 C.GPid            // in, none, casted, alias
-	var carg3 C.GChildWatchFunc // callback, scope: notified, closure: carg4, destroy: carg5
-	var carg4 C.gpointer        // implicit
-	var carg5 C.GDestroyNotify  // implicit
-	var cret  C.guint           // return, none, casted
-
-	carg1 = C.gint(priority)
-	carg2 = C.GPid(pid)
-	carg3 = (*[0]byte)(C._goglib_glib2_ChildWatchFunc)
-	carg4 = C.gpointer(userdata.Register(function))
-	carg5 = (C.GDestroyNotify)((*[0]byte)(C.destroyUserdata))
-
-	cret = C.g_child_watch_add_full(carg1, carg2, carg3, carg4, carg5)
-	runtime.KeepAlive(priority)
-	runtime.KeepAlive(pid)
-	runtime.KeepAlive(function)
-
-	var goret uint
-
-	goret = uint(cret)
 
 	return goret
 }
@@ -8971,18 +8932,6 @@ func SpawnCheckWaitStatus(waitStatus int32) (bool, error) {
 	}
 
 	return goret, _goerr
-}
-
-// SpawnClosePid wraps g_spawn_close_pid
-// 
-// see also https://docs.gtk.org/glib/func.g_spawn_close_pid.html
-func SpawnClosePid(pid Pid) {
-	var carg1 C.GPid // in, none, casted, alias
-
-	carg1 = C.GPid(pid)
-
-	C.g_spawn_close_pid(carg1)
-	runtime.KeepAlive(pid)
 }
 
 // SpawnCommandLineAsync wraps g_spawn_command_line_async

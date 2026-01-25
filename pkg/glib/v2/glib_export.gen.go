@@ -142,23 +142,3 @@ func _goglib_glib2_TestLogFatalFunc(carg1 *C.gchar, carg2 C.GLogLevelFlags, carg
 	return cret
 }
 
-//export _goglib_glib2_ChildWatchFunc
-func _goglib_glib2_ChildWatchFunc(carg1 C.GPid, carg2 C.gint, carg3 C.gpointer) {
-	var fn ChildWatchFunc
-	{
-		v := userdata.Load(unsafe.Pointer(carg3))
-		if v == nil {
-			panic(`callback not found`)
-		}
-		fn = v.(ChildWatchFunc)
-	}
-
-	var pid        Pid   // in, none, casted, alias
-	var waitStatus int32 // in, none, casted
-
-	pid = Pid(carg1)
-	waitStatus = int32(carg2)
-
-	fn(pid, waitStatus)
-}
-

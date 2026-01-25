@@ -161,6 +161,9 @@ var Main = genmain.Data{
 					typesystem.IgnoreMatching("Tree"),
 					typesystem.IgnoreMatching("PtrArray"),
 					typesystem.IgnoreMatching("HashTable"),
+
+					// Differs between platforms
+					typesystem.IgnoreMatching("Pid"),
 				},
 			},
 			"Gio-2": {
