@@ -42,7 +42,9 @@ func (obj *ObjectInstance) Emit(s string, args ...any) any {
 		panic(fmt.Sprintf("signal %s has %d parameters, but %d were passed", s, q.n_params, len(args)))
 	}
 
-	signalArgTypes := unsafe.Slice(q.param_types, q.n_params)
+	// FIXME: signal arg typ checking would be nice here, but currently this breaks passing nil objects, as their
+	// value type is coming from the embedded GObject, which creates a nil dereference when the main pointer is nil
+	// signalArgTypes := unsafe.Slice(q.param_types, q.n_params)
 
 	// get the return type, remove the static scope flag first
 	return_type := Type(q.return_type &^ C.G_SIGNAL_TYPE_STATIC_SCOPE)
@@ -58,12 +60,12 @@ func (obj *ObjectInstance) Emit(s string, args ...any) any {
 
 	for i := range args {
 		// check the value type
-		argType := valueType(args[i])
-		requestedType := Type(signalArgTypes[i])
+		// argType := valueType(args[i])
+		// requestedType := Type(signalArgTypes[i])
 
-		if argType != requestedType && !argType.IsA(requestedType) {
-			panic(fmt.Sprintf("signal emit argument %d has wrong type, expected %s (%s), got %s (%s)", i, requestedType.Name(), FundamentalType(requestedType).Name(), argType.Name(), FundamentalType(argType).Name()))
-		}
+		// if argType != requestedType && !argType.IsA(requestedType) {
+		// 	panic(fmt.Sprintf("signal emit argument %d has wrong type, expected %s (%s), got %s (%s)", i, requestedType.Name(), FundamentalType(requestedType).Name(), argType.Name(), FundamentalType(argType).Name()))
+		// }
 
 		valueArg := NewValue(args[i])
 		C._val_list_insert(instanceAndParams, C.int(i+1), valueArg.native())
