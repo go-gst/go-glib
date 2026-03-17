@@ -39,18 +39,6 @@ type StringPrimitive struct {
 	GirName string
 }
 
-var _ MaybeTransferableType = (*StringPrimitive)(nil)
-
-// CanTransferToGlib implements [ConvertibleType].
-func (a *StringPrimitive) CanTransfer(dir TransferDirection, transfer TransferOwnership) bool {
-	// on transfer full to C: C must be able to free the string, but may expect a different free function than C.free, so we do not support it
-	if dir == DirectionGoToC && transfer == TransferFull {
-		return false
-	}
-
-	return true
-}
-
 var _ Type = (*StringPrimitive)(nil)
 
 var Utf8 = &StringPrimitive{

@@ -43,6 +43,7 @@ type GoToCStringConverter struct {
 // Convert implements Converter.
 func (c *GoToCStringConverter) Convert(w file.File) {
 	w.GoImport("unsafe")
+	w.GoImportCore("transfer")
 
 	param := c.Param.CName
 
@@ -51,13 +52,13 @@ func (c *GoToCStringConverter) Convert(w file.File) {
 		param = "*" + param
 	}
 
-	fmt.Fprintf(w.Go(), "%s = (%s)(unsafe.Pointer(C.CString(%s)))\n", param, c.Param.CGoType(), c.Param.GoName)
+	fmt.Fprintf(w.Go(), "%s = (%s)(transfer.GLibString(%s))\n", param, c.Param.CGoType(), c.Param.GoName)
 
 	switch c.Param.TransferOwnership {
 	case typesystem.TransferFull:
-		panic("TransferFull is not supported for GoToCStringConverter, because the free function may be different than C.free")
+		// C will free it
 	case typesystem.TransferNone:
-		fmt.Fprintf(w.Go(), "defer C.free(unsafe.Pointer(%s))\n", c.Param.CName)
+		fmt.Fprintf(w.Go(), "defer C.g_free(C.gpointer(%s))\n", c.Param.CName)
 	default:
 		panic(fmt.Sprintf("unexpected typesystem.TransferOwnership: %#v", c.Param.TransferOwnership))
 	}

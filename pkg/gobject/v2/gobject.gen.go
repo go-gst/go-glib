@@ -8,6 +8,7 @@ import (
 	"strings"
 	"unsafe"
 
+	"github.com/go-gst/go-glib/pkg/core/transfer"
 	"github.com/go-gst/go-glib/pkg/glib/v2"
 )
 
@@ -678,8 +679,8 @@ func EnumGetValueByName(enumClass *EnumClass, name string) *EnumValue {
 	var cret  *C.GEnumValue // return, none, converted, nullable
 
 	carg1 = (*C.GEnumClass)(UnsafeEnumClassToGlibNone(enumClass))
-	carg2 = (*C.gchar)(unsafe.Pointer(C.CString(name)))
-	defer C.free(unsafe.Pointer(carg2))
+	carg2 = (*C.gchar)(transfer.GLibString(name))
+	defer C.g_free(C.gpointer(carg2))
 
 	cret = C.g_enum_get_value_by_name(carg1, carg2)
 	runtime.KeepAlive(enumClass)
@@ -703,8 +704,8 @@ func EnumGetValueByNick(enumClass *EnumClass, nick string) *EnumValue {
 	var cret  *C.GEnumValue // return, none, converted, nullable
 
 	carg1 = (*C.GEnumClass)(UnsafeEnumClassToGlibNone(enumClass))
-	carg2 = (*C.gchar)(unsafe.Pointer(C.CString(nick)))
-	defer C.free(unsafe.Pointer(carg2))
+	carg2 = (*C.gchar)(transfer.GLibString(nick))
+	defer C.g_free(C.gpointer(carg2))
 
 	cret = C.g_enum_get_value_by_nick(carg1, carg2)
 	runtime.KeepAlive(enumClass)
@@ -775,8 +776,8 @@ func FlagsGetValueByName(flagsClass *FlagsClass, name string) *FlagsValue {
 	var cret  *C.GFlagsValue // return, none, converted, nullable
 
 	carg1 = (*C.GFlagsClass)(UnsafeFlagsClassToGlibNone(flagsClass))
-	carg2 = (*C.gchar)(unsafe.Pointer(C.CString(name)))
-	defer C.free(unsafe.Pointer(carg2))
+	carg2 = (*C.gchar)(transfer.GLibString(name))
+	defer C.g_free(C.gpointer(carg2))
 
 	cret = C.g_flags_get_value_by_name(carg1, carg2)
 	runtime.KeepAlive(flagsClass)
@@ -800,8 +801,8 @@ func FlagsGetValueByNick(flagsClass *FlagsClass, nick string) *FlagsValue {
 	var cret  *C.GFlagsValue // return, none, converted, nullable
 
 	carg1 = (*C.GFlagsClass)(UnsafeFlagsClassToGlibNone(flagsClass))
-	carg2 = (*C.gchar)(unsafe.Pointer(C.CString(nick)))
-	defer C.free(unsafe.Pointer(carg2))
+	carg2 = (*C.gchar)(transfer.GLibString(nick))
+	defer C.g_free(C.gpointer(carg2))
 
 	cret = C.g_flags_get_value_by_nick(carg1, carg2)
 	runtime.KeepAlive(flagsClass)
@@ -865,15 +866,15 @@ func ParamSpecBoolean(name string, nick string, blurb string, defaultValue bool,
 	var carg5 C.GParamFlags // in, none, casted
 	var cret  *C.GParamSpec // return, full, converted
 
-	carg1 = (*C.gchar)(unsafe.Pointer(C.CString(name)))
-	defer C.free(unsafe.Pointer(carg1))
+	carg1 = (*C.gchar)(transfer.GLibString(name))
+	defer C.g_free(C.gpointer(carg1))
 	if nick != "" {
-		carg2 = (*C.gchar)(unsafe.Pointer(C.CString(nick)))
-		defer C.free(unsafe.Pointer(carg2))
+		carg2 = (*C.gchar)(transfer.GLibString(nick))
+		defer C.g_free(C.gpointer(carg2))
 	}
 	if blurb != "" {
-		carg3 = (*C.gchar)(unsafe.Pointer(C.CString(blurb)))
-		defer C.free(unsafe.Pointer(carg3))
+		carg3 = (*C.gchar)(transfer.GLibString(blurb))
+		defer C.g_free(C.gpointer(carg3))
 	}
 	if defaultValue {
 		carg4 = C.TRUE
@@ -905,15 +906,15 @@ func ParamSpecBoxed(name string, nick string, blurb string, boxedType Type, flag
 	var carg5 C.GParamFlags // in, none, casted
 	var cret  *C.GParamSpec // return, full, converted
 
-	carg1 = (*C.gchar)(unsafe.Pointer(C.CString(name)))
-	defer C.free(unsafe.Pointer(carg1))
+	carg1 = (*C.gchar)(transfer.GLibString(name))
+	defer C.g_free(C.gpointer(carg1))
 	if nick != "" {
-		carg2 = (*C.gchar)(unsafe.Pointer(C.CString(nick)))
-		defer C.free(unsafe.Pointer(carg2))
+		carg2 = (*C.gchar)(transfer.GLibString(nick))
+		defer C.g_free(C.gpointer(carg2))
 	}
 	if blurb != "" {
-		carg3 = (*C.gchar)(unsafe.Pointer(C.CString(blurb)))
-		defer C.free(unsafe.Pointer(carg3))
+		carg3 = (*C.gchar)(transfer.GLibString(blurb))
+		defer C.g_free(C.gpointer(carg3))
 	}
 	carg4 = C.GType(boxedType)
 	carg5 = C.GParamFlags(flags)
@@ -945,15 +946,15 @@ func ParamSpecChar(name string, nick string, blurb string, minimum int8, maximum
 	var carg7 C.GParamFlags // in, none, casted
 	var cret  *C.GParamSpec // return, full, converted
 
-	carg1 = (*C.gchar)(unsafe.Pointer(C.CString(name)))
-	defer C.free(unsafe.Pointer(carg1))
+	carg1 = (*C.gchar)(transfer.GLibString(name))
+	defer C.g_free(C.gpointer(carg1))
 	if nick != "" {
-		carg2 = (*C.gchar)(unsafe.Pointer(C.CString(nick)))
-		defer C.free(unsafe.Pointer(carg2))
+		carg2 = (*C.gchar)(transfer.GLibString(nick))
+		defer C.g_free(C.gpointer(carg2))
 	}
 	if blurb != "" {
-		carg3 = (*C.gchar)(unsafe.Pointer(C.CString(blurb)))
-		defer C.free(unsafe.Pointer(carg3))
+		carg3 = (*C.gchar)(transfer.GLibString(blurb))
+		defer C.g_free(C.gpointer(carg3))
 	}
 	carg4 = C.gint8(minimum)
 	carg5 = C.gint8(maximum)
@@ -989,15 +990,15 @@ func ParamSpecDouble(name string, nick string, blurb string, minimum float64, ma
 	var carg7 C.GParamFlags // in, none, casted
 	var cret  *C.GParamSpec // return, full, converted
 
-	carg1 = (*C.gchar)(unsafe.Pointer(C.CString(name)))
-	defer C.free(unsafe.Pointer(carg1))
+	carg1 = (*C.gchar)(transfer.GLibString(name))
+	defer C.g_free(C.gpointer(carg1))
 	if nick != "" {
-		carg2 = (*C.gchar)(unsafe.Pointer(C.CString(nick)))
-		defer C.free(unsafe.Pointer(carg2))
+		carg2 = (*C.gchar)(transfer.GLibString(nick))
+		defer C.g_free(C.gpointer(carg2))
 	}
 	if blurb != "" {
-		carg3 = (*C.gchar)(unsafe.Pointer(C.CString(blurb)))
-		defer C.free(unsafe.Pointer(carg3))
+		carg3 = (*C.gchar)(transfer.GLibString(blurb))
+		defer C.g_free(C.gpointer(carg3))
 	}
 	carg4 = C.gdouble(minimum)
 	carg5 = C.gdouble(maximum)
@@ -1032,15 +1033,15 @@ func ParamSpecEnum(name string, nick string, blurb string, enumType Type, defaul
 	var carg6 C.GParamFlags // in, none, casted
 	var cret  *C.GParamSpec // return, full, converted
 
-	carg1 = (*C.gchar)(unsafe.Pointer(C.CString(name)))
-	defer C.free(unsafe.Pointer(carg1))
+	carg1 = (*C.gchar)(transfer.GLibString(name))
+	defer C.g_free(C.gpointer(carg1))
 	if nick != "" {
-		carg2 = (*C.gchar)(unsafe.Pointer(C.CString(nick)))
-		defer C.free(unsafe.Pointer(carg2))
+		carg2 = (*C.gchar)(transfer.GLibString(nick))
+		defer C.g_free(C.gpointer(carg2))
 	}
 	if blurb != "" {
-		carg3 = (*C.gchar)(unsafe.Pointer(C.CString(blurb)))
-		defer C.free(unsafe.Pointer(carg3))
+		carg3 = (*C.gchar)(transfer.GLibString(blurb))
+		defer C.g_free(C.gpointer(carg3))
 	}
 	carg4 = C.GType(enumType)
 	carg5 = C.gint(defaultValue)
@@ -1073,15 +1074,15 @@ func ParamSpecFlags(name string, nick string, blurb string, flagsType Type, defa
 	var carg6 C.GParamFlags // in, none, casted
 	var cret  *C.GParamSpec // return, full, converted
 
-	carg1 = (*C.gchar)(unsafe.Pointer(C.CString(name)))
-	defer C.free(unsafe.Pointer(carg1))
+	carg1 = (*C.gchar)(transfer.GLibString(name))
+	defer C.g_free(C.gpointer(carg1))
 	if nick != "" {
-		carg2 = (*C.gchar)(unsafe.Pointer(C.CString(nick)))
-		defer C.free(unsafe.Pointer(carg2))
+		carg2 = (*C.gchar)(transfer.GLibString(nick))
+		defer C.g_free(C.gpointer(carg2))
 	}
 	if blurb != "" {
-		carg3 = (*C.gchar)(unsafe.Pointer(C.CString(blurb)))
-		defer C.free(unsafe.Pointer(carg3))
+		carg3 = (*C.gchar)(transfer.GLibString(blurb))
+		defer C.g_free(C.gpointer(carg3))
 	}
 	carg4 = C.GType(flagsType)
 	carg5 = C.guint(defaultValue)
@@ -1115,15 +1116,15 @@ func ParamSpecFloat(name string, nick string, blurb string, minimum float32, max
 	var carg7 C.GParamFlags // in, none, casted
 	var cret  *C.GParamSpec // return, full, converted
 
-	carg1 = (*C.gchar)(unsafe.Pointer(C.CString(name)))
-	defer C.free(unsafe.Pointer(carg1))
+	carg1 = (*C.gchar)(transfer.GLibString(name))
+	defer C.g_free(C.gpointer(carg1))
 	if nick != "" {
-		carg2 = (*C.gchar)(unsafe.Pointer(C.CString(nick)))
-		defer C.free(unsafe.Pointer(carg2))
+		carg2 = (*C.gchar)(transfer.GLibString(nick))
+		defer C.g_free(C.gpointer(carg2))
 	}
 	if blurb != "" {
-		carg3 = (*C.gchar)(unsafe.Pointer(C.CString(blurb)))
-		defer C.free(unsafe.Pointer(carg3))
+		carg3 = (*C.gchar)(transfer.GLibString(blurb))
+		defer C.g_free(C.gpointer(carg3))
 	}
 	carg4 = C.gfloat(minimum)
 	carg5 = C.gfloat(maximum)
@@ -1157,15 +1158,15 @@ func ParamSpecGType(name string, nick string, blurb string, isAType Type, flags 
 	var carg5 C.GParamFlags // in, none, casted
 	var cret  *C.GParamSpec // return, full, converted
 
-	carg1 = (*C.gchar)(unsafe.Pointer(C.CString(name)))
-	defer C.free(unsafe.Pointer(carg1))
+	carg1 = (*C.gchar)(transfer.GLibString(name))
+	defer C.g_free(C.gpointer(carg1))
 	if nick != "" {
-		carg2 = (*C.gchar)(unsafe.Pointer(C.CString(nick)))
-		defer C.free(unsafe.Pointer(carg2))
+		carg2 = (*C.gchar)(transfer.GLibString(nick))
+		defer C.g_free(C.gpointer(carg2))
 	}
 	if blurb != "" {
-		carg3 = (*C.gchar)(unsafe.Pointer(C.CString(blurb)))
-		defer C.free(unsafe.Pointer(carg3))
+		carg3 = (*C.gchar)(transfer.GLibString(blurb))
+		defer C.g_free(C.gpointer(carg3))
 	}
 	carg4 = C.GType(isAType)
 	carg5 = C.GParamFlags(flags)
@@ -1197,15 +1198,15 @@ func ParamSpecInt32(name string, nick string, blurb string, minimum int32, maxim
 	var carg7 C.GParamFlags // in, none, casted
 	var cret  *C.GParamSpec // return, full, converted
 
-	carg1 = (*C.gchar)(unsafe.Pointer(C.CString(name)))
-	defer C.free(unsafe.Pointer(carg1))
+	carg1 = (*C.gchar)(transfer.GLibString(name))
+	defer C.g_free(C.gpointer(carg1))
 	if nick != "" {
-		carg2 = (*C.gchar)(unsafe.Pointer(C.CString(nick)))
-		defer C.free(unsafe.Pointer(carg2))
+		carg2 = (*C.gchar)(transfer.GLibString(nick))
+		defer C.g_free(C.gpointer(carg2))
 	}
 	if blurb != "" {
-		carg3 = (*C.gchar)(unsafe.Pointer(C.CString(blurb)))
-		defer C.free(unsafe.Pointer(carg3))
+		carg3 = (*C.gchar)(transfer.GLibString(blurb))
+		defer C.g_free(C.gpointer(carg3))
 	}
 	carg4 = C.gint(minimum)
 	carg5 = C.gint(maximum)
@@ -1241,15 +1242,15 @@ func ParamSpecInt64(name string, nick string, blurb string, minimum int64, maxim
 	var carg7 C.GParamFlags // in, none, casted
 	var cret  *C.GParamSpec // return, full, converted
 
-	carg1 = (*C.gchar)(unsafe.Pointer(C.CString(name)))
-	defer C.free(unsafe.Pointer(carg1))
+	carg1 = (*C.gchar)(transfer.GLibString(name))
+	defer C.g_free(C.gpointer(carg1))
 	if nick != "" {
-		carg2 = (*C.gchar)(unsafe.Pointer(C.CString(nick)))
-		defer C.free(unsafe.Pointer(carg2))
+		carg2 = (*C.gchar)(transfer.GLibString(nick))
+		defer C.g_free(C.gpointer(carg2))
 	}
 	if blurb != "" {
-		carg3 = (*C.gchar)(unsafe.Pointer(C.CString(blurb)))
-		defer C.free(unsafe.Pointer(carg3))
+		carg3 = (*C.gchar)(transfer.GLibString(blurb))
+		defer C.g_free(C.gpointer(carg3))
 	}
 	carg4 = C.gint64(minimum)
 	carg5 = C.gint64(maximum)
@@ -1285,15 +1286,15 @@ func ParamSpecLong(name string, nick string, blurb string, minimum int32, maximu
 	var carg7 C.GParamFlags // in, none, casted
 	var cret  *C.GParamSpec // return, full, converted
 
-	carg1 = (*C.gchar)(unsafe.Pointer(C.CString(name)))
-	defer C.free(unsafe.Pointer(carg1))
+	carg1 = (*C.gchar)(transfer.GLibString(name))
+	defer C.g_free(C.gpointer(carg1))
 	if nick != "" {
-		carg2 = (*C.gchar)(unsafe.Pointer(C.CString(nick)))
-		defer C.free(unsafe.Pointer(carg2))
+		carg2 = (*C.gchar)(transfer.GLibString(nick))
+		defer C.g_free(C.gpointer(carg2))
 	}
 	if blurb != "" {
-		carg3 = (*C.gchar)(unsafe.Pointer(C.CString(blurb)))
-		defer C.free(unsafe.Pointer(carg3))
+		carg3 = (*C.gchar)(transfer.GLibString(blurb))
+		defer C.g_free(C.gpointer(carg3))
 	}
 	carg4 = C.glong(minimum)
 	carg5 = C.glong(maximum)
@@ -1327,15 +1328,15 @@ func ParamSpecObject(name string, nick string, blurb string, objectType Type, fl
 	var carg5 C.GParamFlags // in, none, casted
 	var cret  *C.GParamSpec // return, full, converted
 
-	carg1 = (*C.gchar)(unsafe.Pointer(C.CString(name)))
-	defer C.free(unsafe.Pointer(carg1))
+	carg1 = (*C.gchar)(transfer.GLibString(name))
+	defer C.g_free(C.gpointer(carg1))
 	if nick != "" {
-		carg2 = (*C.gchar)(unsafe.Pointer(C.CString(nick)))
-		defer C.free(unsafe.Pointer(carg2))
+		carg2 = (*C.gchar)(transfer.GLibString(nick))
+		defer C.g_free(C.gpointer(carg2))
 	}
 	if blurb != "" {
-		carg3 = (*C.gchar)(unsafe.Pointer(C.CString(blurb)))
-		defer C.free(unsafe.Pointer(carg3))
+		carg3 = (*C.gchar)(transfer.GLibString(blurb))
+		defer C.g_free(C.gpointer(carg3))
 	}
 	carg4 = C.GType(objectType)
 	carg5 = C.GParamFlags(flags)
@@ -1365,15 +1366,15 @@ func ParamSpecParam(name string, nick string, blurb string, paramType Type, flag
 	var carg5 C.GParamFlags // in, none, casted
 	var cret  *C.GParamSpec // return, full, converted
 
-	carg1 = (*C.gchar)(unsafe.Pointer(C.CString(name)))
-	defer C.free(unsafe.Pointer(carg1))
+	carg1 = (*C.gchar)(transfer.GLibString(name))
+	defer C.g_free(C.gpointer(carg1))
 	if nick != "" {
-		carg2 = (*C.gchar)(unsafe.Pointer(C.CString(nick)))
-		defer C.free(unsafe.Pointer(carg2))
+		carg2 = (*C.gchar)(transfer.GLibString(nick))
+		defer C.g_free(C.gpointer(carg2))
 	}
 	if blurb != "" {
-		carg3 = (*C.gchar)(unsafe.Pointer(C.CString(blurb)))
-		defer C.free(unsafe.Pointer(carg3))
+		carg3 = (*C.gchar)(transfer.GLibString(blurb))
+		defer C.g_free(C.gpointer(carg3))
 	}
 	carg4 = C.GType(paramType)
 	carg5 = C.GParamFlags(flags)
@@ -1402,15 +1403,15 @@ func ParamSpecPointer(name string, nick string, blurb string, flags ParamFlags) 
 	var carg4 C.GParamFlags // in, none, casted
 	var cret  *C.GParamSpec // return, full, converted
 
-	carg1 = (*C.gchar)(unsafe.Pointer(C.CString(name)))
-	defer C.free(unsafe.Pointer(carg1))
+	carg1 = (*C.gchar)(transfer.GLibString(name))
+	defer C.g_free(C.gpointer(carg1))
 	if nick != "" {
-		carg2 = (*C.gchar)(unsafe.Pointer(C.CString(nick)))
-		defer C.free(unsafe.Pointer(carg2))
+		carg2 = (*C.gchar)(transfer.GLibString(nick))
+		defer C.g_free(C.gpointer(carg2))
 	}
 	if blurb != "" {
-		carg3 = (*C.gchar)(unsafe.Pointer(C.CString(blurb)))
-		defer C.free(unsafe.Pointer(carg3))
+		carg3 = (*C.gchar)(transfer.GLibString(blurb))
+		defer C.g_free(C.gpointer(carg3))
 	}
 	carg4 = C.GParamFlags(flags)
 
@@ -1438,19 +1439,19 @@ func ParamSpecString(name string, nick string, blurb string, defaultValue string
 	var carg5 C.GParamFlags // in, none, casted
 	var cret  *C.GParamSpec // return, full, converted
 
-	carg1 = (*C.gchar)(unsafe.Pointer(C.CString(name)))
-	defer C.free(unsafe.Pointer(carg1))
+	carg1 = (*C.gchar)(transfer.GLibString(name))
+	defer C.g_free(C.gpointer(carg1))
 	if nick != "" {
-		carg2 = (*C.gchar)(unsafe.Pointer(C.CString(nick)))
-		defer C.free(unsafe.Pointer(carg2))
+		carg2 = (*C.gchar)(transfer.GLibString(nick))
+		defer C.g_free(C.gpointer(carg2))
 	}
 	if blurb != "" {
-		carg3 = (*C.gchar)(unsafe.Pointer(C.CString(blurb)))
-		defer C.free(unsafe.Pointer(carg3))
+		carg3 = (*C.gchar)(transfer.GLibString(blurb))
+		defer C.g_free(C.gpointer(carg3))
 	}
 	if defaultValue != "" {
-		carg4 = (*C.gchar)(unsafe.Pointer(C.CString(defaultValue)))
-		defer C.free(unsafe.Pointer(carg4))
+		carg4 = (*C.gchar)(transfer.GLibString(defaultValue))
+		defer C.g_free(C.gpointer(carg4))
 	}
 	carg5 = C.GParamFlags(flags)
 
@@ -1481,15 +1482,15 @@ func ParamSpecUchar(name string, nick string, blurb string, minimum uint8, maxim
 	var carg7 C.GParamFlags // in, none, casted
 	var cret  *C.GParamSpec // return, full, converted
 
-	carg1 = (*C.gchar)(unsafe.Pointer(C.CString(name)))
-	defer C.free(unsafe.Pointer(carg1))
+	carg1 = (*C.gchar)(transfer.GLibString(name))
+	defer C.g_free(C.gpointer(carg1))
 	if nick != "" {
-		carg2 = (*C.gchar)(unsafe.Pointer(C.CString(nick)))
-		defer C.free(unsafe.Pointer(carg2))
+		carg2 = (*C.gchar)(transfer.GLibString(nick))
+		defer C.g_free(C.gpointer(carg2))
 	}
 	if blurb != "" {
-		carg3 = (*C.gchar)(unsafe.Pointer(C.CString(blurb)))
-		defer C.free(unsafe.Pointer(carg3))
+		carg3 = (*C.gchar)(transfer.GLibString(blurb))
+		defer C.g_free(C.gpointer(carg3))
 	}
 	carg4 = C.guint8(minimum)
 	carg5 = C.guint8(maximum)
@@ -1525,15 +1526,15 @@ func ParamSpecUint(name string, nick string, blurb string, minimum uint, maximum
 	var carg7 C.GParamFlags // in, none, casted
 	var cret  *C.GParamSpec // return, full, converted
 
-	carg1 = (*C.gchar)(unsafe.Pointer(C.CString(name)))
-	defer C.free(unsafe.Pointer(carg1))
+	carg1 = (*C.gchar)(transfer.GLibString(name))
+	defer C.g_free(C.gpointer(carg1))
 	if nick != "" {
-		carg2 = (*C.gchar)(unsafe.Pointer(C.CString(nick)))
-		defer C.free(unsafe.Pointer(carg2))
+		carg2 = (*C.gchar)(transfer.GLibString(nick))
+		defer C.g_free(C.gpointer(carg2))
 	}
 	if blurb != "" {
-		carg3 = (*C.gchar)(unsafe.Pointer(C.CString(blurb)))
-		defer C.free(unsafe.Pointer(carg3))
+		carg3 = (*C.gchar)(transfer.GLibString(blurb))
+		defer C.g_free(C.gpointer(carg3))
 	}
 	carg4 = C.guint(minimum)
 	carg5 = C.guint(maximum)
@@ -1569,15 +1570,15 @@ func ParamSpecUint64(name string, nick string, blurb string, minimum uint64, max
 	var carg7 C.GParamFlags // in, none, casted
 	var cret  *C.GParamSpec // return, full, converted
 
-	carg1 = (*C.gchar)(unsafe.Pointer(C.CString(name)))
-	defer C.free(unsafe.Pointer(carg1))
+	carg1 = (*C.gchar)(transfer.GLibString(name))
+	defer C.g_free(C.gpointer(carg1))
 	if nick != "" {
-		carg2 = (*C.gchar)(unsafe.Pointer(C.CString(nick)))
-		defer C.free(unsafe.Pointer(carg2))
+		carg2 = (*C.gchar)(transfer.GLibString(nick))
+		defer C.g_free(C.gpointer(carg2))
 	}
 	if blurb != "" {
-		carg3 = (*C.gchar)(unsafe.Pointer(C.CString(blurb)))
-		defer C.free(unsafe.Pointer(carg3))
+		carg3 = (*C.gchar)(transfer.GLibString(blurb))
+		defer C.g_free(C.gpointer(carg3))
 	}
 	carg4 = C.guint64(minimum)
 	carg5 = C.guint64(maximum)
@@ -1613,15 +1614,15 @@ func ParamSpecUlong(name string, nick string, blurb string, minimum uint32, maxi
 	var carg7 C.GParamFlags // in, none, casted
 	var cret  *C.GParamSpec // return, full, converted
 
-	carg1 = (*C.gchar)(unsafe.Pointer(C.CString(name)))
-	defer C.free(unsafe.Pointer(carg1))
+	carg1 = (*C.gchar)(transfer.GLibString(name))
+	defer C.g_free(C.gpointer(carg1))
 	if nick != "" {
-		carg2 = (*C.gchar)(unsafe.Pointer(C.CString(nick)))
-		defer C.free(unsafe.Pointer(carg2))
+		carg2 = (*C.gchar)(transfer.GLibString(nick))
+		defer C.g_free(C.gpointer(carg2))
 	}
 	if blurb != "" {
-		carg3 = (*C.gchar)(unsafe.Pointer(C.CString(blurb)))
-		defer C.free(unsafe.Pointer(carg3))
+		carg3 = (*C.gchar)(transfer.GLibString(blurb))
+		defer C.g_free(C.gpointer(carg3))
 	}
 	carg4 = C.gulong(minimum)
 	carg5 = C.gulong(maximum)
@@ -1655,15 +1656,15 @@ func ParamSpecUnichar(name string, nick string, blurb string, defaultValue uint3
 	var carg5 C.GParamFlags // in, none, casted
 	var cret  *C.GParamSpec // return, full, converted
 
-	carg1 = (*C.gchar)(unsafe.Pointer(C.CString(name)))
-	defer C.free(unsafe.Pointer(carg1))
+	carg1 = (*C.gchar)(transfer.GLibString(name))
+	defer C.g_free(C.gpointer(carg1))
 	if nick != "" {
-		carg2 = (*C.gchar)(unsafe.Pointer(C.CString(nick)))
-		defer C.free(unsafe.Pointer(carg2))
+		carg2 = (*C.gchar)(transfer.GLibString(nick))
+		defer C.g_free(C.gpointer(carg2))
 	}
 	if blurb != "" {
-		carg3 = (*C.gchar)(unsafe.Pointer(C.CString(blurb)))
-		defer C.free(unsafe.Pointer(carg3))
+		carg3 = (*C.gchar)(transfer.GLibString(blurb))
+		defer C.g_free(C.gpointer(carg3))
 	}
 	carg4 = C.gunichar(defaultValue)
 	carg5 = C.GParamFlags(flags)
@@ -1833,8 +1834,8 @@ func PointerTypeRegisterStatic(name string) Type {
 	var carg1 *C.gchar // in, none, string
 	var cret  C.GType  // return, none, casted, alias
 
-	carg1 = (*C.gchar)(unsafe.Pointer(C.CString(name)))
-	defer C.free(unsafe.Pointer(carg1))
+	carg1 = (*C.gchar)(transfer.GLibString(name))
+	defer C.g_free(C.gpointer(carg1))
 
 	cret = C.g_pointer_type_register_static(carg1)
 	runtime.KeepAlive(name)
@@ -1853,8 +1854,8 @@ func SignalIsValidName(name string) bool {
 	var carg1 *C.gchar   // in, none, string
 	var cret  C.gboolean // return
 
-	carg1 = (*C.gchar)(unsafe.Pointer(C.CString(name)))
-	defer C.free(unsafe.Pointer(carg1))
+	carg1 = (*C.gchar)(transfer.GLibString(name))
+	defer C.g_free(C.gpointer(carg1))
 
 	cret = C.g_signal_is_valid_name(carg1)
 	runtime.KeepAlive(name)
@@ -1900,8 +1901,8 @@ func SignalLookup(name string, itype Type) uint {
 	var carg2 C.GType  // in, none, casted, alias
 	var cret  C.guint  // return, none, casted
 
-	carg1 = (*C.gchar)(unsafe.Pointer(C.CString(name)))
-	defer C.free(unsafe.Pointer(carg1))
+	carg1 = (*C.gchar)(transfer.GLibString(name))
+	defer C.g_free(C.gpointer(carg1))
 	carg2 = C.GType(itype)
 
 	cret = C.g_signal_lookup(carg1, carg2)
@@ -1947,8 +1948,8 @@ func SignalParseName(detailedSignal string, itype Type, forceDetailQuark bool) (
 	var carg4 C.GQuark   // out, full, casted, alias
 	var cret  C.gboolean // return
 
-	carg1 = (*C.gchar)(unsafe.Pointer(C.CString(detailedSignal)))
-	defer C.free(unsafe.Pointer(carg1))
+	carg1 = (*C.gchar)(transfer.GLibString(detailedSignal))
+	defer C.g_free(C.gpointer(carg1))
 	carg2 = C.GType(itype)
 	if forceDetailQuark {
 		carg5 = C.TRUE
@@ -2206,8 +2207,8 @@ func TypeFromName(name string) Type {
 	var carg1 *C.gchar // in, none, string
 	var cret  C.GType  // return, none, casted, alias
 
-	carg1 = (*C.gchar)(unsafe.Pointer(C.CString(name)))
-	defer C.free(unsafe.Pointer(carg1))
+	carg1 = (*C.gchar)(transfer.GLibString(name))
+	defer C.g_free(C.gpointer(carg1))
 
 	cret = C.g_type_from_name(carg1)
 	runtime.KeepAlive(name)

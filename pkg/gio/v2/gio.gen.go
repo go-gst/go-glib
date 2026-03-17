@@ -10,6 +10,7 @@ import (
 	"unsafe"
 
 	"github.com/go-gst/go-glib/pkg/core/classdata"
+	"github.com/go-gst/go-glib/pkg/core/transfer"
 	"github.com/go-gst/go-glib/pkg/core/userdata"
 	"github.com/go-gst/go-glib/pkg/glib/v2"
 	"github.com/go-gst/go-glib/pkg/gobject/v2"
@@ -130,6 +131,10 @@ import (
 // GOutputStream* _goglib_gio2_IOStream_virtual_get_output_stream(void* fnptr, GIOStream* carg0) {
 // 	return ((GOutputStream* (*) (GIOStream*))(fnptr))(carg0);
 // }
+// extern gchar* _goglib_gio2_InetAddress_to_string(GInetAddress*);
+// gchar* _goglib_gio2_InetAddress_virtual_to_string(void* fnptr, GInetAddress* carg0) {
+// 	return ((gchar* (*) (GInetAddress*))(fnptr))(carg0);
+// }
 // extern gboolean _goglib_gio2_InputStream_close_finish(GInputStream*, GAsyncResult*, GError*);
 // extern gboolean _goglib_gio2_InputStream_close_fn(GInputStream*, GCancellable*, GError*);
 // extern gssize _goglib_gio2_InputStream_read_finish(GInputStream*, GAsyncResult*, GError*);
@@ -246,12 +251,20 @@ import (
 // gboolean _goglib_gio2_Permission_virtual_release_finish(void* fnptr, GPermission* carg0, GAsyncResult* carg1, GError** _cerr) {
 // 	return ((gboolean (*) (GPermission*, GAsyncResult*, GError**))(fnptr))(carg0, carg1, _cerr);
 // }
+// extern gchar* _goglib_gio2_Resolver_lookup_by_address(GResolver*, GInetAddress*, GCancellable*, GError*);
+// extern gchar* _goglib_gio2_Resolver_lookup_by_address_finish(GResolver*, GAsyncResult*, GError*);
 // extern GList* _goglib_gio2_Resolver_lookup_by_name(GResolver*, const gchar*, GCancellable*, GError*);
 // extern GList* _goglib_gio2_Resolver_lookup_by_name_finish(GResolver*, GAsyncResult*, GError*);
 // extern GList* _goglib_gio2_Resolver_lookup_by_name_with_flags(GResolver*, const gchar*, GResolverNameLookupFlags, GCancellable*, GError*);
 // extern GList* _goglib_gio2_Resolver_lookup_by_name_with_flags_finish(GResolver*, GAsyncResult*, GError*);
 // extern GList* _goglib_gio2_Resolver_lookup_service_finish(GResolver*, GAsyncResult*, GError*);
 // extern void _goglib_gio2_Resolver_reload(GResolver*);
+// gchar* _goglib_gio2_Resolver_virtual_lookup_by_address(void* fnptr, GResolver* carg0, GInetAddress* carg1, GCancellable* carg2, GError** _cerr) {
+// 	return ((gchar* (*) (GResolver*, GInetAddress*, GCancellable*, GError**))(fnptr))(carg0, carg1, carg2, _cerr);
+// }
+// gchar* _goglib_gio2_Resolver_virtual_lookup_by_address_finish(void* fnptr, GResolver* carg0, GAsyncResult* carg1, GError** _cerr) {
+// 	return ((gchar* (*) (GResolver*, GAsyncResult*, GError**))(fnptr))(carg0, carg1, _cerr);
+// }
 // GList* _goglib_gio2_Resolver_virtual_lookup_by_name(void* fnptr, GResolver* carg0, const gchar* carg1, GCancellable* carg2, GError** _cerr) {
 // 	return ((GList* (*) (GResolver*, const gchar*, GCancellable*, GError**))(fnptr))(carg0, carg1, carg2, _cerr);
 // }
@@ -354,6 +367,7 @@ import (
 // gboolean _goglib_gio2_TlsConnection_virtual_handshake_finish(void* fnptr, GTlsConnection* carg0, GAsyncResult* carg1, GError** _cerr) {
 // 	return ((gboolean (*) (GTlsConnection*, GAsyncResult*, GError**))(fnptr))(carg0, carg1, _cerr);
 // }
+// extern gchar* _goglib_gio2_TlsDatabase_create_certificate_handle(GTlsDatabase*, GTlsCertificate*);
 // extern GTlsCertificate* _goglib_gio2_TlsDatabase_lookup_certificate_for_handle(GTlsDatabase*, const gchar*, GTlsInteraction*, GTlsDatabaseLookupFlags, GCancellable*, GError*);
 // extern GTlsCertificate* _goglib_gio2_TlsDatabase_lookup_certificate_for_handle_finish(GTlsDatabase*, GAsyncResult*, GError*);
 // extern GTlsCertificate* _goglib_gio2_TlsDatabase_lookup_certificate_issuer(GTlsDatabase*, GTlsCertificate*, GTlsInteraction*, GTlsDatabaseLookupFlags, GCancellable*, GError*);
@@ -361,6 +375,9 @@ import (
 // extern GList* _goglib_gio2_TlsDatabase_lookup_certificates_issued_by_finish(GTlsDatabase*, GAsyncResult*, GError*);
 // extern GTlsCertificateFlags _goglib_gio2_TlsDatabase_verify_chain(GTlsDatabase*, GTlsCertificate*, const gchar*, GSocketConnectable*, GTlsInteraction*, GTlsDatabaseVerifyFlags, GCancellable*, GError*);
 // extern GTlsCertificateFlags _goglib_gio2_TlsDatabase_verify_chain_finish(GTlsDatabase*, GAsyncResult*, GError*);
+// gchar* _goglib_gio2_TlsDatabase_virtual_create_certificate_handle(void* fnptr, GTlsDatabase* carg0, GTlsCertificate* carg1) {
+// 	return ((gchar* (*) (GTlsDatabase*, GTlsCertificate*))(fnptr))(carg0, carg1);
+// }
 // GTlsCertificate* _goglib_gio2_TlsDatabase_virtual_lookup_certificate_for_handle(void* fnptr, GTlsDatabase* carg0, const gchar* carg1, GTlsInteraction* carg2, GTlsDatabaseLookupFlags carg3, GCancellable* carg4, GError** _cerr) {
 // 	return ((GTlsCertificate* (*) (GTlsDatabase*, const gchar*, GTlsInteraction*, GTlsDatabaseLookupFlags, GCancellable*, GError**))(fnptr))(carg0, carg1, carg2, carg3, carg4, _cerr);
 // }
@@ -512,6 +529,7 @@ import (
 // }
 // extern gboolean _goglib_gio2_FileIOStream_can_seek(GFileIOStream*);
 // extern gboolean _goglib_gio2_FileIOStream_can_truncate(GFileIOStream*);
+// extern char* _goglib_gio2_FileIOStream_get_etag(GFileIOStream*);
 // extern GFileInfo* _goglib_gio2_FileIOStream_query_info(GFileIOStream*, const char*, GCancellable*, GError*);
 // extern GFileInfo* _goglib_gio2_FileIOStream_query_info_finish(GFileIOStream*, GAsyncResult*, GError*);
 // extern gboolean _goglib_gio2_FileIOStream_seek(GFileIOStream*, goffset, GSeekType, GCancellable*, GError*);
@@ -522,6 +540,9 @@ import (
 // }
 // gboolean _goglib_gio2_FileIOStream_virtual_can_truncate(void* fnptr, GFileIOStream* carg0) {
 // 	return ((gboolean (*) (GFileIOStream*))(fnptr))(carg0);
+// }
+// char* _goglib_gio2_FileIOStream_virtual_get_etag(void* fnptr, GFileIOStream* carg0) {
+// 	return ((char* (*) (GFileIOStream*))(fnptr))(carg0);
 // }
 // GFileInfo* _goglib_gio2_FileIOStream_virtual_query_info(void* fnptr, GFileIOStream* carg0, const char* carg1, GCancellable* carg2, GError** _cerr) {
 // 	return ((GFileInfo* (*) (GFileIOStream*, const char*, GCancellable*, GError**))(fnptr))(carg0, carg1, carg2, _cerr);
@@ -560,6 +581,7 @@ import (
 // }
 // extern gboolean _goglib_gio2_FileOutputStream_can_seek(GFileOutputStream*);
 // extern gboolean _goglib_gio2_FileOutputStream_can_truncate(GFileOutputStream*);
+// extern char* _goglib_gio2_FileOutputStream_get_etag(GFileOutputStream*);
 // extern GFileInfo* _goglib_gio2_FileOutputStream_query_info(GFileOutputStream*, const char*, GCancellable*, GError*);
 // extern GFileInfo* _goglib_gio2_FileOutputStream_query_info_finish(GFileOutputStream*, GAsyncResult*, GError*);
 // extern gboolean _goglib_gio2_FileOutputStream_seek(GFileOutputStream*, goffset, GSeekType, GCancellable*, GError*);
@@ -570,6 +592,9 @@ import (
 // }
 // gboolean _goglib_gio2_FileOutputStream_virtual_can_truncate(void* fnptr, GFileOutputStream* carg0) {
 // 	return ((gboolean (*) (GFileOutputStream*))(fnptr))(carg0);
+// }
+// char* _goglib_gio2_FileOutputStream_virtual_get_etag(void* fnptr, GFileOutputStream* carg0) {
+// 	return ((char* (*) (GFileOutputStream*))(fnptr))(carg0);
 // }
 // GFileInfo* _goglib_gio2_FileOutputStream_virtual_query_info(void* fnptr, GFileOutputStream* carg0, const char* carg1, GCancellable* carg2, GError** _cerr) {
 // 	return ((GFileInfo* (*) (GFileOutputStream*, const char*, GCancellable*, GError**))(fnptr))(carg0, carg1, carg2, _cerr);
@@ -4798,8 +4823,8 @@ func ContentTypeCanBeExecutable(typ string) bool {
 	var carg1 *C.gchar   // in, none, string
 	var cret  C.gboolean // return
 
-	carg1 = (*C.gchar)(unsafe.Pointer(C.CString(typ)))
-	defer C.free(unsafe.Pointer(carg1))
+	carg1 = (*C.gchar)(transfer.GLibString(typ))
+	defer C.g_free(C.gpointer(carg1))
 
 	cret = C.g_content_type_can_be_executable(carg1)
 	runtime.KeepAlive(typ)
@@ -4821,10 +4846,10 @@ func ContentTypeEquals(type1 string, type2 string) bool {
 	var carg2 *C.gchar   // in, none, string
 	var cret  C.gboolean // return
 
-	carg1 = (*C.gchar)(unsafe.Pointer(C.CString(type1)))
-	defer C.free(unsafe.Pointer(carg1))
-	carg2 = (*C.gchar)(unsafe.Pointer(C.CString(type2)))
-	defer C.free(unsafe.Pointer(carg2))
+	carg1 = (*C.gchar)(transfer.GLibString(type1))
+	defer C.g_free(C.gpointer(carg1))
+	carg2 = (*C.gchar)(transfer.GLibString(type2))
+	defer C.g_free(C.gpointer(carg2))
 
 	cret = C.g_content_type_equals(carg1, carg2)
 	runtime.KeepAlive(type1)
@@ -4846,8 +4871,8 @@ func ContentTypeFromMimeType(mimeType string) string {
 	var carg1 *C.gchar // in, none, string
 	var cret  *C.gchar // return, full, string, nullable-string
 
-	carg1 = (*C.gchar)(unsafe.Pointer(C.CString(mimeType)))
-	defer C.free(unsafe.Pointer(carg1))
+	carg1 = (*C.gchar)(transfer.GLibString(mimeType))
+	defer C.g_free(C.gpointer(carg1))
 
 	cret = C.g_content_type_from_mime_type(carg1)
 	runtime.KeepAlive(mimeType)
@@ -4869,8 +4894,8 @@ func ContentTypeGetDescription(typ string) string {
 	var carg1 *C.gchar // in, none, string
 	var cret  *C.gchar // return, full, string
 
-	carg1 = (*C.gchar)(unsafe.Pointer(C.CString(typ)))
-	defer C.free(unsafe.Pointer(carg1))
+	carg1 = (*C.gchar)(transfer.GLibString(typ))
+	defer C.g_free(C.gpointer(carg1))
 
 	cret = C.g_content_type_get_description(carg1)
 	runtime.KeepAlive(typ)
@@ -4890,8 +4915,8 @@ func ContentTypeGetGenericIconName(typ string) string {
 	var carg1 *C.gchar // in, none, string
 	var cret  *C.gchar // return, full, string, nullable-string
 
-	carg1 = (*C.gchar)(unsafe.Pointer(C.CString(typ)))
-	defer C.free(unsafe.Pointer(carg1))
+	carg1 = (*C.gchar)(transfer.GLibString(typ))
+	defer C.g_free(C.gpointer(carg1))
 
 	cret = C.g_content_type_get_generic_icon_name(carg1)
 	runtime.KeepAlive(typ)
@@ -4913,8 +4938,8 @@ func ContentTypeGetIcon(typ string) Icon {
 	var carg1 *C.gchar // in, none, string
 	var cret  *C.GIcon // return, full, converted
 
-	carg1 = (*C.gchar)(unsafe.Pointer(C.CString(typ)))
-	defer C.free(unsafe.Pointer(carg1))
+	carg1 = (*C.gchar)(transfer.GLibString(typ))
+	defer C.g_free(C.gpointer(carg1))
 
 	cret = C.g_content_type_get_icon(carg1)
 	runtime.KeepAlive(typ)
@@ -4950,8 +4975,8 @@ func ContentTypeGetMimeType(typ string) string {
 	var carg1 *C.gchar // in, none, string
 	var cret  *C.gchar // return, full, string, nullable-string
 
-	carg1 = (*C.gchar)(unsafe.Pointer(C.CString(typ)))
-	defer C.free(unsafe.Pointer(carg1))
+	carg1 = (*C.gchar)(transfer.GLibString(typ))
+	defer C.g_free(C.gpointer(carg1))
 
 	cret = C.g_content_type_get_mime_type(carg1)
 	runtime.KeepAlive(typ)
@@ -4973,8 +4998,8 @@ func ContentTypeGetSymbolicIcon(typ string) Icon {
 	var carg1 *C.gchar // in, none, string
 	var cret  *C.GIcon // return, full, converted
 
-	carg1 = (*C.gchar)(unsafe.Pointer(C.CString(typ)))
-	defer C.free(unsafe.Pointer(carg1))
+	carg1 = (*C.gchar)(transfer.GLibString(typ))
+	defer C.g_free(C.gpointer(carg1))
 
 	cret = C.g_content_type_get_symbolic_icon(carg1)
 	runtime.KeepAlive(typ)
@@ -4997,8 +5022,8 @@ func ContentTypeGuess(filename string, data []byte) (bool, string) {
 	var cret  *C.gchar   // return, full, string
 
 	if filename != "" {
-		carg1 = (*C.gchar)(unsafe.Pointer(C.CString(filename)))
-		defer C.free(unsafe.Pointer(carg1))
+		carg1 = (*C.gchar)(transfer.GLibString(filename))
+		defer C.g_free(C.gpointer(carg1))
 	}
 	_ = data
 	_ = carg2
@@ -5050,10 +5075,10 @@ func ContentTypeIsA(typ string, supertype string) bool {
 	var carg2 *C.gchar   // in, none, string
 	var cret  C.gboolean // return
 
-	carg1 = (*C.gchar)(unsafe.Pointer(C.CString(typ)))
-	defer C.free(unsafe.Pointer(carg1))
-	carg2 = (*C.gchar)(unsafe.Pointer(C.CString(supertype)))
-	defer C.free(unsafe.Pointer(carg2))
+	carg1 = (*C.gchar)(transfer.GLibString(typ))
+	defer C.g_free(C.gpointer(carg1))
+	carg2 = (*C.gchar)(transfer.GLibString(supertype))
+	defer C.g_free(C.gpointer(carg2))
 
 	cret = C.g_content_type_is_a(carg1, carg2)
 	runtime.KeepAlive(typ)
@@ -5076,10 +5101,10 @@ func ContentTypeIsMimeType(typ string, mimeType string) bool {
 	var carg2 *C.gchar   // in, none, string
 	var cret  C.gboolean // return
 
-	carg1 = (*C.gchar)(unsafe.Pointer(C.CString(typ)))
-	defer C.free(unsafe.Pointer(carg1))
-	carg2 = (*C.gchar)(unsafe.Pointer(C.CString(mimeType)))
-	defer C.free(unsafe.Pointer(carg2))
+	carg1 = (*C.gchar)(transfer.GLibString(typ))
+	defer C.g_free(C.gpointer(carg1))
+	carg2 = (*C.gchar)(transfer.GLibString(mimeType))
+	defer C.g_free(C.gpointer(carg2))
 
 	cret = C.g_content_type_is_mime_type(carg1, carg2)
 	runtime.KeepAlive(typ)
@@ -5101,8 +5126,8 @@ func ContentTypeIsUnknown(typ string) bool {
 	var carg1 *C.gchar   // in, none, string
 	var cret  C.gboolean // return
 
-	carg1 = (*C.gchar)(unsafe.Pointer(C.CString(typ)))
-	defer C.free(unsafe.Pointer(carg1))
+	carg1 = (*C.gchar)(transfer.GLibString(typ))
+	defer C.g_free(C.gpointer(carg1))
 
 	cret = C.g_content_type_is_unknown(carg1)
 	runtime.KeepAlive(typ)
@@ -5160,8 +5185,8 @@ func DBusAddressEscapeValue(str string) string {
 	var carg1 *C.gchar // in, none, string
 	var cret  *C.gchar // return, full, string
 
-	carg1 = (*C.gchar)(unsafe.Pointer(C.CString(str)))
-	defer C.free(unsafe.Pointer(carg1))
+	carg1 = (*C.gchar)(transfer.GLibString(str))
+	defer C.g_free(C.gpointer(carg1))
 
 	cret = C.g_dbus_address_escape_value(carg1)
 	runtime.KeepAlive(str)
@@ -5213,8 +5238,8 @@ func DBusAddressGetStream(address string, cancellable Cancellable, callback Asyn
 	var carg3 C.GAsyncReadyCallback // callback, scope: async, closure: carg4, nullable
 	var carg4 C.gpointer            // implicit
 
-	carg1 = (*C.gchar)(unsafe.Pointer(C.CString(address)))
-	defer C.free(unsafe.Pointer(carg1))
+	carg1 = (*C.gchar)(transfer.GLibString(address))
+	defer C.g_free(C.gpointer(carg1))
 	if cancellable != nil {
 		carg2 = (*C.GCancellable)(UnsafeCancellableToGlibNone(cancellable))
 	}
@@ -5269,8 +5294,8 @@ func DBusAddressGetStreamSync(address string, cancellable Cancellable) (string, 
 	var cret  *C.GIOStream    // return, full, converted
 	var _cerr *C.GError       // out, full, converted, nullable
 
-	carg1 = (*C.gchar)(unsafe.Pointer(C.CString(address)))
-	defer C.free(unsafe.Pointer(carg1))
+	carg1 = (*C.gchar)(transfer.GLibString(address))
+	defer C.g_free(C.gpointer(carg1))
 	if cancellable != nil {
 		carg3 = (*C.GCancellable)(UnsafeCancellableToGlibNone(cancellable))
 	}
@@ -5302,8 +5327,8 @@ func DBusEscapeObjectPath(s string) string {
 	var carg1 *C.gchar // in, none, string
 	var cret  *C.gchar // return, full, string
 
-	carg1 = (*C.gchar)(unsafe.Pointer(C.CString(s)))
-	defer C.free(unsafe.Pointer(carg1))
+	carg1 = (*C.gchar)(transfer.GLibString(s))
+	defer C.g_free(C.gpointer(carg1))
 
 	cret = C.g_dbus_escape_object_path(carg1)
 	runtime.KeepAlive(s)
@@ -5361,8 +5386,8 @@ func DBusIsAddress(str string) bool {
 	var carg1 *C.gchar   // in, none, string
 	var cret  C.gboolean // return
 
-	carg1 = (*C.gchar)(unsafe.Pointer(C.CString(str)))
-	defer C.free(unsafe.Pointer(carg1))
+	carg1 = (*C.gchar)(transfer.GLibString(str))
+	defer C.g_free(C.gpointer(carg1))
 
 	cret = C.g_dbus_is_address(carg1)
 	runtime.KeepAlive(str)
@@ -5383,8 +5408,8 @@ func DBusIsErrorName(str string) bool {
 	var carg1 *C.gchar   // in, none, string
 	var cret  C.gboolean // return
 
-	carg1 = (*C.gchar)(unsafe.Pointer(C.CString(str)))
-	defer C.free(unsafe.Pointer(carg1))
+	carg1 = (*C.gchar)(transfer.GLibString(str))
+	defer C.g_free(C.gpointer(carg1))
 
 	cret = C.g_dbus_is_error_name(carg1)
 	runtime.KeepAlive(str)
@@ -5405,8 +5430,8 @@ func DBusIsGuid(str string) bool {
 	var carg1 *C.gchar   // in, none, string
 	var cret  C.gboolean // return
 
-	carg1 = (*C.gchar)(unsafe.Pointer(C.CString(str)))
-	defer C.free(unsafe.Pointer(carg1))
+	carg1 = (*C.gchar)(transfer.GLibString(str))
+	defer C.g_free(C.gpointer(carg1))
 
 	cret = C.g_dbus_is_guid(carg1)
 	runtime.KeepAlive(str)
@@ -5427,8 +5452,8 @@ func DBusIsInterfaceName(str string) bool {
 	var carg1 *C.gchar   // in, none, string
 	var cret  C.gboolean // return
 
-	carg1 = (*C.gchar)(unsafe.Pointer(C.CString(str)))
-	defer C.free(unsafe.Pointer(carg1))
+	carg1 = (*C.gchar)(transfer.GLibString(str))
+	defer C.g_free(C.gpointer(carg1))
 
 	cret = C.g_dbus_is_interface_name(carg1)
 	runtime.KeepAlive(str)
@@ -5449,8 +5474,8 @@ func DBusIsMemberName(str string) bool {
 	var carg1 *C.gchar   // in, none, string
 	var cret  C.gboolean // return
 
-	carg1 = (*C.gchar)(unsafe.Pointer(C.CString(str)))
-	defer C.free(unsafe.Pointer(carg1))
+	carg1 = (*C.gchar)(transfer.GLibString(str))
+	defer C.g_free(C.gpointer(carg1))
 
 	cret = C.g_dbus_is_member_name(carg1)
 	runtime.KeepAlive(str)
@@ -5471,8 +5496,8 @@ func DBusIsName(str string) bool {
 	var carg1 *C.gchar   // in, none, string
 	var cret  C.gboolean // return
 
-	carg1 = (*C.gchar)(unsafe.Pointer(C.CString(str)))
-	defer C.free(unsafe.Pointer(carg1))
+	carg1 = (*C.gchar)(transfer.GLibString(str))
+	defer C.g_free(C.gpointer(carg1))
 
 	cret = C.g_dbus_is_name(carg1)
 	runtime.KeepAlive(str)
@@ -5494,8 +5519,8 @@ func DBusIsSupportedAddress(str string) (bool, error) {
 	var cret  C.gboolean // return
 	var _cerr *C.GError  // out, full, converted, nullable
 
-	carg1 = (*C.gchar)(unsafe.Pointer(C.CString(str)))
-	defer C.free(unsafe.Pointer(carg1))
+	carg1 = (*C.gchar)(transfer.GLibString(str))
+	defer C.g_free(C.gpointer(carg1))
 
 	cret = C.g_dbus_is_supported_address(carg1, &_cerr)
 	runtime.KeepAlive(str)
@@ -5520,8 +5545,8 @@ func DBusIsUniqueName(str string) bool {
 	var carg1 *C.gchar   // in, none, string
 	var cret  C.gboolean // return
 
-	carg1 = (*C.gchar)(unsafe.Pointer(C.CString(str)))
-	defer C.free(unsafe.Pointer(carg1))
+	carg1 = (*C.gchar)(transfer.GLibString(str))
+	defer C.g_free(C.gpointer(carg1))
 
 	cret = C.g_dbus_is_unique_name(carg1)
 	runtime.KeepAlive(str)
@@ -5542,8 +5567,8 @@ func DBusUnescapeObjectPath(s string) []uint8 {
 	var carg1 *C.gchar  // in, none, string
 	var cret  *C.guint8 // return, transfer: none, C Pointers: 1, Name: array[guint8], scope: , nullable, array (inner guint8 (*typesystem.CastablePrimitive), zero-terminated)
 
-	carg1 = (*C.gchar)(unsafe.Pointer(C.CString(s)))
-	defer C.free(unsafe.Pointer(carg1))
+	carg1 = (*C.gchar)(transfer.GLibString(s))
+	defer C.g_free(C.gpointer(carg1))
 
 	cret = C.g_dbus_unescape_object_path(carg1)
 	runtime.KeepAlive(s)
@@ -5616,8 +5641,8 @@ func IOErrorQuark() glib.Quark {
 func IOModulesScanAllInDirectory(dirname string) {
 	var carg1 *C.char // in, none, string
 
-	carg1 = (*C.char)(unsafe.Pointer(C.CString(dirname)))
-	defer C.free(unsafe.Pointer(carg1))
+	carg1 = (*C.char)(transfer.GLibString(dirname))
+	defer C.g_free(C.gpointer(carg1))
 
 	C.g_io_modules_scan_all_in_directory(carg1)
 	runtime.KeepAlive(dirname)
@@ -5630,8 +5655,8 @@ func IOModulesScanAllInDirectoryWithScope(dirname string, scope *IOModuleScope) 
 	var carg1 *C.gchar          // in, none, string
 	var carg2 *C.GIOModuleScope // in, none, converted
 
-	carg1 = (*C.gchar)(unsafe.Pointer(C.CString(dirname)))
-	defer C.free(unsafe.Pointer(carg1))
+	carg1 = (*C.gchar)(transfer.GLibString(dirname))
+	defer C.g_free(C.gpointer(carg1))
 	carg2 = (*C.GIOModuleScope)(UnsafeIOModuleScopeToGlibNone(scope))
 
 	C.g_io_modules_scan_all_in_directory_with_scope(carg1, carg2)
@@ -5786,8 +5811,8 @@ func ResourcesEnumerateChildren(path string, lookupFlags ResourceLookupFlags) ([
 	var cret  **C.char               // return, transfer: full, C Pointers: 2, Name: array[utf8], scope: , array (inner gchar* (*typesystem.StringPrimitive), zero-terminated)
 	var _cerr *C.GError              // out, full, converted, nullable
 
-	carg1 = (*C.char)(unsafe.Pointer(C.CString(path)))
-	defer C.free(unsafe.Pointer(carg1))
+	carg1 = (*C.char)(transfer.GLibString(path))
+	defer C.g_free(C.gpointer(carg1))
 	carg2 = C.GResourceLookupFlags(lookupFlags)
 
 	cret = C.g_resources_enumerate_children(carg1, carg2, &_cerr)
@@ -5818,8 +5843,8 @@ func ResourcesGetInfo(path string, lookupFlags ResourceLookupFlags) (uint, uint3
 	var cret  C.gboolean             // return
 	var _cerr *C.GError              // out, full, converted, nullable
 
-	carg1 = (*C.char)(unsafe.Pointer(C.CString(path)))
-	defer C.free(unsafe.Pointer(carg1))
+	carg1 = (*C.char)(transfer.GLibString(path))
+	defer C.g_free(C.gpointer(carg1))
 	carg2 = C.GResourceLookupFlags(lookupFlags)
 
 	cret = C.g_resources_get_info(carg1, carg2, &carg3, &carg4, &_cerr)
@@ -5852,8 +5877,8 @@ func ResourcesLookupData(path string, lookupFlags ResourceLookupFlags) (*glib.By
 	var cret  *C.GBytes              // return, full, converted
 	var _cerr *C.GError              // out, full, converted, nullable
 
-	carg1 = (*C.char)(unsafe.Pointer(C.CString(path)))
-	defer C.free(unsafe.Pointer(carg1))
+	carg1 = (*C.char)(transfer.GLibString(path))
+	defer C.g_free(C.gpointer(carg1))
 	carg2 = C.GResourceLookupFlags(lookupFlags)
 
 	cret = C.g_resources_lookup_data(carg1, carg2, &_cerr)
@@ -5880,8 +5905,8 @@ func ResourcesOpenStream(path string, lookupFlags ResourceLookupFlags) (InputStr
 	var cret  *C.GInputStream        // return, full, converted
 	var _cerr *C.GError              // out, full, converted, nullable
 
-	carg1 = (*C.char)(unsafe.Pointer(C.CString(path)))
-	defer C.free(unsafe.Pointer(carg1))
+	carg1 = (*C.char)(transfer.GLibString(path))
+	defer C.g_free(C.gpointer(carg1))
 	carg2 = C.GResourceLookupFlags(lookupFlags)
 
 	cret = C.g_resources_open_stream(carg1, carg2, &_cerr)
@@ -5981,8 +6006,8 @@ func ActionNameIsValid(actionName string) bool {
 	var carg1 *C.gchar   // in, none, string
 	var cret  C.gboolean // return
 
-	carg1 = (*C.gchar)(unsafe.Pointer(C.CString(actionName)))
-	defer C.free(unsafe.Pointer(carg1))
+	carg1 = (*C.gchar)(transfer.GLibString(actionName))
+	defer C.g_free(C.gpointer(carg1))
 
 	cret = C.g_action_name_is_valid(carg1)
 	runtime.KeepAlive(actionName)
@@ -6189,8 +6214,8 @@ func (actionGroup *ActionGroupInstance) ActionAdded(actionName string) {
 	var carg1 *C.gchar        // in, none, string
 
 	carg0 = (*C.GActionGroup)(UnsafeActionGroupToGlibNone(actionGroup))
-	carg1 = (*C.gchar)(unsafe.Pointer(C.CString(actionName)))
-	defer C.free(unsafe.Pointer(carg1))
+	carg1 = (*C.gchar)(transfer.GLibString(actionName))
+	defer C.g_free(C.gpointer(carg1))
 
 	C.g_action_group_action_added(carg0, carg1)
 	runtime.KeepAlive(actionGroup)
@@ -6206,8 +6231,8 @@ func (actionGroup *ActionGroupInstance) ActionEnabledChanged(actionName string, 
 	var carg2 C.gboolean      // in
 
 	carg0 = (*C.GActionGroup)(UnsafeActionGroupToGlibNone(actionGroup))
-	carg1 = (*C.gchar)(unsafe.Pointer(C.CString(actionName)))
-	defer C.free(unsafe.Pointer(carg1))
+	carg1 = (*C.gchar)(transfer.GLibString(actionName))
+	defer C.g_free(C.gpointer(carg1))
 	if enabled {
 		carg2 = C.TRUE
 	}
@@ -6226,8 +6251,8 @@ func (actionGroup *ActionGroupInstance) ActionRemoved(actionName string) {
 	var carg1 *C.gchar        // in, none, string
 
 	carg0 = (*C.GActionGroup)(UnsafeActionGroupToGlibNone(actionGroup))
-	carg1 = (*C.gchar)(unsafe.Pointer(C.CString(actionName)))
-	defer C.free(unsafe.Pointer(carg1))
+	carg1 = (*C.gchar)(transfer.GLibString(actionName))
+	defer C.g_free(C.gpointer(carg1))
 
 	C.g_action_group_action_removed(carg0, carg1)
 	runtime.KeepAlive(actionGroup)
@@ -6243,8 +6268,8 @@ func (actionGroup *ActionGroupInstance) GetActionEnabled(actionName string) bool
 	var cret  C.gboolean      // return
 
 	carg0 = (*C.GActionGroup)(UnsafeActionGroupToGlibNone(actionGroup))
-	carg1 = (*C.gchar)(unsafe.Pointer(C.CString(actionName)))
-	defer C.free(unsafe.Pointer(carg1))
+	carg1 = (*C.gchar)(transfer.GLibString(actionName))
+	defer C.g_free(C.gpointer(carg1))
 
 	cret = C.g_action_group_get_action_enabled(carg0, carg1)
 	runtime.KeepAlive(actionGroup)
@@ -6268,8 +6293,8 @@ func (actionGroup *ActionGroupInstance) GetActionParameterType(actionName string
 	var cret  *C.GVariantType // return, none, converted, nullable
 
 	carg0 = (*C.GActionGroup)(UnsafeActionGroupToGlibNone(actionGroup))
-	carg1 = (*C.gchar)(unsafe.Pointer(C.CString(actionName)))
-	defer C.free(unsafe.Pointer(carg1))
+	carg1 = (*C.gchar)(transfer.GLibString(actionName))
+	defer C.g_free(C.gpointer(carg1))
 
 	cret = C.g_action_group_get_action_parameter_type(carg0, carg1)
 	runtime.KeepAlive(actionGroup)
@@ -6293,8 +6318,8 @@ func (actionGroup *ActionGroupInstance) GetActionStateType(actionName string) *g
 	var cret  *C.GVariantType // return, none, converted, nullable
 
 	carg0 = (*C.GActionGroup)(UnsafeActionGroupToGlibNone(actionGroup))
-	carg1 = (*C.gchar)(unsafe.Pointer(C.CString(actionName)))
-	defer C.free(unsafe.Pointer(carg1))
+	carg1 = (*C.gchar)(transfer.GLibString(actionName))
+	defer C.g_free(C.gpointer(carg1))
 
 	cret = C.g_action_group_get_action_state_type(carg0, carg1)
 	runtime.KeepAlive(actionGroup)
@@ -6318,8 +6343,8 @@ func (actionGroup *ActionGroupInstance) HasAction(actionName string) bool {
 	var cret  C.gboolean      // return
 
 	carg0 = (*C.GActionGroup)(UnsafeActionGroupToGlibNone(actionGroup))
-	carg1 = (*C.gchar)(unsafe.Pointer(C.CString(actionName)))
-	defer C.free(unsafe.Pointer(carg1))
+	carg1 = (*C.gchar)(transfer.GLibString(actionName))
+	defer C.g_free(C.gpointer(carg1))
 
 	cret = C.g_action_group_has_action(carg0, carg1)
 	runtime.KeepAlive(actionGroup)
@@ -6471,8 +6496,8 @@ func (actionMap *ActionMapInstance) LookupAction(actionName string) Action {
 	var cret  *C.GAction    // return, none, converted, nullable
 
 	carg0 = (*C.GActionMap)(UnsafeActionMapToGlibNone(actionMap))
-	carg1 = (*C.gchar)(unsafe.Pointer(C.CString(actionName)))
-	defer C.free(unsafe.Pointer(carg1))
+	carg1 = (*C.gchar)(transfer.GLibString(actionName))
+	defer C.g_free(C.gpointer(carg1))
 
 	cret = C.g_action_map_lookup_action(carg0, carg1)
 	runtime.KeepAlive(actionMap)
@@ -6495,8 +6520,8 @@ func (actionMap *ActionMapInstance) RemoveAction(actionName string) {
 	var carg1 *C.gchar      // in, none, string
 
 	carg0 = (*C.GActionMap)(UnsafeActionMapToGlibNone(actionMap))
-	carg1 = (*C.gchar)(unsafe.Pointer(C.CString(actionName)))
-	defer C.free(unsafe.Pointer(carg1))
+	carg1 = (*C.gchar)(transfer.GLibString(actionName))
+	defer C.g_free(C.gpointer(carg1))
 
 	C.g_action_map_remove_action(carg0, carg1)
 	runtime.KeepAlive(actionMap)
@@ -6660,11 +6685,11 @@ func AppInfoCreateFromCommandline(commandline string, applicationName string, fl
 	var cret  *C.GAppInfo           // return, full, converted
 	var _cerr *C.GError             // out, full, converted, nullable
 
-	carg1 = (*C.char)(unsafe.Pointer(C.CString(commandline)))
-	defer C.free(unsafe.Pointer(carg1))
+	carg1 = (*C.char)(transfer.GLibString(commandline))
+	defer C.g_free(C.gpointer(carg1))
 	if applicationName != "" {
-		carg2 = (*C.char)(unsafe.Pointer(C.CString(applicationName)))
-		defer C.free(unsafe.Pointer(carg2))
+		carg2 = (*C.char)(transfer.GLibString(applicationName))
+		defer C.g_free(C.gpointer(carg2))
 	}
 	carg3 = C.GAppInfoCreateFlags(flags)
 
@@ -6713,8 +6738,8 @@ func AppInfoGetAllForType(contentType string) []AppInfo {
 	var carg1 *C.char  // in, none, string
 	var cret  *C.GList // container, transfer: full
 
-	carg1 = (*C.char)(unsafe.Pointer(C.CString(contentType)))
-	defer C.free(unsafe.Pointer(carg1))
+	carg1 = (*C.char)(transfer.GLibString(contentType))
+	defer C.g_free(C.gpointer(carg1))
 
 	cret = C.g_app_info_get_all_for_type(carg1)
 	runtime.KeepAlive(contentType)
@@ -6741,8 +6766,8 @@ func AppInfoGetDefaultForType(contentType string, mustSupportUris bool) AppInfo 
 	var carg2 C.gboolean  // in
 	var cret  *C.GAppInfo // return, full, converted, nullable
 
-	carg1 = (*C.char)(unsafe.Pointer(C.CString(contentType)))
-	defer C.free(unsafe.Pointer(carg1))
+	carg1 = (*C.char)(transfer.GLibString(contentType))
+	defer C.g_free(C.gpointer(carg1))
 	if mustSupportUris {
 		carg2 = C.TRUE
 	}
@@ -6770,8 +6795,8 @@ func AppInfoGetDefaultForTypeAsync(contentType string, mustSupportUris bool, can
 	var carg4 C.GAsyncReadyCallback // callback, scope: async, closure: carg5, nullable
 	var carg5 C.gpointer            // implicit
 
-	carg1 = (*C.char)(unsafe.Pointer(C.CString(contentType)))
-	defer C.free(unsafe.Pointer(carg1))
+	carg1 = (*C.char)(transfer.GLibString(contentType))
+	defer C.g_free(C.gpointer(carg1))
 	if mustSupportUris {
 		carg2 = C.TRUE
 	}
@@ -6821,8 +6846,8 @@ func AppInfoGetDefaultForURIScheme(uriScheme string) AppInfo {
 	var carg1 *C.char     // in, none, string
 	var cret  *C.GAppInfo // return, full, converted, nullable
 
-	carg1 = (*C.char)(unsafe.Pointer(C.CString(uriScheme)))
-	defer C.free(unsafe.Pointer(carg1))
+	carg1 = (*C.char)(transfer.GLibString(uriScheme))
+	defer C.g_free(C.gpointer(carg1))
 
 	cret = C.g_app_info_get_default_for_uri_scheme(carg1)
 	runtime.KeepAlive(uriScheme)
@@ -6845,8 +6870,8 @@ func AppInfoGetDefaultForURISchemeAsync(uriScheme string, cancellable Cancellabl
 	var carg3 C.GAsyncReadyCallback // callback, scope: async, closure: carg4, nullable
 	var carg4 C.gpointer            // implicit
 
-	carg1 = (*C.char)(unsafe.Pointer(C.CString(uriScheme)))
-	defer C.free(unsafe.Pointer(carg1))
+	carg1 = (*C.char)(transfer.GLibString(uriScheme))
+	defer C.g_free(C.gpointer(carg1))
 	if cancellable != nil {
 		carg2 = (*C.GCancellable)(UnsafeCancellableToGlibNone(cancellable))
 	}
@@ -6892,8 +6917,8 @@ func AppInfoGetFallbackForType(contentType string) []AppInfo {
 	var carg1 *C.gchar // in, none, string
 	var cret  *C.GList // container, transfer: full
 
-	carg1 = (*C.gchar)(unsafe.Pointer(C.CString(contentType)))
-	defer C.free(unsafe.Pointer(carg1))
+	carg1 = (*C.gchar)(transfer.GLibString(contentType))
+	defer C.g_free(C.gpointer(carg1))
 
 	cret = C.g_app_info_get_fallback_for_type(carg1)
 	runtime.KeepAlive(contentType)
@@ -6919,8 +6944,8 @@ func AppInfoGetRecommendedForType(contentType string) []AppInfo {
 	var carg1 *C.gchar // in, none, string
 	var cret  *C.GList // container, transfer: full
 
-	carg1 = (*C.gchar)(unsafe.Pointer(C.CString(contentType)))
-	defer C.free(unsafe.Pointer(carg1))
+	carg1 = (*C.gchar)(transfer.GLibString(contentType))
+	defer C.g_free(C.gpointer(carg1))
 
 	cret = C.g_app_info_get_recommended_for_type(carg1)
 	runtime.KeepAlive(contentType)
@@ -6948,8 +6973,8 @@ func AppInfoLaunchDefaultForURI(uri string, _context AppLaunchContext) (bool, er
 	var cret  C.gboolean           // return
 	var _cerr *C.GError            // out, full, converted, nullable
 
-	carg1 = (*C.char)(unsafe.Pointer(C.CString(uri)))
-	defer C.free(unsafe.Pointer(carg1))
+	carg1 = (*C.char)(transfer.GLibString(uri))
+	defer C.g_free(C.gpointer(carg1))
 	if _context != nil {
 		carg2 = (*C.GAppLaunchContext)(UnsafeAppLaunchContextToGlibNone(_context))
 	}
@@ -6981,8 +7006,8 @@ func AppInfoLaunchDefaultForURIAsync(uri string, _context AppLaunchContext, canc
 	var carg4 C.GAsyncReadyCallback // callback, scope: async, closure: carg5, nullable
 	var carg5 C.gpointer            // implicit
 
-	carg1 = (*C.char)(unsafe.Pointer(C.CString(uri)))
-	defer C.free(unsafe.Pointer(carg1))
+	carg1 = (*C.char)(transfer.GLibString(uri))
+	defer C.g_free(C.gpointer(carg1))
 	if _context != nil {
 		carg2 = (*C.GAppLaunchContext)(UnsafeAppLaunchContextToGlibNone(_context))
 	}
@@ -7033,8 +7058,8 @@ func AppInfoLaunchDefaultForURIFinish(result AsyncResult) (bool, error) {
 func AppInfoResetTypeAssociations(contentType string) {
 	var carg1 *C.char // in, none, string
 
-	carg1 = (*C.char)(unsafe.Pointer(C.CString(contentType)))
-	defer C.free(unsafe.Pointer(carg1))
+	carg1 = (*C.char)(transfer.GLibString(contentType))
+	defer C.g_free(C.gpointer(carg1))
 
 	C.g_app_info_reset_type_associations(carg1)
 	runtime.KeepAlive(contentType)
@@ -7050,8 +7075,8 @@ func (appinfo *AppInfoInstance) AddSupportsType(contentType string) (bool, error
 	var _cerr *C.GError   // out, full, converted, nullable
 
 	carg0 = (*C.GAppInfo)(UnsafeAppInfoToGlibNone(appinfo))
-	carg1 = (*C.char)(unsafe.Pointer(C.CString(contentType)))
-	defer C.free(unsafe.Pointer(carg1))
+	carg1 = (*C.char)(transfer.GLibString(contentType))
+	defer C.g_free(C.gpointer(carg1))
 
 	cret = C.g_app_info_add_supports_type(carg0, carg1, &_cerr)
 	runtime.KeepAlive(appinfo)
@@ -7377,8 +7402,8 @@ func (appinfo *AppInfoInstance) RemoveSupportsType(contentType string) (bool, er
 	var _cerr *C.GError   // out, full, converted, nullable
 
 	carg0 = (*C.GAppInfo)(UnsafeAppInfoToGlibNone(appinfo))
-	carg1 = (*C.char)(unsafe.Pointer(C.CString(contentType)))
-	defer C.free(unsafe.Pointer(carg1))
+	carg1 = (*C.char)(transfer.GLibString(contentType))
+	defer C.g_free(C.gpointer(carg1))
 
 	cret = C.g_app_info_remove_supports_type(carg0, carg1, &_cerr)
 	runtime.KeepAlive(appinfo)
@@ -7407,8 +7432,8 @@ func (appinfo *AppInfoInstance) SetAsDefaultForExtension(extension string) (bool
 	var _cerr *C.GError   // out, full, converted, nullable
 
 	carg0 = (*C.GAppInfo)(UnsafeAppInfoToGlibNone(appinfo))
-	carg1 = (*C.char)(unsafe.Pointer(C.CString(extension)))
-	defer C.free(unsafe.Pointer(carg1))
+	carg1 = (*C.char)(transfer.GLibString(extension))
+	defer C.g_free(C.gpointer(carg1))
 
 	cret = C.g_app_info_set_as_default_for_extension(carg0, carg1, &_cerr)
 	runtime.KeepAlive(appinfo)
@@ -7437,8 +7462,8 @@ func (appinfo *AppInfoInstance) SetAsDefaultForType(contentType string) (bool, e
 	var _cerr *C.GError   // out, full, converted, nullable
 
 	carg0 = (*C.GAppInfo)(UnsafeAppInfoToGlibNone(appinfo))
-	carg1 = (*C.char)(unsafe.Pointer(C.CString(contentType)))
-	defer C.free(unsafe.Pointer(carg1))
+	carg1 = (*C.char)(transfer.GLibString(contentType))
+	defer C.g_free(C.gpointer(carg1))
 
 	cret = C.g_app_info_set_as_default_for_type(carg0, carg1, &_cerr)
 	runtime.KeepAlive(appinfo)
@@ -7467,8 +7492,8 @@ func (appinfo *AppInfoInstance) SetAsLastUsedForType(contentType string) (bool, 
 	var _cerr *C.GError   // out, full, converted, nullable
 
 	carg0 = (*C.GAppInfo)(UnsafeAppInfoToGlibNone(appinfo))
-	carg1 = (*C.char)(unsafe.Pointer(C.CString(contentType)))
-	defer C.free(unsafe.Pointer(carg1))
+	carg1 = (*C.char)(transfer.GLibString(contentType))
+	defer C.g_free(C.gpointer(carg1))
 
 	cret = C.g_app_info_set_as_last_used_for_type(carg0, carg1, &_cerr)
 	runtime.KeepAlive(appinfo)
@@ -8567,8 +8592,8 @@ func (drive *DriveInstance) GetIdentifier(kind string) string {
 	var cret  *C.char   // return, full, string, nullable-string
 
 	carg0 = (*C.GDrive)(UnsafeDriveToGlibNone(drive))
-	carg1 = (*C.char)(unsafe.Pointer(C.CString(kind)))
-	defer C.free(unsafe.Pointer(carg1))
+	carg1 = (*C.char)(transfer.GLibString(kind))
+	defer C.g_free(C.gpointer(carg1))
 
 	cret = C.g_drive_get_identifier(carg0, carg1)
 	runtime.KeepAlive(drive)
@@ -10452,8 +10477,8 @@ func NewFileForCommandlineArg(arg string) File {
 	var carg1 *C.char  // in, none, string
 	var cret  *C.GFile // return, full, converted
 
-	carg1 = (*C.char)(unsafe.Pointer(C.CString(arg)))
-	defer C.free(unsafe.Pointer(carg1))
+	carg1 = (*C.char)(transfer.GLibString(arg))
+	defer C.g_free(C.gpointer(carg1))
 
 	cret = C.g_file_new_for_commandline_arg(carg1)
 	runtime.KeepAlive(arg)
@@ -10473,10 +10498,10 @@ func NewFileForCommandlineArgAndCwd(arg string, cwd string) File {
 	var carg2 *C.gchar // in, none, string
 	var cret  *C.GFile // return, full, converted
 
-	carg1 = (*C.gchar)(unsafe.Pointer(C.CString(arg)))
-	defer C.free(unsafe.Pointer(carg1))
-	carg2 = (*C.gchar)(unsafe.Pointer(C.CString(cwd)))
-	defer C.free(unsafe.Pointer(carg2))
+	carg1 = (*C.gchar)(transfer.GLibString(arg))
+	defer C.g_free(C.gpointer(carg1))
+	carg2 = (*C.gchar)(transfer.GLibString(cwd))
+	defer C.g_free(C.gpointer(carg2))
 
 	cret = C.g_file_new_for_commandline_arg_and_cwd(carg1, carg2)
 	runtime.KeepAlive(arg)
@@ -10496,8 +10521,8 @@ func NewFileForPath(path string) File {
 	var carg1 *C.char  // in, none, string
 	var cret  *C.GFile // return, full, converted
 
-	carg1 = (*C.char)(unsafe.Pointer(C.CString(path)))
-	defer C.free(unsafe.Pointer(carg1))
+	carg1 = (*C.char)(transfer.GLibString(path))
+	defer C.g_free(C.gpointer(carg1))
 
 	cret = C.g_file_new_for_path(carg1)
 	runtime.KeepAlive(path)
@@ -10516,8 +10541,8 @@ func NewFileForURI(uri string) File {
 	var carg1 *C.char  // in, none, string
 	var cret  *C.GFile // return, full, converted
 
-	carg1 = (*C.char)(unsafe.Pointer(C.CString(uri)))
-	defer C.free(unsafe.Pointer(carg1))
+	carg1 = (*C.char)(transfer.GLibString(uri))
+	defer C.g_free(C.gpointer(carg1))
 
 	cret = C.g_file_new_for_uri(carg1)
 	runtime.KeepAlive(uri)
@@ -10539,8 +10564,8 @@ func NewFileTmp(tmpl string) (FileIOStream, File, error) {
 	var _cerr *C.GError        // out, full, converted, nullable
 
 	if tmpl != "" {
-		carg1 = (*C.char)(unsafe.Pointer(C.CString(tmpl)))
-		defer C.free(unsafe.Pointer(carg1))
+		carg1 = (*C.char)(transfer.GLibString(tmpl))
+		defer C.g_free(C.gpointer(carg1))
 	}
 
 	cret = C.g_file_new_tmp(carg1, &carg2, &_cerr)
@@ -10570,8 +10595,8 @@ func NewFileTmpAsync(tmpl string, ioPriority int32, cancellable Cancellable, cal
 	var carg5 C.gpointer            // implicit
 
 	if tmpl != "" {
-		carg1 = (*C.char)(unsafe.Pointer(C.CString(tmpl)))
-		defer C.free(unsafe.Pointer(carg1))
+		carg1 = (*C.char)(transfer.GLibString(tmpl))
+		defer C.g_free(C.gpointer(carg1))
 	}
 	carg2 = C.int(ioPriority)
 	if cancellable != nil {
@@ -10600,8 +10625,8 @@ func NewFileTmpDirAsync(tmpl string, ioPriority int32, cancellable Cancellable, 
 	var carg5 C.gpointer            // implicit
 
 	if tmpl != "" {
-		carg1 = (*C.char)(unsafe.Pointer(C.CString(tmpl)))
-		defer C.free(unsafe.Pointer(carg1))
+		carg1 = (*C.char)(transfer.GLibString(tmpl))
+		defer C.g_free(C.gpointer(carg1))
 	}
 	carg2 = C.int(ioPriority)
 	if cancellable != nil {
@@ -10677,8 +10702,8 @@ func FileParseName(parseName string) File {
 	var carg1 *C.char  // in, none, string
 	var cret  *C.GFile // return, full, converted
 
-	carg1 = (*C.char)(unsafe.Pointer(C.CString(parseName)))
-	defer C.free(unsafe.Pointer(carg1))
+	carg1 = (*C.char)(transfer.GLibString(parseName))
+	defer C.g_free(C.gpointer(carg1))
 
 	cret = C.g_file_parse_name(carg1)
 	runtime.KeepAlive(parseName)
@@ -11295,8 +11320,8 @@ func (file *FileInstance) EnumerateChildren(attributes string, flags FileQueryIn
 	var _cerr *C.GError             // out, full, converted, nullable
 
 	carg0 = (*C.GFile)(UnsafeFileToGlibNone(file))
-	carg1 = (*C.char)(unsafe.Pointer(C.CString(attributes)))
-	defer C.free(unsafe.Pointer(carg1))
+	carg1 = (*C.char)(transfer.GLibString(attributes))
+	defer C.g_free(C.gpointer(carg1))
 	carg2 = C.GFileQueryInfoFlags(flags)
 	if cancellable != nil {
 		carg3 = (*C.GCancellable)(UnsafeCancellableToGlibNone(cancellable))
@@ -11332,8 +11357,8 @@ func (file *FileInstance) EnumerateChildrenAsync(attributes string, flags FileQu
 	var carg6 C.gpointer            // implicit
 
 	carg0 = (*C.GFile)(UnsafeFileToGlibNone(file))
-	carg1 = (*C.char)(unsafe.Pointer(C.CString(attributes)))
-	defer C.free(unsafe.Pointer(carg1))
+	carg1 = (*C.char)(transfer.GLibString(attributes))
+	defer C.g_free(C.gpointer(carg1))
 	carg2 = C.GFileQueryInfoFlags(flags)
 	carg3 = C.int(ioPriority)
 	if cancellable != nil {
@@ -11518,8 +11543,8 @@ func (file *FileInstance) GetChild(name string) File {
 	var cret  *C.GFile // return, full, converted
 
 	carg0 = (*C.GFile)(UnsafeFileToGlibNone(file))
-	carg1 = (*C.char)(unsafe.Pointer(C.CString(name)))
-	defer C.free(unsafe.Pointer(carg1))
+	carg1 = (*C.char)(transfer.GLibString(name))
+	defer C.g_free(C.gpointer(carg1))
 
 	cret = C.g_file_get_child(carg0, carg1)
 	runtime.KeepAlive(file)
@@ -11542,8 +11567,8 @@ func (file *FileInstance) GetChildForDisplayName(displayName string) (File, erro
 	var _cerr *C.GError // out, full, converted, nullable
 
 	carg0 = (*C.GFile)(UnsafeFileToGlibNone(file))
-	carg1 = (*C.char)(unsafe.Pointer(C.CString(displayName)))
-	defer C.free(unsafe.Pointer(carg1))
+	carg1 = (*C.char)(transfer.GLibString(displayName))
+	defer C.g_free(C.gpointer(carg1))
 
 	cret = C.g_file_get_child_for_display_name(carg0, carg1, &_cerr)
 	runtime.KeepAlive(file)
@@ -11749,8 +11774,8 @@ func (file *FileInstance) HasURIScheme(uriScheme string) bool {
 	var cret  C.gboolean // return
 
 	carg0 = (*C.GFile)(UnsafeFileToGlibNone(file))
-	carg1 = (*C.char)(unsafe.Pointer(C.CString(uriScheme)))
-	defer C.free(unsafe.Pointer(carg1))
+	carg1 = (*C.char)(transfer.GLibString(uriScheme))
+	defer C.g_free(C.gpointer(carg1))
 
 	cret = C.g_file_has_uri_scheme(carg0, carg1)
 	runtime.KeepAlive(file)
@@ -12159,8 +12184,8 @@ func (file *FileInstance) MakeSymbolicLink(symlinkValue string, cancellable Canc
 	var _cerr *C.GError       // out, full, converted, nullable
 
 	carg0 = (*C.GFile)(UnsafeFileToGlibNone(file))
-	carg1 = (*C.char)(unsafe.Pointer(C.CString(symlinkValue)))
-	defer C.free(unsafe.Pointer(carg1))
+	carg1 = (*C.char)(transfer.GLibString(symlinkValue))
+	defer C.g_free(C.gpointer(carg1))
 	if cancellable != nil {
 		carg2 = (*C.GCancellable)(UnsafeCancellableToGlibNone(cancellable))
 	}
@@ -12195,8 +12220,8 @@ func (file *FileInstance) MakeSymbolicLinkAsync(symlinkValue string, ioPriority 
 	var carg5 C.gpointer            // implicit
 
 	carg0 = (*C.GFile)(UnsafeFileToGlibNone(file))
-	carg1 = (*C.char)(unsafe.Pointer(C.CString(symlinkValue)))
-	defer C.free(unsafe.Pointer(carg1))
+	carg1 = (*C.char)(transfer.GLibString(symlinkValue))
+	defer C.g_free(C.gpointer(carg1))
 	carg2 = C.int(ioPriority)
 	if cancellable != nil {
 		carg3 = (*C.GCancellable)(UnsafeCancellableToGlibNone(cancellable))
@@ -12830,8 +12855,8 @@ func (file *FileInstance) QueryFilesystemInfo(attributes string, cancellable Can
 	var _cerr *C.GError       // out, full, converted, nullable
 
 	carg0 = (*C.GFile)(UnsafeFileToGlibNone(file))
-	carg1 = (*C.char)(unsafe.Pointer(C.CString(attributes)))
-	defer C.free(unsafe.Pointer(carg1))
+	carg1 = (*C.char)(transfer.GLibString(attributes))
+	defer C.g_free(C.gpointer(carg1))
 	if cancellable != nil {
 		carg2 = (*C.GCancellable)(UnsafeCancellableToGlibNone(cancellable))
 	}
@@ -12864,8 +12889,8 @@ func (file *FileInstance) QueryFilesystemInfoAsync(attributes string, ioPriority
 	var carg5 C.gpointer            // implicit
 
 	carg0 = (*C.GFile)(UnsafeFileToGlibNone(file))
-	carg1 = (*C.char)(unsafe.Pointer(C.CString(attributes)))
-	defer C.free(unsafe.Pointer(carg1))
+	carg1 = (*C.char)(transfer.GLibString(attributes))
+	defer C.g_free(C.gpointer(carg1))
 	carg2 = C.int(ioPriority)
 	if cancellable != nil {
 		carg3 = (*C.GCancellable)(UnsafeCancellableToGlibNone(cancellable))
@@ -12922,8 +12947,8 @@ func (file *FileInstance) QueryInfo(attributes string, flags FileQueryInfoFlags,
 	var _cerr *C.GError             // out, full, converted, nullable
 
 	carg0 = (*C.GFile)(UnsafeFileToGlibNone(file))
-	carg1 = (*C.char)(unsafe.Pointer(C.CString(attributes)))
-	defer C.free(unsafe.Pointer(carg1))
+	carg1 = (*C.char)(transfer.GLibString(attributes))
+	defer C.g_free(C.gpointer(carg1))
 	carg2 = C.GFileQueryInfoFlags(flags)
 	if cancellable != nil {
 		carg3 = (*C.GCancellable)(UnsafeCancellableToGlibNone(cancellable))
@@ -12959,8 +12984,8 @@ func (file *FileInstance) QueryInfoAsync(attributes string, flags FileQueryInfoF
 	var carg6 C.gpointer            // implicit
 
 	carg0 = (*C.GFile)(UnsafeFileToGlibNone(file))
-	carg1 = (*C.char)(unsafe.Pointer(C.CString(attributes)))
-	defer C.free(unsafe.Pointer(carg1))
+	carg1 = (*C.char)(transfer.GLibString(attributes))
+	defer C.g_free(C.gpointer(carg1))
 	carg2 = C.GFileQueryInfoFlags(flags)
 	carg3 = C.int(ioPriority)
 	if cancellable != nil {
@@ -13162,8 +13187,8 @@ func (file *FileInstance) Replace(etag string, makeBackup bool, flags FileCreate
 
 	carg0 = (*C.GFile)(UnsafeFileToGlibNone(file))
 	if etag != "" {
-		carg1 = (*C.char)(unsafe.Pointer(C.CString(etag)))
-		defer C.free(unsafe.Pointer(carg1))
+		carg1 = (*C.char)(transfer.GLibString(etag))
+		defer C.g_free(C.gpointer(carg1))
 	}
 	if makeBackup {
 		carg2 = C.TRUE
@@ -13206,8 +13231,8 @@ func (file *FileInstance) ReplaceAsync(etag string, makeBackup bool, flags FileC
 
 	carg0 = (*C.GFile)(UnsafeFileToGlibNone(file))
 	if etag != "" {
-		carg1 = (*C.char)(unsafe.Pointer(C.CString(etag)))
-		defer C.free(unsafe.Pointer(carg1))
+		carg1 = (*C.char)(transfer.GLibString(etag))
+		defer C.g_free(C.gpointer(carg1))
 	}
 	if makeBackup {
 		carg2 = C.TRUE
@@ -13253,8 +13278,8 @@ func (file *FileInstance) ReplaceContents(contents string, etag string, makeBack
 	_ = carg2
 	panic("unimplemented conversion of string (const char*) because of unimplemented: non-fixed size array")
 	if etag != "" {
-		carg3 = (*C.char)(unsafe.Pointer(C.CString(etag)))
-		defer C.free(unsafe.Pointer(carg3))
+		carg3 = (*C.char)(transfer.GLibString(etag))
+		defer C.g_free(C.gpointer(carg3))
 	}
 	if makeBackup {
 		carg4 = C.TRUE
@@ -13310,8 +13335,8 @@ func (file *FileInstance) ReplaceContentsAsync(contents string, etag string, mak
 	_ = carg2
 	panic("unimplemented conversion of string (const char*) because of unimplemented: non-fixed size array")
 	if etag != "" {
-		carg3 = (*C.char)(unsafe.Pointer(C.CString(etag)))
-		defer C.free(unsafe.Pointer(carg3))
+		carg3 = (*C.char)(transfer.GLibString(etag))
+		defer C.g_free(C.gpointer(carg3))
 	}
 	if makeBackup {
 		carg4 = C.TRUE
@@ -13351,8 +13376,8 @@ func (file *FileInstance) ReplaceContentsBytesAsync(contents *glib.Bytes, etag s
 	carg0 = (*C.GFile)(UnsafeFileToGlibNone(file))
 	carg1 = (*C.GBytes)(glib.UnsafeBytesToGlibNone(contents))
 	if etag != "" {
-		carg2 = (*C.char)(unsafe.Pointer(C.CString(etag)))
-		defer C.free(unsafe.Pointer(carg2))
+		carg2 = (*C.char)(transfer.GLibString(etag))
+		defer C.g_free(C.gpointer(carg2))
 	}
 	if makeBackup {
 		carg3 = C.TRUE
@@ -13452,8 +13477,8 @@ func (file *FileInstance) ReplaceReadwrite(etag string, makeBackup bool, flags F
 
 	carg0 = (*C.GFile)(UnsafeFileToGlibNone(file))
 	if etag != "" {
-		carg1 = (*C.char)(unsafe.Pointer(C.CString(etag)))
-		defer C.free(unsafe.Pointer(carg1))
+		carg1 = (*C.char)(transfer.GLibString(etag))
+		defer C.g_free(C.gpointer(carg1))
 	}
 	if makeBackup {
 		carg2 = C.TRUE
@@ -13496,8 +13521,8 @@ func (file *FileInstance) ReplaceReadwriteAsync(etag string, makeBackup bool, fl
 
 	carg0 = (*C.GFile)(UnsafeFileToGlibNone(file))
 	if etag != "" {
-		carg1 = (*C.char)(unsafe.Pointer(C.CString(etag)))
-		defer C.free(unsafe.Pointer(carg1))
+		carg1 = (*C.char)(transfer.GLibString(etag))
+		defer C.g_free(C.gpointer(carg1))
 	}
 	if makeBackup {
 		carg2 = C.TRUE
@@ -13558,8 +13583,8 @@ func (file *FileInstance) ResolveRelativePath(relativePath string) File {
 	var cret  *C.GFile // return, full, converted
 
 	carg0 = (*C.GFile)(UnsafeFileToGlibNone(file))
-	carg1 = (*C.char)(unsafe.Pointer(C.CString(relativePath)))
-	defer C.free(unsafe.Pointer(carg1))
+	carg1 = (*C.char)(transfer.GLibString(relativePath))
+	defer C.g_free(C.gpointer(carg1))
 
 	cret = C.g_file_resolve_relative_path(carg0, carg1)
 	runtime.KeepAlive(file)
@@ -13585,10 +13610,10 @@ func (file *FileInstance) SetAttributeByteString(attribute string, value string,
 	var _cerr *C.GError             // out, full, converted, nullable
 
 	carg0 = (*C.GFile)(UnsafeFileToGlibNone(file))
-	carg1 = (*C.char)(unsafe.Pointer(C.CString(attribute)))
-	defer C.free(unsafe.Pointer(carg1))
-	carg2 = (*C.char)(unsafe.Pointer(C.CString(value)))
-	defer C.free(unsafe.Pointer(carg2))
+	carg1 = (*C.char)(transfer.GLibString(attribute))
+	defer C.g_free(C.gpointer(carg1))
+	carg2 = (*C.char)(transfer.GLibString(value))
+	defer C.g_free(C.gpointer(carg2))
 	carg3 = C.GFileQueryInfoFlags(flags)
 	if cancellable != nil {
 		carg4 = (*C.GCancellable)(UnsafeCancellableToGlibNone(cancellable))
@@ -13627,8 +13652,8 @@ func (file *FileInstance) SetAttributeInt32(attribute string, value int32, flags
 	var _cerr *C.GError             // out, full, converted, nullable
 
 	carg0 = (*C.GFile)(UnsafeFileToGlibNone(file))
-	carg1 = (*C.char)(unsafe.Pointer(C.CString(attribute)))
-	defer C.free(unsafe.Pointer(carg1))
+	carg1 = (*C.char)(transfer.GLibString(attribute))
+	defer C.g_free(C.gpointer(carg1))
 	carg2 = C.gint32(value)
 	carg3 = C.GFileQueryInfoFlags(flags)
 	if cancellable != nil {
@@ -13668,8 +13693,8 @@ func (file *FileInstance) SetAttributeInt64(attribute string, value int64, flags
 	var _cerr *C.GError             // out, full, converted, nullable
 
 	carg0 = (*C.GFile)(UnsafeFileToGlibNone(file))
-	carg1 = (*C.char)(unsafe.Pointer(C.CString(attribute)))
-	defer C.free(unsafe.Pointer(carg1))
+	carg1 = (*C.char)(transfer.GLibString(attribute))
+	defer C.g_free(C.gpointer(carg1))
 	carg2 = C.gint64(value)
 	carg3 = C.GFileQueryInfoFlags(flags)
 	if cancellable != nil {
@@ -13709,10 +13734,10 @@ func (file *FileInstance) SetAttributeString(attribute string, value string, fla
 	var _cerr *C.GError             // out, full, converted, nullable
 
 	carg0 = (*C.GFile)(UnsafeFileToGlibNone(file))
-	carg1 = (*C.char)(unsafe.Pointer(C.CString(attribute)))
-	defer C.free(unsafe.Pointer(carg1))
-	carg2 = (*C.char)(unsafe.Pointer(C.CString(value)))
-	defer C.free(unsafe.Pointer(carg2))
+	carg1 = (*C.char)(transfer.GLibString(attribute))
+	defer C.g_free(C.gpointer(carg1))
+	carg2 = (*C.char)(transfer.GLibString(value))
+	defer C.g_free(C.gpointer(carg2))
 	carg3 = C.GFileQueryInfoFlags(flags)
 	if cancellable != nil {
 		carg4 = (*C.GCancellable)(UnsafeCancellableToGlibNone(cancellable))
@@ -13751,8 +13776,8 @@ func (file *FileInstance) SetAttributeUint32(attribute string, value uint32, fla
 	var _cerr *C.GError             // out, full, converted, nullable
 
 	carg0 = (*C.GFile)(UnsafeFileToGlibNone(file))
-	carg1 = (*C.char)(unsafe.Pointer(C.CString(attribute)))
-	defer C.free(unsafe.Pointer(carg1))
+	carg1 = (*C.char)(transfer.GLibString(attribute))
+	defer C.g_free(C.gpointer(carg1))
 	carg2 = C.guint32(value)
 	carg3 = C.GFileQueryInfoFlags(flags)
 	if cancellable != nil {
@@ -13792,8 +13817,8 @@ func (file *FileInstance) SetAttributeUint64(attribute string, value uint64, fla
 	var _cerr *C.GError             // out, full, converted, nullable
 
 	carg0 = (*C.GFile)(UnsafeFileToGlibNone(file))
-	carg1 = (*C.char)(unsafe.Pointer(C.CString(attribute)))
-	defer C.free(unsafe.Pointer(carg1))
+	carg1 = (*C.char)(transfer.GLibString(attribute))
+	defer C.g_free(C.gpointer(carg1))
 	carg2 = C.guint64(value)
 	carg3 = C.GFileQueryInfoFlags(flags)
 	if cancellable != nil {
@@ -13933,8 +13958,8 @@ func (file *FileInstance) SetDisplayName(displayName string, cancellable Cancell
 	var _cerr *C.GError       // out, full, converted, nullable
 
 	carg0 = (*C.GFile)(UnsafeFileToGlibNone(file))
-	carg1 = (*C.char)(unsafe.Pointer(C.CString(displayName)))
-	defer C.free(unsafe.Pointer(carg1))
+	carg1 = (*C.char)(transfer.GLibString(displayName))
+	defer C.g_free(C.gpointer(carg1))
 	if cancellable != nil {
 		carg2 = (*C.GCancellable)(UnsafeCancellableToGlibNone(cancellable))
 	}
@@ -13967,8 +13992,8 @@ func (file *FileInstance) SetDisplayNameAsync(displayName string, ioPriority int
 	var carg5 C.gpointer            // implicit
 
 	carg0 = (*C.GFile)(UnsafeFileToGlibNone(file))
-	carg1 = (*C.char)(unsafe.Pointer(C.CString(displayName)))
-	defer C.free(unsafe.Pointer(carg1))
+	carg1 = (*C.char)(transfer.GLibString(displayName))
+	defer C.g_free(C.gpointer(carg1))
 	carg2 = C.int(ioPriority)
 	if cancellable != nil {
 		carg3 = (*C.GCancellable)(UnsafeCancellableToGlibNone(cancellable))
@@ -14439,8 +14464,8 @@ func NewIconForString(str string) (Icon, error) {
 	var cret  *C.GIcon  // return, full, converted
 	var _cerr *C.GError // out, full, converted, nullable
 
-	carg1 = (*C.gchar)(unsafe.Pointer(C.CString(str)))
-	defer C.free(unsafe.Pointer(carg1))
+	carg1 = (*C.gchar)(transfer.GLibString(str))
+	defer C.g_free(C.gpointer(carg1))
 
 	cret = C.g_icon_new_for_string(carg1, &_cerr)
 	runtime.KeepAlive(str)
@@ -16589,8 +16614,8 @@ func ProxyGetDefaultForProtocol(protocol string) Proxy {
 	var carg1 *C.gchar  // in, none, string
 	var cret  *C.GProxy // return, full, converted, nullable
 
-	carg1 = (*C.gchar)(unsafe.Pointer(C.CString(protocol)))
-	defer C.free(unsafe.Pointer(carg1))
+	carg1 = (*C.gchar)(transfer.GLibString(protocol))
+	defer C.g_free(C.gpointer(carg1))
 
 	cret = C.g_proxy_get_default_for_protocol(carg1)
 	runtime.KeepAlive(protocol)
@@ -16839,8 +16864,8 @@ func (resolver *ProxyResolverInstance) Lookup(uri string, cancellable Cancellabl
 	var _cerr *C.GError         // out, full, converted, nullable
 
 	carg0 = (*C.GProxyResolver)(UnsafeProxyResolverToGlibNone(resolver))
-	carg1 = (*C.gchar)(unsafe.Pointer(C.CString(uri)))
-	defer C.free(unsafe.Pointer(carg1))
+	carg1 = (*C.gchar)(transfer.GLibString(uri))
+	defer C.g_free(C.gpointer(carg1))
 	if cancellable != nil {
 		carg2 = (*C.GCancellable)(UnsafeCancellableToGlibNone(cancellable))
 	}
@@ -16874,8 +16899,8 @@ func (resolver *ProxyResolverInstance) LookupAsync(uri string, cancellable Cance
 	var carg4 C.gpointer            // implicit
 
 	carg0 = (*C.GProxyResolver)(UnsafeProxyResolverToGlibNone(resolver))
-	carg1 = (*C.gchar)(unsafe.Pointer(C.CString(uri)))
-	defer C.free(unsafe.Pointer(carg1))
+	carg1 = (*C.gchar)(transfer.GLibString(uri))
+	defer C.g_free(C.gpointer(carg1))
 	if cancellable != nil {
 		carg2 = (*C.GCancellable)(UnsafeCancellableToGlibNone(cancellable))
 	}
@@ -17945,8 +17970,8 @@ func NewTlsFileDatabase(anchors string) (TlsFileDatabase, error) {
 	var cret  *C.GTlsDatabase // return, full, converted
 	var _cerr *C.GError       // out, full, converted, nullable
 
-	carg1 = (*C.gchar)(unsafe.Pointer(C.CString(anchors)))
-	defer C.free(unsafe.Pointer(carg1))
+	carg1 = (*C.gchar)(transfer.GLibString(anchors))
+	defer C.g_free(C.gpointer(carg1))
 
 	cret = C.g_tls_file_database_new(carg1, &_cerr)
 	runtime.KeepAlive(anchors)
@@ -18450,8 +18475,8 @@ func (volume *VolumeInstance) GetIdentifier(kind string) string {
 	var cret  *C.char    // return, full, string, nullable-string
 
 	carg0 = (*C.GVolume)(UnsafeVolumeToGlibNone(volume))
-	carg1 = (*C.char)(unsafe.Pointer(C.CString(kind)))
-	defer C.free(unsafe.Pointer(carg1))
+	carg1 = (*C.char)(transfer.GLibString(kind))
+	defer C.g_free(C.gpointer(carg1))
 
 	cret = C.g_volume_get_identifier(carg0, carg1)
 	runtime.KeepAlive(volume)
@@ -19179,8 +19204,8 @@ func (_context *AppLaunchContextInstance) LaunchFailed(startupNotifyId string) {
 	var carg1 *C.char              // in, none, string
 
 	carg0 = (*C.GAppLaunchContext)(UnsafeAppLaunchContextToGlibNone(_context))
-	carg1 = (*C.char)(unsafe.Pointer(C.CString(startupNotifyId)))
-	defer C.free(unsafe.Pointer(carg1))
+	carg1 = (*C.char)(transfer.GLibString(startupNotifyId))
+	defer C.g_free(C.gpointer(carg1))
 
 	C.g_app_launch_context_launch_failed(carg0, carg1)
 	runtime.KeepAlive(_context)
@@ -19196,10 +19221,10 @@ func (_context *AppLaunchContextInstance) Setenv(variable string, value string) 
 	var carg2 *C.char              // in, none, string
 
 	carg0 = (*C.GAppLaunchContext)(UnsafeAppLaunchContextToGlibNone(_context))
-	carg1 = (*C.char)(unsafe.Pointer(C.CString(variable)))
-	defer C.free(unsafe.Pointer(carg1))
-	carg2 = (*C.char)(unsafe.Pointer(C.CString(value)))
-	defer C.free(unsafe.Pointer(carg2))
+	carg1 = (*C.char)(transfer.GLibString(variable))
+	defer C.g_free(C.gpointer(carg1))
+	carg2 = (*C.char)(transfer.GLibString(value))
+	defer C.g_free(C.gpointer(carg2))
 
 	C.g_app_launch_context_setenv(carg0, carg1, carg2)
 	runtime.KeepAlive(_context)
@@ -19215,8 +19240,8 @@ func (_context *AppLaunchContextInstance) Unsetenv(variable string) {
 	var carg1 *C.char              // in, none, string
 
 	carg0 = (*C.GAppLaunchContext)(UnsafeAppLaunchContextToGlibNone(_context))
-	carg1 = (*C.char)(unsafe.Pointer(C.CString(variable)))
-	defer C.free(unsafe.Pointer(carg1))
+	carg1 = (*C.char)(transfer.GLibString(variable))
+	defer C.g_free(C.gpointer(carg1))
 
 	C.g_app_launch_context_unsetenv(carg0, carg1)
 	runtime.KeepAlive(_context)
@@ -19278,8 +19303,8 @@ func (_context *AppLaunchContextInstance) ParentLaunchFailed(startupNotifyId str
 	parentclass := (*C.GAppLaunchContextClass)(classdata.PeekParentClass(UnsafeAppLaunchContextToGlibNone(_context)))
 
 	carg0 = (*C.GAppLaunchContext)(UnsafeAppLaunchContextToGlibNone(_context))
-	carg1 = (*C.char)(unsafe.Pointer(C.CString(startupNotifyId)))
-	defer C.free(unsafe.Pointer(carg1))
+	carg1 = (*C.char)(transfer.GLibString(startupNotifyId))
+	defer C.g_free(C.gpointer(carg1))
 
 	C._goglib_gio2_AppLaunchContext_virtual_launch_failed(unsafe.Pointer(parentclass.launch_failed), carg0, carg1)
 	runtime.KeepAlive(_context)
@@ -19597,8 +19622,8 @@ func NewApplication(applicationId string, flags ApplicationFlags) Application {
 	var cret  *C.GApplication     // return, full, converted
 
 	if applicationId != "" {
-		carg1 = (*C.gchar)(unsafe.Pointer(C.CString(applicationId)))
-		defer C.free(unsafe.Pointer(carg1))
+		carg1 = (*C.gchar)(transfer.GLibString(applicationId))
+		defer C.g_free(C.gpointer(carg1))
 	}
 	carg2 = C.GApplicationFlags(flags)
 
@@ -19637,8 +19662,8 @@ func ApplicationIDIsValid(applicationId string) bool {
 	var carg1 *C.gchar   // in, none, string
 	var cret  C.gboolean // return
 
-	carg1 = (*C.gchar)(unsafe.Pointer(C.CString(applicationId)))
-	defer C.free(unsafe.Pointer(carg1))
+	carg1 = (*C.gchar)(transfer.GLibString(applicationId))
+	defer C.g_free(C.gpointer(carg1))
 
 	cret = C.g_application_id_is_valid(carg1)
 	runtime.KeepAlive(applicationId)
@@ -19677,16 +19702,16 @@ func (application *ApplicationInstance) AddMainOption(longName string, shortName
 	var carg6 *C.char         // in, none, string, nullable-string
 
 	carg0 = (*C.GApplication)(UnsafeApplicationToGlibNone(application))
-	carg1 = (*C.char)(unsafe.Pointer(C.CString(longName)))
-	defer C.free(unsafe.Pointer(carg1))
+	carg1 = (*C.char)(transfer.GLibString(longName))
+	defer C.g_free(C.gpointer(carg1))
 	carg2 = C.char(shortName)
 	carg3 = C.GOptionFlags(flags)
 	carg4 = C.GOptionArg(arg)
-	carg5 = (*C.char)(unsafe.Pointer(C.CString(description)))
-	defer C.free(unsafe.Pointer(carg5))
+	carg5 = (*C.char)(transfer.GLibString(description))
+	defer C.g_free(C.gpointer(carg5))
 	if argDescription != "" {
-		carg6 = (*C.char)(unsafe.Pointer(C.CString(argDescription)))
-		defer C.free(unsafe.Pointer(carg6))
+		carg6 = (*C.char)(transfer.GLibString(argDescription))
+		defer C.g_free(C.gpointer(carg6))
 	}
 
 	C.g_application_add_main_option(carg0, carg1, carg2, carg3, carg4, carg5, carg6)
@@ -19937,8 +19962,8 @@ func (application *ApplicationInstance) Open(files []File, hint string) {
 	_ = carg1
 	_ = carg2
 	panic("unimplemented conversion of []File (GFile**) because of unimplemented: inner pointers in array")
-	carg3 = (*C.gchar)(unsafe.Pointer(C.CString(hint)))
-	defer C.free(unsafe.Pointer(carg3))
+	carg3 = (*C.gchar)(transfer.GLibString(hint))
+	defer C.g_free(C.gpointer(carg3))
 
 	C.g_application_open(carg0, carg1, carg2, carg3)
 	runtime.KeepAlive(application)
@@ -20037,8 +20062,8 @@ func (application *ApplicationInstance) SendNotification(id string, notification
 
 	carg0 = (*C.GApplication)(UnsafeApplicationToGlibNone(application))
 	if id != "" {
-		carg1 = (*C.gchar)(unsafe.Pointer(C.CString(id)))
-		defer C.free(unsafe.Pointer(carg1))
+		carg1 = (*C.gchar)(transfer.GLibString(id))
+		defer C.g_free(C.gpointer(carg1))
 	}
 	carg2 = (*C.GNotification)(UnsafeNotificationToGlibNone(notification))
 
@@ -20076,8 +20101,8 @@ func (application *ApplicationInstance) SetApplicationID(applicationId string) {
 
 	carg0 = (*C.GApplication)(UnsafeApplicationToGlibNone(application))
 	if applicationId != "" {
-		carg1 = (*C.gchar)(unsafe.Pointer(C.CString(applicationId)))
-		defer C.free(unsafe.Pointer(carg1))
+		carg1 = (*C.gchar)(transfer.GLibString(applicationId))
+		defer C.g_free(C.gpointer(carg1))
 	}
 
 	C.g_application_set_application_id(carg0, carg1)
@@ -20136,8 +20161,8 @@ func (application *ApplicationInstance) SetOptionContextDescription(description 
 
 	carg0 = (*C.GApplication)(UnsafeApplicationToGlibNone(application))
 	if description != "" {
-		carg1 = (*C.gchar)(unsafe.Pointer(C.CString(description)))
-		defer C.free(unsafe.Pointer(carg1))
+		carg1 = (*C.gchar)(transfer.GLibString(description))
+		defer C.g_free(C.gpointer(carg1))
 	}
 
 	C.g_application_set_option_context_description(carg0, carg1)
@@ -20154,8 +20179,8 @@ func (application *ApplicationInstance) SetOptionContextParameterString(paramete
 
 	carg0 = (*C.GApplication)(UnsafeApplicationToGlibNone(application))
 	if parameterString != "" {
-		carg1 = (*C.gchar)(unsafe.Pointer(C.CString(parameterString)))
-		defer C.free(unsafe.Pointer(carg1))
+		carg1 = (*C.gchar)(transfer.GLibString(parameterString))
+		defer C.g_free(C.gpointer(carg1))
 	}
 
 	C.g_application_set_option_context_parameter_string(carg0, carg1)
@@ -20172,8 +20197,8 @@ func (application *ApplicationInstance) SetOptionContextSummary(summary string) 
 
 	carg0 = (*C.GApplication)(UnsafeApplicationToGlibNone(application))
 	if summary != "" {
-		carg1 = (*C.gchar)(unsafe.Pointer(C.CString(summary)))
-		defer C.free(unsafe.Pointer(carg1))
+		carg1 = (*C.gchar)(transfer.GLibString(summary))
+		defer C.g_free(C.gpointer(carg1))
 	}
 
 	C.g_application_set_option_context_summary(carg0, carg1)
@@ -20190,8 +20215,8 @@ func (application *ApplicationInstance) SetResourceBasePath(resourcePath string)
 
 	carg0 = (*C.GApplication)(UnsafeApplicationToGlibNone(application))
 	if resourcePath != "" {
-		carg1 = (*C.gchar)(unsafe.Pointer(C.CString(resourcePath)))
-		defer C.free(unsafe.Pointer(carg1))
+		carg1 = (*C.gchar)(transfer.GLibString(resourcePath))
+		defer C.g_free(C.gpointer(carg1))
 	}
 
 	C.g_application_set_resource_base_path(carg0, carg1)
@@ -20207,8 +20232,8 @@ func (application *ApplicationInstance) SetVersion(version string) {
 	var carg1 *C.gchar        // in, none, string
 
 	carg0 = (*C.GApplication)(UnsafeApplicationToGlibNone(application))
-	carg1 = (*C.gchar)(unsafe.Pointer(C.CString(version)))
-	defer C.free(unsafe.Pointer(carg1))
+	carg1 = (*C.gchar)(transfer.GLibString(version))
+	defer C.g_free(C.gpointer(carg1))
 
 	C.g_application_set_version(carg0, carg1)
 	runtime.KeepAlive(application)
@@ -20235,8 +20260,8 @@ func (application *ApplicationInstance) WithdrawNotification(id string) {
 	var carg1 *C.gchar        // in, none, string
 
 	carg0 = (*C.GApplication)(UnsafeApplicationToGlibNone(application))
-	carg1 = (*C.gchar)(unsafe.Pointer(C.CString(id)))
-	defer C.free(unsafe.Pointer(carg1))
+	carg1 = (*C.gchar)(transfer.GLibString(id))
+	defer C.g_free(C.gpointer(carg1))
 
 	C.g_application_withdraw_notification(carg0, carg1)
 	runtime.KeepAlive(application)
@@ -20652,8 +20677,8 @@ func (application *ApplicationInstance) ParentOpen(files []File, hint string) {
 	_ = carg1
 	_ = carg2
 	panic("unimplemented conversion of []File (GFile**) because of unimplemented: inner pointers in array")
-	carg3 = (*C.gchar)(unsafe.Pointer(C.CString(hint)))
-	defer C.free(unsafe.Pointer(carg3))
+	carg3 = (*C.gchar)(transfer.GLibString(hint))
+	defer C.g_free(C.gpointer(carg3))
 
 	C._goglib_gio2_Application_virtual_open(unsafe.Pointer(parentclass.open), carg0, carg1, carg2, carg3)
 	runtime.KeepAlive(application)
@@ -20896,8 +20921,8 @@ func (cmdline *ApplicationCommandLineInstance) CreateFileForArg(arg string) File
 	var cret  *C.GFile                   // return, full, converted
 
 	carg0 = (*C.GApplicationCommandLine)(UnsafeApplicationCommandLineToGlibNone(cmdline))
-	carg1 = (*C.gchar)(unsafe.Pointer(C.CString(arg)))
-	defer C.free(unsafe.Pointer(carg1))
+	carg1 = (*C.gchar)(transfer.GLibString(arg))
+	defer C.g_free(C.gpointer(carg1))
 
 	cret = C.g_application_command_line_create_file_for_arg(carg0, carg1)
 	runtime.KeepAlive(cmdline)
@@ -21077,8 +21102,8 @@ func (cmdline *ApplicationCommandLineInstance) Getenv(name string) string {
 	var cret  *C.gchar                   // return, none, string, nullable-string
 
 	carg0 = (*C.GApplicationCommandLine)(UnsafeApplicationCommandLineToGlibNone(cmdline))
-	carg1 = (*C.gchar)(unsafe.Pointer(C.CString(name)))
-	defer C.free(unsafe.Pointer(carg1))
+	carg1 = (*C.gchar)(transfer.GLibString(name))
+	defer C.g_free(C.gpointer(carg1))
 
 	cret = C.g_application_command_line_getenv(carg0, carg1)
 	runtime.KeepAlive(cmdline)
@@ -21101,8 +21126,8 @@ func (cmdline *ApplicationCommandLineInstance) PrintLiteral(message string) {
 	var carg1 *C.gchar                   // in, none, string
 
 	carg0 = (*C.GApplicationCommandLine)(UnsafeApplicationCommandLineToGlibNone(cmdline))
-	carg1 = (*C.gchar)(unsafe.Pointer(C.CString(message)))
-	defer C.free(unsafe.Pointer(carg1))
+	carg1 = (*C.gchar)(transfer.GLibString(message))
+	defer C.g_free(C.gpointer(carg1))
 
 	C.g_application_command_line_print_literal(carg0, carg1)
 	runtime.KeepAlive(cmdline)
@@ -21117,8 +21142,8 @@ func (cmdline *ApplicationCommandLineInstance) PrinterrLiteral(message string) {
 	var carg1 *C.gchar                   // in, none, string
 
 	carg0 = (*C.GApplicationCommandLine)(UnsafeApplicationCommandLineToGlibNone(cmdline))
-	carg1 = (*C.gchar)(unsafe.Pointer(C.CString(message)))
-	defer C.free(unsafe.Pointer(carg1))
+	carg1 = (*C.gchar)(transfer.GLibString(message))
+	defer C.g_free(C.gpointer(carg1))
 
 	C.g_application_command_line_printerr_literal(carg0, carg1)
 	runtime.KeepAlive(cmdline)
@@ -21293,8 +21318,8 @@ func (cmdline *ApplicationCommandLineInstance) ParentPrintLiteral(message string
 	parentclass := (*C.GApplicationCommandLineClass)(classdata.PeekParentClass(UnsafeApplicationCommandLineToGlibNone(cmdline)))
 
 	carg0 = (*C.GApplicationCommandLine)(UnsafeApplicationCommandLineToGlibNone(cmdline))
-	carg1 = (*C.gchar)(unsafe.Pointer(C.CString(message)))
-	defer C.free(unsafe.Pointer(carg1))
+	carg1 = (*C.gchar)(transfer.GLibString(message))
+	defer C.g_free(C.gpointer(carg1))
 
 	C._goglib_gio2_ApplicationCommandLine_virtual_print_literal(unsafe.Pointer(parentclass.print_literal), carg0, carg1)
 	runtime.KeepAlive(cmdline)
@@ -21312,8 +21337,8 @@ func (cmdline *ApplicationCommandLineInstance) ParentPrinterrLiteral(message str
 	parentclass := (*C.GApplicationCommandLineClass)(classdata.PeekParentClass(UnsafeApplicationCommandLineToGlibNone(cmdline)))
 
 	carg0 = (*C.GApplicationCommandLine)(UnsafeApplicationCommandLineToGlibNone(cmdline))
-	carg1 = (*C.gchar)(unsafe.Pointer(C.CString(message)))
-	defer C.free(unsafe.Pointer(carg1))
+	carg1 = (*C.gchar)(transfer.GLibString(message))
+	defer C.g_free(C.gpointer(carg1))
 
 	C._goglib_gio2_ApplicationCommandLine_virtual_printerr_literal(unsafe.Pointer(parentclass.printerr_literal), carg0, carg1)
 	runtime.KeepAlive(cmdline)
@@ -21938,10 +21963,10 @@ func NewCharsetConverter(toCharset string, fromCharset string) (CharsetConverter
 	var cret  *C.GCharsetConverter // return, full, converted
 	var _cerr *C.GError            // out, full, converted, nullable
 
-	carg1 = (*C.gchar)(unsafe.Pointer(C.CString(toCharset)))
-	defer C.free(unsafe.Pointer(carg1))
-	carg2 = (*C.gchar)(unsafe.Pointer(C.CString(fromCharset)))
-	defer C.free(unsafe.Pointer(carg2))
+	carg1 = (*C.gchar)(transfer.GLibString(toCharset))
+	defer C.g_free(C.gpointer(carg1))
+	carg2 = (*C.gchar)(transfer.GLibString(fromCharset))
+	defer C.g_free(C.gpointer(carg2))
 
 	cret = C.g_charset_converter_new(carg1, carg2, &_cerr)
 	runtime.KeepAlive(toCharset)
@@ -23799,8 +23824,8 @@ func (info *FileInfoInstance) GetAttributeAsString(attribute string) string {
 	var cret  *C.char      // return, full, string, nullable-string
 
 	carg0 = (*C.GFileInfo)(UnsafeFileInfoToGlibNone(info))
-	carg1 = (*C.char)(unsafe.Pointer(C.CString(attribute)))
-	defer C.free(unsafe.Pointer(carg1))
+	carg1 = (*C.char)(transfer.GLibString(attribute))
+	defer C.g_free(C.gpointer(carg1))
 
 	cret = C.g_file_info_get_attribute_as_string(carg0, carg1)
 	runtime.KeepAlive(info)
@@ -23825,8 +23850,8 @@ func (info *FileInfoInstance) GetAttributeBoolean(attribute string) bool {
 	var cret  C.gboolean   // return
 
 	carg0 = (*C.GFileInfo)(UnsafeFileInfoToGlibNone(info))
-	carg1 = (*C.char)(unsafe.Pointer(C.CString(attribute)))
-	defer C.free(unsafe.Pointer(carg1))
+	carg1 = (*C.char)(transfer.GLibString(attribute))
+	defer C.g_free(C.gpointer(carg1))
 
 	cret = C.g_file_info_get_attribute_boolean(carg0, carg1)
 	runtime.KeepAlive(info)
@@ -23850,8 +23875,8 @@ func (info *FileInfoInstance) GetAttributeByteString(attribute string) string {
 	var cret  *C.char      // return, none, string, nullable-string
 
 	carg0 = (*C.GFileInfo)(UnsafeFileInfoToGlibNone(info))
-	carg1 = (*C.char)(unsafe.Pointer(C.CString(attribute)))
-	defer C.free(unsafe.Pointer(carg1))
+	carg1 = (*C.char)(transfer.GLibString(attribute))
+	defer C.g_free(C.gpointer(carg1))
 
 	cret = C.g_file_info_get_attribute_byte_string(carg0, carg1)
 	runtime.KeepAlive(info)
@@ -23875,8 +23900,8 @@ func (info *FileInfoInstance) GetAttributeFilePath(attribute string) string {
 	var cret  *C.char      // return, none, string, nullable
 
 	carg0 = (*C.GFileInfo)(UnsafeFileInfoToGlibNone(info))
-	carg1 = (*C.char)(unsafe.Pointer(C.CString(attribute)))
-	defer C.free(unsafe.Pointer(carg1))
+	carg1 = (*C.char)(transfer.GLibString(attribute))
+	defer C.g_free(C.gpointer(carg1))
 
 	cret = C.g_file_info_get_attribute_file_path(carg0, carg1)
 	runtime.KeepAlive(info)
@@ -23900,8 +23925,8 @@ func (info *FileInfoInstance) GetAttributeInt32(attribute string) int32 {
 	var cret  C.gint32     // return, none, casted
 
 	carg0 = (*C.GFileInfo)(UnsafeFileInfoToGlibNone(info))
-	carg1 = (*C.char)(unsafe.Pointer(C.CString(attribute)))
-	defer C.free(unsafe.Pointer(carg1))
+	carg1 = (*C.char)(transfer.GLibString(attribute))
+	defer C.g_free(C.gpointer(carg1))
 
 	cret = C.g_file_info_get_attribute_int32(carg0, carg1)
 	runtime.KeepAlive(info)
@@ -23923,8 +23948,8 @@ func (info *FileInfoInstance) GetAttributeInt64(attribute string) int64 {
 	var cret  C.gint64     // return, none, casted
 
 	carg0 = (*C.GFileInfo)(UnsafeFileInfoToGlibNone(info))
-	carg1 = (*C.char)(unsafe.Pointer(C.CString(attribute)))
-	defer C.free(unsafe.Pointer(carg1))
+	carg1 = (*C.char)(transfer.GLibString(attribute))
+	defer C.g_free(C.gpointer(carg1))
 
 	cret = C.g_file_info_get_attribute_int64(carg0, carg1)
 	runtime.KeepAlive(info)
@@ -23946,8 +23971,8 @@ func (info *FileInfoInstance) GetAttributeObject(attribute string) gobject.Objec
 	var cret  *C.GObject   // return, none, converted, nullable
 
 	carg0 = (*C.GFileInfo)(UnsafeFileInfoToGlibNone(info))
-	carg1 = (*C.char)(unsafe.Pointer(C.CString(attribute)))
-	defer C.free(unsafe.Pointer(carg1))
+	carg1 = (*C.char)(transfer.GLibString(attribute))
+	defer C.g_free(C.gpointer(carg1))
 
 	cret = C.g_file_info_get_attribute_object(carg0, carg1)
 	runtime.KeepAlive(info)
@@ -23971,8 +23996,8 @@ func (info *FileInfoInstance) GetAttributeStatus(attribute string) FileAttribute
 	var cret  C.GFileAttributeStatus // return, none, casted
 
 	carg0 = (*C.GFileInfo)(UnsafeFileInfoToGlibNone(info))
-	carg1 = (*C.char)(unsafe.Pointer(C.CString(attribute)))
-	defer C.free(unsafe.Pointer(carg1))
+	carg1 = (*C.char)(transfer.GLibString(attribute))
+	defer C.g_free(C.gpointer(carg1))
 
 	cret = C.g_file_info_get_attribute_status(carg0, carg1)
 	runtime.KeepAlive(info)
@@ -23994,8 +24019,8 @@ func (info *FileInfoInstance) GetAttributeString(attribute string) string {
 	var cret  *C.char      // return, none, string, nullable-string
 
 	carg0 = (*C.GFileInfo)(UnsafeFileInfoToGlibNone(info))
-	carg1 = (*C.char)(unsafe.Pointer(C.CString(attribute)))
-	defer C.free(unsafe.Pointer(carg1))
+	carg1 = (*C.char)(transfer.GLibString(attribute))
+	defer C.g_free(C.gpointer(carg1))
 
 	cret = C.g_file_info_get_attribute_string(carg0, carg1)
 	runtime.KeepAlive(info)
@@ -24019,8 +24044,8 @@ func (info *FileInfoInstance) GetAttributeStringv(attribute string) []string {
 	var cret  **C.char     // return, transfer: none, C Pointers: 2, Name: array[utf8], scope: , nullable, array (inner gchar* (*typesystem.StringPrimitive), zero-terminated)
 
 	carg0 = (*C.GFileInfo)(UnsafeFileInfoToGlibNone(info))
-	carg1 = (*C.char)(unsafe.Pointer(C.CString(attribute)))
-	defer C.free(unsafe.Pointer(carg1))
+	carg1 = (*C.char)(transfer.GLibString(attribute))
+	defer C.g_free(C.gpointer(carg1))
 
 	cret = C.g_file_info_get_attribute_stringv(carg0, carg1)
 	runtime.KeepAlive(info)
@@ -24044,8 +24069,8 @@ func (info *FileInfoInstance) GetAttributeType(attribute string) FileAttributeTy
 	var cret  C.GFileAttributeType // return, none, casted
 
 	carg0 = (*C.GFileInfo)(UnsafeFileInfoToGlibNone(info))
-	carg1 = (*C.char)(unsafe.Pointer(C.CString(attribute)))
-	defer C.free(unsafe.Pointer(carg1))
+	carg1 = (*C.char)(transfer.GLibString(attribute))
+	defer C.g_free(C.gpointer(carg1))
 
 	cret = C.g_file_info_get_attribute_type(carg0, carg1)
 	runtime.KeepAlive(info)
@@ -24067,8 +24092,8 @@ func (info *FileInfoInstance) GetAttributeUint32(attribute string) uint32 {
 	var cret  C.guint32    // return, none, casted
 
 	carg0 = (*C.GFileInfo)(UnsafeFileInfoToGlibNone(info))
-	carg1 = (*C.char)(unsafe.Pointer(C.CString(attribute)))
-	defer C.free(unsafe.Pointer(carg1))
+	carg1 = (*C.char)(transfer.GLibString(attribute))
+	defer C.g_free(C.gpointer(carg1))
 
 	cret = C.g_file_info_get_attribute_uint32(carg0, carg1)
 	runtime.KeepAlive(info)
@@ -24090,8 +24115,8 @@ func (info *FileInfoInstance) GetAttributeUint64(attribute string) uint64 {
 	var cret  C.guint64    // return, none, casted
 
 	carg0 = (*C.GFileInfo)(UnsafeFileInfoToGlibNone(info))
-	carg1 = (*C.char)(unsafe.Pointer(C.CString(attribute)))
-	defer C.free(unsafe.Pointer(carg1))
+	carg1 = (*C.char)(transfer.GLibString(attribute))
+	defer C.g_free(C.gpointer(carg1))
 
 	cret = C.g_file_info_get_attribute_uint64(carg0, carg1)
 	runtime.KeepAlive(info)
@@ -24395,8 +24420,8 @@ func (info *FileInfoInstance) HasAttribute(attribute string) bool {
 	var cret  C.gboolean   // return
 
 	carg0 = (*C.GFileInfo)(UnsafeFileInfoToGlibNone(info))
-	carg1 = (*C.char)(unsafe.Pointer(C.CString(attribute)))
-	defer C.free(unsafe.Pointer(carg1))
+	carg1 = (*C.char)(transfer.GLibString(attribute))
+	defer C.g_free(C.gpointer(carg1))
 
 	cret = C.g_file_info_has_attribute(carg0, carg1)
 	runtime.KeepAlive(info)
@@ -24420,8 +24445,8 @@ func (info *FileInfoInstance) HasNamespace(nameSpace string) bool {
 	var cret  C.gboolean   // return
 
 	carg0 = (*C.GFileInfo)(UnsafeFileInfoToGlibNone(info))
-	carg1 = (*C.char)(unsafe.Pointer(C.CString(nameSpace)))
-	defer C.free(unsafe.Pointer(carg1))
+	carg1 = (*C.char)(transfer.GLibString(nameSpace))
+	defer C.g_free(C.gpointer(carg1))
 
 	cret = C.g_file_info_has_namespace(carg0, carg1)
 	runtime.KeepAlive(info)
@@ -24446,8 +24471,8 @@ func (info *FileInfoInstance) ListAttributes(nameSpace string) []string {
 
 	carg0 = (*C.GFileInfo)(UnsafeFileInfoToGlibNone(info))
 	if nameSpace != "" {
-		carg1 = (*C.char)(unsafe.Pointer(C.CString(nameSpace)))
-		defer C.free(unsafe.Pointer(carg1))
+		carg1 = (*C.char)(transfer.GLibString(nameSpace))
+		defer C.g_free(C.gpointer(carg1))
 	}
 
 	cret = C.g_file_info_list_attributes(carg0, carg1)
@@ -24471,8 +24496,8 @@ func (info *FileInfoInstance) RemoveAttribute(attribute string) {
 	var carg1 *C.char      // in, none, string
 
 	carg0 = (*C.GFileInfo)(UnsafeFileInfoToGlibNone(info))
-	carg1 = (*C.char)(unsafe.Pointer(C.CString(attribute)))
-	defer C.free(unsafe.Pointer(carg1))
+	carg1 = (*C.char)(transfer.GLibString(attribute))
+	defer C.g_free(C.gpointer(carg1))
 
 	C.g_file_info_remove_attribute(carg0, carg1)
 	runtime.KeepAlive(info)
@@ -24488,8 +24513,8 @@ func (info *FileInfoInstance) SetAttributeBoolean(attribute string, attrValue bo
 	var carg2 C.gboolean   // in
 
 	carg0 = (*C.GFileInfo)(UnsafeFileInfoToGlibNone(info))
-	carg1 = (*C.char)(unsafe.Pointer(C.CString(attribute)))
-	defer C.free(unsafe.Pointer(carg1))
+	carg1 = (*C.char)(transfer.GLibString(attribute))
+	defer C.g_free(C.gpointer(carg1))
 	if attrValue {
 		carg2 = C.TRUE
 	}
@@ -24509,10 +24534,10 @@ func (info *FileInfoInstance) SetAttributeByteString(attribute string, attrValue
 	var carg2 *C.char      // in, none, string
 
 	carg0 = (*C.GFileInfo)(UnsafeFileInfoToGlibNone(info))
-	carg1 = (*C.char)(unsafe.Pointer(C.CString(attribute)))
-	defer C.free(unsafe.Pointer(carg1))
-	carg2 = (*C.char)(unsafe.Pointer(C.CString(attrValue)))
-	defer C.free(unsafe.Pointer(carg2))
+	carg1 = (*C.char)(transfer.GLibString(attribute))
+	defer C.g_free(C.gpointer(carg1))
+	carg2 = (*C.char)(transfer.GLibString(attrValue))
+	defer C.g_free(C.gpointer(carg2))
 
 	C.g_file_info_set_attribute_byte_string(carg0, carg1, carg2)
 	runtime.KeepAlive(info)
@@ -24529,10 +24554,10 @@ func (info *FileInfoInstance) SetAttributeFilePath(attribute string, attrValue s
 	var carg2 *C.char      // in, none, string
 
 	carg0 = (*C.GFileInfo)(UnsafeFileInfoToGlibNone(info))
-	carg1 = (*C.char)(unsafe.Pointer(C.CString(attribute)))
-	defer C.free(unsafe.Pointer(carg1))
-	carg2 = (*C.char)(unsafe.Pointer(C.CString(attrValue)))
-	defer C.free(unsafe.Pointer(carg2))
+	carg1 = (*C.char)(transfer.GLibString(attribute))
+	defer C.g_free(C.gpointer(carg1))
+	carg2 = (*C.char)(transfer.GLibString(attrValue))
+	defer C.g_free(C.gpointer(carg2))
 
 	C.g_file_info_set_attribute_file_path(carg0, carg1, carg2)
 	runtime.KeepAlive(info)
@@ -24549,8 +24574,8 @@ func (info *FileInfoInstance) SetAttributeInt32(attribute string, attrValue int3
 	var carg2 C.gint32     // in, none, casted
 
 	carg0 = (*C.GFileInfo)(UnsafeFileInfoToGlibNone(info))
-	carg1 = (*C.char)(unsafe.Pointer(C.CString(attribute)))
-	defer C.free(unsafe.Pointer(carg1))
+	carg1 = (*C.char)(transfer.GLibString(attribute))
+	defer C.g_free(C.gpointer(carg1))
 	carg2 = C.gint32(attrValue)
 
 	C.g_file_info_set_attribute_int32(carg0, carg1, carg2)
@@ -24568,8 +24593,8 @@ func (info *FileInfoInstance) SetAttributeInt64(attribute string, attrValue int6
 	var carg2 C.gint64     // in, none, casted
 
 	carg0 = (*C.GFileInfo)(UnsafeFileInfoToGlibNone(info))
-	carg1 = (*C.char)(unsafe.Pointer(C.CString(attribute)))
-	defer C.free(unsafe.Pointer(carg1))
+	carg1 = (*C.char)(transfer.GLibString(attribute))
+	defer C.g_free(C.gpointer(carg1))
 	carg2 = C.gint64(attrValue)
 
 	C.g_file_info_set_attribute_int64(carg0, carg1, carg2)
@@ -24602,8 +24627,8 @@ func (info *FileInfoInstance) SetAttributeObject(attribute string, attrValue gob
 	var carg2 *C.GObject   // in, none, converted
 
 	carg0 = (*C.GFileInfo)(UnsafeFileInfoToGlibNone(info))
-	carg1 = (*C.char)(unsafe.Pointer(C.CString(attribute)))
-	defer C.free(unsafe.Pointer(carg1))
+	carg1 = (*C.char)(transfer.GLibString(attribute))
+	defer C.g_free(C.gpointer(carg1))
 	carg2 = (*C.GObject)(gobject.UnsafeObjectToGlibNone(attrValue))
 
 	C.g_file_info_set_attribute_object(carg0, carg1, carg2)
@@ -24622,8 +24647,8 @@ func (info *FileInfoInstance) SetAttributeStatus(attribute string, status FileAt
 	var cret  C.gboolean             // return
 
 	carg0 = (*C.GFileInfo)(UnsafeFileInfoToGlibNone(info))
-	carg1 = (*C.char)(unsafe.Pointer(C.CString(attribute)))
-	defer C.free(unsafe.Pointer(carg1))
+	carg1 = (*C.char)(transfer.GLibString(attribute))
+	defer C.g_free(C.gpointer(carg1))
 	carg2 = C.GFileAttributeStatus(status)
 
 	cret = C.g_file_info_set_attribute_status(carg0, carg1, carg2)
@@ -24649,10 +24674,10 @@ func (info *FileInfoInstance) SetAttributeString(attribute string, attrValue str
 	var carg2 *C.char      // in, none, string
 
 	carg0 = (*C.GFileInfo)(UnsafeFileInfoToGlibNone(info))
-	carg1 = (*C.char)(unsafe.Pointer(C.CString(attribute)))
-	defer C.free(unsafe.Pointer(carg1))
-	carg2 = (*C.char)(unsafe.Pointer(C.CString(attrValue)))
-	defer C.free(unsafe.Pointer(carg2))
+	carg1 = (*C.char)(transfer.GLibString(attribute))
+	defer C.g_free(C.gpointer(carg1))
+	carg2 = (*C.char)(transfer.GLibString(attrValue))
+	defer C.g_free(C.gpointer(carg2))
 
 	C.g_file_info_set_attribute_string(carg0, carg1, carg2)
 	runtime.KeepAlive(info)
@@ -24669,8 +24694,8 @@ func (info *FileInfoInstance) SetAttributeStringv(attribute string, attrValue []
 	var carg2 **C.char     // in, transfer: none, C Pointers: 2, Name: array[utf8], array (inner gchar* (*typesystem.StringPrimitive), zero-terminated)
 
 	carg0 = (*C.GFileInfo)(UnsafeFileInfoToGlibNone(info))
-	carg1 = (*C.char)(unsafe.Pointer(C.CString(attribute)))
-	defer C.free(unsafe.Pointer(carg1))
+	carg1 = (*C.char)(transfer.GLibString(attribute))
+	defer C.g_free(C.gpointer(carg1))
 	_ = attrValue
 	_ = carg2
 	panic("unimplemented conversion of []string (char**) because of unimplemented: inner pointers in array")
@@ -24690,8 +24715,8 @@ func (info *FileInfoInstance) SetAttributeUint32(attribute string, attrValue uin
 	var carg2 C.guint32    // in, none, casted
 
 	carg0 = (*C.GFileInfo)(UnsafeFileInfoToGlibNone(info))
-	carg1 = (*C.char)(unsafe.Pointer(C.CString(attribute)))
-	defer C.free(unsafe.Pointer(carg1))
+	carg1 = (*C.char)(transfer.GLibString(attribute))
+	defer C.g_free(C.gpointer(carg1))
 	carg2 = C.guint32(attrValue)
 
 	C.g_file_info_set_attribute_uint32(carg0, carg1, carg2)
@@ -24709,8 +24734,8 @@ func (info *FileInfoInstance) SetAttributeUint64(attribute string, attrValue uin
 	var carg2 C.guint64    // in, none, casted
 
 	carg0 = (*C.GFileInfo)(UnsafeFileInfoToGlibNone(info))
-	carg1 = (*C.char)(unsafe.Pointer(C.CString(attribute)))
-	defer C.free(unsafe.Pointer(carg1))
+	carg1 = (*C.char)(transfer.GLibString(attribute))
+	defer C.g_free(C.gpointer(carg1))
 	carg2 = C.guint64(attrValue)
 
 	C.g_file_info_set_attribute_uint64(carg0, carg1, carg2)
@@ -24727,8 +24752,8 @@ func (info *FileInfoInstance) SetContentType(contentType string) {
 	var carg1 *C.char      // in, none, string
 
 	carg0 = (*C.GFileInfo)(UnsafeFileInfoToGlibNone(info))
-	carg1 = (*C.char)(unsafe.Pointer(C.CString(contentType)))
-	defer C.free(unsafe.Pointer(carg1))
+	carg1 = (*C.char)(transfer.GLibString(contentType))
+	defer C.g_free(C.gpointer(carg1))
 
 	C.g_file_info_set_content_type(carg0, carg1)
 	runtime.KeepAlive(info)
@@ -24743,8 +24768,8 @@ func (info *FileInfoInstance) SetDisplayName(displayName string) {
 	var carg1 *C.char      // in, none, string
 
 	carg0 = (*C.GFileInfo)(UnsafeFileInfoToGlibNone(info))
-	carg1 = (*C.char)(unsafe.Pointer(C.CString(displayName)))
-	defer C.free(unsafe.Pointer(carg1))
+	carg1 = (*C.char)(transfer.GLibString(displayName))
+	defer C.g_free(C.gpointer(carg1))
 
 	C.g_file_info_set_display_name(carg0, carg1)
 	runtime.KeepAlive(info)
@@ -24759,8 +24784,8 @@ func (info *FileInfoInstance) SetEditName(editName string) {
 	var carg1 *C.char      // in, none, string
 
 	carg0 = (*C.GFileInfo)(UnsafeFileInfoToGlibNone(info))
-	carg1 = (*C.char)(unsafe.Pointer(C.CString(editName)))
-	defer C.free(unsafe.Pointer(carg1))
+	carg1 = (*C.char)(transfer.GLibString(editName))
+	defer C.g_free(C.gpointer(carg1))
 
 	C.g_file_info_set_edit_name(carg0, carg1)
 	runtime.KeepAlive(info)
@@ -24839,8 +24864,8 @@ func (info *FileInfoInstance) SetName(name string) {
 	var carg1 *C.char      // in, none, string
 
 	carg0 = (*C.GFileInfo)(UnsafeFileInfoToGlibNone(info))
-	carg1 = (*C.char)(unsafe.Pointer(C.CString(name)))
-	defer C.free(unsafe.Pointer(carg1))
+	carg1 = (*C.char)(transfer.GLibString(name))
+	defer C.g_free(C.gpointer(carg1))
 
 	C.g_file_info_set_name(carg0, carg1)
 	runtime.KeepAlive(info)
@@ -24900,8 +24925,8 @@ func (info *FileInfoInstance) SetSymlinkTarget(symlinkTarget string) {
 	var carg1 *C.char      // in, none, string
 
 	carg0 = (*C.GFileInfo)(UnsafeFileInfoToGlibNone(info))
-	carg1 = (*C.char)(unsafe.Pointer(C.CString(symlinkTarget)))
-	defer C.free(unsafe.Pointer(carg1))
+	carg1 = (*C.char)(transfer.GLibString(symlinkTarget))
+	defer C.g_free(C.gpointer(carg1))
 
 	C.g_file_info_set_symlink_target(carg0, carg1)
 	runtime.KeepAlive(info)
@@ -25359,8 +25384,8 @@ func (completer *FilenameCompleterInstance) GetCompletionSuffix(initialText stri
 	var cret  *C.char               // return, full, string, nullable-string
 
 	carg0 = (*C.GFilenameCompleter)(UnsafeFilenameCompleterToGlibNone(completer))
-	carg1 = (*C.char)(unsafe.Pointer(C.CString(initialText)))
-	defer C.free(unsafe.Pointer(carg1))
+	carg1 = (*C.char)(transfer.GLibString(initialText))
+	defer C.g_free(C.gpointer(carg1))
 
 	cret = C.g_filename_completer_get_completion_suffix(carg0, carg1)
 	runtime.KeepAlive(completer)
@@ -25385,8 +25410,8 @@ func (completer *FilenameCompleterInstance) GetCompletions(initialText string) [
 	var cret  **C.char              // return, transfer: full, C Pointers: 2, Name: array[utf8], scope: , array (inner gchar* (*typesystem.StringPrimitive), zero-terminated)
 
 	carg0 = (*C.GFilenameCompleter)(UnsafeFilenameCompleterToGlibNone(completer))
-	carg1 = (*C.char)(unsafe.Pointer(C.CString(initialText)))
-	defer C.free(unsafe.Pointer(carg1))
+	carg1 = (*C.char)(transfer.GLibString(initialText))
+	defer C.g_free(C.gpointer(carg1))
 
 	cret = C.g_filename_completer_get_completions(carg0, carg1)
 	runtime.KeepAlive(completer)
@@ -26228,6 +26253,12 @@ type InetAddress interface {
 	String() string
 
 	// chain up virtual methods:
+
+	// ParentToString calls the default implementations of the `GInetAddress.to_string` virtual method.
+	// This function's behavior is not defined when the parent does not implement the virtual method.
+	// 
+	// see also https://docs.gtk.org/gio/method.InetAddress.to_string.html
+	ParentToString() string
 }
 
 func unsafeWrapInetAddress(base *gobject.ObjectInstance) *InetAddressInstance {
@@ -26304,8 +26335,8 @@ func NewInetAddressFromString(str string) InetAddress {
 	var carg1 *C.gchar        // in, none, string
 	var cret  *C.GInetAddress // return, full, converted, nullable
 
-	carg1 = (*C.gchar)(unsafe.Pointer(C.CString(str)))
-	defer C.free(unsafe.Pointer(carg1))
+	carg1 = (*C.gchar)(transfer.GLibString(str))
+	defer C.g_free(C.gpointer(carg1))
 
 	cret = C.g_inet_address_new_from_string(carg1)
 	runtime.KeepAlive(str)
@@ -26636,12 +26667,61 @@ type InetAddressOverrides[Instance InetAddress] struct {
 	// gobject.ObjectOverrides allows you to override virtual methods from the parent class gobject.Object
 	gobject.ObjectOverrides[Instance]
 
+	// // ToString allows you to override the implementation of the virtual method to_string.
+	// 
+	// see also https://docs.gtk.org/gio/method.InetAddress.to_string.html
+	ToString func(Instance) string
 }
 
 // UnsafeApplyInetAddressOverrides applies the overrides to init the gclass by setting the trampoline functions.
 // This is used by the bindings internally and only exported for visibility to other bindings code.
 func UnsafeApplyInetAddressOverrides[Instance InetAddress](gclass unsafe.Pointer, overrides InetAddressOverrides[Instance]) {
 	gobject.UnsafeApplyObjectOverrides(gclass, overrides.ObjectOverrides)
+
+	pclass := (*C.GInetAddressClass)(gclass)
+
+	if overrides.ToString != nil {
+		pclass.to_string = (*[0]byte)(C._goglib_gio2_InetAddress_to_string)
+		classdata.StoreVirtualMethod(
+			unsafe.Pointer(pclass),
+			"_goglib_gio2_InetAddress_to_string",
+			func(carg0 *C.GInetAddress) (cret *C.gchar) {
+				var address Instance // go GInetAddress subclass
+				var goret   string   // return, full, string
+
+				address = UnsafeInetAddressFromGlibBorrow(unsafe.Pointer(carg0)).UnsafeLoadInstanceFromPrivateData().(Instance)
+
+				goret = overrides.ToString(address)
+
+				cret = (*C.gchar)(transfer.GLibString(goret))
+
+				return cret
+			},
+		)
+	}
+}
+
+// ParentToString calls the default implementations of the `GInetAddress.to_string` virtual method.
+// This function's behavior is not defined when the parent does not implement the virtual method.
+// 
+// see also https://docs.gtk.org/gio/method.InetAddress.to_string.html
+func (address *InetAddressInstance) ParentToString() string {
+	var carg0 *C.GInetAddress
+	var cret  *C.gchar // return, full, string
+
+	parentclass := (*C.GInetAddressClass)(classdata.PeekParentClass(UnsafeInetAddressToGlibNone(address)))
+
+	carg0 = (*C.GInetAddress)(UnsafeInetAddressToGlibNone(address))
+
+	cret = C._goglib_gio2_InetAddress_virtual_to_string(unsafe.Pointer(parentclass.to_string), carg0)
+	runtime.KeepAlive(address)
+
+	var goret string
+
+	goret = C.GoString((*C.char)(unsafe.Pointer(cret)))
+	defer C.g_free(C.gpointer(cret))
+
+	return goret
 }
 
 // RegisterInetAddressSubClass is used to register a go subclass of GInetAddress. For this to work safely please implement the
@@ -26796,8 +26876,8 @@ func NewInetAddressMaskFromString(maskString string) (InetAddressMask, error) {
 	var cret  *C.GInetAddressMask // return, full, converted
 	var _cerr *C.GError           // out, full, converted, nullable
 
-	carg1 = (*C.gchar)(unsafe.Pointer(C.CString(maskString)))
-	defer C.free(unsafe.Pointer(carg1))
+	carg1 = (*C.gchar)(transfer.GLibString(maskString))
+	defer C.g_free(C.gpointer(carg1))
 
 	cret = C.g_inet_address_mask_new_from_string(carg1, &_cerr)
 	runtime.KeepAlive(maskString)
@@ -28468,12 +28548,12 @@ func NewMenuItem(label string, detailedAction string) MenuItem {
 	var cret  *C.GMenuItem // return, full, converted
 
 	if label != "" {
-		carg1 = (*C.gchar)(unsafe.Pointer(C.CString(label)))
-		defer C.free(unsafe.Pointer(carg1))
+		carg1 = (*C.gchar)(transfer.GLibString(label))
+		defer C.g_free(C.gpointer(carg1))
 	}
 	if detailedAction != "" {
-		carg2 = (*C.gchar)(unsafe.Pointer(C.CString(detailedAction)))
-		defer C.free(unsafe.Pointer(carg2))
+		carg2 = (*C.gchar)(transfer.GLibString(detailedAction))
+		defer C.g_free(C.gpointer(carg2))
 	}
 
 	cret = C.g_menu_item_new(carg1, carg2)
@@ -28518,8 +28598,8 @@ func NewMenuItemSection(label string, section MenuModel) MenuItem {
 	var cret  *C.GMenuItem  // return, full, converted
 
 	if label != "" {
-		carg1 = (*C.gchar)(unsafe.Pointer(C.CString(label)))
-		defer C.free(unsafe.Pointer(carg1))
+		carg1 = (*C.gchar)(transfer.GLibString(label))
+		defer C.g_free(C.gpointer(carg1))
 	}
 	carg2 = (*C.GMenuModel)(UnsafeMenuModelToGlibNone(section))
 
@@ -28543,8 +28623,8 @@ func NewMenuItemSubmenu(label string, submenu MenuModel) MenuItem {
 	var cret  *C.GMenuItem  // return, full, converted
 
 	if label != "" {
-		carg1 = (*C.gchar)(unsafe.Pointer(C.CString(label)))
-		defer C.free(unsafe.Pointer(carg1))
+		carg1 = (*C.gchar)(transfer.GLibString(label))
+		defer C.g_free(C.gpointer(carg1))
 	}
 	carg2 = (*C.GMenuModel)(UnsafeMenuModelToGlibNone(submenu))
 
@@ -28568,8 +28648,8 @@ func (menuItem *MenuItemInstance) GetLink(link string) MenuModel {
 	var cret  *C.GMenuModel // return, full, converted, nullable
 
 	carg0 = (*C.GMenuItem)(UnsafeMenuItemToGlibNone(menuItem))
-	carg1 = (*C.gchar)(unsafe.Pointer(C.CString(link)))
-	defer C.free(unsafe.Pointer(carg1))
+	carg1 = (*C.gchar)(transfer.GLibString(link))
+	defer C.g_free(C.gpointer(carg1))
 
 	cret = C.g_menu_item_get_link(carg0, carg1)
 	runtime.KeepAlive(menuItem)
@@ -28592,8 +28672,8 @@ func (menuItem *MenuItemInstance) SetDetailedAction(detailedAction string) {
 	var carg1 *C.gchar     // in, none, string
 
 	carg0 = (*C.GMenuItem)(UnsafeMenuItemToGlibNone(menuItem))
-	carg1 = (*C.gchar)(unsafe.Pointer(C.CString(detailedAction)))
-	defer C.free(unsafe.Pointer(carg1))
+	carg1 = (*C.gchar)(transfer.GLibString(detailedAction))
+	defer C.g_free(C.gpointer(carg1))
 
 	C.g_menu_item_set_detailed_action(carg0, carg1)
 	runtime.KeepAlive(menuItem)
@@ -28624,8 +28704,8 @@ func (menuItem *MenuItemInstance) SetLabel(label string) {
 
 	carg0 = (*C.GMenuItem)(UnsafeMenuItemToGlibNone(menuItem))
 	if label != "" {
-		carg1 = (*C.gchar)(unsafe.Pointer(C.CString(label)))
-		defer C.free(unsafe.Pointer(carg1))
+		carg1 = (*C.gchar)(transfer.GLibString(label))
+		defer C.g_free(C.gpointer(carg1))
 	}
 
 	C.g_menu_item_set_label(carg0, carg1)
@@ -28642,8 +28722,8 @@ func (menuItem *MenuItemInstance) SetLink(link string, model MenuModel) {
 	var carg2 *C.GMenuModel // in, none, converted, nullable
 
 	carg0 = (*C.GMenuItem)(UnsafeMenuItemToGlibNone(menuItem))
-	carg1 = (*C.gchar)(unsafe.Pointer(C.CString(link)))
-	defer C.free(unsafe.Pointer(carg1))
+	carg1 = (*C.gchar)(transfer.GLibString(link))
+	defer C.g_free(C.gpointer(carg1))
 	if model != nil {
 		carg2 = (*C.GMenuModel)(UnsafeMenuModelToGlibNone(model))
 	}
@@ -28897,8 +28977,8 @@ func UnsafeApplyMenuLinkIterOverrides[Instance MenuLinkIter](gclass unsafe.Point
 
 				outLink, value, goret = overrides.GetNext(iter)
 
-				*carg1 = (*C.gchar)(unsafe.Pointer(C.CString(outLink)))
-				defer C.free(unsafe.Pointer(carg1))
+				*carg1 = (*C.gchar)(transfer.GLibString(outLink))
+				defer C.g_free(C.gpointer(carg1))
 				*carg2 = (*C.GMenuModel)(UnsafeMenuModelToGlibFull(value))
 				if goret {
 					cret = C.TRUE
@@ -29098,8 +29178,8 @@ func (model *MenuModelInstance) GetItemLink(itemIndex int32, link string) MenuMo
 
 	carg0 = (*C.GMenuModel)(UnsafeMenuModelToGlibNone(model))
 	carg1 = C.gint(itemIndex)
-	carg2 = (*C.gchar)(unsafe.Pointer(C.CString(link)))
-	defer C.free(unsafe.Pointer(carg2))
+	carg2 = (*C.gchar)(transfer.GLibString(link))
+	defer C.g_free(C.gpointer(carg2))
 
 	cret = C.g_menu_model_get_item_link(carg0, carg1, carg2)
 	runtime.KeepAlive(model)
@@ -29389,8 +29469,8 @@ func (model *MenuModelInstance) ParentGetItemLink(itemIndex int32, link string) 
 
 	carg0 = (*C.GMenuModel)(UnsafeMenuModelToGlibNone(model))
 	carg1 = C.gint(itemIndex)
-	carg2 = (*C.gchar)(unsafe.Pointer(C.CString(link)))
-	defer C.free(unsafe.Pointer(carg2))
+	carg2 = (*C.gchar)(transfer.GLibString(link))
+	defer C.g_free(C.gpointer(carg2))
 
 	cret = C._goglib_gio2_MenuModel_virtual_get_item_link(unsafe.Pointer(parentclass.get_item_link), carg0, carg1, carg2)
 	runtime.KeepAlive(model)
@@ -29967,8 +30047,8 @@ func (op *MountOperationInstance) SetDomain(domain string) {
 
 	carg0 = (*C.GMountOperation)(UnsafeMountOperationToGlibNone(op))
 	if domain != "" {
-		carg1 = (*C.char)(unsafe.Pointer(C.CString(domain)))
-		defer C.free(unsafe.Pointer(carg1))
+		carg1 = (*C.char)(transfer.GLibString(domain))
+		defer C.g_free(C.gpointer(carg1))
 	}
 
 	C.g_mount_operation_set_domain(carg0, carg1)
@@ -30019,8 +30099,8 @@ func (op *MountOperationInstance) SetPassword(password string) {
 
 	carg0 = (*C.GMountOperation)(UnsafeMountOperationToGlibNone(op))
 	if password != "" {
-		carg1 = (*C.char)(unsafe.Pointer(C.CString(password)))
-		defer C.free(unsafe.Pointer(carg1))
+		carg1 = (*C.char)(transfer.GLibString(password))
+		defer C.g_free(C.gpointer(carg1))
 	}
 
 	C.g_mount_operation_set_password(carg0, carg1)
@@ -30067,8 +30147,8 @@ func (op *MountOperationInstance) SetUsername(username string) {
 
 	carg0 = (*C.GMountOperation)(UnsafeMountOperationToGlibNone(op))
 	if username != "" {
-		carg1 = (*C.char)(unsafe.Pointer(C.CString(username)))
-		defer C.free(unsafe.Pointer(carg1))
+		carg1 = (*C.char)(transfer.GLibString(username))
+		defer C.g_free(C.gpointer(carg1))
 	}
 
 	C.g_mount_operation_set_username(carg0, carg1)
@@ -30266,12 +30346,12 @@ func (op *MountOperationInstance) ParentAskPassword(message string, defaultUser 
 	parentclass := (*C.GMountOperationClass)(classdata.PeekParentClass(UnsafeMountOperationToGlibNone(op)))
 
 	carg0 = (*C.GMountOperation)(UnsafeMountOperationToGlibNone(op))
-	carg1 = (*C.char)(unsafe.Pointer(C.CString(message)))
-	defer C.free(unsafe.Pointer(carg1))
-	carg2 = (*C.char)(unsafe.Pointer(C.CString(defaultUser)))
-	defer C.free(unsafe.Pointer(carg2))
-	carg3 = (*C.char)(unsafe.Pointer(C.CString(defaultDomain)))
-	defer C.free(unsafe.Pointer(carg3))
+	carg1 = (*C.char)(transfer.GLibString(message))
+	defer C.g_free(C.gpointer(carg1))
+	carg2 = (*C.char)(transfer.GLibString(defaultUser))
+	defer C.g_free(C.gpointer(carg2))
+	carg3 = (*C.char)(transfer.GLibString(defaultDomain))
+	defer C.g_free(C.gpointer(carg3))
 	carg4 = C.GAskPasswordFlags(flags)
 
 	C._goglib_gio2_MountOperation_virtual_ask_password(unsafe.Pointer(parentclass.ask_password), carg0, carg1, carg2, carg3, carg4)
@@ -30294,8 +30374,8 @@ func (op *MountOperationInstance) ParentAskQuestion(message string, choices []st
 	parentclass := (*C.GMountOperationClass)(classdata.PeekParentClass(UnsafeMountOperationToGlibNone(op)))
 
 	carg0 = (*C.GMountOperation)(UnsafeMountOperationToGlibNone(op))
-	carg1 = (*C.char)(unsafe.Pointer(C.CString(message)))
-	defer C.free(unsafe.Pointer(carg1))
+	carg1 = (*C.char)(transfer.GLibString(message))
+	defer C.g_free(C.gpointer(carg1))
 	_ = choices
 	_ = carg2
 	panic("unimplemented conversion of []string (const char**) because of unimplemented: inner pointers in array")
@@ -30337,8 +30417,8 @@ func (op *MountOperationInstance) ParentShowUnmountProgress(message string, time
 	parentclass := (*C.GMountOperationClass)(classdata.PeekParentClass(UnsafeMountOperationToGlibNone(op)))
 
 	carg0 = (*C.GMountOperation)(UnsafeMountOperationToGlibNone(op))
-	carg1 = (*C.gchar)(unsafe.Pointer(C.CString(message)))
-	defer C.free(unsafe.Pointer(carg1))
+	carg1 = (*C.gchar)(transfer.GLibString(message))
+	defer C.g_free(C.gpointer(carg1))
 	carg2 = C.gint64(timeLeft)
 	carg3 = C.gint64(bytesLeft)
 
@@ -30462,8 +30542,8 @@ func NewNetworkAddress(hostname string, port uint16) NetworkAddress {
 	var carg2 C.guint16             // in, none, casted
 	var cret  *C.GSocketConnectable // return, full, converted
 
-	carg1 = (*C.gchar)(unsafe.Pointer(C.CString(hostname)))
-	defer C.free(unsafe.Pointer(carg1))
+	carg1 = (*C.gchar)(transfer.GLibString(hostname))
+	defer C.g_free(C.gpointer(carg1))
 	carg2 = C.guint16(port)
 
 	cret = C.g_network_address_new(carg1, carg2)
@@ -30505,8 +30585,8 @@ func NetworkAddressParse(hostAndPort string, defaultPort uint16) (NetworkAddress
 	var cret  *C.GSocketConnectable // return, full, converted
 	var _cerr *C.GError             // out, full, converted, nullable
 
-	carg1 = (*C.gchar)(unsafe.Pointer(C.CString(hostAndPort)))
-	defer C.free(unsafe.Pointer(carg1))
+	carg1 = (*C.gchar)(transfer.GLibString(hostAndPort))
+	defer C.g_free(C.gpointer(carg1))
 	carg2 = C.guint16(defaultPort)
 
 	cret = C.g_network_address_parse(carg1, carg2, &_cerr)
@@ -30533,8 +30613,8 @@ func NetworkAddressParseURI(uri string, defaultPort uint16) (NetworkAddress, err
 	var cret  *C.GSocketConnectable // return, full, converted
 	var _cerr *C.GError             // out, full, converted, nullable
 
-	carg1 = (*C.gchar)(unsafe.Pointer(C.CString(uri)))
-	defer C.free(unsafe.Pointer(carg1))
+	carg1 = (*C.gchar)(transfer.GLibString(uri))
+	defer C.g_free(C.gpointer(carg1))
 	carg2 = C.guint16(defaultPort)
 
 	cret = C.g_network_address_parse_uri(carg1, carg2, &_cerr)
@@ -30747,12 +30827,12 @@ func NewNetworkService(service string, protocol string, domain string) NetworkSe
 	var carg3 *C.gchar              // in, none, string
 	var cret  *C.GSocketConnectable // return, full, converted
 
-	carg1 = (*C.gchar)(unsafe.Pointer(C.CString(service)))
-	defer C.free(unsafe.Pointer(carg1))
-	carg2 = (*C.gchar)(unsafe.Pointer(C.CString(protocol)))
-	defer C.free(unsafe.Pointer(carg2))
-	carg3 = (*C.gchar)(unsafe.Pointer(C.CString(domain)))
-	defer C.free(unsafe.Pointer(carg3))
+	carg1 = (*C.gchar)(transfer.GLibString(service))
+	defer C.g_free(C.gpointer(carg1))
+	carg2 = (*C.gchar)(transfer.GLibString(protocol))
+	defer C.g_free(C.gpointer(carg2))
+	carg3 = (*C.gchar)(transfer.GLibString(domain))
+	defer C.g_free(C.gpointer(carg3))
 
 	cret = C.g_network_service_new(carg1, carg2, carg3)
 	runtime.KeepAlive(service)
@@ -30850,8 +30930,8 @@ func (srv *NetworkServiceInstance) SetScheme(scheme string) {
 	var carg1 *C.gchar           // in, none, string
 
 	carg0 = (*C.GNetworkService)(UnsafeNetworkServiceToGlibNone(srv))
-	carg1 = (*C.gchar)(unsafe.Pointer(C.CString(scheme)))
-	defer C.free(unsafe.Pointer(carg1))
+	carg1 = (*C.gchar)(transfer.GLibString(scheme))
+	defer C.g_free(C.gpointer(carg1))
 
 	C.g_network_service_set_scheme(carg0, carg1)
 	runtime.KeepAlive(srv)
@@ -31004,8 +31084,8 @@ func NewNotification(title string) Notification {
 	var carg1 *C.gchar         // in, none, string
 	var cret  *C.GNotification // return, full, converted
 
-	carg1 = (*C.gchar)(unsafe.Pointer(C.CString(title)))
-	defer C.free(unsafe.Pointer(carg1))
+	carg1 = (*C.gchar)(transfer.GLibString(title))
+	defer C.g_free(C.gpointer(carg1))
 
 	cret = C.g_notification_new(carg1)
 	runtime.KeepAlive(title)
@@ -31026,10 +31106,10 @@ func (notification *NotificationInstance) AddButton(label string, detailedAction
 	var carg2 *C.gchar         // in, none, string
 
 	carg0 = (*C.GNotification)(UnsafeNotificationToGlibNone(notification))
-	carg1 = (*C.gchar)(unsafe.Pointer(C.CString(label)))
-	defer C.free(unsafe.Pointer(carg1))
-	carg2 = (*C.gchar)(unsafe.Pointer(C.CString(detailedAction)))
-	defer C.free(unsafe.Pointer(carg2))
+	carg1 = (*C.gchar)(transfer.GLibString(label))
+	defer C.g_free(C.gpointer(carg1))
+	carg2 = (*C.gchar)(transfer.GLibString(detailedAction))
+	defer C.g_free(C.gpointer(carg2))
 
 	C.g_notification_add_button(carg0, carg1, carg2)
 	runtime.KeepAlive(notification)
@@ -31046,8 +31126,8 @@ func (notification *NotificationInstance) SetBody(body string) {
 
 	carg0 = (*C.GNotification)(UnsafeNotificationToGlibNone(notification))
 	if body != "" {
-		carg1 = (*C.gchar)(unsafe.Pointer(C.CString(body)))
-		defer C.free(unsafe.Pointer(carg1))
+		carg1 = (*C.gchar)(transfer.GLibString(body))
+		defer C.g_free(C.gpointer(carg1))
 	}
 
 	C.g_notification_set_body(carg0, carg1)
@@ -31064,8 +31144,8 @@ func (notification *NotificationInstance) SetCategory(category string) {
 
 	carg0 = (*C.GNotification)(UnsafeNotificationToGlibNone(notification))
 	if category != "" {
-		carg1 = (*C.gchar)(unsafe.Pointer(C.CString(category)))
-		defer C.free(unsafe.Pointer(carg1))
+		carg1 = (*C.gchar)(transfer.GLibString(category))
+		defer C.g_free(C.gpointer(carg1))
 	}
 
 	C.g_notification_set_category(carg0, carg1)
@@ -31081,8 +31161,8 @@ func (notification *NotificationInstance) SetDefaultAction(detailedAction string
 	var carg1 *C.gchar         // in, none, string
 
 	carg0 = (*C.GNotification)(UnsafeNotificationToGlibNone(notification))
-	carg1 = (*C.gchar)(unsafe.Pointer(C.CString(detailedAction)))
-	defer C.free(unsafe.Pointer(carg1))
+	carg1 = (*C.gchar)(transfer.GLibString(detailedAction))
+	defer C.g_free(C.gpointer(carg1))
 
 	C.g_notification_set_default_action(carg0, carg1)
 	runtime.KeepAlive(notification)
@@ -31127,8 +31207,8 @@ func (notification *NotificationInstance) SetTitle(title string) {
 	var carg1 *C.gchar         // in, none, string
 
 	carg0 = (*C.GNotification)(UnsafeNotificationToGlibNone(notification))
-	carg1 = (*C.gchar)(unsafe.Pointer(C.CString(title)))
-	defer C.free(unsafe.Pointer(carg1))
+	carg1 = (*C.gchar)(transfer.GLibString(title))
+	defer C.g_free(C.gpointer(carg1))
 
 	C.g_notification_set_title(carg0, carg1)
 	runtime.KeepAlive(notification)
@@ -33555,6 +33635,16 @@ type Resolver interface {
 
 	// chain up virtual methods:
 
+	// ParentLookupByAddress calls the default implementations of the `GResolver.lookup_by_address` virtual method.
+	// This function's behavior is not defined when the parent does not implement the virtual method.
+	// 
+	// see also https://docs.gtk.org/gio/method.Resolver.lookup_by_address.html
+	ParentLookupByAddress(address InetAddress, cancellable Cancellable) (string, error)
+	// ParentLookupByAddressFinish calls the default implementations of the `GResolver.lookup_by_address_finish` virtual method.
+	// This function's behavior is not defined when the parent does not implement the virtual method.
+	// 
+	// see also https://docs.gtk.org/gio/method.Resolver.lookup_by_address_finish.html
+	ParentLookupByAddressFinish(result AsyncResult) (string, error)
 	// ParentLookupByName calls the default implementations of the `GResolver.lookup_by_name` virtual method.
 	// This function's behavior is not defined when the parent does not implement the virtual method.
 	// 
@@ -33768,8 +33858,8 @@ func (resolver *ResolverInstance) LookupByName(hostname string, cancellable Canc
 	var _cerr *C.GError       // out, full, converted, nullable
 
 	carg0 = (*C.GResolver)(UnsafeResolverToGlibNone(resolver))
-	carg1 = (*C.gchar)(unsafe.Pointer(C.CString(hostname)))
-	defer C.free(unsafe.Pointer(carg1))
+	carg1 = (*C.gchar)(transfer.GLibString(hostname))
+	defer C.g_free(C.gpointer(carg1))
 	if cancellable != nil {
 		carg2 = (*C.GCancellable)(UnsafeCancellableToGlibNone(cancellable))
 	}
@@ -33808,8 +33898,8 @@ func (resolver *ResolverInstance) LookupByNameAsync(hostname string, cancellable
 	var carg4 C.gpointer            // implicit
 
 	carg0 = (*C.GResolver)(UnsafeResolverToGlibNone(resolver))
-	carg1 = (*C.gchar)(unsafe.Pointer(C.CString(hostname)))
-	defer C.free(unsafe.Pointer(carg1))
+	carg1 = (*C.gchar)(transfer.GLibString(hostname))
+	defer C.g_free(C.gpointer(carg1))
 	if cancellable != nil {
 		carg2 = (*C.GCancellable)(UnsafeCancellableToGlibNone(cancellable))
 	}
@@ -33871,8 +33961,8 @@ func (resolver *ResolverInstance) LookupByNameWithFlags(hostname string, flags R
 	var _cerr *C.GError                  // out, full, converted, nullable
 
 	carg0 = (*C.GResolver)(UnsafeResolverToGlibNone(resolver))
-	carg1 = (*C.gchar)(unsafe.Pointer(C.CString(hostname)))
-	defer C.free(unsafe.Pointer(carg1))
+	carg1 = (*C.gchar)(transfer.GLibString(hostname))
+	defer C.g_free(C.gpointer(carg1))
 	carg2 = C.GResolverNameLookupFlags(flags)
 	if cancellable != nil {
 		carg3 = (*C.GCancellable)(UnsafeCancellableToGlibNone(cancellable))
@@ -33914,8 +34004,8 @@ func (resolver *ResolverInstance) LookupByNameWithFlagsAsync(hostname string, fl
 	var carg5 C.gpointer                 // implicit
 
 	carg0 = (*C.GResolver)(UnsafeResolverToGlibNone(resolver))
-	carg1 = (*C.gchar)(unsafe.Pointer(C.CString(hostname)))
-	defer C.free(unsafe.Pointer(carg1))
+	carg1 = (*C.gchar)(transfer.GLibString(hostname))
+	defer C.g_free(C.gpointer(carg1))
 	carg2 = C.GResolverNameLookupFlags(flags)
 	if cancellable != nil {
 		carg3 = (*C.GCancellable)(UnsafeCancellableToGlibNone(cancellable))
@@ -33979,8 +34069,8 @@ func (resolver *ResolverInstance) LookupRecordsAsync(rrname string, recordType R
 	var carg5 C.gpointer            // implicit
 
 	carg0 = (*C.GResolver)(UnsafeResolverToGlibNone(resolver))
-	carg1 = (*C.gchar)(unsafe.Pointer(C.CString(rrname)))
-	defer C.free(unsafe.Pointer(carg1))
+	carg1 = (*C.gchar)(transfer.GLibString(rrname))
+	defer C.g_free(C.gpointer(carg1))
 	carg2 = C.GResolverRecordType(recordType)
 	if cancellable != nil {
 		carg3 = (*C.GCancellable)(UnsafeCancellableToGlibNone(cancellable))
@@ -34011,12 +34101,12 @@ func (resolver *ResolverInstance) LookupService(service string, protocol string,
 	var _cerr *C.GError       // out, full, converted, nullable
 
 	carg0 = (*C.GResolver)(UnsafeResolverToGlibNone(resolver))
-	carg1 = (*C.gchar)(unsafe.Pointer(C.CString(service)))
-	defer C.free(unsafe.Pointer(carg1))
-	carg2 = (*C.gchar)(unsafe.Pointer(C.CString(protocol)))
-	defer C.free(unsafe.Pointer(carg2))
-	carg3 = (*C.gchar)(unsafe.Pointer(C.CString(domain)))
-	defer C.free(unsafe.Pointer(carg3))
+	carg1 = (*C.gchar)(transfer.GLibString(service))
+	defer C.g_free(C.gpointer(carg1))
+	carg2 = (*C.gchar)(transfer.GLibString(protocol))
+	defer C.g_free(C.gpointer(carg2))
+	carg3 = (*C.gchar)(transfer.GLibString(domain))
+	defer C.g_free(C.gpointer(carg3))
 	if cancellable != nil {
 		carg4 = (*C.GCancellable)(UnsafeCancellableToGlibNone(cancellable))
 	}
@@ -34059,12 +34149,12 @@ func (resolver *ResolverInstance) LookupServiceAsync(service string, protocol st
 	var carg6 C.gpointer            // implicit
 
 	carg0 = (*C.GResolver)(UnsafeResolverToGlibNone(resolver))
-	carg1 = (*C.gchar)(unsafe.Pointer(C.CString(service)))
-	defer C.free(unsafe.Pointer(carg1))
-	carg2 = (*C.gchar)(unsafe.Pointer(C.CString(protocol)))
-	defer C.free(unsafe.Pointer(carg2))
-	carg3 = (*C.gchar)(unsafe.Pointer(C.CString(domain)))
-	defer C.free(unsafe.Pointer(carg3))
+	carg1 = (*C.gchar)(transfer.GLibString(service))
+	defer C.g_free(C.gpointer(carg1))
+	carg2 = (*C.gchar)(transfer.GLibString(protocol))
+	defer C.g_free(C.gpointer(carg2))
+	carg3 = (*C.gchar)(transfer.GLibString(domain))
+	defer C.g_free(C.gpointer(carg3))
 	if cancellable != nil {
 		carg4 = (*C.GCancellable)(UnsafeCancellableToGlibNone(cancellable))
 	}
@@ -34156,6 +34246,14 @@ type ResolverOverrides[Instance Resolver] struct {
 	// gobject.ObjectOverrides allows you to override virtual methods from the parent class gobject.Object
 	gobject.ObjectOverrides[Instance]
 
+	// // LookupByAddress allows you to override the implementation of the virtual method lookup_by_address.
+	// 
+	// see also https://docs.gtk.org/gio/method.Resolver.lookup_by_address.html
+	LookupByAddress func(Instance, InetAddress, Cancellable) (string, error)
+	// // LookupByAddressFinish allows you to override the implementation of the virtual method lookup_by_address_finish.
+	// 
+	// see also https://docs.gtk.org/gio/method.Resolver.lookup_by_address_finish.html
+	LookupByAddressFinish func(Instance, AsyncResult) (string, error)
 	// // LookupByName allows you to override the implementation of the virtual method lookup_by_name.
 	// 
 	// see also https://docs.gtk.org/gio/method.Resolver.lookup_by_name.html
@@ -34188,6 +34286,58 @@ func UnsafeApplyResolverOverrides[Instance Resolver](gclass unsafe.Pointer, over
 	gobject.UnsafeApplyObjectOverrides(gclass, overrides.ObjectOverrides)
 
 	pclass := (*C.GResolverClass)(gclass)
+
+	if overrides.LookupByAddress != nil {
+		pclass.lookup_by_address = (*[0]byte)(C._goglib_gio2_Resolver_lookup_by_address)
+		classdata.StoreVirtualMethod(
+			unsafe.Pointer(pclass),
+			"_goglib_gio2_Resolver_lookup_by_address",
+			func(carg0 *C.GResolver, carg1 *C.GInetAddress, carg2 *C.GCancellable, _cerr **C.GError) (cret *C.gchar) {
+				var resolver    Instance    // go GResolver subclass
+				var address     InetAddress // in, none, converted
+				var cancellable Cancellable // in, none, converted, nullable
+				var goret       string      // return, full, string
+				var _goerr      error       // out, full, converted
+
+				resolver = UnsafeResolverFromGlibBorrow(unsafe.Pointer(carg0)).UnsafeLoadInstanceFromPrivateData().(Instance)
+				address = UnsafeInetAddressFromGlibNone(unsafe.Pointer(carg1))
+				if carg2 != nil {
+					cancellable = UnsafeCancellableFromGlibNone(unsafe.Pointer(carg2))
+				}
+
+				goret, _goerr = overrides.LookupByAddress(resolver, address, cancellable)
+
+				cret = (*C.gchar)(transfer.GLibString(goret))
+				*_cerr = (*C.GError)(glib.UnsafeErrorToGlibFull(_goerr))
+
+				return cret
+			},
+		)
+	}
+
+	if overrides.LookupByAddressFinish != nil {
+		pclass.lookup_by_address_finish = (*[0]byte)(C._goglib_gio2_Resolver_lookup_by_address_finish)
+		classdata.StoreVirtualMethod(
+			unsafe.Pointer(pclass),
+			"_goglib_gio2_Resolver_lookup_by_address_finish",
+			func(carg0 *C.GResolver, carg1 *C.GAsyncResult, _cerr **C.GError) (cret *C.gchar) {
+				var resolver Instance    // go GResolver subclass
+				var result   AsyncResult // in, none, converted
+				var goret    string      // return, full, string
+				var _goerr   error       // out, full, converted
+
+				resolver = UnsafeResolverFromGlibBorrow(unsafe.Pointer(carg0)).UnsafeLoadInstanceFromPrivateData().(Instance)
+				result = UnsafeAsyncResultFromGlibNone(unsafe.Pointer(carg1))
+
+				goret, _goerr = overrides.LookupByAddressFinish(resolver, result)
+
+				cret = (*C.gchar)(transfer.GLibString(goret))
+				*_cerr = (*C.GError)(glib.UnsafeErrorToGlibFull(_goerr))
+
+				return cret
+			},
+		)
+	}
 
 	if overrides.LookupByName != nil {
 		pclass.lookup_by_name = (*[0]byte)(C._goglib_gio2_Resolver_lookup_by_name)
@@ -34345,6 +34495,73 @@ func UnsafeApplyResolverOverrides[Instance Resolver](gclass unsafe.Pointer, over
 	}
 }
 
+// ParentLookupByAddress calls the default implementations of the `GResolver.lookup_by_address` virtual method.
+// This function's behavior is not defined when the parent does not implement the virtual method.
+// 
+// see also https://docs.gtk.org/gio/method.Resolver.lookup_by_address.html
+func (resolver *ResolverInstance) ParentLookupByAddress(address InetAddress, cancellable Cancellable) (string, error) {
+	var carg0 *C.GResolver
+	var carg1 *C.GInetAddress // in, none, converted
+	var carg2 *C.GCancellable // in, none, converted
+	var cret  *C.gchar        // return, full, string
+	var _cerr *C.GError       // out, full, converted, nullable
+
+	parentclass := (*C.GResolverClass)(classdata.PeekParentClass(UnsafeResolverToGlibNone(resolver)))
+
+	carg0 = (*C.GResolver)(UnsafeResolverToGlibNone(resolver))
+	carg1 = (*C.GInetAddress)(UnsafeInetAddressToGlibNone(address))
+	if cancellable != nil {
+		carg2 = (*C.GCancellable)(UnsafeCancellableToGlibNone(cancellable))
+	}
+
+	cret = C._goglib_gio2_Resolver_virtual_lookup_by_address(unsafe.Pointer(parentclass.lookup_by_address), carg0, carg1, carg2, &_cerr)
+	runtime.KeepAlive(resolver)
+	runtime.KeepAlive(address)
+	runtime.KeepAlive(cancellable)
+
+	var goret  string
+	var _goerr error
+
+	goret = C.GoString((*C.char)(unsafe.Pointer(cret)))
+	defer C.g_free(C.gpointer(cret))
+	if _cerr != nil {
+		_goerr = glib.UnsafeErrorFromGlibFull(unsafe.Pointer(_cerr))
+	}
+
+	return goret, _goerr
+}
+
+// ParentLookupByAddressFinish calls the default implementations of the `GResolver.lookup_by_address_finish` virtual method.
+// This function's behavior is not defined when the parent does not implement the virtual method.
+// 
+// see also https://docs.gtk.org/gio/method.Resolver.lookup_by_address_finish.html
+func (resolver *ResolverInstance) ParentLookupByAddressFinish(result AsyncResult) (string, error) {
+	var carg0 *C.GResolver
+	var carg1 *C.GAsyncResult // in, none, converted
+	var cret  *C.gchar        // return, full, string
+	var _cerr *C.GError       // out, full, converted, nullable
+
+	parentclass := (*C.GResolverClass)(classdata.PeekParentClass(UnsafeResolverToGlibNone(resolver)))
+
+	carg0 = (*C.GResolver)(UnsafeResolverToGlibNone(resolver))
+	carg1 = (*C.GAsyncResult)(UnsafeAsyncResultToGlibNone(result))
+
+	cret = C._goglib_gio2_Resolver_virtual_lookup_by_address_finish(unsafe.Pointer(parentclass.lookup_by_address_finish), carg0, carg1, &_cerr)
+	runtime.KeepAlive(resolver)
+	runtime.KeepAlive(result)
+
+	var goret  string
+	var _goerr error
+
+	goret = C.GoString((*C.char)(unsafe.Pointer(cret)))
+	defer C.g_free(C.gpointer(cret))
+	if _cerr != nil {
+		_goerr = glib.UnsafeErrorFromGlibFull(unsafe.Pointer(_cerr))
+	}
+
+	return goret, _goerr
+}
+
 // ParentLookupByName calls the default implementations of the `GResolver.lookup_by_name` virtual method.
 // This function's behavior is not defined when the parent does not implement the virtual method.
 // 
@@ -34359,8 +34576,8 @@ func (resolver *ResolverInstance) ParentLookupByName(hostname string, cancellabl
 	parentclass := (*C.GResolverClass)(classdata.PeekParentClass(UnsafeResolverToGlibNone(resolver)))
 
 	carg0 = (*C.GResolver)(UnsafeResolverToGlibNone(resolver))
-	carg1 = (*C.gchar)(unsafe.Pointer(C.CString(hostname)))
-	defer C.free(unsafe.Pointer(carg1))
+	carg1 = (*C.gchar)(transfer.GLibString(hostname))
+	defer C.g_free(C.gpointer(carg1))
 	if cancellable != nil {
 		carg2 = (*C.GCancellable)(UnsafeCancellableToGlibNone(cancellable))
 	}
@@ -34440,8 +34657,8 @@ func (resolver *ResolverInstance) ParentLookupByNameWithFlags(hostname string, f
 	parentclass := (*C.GResolverClass)(classdata.PeekParentClass(UnsafeResolverToGlibNone(resolver)))
 
 	carg0 = (*C.GResolver)(UnsafeResolverToGlibNone(resolver))
-	carg1 = (*C.gchar)(unsafe.Pointer(C.CString(hostname)))
-	defer C.free(unsafe.Pointer(carg1))
+	carg1 = (*C.gchar)(transfer.GLibString(hostname))
+	defer C.g_free(C.gpointer(carg1))
 	carg2 = C.GResolverNameLookupFlags(flags)
 	if cancellable != nil {
 		carg3 = (*C.GCancellable)(UnsafeCancellableToGlibNone(cancellable))
@@ -34819,8 +35036,8 @@ func NewSettings(schemaId string) Settings {
 	var carg1 *C.gchar     // in, none, string
 	var cret  *C.GSettings // return, full, converted
 
-	carg1 = (*C.gchar)(unsafe.Pointer(C.CString(schemaId)))
-	defer C.free(unsafe.Pointer(carg1))
+	carg1 = (*C.gchar)(transfer.GLibString(schemaId))
+	defer C.g_free(C.gpointer(carg1))
 
 	cret = C.g_settings_new(carg1)
 	runtime.KeepAlive(schemaId)
@@ -34840,10 +35057,10 @@ func NewSettingsWithPath(schemaId string, path string) Settings {
 	var carg2 *C.gchar     // in, none, string
 	var cret  *C.GSettings // return, full, converted
 
-	carg1 = (*C.gchar)(unsafe.Pointer(C.CString(schemaId)))
-	defer C.free(unsafe.Pointer(carg1))
-	carg2 = (*C.gchar)(unsafe.Pointer(C.CString(path)))
-	defer C.free(unsafe.Pointer(carg2))
+	carg1 = (*C.gchar)(transfer.GLibString(schemaId))
+	defer C.g_free(C.gpointer(carg1))
+	carg2 = (*C.gchar)(transfer.GLibString(path))
+	defer C.g_free(C.gpointer(carg2))
 
 	cret = C.g_settings_new_with_path(carg1, carg2)
 	runtime.KeepAlive(schemaId)
@@ -34923,8 +35140,8 @@ func (settings *SettingsInstance) CreateAction(key string) Action {
 	var cret  *C.GAction   // return, full, converted
 
 	carg0 = (*C.GSettings)(UnsafeSettingsToGlibNone(settings))
-	carg1 = (*C.gchar)(unsafe.Pointer(C.CString(key)))
-	defer C.free(unsafe.Pointer(carg1))
+	carg1 = (*C.gchar)(transfer.GLibString(key))
+	defer C.g_free(C.gpointer(carg1))
 
 	cret = C.g_settings_create_action(carg0, carg1)
 	runtime.KeepAlive(settings)
@@ -34958,8 +35175,8 @@ func (settings *SettingsInstance) GetBoolean(key string) bool {
 	var cret  C.gboolean   // return
 
 	carg0 = (*C.GSettings)(UnsafeSettingsToGlibNone(settings))
-	carg1 = (*C.gchar)(unsafe.Pointer(C.CString(key)))
-	defer C.free(unsafe.Pointer(carg1))
+	carg1 = (*C.gchar)(transfer.GLibString(key))
+	defer C.g_free(C.gpointer(carg1))
 
 	cret = C.g_settings_get_boolean(carg0, carg1)
 	runtime.KeepAlive(settings)
@@ -34983,8 +35200,8 @@ func (settings *SettingsInstance) GetChild(name string) Settings {
 	var cret  *C.GSettings // return, full, converted
 
 	carg0 = (*C.GSettings)(UnsafeSettingsToGlibNone(settings))
-	carg1 = (*C.gchar)(unsafe.Pointer(C.CString(name)))
-	defer C.free(unsafe.Pointer(carg1))
+	carg1 = (*C.gchar)(transfer.GLibString(name))
+	defer C.g_free(C.gpointer(carg1))
 
 	cret = C.g_settings_get_child(carg0, carg1)
 	runtime.KeepAlive(settings)
@@ -35006,8 +35223,8 @@ func (settings *SettingsInstance) GetDouble(key string) float64 {
 	var cret  C.gdouble    // return, none, casted
 
 	carg0 = (*C.GSettings)(UnsafeSettingsToGlibNone(settings))
-	carg1 = (*C.gchar)(unsafe.Pointer(C.CString(key)))
-	defer C.free(unsafe.Pointer(carg1))
+	carg1 = (*C.gchar)(transfer.GLibString(key))
+	defer C.g_free(C.gpointer(carg1))
 
 	cret = C.g_settings_get_double(carg0, carg1)
 	runtime.KeepAlive(settings)
@@ -35029,8 +35246,8 @@ func (settings *SettingsInstance) GetEnum(key string) int32 {
 	var cret  C.gint       // return, none, casted
 
 	carg0 = (*C.GSettings)(UnsafeSettingsToGlibNone(settings))
-	carg1 = (*C.gchar)(unsafe.Pointer(C.CString(key)))
-	defer C.free(unsafe.Pointer(carg1))
+	carg1 = (*C.gchar)(transfer.GLibString(key))
+	defer C.g_free(C.gpointer(carg1))
 
 	cret = C.g_settings_get_enum(carg0, carg1)
 	runtime.KeepAlive(settings)
@@ -35052,8 +35269,8 @@ func (settings *SettingsInstance) GetFlags(key string) uint {
 	var cret  C.guint      // return, none, casted
 
 	carg0 = (*C.GSettings)(UnsafeSettingsToGlibNone(settings))
-	carg1 = (*C.gchar)(unsafe.Pointer(C.CString(key)))
-	defer C.free(unsafe.Pointer(carg1))
+	carg1 = (*C.gchar)(transfer.GLibString(key))
+	defer C.g_free(C.gpointer(carg1))
 
 	cret = C.g_settings_get_flags(carg0, carg1)
 	runtime.KeepAlive(settings)
@@ -35096,8 +35313,8 @@ func (settings *SettingsInstance) GetInt(key string) int32 {
 	var cret  C.gint       // return, none, casted
 
 	carg0 = (*C.GSettings)(UnsafeSettingsToGlibNone(settings))
-	carg1 = (*C.gchar)(unsafe.Pointer(C.CString(key)))
-	defer C.free(unsafe.Pointer(carg1))
+	carg1 = (*C.gchar)(transfer.GLibString(key))
+	defer C.g_free(C.gpointer(carg1))
 
 	cret = C.g_settings_get_int(carg0, carg1)
 	runtime.KeepAlive(settings)
@@ -35119,8 +35336,8 @@ func (settings *SettingsInstance) GetInt64(key string) int64 {
 	var cret  C.gint64     // return, none, casted
 
 	carg0 = (*C.GSettings)(UnsafeSettingsToGlibNone(settings))
-	carg1 = (*C.gchar)(unsafe.Pointer(C.CString(key)))
-	defer C.free(unsafe.Pointer(carg1))
+	carg1 = (*C.gchar)(transfer.GLibString(key))
+	defer C.g_free(C.gpointer(carg1))
 
 	cret = C.g_settings_get_int64(carg0, carg1)
 	runtime.KeepAlive(settings)
@@ -35142,8 +35359,8 @@ func (settings *SettingsInstance) GetString(key string) string {
 	var cret  *C.gchar     // return, full, string
 
 	carg0 = (*C.GSettings)(UnsafeSettingsToGlibNone(settings))
-	carg1 = (*C.gchar)(unsafe.Pointer(C.CString(key)))
-	defer C.free(unsafe.Pointer(carg1))
+	carg1 = (*C.gchar)(transfer.GLibString(key))
+	defer C.g_free(C.gpointer(carg1))
 
 	cret = C.g_settings_get_string(carg0, carg1)
 	runtime.KeepAlive(settings)
@@ -35166,8 +35383,8 @@ func (settings *SettingsInstance) GetStrv(key string) []string {
 	var cret  **C.gchar    // return, transfer: full, C Pointers: 2, Name: array[utf8], scope: , array (inner gchar* (*typesystem.StringPrimitive), zero-terminated)
 
 	carg0 = (*C.GSettings)(UnsafeSettingsToGlibNone(settings))
-	carg1 = (*C.gchar)(unsafe.Pointer(C.CString(key)))
-	defer C.free(unsafe.Pointer(carg1))
+	carg1 = (*C.gchar)(transfer.GLibString(key))
+	defer C.g_free(C.gpointer(carg1))
 
 	cret = C.g_settings_get_strv(carg0, carg1)
 	runtime.KeepAlive(settings)
@@ -35191,8 +35408,8 @@ func (settings *SettingsInstance) GetUint(key string) uint {
 	var cret  C.guint      // return, none, casted
 
 	carg0 = (*C.GSettings)(UnsafeSettingsToGlibNone(settings))
-	carg1 = (*C.gchar)(unsafe.Pointer(C.CString(key)))
-	defer C.free(unsafe.Pointer(carg1))
+	carg1 = (*C.gchar)(transfer.GLibString(key))
+	defer C.g_free(C.gpointer(carg1))
 
 	cret = C.g_settings_get_uint(carg0, carg1)
 	runtime.KeepAlive(settings)
@@ -35214,8 +35431,8 @@ func (settings *SettingsInstance) GetUint64(key string) uint64 {
 	var cret  C.guint64    // return, none, casted
 
 	carg0 = (*C.GSettings)(UnsafeSettingsToGlibNone(settings))
-	carg1 = (*C.gchar)(unsafe.Pointer(C.CString(key)))
-	defer C.free(unsafe.Pointer(carg1))
+	carg1 = (*C.gchar)(transfer.GLibString(key))
+	defer C.g_free(C.gpointer(carg1))
 
 	cret = C.g_settings_get_uint64(carg0, carg1)
 	runtime.KeepAlive(settings)
@@ -35237,8 +35454,8 @@ func (settings *SettingsInstance) IsWritable(name string) bool {
 	var cret  C.gboolean   // return
 
 	carg0 = (*C.GSettings)(UnsafeSettingsToGlibNone(settings))
-	carg1 = (*C.gchar)(unsafe.Pointer(C.CString(name)))
-	defer C.free(unsafe.Pointer(carg1))
+	carg1 = (*C.gchar)(transfer.GLibString(name))
+	defer C.g_free(C.gpointer(carg1))
 
 	cret = C.g_settings_is_writable(carg0, carg1)
 	runtime.KeepAlive(settings)
@@ -35305,8 +35522,8 @@ func (settings *SettingsInstance) Reset(key string) {
 	var carg1 *C.gchar     // in, none, string
 
 	carg0 = (*C.GSettings)(UnsafeSettingsToGlibNone(settings))
-	carg1 = (*C.gchar)(unsafe.Pointer(C.CString(key)))
-	defer C.free(unsafe.Pointer(carg1))
+	carg1 = (*C.gchar)(transfer.GLibString(key))
+	defer C.g_free(C.gpointer(carg1))
 
 	C.g_settings_reset(carg0, carg1)
 	runtime.KeepAlive(settings)
@@ -35335,8 +35552,8 @@ func (settings *SettingsInstance) SetBoolean(key string, value bool) bool {
 	var cret  C.gboolean   // return
 
 	carg0 = (*C.GSettings)(UnsafeSettingsToGlibNone(settings))
-	carg1 = (*C.gchar)(unsafe.Pointer(C.CString(key)))
-	defer C.free(unsafe.Pointer(carg1))
+	carg1 = (*C.gchar)(transfer.GLibString(key))
+	defer C.g_free(C.gpointer(carg1))
 	if value {
 		carg2 = C.TRUE
 	}
@@ -35365,8 +35582,8 @@ func (settings *SettingsInstance) SetDouble(key string, value float64) bool {
 	var cret  C.gboolean   // return
 
 	carg0 = (*C.GSettings)(UnsafeSettingsToGlibNone(settings))
-	carg1 = (*C.gchar)(unsafe.Pointer(C.CString(key)))
-	defer C.free(unsafe.Pointer(carg1))
+	carg1 = (*C.gchar)(transfer.GLibString(key))
+	defer C.g_free(C.gpointer(carg1))
 	carg2 = C.gdouble(value)
 
 	cret = C.g_settings_set_double(carg0, carg1, carg2)
@@ -35393,8 +35610,8 @@ func (settings *SettingsInstance) SetEnum(key string, value int32) bool {
 	var cret  C.gboolean   // return
 
 	carg0 = (*C.GSettings)(UnsafeSettingsToGlibNone(settings))
-	carg1 = (*C.gchar)(unsafe.Pointer(C.CString(key)))
-	defer C.free(unsafe.Pointer(carg1))
+	carg1 = (*C.gchar)(transfer.GLibString(key))
+	defer C.g_free(C.gpointer(carg1))
 	carg2 = C.gint(value)
 
 	cret = C.g_settings_set_enum(carg0, carg1, carg2)
@@ -35421,8 +35638,8 @@ func (settings *SettingsInstance) SetFlags(key string, value uint) bool {
 	var cret  C.gboolean   // return
 
 	carg0 = (*C.GSettings)(UnsafeSettingsToGlibNone(settings))
-	carg1 = (*C.gchar)(unsafe.Pointer(C.CString(key)))
-	defer C.free(unsafe.Pointer(carg1))
+	carg1 = (*C.gchar)(transfer.GLibString(key))
+	defer C.g_free(C.gpointer(carg1))
 	carg2 = C.guint(value)
 
 	cret = C.g_settings_set_flags(carg0, carg1, carg2)
@@ -35449,8 +35666,8 @@ func (settings *SettingsInstance) SetInt(key string, value int32) bool {
 	var cret  C.gboolean   // return
 
 	carg0 = (*C.GSettings)(UnsafeSettingsToGlibNone(settings))
-	carg1 = (*C.gchar)(unsafe.Pointer(C.CString(key)))
-	defer C.free(unsafe.Pointer(carg1))
+	carg1 = (*C.gchar)(transfer.GLibString(key))
+	defer C.g_free(C.gpointer(carg1))
 	carg2 = C.gint(value)
 
 	cret = C.g_settings_set_int(carg0, carg1, carg2)
@@ -35477,8 +35694,8 @@ func (settings *SettingsInstance) SetInt64(key string, value int64) bool {
 	var cret  C.gboolean   // return
 
 	carg0 = (*C.GSettings)(UnsafeSettingsToGlibNone(settings))
-	carg1 = (*C.gchar)(unsafe.Pointer(C.CString(key)))
-	defer C.free(unsafe.Pointer(carg1))
+	carg1 = (*C.gchar)(transfer.GLibString(key))
+	defer C.g_free(C.gpointer(carg1))
 	carg2 = C.gint64(value)
 
 	cret = C.g_settings_set_int64(carg0, carg1, carg2)
@@ -35505,10 +35722,10 @@ func (settings *SettingsInstance) SetString(key string, value string) bool {
 	var cret  C.gboolean   // return
 
 	carg0 = (*C.GSettings)(UnsafeSettingsToGlibNone(settings))
-	carg1 = (*C.gchar)(unsafe.Pointer(C.CString(key)))
-	defer C.free(unsafe.Pointer(carg1))
-	carg2 = (*C.gchar)(unsafe.Pointer(C.CString(value)))
-	defer C.free(unsafe.Pointer(carg2))
+	carg1 = (*C.gchar)(transfer.GLibString(key))
+	defer C.g_free(C.gpointer(carg1))
+	carg2 = (*C.gchar)(transfer.GLibString(value))
+	defer C.g_free(C.gpointer(carg2))
 
 	cret = C.g_settings_set_string(carg0, carg1, carg2)
 	runtime.KeepAlive(settings)
@@ -35534,8 +35751,8 @@ func (settings *SettingsInstance) SetStrv(key string, value []string) bool {
 	var cret  C.gboolean   // return
 
 	carg0 = (*C.GSettings)(UnsafeSettingsToGlibNone(settings))
-	carg1 = (*C.gchar)(unsafe.Pointer(C.CString(key)))
-	defer C.free(unsafe.Pointer(carg1))
+	carg1 = (*C.gchar)(transfer.GLibString(key))
+	defer C.g_free(C.gpointer(carg1))
 	_ = value
 	_ = carg2
 	panic("unimplemented conversion of []string (const gchar* const*) because of unimplemented: inner pointers in array")
@@ -35564,8 +35781,8 @@ func (settings *SettingsInstance) SetUint(key string, value uint) bool {
 	var cret  C.gboolean   // return
 
 	carg0 = (*C.GSettings)(UnsafeSettingsToGlibNone(settings))
-	carg1 = (*C.gchar)(unsafe.Pointer(C.CString(key)))
-	defer C.free(unsafe.Pointer(carg1))
+	carg1 = (*C.gchar)(transfer.GLibString(key))
+	defer C.g_free(C.gpointer(carg1))
 	carg2 = C.guint(value)
 
 	cret = C.g_settings_set_uint(carg0, carg1, carg2)
@@ -35592,8 +35809,8 @@ func (settings *SettingsInstance) SetUint64(key string, value uint64) bool {
 	var cret  C.gboolean   // return
 
 	carg0 = (*C.GSettings)(UnsafeSettingsToGlibNone(settings))
-	carg1 = (*C.gchar)(unsafe.Pointer(C.CString(key)))
-	defer C.free(unsafe.Pointer(carg1))
+	carg1 = (*C.gchar)(transfer.GLibString(key))
+	defer C.g_free(C.gpointer(carg1))
 	carg2 = C.guint64(value)
 
 	cret = C.g_settings_set_uint64(carg0, carg1, carg2)
@@ -35799,8 +36016,8 @@ func (settings *SettingsInstance) ParentChanged(key string) {
 	parentclass := (*C.GSettingsClass)(classdata.PeekParentClass(UnsafeSettingsToGlibNone(settings)))
 
 	carg0 = (*C.GSettings)(UnsafeSettingsToGlibNone(settings))
-	carg1 = (*C.gchar)(unsafe.Pointer(C.CString(key)))
-	defer C.free(unsafe.Pointer(carg1))
+	carg1 = (*C.gchar)(transfer.GLibString(key))
+	defer C.g_free(C.gpointer(carg1))
 
 	C._goglib_gio2_Settings_virtual_changed(unsafe.Pointer(parentclass.changed), carg0, carg1)
 	runtime.KeepAlive(settings)
@@ -35845,8 +36062,8 @@ func (settings *SettingsInstance) ParentWritableChanged(key string) {
 	parentclass := (*C.GSettingsClass)(classdata.PeekParentClass(UnsafeSettingsToGlibNone(settings)))
 
 	carg0 = (*C.GSettings)(UnsafeSettingsToGlibNone(settings))
-	carg1 = (*C.gchar)(unsafe.Pointer(C.CString(key)))
-	defer C.free(unsafe.Pointer(carg1))
+	carg1 = (*C.gchar)(transfer.GLibString(key))
+	defer C.g_free(C.gpointer(carg1))
 
 	C._goglib_gio2_Settings_virtual_writable_changed(unsafe.Pointer(parentclass.writable_changed), carg0, carg1)
 	runtime.KeepAlive(settings)
@@ -35956,8 +36173,8 @@ func NewSimpleAction(name string, parameterType *glib.VariantType) SimpleAction 
 	var carg2 *C.GVariantType  // in, none, converted, nullable
 	var cret  *C.GSimpleAction // return, full, converted
 
-	carg1 = (*C.gchar)(unsafe.Pointer(C.CString(name)))
-	defer C.free(unsafe.Pointer(carg1))
+	carg1 = (*C.gchar)(transfer.GLibString(name))
+	defer C.g_free(C.gpointer(carg1))
 	if parameterType != nil {
 		carg2 = (*C.GVariantType)(glib.UnsafeVariantTypeToGlibNone(parameterType))
 	}
@@ -36118,8 +36335,8 @@ func (simple *SimpleActionGroupInstance) Lookup(actionName string) Action {
 	var cret  *C.GAction            // return, none, converted
 
 	carg0 = (*C.GSimpleActionGroup)(UnsafeSimpleActionGroupToGlibNone(simple))
-	carg1 = (*C.gchar)(unsafe.Pointer(C.CString(actionName)))
-	defer C.free(unsafe.Pointer(carg1))
+	carg1 = (*C.gchar)(transfer.GLibString(actionName))
+	defer C.g_free(C.gpointer(carg1))
 
 	cret = C.g_simple_action_group_lookup(carg0, carg1)
 	runtime.KeepAlive(simple)
@@ -36142,8 +36359,8 @@ func (simple *SimpleActionGroupInstance) Remove(actionName string) {
 	var carg1 *C.gchar              // in, none, string
 
 	carg0 = (*C.GSimpleActionGroup)(UnsafeSimpleActionGroupToGlibNone(simple))
-	carg1 = (*C.gchar)(unsafe.Pointer(C.CString(actionName)))
-	defer C.free(unsafe.Pointer(carg1))
+	carg1 = (*C.gchar)(transfer.GLibString(actionName))
+	defer C.g_free(C.gpointer(carg1))
 
 	C.g_simple_action_group_remove(carg0, carg1)
 	runtime.KeepAlive(simple)
@@ -36746,8 +36963,8 @@ func NewSimpleProxyResolver(defaultProxy string, ignoreHosts []string) ProxyReso
 	var cret  *C.GProxyResolver // return, full, converted
 
 	if defaultProxy != "" {
-		carg1 = (*C.gchar)(unsafe.Pointer(C.CString(defaultProxy)))
-		defer C.free(unsafe.Pointer(carg1))
+		carg1 = (*C.gchar)(transfer.GLibString(defaultProxy))
+		defer C.g_free(C.gpointer(carg1))
 	}
 	_ = ignoreHosts
 	_ = carg2
@@ -36773,8 +36990,8 @@ func (resolver *SimpleProxyResolverInstance) SetDefaultProxy(defaultProxy string
 
 	carg0 = (*C.GSimpleProxyResolver)(UnsafeSimpleProxyResolverToGlibNone(resolver))
 	if defaultProxy != "" {
-		carg1 = (*C.gchar)(unsafe.Pointer(C.CString(defaultProxy)))
-		defer C.free(unsafe.Pointer(carg1))
+		carg1 = (*C.gchar)(transfer.GLibString(defaultProxy))
+		defer C.g_free(C.gpointer(carg1))
 	}
 
 	C.g_simple_proxy_resolver_set_default_proxy(carg0, carg1)
@@ -36808,10 +37025,10 @@ func (resolver *SimpleProxyResolverInstance) SetURIProxy(uriScheme string, proxy
 	var carg2 *C.gchar                // in, none, string
 
 	carg0 = (*C.GSimpleProxyResolver)(UnsafeSimpleProxyResolverToGlibNone(resolver))
-	carg1 = (*C.gchar)(unsafe.Pointer(C.CString(uriScheme)))
-	defer C.free(unsafe.Pointer(carg1))
-	carg2 = (*C.gchar)(unsafe.Pointer(C.CString(proxy)))
-	defer C.free(unsafe.Pointer(carg2))
+	carg1 = (*C.gchar)(transfer.GLibString(uriScheme))
+	defer C.g_free(C.gpointer(carg1))
+	carg2 = (*C.gchar)(transfer.GLibString(proxy))
+	defer C.g_free(C.gpointer(carg2))
 
 	C.g_simple_proxy_resolver_set_uri_proxy(carg0, carg1, carg2)
 	runtime.KeepAlive(resolver)
@@ -37858,8 +38075,8 @@ func (socket *SocketInstance) JoinMulticastGroup(group InetAddress, sourceSpecif
 		carg2 = C.TRUE
 	}
 	if iface != "" {
-		carg3 = (*C.gchar)(unsafe.Pointer(C.CString(iface)))
-		defer C.free(unsafe.Pointer(carg3))
+		carg3 = (*C.gchar)(transfer.GLibString(iface))
+		defer C.g_free(C.gpointer(carg3))
 	}
 
 	cret = C.g_socket_join_multicast_group(carg0, carg1, carg2, carg3, &_cerr)
@@ -37898,8 +38115,8 @@ func (socket *SocketInstance) JoinMulticastGroupSsm(group InetAddress, sourceSpe
 		carg2 = (*C.GInetAddress)(UnsafeInetAddressToGlibNone(sourceSpecific))
 	}
 	if iface != "" {
-		carg3 = (*C.gchar)(unsafe.Pointer(C.CString(iface)))
-		defer C.free(unsafe.Pointer(carg3))
+		carg3 = (*C.gchar)(transfer.GLibString(iface))
+		defer C.g_free(C.gpointer(carg3))
 	}
 
 	cret = C.g_socket_join_multicast_group_ssm(carg0, carg1, carg2, carg3, &_cerr)
@@ -37938,8 +38155,8 @@ func (socket *SocketInstance) LeaveMulticastGroup(group InetAddress, sourceSpeci
 		carg2 = C.TRUE
 	}
 	if iface != "" {
-		carg3 = (*C.gchar)(unsafe.Pointer(C.CString(iface)))
-		defer C.free(unsafe.Pointer(carg3))
+		carg3 = (*C.gchar)(transfer.GLibString(iface))
+		defer C.g_free(C.gpointer(carg3))
 	}
 
 	cret = C.g_socket_leave_multicast_group(carg0, carg1, carg2, carg3, &_cerr)
@@ -37978,8 +38195,8 @@ func (socket *SocketInstance) LeaveMulticastGroupSsm(group InetAddress, sourceSp
 		carg2 = (*C.GInetAddress)(UnsafeInetAddressToGlibNone(sourceSpecific))
 	}
 	if iface != "" {
-		carg3 = (*C.gchar)(unsafe.Pointer(C.CString(iface)))
-		defer C.free(unsafe.Pointer(carg3))
+		carg3 = (*C.gchar)(transfer.GLibString(iface))
+		defer C.g_free(C.gpointer(carg3))
 	}
 
 	cret = C.g_socket_leave_multicast_group_ssm(carg0, carg1, carg2, carg3, &_cerr)
@@ -39308,8 +39525,8 @@ func (client *SocketClientInstance) AddApplicationProxy(protocol string) {
 	var carg1 *C.gchar         // in, none, string
 
 	carg0 = (*C.GSocketClient)(UnsafeSocketClientToGlibNone(client))
-	carg1 = (*C.gchar)(unsafe.Pointer(C.CString(protocol)))
-	defer C.free(unsafe.Pointer(carg1))
+	carg1 = (*C.gchar)(transfer.GLibString(protocol))
+	defer C.g_free(C.gpointer(carg1))
 
 	C.g_socket_client_add_application_proxy(carg0, carg1)
 	runtime.KeepAlive(client)
@@ -39414,8 +39631,8 @@ func (client *SocketClientInstance) ConnectToHost(hostAndPort string, defaultPor
 	var _cerr *C.GError            // out, full, converted, nullable
 
 	carg0 = (*C.GSocketClient)(UnsafeSocketClientToGlibNone(client))
-	carg1 = (*C.gchar)(unsafe.Pointer(C.CString(hostAndPort)))
-	defer C.free(unsafe.Pointer(carg1))
+	carg1 = (*C.gchar)(transfer.GLibString(hostAndPort))
+	defer C.g_free(C.gpointer(carg1))
 	carg2 = C.guint16(defaultPort)
 	if cancellable != nil {
 		carg3 = (*C.GCancellable)(UnsafeCancellableToGlibNone(cancellable))
@@ -39450,8 +39667,8 @@ func (client *SocketClientInstance) ConnectToHostAsync(hostAndPort string, defau
 	var carg5 C.gpointer            // implicit
 
 	carg0 = (*C.GSocketClient)(UnsafeSocketClientToGlibNone(client))
-	carg1 = (*C.gchar)(unsafe.Pointer(C.CString(hostAndPort)))
-	defer C.free(unsafe.Pointer(carg1))
+	carg1 = (*C.gchar)(transfer.GLibString(hostAndPort))
+	defer C.g_free(C.gpointer(carg1))
 	carg2 = C.guint16(defaultPort)
 	if cancellable != nil {
 		carg3 = (*C.GCancellable)(UnsafeCancellableToGlibNone(cancellable))
@@ -39508,10 +39725,10 @@ func (client *SocketClientInstance) ConnectToService(domain string, service stri
 	var _cerr *C.GError            // out, full, converted, nullable
 
 	carg0 = (*C.GSocketClient)(UnsafeSocketClientToGlibNone(client))
-	carg1 = (*C.gchar)(unsafe.Pointer(C.CString(domain)))
-	defer C.free(unsafe.Pointer(carg1))
-	carg2 = (*C.gchar)(unsafe.Pointer(C.CString(service)))
-	defer C.free(unsafe.Pointer(carg2))
+	carg1 = (*C.gchar)(transfer.GLibString(domain))
+	defer C.g_free(C.gpointer(carg1))
+	carg2 = (*C.gchar)(transfer.GLibString(service))
+	defer C.g_free(C.gpointer(carg2))
 	if cancellable != nil {
 		carg3 = (*C.GCancellable)(UnsafeCancellableToGlibNone(cancellable))
 	}
@@ -39545,10 +39762,10 @@ func (client *SocketClientInstance) ConnectToServiceAsync(domain string, service
 	var carg5 C.gpointer            // implicit
 
 	carg0 = (*C.GSocketClient)(UnsafeSocketClientToGlibNone(client))
-	carg1 = (*C.gchar)(unsafe.Pointer(C.CString(domain)))
-	defer C.free(unsafe.Pointer(carg1))
-	carg2 = (*C.gchar)(unsafe.Pointer(C.CString(service)))
-	defer C.free(unsafe.Pointer(carg2))
+	carg1 = (*C.gchar)(transfer.GLibString(domain))
+	defer C.g_free(C.gpointer(carg1))
+	carg2 = (*C.gchar)(transfer.GLibString(service))
+	defer C.g_free(C.gpointer(carg2))
 	if cancellable != nil {
 		carg3 = (*C.GCancellable)(UnsafeCancellableToGlibNone(cancellable))
 	}
@@ -39604,8 +39821,8 @@ func (client *SocketClientInstance) ConnectToURI(uri string, defaultPort uint16,
 	var _cerr *C.GError            // out, full, converted, nullable
 
 	carg0 = (*C.GSocketClient)(UnsafeSocketClientToGlibNone(client))
-	carg1 = (*C.gchar)(unsafe.Pointer(C.CString(uri)))
-	defer C.free(unsafe.Pointer(carg1))
+	carg1 = (*C.gchar)(transfer.GLibString(uri))
+	defer C.g_free(C.gpointer(carg1))
 	carg2 = C.guint16(defaultPort)
 	if cancellable != nil {
 		carg3 = (*C.GCancellable)(UnsafeCancellableToGlibNone(cancellable))
@@ -39640,8 +39857,8 @@ func (client *SocketClientInstance) ConnectToURIAsync(uri string, defaultPort ui
 	var carg5 C.gpointer            // implicit
 
 	carg0 = (*C.GSocketClient)(UnsafeSocketClientToGlibNone(client))
-	carg1 = (*C.gchar)(unsafe.Pointer(C.CString(uri)))
-	defer C.free(unsafe.Pointer(carg1))
+	carg1 = (*C.gchar)(transfer.GLibString(uri))
+	defer C.g_free(C.gpointer(carg1))
 	carg2 = C.guint16(defaultPort)
 	if cancellable != nil {
 		carg3 = (*C.GCancellable)(UnsafeCancellableToGlibNone(cancellable))
@@ -42123,8 +42340,8 @@ func (task *TaskInstance) ReturnNewErrorLiteral(domain glib.Quark, code int32, m
 	carg0 = (*C.GTask)(UnsafeTaskToGlibNone(task))
 	carg1 = C.GQuark(domain)
 	carg2 = C.gint(code)
-	carg3 = (*C.char)(unsafe.Pointer(C.CString(message)))
-	defer C.free(unsafe.Pointer(carg3))
+	carg3 = (*C.char)(transfer.GLibString(message))
+	defer C.g_free(C.gpointer(carg3))
 
 	C.g_task_return_new_error_literal(carg0, carg1, carg2, carg3)
 	runtime.KeepAlive(task)
@@ -42176,8 +42393,8 @@ func (task *TaskInstance) SetName(name string) {
 
 	carg0 = (*C.GTask)(UnsafeTaskToGlibNone(task))
 	if name != "" {
-		carg1 = (*C.gchar)(unsafe.Pointer(C.CString(name)))
-		defer C.free(unsafe.Pointer(carg1))
+		carg1 = (*C.gchar)(transfer.GLibString(name))
+		defer C.g_free(C.gpointer(carg1))
 	}
 
 	C.g_task_set_name(carg0, carg1)
@@ -42235,8 +42452,8 @@ func (task *TaskInstance) SetStaticName(name string) {
 
 	carg0 = (*C.GTask)(UnsafeTaskToGlibNone(task))
 	if name != "" {
-		carg1 = (*C.gchar)(unsafe.Pointer(C.CString(name)))
-		defer C.free(unsafe.Pointer(carg1))
+		carg1 = (*C.gchar)(transfer.GLibString(name))
+		defer C.g_free(C.gpointer(carg1))
 	}
 
 	C.g_task_set_static_name(carg0, carg1)
@@ -42643,8 +42860,8 @@ func NewThemedIcon(iconname string) ThemedIcon {
 	var carg1 *C.char  // in, none, string
 	var cret  *C.GIcon // return, full, converted
 
-	carg1 = (*C.char)(unsafe.Pointer(C.CString(iconname)))
-	defer C.free(unsafe.Pointer(carg1))
+	carg1 = (*C.char)(transfer.GLibString(iconname))
+	defer C.g_free(C.gpointer(carg1))
 
 	cret = C.g_themed_icon_new(carg1)
 	runtime.KeepAlive(iconname)
@@ -42686,8 +42903,8 @@ func NewThemedIconWithDefaultFallbacks(iconname string) ThemedIcon {
 	var carg1 *C.char  // in, none, string
 	var cret  *C.GIcon // return, full, converted
 
-	carg1 = (*C.char)(unsafe.Pointer(C.CString(iconname)))
-	defer C.free(unsafe.Pointer(carg1))
+	carg1 = (*C.char)(transfer.GLibString(iconname))
+	defer C.g_free(C.gpointer(carg1))
 
 	cret = C.g_themed_icon_new_with_default_fallbacks(carg1)
 	runtime.KeepAlive(iconname)
@@ -42707,8 +42924,8 @@ func (icon *ThemedIconInstance) AppendName(iconname string) {
 	var carg1 *C.char        // in, none, string
 
 	carg0 = (*C.GThemedIcon)(UnsafeThemedIconToGlibNone(icon))
-	carg1 = (*C.char)(unsafe.Pointer(C.CString(iconname)))
-	defer C.free(unsafe.Pointer(carg1))
+	carg1 = (*C.char)(transfer.GLibString(iconname))
+	defer C.g_free(C.gpointer(carg1))
 
 	C.g_themed_icon_append_name(carg0, carg1)
 	runtime.KeepAlive(icon)
@@ -42744,8 +42961,8 @@ func (icon *ThemedIconInstance) PrependName(iconname string) {
 	var carg1 *C.char        // in, none, string
 
 	carg0 = (*C.GThemedIcon)(UnsafeThemedIconToGlibNone(icon))
-	carg1 = (*C.char)(unsafe.Pointer(C.CString(iconname)))
-	defer C.free(unsafe.Pointer(carg1))
+	carg1 = (*C.char)(transfer.GLibString(iconname))
+	defer C.g_free(C.gpointer(carg1))
 
 	C.g_themed_icon_prepend_name(carg0, carg1)
 	runtime.KeepAlive(icon)
@@ -43062,8 +43279,8 @@ func NewTlsCertificateFromFile(file string) (TlsCertificate, error) {
 	var cret  *C.GTlsCertificate // return, full, converted
 	var _cerr *C.GError          // out, full, converted, nullable
 
-	carg1 = (*C.gchar)(unsafe.Pointer(C.CString(file)))
-	defer C.free(unsafe.Pointer(carg1))
+	carg1 = (*C.gchar)(transfer.GLibString(file))
+	defer C.g_free(C.gpointer(carg1))
 
 	cret = C.g_tls_certificate_new_from_file(carg1, &_cerr)
 	runtime.KeepAlive(file)
@@ -43088,10 +43305,10 @@ func NewTlsCertificateFromFileWithPassword(file string, password string) (TlsCer
 	var cret  *C.GTlsCertificate // return, full, converted
 	var _cerr *C.GError          // out, full, converted, nullable
 
-	carg1 = (*C.gchar)(unsafe.Pointer(C.CString(file)))
-	defer C.free(unsafe.Pointer(carg1))
-	carg2 = (*C.gchar)(unsafe.Pointer(C.CString(password)))
-	defer C.free(unsafe.Pointer(carg2))
+	carg1 = (*C.gchar)(transfer.GLibString(file))
+	defer C.g_free(C.gpointer(carg1))
+	carg2 = (*C.gchar)(transfer.GLibString(password))
+	defer C.g_free(C.gpointer(carg2))
 
 	cret = C.g_tls_certificate_new_from_file_with_password(carg1, carg2, &_cerr)
 	runtime.KeepAlive(file)
@@ -43117,10 +43334,10 @@ func NewTlsCertificateFromFiles(certFile string, keyFile string) (TlsCertificate
 	var cret  *C.GTlsCertificate // return, full, converted
 	var _cerr *C.GError          // out, full, converted, nullable
 
-	carg1 = (*C.gchar)(unsafe.Pointer(C.CString(certFile)))
-	defer C.free(unsafe.Pointer(carg1))
-	carg2 = (*C.gchar)(unsafe.Pointer(C.CString(keyFile)))
-	defer C.free(unsafe.Pointer(carg2))
+	carg1 = (*C.gchar)(transfer.GLibString(certFile))
+	defer C.g_free(C.gpointer(carg1))
+	carg2 = (*C.gchar)(transfer.GLibString(keyFile))
+	defer C.g_free(C.gpointer(carg2))
 
 	cret = C.g_tls_certificate_new_from_files(carg1, carg2, &_cerr)
 	runtime.KeepAlive(certFile)
@@ -43146,8 +43363,8 @@ func NewTlsCertificateFromPem(data string, length int) (TlsCertificate, error) {
 	var cret  *C.GTlsCertificate // return, full, converted
 	var _cerr *C.GError          // out, full, converted, nullable
 
-	carg1 = (*C.gchar)(unsafe.Pointer(C.CString(data)))
-	defer C.free(unsafe.Pointer(carg1))
+	carg1 = (*C.gchar)(transfer.GLibString(data))
+	defer C.g_free(C.gpointer(carg1))
 	carg2 = C.gssize(length)
 
 	cret = C.g_tls_certificate_new_from_pem(carg1, carg2, &_cerr)
@@ -43174,11 +43391,11 @@ func NewTlsCertificateFromPkcs11Uris(pkcs11Uri string, privateKeyPkcs11Uri strin
 	var cret  *C.GTlsCertificate // return, full, converted
 	var _cerr *C.GError          // out, full, converted, nullable
 
-	carg1 = (*C.gchar)(unsafe.Pointer(C.CString(pkcs11Uri)))
-	defer C.free(unsafe.Pointer(carg1))
+	carg1 = (*C.gchar)(transfer.GLibString(pkcs11Uri))
+	defer C.g_free(C.gpointer(carg1))
 	if privateKeyPkcs11Uri != "" {
-		carg2 = (*C.gchar)(unsafe.Pointer(C.CString(privateKeyPkcs11Uri)))
-		defer C.free(unsafe.Pointer(carg2))
+		carg2 = (*C.gchar)(transfer.GLibString(privateKeyPkcs11Uri))
+		defer C.g_free(C.gpointer(carg2))
 	}
 
 	cret = C.g_tls_certificate_new_from_pkcs11_uris(carg1, carg2, &_cerr)
@@ -43211,8 +43428,8 @@ func NewTlsCertificateFromPkcs12(data []uint8, password string) (TlsCertificate,
 	_ = carg2
 	panic("unimplemented conversion of []uint8 (const guint8*) because of unimplemented: non-fixed size array")
 	if password != "" {
-		carg3 = (*C.gchar)(unsafe.Pointer(C.CString(password)))
-		defer C.free(unsafe.Pointer(carg3))
+		carg3 = (*C.gchar)(transfer.GLibString(password))
+		defer C.g_free(C.gpointer(carg3))
 	}
 
 	cret = C.g_tls_certificate_new_from_pkcs12(carg1, carg2, carg3, &_cerr)
@@ -43238,8 +43455,8 @@ func TlsCertificateListNewFromFile(file string) ([]TlsCertificate, error) {
 	var cret  *C.GList  // container, transfer: full
 	var _cerr *C.GError // out, full, converted, nullable
 
-	carg1 = (*C.gchar)(unsafe.Pointer(C.CString(file)))
-	defer C.free(unsafe.Pointer(carg1))
+	carg1 = (*C.gchar)(transfer.GLibString(file))
+	defer C.g_free(C.gpointer(carg1))
 
 	cret = C.g_tls_certificate_list_new_from_file(carg1, &_cerr)
 	runtime.KeepAlive(file)
@@ -44217,8 +44434,8 @@ func UnsafeApplyTlsConnectionOverrides[Instance TlsConnection](gclass unsafe.Poi
 				goret = overrides.GetNegotiatedProtocol(conn)
 
 				if goret != "" {
-					cret = (*C.gchar)(unsafe.Pointer(C.CString(goret)))
-					defer C.free(unsafe.Pointer(cret))
+					cret = (*C.gchar)(transfer.GLibString(goret))
+					defer C.g_free(C.gpointer(cret))
 				}
 
 				return cret
@@ -44489,6 +44706,11 @@ type TlsDatabase interface {
 
 	// chain up virtual methods:
 
+	// ParentCreateCertificateHandle calls the default implementations of the `GTlsDatabase.create_certificate_handle` virtual method.
+	// This function's behavior is not defined when the parent does not implement the virtual method.
+	// 
+	// see also https://docs.gtk.org/gio/method.TlsDatabase.create_certificate_handle.html
+	ParentCreateCertificateHandle(certificate TlsCertificate) string
 	// ParentLookupCertificateForHandle calls the default implementations of the `GTlsDatabase.lookup_certificate_for_handle` virtual method.
 	// This function's behavior is not defined when the parent does not implement the virtual method.
 	// 
@@ -44612,8 +44834,8 @@ func (self *TlsDatabaseInstance) LookupCertificateForHandle(handle string, inter
 	var _cerr *C.GError                 // out, full, converted, nullable
 
 	carg0 = (*C.GTlsDatabase)(UnsafeTlsDatabaseToGlibNone(self))
-	carg1 = (*C.gchar)(unsafe.Pointer(C.CString(handle)))
-	defer C.free(unsafe.Pointer(carg1))
+	carg1 = (*C.gchar)(transfer.GLibString(handle))
+	defer C.g_free(C.gpointer(carg1))
 	if interaction != nil {
 		carg2 = (*C.GTlsInteraction)(UnsafeTlsInteractionToGlibNone(interaction))
 	}
@@ -44655,8 +44877,8 @@ func (self *TlsDatabaseInstance) LookupCertificateForHandleAsync(handle string, 
 	var carg6 C.gpointer                // implicit
 
 	carg0 = (*C.GTlsDatabase)(UnsafeTlsDatabaseToGlibNone(self))
-	carg1 = (*C.gchar)(unsafe.Pointer(C.CString(handle)))
-	defer C.free(unsafe.Pointer(carg1))
+	carg1 = (*C.gchar)(transfer.GLibString(handle))
+	defer C.g_free(C.gpointer(carg1))
 	if interaction != nil {
 		carg2 = (*C.GTlsInteraction)(UnsafeTlsInteractionToGlibNone(interaction))
 	}
@@ -44857,8 +45079,8 @@ func (self *TlsDatabaseInstance) VerifyChain(chain TlsCertificate, purpose strin
 
 	carg0 = (*C.GTlsDatabase)(UnsafeTlsDatabaseToGlibNone(self))
 	carg1 = (*C.GTlsCertificate)(UnsafeTlsCertificateToGlibNone(chain))
-	carg2 = (*C.gchar)(unsafe.Pointer(C.CString(purpose)))
-	defer C.free(unsafe.Pointer(carg2))
+	carg2 = (*C.gchar)(transfer.GLibString(purpose))
+	defer C.g_free(C.gpointer(carg2))
 	if identity != nil {
 		carg3 = (*C.GSocketConnectable)(UnsafeSocketConnectableToGlibNone(identity))
 	}
@@ -44906,8 +45128,8 @@ func (self *TlsDatabaseInstance) VerifyChainAsync(chain TlsCertificate, purpose 
 
 	carg0 = (*C.GTlsDatabase)(UnsafeTlsDatabaseToGlibNone(self))
 	carg1 = (*C.GTlsCertificate)(UnsafeTlsCertificateToGlibNone(chain))
-	carg2 = (*C.gchar)(unsafe.Pointer(C.CString(purpose)))
-	defer C.free(unsafe.Pointer(carg2))
+	carg2 = (*C.gchar)(transfer.GLibString(purpose))
+	defer C.g_free(C.gpointer(carg2))
 	if identity != nil {
 		carg3 = (*C.GSocketConnectable)(UnsafeSocketConnectableToGlibNone(identity))
 	}
@@ -44967,6 +45189,10 @@ type TlsDatabaseOverrides[Instance TlsDatabase] struct {
 	// gobject.ObjectOverrides allows you to override virtual methods from the parent class gobject.Object
 	gobject.ObjectOverrides[Instance]
 
+	// // CreateCertificateHandle allows you to override the implementation of the virtual method create_certificate_handle.
+	// 
+	// see also https://docs.gtk.org/gio/method.TlsDatabase.create_certificate_handle.html
+	CreateCertificateHandle func(Instance, TlsCertificate) string
 	// // LookupCertificateForHandle allows you to override the implementation of the virtual method lookup_certificate_for_handle.
 	// 
 	// see also https://docs.gtk.org/gio/method.TlsDatabase.lookup_certificate_for_handle.html
@@ -45003,6 +45229,30 @@ func UnsafeApplyTlsDatabaseOverrides[Instance TlsDatabase](gclass unsafe.Pointer
 	gobject.UnsafeApplyObjectOverrides(gclass, overrides.ObjectOverrides)
 
 	pclass := (*C.GTlsDatabaseClass)(gclass)
+
+	if overrides.CreateCertificateHandle != nil {
+		pclass.create_certificate_handle = (*[0]byte)(C._goglib_gio2_TlsDatabase_create_certificate_handle)
+		classdata.StoreVirtualMethod(
+			unsafe.Pointer(pclass),
+			"_goglib_gio2_TlsDatabase_create_certificate_handle",
+			func(carg0 *C.GTlsDatabase, carg1 *C.GTlsCertificate) (cret *C.gchar) {
+				var self        Instance       // go GTlsDatabase subclass
+				var certificate TlsCertificate // in, none, converted
+				var goret       string         // return, full, string, nullable-string
+
+				self = UnsafeTlsDatabaseFromGlibBorrow(unsafe.Pointer(carg0)).UnsafeLoadInstanceFromPrivateData().(Instance)
+				certificate = UnsafeTlsCertificateFromGlibNone(unsafe.Pointer(carg1))
+
+				goret = overrides.CreateCertificateHandle(self, certificate)
+
+				if goret != "" {
+					cret = (*C.gchar)(transfer.GLibString(goret))
+				}
+
+				return cret
+			},
+		)
+	}
 
 	if overrides.LookupCertificateForHandle != nil {
 		pclass.lookup_certificate_for_handle = (*[0]byte)(C._goglib_gio2_TlsDatabase_lookup_certificate_for_handle)
@@ -45213,6 +45463,34 @@ func UnsafeApplyTlsDatabaseOverrides[Instance TlsDatabase](gclass unsafe.Pointer
 	}
 }
 
+// ParentCreateCertificateHandle calls the default implementations of the `GTlsDatabase.create_certificate_handle` virtual method.
+// This function's behavior is not defined when the parent does not implement the virtual method.
+// 
+// see also https://docs.gtk.org/gio/method.TlsDatabase.create_certificate_handle.html
+func (self *TlsDatabaseInstance) ParentCreateCertificateHandle(certificate TlsCertificate) string {
+	var carg0 *C.GTlsDatabase
+	var carg1 *C.GTlsCertificate // in, none, converted
+	var cret  *C.gchar           // return, full, string, nullable-string
+
+	parentclass := (*C.GTlsDatabaseClass)(classdata.PeekParentClass(UnsafeTlsDatabaseToGlibNone(self)))
+
+	carg0 = (*C.GTlsDatabase)(UnsafeTlsDatabaseToGlibNone(self))
+	carg1 = (*C.GTlsCertificate)(UnsafeTlsCertificateToGlibNone(certificate))
+
+	cret = C._goglib_gio2_TlsDatabase_virtual_create_certificate_handle(unsafe.Pointer(parentclass.create_certificate_handle), carg0, carg1)
+	runtime.KeepAlive(self)
+	runtime.KeepAlive(certificate)
+
+	var goret string
+
+	if cret != nil {
+		goret = C.GoString((*C.char)(unsafe.Pointer(cret)))
+		defer C.g_free(C.gpointer(cret))
+	}
+
+	return goret
+}
+
 // ParentLookupCertificateForHandle calls the default implementations of the `GTlsDatabase.lookup_certificate_for_handle` virtual method.
 // This function's behavior is not defined when the parent does not implement the virtual method.
 // 
@@ -45229,8 +45507,8 @@ func (self *TlsDatabaseInstance) ParentLookupCertificateForHandle(handle string,
 	parentclass := (*C.GTlsDatabaseClass)(classdata.PeekParentClass(UnsafeTlsDatabaseToGlibNone(self)))
 
 	carg0 = (*C.GTlsDatabase)(UnsafeTlsDatabaseToGlibNone(self))
-	carg1 = (*C.gchar)(unsafe.Pointer(C.CString(handle)))
-	defer C.free(unsafe.Pointer(carg1))
+	carg1 = (*C.gchar)(transfer.GLibString(handle))
+	defer C.g_free(C.gpointer(carg1))
 	if interaction != nil {
 		carg2 = (*C.GTlsInteraction)(UnsafeTlsInteractionToGlibNone(interaction))
 	}
@@ -45418,8 +45696,8 @@ func (self *TlsDatabaseInstance) ParentVerifyChain(chain TlsCertificate, purpose
 
 	carg0 = (*C.GTlsDatabase)(UnsafeTlsDatabaseToGlibNone(self))
 	carg1 = (*C.GTlsCertificate)(UnsafeTlsCertificateToGlibNone(chain))
-	carg2 = (*C.gchar)(unsafe.Pointer(C.CString(purpose)))
-	defer C.free(unsafe.Pointer(carg2))
+	carg2 = (*C.gchar)(transfer.GLibString(purpose))
+	defer C.g_free(C.gpointer(carg2))
 	if identity != nil {
 		carg3 = (*C.GSocketConnectable)(UnsafeSocketConnectableToGlibNone(identity))
 	}
@@ -46288,8 +46566,8 @@ func NewTlsPassword(flags TlsPasswordFlags, description string) TlsPassword {
 	var cret  *C.GTlsPassword     // return, full, converted
 
 	carg1 = C.GTlsPasswordFlags(flags)
-	carg2 = (*C.gchar)(unsafe.Pointer(C.CString(description)))
-	defer C.free(unsafe.Pointer(carg2))
+	carg2 = (*C.gchar)(transfer.GLibString(description))
+	defer C.g_free(C.gpointer(carg2))
 
 	cret = C.g_tls_password_new(carg1, carg2)
 	runtime.KeepAlive(flags)
@@ -46393,8 +46671,8 @@ func (password *TlsPasswordInstance) SetDescription(description string) {
 	var carg1 *C.gchar        // in, none, string
 
 	carg0 = (*C.GTlsPassword)(UnsafeTlsPasswordToGlibNone(password))
-	carg1 = (*C.gchar)(unsafe.Pointer(C.CString(description)))
-	defer C.free(unsafe.Pointer(carg1))
+	carg1 = (*C.gchar)(transfer.GLibString(description))
+	defer C.g_free(C.gpointer(carg1))
 
 	C.g_tls_password_set_description(carg0, carg1)
 	runtime.KeepAlive(password)
@@ -46443,8 +46721,8 @@ func (password *TlsPasswordInstance) SetWarning(warning string) {
 	var carg1 *C.gchar        // in, none, string
 
 	carg0 = (*C.GTlsPassword)(UnsafeTlsPasswordToGlibNone(password))
-	carg1 = (*C.gchar)(unsafe.Pointer(C.CString(warning)))
-	defer C.free(unsafe.Pointer(carg1))
+	carg1 = (*C.gchar)(transfer.GLibString(warning))
+	defer C.g_free(C.gpointer(carg1))
 
 	C.g_tls_password_set_warning(carg0, carg1)
 	runtime.KeepAlive(password)
@@ -46487,8 +46765,8 @@ func UnsafeApplyTlsPasswordOverrides[Instance TlsPassword](gclass unsafe.Pointer
 
 				goret = overrides.GetDefaultWarning(password)
 
-				cret = (*C.gchar)(unsafe.Pointer(C.CString(goret)))
-				defer C.free(unsafe.Pointer(cret))
+				cret = (*C.gchar)(transfer.GLibString(goret))
+				defer C.g_free(C.gpointer(cret))
 
 				return cret
 			},
@@ -46779,8 +47057,8 @@ func (vfs *VfsInstance) GetFileForPath(path string) File {
 	var cret  *C.GFile // return, full, converted
 
 	carg0 = (*C.GVfs)(UnsafeVfsToGlibNone(vfs))
-	carg1 = (*C.char)(unsafe.Pointer(C.CString(path)))
-	defer C.free(unsafe.Pointer(carg1))
+	carg1 = (*C.char)(transfer.GLibString(path))
+	defer C.g_free(C.gpointer(carg1))
 
 	cret = C.g_vfs_get_file_for_path(carg0, carg1)
 	runtime.KeepAlive(vfs)
@@ -46802,8 +47080,8 @@ func (vfs *VfsInstance) GetFileForURI(uri string) File {
 	var cret  *C.GFile // return, full, converted
 
 	carg0 = (*C.GVfs)(UnsafeVfsToGlibNone(vfs))
-	carg1 = (*C.char)(unsafe.Pointer(C.CString(uri)))
-	defer C.free(unsafe.Pointer(carg1))
+	carg1 = (*C.char)(transfer.GLibString(uri))
+	defer C.g_free(C.gpointer(carg1))
 
 	cret = C.g_vfs_get_file_for_uri(carg0, carg1)
 	runtime.KeepAlive(vfs)
@@ -46867,8 +47145,8 @@ func (vfs *VfsInstance) ParseName(parseName string) File {
 	var cret  *C.GFile // return, full, converted
 
 	carg0 = (*C.GVfs)(UnsafeVfsToGlibNone(vfs))
-	carg1 = (*C.char)(unsafe.Pointer(C.CString(parseName)))
-	defer C.free(unsafe.Pointer(carg1))
+	carg1 = (*C.char)(transfer.GLibString(parseName))
+	defer C.g_free(C.gpointer(carg1))
 
 	cret = C.g_vfs_parse_name(carg0, carg1)
 	runtime.KeepAlive(vfs)
@@ -46896,8 +47174,8 @@ func (vfs *VfsInstance) RegisterURIScheme(scheme string, uriFunc VfsFileLookupFu
 	var cret  C.gboolean           // return
 
 	carg0 = (*C.GVfs)(UnsafeVfsToGlibNone(vfs))
-	carg1 = (*C.char)(unsafe.Pointer(C.CString(scheme)))
-	defer C.free(unsafe.Pointer(carg1))
+	carg1 = (*C.char)(transfer.GLibString(scheme))
+	defer C.g_free(C.gpointer(carg1))
 	if uriFunc != nil {
 		carg2 = (*[0]byte)(C._goglib_gio2_VfsFileLookupFunc)
 		carg3 = C.gpointer(userdata.Register(uriFunc))
@@ -46933,8 +47211,8 @@ func (vfs *VfsInstance) UnregisterURIScheme(scheme string) bool {
 	var cret  C.gboolean // return
 
 	carg0 = (*C.GVfs)(UnsafeVfsToGlibNone(vfs))
-	carg1 = (*C.char)(unsafe.Pointer(C.CString(scheme)))
-	defer C.free(unsafe.Pointer(carg1))
+	carg1 = (*C.char)(transfer.GLibString(scheme))
+	defer C.g_free(C.gpointer(carg1))
 
 	cret = C.g_vfs_unregister_uri_scheme(carg0, carg1)
 	runtime.KeepAlive(vfs)
@@ -47228,8 +47506,8 @@ func (vfs *VfsInstance) ParentGetFileForPath(path string) File {
 	parentclass := (*C.GVfsClass)(classdata.PeekParentClass(UnsafeVfsToGlibNone(vfs)))
 
 	carg0 = (*C.GVfs)(UnsafeVfsToGlibNone(vfs))
-	carg1 = (*C.char)(unsafe.Pointer(C.CString(path)))
-	defer C.free(unsafe.Pointer(carg1))
+	carg1 = (*C.char)(transfer.GLibString(path))
+	defer C.g_free(C.gpointer(carg1))
 
 	cret = C._goglib_gio2_Vfs_virtual_get_file_for_path(unsafe.Pointer(parentclass.get_file_for_path), carg0, carg1)
 	runtime.KeepAlive(vfs)
@@ -47254,8 +47532,8 @@ func (vfs *VfsInstance) ParentGetFileForURI(uri string) File {
 	parentclass := (*C.GVfsClass)(classdata.PeekParentClass(UnsafeVfsToGlibNone(vfs)))
 
 	carg0 = (*C.GVfs)(UnsafeVfsToGlibNone(vfs))
-	carg1 = (*C.char)(unsafe.Pointer(C.CString(uri)))
-	defer C.free(unsafe.Pointer(carg1))
+	carg1 = (*C.char)(transfer.GLibString(uri))
+	defer C.g_free(C.gpointer(carg1))
 
 	cret = C._goglib_gio2_Vfs_virtual_get_file_for_uri(unsafe.Pointer(parentclass.get_file_for_uri), carg0, carg1)
 	runtime.KeepAlive(vfs)
@@ -47328,10 +47606,10 @@ func (vfs *VfsInstance) ParentLocalFileMoved(source string, dest string) {
 	parentclass := (*C.GVfsClass)(classdata.PeekParentClass(UnsafeVfsToGlibNone(vfs)))
 
 	carg0 = (*C.GVfs)(UnsafeVfsToGlibNone(vfs))
-	carg1 = (*C.char)(unsafe.Pointer(C.CString(source)))
-	defer C.free(unsafe.Pointer(carg1))
-	carg2 = (*C.char)(unsafe.Pointer(C.CString(dest)))
-	defer C.free(unsafe.Pointer(carg2))
+	carg1 = (*C.char)(transfer.GLibString(source))
+	defer C.g_free(C.gpointer(carg1))
+	carg2 = (*C.char)(transfer.GLibString(dest))
+	defer C.g_free(C.gpointer(carg2))
 
 	C._goglib_gio2_Vfs_virtual_local_file_moved(unsafe.Pointer(parentclass.local_file_moved), carg0, carg1, carg2)
 	runtime.KeepAlive(vfs)
@@ -47350,8 +47628,8 @@ func (vfs *VfsInstance) ParentLocalFileRemoved(filename string) {
 	parentclass := (*C.GVfsClass)(classdata.PeekParentClass(UnsafeVfsToGlibNone(vfs)))
 
 	carg0 = (*C.GVfs)(UnsafeVfsToGlibNone(vfs))
-	carg1 = (*C.char)(unsafe.Pointer(C.CString(filename)))
-	defer C.free(unsafe.Pointer(carg1))
+	carg1 = (*C.char)(transfer.GLibString(filename))
+	defer C.g_free(C.gpointer(carg1))
 
 	C._goglib_gio2_Vfs_virtual_local_file_removed(unsafe.Pointer(parentclass.local_file_removed), carg0, carg1)
 	runtime.KeepAlive(vfs)
@@ -47374,8 +47652,8 @@ func (vfs *VfsInstance) ParentLocalFileSetAttributes(filename string, info FileI
 	parentclass := (*C.GVfsClass)(classdata.PeekParentClass(UnsafeVfsToGlibNone(vfs)))
 
 	carg0 = (*C.GVfs)(UnsafeVfsToGlibNone(vfs))
-	carg1 = (*C.char)(unsafe.Pointer(C.CString(filename)))
-	defer C.free(unsafe.Pointer(carg1))
+	carg1 = (*C.char)(transfer.GLibString(filename))
+	defer C.g_free(C.gpointer(carg1))
 	carg2 = (*C.GFileInfo)(UnsafeFileInfoToGlibNone(info))
 	carg3 = C.GFileQueryInfoFlags(flags)
 	if cancellable != nil {
@@ -47414,8 +47692,8 @@ func (vfs *VfsInstance) ParentParseName(parseName string) File {
 	parentclass := (*C.GVfsClass)(classdata.PeekParentClass(UnsafeVfsToGlibNone(vfs)))
 
 	carg0 = (*C.GVfs)(UnsafeVfsToGlibNone(vfs))
-	carg1 = (*C.char)(unsafe.Pointer(C.CString(parseName)))
-	defer C.free(unsafe.Pointer(carg1))
+	carg1 = (*C.char)(transfer.GLibString(parseName))
+	defer C.g_free(C.gpointer(carg1))
 
 	cret = C._goglib_gio2_Vfs_virtual_parse_name(unsafe.Pointer(parentclass.parse_name), carg0, carg1)
 	runtime.KeepAlive(vfs)
@@ -47746,8 +48024,8 @@ func (volumeMonitor *VolumeMonitorInstance) GetMountForUuid(uuid string) Mount {
 	var cret  *C.GMount         // return, full, converted, nullable
 
 	carg0 = (*C.GVolumeMonitor)(UnsafeVolumeMonitorToGlibNone(volumeMonitor))
-	carg1 = (*C.char)(unsafe.Pointer(C.CString(uuid)))
-	defer C.free(unsafe.Pointer(carg1))
+	carg1 = (*C.char)(transfer.GLibString(uuid))
+	defer C.g_free(C.gpointer(carg1))
 
 	cret = C.g_volume_monitor_get_mount_for_uuid(carg0, carg1)
 	runtime.KeepAlive(volumeMonitor)
@@ -47797,8 +48075,8 @@ func (volumeMonitor *VolumeMonitorInstance) GetVolumeForUuid(uuid string) Volume
 	var cret  *C.GVolume        // return, full, converted, nullable
 
 	carg0 = (*C.GVolumeMonitor)(UnsafeVolumeMonitorToGlibNone(volumeMonitor))
-	carg1 = (*C.char)(unsafe.Pointer(C.CString(uuid)))
-	defer C.free(unsafe.Pointer(carg1))
+	carg1 = (*C.char)(transfer.GLibString(uuid))
+	defer C.g_free(C.gpointer(carg1))
 
 	cret = C.g_volume_monitor_get_volume_for_uuid(carg0, carg1)
 	runtime.KeepAlive(volumeMonitor)
@@ -48456,8 +48734,8 @@ func (volumeMonitor *VolumeMonitorInstance) ParentGetMountForUuid(uuid string) M
 	parentclass := (*C.GVolumeMonitorClass)(classdata.PeekParentClass(UnsafeVolumeMonitorToGlibNone(volumeMonitor)))
 
 	carg0 = (*C.GVolumeMonitor)(UnsafeVolumeMonitorToGlibNone(volumeMonitor))
-	carg1 = (*C.char)(unsafe.Pointer(C.CString(uuid)))
-	defer C.free(unsafe.Pointer(carg1))
+	carg1 = (*C.char)(transfer.GLibString(uuid))
+	defer C.g_free(C.gpointer(carg1))
 
 	cret = C._goglib_gio2_VolumeMonitor_virtual_get_mount_for_uuid(unsafe.Pointer(parentclass.get_mount_for_uuid), carg0, carg1)
 	runtime.KeepAlive(volumeMonitor)
@@ -48513,8 +48791,8 @@ func (volumeMonitor *VolumeMonitorInstance) ParentGetVolumeForUuid(uuid string) 
 	parentclass := (*C.GVolumeMonitorClass)(classdata.PeekParentClass(UnsafeVolumeMonitorToGlibNone(volumeMonitor)))
 
 	carg0 = (*C.GVolumeMonitor)(UnsafeVolumeMonitorToGlibNone(volumeMonitor))
-	carg1 = (*C.char)(unsafe.Pointer(C.CString(uuid)))
-	defer C.free(unsafe.Pointer(carg1))
+	carg1 = (*C.char)(transfer.GLibString(uuid))
+	defer C.g_free(C.gpointer(carg1))
 
 	cret = C._goglib_gio2_VolumeMonitor_virtual_get_volume_for_uuid(unsafe.Pointer(parentclass.get_volume_for_uuid), carg0, carg1)
 	runtime.KeepAlive(volumeMonitor)
@@ -48908,6 +49186,11 @@ type FileIOStream interface {
 	// 
 	// see also https://docs.gtk.org/gio/method.FileIOStream.can_truncate.html
 	ParentCanTruncate() bool
+	// ParentGetEtag calls the default implementations of the `GFileIOStream.get_etag` virtual method.
+	// This function's behavior is not defined when the parent does not implement the virtual method.
+	// 
+	// see also https://docs.gtk.org/gio/method.FileIOStream.get_etag.html
+	ParentGetEtag() string
 	// ParentQueryInfo calls the default implementations of the `GFileIOStream.query_info` virtual method.
 	// This function's behavior is not defined when the parent does not implement the virtual method.
 	// 
@@ -49021,8 +49304,8 @@ func (stream *FileIOStreamInstance) QueryInfo(attributes string, cancellable Can
 	var _cerr *C.GError        // out, full, converted, nullable
 
 	carg0 = (*C.GFileIOStream)(UnsafeFileIOStreamToGlibNone(stream))
-	carg1 = (*C.char)(unsafe.Pointer(C.CString(attributes)))
-	defer C.free(unsafe.Pointer(carg1))
+	carg1 = (*C.char)(transfer.GLibString(attributes))
+	defer C.g_free(C.gpointer(carg1))
 	if cancellable != nil {
 		carg2 = (*C.GCancellable)(UnsafeCancellableToGlibNone(cancellable))
 	}
@@ -49055,8 +49338,8 @@ func (stream *FileIOStreamInstance) QueryInfoAsync(attributes string, ioPriority
 	var carg5 C.gpointer            // implicit
 
 	carg0 = (*C.GFileIOStream)(UnsafeFileIOStreamToGlibNone(stream))
-	carg1 = (*C.char)(unsafe.Pointer(C.CString(attributes)))
-	defer C.free(unsafe.Pointer(carg1))
+	carg1 = (*C.char)(transfer.GLibString(attributes))
+	defer C.g_free(C.gpointer(carg1))
 	carg2 = C.int(ioPriority)
 	if cancellable != nil {
 		carg3 = (*C.GCancellable)(UnsafeCancellableToGlibNone(cancellable))
@@ -49115,6 +49398,10 @@ type FileIOStreamOverrides[Instance FileIOStream] struct {
 	// 
 	// see also https://docs.gtk.org/gio/method.FileIOStream.can_truncate.html
 	CanTruncate func(Instance) bool
+	// // GetEtag allows you to override the implementation of the virtual method get_etag.
+	// 
+	// see also https://docs.gtk.org/gio/method.FileIOStream.get_etag.html
+	GetEtag func(Instance) string
 	// // QueryInfo allows you to override the implementation of the virtual method query_info.
 	// 
 	// see also https://docs.gtk.org/gio/method.FileIOStream.query_info.html
@@ -49181,6 +49468,28 @@ func UnsafeApplyFileIOStreamOverrides[Instance FileIOStream](gclass unsafe.Point
 
 				if goret {
 					cret = C.TRUE
+				}
+
+				return cret
+			},
+		)
+	}
+
+	if overrides.GetEtag != nil {
+		pclass.get_etag = (*[0]byte)(C._goglib_gio2_FileIOStream_get_etag)
+		classdata.StoreVirtualMethod(
+			unsafe.Pointer(pclass),
+			"_goglib_gio2_FileIOStream_get_etag",
+			func(carg0 *C.GFileIOStream) (cret *C.char) {
+				var stream Instance // go GFileIOStream subclass
+				var goret  string   // return, full, string, nullable-string
+
+				stream = UnsafeFileIOStreamFromGlibBorrow(unsafe.Pointer(carg0)).UnsafeLoadInstanceFromPrivateData().(Instance)
+
+				goret = overrides.GetEtag(stream)
+
+				if goret != "" {
+					cret = (*C.char)(transfer.GLibString(goret))
 				}
 
 				return cret
@@ -49371,6 +49680,31 @@ func (stream *FileIOStreamInstance) ParentCanTruncate() bool {
 	return goret
 }
 
+// ParentGetEtag calls the default implementations of the `GFileIOStream.get_etag` virtual method.
+// This function's behavior is not defined when the parent does not implement the virtual method.
+// 
+// see also https://docs.gtk.org/gio/method.FileIOStream.get_etag.html
+func (stream *FileIOStreamInstance) ParentGetEtag() string {
+	var carg0 *C.GFileIOStream
+	var cret  *C.char // return, full, string, nullable-string
+
+	parentclass := (*C.GFileIOStreamClass)(classdata.PeekParentClass(UnsafeFileIOStreamToGlibNone(stream)))
+
+	carg0 = (*C.GFileIOStream)(UnsafeFileIOStreamToGlibNone(stream))
+
+	cret = C._goglib_gio2_FileIOStream_virtual_get_etag(unsafe.Pointer(parentclass.get_etag), carg0)
+	runtime.KeepAlive(stream)
+
+	var goret string
+
+	if cret != nil {
+		goret = C.GoString((*C.char)(unsafe.Pointer(cret)))
+		defer C.g_free(C.gpointer(cret))
+	}
+
+	return goret
+}
+
 // ParentQueryInfo calls the default implementations of the `GFileIOStream.query_info` virtual method.
 // This function's behavior is not defined when the parent does not implement the virtual method.
 // 
@@ -49385,8 +49719,8 @@ func (stream *FileIOStreamInstance) ParentQueryInfo(attributes string, cancellab
 	parentclass := (*C.GFileIOStreamClass)(classdata.PeekParentClass(UnsafeFileIOStreamToGlibNone(stream)))
 
 	carg0 = (*C.GFileIOStream)(UnsafeFileIOStreamToGlibNone(stream))
-	carg1 = (*C.char)(unsafe.Pointer(C.CString(attributes)))
-	defer C.free(unsafe.Pointer(carg1))
+	carg1 = (*C.char)(transfer.GLibString(attributes))
+	defer C.g_free(C.gpointer(carg1))
 	if cancellable != nil {
 		carg2 = (*C.GCancellable)(UnsafeCancellableToGlibNone(cancellable))
 	}
@@ -49686,8 +50020,8 @@ func (stream *FileInputStreamInstance) QueryInfo(attributes string, cancellable 
 	var _cerr *C.GError           // out, full, converted, nullable
 
 	carg0 = (*C.GFileInputStream)(UnsafeFileInputStreamToGlibNone(stream))
-	carg1 = (*C.char)(unsafe.Pointer(C.CString(attributes)))
-	defer C.free(unsafe.Pointer(carg1))
+	carg1 = (*C.char)(transfer.GLibString(attributes))
+	defer C.g_free(C.gpointer(carg1))
 	if cancellable != nil {
 		carg2 = (*C.GCancellable)(UnsafeCancellableToGlibNone(cancellable))
 	}
@@ -49720,8 +50054,8 @@ func (stream *FileInputStreamInstance) QueryInfoAsync(attributes string, ioPrior
 	var carg5 C.gpointer            // implicit
 
 	carg0 = (*C.GFileInputStream)(UnsafeFileInputStreamToGlibNone(stream))
-	carg1 = (*C.char)(unsafe.Pointer(C.CString(attributes)))
-	defer C.free(unsafe.Pointer(carg1))
+	carg1 = (*C.char)(transfer.GLibString(attributes))
+	defer C.g_free(C.gpointer(carg1))
 	carg2 = C.int(ioPriority)
 	if cancellable != nil {
 		carg3 = (*C.GCancellable)(UnsafeCancellableToGlibNone(cancellable))
@@ -49966,8 +50300,8 @@ func (stream *FileInputStreamInstance) ParentQueryInfo(attributes string, cancel
 	parentclass := (*C.GFileInputStreamClass)(classdata.PeekParentClass(UnsafeFileInputStreamToGlibNone(stream)))
 
 	carg0 = (*C.GFileInputStream)(UnsafeFileInputStreamToGlibNone(stream))
-	carg1 = (*C.char)(unsafe.Pointer(C.CString(attributes)))
-	defer C.free(unsafe.Pointer(carg1))
+	carg1 = (*C.char)(transfer.GLibString(attributes))
+	defer C.g_free(C.gpointer(carg1))
 	if cancellable != nil {
 		carg2 = (*C.GCancellable)(UnsafeCancellableToGlibNone(cancellable))
 	}
@@ -50153,6 +50487,11 @@ type FileOutputStream interface {
 	// 
 	// see also https://docs.gtk.org/gio/method.FileOutputStream.can_truncate.html
 	ParentCanTruncate() bool
+	// ParentGetEtag calls the default implementations of the `GFileOutputStream.get_etag` virtual method.
+	// This function's behavior is not defined when the parent does not implement the virtual method.
+	// 
+	// see also https://docs.gtk.org/gio/method.FileOutputStream.get_etag.html
+	ParentGetEtag() string
 	// ParentQueryInfo calls the default implementations of the `GFileOutputStream.query_info` virtual method.
 	// This function's behavior is not defined when the parent does not implement the virtual method.
 	// 
@@ -50266,8 +50605,8 @@ func (stream *FileOutputStreamInstance) QueryInfo(attributes string, cancellable
 	var _cerr *C.GError            // out, full, converted, nullable
 
 	carg0 = (*C.GFileOutputStream)(UnsafeFileOutputStreamToGlibNone(stream))
-	carg1 = (*C.char)(unsafe.Pointer(C.CString(attributes)))
-	defer C.free(unsafe.Pointer(carg1))
+	carg1 = (*C.char)(transfer.GLibString(attributes))
+	defer C.g_free(C.gpointer(carg1))
 	if cancellable != nil {
 		carg2 = (*C.GCancellable)(UnsafeCancellableToGlibNone(cancellable))
 	}
@@ -50300,8 +50639,8 @@ func (stream *FileOutputStreamInstance) QueryInfoAsync(attributes string, ioPrio
 	var carg5 C.gpointer            // implicit
 
 	carg0 = (*C.GFileOutputStream)(UnsafeFileOutputStreamToGlibNone(stream))
-	carg1 = (*C.char)(unsafe.Pointer(C.CString(attributes)))
-	defer C.free(unsafe.Pointer(carg1))
+	carg1 = (*C.char)(transfer.GLibString(attributes))
+	defer C.g_free(C.gpointer(carg1))
 	carg2 = C.int(ioPriority)
 	if cancellable != nil {
 		carg3 = (*C.GCancellable)(UnsafeCancellableToGlibNone(cancellable))
@@ -50360,6 +50699,10 @@ type FileOutputStreamOverrides[Instance FileOutputStream] struct {
 	// 
 	// see also https://docs.gtk.org/gio/method.FileOutputStream.can_truncate.html
 	CanTruncate func(Instance) bool
+	// // GetEtag allows you to override the implementation of the virtual method get_etag.
+	// 
+	// see also https://docs.gtk.org/gio/method.FileOutputStream.get_etag.html
+	GetEtag func(Instance) string
 	// // QueryInfo allows you to override the implementation of the virtual method query_info.
 	// 
 	// see also https://docs.gtk.org/gio/method.FileOutputStream.query_info.html
@@ -50426,6 +50769,28 @@ func UnsafeApplyFileOutputStreamOverrides[Instance FileOutputStream](gclass unsa
 
 				if goret {
 					cret = C.TRUE
+				}
+
+				return cret
+			},
+		)
+	}
+
+	if overrides.GetEtag != nil {
+		pclass.get_etag = (*[0]byte)(C._goglib_gio2_FileOutputStream_get_etag)
+		classdata.StoreVirtualMethod(
+			unsafe.Pointer(pclass),
+			"_goglib_gio2_FileOutputStream_get_etag",
+			func(carg0 *C.GFileOutputStream) (cret *C.char) {
+				var stream Instance // go GFileOutputStream subclass
+				var goret  string   // return, full, string, nullable-string
+
+				stream = UnsafeFileOutputStreamFromGlibBorrow(unsafe.Pointer(carg0)).UnsafeLoadInstanceFromPrivateData().(Instance)
+
+				goret = overrides.GetEtag(stream)
+
+				if goret != "" {
+					cret = (*C.char)(transfer.GLibString(goret))
 				}
 
 				return cret
@@ -50616,6 +50981,31 @@ func (stream *FileOutputStreamInstance) ParentCanTruncate() bool {
 	return goret
 }
 
+// ParentGetEtag calls the default implementations of the `GFileOutputStream.get_etag` virtual method.
+// This function's behavior is not defined when the parent does not implement the virtual method.
+// 
+// see also https://docs.gtk.org/gio/method.FileOutputStream.get_etag.html
+func (stream *FileOutputStreamInstance) ParentGetEtag() string {
+	var carg0 *C.GFileOutputStream
+	var cret  *C.char // return, full, string, nullable-string
+
+	parentclass := (*C.GFileOutputStreamClass)(classdata.PeekParentClass(UnsafeFileOutputStreamToGlibNone(stream)))
+
+	carg0 = (*C.GFileOutputStream)(UnsafeFileOutputStreamToGlibNone(stream))
+
+	cret = C._goglib_gio2_FileOutputStream_virtual_get_etag(unsafe.Pointer(parentclass.get_etag), carg0)
+	runtime.KeepAlive(stream)
+
+	var goret string
+
+	if cret != nil {
+		goret = C.GoString((*C.char)(unsafe.Pointer(cret)))
+		defer C.g_free(C.gpointer(cret))
+	}
+
+	return goret
+}
+
 // ParentQueryInfo calls the default implementations of the `GFileOutputStream.query_info` virtual method.
 // This function's behavior is not defined when the parent does not implement the virtual method.
 // 
@@ -50630,8 +51020,8 @@ func (stream *FileOutputStreamInstance) ParentQueryInfo(attributes string, cance
 	parentclass := (*C.GFileOutputStreamClass)(classdata.PeekParentClass(UnsafeFileOutputStreamToGlibNone(stream)))
 
 	carg0 = (*C.GFileOutputStream)(UnsafeFileOutputStreamToGlibNone(stream))
-	carg1 = (*C.char)(unsafe.Pointer(C.CString(attributes)))
-	defer C.free(unsafe.Pointer(carg1))
+	carg1 = (*C.char)(transfer.GLibString(attributes))
+	defer C.g_free(C.gpointer(carg1))
 	if cancellable != nil {
 		carg2 = (*C.GCancellable)(UnsafeCancellableToGlibNone(cancellable))
 	}
@@ -51284,8 +51674,8 @@ func NewInetSocketAddressFromString(address string, port uint) SocketAddress {
 	var carg2 C.guint           // in, none, casted
 	var cret  *C.GSocketAddress // return, full, converted, nullable
 
-	carg1 = (*C.char)(unsafe.Pointer(C.CString(address)))
-	defer C.free(unsafe.Pointer(carg1))
+	carg1 = (*C.char)(transfer.GLibString(address))
+	defer C.g_free(C.gpointer(carg1))
 	carg2 = C.guint(port)
 
 	cret = C.g_inet_socket_address_new_from_string(carg1, carg2)
@@ -51773,12 +52163,12 @@ func (menu *MenuInstance) Append(label string, detailedAction string) {
 
 	carg0 = (*C.GMenu)(UnsafeMenuToGlibNone(menu))
 	if label != "" {
-		carg1 = (*C.gchar)(unsafe.Pointer(C.CString(label)))
-		defer C.free(unsafe.Pointer(carg1))
+		carg1 = (*C.gchar)(transfer.GLibString(label))
+		defer C.g_free(C.gpointer(carg1))
 	}
 	if detailedAction != "" {
-		carg2 = (*C.gchar)(unsafe.Pointer(C.CString(detailedAction)))
-		defer C.free(unsafe.Pointer(carg2))
+		carg2 = (*C.gchar)(transfer.GLibString(detailedAction))
+		defer C.g_free(C.gpointer(carg2))
 	}
 
 	C.g_menu_append(carg0, carg1, carg2)
@@ -51812,8 +52202,8 @@ func (menu *MenuInstance) AppendSection(label string, section MenuModel) {
 
 	carg0 = (*C.GMenu)(UnsafeMenuToGlibNone(menu))
 	if label != "" {
-		carg1 = (*C.gchar)(unsafe.Pointer(C.CString(label)))
-		defer C.free(unsafe.Pointer(carg1))
+		carg1 = (*C.gchar)(transfer.GLibString(label))
+		defer C.g_free(C.gpointer(carg1))
 	}
 	carg2 = (*C.GMenuModel)(UnsafeMenuModelToGlibNone(section))
 
@@ -51833,8 +52223,8 @@ func (menu *MenuInstance) AppendSubmenu(label string, submenu MenuModel) {
 
 	carg0 = (*C.GMenu)(UnsafeMenuToGlibNone(menu))
 	if label != "" {
-		carg1 = (*C.gchar)(unsafe.Pointer(C.CString(label)))
-		defer C.free(unsafe.Pointer(carg1))
+		carg1 = (*C.gchar)(transfer.GLibString(label))
+		defer C.g_free(C.gpointer(carg1))
 	}
 	carg2 = (*C.GMenuModel)(UnsafeMenuModelToGlibNone(submenu))
 
@@ -51868,12 +52258,12 @@ func (menu *MenuInstance) Insert(position int32, label string, detailedAction st
 	carg0 = (*C.GMenu)(UnsafeMenuToGlibNone(menu))
 	carg1 = C.gint(position)
 	if label != "" {
-		carg2 = (*C.gchar)(unsafe.Pointer(C.CString(label)))
-		defer C.free(unsafe.Pointer(carg2))
+		carg2 = (*C.gchar)(transfer.GLibString(label))
+		defer C.g_free(C.gpointer(carg2))
 	}
 	if detailedAction != "" {
-		carg3 = (*C.gchar)(unsafe.Pointer(C.CString(detailedAction)))
-		defer C.free(unsafe.Pointer(carg3))
+		carg3 = (*C.gchar)(transfer.GLibString(detailedAction))
+		defer C.g_free(C.gpointer(carg3))
 	}
 
 	C.g_menu_insert(carg0, carg1, carg2, carg3)
@@ -51913,8 +52303,8 @@ func (menu *MenuInstance) InsertSection(position int32, label string, section Me
 	carg0 = (*C.GMenu)(UnsafeMenuToGlibNone(menu))
 	carg1 = C.gint(position)
 	if label != "" {
-		carg2 = (*C.gchar)(unsafe.Pointer(C.CString(label)))
-		defer C.free(unsafe.Pointer(carg2))
+		carg2 = (*C.gchar)(transfer.GLibString(label))
+		defer C.g_free(C.gpointer(carg2))
 	}
 	carg3 = (*C.GMenuModel)(UnsafeMenuModelToGlibNone(section))
 
@@ -51937,8 +52327,8 @@ func (menu *MenuInstance) InsertSubmenu(position int32, label string, submenu Me
 	carg0 = (*C.GMenu)(UnsafeMenuToGlibNone(menu))
 	carg1 = C.gint(position)
 	if label != "" {
-		carg2 = (*C.gchar)(unsafe.Pointer(C.CString(label)))
-		defer C.free(unsafe.Pointer(carg2))
+		carg2 = (*C.gchar)(transfer.GLibString(label))
+		defer C.g_free(C.gpointer(carg2))
 	}
 	carg3 = (*C.GMenuModel)(UnsafeMenuModelToGlibNone(submenu))
 
@@ -51959,12 +52349,12 @@ func (menu *MenuInstance) Prepend(label string, detailedAction string) {
 
 	carg0 = (*C.GMenu)(UnsafeMenuToGlibNone(menu))
 	if label != "" {
-		carg1 = (*C.gchar)(unsafe.Pointer(C.CString(label)))
-		defer C.free(unsafe.Pointer(carg1))
+		carg1 = (*C.gchar)(transfer.GLibString(label))
+		defer C.g_free(C.gpointer(carg1))
 	}
 	if detailedAction != "" {
-		carg2 = (*C.gchar)(unsafe.Pointer(C.CString(detailedAction)))
-		defer C.free(unsafe.Pointer(carg2))
+		carg2 = (*C.gchar)(transfer.GLibString(detailedAction))
+		defer C.g_free(C.gpointer(carg2))
 	}
 
 	C.g_menu_prepend(carg0, carg1, carg2)
@@ -51998,8 +52388,8 @@ func (menu *MenuInstance) PrependSection(label string, section MenuModel) {
 
 	carg0 = (*C.GMenu)(UnsafeMenuToGlibNone(menu))
 	if label != "" {
-		carg1 = (*C.gchar)(unsafe.Pointer(C.CString(label)))
-		defer C.free(unsafe.Pointer(carg1))
+		carg1 = (*C.gchar)(transfer.GLibString(label))
+		defer C.g_free(C.gpointer(carg1))
 	}
 	carg2 = (*C.GMenuModel)(UnsafeMenuModelToGlibNone(section))
 
@@ -52019,8 +52409,8 @@ func (menu *MenuInstance) PrependSubmenu(label string, submenu MenuModel) {
 
 	carg0 = (*C.GMenu)(UnsafeMenuToGlibNone(menu))
 	if label != "" {
-		carg1 = (*C.gchar)(unsafe.Pointer(C.CString(label)))
-		defer C.free(unsafe.Pointer(carg1))
+		carg1 = (*C.gchar)(transfer.GLibString(label))
+		defer C.g_free(C.gpointer(carg1))
 	}
 	carg2 = (*C.GMenuModel)(UnsafeMenuModelToGlibNone(submenu))
 
@@ -52396,18 +52786,18 @@ func NewProxyAddress(inetaddr InetAddress, port uint16, protocol string, destHos
 
 	carg1 = (*C.GInetAddress)(UnsafeInetAddressToGlibNone(inetaddr))
 	carg2 = C.guint16(port)
-	carg3 = (*C.gchar)(unsafe.Pointer(C.CString(protocol)))
-	defer C.free(unsafe.Pointer(carg3))
-	carg4 = (*C.gchar)(unsafe.Pointer(C.CString(destHostname)))
-	defer C.free(unsafe.Pointer(carg4))
+	carg3 = (*C.gchar)(transfer.GLibString(protocol))
+	defer C.g_free(C.gpointer(carg3))
+	carg4 = (*C.gchar)(transfer.GLibString(destHostname))
+	defer C.g_free(C.gpointer(carg4))
 	carg5 = C.guint16(destPort)
 	if username != "" {
-		carg6 = (*C.gchar)(unsafe.Pointer(C.CString(username)))
-		defer C.free(unsafe.Pointer(carg6))
+		carg6 = (*C.gchar)(transfer.GLibString(username))
+		defer C.g_free(C.gpointer(carg6))
 	}
 	if password != "" {
-		carg7 = (*C.gchar)(unsafe.Pointer(C.CString(password)))
-		defer C.free(unsafe.Pointer(carg7))
+		carg7 = (*C.gchar)(transfer.GLibString(password))
+		defer C.g_free(C.gpointer(carg7))
 	}
 
 	cret = C.g_proxy_address_new(carg1, carg2, carg3, carg4, carg5, carg6, carg7)
@@ -54411,8 +54801,8 @@ func (stream *DataInputStreamInstance) ReadUntil(stopChars string, cancellable C
 	var _cerr *C.GError           // out, full, converted, nullable
 
 	carg0 = (*C.GDataInputStream)(UnsafeDataInputStreamToGlibNone(stream))
-	carg1 = (*C.gchar)(unsafe.Pointer(C.CString(stopChars)))
-	defer C.free(unsafe.Pointer(carg1))
+	carg1 = (*C.gchar)(transfer.GLibString(stopChars))
+	defer C.g_free(C.gpointer(carg1))
 	if cancellable != nil {
 		carg3 = (*C.GCancellable)(UnsafeCancellableToGlibNone(cancellable))
 	}
@@ -54450,8 +54840,8 @@ func (stream *DataInputStreamInstance) ReadUntilAsync(stopChars string, ioPriori
 	var carg5 C.gpointer            // implicit
 
 	carg0 = (*C.GDataInputStream)(UnsafeDataInputStreamToGlibNone(stream))
-	carg1 = (*C.gchar)(unsafe.Pointer(C.CString(stopChars)))
-	defer C.free(unsafe.Pointer(carg1))
+	carg1 = (*C.gchar)(transfer.GLibString(stopChars))
+	defer C.g_free(C.gpointer(carg1))
 	carg2 = C.gint(ioPriority)
 	if cancellable != nil {
 		carg3 = (*C.GCancellable)(UnsafeCancellableToGlibNone(cancellable))
@@ -54515,8 +54905,8 @@ func (stream *DataInputStreamInstance) ReadUpto(stopChars string, stopCharsLen i
 	var _cerr *C.GError           // out, full, converted, nullable
 
 	carg0 = (*C.GDataInputStream)(UnsafeDataInputStreamToGlibNone(stream))
-	carg1 = (*C.gchar)(unsafe.Pointer(C.CString(stopChars)))
-	defer C.free(unsafe.Pointer(carg1))
+	carg1 = (*C.gchar)(transfer.GLibString(stopChars))
+	defer C.g_free(C.gpointer(carg1))
 	carg2 = C.gssize(stopCharsLen)
 	if cancellable != nil {
 		carg4 = (*C.GCancellable)(UnsafeCancellableToGlibNone(cancellable))
@@ -54555,8 +54945,8 @@ func (stream *DataInputStreamInstance) ReadUptoAsync(stopChars string, stopChars
 	var carg6 C.gpointer            // implicit
 
 	carg0 = (*C.GDataInputStream)(UnsafeDataInputStreamToGlibNone(stream))
-	carg1 = (*C.gchar)(unsafe.Pointer(C.CString(stopChars)))
-	defer C.free(unsafe.Pointer(carg1))
+	carg1 = (*C.gchar)(transfer.GLibString(stopChars))
+	defer C.g_free(C.gpointer(carg1))
 	carg2 = C.gssize(stopCharsLen)
 	carg3 = C.gint(ioPriority)
 	if cancellable != nil {
@@ -54979,8 +55369,8 @@ func (stream *DataOutputStreamInstance) PutString(str string, cancellable Cancel
 	var _cerr *C.GError            // out, full, converted, nullable
 
 	carg0 = (*C.GDataOutputStream)(UnsafeDataOutputStreamToGlibNone(stream))
-	carg1 = (*C.char)(unsafe.Pointer(C.CString(str)))
-	defer C.free(unsafe.Pointer(carg1))
+	carg1 = (*C.char)(transfer.GLibString(str))
+	defer C.g_free(C.gpointer(carg1))
 	if cancellable != nil {
 		carg2 = (*C.GCancellable)(UnsafeCancellableToGlibNone(cancellable))
 	}
@@ -57295,8 +57685,8 @@ func (list *FileAttributeInfoList) Add(name string, typ FileAttributeType, flags
 	var carg3 C.GFileAttributeInfoFlags // in, none, casted
 
 	carg0 = (*C.GFileAttributeInfoList)(UnsafeFileAttributeInfoListToGlibNone(list))
-	carg1 = (*C.char)(unsafe.Pointer(C.CString(name)))
-	defer C.free(unsafe.Pointer(carg1))
+	carg1 = (*C.char)(transfer.GLibString(name))
+	defer C.g_free(C.gpointer(carg1))
 	carg2 = C.GFileAttributeType(typ)
 	carg3 = C.GFileAttributeInfoFlags(flags)
 
@@ -57335,8 +57725,8 @@ func (list *FileAttributeInfoList) Lookup(name string) *FileAttributeInfo {
 	var cret  *C.GFileAttributeInfo     // return, none, converted
 
 	carg0 = (*C.GFileAttributeInfoList)(UnsafeFileAttributeInfoListToGlibNone(list))
-	carg1 = (*C.char)(unsafe.Pointer(C.CString(name)))
-	defer C.free(unsafe.Pointer(carg1))
+	carg1 = (*C.char)(transfer.GLibString(name))
+	defer C.g_free(C.gpointer(carg1))
 
 	cret = C.g_file_attribute_info_list_lookup(carg0, carg1)
 	runtime.KeepAlive(list)
@@ -57466,8 +57856,8 @@ func NewFileAttributeMatcher(attributes string) *FileAttributeMatcher {
 	var carg1 *C.char                  // in, none, string
 	var cret  *C.GFileAttributeMatcher // return, full, converted
 
-	carg1 = (*C.char)(unsafe.Pointer(C.CString(attributes)))
-	defer C.free(unsafe.Pointer(carg1))
+	carg1 = (*C.char)(transfer.GLibString(attributes))
+	defer C.g_free(C.gpointer(carg1))
 
 	cret = C.g_file_attribute_matcher_new(carg1)
 	runtime.KeepAlive(attributes)
@@ -57488,8 +57878,8 @@ func (matcher *FileAttributeMatcher) EnumerateNamespace(ns string) bool {
 	var cret  C.gboolean               // return
 
 	carg0 = (*C.GFileAttributeMatcher)(UnsafeFileAttributeMatcherToGlibNone(matcher))
-	carg1 = (*C.char)(unsafe.Pointer(C.CString(ns)))
-	defer C.free(unsafe.Pointer(carg1))
+	carg1 = (*C.char)(transfer.GLibString(ns))
+	defer C.g_free(C.gpointer(carg1))
 
 	cret = C.g_file_attribute_matcher_enumerate_namespace(carg0, carg1)
 	runtime.KeepAlive(matcher)
@@ -57534,8 +57924,8 @@ func (matcher *FileAttributeMatcher) Matches(attribute string) bool {
 	var cret  C.gboolean               // return
 
 	carg0 = (*C.GFileAttributeMatcher)(UnsafeFileAttributeMatcherToGlibNone(matcher))
-	carg1 = (*C.char)(unsafe.Pointer(C.CString(attribute)))
-	defer C.free(unsafe.Pointer(carg1))
+	carg1 = (*C.char)(transfer.GLibString(attribute))
+	defer C.g_free(C.gpointer(carg1))
 
 	cret = C.g_file_attribute_matcher_matches(carg0, carg1)
 	runtime.KeepAlive(matcher)
@@ -57559,8 +57949,8 @@ func (matcher *FileAttributeMatcher) MatchesOnly(attribute string) bool {
 	var cret  C.gboolean               // return
 
 	carg0 = (*C.GFileAttributeMatcher)(UnsafeFileAttributeMatcherToGlibNone(matcher))
-	carg1 = (*C.char)(unsafe.Pointer(C.CString(attribute)))
-	defer C.free(unsafe.Pointer(carg1))
+	carg1 = (*C.char)(transfer.GLibString(attribute))
+	defer C.g_free(C.gpointer(carg1))
 
 	cret = C.g_file_attribute_matcher_matches_only(carg0, carg1)
 	runtime.KeepAlive(matcher)
@@ -58484,11 +58874,11 @@ func IOExtensionPointImplement(extensionPointName string, typ gobject.Type, exte
 	var carg4 C.gint          // in, none, casted
 	var cret  *C.GIOExtension // return, none, converted
 
-	carg1 = (*C.char)(unsafe.Pointer(C.CString(extensionPointName)))
-	defer C.free(unsafe.Pointer(carg1))
+	carg1 = (*C.char)(transfer.GLibString(extensionPointName))
+	defer C.g_free(C.gpointer(carg1))
 	carg2 = C.GType(typ)
-	carg3 = (*C.char)(unsafe.Pointer(C.CString(extensionName)))
-	defer C.free(unsafe.Pointer(carg3))
+	carg3 = (*C.char)(transfer.GLibString(extensionName))
+	defer C.g_free(C.gpointer(carg3))
 	carg4 = C.gint(priority)
 
 	cret = C.g_io_extension_point_implement(carg1, carg2, carg3, carg4)
@@ -58511,8 +58901,8 @@ func IOExtensionPointLookup(name string) *IOExtensionPoint {
 	var carg1 *C.char              // in, none, string
 	var cret  *C.GIOExtensionPoint // return, none, converted
 
-	carg1 = (*C.char)(unsafe.Pointer(C.CString(name)))
-	defer C.free(unsafe.Pointer(carg1))
+	carg1 = (*C.char)(transfer.GLibString(name))
+	defer C.g_free(C.gpointer(carg1))
 
 	cret = C.g_io_extension_point_lookup(carg1)
 	runtime.KeepAlive(name)
@@ -58531,8 +58921,8 @@ func IOExtensionPointRegister(name string) *IOExtensionPoint {
 	var carg1 *C.char              // in, none, string
 	var cret  *C.GIOExtensionPoint // return, none, converted
 
-	carg1 = (*C.char)(unsafe.Pointer(C.CString(name)))
-	defer C.free(unsafe.Pointer(carg1))
+	carg1 = (*C.char)(transfer.GLibString(name))
+	defer C.g_free(C.gpointer(carg1))
 
 	cret = C.g_io_extension_point_register(carg1)
 	runtime.KeepAlive(name)
@@ -58553,8 +58943,8 @@ func (extensionPoint *IOExtensionPoint) GetExtensionByName(name string) *IOExten
 	var cret  *C.GIOExtension      // return, none, converted
 
 	carg0 = (*C.GIOExtensionPoint)(UnsafeIOExtensionPointToGlibNone(extensionPoint))
-	carg1 = (*C.char)(unsafe.Pointer(C.CString(name)))
-	defer C.free(unsafe.Pointer(carg1))
+	carg1 = (*C.char)(transfer.GLibString(name))
+	defer C.g_free(C.gpointer(carg1))
 
 	cret = C.g_io_extension_point_get_extension_by_name(carg0, carg1)
 	runtime.KeepAlive(extensionPoint)
@@ -58763,8 +59153,8 @@ func (scope *IOModuleScope) Block(basename string) {
 	var carg1 *C.gchar          // in, none, string
 
 	carg0 = (*C.GIOModuleScope)(UnsafeIOModuleScopeToGlibNone(scope))
-	carg1 = (*C.gchar)(unsafe.Pointer(C.CString(basename)))
-	defer C.free(unsafe.Pointer(carg1))
+	carg1 = (*C.gchar)(transfer.GLibString(basename))
+	defer C.g_free(C.gpointer(carg1))
 
 	C.g_io_module_scope_block(carg0, carg1)
 	runtime.KeepAlive(scope)
@@ -61812,8 +62202,8 @@ func (schema *SettingsSchema) GetKey(name string) *SettingsSchemaKey {
 	var cret  *C.GSettingsSchemaKey // return, full, converted
 
 	carg0 = (*C.GSettingsSchema)(UnsafeSettingsSchemaToGlibNone(schema))
-	carg1 = (*C.gchar)(unsafe.Pointer(C.CString(name)))
-	defer C.free(unsafe.Pointer(carg1))
+	carg1 = (*C.gchar)(transfer.GLibString(name))
+	defer C.g_free(C.gpointer(carg1))
 
 	cret = C.g_settings_schema_get_key(carg0, carg1)
 	runtime.KeepAlive(schema)
@@ -61856,8 +62246,8 @@ func (schema *SettingsSchema) HasKey(name string) bool {
 	var cret  C.gboolean         // return
 
 	carg0 = (*C.GSettingsSchema)(UnsafeSettingsSchemaToGlibNone(schema))
-	carg1 = (*C.gchar)(unsafe.Pointer(C.CString(name)))
-	defer C.free(unsafe.Pointer(carg1))
+	carg1 = (*C.gchar)(transfer.GLibString(name))
+	defer C.g_free(C.gpointer(carg1))
 
 	cret = C.g_settings_schema_has_key(carg0, carg1)
 	runtime.KeepAlive(schema)
@@ -62224,8 +62614,8 @@ func NewSettingsSchemaSourceFromDirectory(directory string, parent *SettingsSche
 	var cret  *C.GSettingsSchemaSource // return, full, converted
 	var _cerr *C.GError                // out, full, converted, nullable
 
-	carg1 = (*C.gchar)(unsafe.Pointer(C.CString(directory)))
-	defer C.free(unsafe.Pointer(carg1))
+	carg1 = (*C.gchar)(transfer.GLibString(directory))
+	defer C.g_free(C.gpointer(carg1))
 	if parent != nil {
 		carg2 = (*C.GSettingsSchemaSource)(UnsafeSettingsSchemaSourceToGlibNone(parent))
 	}
@@ -62276,8 +62666,8 @@ func (source *SettingsSchemaSource) Lookup(schemaId string, recursive bool) *Set
 	var cret  *C.GSettingsSchema       // return, full, converted, nullable
 
 	carg0 = (*C.GSettingsSchemaSource)(UnsafeSettingsSchemaSourceToGlibNone(source))
-	carg1 = (*C.gchar)(unsafe.Pointer(C.CString(schemaId)))
-	defer C.free(unsafe.Pointer(carg1))
+	carg1 = (*C.gchar)(transfer.GLibString(schemaId))
+	defer C.g_free(C.gpointer(carg1))
 	if recursive {
 		carg2 = C.TRUE
 	}
@@ -63090,8 +63480,8 @@ func NewSrvTarget(hostname string, port uint16, priority uint16, weight uint16) 
 	var carg4 C.guint16     // in, none, casted
 	var cret  *C.GSrvTarget // return, full, converted
 
-	carg1 = (*C.gchar)(unsafe.Pointer(C.CString(hostname)))
-	defer C.free(unsafe.Pointer(carg1))
+	carg1 = (*C.gchar)(transfer.GLibString(hostname))
+	defer C.g_free(C.gpointer(carg1))
 	carg2 = C.guint16(port)
 	carg3 = C.guint16(priority)
 	carg4 = C.guint16(weight)

@@ -9,6 +9,7 @@ import (
 	"strings"
 	"unsafe"
 
+	"github.com/go-gst/go-glib/pkg/core/transfer"
 	"github.com/go-gst/go-glib/pkg/core/userdata"
 )
 
@@ -5251,8 +5252,8 @@ func ASCIIDtostr(buffer string, bufLen int32, d float64) string {
 	var carg3 C.gdouble // in, none, casted
 	var cret  *C.gchar  // return, full, string
 
-	carg1 = (*C.gchar)(unsafe.Pointer(C.CString(buffer)))
-	defer C.free(unsafe.Pointer(carg1))
+	carg1 = (*C.gchar)(transfer.GLibString(buffer))
+	defer C.g_free(C.gpointer(carg1))
 	carg2 = C.gint(bufLen)
 	carg3 = C.gdouble(d)
 
@@ -5279,11 +5280,11 @@ func ASCIIFormatd(buffer string, bufLen int32, format string, d float64) string 
 	var carg4 C.gdouble // in, none, casted
 	var cret  *C.gchar  // return, full, string
 
-	carg1 = (*C.gchar)(unsafe.Pointer(C.CString(buffer)))
-	defer C.free(unsafe.Pointer(carg1))
+	carg1 = (*C.gchar)(transfer.GLibString(buffer))
+	defer C.g_free(C.gpointer(carg1))
 	carg2 = C.gint(bufLen)
-	carg3 = (*C.gchar)(unsafe.Pointer(C.CString(format)))
-	defer C.free(unsafe.Pointer(carg3))
+	carg3 = (*C.gchar)(transfer.GLibString(format))
+	defer C.g_free(C.gpointer(carg3))
 	carg4 = C.gdouble(d)
 
 	cret = C.g_ascii_formatd(carg1, carg2, carg3, carg4)
@@ -5308,10 +5309,10 @@ func ASCIIStrcasecmp(s1 string, s2 string) int32 {
 	var carg2 *C.gchar // in, none, string
 	var cret  C.gint   // return, none, casted
 
-	carg1 = (*C.gchar)(unsafe.Pointer(C.CString(s1)))
-	defer C.free(unsafe.Pointer(carg1))
-	carg2 = (*C.gchar)(unsafe.Pointer(C.CString(s2)))
-	defer C.free(unsafe.Pointer(carg2))
+	carg1 = (*C.gchar)(transfer.GLibString(s1))
+	defer C.g_free(C.gpointer(carg1))
+	carg2 = (*C.gchar)(transfer.GLibString(s2))
+	defer C.g_free(C.gpointer(carg2))
 
 	cret = C.g_ascii_strcasecmp(carg1, carg2)
 	runtime.KeepAlive(s1)
@@ -5332,8 +5333,8 @@ func ASCIIStrdown(str string, len int) string {
 	var carg2 C.gssize // in, none, casted
 	var cret  *C.gchar // return, full, string
 
-	carg1 = (*C.gchar)(unsafe.Pointer(C.CString(str)))
-	defer C.free(unsafe.Pointer(carg1))
+	carg1 = (*C.gchar)(transfer.GLibString(str))
+	defer C.g_free(C.gpointer(carg1))
 	carg2 = C.gssize(len)
 
 	cret = C.g_ascii_strdown(carg1, carg2)
@@ -5360,8 +5361,8 @@ func ASCIIStringToSigned(str string, base uint, min int64, max int64) (int64, bo
 	var cret  C.gboolean // return
 	var _cerr *C.GError  // out, full, converted, nullable
 
-	carg1 = (*C.gchar)(unsafe.Pointer(C.CString(str)))
-	defer C.free(unsafe.Pointer(carg1))
+	carg1 = (*C.gchar)(transfer.GLibString(str))
+	defer C.g_free(C.gpointer(carg1))
 	carg2 = C.guint(base)
 	carg3 = C.gint64(min)
 	carg4 = C.gint64(max)
@@ -5399,8 +5400,8 @@ func ASCIIStringToUnsigned(str string, base uint, min uint64, max uint64) (uint6
 	var cret  C.gboolean // return
 	var _cerr *C.GError  // out, full, converted, nullable
 
-	carg1 = (*C.gchar)(unsafe.Pointer(C.CString(str)))
-	defer C.free(unsafe.Pointer(carg1))
+	carg1 = (*C.gchar)(transfer.GLibString(str))
+	defer C.g_free(C.gpointer(carg1))
 	carg2 = C.guint(base)
 	carg3 = C.guint64(min)
 	carg4 = C.guint64(max)
@@ -5435,10 +5436,10 @@ func ASCIIStrncasecmp(s1 string, s2 string, n uint) int32 {
 	var carg3 C.gsize  // in, none, casted
 	var cret  C.gint   // return, none, casted
 
-	carg1 = (*C.gchar)(unsafe.Pointer(C.CString(s1)))
-	defer C.free(unsafe.Pointer(carg1))
-	carg2 = (*C.gchar)(unsafe.Pointer(C.CString(s2)))
-	defer C.free(unsafe.Pointer(carg2))
+	carg1 = (*C.gchar)(transfer.GLibString(s1))
+	defer C.g_free(C.gpointer(carg1))
+	carg2 = (*C.gchar)(transfer.GLibString(s2))
+	defer C.g_free(C.gpointer(carg2))
 	carg3 = C.gsize(n)
 
 	cret = C.g_ascii_strncasecmp(carg1, carg2, carg3)
@@ -5461,8 +5462,8 @@ func ASCIIStrtod(nptr string) (string, float64) {
 	var carg2 *C.gchar  // out, none, string
 	var cret  C.gdouble // return, none, casted
 
-	carg1 = (*C.gchar)(unsafe.Pointer(C.CString(nptr)))
-	defer C.free(unsafe.Pointer(carg1))
+	carg1 = (*C.gchar)(transfer.GLibString(nptr))
+	defer C.g_free(C.gpointer(carg1))
 
 	cret = C.g_ascii_strtod(carg1, &carg2)
 	runtime.KeepAlive(nptr)
@@ -5485,8 +5486,8 @@ func ASCIIStrtoll(nptr string, base uint) (string, int64) {
 	var carg2 *C.gchar // out, none, string
 	var cret  C.gint64 // return, none, casted
 
-	carg1 = (*C.gchar)(unsafe.Pointer(C.CString(nptr)))
-	defer C.free(unsafe.Pointer(carg1))
+	carg1 = (*C.gchar)(transfer.GLibString(nptr))
+	defer C.g_free(C.gpointer(carg1))
 	carg3 = C.guint(base)
 
 	cret = C.g_ascii_strtoll(carg1, &carg2, carg3)
@@ -5511,8 +5512,8 @@ func ASCIIStrtoull(nptr string, base uint) (string, uint64) {
 	var carg2 *C.gchar  // out, none, string
 	var cret  C.guint64 // return, none, casted
 
-	carg1 = (*C.gchar)(unsafe.Pointer(C.CString(nptr)))
-	defer C.free(unsafe.Pointer(carg1))
+	carg1 = (*C.gchar)(transfer.GLibString(nptr))
+	defer C.g_free(C.gpointer(carg1))
 	carg3 = C.guint(base)
 
 	cret = C.g_ascii_strtoull(carg1, &carg2, carg3)
@@ -5536,8 +5537,8 @@ func ASCIIStrup(str string, len int) string {
 	var carg2 C.gssize // in, none, casted
 	var cret  *C.gchar // return, full, string
 
-	carg1 = (*C.gchar)(unsafe.Pointer(C.CString(str)))
-	defer C.free(unsafe.Pointer(carg1))
+	carg1 = (*C.gchar)(transfer.GLibString(str))
+	defer C.g_free(C.gpointer(carg1))
 	carg2 = C.gssize(len)
 
 	cret = C.g_ascii_strup(carg1, carg2)
@@ -5619,15 +5620,15 @@ func AssertWarning(logDomain string, file string, line int32, prettyFunction str
 	var carg4 *C.char // in, none, string
 	var carg5 *C.char // in, none, string
 
-	carg1 = (*C.char)(unsafe.Pointer(C.CString(logDomain)))
-	defer C.free(unsafe.Pointer(carg1))
-	carg2 = (*C.char)(unsafe.Pointer(C.CString(file)))
-	defer C.free(unsafe.Pointer(carg2))
+	carg1 = (*C.char)(transfer.GLibString(logDomain))
+	defer C.g_free(C.gpointer(carg1))
+	carg2 = (*C.char)(transfer.GLibString(file))
+	defer C.g_free(C.gpointer(carg2))
 	carg3 = C.int(line)
-	carg4 = (*C.char)(unsafe.Pointer(C.CString(prettyFunction)))
-	defer C.free(unsafe.Pointer(carg4))
-	carg5 = (*C.char)(unsafe.Pointer(C.CString(expression)))
-	defer C.free(unsafe.Pointer(carg5))
+	carg4 = (*C.char)(transfer.GLibString(prettyFunction))
+	defer C.g_free(C.gpointer(carg4))
+	carg5 = (*C.char)(transfer.GLibString(expression))
+	defer C.g_free(C.gpointer(carg5))
 
 	C.g_assert_warning(carg1, carg2, carg3, carg4, carg5)
 	runtime.KeepAlive(logDomain)
@@ -5647,15 +5648,15 @@ func AssertionMessage(domain string, file string, line int32, fn string, message
 	var carg4 *C.char // in, none, string
 	var carg5 *C.char // in, none, string
 
-	carg1 = (*C.char)(unsafe.Pointer(C.CString(domain)))
-	defer C.free(unsafe.Pointer(carg1))
-	carg2 = (*C.char)(unsafe.Pointer(C.CString(file)))
-	defer C.free(unsafe.Pointer(carg2))
+	carg1 = (*C.char)(transfer.GLibString(domain))
+	defer C.g_free(C.gpointer(carg1))
+	carg2 = (*C.char)(transfer.GLibString(file))
+	defer C.g_free(C.gpointer(carg2))
 	carg3 = C.int(line)
-	carg4 = (*C.char)(unsafe.Pointer(C.CString(fn)))
-	defer C.free(unsafe.Pointer(carg4))
-	carg5 = (*C.char)(unsafe.Pointer(C.CString(message)))
-	defer C.free(unsafe.Pointer(carg5))
+	carg4 = (*C.char)(transfer.GLibString(fn))
+	defer C.g_free(C.gpointer(carg4))
+	carg5 = (*C.char)(transfer.GLibString(message))
+	defer C.g_free(C.gpointer(carg5))
 
 	C.g_assertion_message(carg1, carg2, carg3, carg4, carg5)
 	runtime.KeepAlive(domain)
@@ -5679,18 +5680,18 @@ func AssertionMessageCmpint(domain string, file string, line int32, fn string, e
 	var carg8 C.guint64 // in, none, casted
 	var carg9 C.char    // in, none, casted
 
-	carg1 = (*C.char)(unsafe.Pointer(C.CString(domain)))
-	defer C.free(unsafe.Pointer(carg1))
-	carg2 = (*C.char)(unsafe.Pointer(C.CString(file)))
-	defer C.free(unsafe.Pointer(carg2))
+	carg1 = (*C.char)(transfer.GLibString(domain))
+	defer C.g_free(C.gpointer(carg1))
+	carg2 = (*C.char)(transfer.GLibString(file))
+	defer C.g_free(C.gpointer(carg2))
 	carg3 = C.int(line)
-	carg4 = (*C.char)(unsafe.Pointer(C.CString(fn)))
-	defer C.free(unsafe.Pointer(carg4))
-	carg5 = (*C.char)(unsafe.Pointer(C.CString(expr)))
-	defer C.free(unsafe.Pointer(carg5))
+	carg4 = (*C.char)(transfer.GLibString(fn))
+	defer C.g_free(C.gpointer(carg4))
+	carg5 = (*C.char)(transfer.GLibString(expr))
+	defer C.g_free(C.gpointer(carg5))
 	carg6 = C.guint64(arg1)
-	carg7 = (*C.char)(unsafe.Pointer(C.CString(cmp)))
-	defer C.free(unsafe.Pointer(carg7))
+	carg7 = (*C.char)(transfer.GLibString(cmp))
+	defer C.g_free(C.gpointer(carg7))
 	carg8 = C.guint64(arg2)
 	carg9 = C.char(numtype)
 
@@ -5719,21 +5720,21 @@ func AssertionMessageCmpstr(domain string, file string, line int32, fn string, e
 	var carg7 *C.char // in, none, string
 	var carg8 *C.char // in, none, string
 
-	carg1 = (*C.char)(unsafe.Pointer(C.CString(domain)))
-	defer C.free(unsafe.Pointer(carg1))
-	carg2 = (*C.char)(unsafe.Pointer(C.CString(file)))
-	defer C.free(unsafe.Pointer(carg2))
+	carg1 = (*C.char)(transfer.GLibString(domain))
+	defer C.g_free(C.gpointer(carg1))
+	carg2 = (*C.char)(transfer.GLibString(file))
+	defer C.g_free(C.gpointer(carg2))
 	carg3 = C.int(line)
-	carg4 = (*C.char)(unsafe.Pointer(C.CString(fn)))
-	defer C.free(unsafe.Pointer(carg4))
-	carg5 = (*C.char)(unsafe.Pointer(C.CString(expr)))
-	defer C.free(unsafe.Pointer(carg5))
-	carg6 = (*C.char)(unsafe.Pointer(C.CString(arg1)))
-	defer C.free(unsafe.Pointer(carg6))
-	carg7 = (*C.char)(unsafe.Pointer(C.CString(cmp)))
-	defer C.free(unsafe.Pointer(carg7))
-	carg8 = (*C.char)(unsafe.Pointer(C.CString(arg2)))
-	defer C.free(unsafe.Pointer(carg8))
+	carg4 = (*C.char)(transfer.GLibString(fn))
+	defer C.g_free(C.gpointer(carg4))
+	carg5 = (*C.char)(transfer.GLibString(expr))
+	defer C.g_free(C.gpointer(carg5))
+	carg6 = (*C.char)(transfer.GLibString(arg1))
+	defer C.g_free(C.gpointer(carg6))
+	carg7 = (*C.char)(transfer.GLibString(cmp))
+	defer C.g_free(C.gpointer(carg7))
+	carg8 = (*C.char)(transfer.GLibString(arg2))
+	defer C.g_free(C.gpointer(carg8))
 
 	C.g_assertion_message_cmpstr(carg1, carg2, carg3, carg4, carg5, carg6, carg7, carg8)
 	runtime.KeepAlive(domain)
@@ -5754,8 +5755,8 @@ func Base64Decode(text string) (uint, []uint8) {
 	var carg2 C.gsize   // out, full, casted
 	var cret  *C.guchar // return, transfer: full, C Pointers: 1, Name: array[guint8], scope: , array (inner guint8 (*typesystem.CastablePrimitive))
 
-	carg1 = (*C.gchar)(unsafe.Pointer(C.CString(text)))
-	defer C.free(unsafe.Pointer(carg1))
+	carg1 = (*C.gchar)(transfer.GLibString(text))
+	defer C.g_free(C.gpointer(carg1))
 
 	cret = C.g_base64_decode(carg1, &carg2)
 	runtime.KeepAlive(text)
@@ -5888,8 +5889,8 @@ func BuildPathv(separator string, args []string) string {
 	var carg2 **C.gchar // in, transfer: none, C Pointers: 2, Name: array[filename], array (inner gchar* (*typesystem.StringPrimitive), zero-terminated)
 	var cret  *C.gchar  // return, full, string
 
-	carg1 = (*C.gchar)(unsafe.Pointer(C.CString(separator)))
-	defer C.free(unsafe.Pointer(carg1))
+	carg1 = (*C.gchar)(transfer.GLibString(separator))
+	defer C.g_free(C.gpointer(carg1))
 	_ = args
 	_ = carg2
 	panic("unimplemented conversion of []string (gchar**) because of unimplemented: inner pointers in array")
@@ -5914,11 +5915,11 @@ func CanonicalizeFilename(filename string, relativeTo string) string {
 	var carg2 *C.gchar // in, none, string, nullable-string
 	var cret  *C.gchar // return, full, string
 
-	carg1 = (*C.gchar)(unsafe.Pointer(C.CString(filename)))
-	defer C.free(unsafe.Pointer(carg1))
+	carg1 = (*C.gchar)(transfer.GLibString(filename))
+	defer C.g_free(C.gpointer(carg1))
 	if relativeTo != "" {
-		carg2 = (*C.gchar)(unsafe.Pointer(C.CString(relativeTo)))
-		defer C.free(unsafe.Pointer(carg2))
+		carg2 = (*C.gchar)(transfer.GLibString(relativeTo))
+		defer C.g_free(C.gpointer(carg2))
 	}
 
 	cret = C.g_canonicalize_filename(carg1, carg2)
@@ -6041,8 +6042,8 @@ func ComputeChecksumForString(checksumType ChecksumType, str string, length int)
 	var cret  *C.gchar        // return, full, string, nullable-string
 
 	carg1 = C.GChecksumType(checksumType)
-	carg2 = (*C.gchar)(unsafe.Pointer(C.CString(str)))
-	defer C.free(unsafe.Pointer(carg2))
+	carg2 = (*C.gchar)(transfer.GLibString(str))
+	defer C.g_free(C.gpointer(carg2))
 	carg3 = C.gssize(length)
 
 	cret = C.g_compute_checksum_for_string(carg1, carg2, carg3)
@@ -6136,8 +6137,8 @@ func ComputeHmacForString(digestType ChecksumType, key []byte, str string, lengt
 	_ = carg2
 	_ = carg3
 	panic("unimplemented conversion of []byte (const guchar*) because of unimplemented: non-fixed size array")
-	carg4 = (*C.gchar)(unsafe.Pointer(C.CString(str)))
-	defer C.free(unsafe.Pointer(carg4))
+	carg4 = (*C.gchar)(transfer.GLibString(str))
+	defer C.g_free(C.gpointer(carg4))
 	carg5 = C.gssize(length)
 
 	cret = C.g_compute_hmac_for_string(carg1, carg2, carg3, carg4, carg5)
@@ -6171,10 +6172,10 @@ func Convert(str string, toCodeset string, fromCodeset string) (uint, uint, stri
 	_ = carg1
 	_ = carg2
 	panic("unimplemented conversion of string (const gchar*) because of unimplemented: non-fixed size array")
-	carg3 = (*C.gchar)(unsafe.Pointer(C.CString(toCodeset)))
-	defer C.free(unsafe.Pointer(carg3))
-	carg4 = (*C.gchar)(unsafe.Pointer(C.CString(fromCodeset)))
-	defer C.free(unsafe.Pointer(carg4))
+	carg3 = (*C.gchar)(transfer.GLibString(toCodeset))
+	defer C.g_free(C.gpointer(carg3))
+	carg4 = (*C.gchar)(transfer.GLibString(fromCodeset))
+	defer C.g_free(C.gpointer(carg4))
 
 	cret = C.g_convert(carg1, carg2, carg3, carg4, &carg5, &carg6, &_cerr)
 	runtime.KeepAlive(str)
@@ -6231,12 +6232,12 @@ func ConvertWithFallback(str string, toCodeset string, fromCodeset string, fallb
 	_ = carg1
 	_ = carg2
 	panic("unimplemented conversion of string (const gchar*) because of unimplemented: non-fixed size array")
-	carg3 = (*C.gchar)(unsafe.Pointer(C.CString(toCodeset)))
-	defer C.free(unsafe.Pointer(carg3))
-	carg4 = (*C.gchar)(unsafe.Pointer(C.CString(fromCodeset)))
-	defer C.free(unsafe.Pointer(carg4))
-	carg5 = (*C.gchar)(unsafe.Pointer(C.CString(fallback)))
-	defer C.free(unsafe.Pointer(carg5))
+	carg3 = (*C.gchar)(transfer.GLibString(toCodeset))
+	defer C.g_free(C.gpointer(carg3))
+	carg4 = (*C.gchar)(transfer.GLibString(fromCodeset))
+	defer C.g_free(C.gpointer(carg4))
+	carg5 = (*C.gchar)(transfer.GLibString(fallback))
+	defer C.g_free(C.gpointer(carg5))
 
 	cret = C.g_convert_with_fallback(carg1, carg2, carg3, carg4, carg5, &carg6, &carg7, &_cerr)
 	runtime.KeepAlive(str)
@@ -6271,11 +6272,11 @@ func Dcgettext(domain string, msgid string, category int32) string {
 	var cret  *C.gchar // return, none, string
 
 	if domain != "" {
-		carg1 = (*C.gchar)(unsafe.Pointer(C.CString(domain)))
-		defer C.free(unsafe.Pointer(carg1))
+		carg1 = (*C.gchar)(transfer.GLibString(domain))
+		defer C.g_free(C.gpointer(carg1))
 	}
-	carg2 = (*C.gchar)(unsafe.Pointer(C.CString(msgid)))
-	defer C.free(unsafe.Pointer(carg2))
+	carg2 = (*C.gchar)(transfer.GLibString(msgid))
+	defer C.g_free(C.gpointer(carg2))
 	carg3 = C.gint(category)
 
 	cret = C.g_dcgettext(carg1, carg2, carg3)
@@ -6299,11 +6300,11 @@ func Dgettext(domain string, msgid string) string {
 	var cret  *C.gchar // return, none, string
 
 	if domain != "" {
-		carg1 = (*C.gchar)(unsafe.Pointer(C.CString(domain)))
-		defer C.free(unsafe.Pointer(carg1))
+		carg1 = (*C.gchar)(transfer.GLibString(domain))
+		defer C.g_free(C.gpointer(carg1))
 	}
-	carg2 = (*C.gchar)(unsafe.Pointer(C.CString(msgid)))
-	defer C.free(unsafe.Pointer(carg2))
+	carg2 = (*C.gchar)(transfer.GLibString(msgid))
+	defer C.g_free(C.gpointer(carg2))
 
 	cret = C.g_dgettext(carg1, carg2)
 	runtime.KeepAlive(domain)
@@ -6327,13 +6328,13 @@ func Dngettext(domain string, msgid string, msgidPlural string, n uint32) string
 	var cret  *C.gchar // return, none, string
 
 	if domain != "" {
-		carg1 = (*C.gchar)(unsafe.Pointer(C.CString(domain)))
-		defer C.free(unsafe.Pointer(carg1))
+		carg1 = (*C.gchar)(transfer.GLibString(domain))
+		defer C.g_free(C.gpointer(carg1))
 	}
-	carg2 = (*C.gchar)(unsafe.Pointer(C.CString(msgid)))
-	defer C.free(unsafe.Pointer(carg2))
-	carg3 = (*C.gchar)(unsafe.Pointer(C.CString(msgidPlural)))
-	defer C.free(unsafe.Pointer(carg3))
+	carg2 = (*C.gchar)(transfer.GLibString(msgid))
+	defer C.g_free(C.gpointer(carg2))
+	carg3 = (*C.gchar)(transfer.GLibString(msgidPlural))
+	defer C.g_free(C.gpointer(carg3))
 	carg4 = C.gulong(n)
 
 	cret = C.g_dngettext(carg1, carg2, carg3, carg4)
@@ -6359,11 +6360,11 @@ func Dpgettext(domain string, msgctxtid string, msgidoffset uint) string {
 	var cret  *C.gchar // return, none, string
 
 	if domain != "" {
-		carg1 = (*C.gchar)(unsafe.Pointer(C.CString(domain)))
-		defer C.free(unsafe.Pointer(carg1))
+		carg1 = (*C.gchar)(transfer.GLibString(domain))
+		defer C.g_free(C.gpointer(carg1))
 	}
-	carg2 = (*C.gchar)(unsafe.Pointer(C.CString(msgctxtid)))
-	defer C.free(unsafe.Pointer(carg2))
+	carg2 = (*C.gchar)(transfer.GLibString(msgctxtid))
+	defer C.g_free(C.gpointer(carg2))
 	carg3 = C.gsize(msgidoffset)
 
 	cret = C.g_dpgettext(carg1, carg2, carg3)
@@ -6388,13 +6389,13 @@ func Dpgettext2(domain string, _context string, msgid string) string {
 	var cret  *C.gchar // return, none, string
 
 	if domain != "" {
-		carg1 = (*C.gchar)(unsafe.Pointer(C.CString(domain)))
-		defer C.free(unsafe.Pointer(carg1))
+		carg1 = (*C.gchar)(transfer.GLibString(domain))
+		defer C.g_free(C.gpointer(carg1))
 	}
-	carg2 = (*C.gchar)(unsafe.Pointer(C.CString(_context)))
-	defer C.free(unsafe.Pointer(carg2))
-	carg3 = (*C.gchar)(unsafe.Pointer(C.CString(msgid)))
-	defer C.free(unsafe.Pointer(carg3))
+	carg2 = (*C.gchar)(transfer.GLibString(_context))
+	defer C.g_free(C.gpointer(carg2))
+	carg3 = (*C.gchar)(transfer.GLibString(msgid))
+	defer C.g_free(C.gpointer(carg3))
 
 	cret = C.g_dpgettext2(carg1, carg2, carg3)
 	runtime.KeepAlive(domain)
@@ -6419,8 +6420,8 @@ func EnvironGetenv(envp []string, variable string) string {
 	_ = envp
 	_ = carg1
 	panic("unimplemented conversion of []string (gchar**) because of unimplemented: inner pointers in array")
-	carg2 = (*C.gchar)(unsafe.Pointer(C.CString(variable)))
-	defer C.free(unsafe.Pointer(carg2))
+	carg2 = (*C.gchar)(transfer.GLibString(variable))
+	defer C.g_free(C.gpointer(carg2))
 
 	cret = C.g_environ_getenv(carg1, carg2)
 	runtime.KeepAlive(envp)
@@ -6448,10 +6449,10 @@ func EnvironSetenv(envp []string, variable string, value string, overwrite bool)
 	_ = envp
 	_ = carg1
 	panic("unimplemented conversion of []string (gchar**) because of unimplemented: inner pointers in array")
-	carg2 = (*C.gchar)(unsafe.Pointer(C.CString(variable)))
-	defer C.free(unsafe.Pointer(carg2))
-	carg3 = (*C.gchar)(unsafe.Pointer(C.CString(value)))
-	defer C.free(unsafe.Pointer(carg3))
+	carg2 = (*C.gchar)(transfer.GLibString(variable))
+	defer C.g_free(C.gpointer(carg2))
+	carg3 = (*C.gchar)(transfer.GLibString(value))
+	defer C.g_free(C.gpointer(carg3))
 	if overwrite {
 		carg4 = C.TRUE
 	}
@@ -6482,8 +6483,8 @@ func EnvironUnsetenv(envp []string, variable string) []string {
 	_ = envp
 	_ = carg1
 	panic("unimplemented conversion of []string (gchar**) because of unimplemented: inner pointers in array")
-	carg2 = (*C.gchar)(unsafe.Pointer(C.CString(variable)))
-	defer C.free(unsafe.Pointer(carg2))
+	carg2 = (*C.gchar)(transfer.GLibString(variable))
+	defer C.g_free(C.gpointer(carg2))
 
 	cret = C.g_environ_unsetenv(carg1, carg2)
 	runtime.KeepAlive(envp)
@@ -6542,8 +6543,8 @@ func FileGetContents(filename string) (string, bool, error) {
 	var cret  C.gboolean // return
 	var _cerr *C.GError  // out, full, converted, nullable
 
-	carg1 = (*C.gchar)(unsafe.Pointer(C.CString(filename)))
-	defer C.free(unsafe.Pointer(carg1))
+	carg1 = (*C.gchar)(transfer.GLibString(filename))
+	defer C.g_free(C.gpointer(carg1))
 
 	cret = C.g_file_get_contents(carg1, &carg2, &carg3, &_cerr)
 	runtime.KeepAlive(filename)
@@ -6576,8 +6577,8 @@ func FileOpenTmp(tmpl string) (string, int32, error) {
 	var _cerr *C.GError // out, full, converted, nullable
 
 	if tmpl != "" {
-		carg1 = (*C.gchar)(unsafe.Pointer(C.CString(tmpl)))
-		defer C.free(unsafe.Pointer(carg1))
+		carg1 = (*C.gchar)(transfer.GLibString(tmpl))
+		defer C.g_free(C.gpointer(carg1))
 	}
 
 	cret = C.g_file_open_tmp(carg1, &carg2, &_cerr)
@@ -6605,8 +6606,8 @@ func FileReadLink(filename string) (string, error) {
 	var cret  *C.gchar  // return, full, string
 	var _cerr *C.GError // out, full, converted, nullable
 
-	carg1 = (*C.gchar)(unsafe.Pointer(C.CString(filename)))
-	defer C.free(unsafe.Pointer(carg1))
+	carg1 = (*C.gchar)(transfer.GLibString(filename))
+	defer C.g_free(C.gpointer(carg1))
 
 	cret = C.g_file_read_link(carg1, &_cerr)
 	runtime.KeepAlive(filename)
@@ -6633,8 +6634,8 @@ func FileSetContents(filename string, contents string) (bool, error) {
 	var cret  C.gboolean // return
 	var _cerr *C.GError  // out, full, converted, nullable
 
-	carg1 = (*C.gchar)(unsafe.Pointer(C.CString(filename)))
-	defer C.free(unsafe.Pointer(carg1))
+	carg1 = (*C.gchar)(transfer.GLibString(filename))
+	defer C.g_free(C.gpointer(carg1))
 	_ = contents
 	_ = carg2
 	_ = carg3
@@ -6669,8 +6670,8 @@ func FileSetContentsFull(filename string, contents string, flags FileSetContents
 	var cret  C.gboolean              // return
 	var _cerr *C.GError               // out, full, converted, nullable
 
-	carg1 = (*C.gchar)(unsafe.Pointer(C.CString(filename)))
-	defer C.free(unsafe.Pointer(carg1))
+	carg1 = (*C.gchar)(transfer.GLibString(filename))
+	defer C.g_free(C.gpointer(carg1))
 	_ = contents
 	_ = carg2
 	_ = carg3
@@ -6705,8 +6706,8 @@ func TestFile(filename string, test FileTest) bool {
 	var carg2 C.GFileTest // in, none, casted
 	var cret  C.gboolean  // return
 
-	carg1 = (*C.gchar)(unsafe.Pointer(C.CString(filename)))
-	defer C.free(unsafe.Pointer(carg1))
+	carg1 = (*C.gchar)(transfer.GLibString(filename))
+	defer C.g_free(C.gpointer(carg1))
 	carg2 = C.GFileTest(test)
 
 	cret = C.g_file_test(carg1, carg2)
@@ -6729,8 +6730,8 @@ func FilenameDisplayBasename(filename string) string {
 	var carg1 *C.gchar // in, none, string
 	var cret  *C.gchar // return, full, string
 
-	carg1 = (*C.gchar)(unsafe.Pointer(C.CString(filename)))
-	defer C.free(unsafe.Pointer(carg1))
+	carg1 = (*C.gchar)(transfer.GLibString(filename))
+	defer C.g_free(C.gpointer(carg1))
 
 	cret = C.g_filename_display_basename(carg1)
 	runtime.KeepAlive(filename)
@@ -6750,8 +6751,8 @@ func FilenameDisplayName(filename string) string {
 	var carg1 *C.gchar // in, none, string
 	var cret  *C.gchar // return, full, string
 
-	carg1 = (*C.gchar)(unsafe.Pointer(C.CString(filename)))
-	defer C.free(unsafe.Pointer(carg1))
+	carg1 = (*C.gchar)(transfer.GLibString(filename))
+	defer C.g_free(C.gpointer(carg1))
 
 	cret = C.g_filename_display_name(carg1)
 	runtime.KeepAlive(filename)
@@ -6773,8 +6774,8 @@ func FilenameFromURI(uri string) (string, string, error) {
 	var cret  *C.gchar  // return, full, string
 	var _cerr *C.GError // out, full, converted, nullable
 
-	carg1 = (*C.gchar)(unsafe.Pointer(C.CString(uri)))
-	defer C.free(unsafe.Pointer(carg1))
+	carg1 = (*C.gchar)(transfer.GLibString(uri))
+	defer C.g_free(C.gpointer(carg1))
 
 	cret = C.g_filename_from_uri(carg1, &carg2, &_cerr)
 	runtime.KeepAlive(uri)
@@ -6807,8 +6808,8 @@ func FilenameFromUTF8(utf8string string, len int) (uint, uint, string, error) {
 	var cret  *C.gchar  // return, full, string
 	var _cerr *C.GError // out, full, converted, nullable
 
-	carg1 = (*C.gchar)(unsafe.Pointer(C.CString(utf8string)))
-	defer C.free(unsafe.Pointer(carg1))
+	carg1 = (*C.gchar)(transfer.GLibString(utf8string))
+	defer C.g_free(C.gpointer(carg1))
 	carg2 = C.gssize(len)
 
 	cret = C.g_filename_from_utf8(carg1, carg2, &carg3, &carg4, &_cerr)
@@ -6840,11 +6841,11 @@ func FilenameToURI(filename string, hostname string) (string, error) {
 	var cret  *C.gchar  // return, full, string
 	var _cerr *C.GError // out, full, converted, nullable
 
-	carg1 = (*C.gchar)(unsafe.Pointer(C.CString(filename)))
-	defer C.free(unsafe.Pointer(carg1))
+	carg1 = (*C.gchar)(transfer.GLibString(filename))
+	defer C.g_free(C.gpointer(carg1))
 	if hostname != "" {
-		carg2 = (*C.gchar)(unsafe.Pointer(C.CString(hostname)))
-		defer C.free(unsafe.Pointer(carg2))
+		carg2 = (*C.gchar)(transfer.GLibString(hostname))
+		defer C.g_free(C.gpointer(carg2))
 	}
 
 	cret = C.g_filename_to_uri(carg1, carg2, &_cerr)
@@ -6874,8 +6875,8 @@ func FilenameToUTF8(opsysstring string, len int) (uint, uint, string, error) {
 	var cret  *C.gchar  // return, full, string
 	var _cerr *C.GError // out, full, converted, nullable
 
-	carg1 = (*C.gchar)(unsafe.Pointer(C.CString(opsysstring)))
-	defer C.free(unsafe.Pointer(carg1))
+	carg1 = (*C.gchar)(transfer.GLibString(opsysstring))
+	defer C.g_free(C.gpointer(carg1))
 	carg2 = C.gssize(len)
 
 	cret = C.g_filename_to_utf8(carg1, carg2, &carg3, &carg4, &_cerr)
@@ -6905,8 +6906,8 @@ func FindProgramInPath(program string) string {
 	var carg1 *C.gchar // in, none, string
 	var cret  *C.gchar // return, full, string, nullable-string
 
-	carg1 = (*C.gchar)(unsafe.Pointer(C.CString(program)))
-	defer C.free(unsafe.Pointer(carg1))
+	carg1 = (*C.gchar)(transfer.GLibString(program))
+	defer C.g_free(C.gpointer(carg1))
 
 	cret = C.g_find_program_in_path(carg1)
 	runtime.KeepAlive(program)
@@ -7124,8 +7125,8 @@ func GetLanguageNamesWithCategory(categoryName string) []string {
 	var carg1 *C.gchar  // in, none, string
 	var cret  **C.gchar // return, transfer: none, C Pointers: 2, Name: array[utf8], scope: , array (inner gchar* (*typesystem.StringPrimitive), zero-terminated)
 
-	carg1 = (*C.gchar)(unsafe.Pointer(C.CString(categoryName)))
-	defer C.free(unsafe.Pointer(carg1))
+	carg1 = (*C.gchar)(transfer.GLibString(categoryName))
+	defer C.g_free(C.gpointer(carg1))
 
 	cret = C.g_get_language_names_with_category(carg1)
 	runtime.KeepAlive(categoryName)
@@ -7146,8 +7147,8 @@ func GetLocaleVariants(locale string) []string {
 	var carg1 *C.gchar  // in, none, string
 	var cret  **C.gchar // return, transfer: full, C Pointers: 2, Name: array[utf8], scope: , array (inner gchar* (*typesystem.StringPrimitive), zero-terminated)
 
-	carg1 = (*C.gchar)(unsafe.Pointer(C.CString(locale)))
-	defer C.free(unsafe.Pointer(carg1))
+	carg1 = (*C.gchar)(transfer.GLibString(locale))
+	defer C.g_free(C.gpointer(carg1))
 
 	cret = C.g_get_locale_variants(carg1)
 	runtime.KeepAlive(locale)
@@ -7198,8 +7199,8 @@ func GetOsInfo(keyName string) string {
 	var carg1 *C.gchar // in, none, string
 	var cret  *C.gchar // return, full, string, nullable-string
 
-	carg1 = (*C.gchar)(unsafe.Pointer(C.CString(keyName)))
-	defer C.free(unsafe.Pointer(carg1))
+	carg1 = (*C.gchar)(transfer.GLibString(keyName))
+	defer C.g_free(C.gpointer(carg1))
 
 	cret = C.g_get_os_info(carg1)
 	runtime.KeepAlive(keyName)
@@ -7428,8 +7429,8 @@ func Getenv(variable string) string {
 	var carg1 *C.gchar // in, none, string
 	var cret  *C.gchar // return, none, string, nullable
 
-	carg1 = (*C.gchar)(unsafe.Pointer(C.CString(variable)))
-	defer C.free(unsafe.Pointer(carg1))
+	carg1 = (*C.gchar)(transfer.GLibString(variable))
+	defer C.g_free(C.gpointer(carg1))
 
 	cret = C.g_getenv(carg1)
 	runtime.KeepAlive(variable)
@@ -7450,8 +7451,8 @@ func HostnameIsASCIIEncoded(hostname string) bool {
 	var carg1 *C.gchar   // in, none, string
 	var cret  C.gboolean // return
 
-	carg1 = (*C.gchar)(unsafe.Pointer(C.CString(hostname)))
-	defer C.free(unsafe.Pointer(carg1))
+	carg1 = (*C.gchar)(transfer.GLibString(hostname))
+	defer C.g_free(C.gpointer(carg1))
 
 	cret = C.g_hostname_is_ascii_encoded(carg1)
 	runtime.KeepAlive(hostname)
@@ -7472,8 +7473,8 @@ func HostnameIsIpAddress(hostname string) bool {
 	var carg1 *C.gchar   // in, none, string
 	var cret  C.gboolean // return
 
-	carg1 = (*C.gchar)(unsafe.Pointer(C.CString(hostname)))
-	defer C.free(unsafe.Pointer(carg1))
+	carg1 = (*C.gchar)(transfer.GLibString(hostname))
+	defer C.g_free(C.gpointer(carg1))
 
 	cret = C.g_hostname_is_ip_address(carg1)
 	runtime.KeepAlive(hostname)
@@ -7494,8 +7495,8 @@ func HostnameIsNonASCII(hostname string) bool {
 	var carg1 *C.gchar   // in, none, string
 	var cret  C.gboolean // return
 
-	carg1 = (*C.gchar)(unsafe.Pointer(C.CString(hostname)))
-	defer C.free(unsafe.Pointer(carg1))
+	carg1 = (*C.gchar)(transfer.GLibString(hostname))
+	defer C.g_free(C.gpointer(carg1))
 
 	cret = C.g_hostname_is_non_ascii(carg1)
 	runtime.KeepAlive(hostname)
@@ -7516,8 +7517,8 @@ func HostnameToASCII(hostname string) string {
 	var carg1 *C.gchar // in, none, string
 	var cret  *C.gchar // return, full, string, nullable-string
 
-	carg1 = (*C.gchar)(unsafe.Pointer(C.CString(hostname)))
-	defer C.free(unsafe.Pointer(carg1))
+	carg1 = (*C.gchar)(transfer.GLibString(hostname))
+	defer C.g_free(C.gpointer(carg1))
 
 	cret = C.g_hostname_to_ascii(carg1)
 	runtime.KeepAlive(hostname)
@@ -7539,8 +7540,8 @@ func HostnameToUnicode(hostname string) string {
 	var carg1 *C.gchar // in, none, string
 	var cret  *C.gchar // return, full, string, nullable-string
 
-	carg1 = (*C.gchar)(unsafe.Pointer(C.CString(hostname)))
-	defer C.free(unsafe.Pointer(carg1))
+	carg1 = (*C.gchar)(transfer.GLibString(hostname))
+	defer C.g_free(C.gpointer(carg1))
 
 	cret = C.g_hostname_to_unicode(carg1)
 	runtime.KeepAlive(hostname)
@@ -7589,8 +7590,8 @@ func InternStaticString(str string) string {
 	var cret  *C.gchar // return, none, string
 
 	if str != "" {
-		carg1 = (*C.gchar)(unsafe.Pointer(C.CString(str)))
-		defer C.free(unsafe.Pointer(carg1))
+		carg1 = (*C.gchar)(transfer.GLibString(str))
+		defer C.g_free(C.gpointer(carg1))
 	}
 
 	cret = C.g_intern_static_string(carg1)
@@ -7611,8 +7612,8 @@ func InternString(str string) string {
 	var cret  *C.gchar // return, none, string
 
 	if str != "" {
-		carg1 = (*C.gchar)(unsafe.Pointer(C.CString(str)))
-		defer C.free(unsafe.Pointer(carg1))
+		carg1 = (*C.gchar)(transfer.GLibString(str))
+		defer C.g_free(C.gpointer(carg1))
 	}
 
 	cret = C.g_intern_string(carg1)
@@ -7653,8 +7654,8 @@ func LocaleFromUTF8(utf8string string, len int) (uint, uint, string, error) {
 	var cret  *C.gchar  // return, transfer: full, C Pointers: 1, Name: array[unknown], scope: , array (inner unknown)
 	var _cerr *C.GError // out, full, converted, nullable
 
-	carg1 = (*C.gchar)(unsafe.Pointer(C.CString(utf8string)))
-	defer C.free(unsafe.Pointer(carg1))
+	carg1 = (*C.gchar)(transfer.GLibString(utf8string))
+	defer C.g_free(C.gpointer(carg1))
 	carg2 = C.gssize(len)
 
 	cret = C.g_locale_from_utf8(carg1, carg2, &carg3, &carg4, &_cerr)
@@ -7737,8 +7738,8 @@ func LogRemoveHandler(logDomain string, handlerId uint) {
 	var carg1 *C.gchar // in, none, string
 	var carg2 C.guint  // in, none, casted
 
-	carg1 = (*C.gchar)(unsafe.Pointer(C.CString(logDomain)))
-	defer C.free(unsafe.Pointer(carg1))
+	carg1 = (*C.gchar)(transfer.GLibString(logDomain))
+	defer C.g_free(C.gpointer(carg1))
 	carg2 = C.guint(handlerId)
 
 	C.g_log_remove_handler(carg1, carg2)
@@ -7787,8 +7788,8 @@ func LogSetFatalMask(logDomain string, fatalMask LogLevelFlags) LogLevelFlags {
 	var carg2 C.GLogLevelFlags // in, none, casted
 	var cret  C.GLogLevelFlags // return, none, casted
 
-	carg1 = (*C.gchar)(unsafe.Pointer(C.CString(logDomain)))
-	defer C.free(unsafe.Pointer(carg1))
+	carg1 = (*C.gchar)(transfer.GLibString(logDomain))
+	defer C.g_free(C.gpointer(carg1))
 	carg2 = C.GLogLevelFlags(fatalMask)
 
 	cret = C.g_log_set_fatal_mask(carg1, carg2)
@@ -7814,8 +7815,8 @@ func LogSetHandlerFull(logDomain string, logLevels LogLevelFlags, logFunc LogFun
 	var cret  C.guint          // return, none, casted
 
 	if logDomain != "" {
-		carg1 = (*C.gchar)(unsafe.Pointer(C.CString(logDomain)))
-		defer C.free(unsafe.Pointer(carg1))
+		carg1 = (*C.gchar)(transfer.GLibString(logDomain))
+		defer C.g_free(C.gpointer(carg1))
 	}
 	carg2 = C.GLogLevelFlags(logLevels)
 	carg3 = (*[0]byte)(C._goglib_glib2_LogFunc)
@@ -7858,8 +7859,8 @@ func LogWriterDefaultWouldDrop(logLevel LogLevelFlags, logDomain string) bool {
 
 	carg1 = C.GLogLevelFlags(logLevel)
 	if logDomain != "" {
-		carg2 = (*C.char)(unsafe.Pointer(C.CString(logDomain)))
-		defer C.free(unsafe.Pointer(carg2))
+		carg2 = (*C.char)(transfer.GLibString(logDomain))
+		defer C.g_free(C.gpointer(carg2))
 	}
 
 	cret = C.g_log_writer_default_would_drop(carg1, carg2)
@@ -7955,8 +7956,8 @@ func MarkupEscapeText(text string, length int) string {
 	var carg2 C.gssize // in, none, casted
 	var cret  *C.gchar // return, full, string
 
-	carg1 = (*C.gchar)(unsafe.Pointer(C.CString(text)))
-	defer C.free(unsafe.Pointer(carg1))
+	carg1 = (*C.gchar)(transfer.GLibString(text))
+	defer C.g_free(C.gpointer(carg1))
 	carg2 = C.gssize(length)
 
 	cret = C.g_markup_escape_text(carg1, carg2)
@@ -7979,8 +7980,8 @@ func MkdirWithParents(pathname string, mode int32) int32 {
 	var carg2 C.gint   // in, none, casted
 	var cret  C.gint   // return, none, casted
 
-	carg1 = (*C.gchar)(unsafe.Pointer(C.CString(pathname)))
-	defer C.free(unsafe.Pointer(carg1))
+	carg1 = (*C.gchar)(transfer.GLibString(pathname))
+	defer C.g_free(C.gpointer(carg1))
 	carg2 = C.gint(mode)
 
 	cret = C.g_mkdir_with_parents(carg1, carg2)
@@ -8015,8 +8016,8 @@ func NumberParserErrorQuark() Quark {
 func OnErrorQuery(prgName string) {
 	var carg1 *C.gchar // in, none, string
 
-	carg1 = (*C.gchar)(unsafe.Pointer(C.CString(prgName)))
-	defer C.free(unsafe.Pointer(carg1))
+	carg1 = (*C.gchar)(transfer.GLibString(prgName))
+	defer C.g_free(C.gpointer(carg1))
 
 	C.g_on_error_query(carg1)
 	runtime.KeepAlive(prgName)
@@ -8029,8 +8030,8 @@ func OnErrorStackTrace(prgName string) {
 	var carg1 *C.gchar // in, none, string, nullable-string
 
 	if prgName != "" {
-		carg1 = (*C.gchar)(unsafe.Pointer(C.CString(prgName)))
-		defer C.free(unsafe.Pointer(carg1))
+		carg1 = (*C.gchar)(transfer.GLibString(prgName))
+		defer C.g_free(C.gpointer(carg1))
 	}
 
 	C.g_on_error_stack_trace(carg1)
@@ -8059,8 +8060,8 @@ func PathGetBasename(fileName string) string {
 	var carg1 *C.gchar // in, none, string
 	var cret  *C.gchar // return, full, string
 
-	carg1 = (*C.gchar)(unsafe.Pointer(C.CString(fileName)))
-	defer C.free(unsafe.Pointer(carg1))
+	carg1 = (*C.gchar)(transfer.GLibString(fileName))
+	defer C.g_free(C.gpointer(carg1))
 
 	cret = C.g_path_get_basename(carg1)
 	runtime.KeepAlive(fileName)
@@ -8080,8 +8081,8 @@ func PathGetDirname(fileName string) string {
 	var carg1 *C.gchar // in, none, string
 	var cret  *C.gchar // return, full, string
 
-	carg1 = (*C.gchar)(unsafe.Pointer(C.CString(fileName)))
-	defer C.free(unsafe.Pointer(carg1))
+	carg1 = (*C.gchar)(transfer.GLibString(fileName))
+	defer C.g_free(C.gpointer(carg1))
 
 	cret = C.g_path_get_dirname(carg1)
 	runtime.KeepAlive(fileName)
@@ -8101,8 +8102,8 @@ func PathIsAbsolute(fileName string) bool {
 	var carg1 *C.gchar   // in, none, string
 	var cret  C.gboolean // return
 
-	carg1 = (*C.gchar)(unsafe.Pointer(C.CString(fileName)))
-	defer C.free(unsafe.Pointer(carg1))
+	carg1 = (*C.gchar)(transfer.GLibString(fileName))
+	defer C.g_free(C.gpointer(carg1))
 
 	cret = C.g_path_is_absolute(carg1)
 	runtime.KeepAlive(fileName)
@@ -8123,8 +8124,8 @@ func PathSkipRoot(fileName string) string {
 	var carg1 *C.gchar // in, none, string
 	var cret  *C.gchar // return, none, string, nullable
 
-	carg1 = (*C.gchar)(unsafe.Pointer(C.CString(fileName)))
-	defer C.free(unsafe.Pointer(carg1))
+	carg1 = (*C.gchar)(transfer.GLibString(fileName))
+	defer C.g_free(C.gpointer(carg1))
 
 	cret = C.g_path_skip_root(carg1)
 	runtime.KeepAlive(fileName)
@@ -8146,10 +8147,10 @@ func PatternMatchSimple(pattern string, str string) bool {
 	var carg2 *C.gchar   // in, none, string
 	var cret  C.gboolean // return
 
-	carg1 = (*C.gchar)(unsafe.Pointer(C.CString(pattern)))
-	defer C.free(unsafe.Pointer(carg1))
-	carg2 = (*C.gchar)(unsafe.Pointer(C.CString(str)))
-	defer C.free(unsafe.Pointer(carg2))
+	carg1 = (*C.gchar)(transfer.GLibString(pattern))
+	defer C.g_free(C.gpointer(carg1))
+	carg2 = (*C.gchar)(transfer.GLibString(str))
+	defer C.g_free(C.gpointer(carg2))
 
 	cret = C.g_pattern_match_simple(carg1, carg2)
 	runtime.KeepAlive(pattern)
@@ -8218,8 +8219,8 @@ func QuarkFromStaticString(str string) Quark {
 	var cret  C.GQuark // return, none, casted, alias
 
 	if str != "" {
-		carg1 = (*C.gchar)(unsafe.Pointer(C.CString(str)))
-		defer C.free(unsafe.Pointer(carg1))
+		carg1 = (*C.gchar)(transfer.GLibString(str))
+		defer C.g_free(C.gpointer(carg1))
 	}
 
 	cret = C.g_quark_from_static_string(carg1)
@@ -8240,8 +8241,8 @@ func QuarkFromString(str string) Quark {
 	var cret  C.GQuark // return, none, casted, alias
 
 	if str != "" {
-		carg1 = (*C.gchar)(unsafe.Pointer(C.CString(str)))
-		defer C.free(unsafe.Pointer(carg1))
+		carg1 = (*C.gchar)(transfer.GLibString(str))
+		defer C.g_free(C.gpointer(carg1))
 	}
 
 	cret = C.g_quark_from_string(carg1)
@@ -8281,8 +8282,8 @@ func QuarkTryString(str string) Quark {
 	var cret  C.GQuark // return, none, casted, alias
 
 	if str != "" {
-		carg1 = (*C.gchar)(unsafe.Pointer(C.CString(str)))
-		defer C.free(unsafe.Pointer(carg1))
+		carg1 = (*C.gchar)(transfer.GLibString(str))
+		defer C.g_free(C.gpointer(carg1))
 	}
 
 	cret = C.g_quark_try_string(carg1)
@@ -8429,8 +8430,8 @@ func RefStringAcquire(str string) string {
 	var carg1 *C.char // in, none, string
 	var cret  *C.char // return, full, string
 
-	carg1 = (*C.char)(unsafe.Pointer(C.CString(str)))
-	defer C.free(unsafe.Pointer(carg1))
+	carg1 = (*C.char)(transfer.GLibString(str))
+	defer C.g_free(C.gpointer(carg1))
 
 	cret = C.g_ref_string_acquire(carg1)
 	runtime.KeepAlive(str)
@@ -8450,8 +8451,8 @@ func RefStringLength(str string) uint {
 	var carg1 *C.char // in, none, string
 	var cret  C.gsize // return, none, casted
 
-	carg1 = (*C.char)(unsafe.Pointer(C.CString(str)))
-	defer C.free(unsafe.Pointer(carg1))
+	carg1 = (*C.char)(transfer.GLibString(str))
+	defer C.g_free(C.gpointer(carg1))
 
 	cret = C.g_ref_string_length(carg1)
 	runtime.KeepAlive(str)
@@ -8470,8 +8471,8 @@ func NewRefString(str string) string {
 	var carg1 *C.char // in, none, string
 	var cret  *C.char // return, full, string
 
-	carg1 = (*C.char)(unsafe.Pointer(C.CString(str)))
-	defer C.free(unsafe.Pointer(carg1))
+	carg1 = (*C.char)(transfer.GLibString(str))
+	defer C.g_free(C.gpointer(carg1))
 
 	cret = C.g_ref_string_new(carg1)
 	runtime.KeepAlive(str)
@@ -8491,8 +8492,8 @@ func RefStringNewIntern(str string) string {
 	var carg1 *C.char // in, none, string
 	var cret  *C.char // return, full, string
 
-	carg1 = (*C.char)(unsafe.Pointer(C.CString(str)))
-	defer C.free(unsafe.Pointer(carg1))
+	carg1 = (*C.char)(transfer.GLibString(str))
+	defer C.g_free(C.gpointer(carg1))
 
 	cret = C.g_ref_string_new_intern(carg1)
 	runtime.KeepAlive(str)
@@ -8513,8 +8514,8 @@ func RefStringNewLen(str string, len int) string {
 	var carg2 C.gssize // in, none, casted
 	var cret  *C.char  // return, full, string
 
-	carg1 = (*C.char)(unsafe.Pointer(C.CString(str)))
-	defer C.free(unsafe.Pointer(carg1))
+	carg1 = (*C.char)(transfer.GLibString(str))
+	defer C.g_free(C.gpointer(carg1))
 	carg2 = C.gssize(len)
 
 	cret = C.g_ref_string_new_len(carg1, carg2)
@@ -8535,8 +8536,8 @@ func RefStringNewLen(str string, len int) string {
 func RefStringRelease(str string) {
 	var carg1 *C.char // in, none, string
 
-	carg1 = (*C.char)(unsafe.Pointer(C.CString(str)))
-	defer C.free(unsafe.Pointer(carg1))
+	carg1 = (*C.char)(transfer.GLibString(str))
+	defer C.g_free(C.gpointer(carg1))
 
 	C.g_ref_string_release(carg1)
 	runtime.KeepAlive(str)
@@ -8556,8 +8557,8 @@ func ReloadUserSpecialDirsCache() {
 func SetApplicationName(applicationName string) {
 	var carg1 *C.gchar // in, none, string
 
-	carg1 = (*C.gchar)(unsafe.Pointer(C.CString(applicationName)))
-	defer C.free(unsafe.Pointer(carg1))
+	carg1 = (*C.gchar)(transfer.GLibString(applicationName))
+	defer C.g_free(C.gpointer(carg1))
 
 	C.g_set_application_name(carg1)
 	runtime.KeepAlive(applicationName)
@@ -8574,8 +8575,8 @@ func SetErrorLiteral(domain Quark, code int32, message string) error {
 
 	carg2 = C.GQuark(domain)
 	carg3 = C.gint(code)
-	carg4 = (*C.gchar)(unsafe.Pointer(C.CString(message)))
-	defer C.free(unsafe.Pointer(carg4))
+	carg4 = (*C.gchar)(transfer.GLibString(message))
+	defer C.g_free(C.gpointer(carg4))
 
 	C.g_set_error_literal(&carg1, carg2, carg3, carg4)
 	runtime.KeepAlive(domain)
@@ -8595,8 +8596,8 @@ func SetErrorLiteral(domain Quark, code int32, message string) error {
 func SetPrgname(prgname string) {
 	var carg1 *C.gchar // in, none, string
 
-	carg1 = (*C.gchar)(unsafe.Pointer(C.CString(prgname)))
-	defer C.free(unsafe.Pointer(carg1))
+	carg1 = (*C.gchar)(transfer.GLibString(prgname))
+	defer C.g_free(C.gpointer(carg1))
 
 	C.g_set_prgname(carg1)
 	runtime.KeepAlive(prgname)
@@ -8611,10 +8612,10 @@ func Setenv(variable string, value string, overwrite bool) bool {
 	var carg3 C.gboolean // in
 	var cret  C.gboolean // return
 
-	carg1 = (*C.gchar)(unsafe.Pointer(C.CString(variable)))
-	defer C.free(unsafe.Pointer(carg1))
-	carg2 = (*C.gchar)(unsafe.Pointer(C.CString(value)))
-	defer C.free(unsafe.Pointer(carg2))
+	carg1 = (*C.gchar)(transfer.GLibString(variable))
+	defer C.g_free(C.gpointer(carg1))
+	carg2 = (*C.gchar)(transfer.GLibString(value))
+	defer C.g_free(C.gpointer(carg2))
 	if overwrite {
 		carg3 = C.TRUE
 	}
@@ -8658,8 +8659,8 @@ func ShellParseArgv(commandLine string) ([]string, bool, error) {
 	var cret  C.gboolean // return
 	var _cerr *C.GError  // out, full, converted, nullable
 
-	carg1 = (*C.gchar)(unsafe.Pointer(C.CString(commandLine)))
-	defer C.free(unsafe.Pointer(carg1))
+	carg1 = (*C.gchar)(transfer.GLibString(commandLine))
+	defer C.g_free(C.gpointer(carg1))
 
 	cret = C.g_shell_parse_argv(carg1, &carg2, &carg3, &_cerr)
 	runtime.KeepAlive(commandLine)
@@ -8689,8 +8690,8 @@ func ShellQuote(unquotedString string) string {
 	var carg1 *C.gchar // in, none, string
 	var cret  *C.gchar // return, full, string
 
-	carg1 = (*C.gchar)(unsafe.Pointer(C.CString(unquotedString)))
-	defer C.free(unsafe.Pointer(carg1))
+	carg1 = (*C.gchar)(transfer.GLibString(unquotedString))
+	defer C.g_free(C.gpointer(carg1))
 
 	cret = C.g_shell_quote(carg1)
 	runtime.KeepAlive(unquotedString)
@@ -8711,8 +8712,8 @@ func ShellUnquote(quotedString string) (string, error) {
 	var cret  *C.gchar  // return, full, string
 	var _cerr *C.GError // out, full, converted, nullable
 
-	carg1 = (*C.gchar)(unsafe.Pointer(C.CString(quotedString)))
-	defer C.free(unsafe.Pointer(carg1))
+	carg1 = (*C.gchar)(transfer.GLibString(quotedString))
+	defer C.g_free(C.gpointer(carg1))
 
 	cret = C.g_shell_unquote(carg1, &_cerr)
 	runtime.KeepAlive(quotedString)
@@ -8845,8 +8846,8 @@ func SpawnCommandLineAsync(commandLine string) (bool, error) {
 	var cret  C.gboolean // return
 	var _cerr *C.GError  // out, full, converted, nullable
 
-	carg1 = (*C.gchar)(unsafe.Pointer(C.CString(commandLine)))
-	defer C.free(unsafe.Pointer(carg1))
+	carg1 = (*C.gchar)(transfer.GLibString(commandLine))
+	defer C.g_free(C.gpointer(carg1))
 
 	cret = C.g_spawn_command_line_async(carg1, &_cerr)
 	runtime.KeepAlive(commandLine)
@@ -8875,8 +8876,8 @@ func SpawnCommandLineSync(commandLine string) (string, string, int32, bool, erro
 	var cret  C.gboolean // return
 	var _cerr *C.GError  // out, full, converted, nullable
 
-	carg1 = (*C.gchar)(unsafe.Pointer(C.CString(commandLine)))
-	defer C.free(unsafe.Pointer(carg1))
+	carg1 = (*C.gchar)(transfer.GLibString(commandLine))
+	defer C.g_free(C.gpointer(carg1))
 
 	cret = C.g_spawn_command_line_sync(carg1, &carg2, &carg3, &carg4, &_cerr)
 	runtime.KeepAlive(commandLine)
@@ -8942,10 +8943,10 @@ func Stpcpy(dest string, src string) string {
 	var carg2 *C.char  // in, none, string
 	var cret  *C.gchar // return, full, string
 
-	carg1 = (*C.gchar)(unsafe.Pointer(C.CString(dest)))
-	defer C.free(unsafe.Pointer(carg1))
-	carg2 = (*C.char)(unsafe.Pointer(C.CString(src)))
-	defer C.free(unsafe.Pointer(carg2))
+	carg1 = (*C.gchar)(transfer.GLibString(dest))
+	defer C.g_free(C.gpointer(carg1))
+	carg2 = (*C.char)(transfer.GLibString(src))
+	defer C.g_free(C.gpointer(carg2))
 
 	cret = C.g_stpcpy(carg1, carg2)
 	runtime.KeepAlive(dest)
@@ -8967,10 +8968,10 @@ func StrHasPrefix(str string, prefix string) bool {
 	var carg2 *C.gchar   // in, none, string
 	var cret  C.gboolean // return
 
-	carg1 = (*C.gchar)(unsafe.Pointer(C.CString(str)))
-	defer C.free(unsafe.Pointer(carg1))
-	carg2 = (*C.gchar)(unsafe.Pointer(C.CString(prefix)))
-	defer C.free(unsafe.Pointer(carg2))
+	carg1 = (*C.gchar)(transfer.GLibString(str))
+	defer C.g_free(C.gpointer(carg1))
+	carg2 = (*C.gchar)(transfer.GLibString(prefix))
+	defer C.g_free(C.gpointer(carg2))
 
 	cret = C.g_str_has_prefix(carg1, carg2)
 	runtime.KeepAlive(str)
@@ -8993,10 +8994,10 @@ func StrHasSuffix(str string, suffix string) bool {
 	var carg2 *C.gchar   // in, none, string
 	var cret  C.gboolean // return
 
-	carg1 = (*C.gchar)(unsafe.Pointer(C.CString(str)))
-	defer C.free(unsafe.Pointer(carg1))
-	carg2 = (*C.gchar)(unsafe.Pointer(C.CString(suffix)))
-	defer C.free(unsafe.Pointer(carg2))
+	carg1 = (*C.gchar)(transfer.GLibString(str))
+	defer C.g_free(C.gpointer(carg1))
+	carg2 = (*C.gchar)(transfer.GLibString(suffix))
+	defer C.g_free(C.gpointer(carg2))
 
 	cret = C.g_str_has_suffix(carg1, carg2)
 	runtime.KeepAlive(str)
@@ -9018,8 +9019,8 @@ func StrIsASCII(str string) bool {
 	var carg1 *C.gchar   // in, none, string
 	var cret  C.gboolean // return
 
-	carg1 = (*C.gchar)(unsafe.Pointer(C.CString(str)))
-	defer C.free(unsafe.Pointer(carg1))
+	carg1 = (*C.gchar)(transfer.GLibString(str))
+	defer C.g_free(C.gpointer(carg1))
 
 	cret = C.g_str_is_ascii(carg1)
 	runtime.KeepAlive(str)
@@ -9042,10 +9043,10 @@ func StrMatchString(searchTerm string, potentialHit string, acceptAlternates boo
 	var carg3 C.gboolean // in
 	var cret  C.gboolean // return
 
-	carg1 = (*C.gchar)(unsafe.Pointer(C.CString(searchTerm)))
-	defer C.free(unsafe.Pointer(carg1))
-	carg2 = (*C.gchar)(unsafe.Pointer(C.CString(potentialHit)))
-	defer C.free(unsafe.Pointer(carg2))
+	carg1 = (*C.gchar)(transfer.GLibString(searchTerm))
+	defer C.g_free(C.gpointer(carg1))
+	carg2 = (*C.gchar)(transfer.GLibString(potentialHit))
+	defer C.g_free(C.gpointer(carg2))
 	if acceptAlternates {
 		carg3 = C.TRUE
 	}
@@ -9072,11 +9073,11 @@ func StrToASCII(str string, fromLocale string) string {
 	var carg2 *C.gchar // in, none, string, nullable-string
 	var cret  *C.gchar // return, full, string
 
-	carg1 = (*C.gchar)(unsafe.Pointer(C.CString(str)))
-	defer C.free(unsafe.Pointer(carg1))
+	carg1 = (*C.gchar)(transfer.GLibString(str))
+	defer C.g_free(C.gpointer(carg1))
 	if fromLocale != "" {
-		carg2 = (*C.gchar)(unsafe.Pointer(C.CString(fromLocale)))
-		defer C.free(unsafe.Pointer(carg2))
+		carg2 = (*C.gchar)(transfer.GLibString(fromLocale))
+		defer C.g_free(C.gpointer(carg2))
 	}
 
 	cret = C.g_str_to_ascii(carg1, carg2)
@@ -9100,10 +9101,10 @@ func Strcanon(str string, validChars string, substitutor byte) string {
 	var carg3 C.gchar  // in, none, casted
 	var cret  *C.gchar // return, full, string
 
-	carg1 = (*C.gchar)(unsafe.Pointer(C.CString(str)))
-	defer C.free(unsafe.Pointer(carg1))
-	carg2 = (*C.gchar)(unsafe.Pointer(C.CString(validChars)))
-	defer C.free(unsafe.Pointer(carg2))
+	carg1 = (*C.gchar)(transfer.GLibString(str))
+	defer C.g_free(C.gpointer(carg1))
+	carg2 = (*C.gchar)(transfer.GLibString(validChars))
+	defer C.g_free(C.gpointer(carg2))
 	carg3 = C.gchar(substitutor)
 
 	cret = C.g_strcanon(carg1, carg2, carg3)
@@ -9126,8 +9127,8 @@ func Strchomp(str string) string {
 	var carg1 *C.gchar // in, none, string
 	var cret  *C.gchar // return, full, string
 
-	carg1 = (*C.gchar)(unsafe.Pointer(C.CString(str)))
-	defer C.free(unsafe.Pointer(carg1))
+	carg1 = (*C.gchar)(transfer.GLibString(str))
+	defer C.g_free(C.gpointer(carg1))
 
 	cret = C.g_strchomp(carg1)
 	runtime.KeepAlive(str)
@@ -9147,8 +9148,8 @@ func Strchug(str string) string {
 	var carg1 *C.gchar // in, none, string
 	var cret  *C.gchar // return, full, string
 
-	carg1 = (*C.gchar)(unsafe.Pointer(C.CString(str)))
-	defer C.free(unsafe.Pointer(carg1))
+	carg1 = (*C.gchar)(transfer.GLibString(str))
+	defer C.g_free(C.gpointer(carg1))
 
 	cret = C.g_strchug(carg1)
 	runtime.KeepAlive(str)
@@ -9170,12 +9171,12 @@ func Strcmp0(str1 string, str2 string) int32 {
 	var cret  C.int   // return, none, casted
 
 	if str1 != "" {
-		carg1 = (*C.char)(unsafe.Pointer(C.CString(str1)))
-		defer C.free(unsafe.Pointer(carg1))
+		carg1 = (*C.char)(transfer.GLibString(str1))
+		defer C.g_free(C.gpointer(carg1))
 	}
 	if str2 != "" {
-		carg2 = (*C.char)(unsafe.Pointer(C.CString(str2)))
-		defer C.free(unsafe.Pointer(carg2))
+		carg2 = (*C.char)(transfer.GLibString(str2))
+		defer C.g_free(C.gpointer(carg2))
 	}
 
 	cret = C.g_strcmp0(carg1, carg2)
@@ -9196,8 +9197,8 @@ func Strcompress(source string) string {
 	var carg1 *C.gchar // in, none, string
 	var cret  *C.gchar // return, full, string
 
-	carg1 = (*C.gchar)(unsafe.Pointer(C.CString(source)))
-	defer C.free(unsafe.Pointer(carg1))
+	carg1 = (*C.gchar)(transfer.GLibString(source))
+	defer C.g_free(C.gpointer(carg1))
 
 	cret = C.g_strcompress(carg1)
 	runtime.KeepAlive(source)
@@ -9219,11 +9220,11 @@ func Strdelimit(str string, delimiters string, newDelimiter byte) string {
 	var carg3 C.gchar  // in, none, casted
 	var cret  *C.gchar // return, full, string
 
-	carg1 = (*C.gchar)(unsafe.Pointer(C.CString(str)))
-	defer C.free(unsafe.Pointer(carg1))
+	carg1 = (*C.gchar)(transfer.GLibString(str))
+	defer C.g_free(C.gpointer(carg1))
 	if delimiters != "" {
-		carg2 = (*C.gchar)(unsafe.Pointer(C.CString(delimiters)))
-		defer C.free(unsafe.Pointer(carg2))
+		carg2 = (*C.gchar)(transfer.GLibString(delimiters))
+		defer C.g_free(C.gpointer(carg2))
 	}
 	carg3 = C.gchar(newDelimiter)
 
@@ -9248,8 +9249,8 @@ func Strdup(str string) string {
 	var cret  *C.gchar // return, full, string
 
 	if str != "" {
-		carg1 = (*C.gchar)(unsafe.Pointer(C.CString(str)))
-		defer C.free(unsafe.Pointer(carg1))
+		carg1 = (*C.gchar)(transfer.GLibString(str))
+		defer C.g_free(C.gpointer(carg1))
 	}
 
 	cret = C.g_strdup(carg1)
@@ -9313,11 +9314,11 @@ func Strescape(source string, exceptions string) string {
 	var carg2 *C.gchar // in, none, string, nullable-string
 	var cret  *C.gchar // return, full, string
 
-	carg1 = (*C.gchar)(unsafe.Pointer(C.CString(source)))
-	defer C.free(unsafe.Pointer(carg1))
+	carg1 = (*C.gchar)(transfer.GLibString(source))
+	defer C.g_free(C.gpointer(carg1))
 	if exceptions != "" {
-		carg2 = (*C.gchar)(unsafe.Pointer(C.CString(exceptions)))
-		defer C.free(unsafe.Pointer(carg2))
+		carg2 = (*C.gchar)(transfer.GLibString(exceptions))
+		defer C.g_free(C.gpointer(carg2))
 	}
 
 	cret = C.g_strescape(carg1, carg2)
@@ -9354,10 +9355,10 @@ func StripContext(msgid string, msgval string) string {
 	var carg2 *C.gchar // in, none, string
 	var cret  *C.gchar // return, none, string
 
-	carg1 = (*C.gchar)(unsafe.Pointer(C.CString(msgid)))
-	defer C.free(unsafe.Pointer(carg1))
-	carg2 = (*C.gchar)(unsafe.Pointer(C.CString(msgval)))
-	defer C.free(unsafe.Pointer(carg2))
+	carg1 = (*C.gchar)(transfer.GLibString(msgid))
+	defer C.g_free(C.gpointer(carg1))
+	carg2 = (*C.gchar)(transfer.GLibString(msgval))
+	defer C.g_free(C.gpointer(carg2))
 
 	cret = C.g_strip_context(carg1, carg2)
 	runtime.KeepAlive(msgid)
@@ -9379,8 +9380,8 @@ func Strjoinv(separator string, strArray []string) string {
 	var cret  *C.gchar  // return, full, string
 
 	if separator != "" {
-		carg1 = (*C.gchar)(unsafe.Pointer(C.CString(separator)))
-		defer C.free(unsafe.Pointer(carg1))
+		carg1 = (*C.gchar)(transfer.GLibString(separator))
+		defer C.g_free(C.gpointer(carg1))
 	}
 	_ = strArray
 	_ = carg2
@@ -9407,10 +9408,10 @@ func Strlcat(dest string, src string, destSize uint) uint {
 	var carg3 C.gsize  // in, none, casted
 	var cret  C.gsize  // return, none, casted
 
-	carg1 = (*C.gchar)(unsafe.Pointer(C.CString(dest)))
-	defer C.free(unsafe.Pointer(carg1))
-	carg2 = (*C.gchar)(unsafe.Pointer(C.CString(src)))
-	defer C.free(unsafe.Pointer(carg2))
+	carg1 = (*C.gchar)(transfer.GLibString(dest))
+	defer C.g_free(C.gpointer(carg1))
+	carg2 = (*C.gchar)(transfer.GLibString(src))
+	defer C.g_free(C.gpointer(carg2))
 	carg3 = C.gsize(destSize)
 
 	cret = C.g_strlcat(carg1, carg2, carg3)
@@ -9434,10 +9435,10 @@ func Strlcpy(dest string, src string, destSize uint) uint {
 	var carg3 C.gsize  // in, none, casted
 	var cret  C.gsize  // return, none, casted
 
-	carg1 = (*C.gchar)(unsafe.Pointer(C.CString(dest)))
-	defer C.free(unsafe.Pointer(carg1))
-	carg2 = (*C.gchar)(unsafe.Pointer(C.CString(src)))
-	defer C.free(unsafe.Pointer(carg2))
+	carg1 = (*C.gchar)(transfer.GLibString(dest))
+	defer C.g_free(C.gpointer(carg1))
+	carg2 = (*C.gchar)(transfer.GLibString(src))
+	defer C.g_free(C.gpointer(carg2))
 	carg3 = C.gsize(destSize)
 
 	cret = C.g_strlcpy(carg1, carg2, carg3)
@@ -9461,8 +9462,8 @@ func Strndup(str string, n uint) string {
 	var cret  *C.gchar // return, full, string, nullable-string
 
 	if str != "" {
-		carg1 = (*C.gchar)(unsafe.Pointer(C.CString(str)))
-		defer C.free(unsafe.Pointer(carg1))
+		carg1 = (*C.gchar)(transfer.GLibString(str))
+		defer C.g_free(C.gpointer(carg1))
 	}
 	carg2 = C.gsize(n)
 
@@ -9510,8 +9511,8 @@ func Strreverse(str string) string {
 	var carg1 *C.gchar // in, none, string
 	var cret  *C.gchar // return, full, string
 
-	carg1 = (*C.gchar)(unsafe.Pointer(C.CString(str)))
-	defer C.free(unsafe.Pointer(carg1))
+	carg1 = (*C.gchar)(transfer.GLibString(str))
+	defer C.g_free(C.gpointer(carg1))
 
 	cret = C.g_strreverse(carg1)
 	runtime.KeepAlive(str)
@@ -9532,10 +9533,10 @@ func Strrstr(haystack string, needle string) string {
 	var carg2 *C.gchar // in, none, string
 	var cret  *C.gchar // return, none, string, nullable-string
 
-	carg1 = (*C.gchar)(unsafe.Pointer(C.CString(haystack)))
-	defer C.free(unsafe.Pointer(carg1))
-	carg2 = (*C.gchar)(unsafe.Pointer(C.CString(needle)))
-	defer C.free(unsafe.Pointer(carg2))
+	carg1 = (*C.gchar)(transfer.GLibString(haystack))
+	defer C.g_free(C.gpointer(carg1))
+	carg2 = (*C.gchar)(transfer.GLibString(needle))
+	defer C.g_free(C.gpointer(carg2))
 
 	cret = C.g_strrstr(carg1, carg2)
 	runtime.KeepAlive(haystack)
@@ -9559,11 +9560,11 @@ func StrrstrLen(haystack string, haystackLen int, needle string) string {
 	var carg3 *C.gchar // in, none, string
 	var cret  *C.gchar // return, none, string, nullable-string
 
-	carg1 = (*C.gchar)(unsafe.Pointer(C.CString(haystack)))
-	defer C.free(unsafe.Pointer(carg1))
+	carg1 = (*C.gchar)(transfer.GLibString(haystack))
+	defer C.g_free(C.gpointer(carg1))
 	carg2 = C.gssize(haystackLen)
-	carg3 = (*C.gchar)(unsafe.Pointer(C.CString(needle)))
-	defer C.free(unsafe.Pointer(carg3))
+	carg3 = (*C.gchar)(transfer.GLibString(needle))
+	defer C.g_free(C.gpointer(carg3))
 
 	cret = C.g_strrstr_len(carg1, carg2, carg3)
 	runtime.KeepAlive(haystack)
@@ -9607,10 +9608,10 @@ func Strsplit(str string, delimiter string, maxTokens int32) []string {
 	var carg3 C.gint    // in, none, casted
 	var cret  **C.gchar // return, transfer: full, C Pointers: 2, Name: array[utf8], scope: , array (inner gchar* (*typesystem.StringPrimitive), zero-terminated)
 
-	carg1 = (*C.gchar)(unsafe.Pointer(C.CString(str)))
-	defer C.free(unsafe.Pointer(carg1))
-	carg2 = (*C.gchar)(unsafe.Pointer(C.CString(delimiter)))
-	defer C.free(unsafe.Pointer(carg2))
+	carg1 = (*C.gchar)(transfer.GLibString(str))
+	defer C.g_free(C.gpointer(carg1))
+	carg2 = (*C.gchar)(transfer.GLibString(delimiter))
+	defer C.g_free(C.gpointer(carg2))
 	carg3 = C.gint(maxTokens)
 
 	cret = C.g_strsplit(carg1, carg2, carg3)
@@ -9636,10 +9637,10 @@ func StrsplitSet(str string, delimiters string, maxTokens int32) []string {
 	var carg3 C.gint    // in, none, casted
 	var cret  **C.gchar // return, transfer: full, C Pointers: 2, Name: array[utf8], scope: , array (inner gchar* (*typesystem.StringPrimitive), zero-terminated)
 
-	carg1 = (*C.gchar)(unsafe.Pointer(C.CString(str)))
-	defer C.free(unsafe.Pointer(carg1))
-	carg2 = (*C.gchar)(unsafe.Pointer(C.CString(delimiters)))
-	defer C.free(unsafe.Pointer(carg2))
+	carg1 = (*C.gchar)(transfer.GLibString(str))
+	defer C.g_free(C.gpointer(carg1))
+	carg2 = (*C.gchar)(transfer.GLibString(delimiters))
+	defer C.g_free(C.gpointer(carg2))
 	carg3 = C.gint(maxTokens)
 
 	cret = C.g_strsplit_set(carg1, carg2, carg3)
@@ -9665,11 +9666,11 @@ func StrstrLen(haystack string, haystackLen int, needle string) string {
 	var carg3 *C.gchar // in, none, string
 	var cret  *C.gchar // return, none, string, nullable-string
 
-	carg1 = (*C.gchar)(unsafe.Pointer(C.CString(haystack)))
-	defer C.free(unsafe.Pointer(carg1))
+	carg1 = (*C.gchar)(transfer.GLibString(haystack))
+	defer C.g_free(C.gpointer(carg1))
 	carg2 = C.gssize(haystackLen)
-	carg3 = (*C.gchar)(unsafe.Pointer(C.CString(needle)))
-	defer C.free(unsafe.Pointer(carg3))
+	carg3 = (*C.gchar)(transfer.GLibString(needle))
+	defer C.g_free(C.gpointer(carg3))
 
 	cret = C.g_strstr_len(carg1, carg2, carg3)
 	runtime.KeepAlive(haystack)
@@ -9693,8 +9694,8 @@ func Strtod(nptr string) (string, float64) {
 	var carg2 *C.gchar  // out, none, string
 	var cret  C.gdouble // return, none, casted
 
-	carg1 = (*C.gchar)(unsafe.Pointer(C.CString(nptr)))
-	defer C.free(unsafe.Pointer(carg1))
+	carg1 = (*C.gchar)(transfer.GLibString(nptr))
+	defer C.g_free(C.gpointer(carg1))
 
 	cret = C.g_strtod(carg1, &carg2)
 	runtime.KeepAlive(nptr)
@@ -9719,8 +9720,8 @@ func StrvContains(strv []string, str string) bool {
 	_ = strv
 	_ = carg1
 	panic("unimplemented conversion of []string (const gchar* const*) because of unimplemented: inner pointers in array")
-	carg2 = (*C.gchar)(unsafe.Pointer(C.CString(str)))
-	defer C.free(unsafe.Pointer(carg2))
+	carg2 = (*C.gchar)(transfer.GLibString(str))
+	defer C.g_free(C.gpointer(carg2))
 
 	cret = C.g_strv_contains(carg1, carg2)
 	runtime.KeepAlive(strv)
@@ -9793,13 +9794,13 @@ func TestAssertExpectedMessagesInternal(domain string, file string, line int32, 
 	var carg3 C.int   // in, none, casted
 	var carg4 *C.char // in, none, string
 
-	carg1 = (*C.char)(unsafe.Pointer(C.CString(domain)))
-	defer C.free(unsafe.Pointer(carg1))
-	carg2 = (*C.char)(unsafe.Pointer(C.CString(file)))
-	defer C.free(unsafe.Pointer(carg2))
+	carg1 = (*C.char)(transfer.GLibString(domain))
+	defer C.g_free(C.gpointer(carg1))
+	carg2 = (*C.char)(transfer.GLibString(file))
+	defer C.g_free(C.gpointer(carg2))
 	carg3 = C.int(line)
-	carg4 = (*C.char)(unsafe.Pointer(C.CString(fn)))
-	defer C.free(unsafe.Pointer(carg4))
+	carg4 = (*C.char)(transfer.GLibString(fn))
+	defer C.g_free(C.gpointer(carg4))
 
 	C.g_test_assert_expected_messages_internal(carg1, carg2, carg3, carg4)
 	runtime.KeepAlive(domain)
@@ -9814,8 +9815,8 @@ func TestAssertExpectedMessagesInternal(domain string, file string, line int32, 
 func TestBug(bugUriSnippet string) {
 	var carg1 *C.char // in, none, string
 
-	carg1 = (*C.char)(unsafe.Pointer(C.CString(bugUriSnippet)))
-	defer C.free(unsafe.Pointer(carg1))
+	carg1 = (*C.char)(transfer.GLibString(bugUriSnippet))
+	defer C.g_free(C.gpointer(carg1))
 
 	C.g_test_bug(carg1)
 	runtime.KeepAlive(bugUriSnippet)
@@ -9827,8 +9828,8 @@ func TestBug(bugUriSnippet string) {
 func TestBugBase(uriPattern string) {
 	var carg1 *C.char // in, none, string
 
-	carg1 = (*C.char)(unsafe.Pointer(C.CString(uriPattern)))
-	defer C.free(unsafe.Pointer(carg1))
+	carg1 = (*C.char)(transfer.GLibString(uriPattern))
+	defer C.g_free(C.gpointer(carg1))
 
 	C.g_test_bug_base(carg1)
 	runtime.KeepAlive(uriPattern)
@@ -9851,12 +9852,12 @@ func TestExpectMessage(logDomain string, logLevel LogLevelFlags, pattern string)
 	var carg3 *C.gchar         // in, none, string
 
 	if logDomain != "" {
-		carg1 = (*C.gchar)(unsafe.Pointer(C.CString(logDomain)))
-		defer C.free(unsafe.Pointer(carg1))
+		carg1 = (*C.gchar)(transfer.GLibString(logDomain))
+		defer C.g_free(C.gpointer(carg1))
 	}
 	carg2 = C.GLogLevelFlags(logLevel)
-	carg3 = (*C.gchar)(unsafe.Pointer(C.CString(pattern)))
-	defer C.free(unsafe.Pointer(carg3))
+	carg3 = (*C.gchar)(transfer.GLibString(pattern))
+	defer C.g_free(C.gpointer(carg3))
 
 	C.g_test_expect_message(carg1, carg2, carg3)
 	runtime.KeepAlive(logDomain)
@@ -9930,8 +9931,8 @@ func TestIncomplete(msg string) {
 	var carg1 *C.gchar // in, none, string, nullable-string
 
 	if msg != "" {
-		carg1 = (*C.gchar)(unsafe.Pointer(C.CString(msg)))
-		defer C.free(unsafe.Pointer(carg1))
+		carg1 = (*C.gchar)(transfer.GLibString(msg))
+		defer C.g_free(C.gpointer(carg1))
 	}
 
 	C.g_test_incomplete(carg1)
@@ -10080,8 +10081,8 @@ func TestSkip(msg string) {
 	var carg1 *C.gchar // in, none, string, nullable-string
 
 	if msg != "" {
-		carg1 = (*C.gchar)(unsafe.Pointer(C.CString(msg)))
-		defer C.free(unsafe.Pointer(carg1))
+		carg1 = (*C.gchar)(transfer.GLibString(msg))
+		defer C.g_free(C.gpointer(carg1))
 	}
 
 	C.g_test_skip(carg1)
@@ -10111,8 +10112,8 @@ func TestSubprocess() bool {
 func TestSummary(summary string) {
 	var carg1 *C.char // in, none, string
 
-	carg1 = (*C.char)(unsafe.Pointer(C.CString(summary)))
-	defer C.free(unsafe.Pointer(carg1))
+	carg1 = (*C.char)(transfer.GLibString(summary))
+	defer C.g_free(C.gpointer(carg1))
 
 	C.g_test_summary(carg1)
 	runtime.KeepAlive(summary)
@@ -10167,16 +10168,16 @@ func TestTrapAssertions(domain string, file string, line int32, fn string, asser
 	var carg5 C.guint64 // in, none, casted
 	var carg6 *C.char   // in, none, string
 
-	carg1 = (*C.char)(unsafe.Pointer(C.CString(domain)))
-	defer C.free(unsafe.Pointer(carg1))
-	carg2 = (*C.char)(unsafe.Pointer(C.CString(file)))
-	defer C.free(unsafe.Pointer(carg2))
+	carg1 = (*C.char)(transfer.GLibString(domain))
+	defer C.g_free(C.gpointer(carg1))
+	carg2 = (*C.char)(transfer.GLibString(file))
+	defer C.g_free(C.gpointer(carg2))
 	carg3 = C.int(line)
-	carg4 = (*C.char)(unsafe.Pointer(C.CString(fn)))
-	defer C.free(unsafe.Pointer(carg4))
+	carg4 = (*C.char)(transfer.GLibString(fn))
+	defer C.g_free(C.gpointer(carg4))
 	carg5 = C.guint64(assertionFlags)
-	carg6 = (*C.char)(unsafe.Pointer(C.CString(pattern)))
-	defer C.free(unsafe.Pointer(carg6))
+	carg6 = (*C.char)(transfer.GLibString(pattern))
+	defer C.g_free(C.gpointer(carg6))
 
 	C.g_test_trap_assertions(carg1, carg2, carg3, carg4, carg5, carg6)
 	runtime.KeepAlive(domain)
@@ -10230,8 +10231,8 @@ func TestTrapSubprocess(testPath string, usecTimeout uint64, testFlags TestSubpr
 	var carg3 C.GTestSubprocessFlags // in, none, casted
 
 	if testPath != "" {
-		carg1 = (*C.char)(unsafe.Pointer(C.CString(testPath)))
-		defer C.free(unsafe.Pointer(carg1))
+		carg1 = (*C.char)(transfer.GLibString(testPath))
+		defer C.g_free(C.gpointer(carg1))
 	}
 	carg2 = C.guint64(usecTimeout)
 	carg3 = C.GTestSubprocessFlags(testFlags)
@@ -10252,8 +10253,8 @@ func TestTrapSubprocessWithEnvp(testPath string, envp []string, usecTimeout uint
 	var carg4 C.GTestSubprocessFlags // in, none, casted
 
 	if testPath != "" {
-		carg1 = (*C.char)(unsafe.Pointer(C.CString(testPath)))
-		defer C.free(unsafe.Pointer(carg1))
+		carg1 = (*C.char)(transfer.GLibString(testPath))
+		defer C.g_free(C.gpointer(carg1))
 	}
 	_ = envp
 	_ = carg2
@@ -11066,8 +11067,8 @@ func UnicodeCanonicalOrdering(str []uint32) {
 func Unsetenv(variable string) {
 	var carg1 *C.gchar // in, none, string
 
-	carg1 = (*C.gchar)(unsafe.Pointer(C.CString(variable)))
-	defer C.free(unsafe.Pointer(carg1))
+	carg1 = (*C.gchar)(transfer.GLibString(variable))
+	defer C.g_free(C.gpointer(carg1))
 
 	C.g_unsetenv(carg1)
 	runtime.KeepAlive(variable)
@@ -11164,8 +11165,8 @@ func UTF8Casefold(str string, len int) string {
 	var carg2 C.gssize // in, none, casted
 	var cret  *C.gchar // return, full, string
 
-	carg1 = (*C.gchar)(unsafe.Pointer(C.CString(str)))
-	defer C.free(unsafe.Pointer(carg1))
+	carg1 = (*C.gchar)(transfer.GLibString(str))
+	defer C.g_free(C.gpointer(carg1))
 	carg2 = C.gssize(len)
 
 	cret = C.g_utf8_casefold(carg1, carg2)
@@ -11188,10 +11189,10 @@ func UTF8Collate(str1 string, str2 string) int32 {
 	var carg2 *C.gchar // in, none, string
 	var cret  C.gint   // return, none, casted
 
-	carg1 = (*C.gchar)(unsafe.Pointer(C.CString(str1)))
-	defer C.free(unsafe.Pointer(carg1))
-	carg2 = (*C.gchar)(unsafe.Pointer(C.CString(str2)))
-	defer C.free(unsafe.Pointer(carg2))
+	carg1 = (*C.gchar)(transfer.GLibString(str1))
+	defer C.g_free(C.gpointer(carg1))
+	carg2 = (*C.gchar)(transfer.GLibString(str2))
+	defer C.g_free(C.gpointer(carg2))
 
 	cret = C.g_utf8_collate(carg1, carg2)
 	runtime.KeepAlive(str1)
@@ -11212,8 +11213,8 @@ func UTF8CollateKey(str string, len int) string {
 	var carg2 C.gssize // in, none, casted
 	var cret  *C.gchar // return, full, string
 
-	carg1 = (*C.gchar)(unsafe.Pointer(C.CString(str)))
-	defer C.free(unsafe.Pointer(carg1))
+	carg1 = (*C.gchar)(transfer.GLibString(str))
+	defer C.g_free(C.gpointer(carg1))
 	carg2 = C.gssize(len)
 
 	cret = C.g_utf8_collate_key(carg1, carg2)
@@ -11236,8 +11237,8 @@ func UTF8CollateKeyForFilename(str string, len int) string {
 	var carg2 C.gssize // in, none, casted
 	var cret  *C.gchar // return, full, string
 
-	carg1 = (*C.gchar)(unsafe.Pointer(C.CString(str)))
-	defer C.free(unsafe.Pointer(carg1))
+	carg1 = (*C.gchar)(transfer.GLibString(str))
+	defer C.g_free(C.gpointer(carg1))
 	carg2 = C.gssize(len)
 
 	cret = C.g_utf8_collate_key_for_filename(carg1, carg2)
@@ -11260,11 +11261,11 @@ func UTF8FindNextChar(p string, end string) string {
 	var carg2 *C.gchar // in, none, string, nullable-string
 	var cret  *C.gchar // return, none, string, nullable-string
 
-	carg1 = (*C.gchar)(unsafe.Pointer(C.CString(p)))
-	defer C.free(unsafe.Pointer(carg1))
+	carg1 = (*C.gchar)(transfer.GLibString(p))
+	defer C.g_free(C.gpointer(carg1))
 	if end != "" {
-		carg2 = (*C.gchar)(unsafe.Pointer(C.CString(end)))
-		defer C.free(unsafe.Pointer(carg2))
+		carg2 = (*C.gchar)(transfer.GLibString(end))
+		defer C.g_free(C.gpointer(carg2))
 	}
 
 	cret = C.g_utf8_find_next_char(carg1, carg2)
@@ -11288,10 +11289,10 @@ func UTF8FindPrevChar(str string, p string) string {
 	var carg2 *C.gchar // in, none, string
 	var cret  *C.gchar // return, none, string, nullable-string
 
-	carg1 = (*C.gchar)(unsafe.Pointer(C.CString(str)))
-	defer C.free(unsafe.Pointer(carg1))
-	carg2 = (*C.gchar)(unsafe.Pointer(C.CString(p)))
-	defer C.free(unsafe.Pointer(carg2))
+	carg1 = (*C.gchar)(transfer.GLibString(str))
+	defer C.g_free(C.gpointer(carg1))
+	carg2 = (*C.gchar)(transfer.GLibString(p))
+	defer C.g_free(C.gpointer(carg2))
 
 	cret = C.g_utf8_find_prev_char(carg1, carg2)
 	runtime.KeepAlive(str)
@@ -11313,8 +11314,8 @@ func UTF8GetChar(p string) uint32 {
 	var carg1 *C.gchar   // in, none, string
 	var cret  C.gunichar // return, none, casted
 
-	carg1 = (*C.gchar)(unsafe.Pointer(C.CString(p)))
-	defer C.free(unsafe.Pointer(carg1))
+	carg1 = (*C.gchar)(transfer.GLibString(p))
+	defer C.g_free(C.gpointer(carg1))
 
 	cret = C.g_utf8_get_char(carg1)
 	runtime.KeepAlive(p)
@@ -11334,8 +11335,8 @@ func UTF8GetCharValidated(p string, maxLen int) uint32 {
 	var carg2 C.gssize   // in, none, casted
 	var cret  C.gunichar // return, none, casted
 
-	carg1 = (*C.gchar)(unsafe.Pointer(C.CString(p)))
-	defer C.free(unsafe.Pointer(carg1))
+	carg1 = (*C.gchar)(transfer.GLibString(p))
+	defer C.g_free(C.gpointer(carg1))
 	carg2 = C.gssize(maxLen)
 
 	cret = C.g_utf8_get_char_validated(carg1, carg2)
@@ -11357,8 +11358,8 @@ func UTF8MakeValid(str string, len int) string {
 	var carg2 C.gssize // in, none, casted
 	var cret  *C.gchar // return, full, string
 
-	carg1 = (*C.gchar)(unsafe.Pointer(C.CString(str)))
-	defer C.free(unsafe.Pointer(carg1))
+	carg1 = (*C.gchar)(transfer.GLibString(str))
+	defer C.g_free(C.gpointer(carg1))
 	carg2 = C.gssize(len)
 
 	cret = C.g_utf8_make_valid(carg1, carg2)
@@ -11382,8 +11383,8 @@ func UTF8Normalize(str string, len int, mode NormalizeMode) string {
 	var carg3 C.GNormalizeMode // in, none, casted
 	var cret  *C.gchar         // return, full, string, nullable-string
 
-	carg1 = (*C.gchar)(unsafe.Pointer(C.CString(str)))
-	defer C.free(unsafe.Pointer(carg1))
+	carg1 = (*C.gchar)(transfer.GLibString(str))
+	defer C.g_free(C.gpointer(carg1))
 	carg2 = C.gssize(len)
 	carg3 = C.GNormalizeMode(mode)
 
@@ -11410,8 +11411,8 @@ func UTF8OffsetToPointer(str string, offset int32) string {
 	var carg2 C.glong  // in, none, casted
 	var cret  *C.gchar // return, none, string
 
-	carg1 = (*C.gchar)(unsafe.Pointer(C.CString(str)))
-	defer C.free(unsafe.Pointer(carg1))
+	carg1 = (*C.gchar)(transfer.GLibString(str))
+	defer C.g_free(C.gpointer(carg1))
 	carg2 = C.glong(offset)
 
 	cret = C.g_utf8_offset_to_pointer(carg1, carg2)
@@ -11433,10 +11434,10 @@ func UTF8PointerToOffset(str string, pos string) int32 {
 	var carg2 *C.gchar // in, none, string
 	var cret  C.glong  // return, none, casted
 
-	carg1 = (*C.gchar)(unsafe.Pointer(C.CString(str)))
-	defer C.free(unsafe.Pointer(carg1))
-	carg2 = (*C.gchar)(unsafe.Pointer(C.CString(pos)))
-	defer C.free(unsafe.Pointer(carg2))
+	carg1 = (*C.gchar)(transfer.GLibString(str))
+	defer C.g_free(C.gpointer(carg1))
+	carg2 = (*C.gchar)(transfer.GLibString(pos))
+	defer C.g_free(C.gpointer(carg2))
 
 	cret = C.g_utf8_pointer_to_offset(carg1, carg2)
 	runtime.KeepAlive(str)
@@ -11456,8 +11457,8 @@ func UTF8PrevChar(p string) string {
 	var carg1 *C.gchar // in, none, string
 	var cret  *C.gchar // return, none, string
 
-	carg1 = (*C.gchar)(unsafe.Pointer(C.CString(p)))
-	defer C.free(unsafe.Pointer(carg1))
+	carg1 = (*C.gchar)(transfer.GLibString(p))
+	defer C.g_free(C.gpointer(carg1))
 
 	cret = C.g_utf8_prev_char(carg1)
 	runtime.KeepAlive(p)
@@ -11478,8 +11479,8 @@ func UTF8Strchr(p string, len int, c uint32) string {
 	var carg3 C.gunichar // in, none, casted
 	var cret  *C.gchar   // return, none, string, nullable-string
 
-	carg1 = (*C.gchar)(unsafe.Pointer(C.CString(p)))
-	defer C.free(unsafe.Pointer(carg1))
+	carg1 = (*C.gchar)(transfer.GLibString(p))
+	defer C.g_free(C.gpointer(carg1))
 	carg2 = C.gssize(len)
 	carg3 = C.gunichar(c)
 
@@ -11505,8 +11506,8 @@ func UTF8Strdown(str string, len int) string {
 	var carg2 C.gssize // in, none, casted
 	var cret  *C.gchar // return, full, string
 
-	carg1 = (*C.gchar)(unsafe.Pointer(C.CString(str)))
-	defer C.free(unsafe.Pointer(carg1))
+	carg1 = (*C.gchar)(transfer.GLibString(str))
+	defer C.g_free(C.gpointer(carg1))
 	carg2 = C.gssize(len)
 
 	cret = C.g_utf8_strdown(carg1, carg2)
@@ -11529,8 +11530,8 @@ func UTF8Strlen(p string, max int) int32 {
 	var carg2 C.gssize // in, none, casted
 	var cret  C.glong  // return, none, casted
 
-	carg1 = (*C.gchar)(unsafe.Pointer(C.CString(p)))
-	defer C.free(unsafe.Pointer(carg1))
+	carg1 = (*C.gchar)(transfer.GLibString(p))
+	defer C.g_free(C.gpointer(carg1))
 	carg2 = C.gssize(max)
 
 	cret = C.g_utf8_strlen(carg1, carg2)
@@ -11553,10 +11554,10 @@ func UTF8Strncpy(dest string, src string, n uint) string {
 	var carg3 C.gsize  // in, none, casted
 	var cret  *C.gchar // return, none, string
 
-	carg1 = (*C.gchar)(unsafe.Pointer(C.CString(dest)))
-	defer C.free(unsafe.Pointer(carg1))
-	carg2 = (*C.gchar)(unsafe.Pointer(C.CString(src)))
-	defer C.free(unsafe.Pointer(carg2))
+	carg1 = (*C.gchar)(transfer.GLibString(dest))
+	defer C.g_free(C.gpointer(carg1))
+	carg2 = (*C.gchar)(transfer.GLibString(src))
+	defer C.g_free(C.gpointer(carg2))
 	carg3 = C.gsize(n)
 
 	cret = C.g_utf8_strncpy(carg1, carg2, carg3)
@@ -11580,8 +11581,8 @@ func UTF8Strrchr(p string, len int, c uint32) string {
 	var carg3 C.gunichar // in, none, casted
 	var cret  *C.gchar   // return, none, string, nullable-string
 
-	carg1 = (*C.gchar)(unsafe.Pointer(C.CString(p)))
-	defer C.free(unsafe.Pointer(carg1))
+	carg1 = (*C.gchar)(transfer.GLibString(p))
+	defer C.g_free(C.gpointer(carg1))
 	carg2 = C.gssize(len)
 	carg3 = C.gunichar(c)
 
@@ -11607,8 +11608,8 @@ func UTF8Strreverse(str string, len int) string {
 	var carg2 C.gssize // in, none, casted
 	var cret  *C.gchar // return, full, string
 
-	carg1 = (*C.gchar)(unsafe.Pointer(C.CString(str)))
-	defer C.free(unsafe.Pointer(carg1))
+	carg1 = (*C.gchar)(transfer.GLibString(str))
+	defer C.g_free(C.gpointer(carg1))
 	carg2 = C.gssize(len)
 
 	cret = C.g_utf8_strreverse(carg1, carg2)
@@ -11631,8 +11632,8 @@ func UTF8Strup(str string, len int) string {
 	var carg2 C.gssize // in, none, casted
 	var cret  *C.gchar // return, full, string
 
-	carg1 = (*C.gchar)(unsafe.Pointer(C.CString(str)))
-	defer C.free(unsafe.Pointer(carg1))
+	carg1 = (*C.gchar)(transfer.GLibString(str))
+	defer C.g_free(C.gpointer(carg1))
 	carg2 = C.gssize(len)
 
 	cret = C.g_utf8_strup(carg1, carg2)
@@ -11656,8 +11657,8 @@ func UTF8Substring(str string, startPos int32, endPos int32) string {
 	var carg3 C.glong  // in, none, casted
 	var cret  *C.gchar // return, full, string
 
-	carg1 = (*C.gchar)(unsafe.Pointer(C.CString(str)))
-	defer C.free(unsafe.Pointer(carg1))
+	carg1 = (*C.gchar)(transfer.GLibString(str))
+	defer C.g_free(C.gpointer(carg1))
 	carg2 = C.glong(startPos)
 	carg3 = C.glong(endPos)
 
@@ -11685,8 +11686,8 @@ func UTF8ToUCS4(str string, len int32) (int32, int32, *uint32, error) {
 	var cret  *C.gunichar // return, transfer: full, C Pointers: 1, Name: gunichar, scope: 
 	var _cerr *C.GError   // out, full, converted, nullable
 
-	carg1 = (*C.gchar)(unsafe.Pointer(C.CString(str)))
-	defer C.free(unsafe.Pointer(carg1))
+	carg1 = (*C.gchar)(transfer.GLibString(str))
+	defer C.g_free(C.gpointer(carg1))
 	carg2 = C.glong(len)
 
 	cret = C.g_utf8_to_ucs4(carg1, carg2, &carg3, &carg4, &_cerr)
@@ -11719,8 +11720,8 @@ func UTF8ToUCS4Fast(str string, len int32) (int32, *uint32) {
 	var carg3 C.glong     // out, full, casted
 	var cret  *C.gunichar // return, transfer: full, C Pointers: 1, Name: gunichar, scope: 
 
-	carg1 = (*C.gchar)(unsafe.Pointer(C.CString(str)))
-	defer C.free(unsafe.Pointer(carg1))
+	carg1 = (*C.gchar)(transfer.GLibString(str))
+	defer C.g_free(C.gpointer(carg1))
 	carg2 = C.glong(len)
 
 	cret = C.g_utf8_to_ucs4_fast(carg1, carg2, &carg3)
@@ -11749,8 +11750,8 @@ func UTF8ToUTF16(str string, len int32) (int32, int32, *uint16, error) {
 	var cret  *C.gunichar2 // return, transfer: full, C Pointers: 1, Name: guint16, scope: 
 	var _cerr *C.GError    // out, full, converted, nullable
 
-	carg1 = (*C.gchar)(unsafe.Pointer(C.CString(str)))
-	defer C.free(unsafe.Pointer(carg1))
+	carg1 = (*C.gchar)(transfer.GLibString(str))
+	defer C.g_free(C.gpointer(carg1))
 	carg2 = C.glong(len)
 
 	cret = C.g_utf8_to_utf16(carg1, carg2, &carg3, &carg4, &_cerr)
@@ -11782,8 +11783,8 @@ func UTF8TruncateMiddle(str string, truncateLength uint) string {
 	var carg2 C.gsize  // in, none, casted
 	var cret  *C.gchar // return, full, string
 
-	carg1 = (*C.gchar)(unsafe.Pointer(C.CString(str)))
-	defer C.free(unsafe.Pointer(carg1))
+	carg1 = (*C.gchar)(transfer.GLibString(str))
+	defer C.g_free(C.gpointer(carg1))
 	carg2 = C.gsize(truncateLength)
 
 	cret = C.g_utf8_truncate_middle(carg1, carg2)
@@ -11861,8 +11862,8 @@ func UuidStringIsValid(str string) bool {
 	var carg1 *C.gchar   // in, none, string
 	var cret  C.gboolean // return
 
-	carg1 = (*C.gchar)(unsafe.Pointer(C.CString(str)))
-	defer C.free(unsafe.Pointer(carg1))
+	carg1 = (*C.gchar)(transfer.GLibString(str))
+	defer C.g_free(C.gpointer(carg1))
 
 	cret = C.g_uuid_string_is_valid(carg1)
 	runtime.KeepAlive(str)
@@ -12186,15 +12187,15 @@ func (bookmark *BookmarkFile) AddApplication(uri string, name string, exec strin
 	var carg3 *C.gchar         // in, none, string, nullable-string
 
 	carg0 = (*C.GBookmarkFile)(UnsafeBookmarkFileToGlibNone(bookmark))
-	carg1 = (*C.gchar)(unsafe.Pointer(C.CString(uri)))
-	defer C.free(unsafe.Pointer(carg1))
+	carg1 = (*C.gchar)(transfer.GLibString(uri))
+	defer C.g_free(C.gpointer(carg1))
 	if name != "" {
-		carg2 = (*C.gchar)(unsafe.Pointer(C.CString(name)))
-		defer C.free(unsafe.Pointer(carg2))
+		carg2 = (*C.gchar)(transfer.GLibString(name))
+		defer C.g_free(C.gpointer(carg2))
 	}
 	if exec != "" {
-		carg3 = (*C.gchar)(unsafe.Pointer(C.CString(exec)))
-		defer C.free(unsafe.Pointer(carg3))
+		carg3 = (*C.gchar)(transfer.GLibString(exec))
+		defer C.g_free(C.gpointer(carg3))
 	}
 
 	C.g_bookmark_file_add_application(carg0, carg1, carg2, carg3)
@@ -12213,10 +12214,10 @@ func (bookmark *BookmarkFile) AddGroup(uri string, group string) {
 	var carg2 *C.gchar         // in, none, string
 
 	carg0 = (*C.GBookmarkFile)(UnsafeBookmarkFileToGlibNone(bookmark))
-	carg1 = (*C.gchar)(unsafe.Pointer(C.CString(uri)))
-	defer C.free(unsafe.Pointer(carg1))
-	carg2 = (*C.gchar)(unsafe.Pointer(C.CString(group)))
-	defer C.free(unsafe.Pointer(carg2))
+	carg1 = (*C.gchar)(transfer.GLibString(uri))
+	defer C.g_free(C.gpointer(carg1))
+	carg2 = (*C.gchar)(transfer.GLibString(group))
+	defer C.g_free(C.gpointer(carg2))
 
 	C.g_bookmark_file_add_group(carg0, carg1, carg2)
 	runtime.KeepAlive(bookmark)
@@ -12254,8 +12255,8 @@ func (bookmark *BookmarkFile) GetApplications(uri string) (uint, []string, error
 	var _cerr *C.GError        // out, full, converted, nullable
 
 	carg0 = (*C.GBookmarkFile)(UnsafeBookmarkFileToGlibNone(bookmark))
-	carg1 = (*C.gchar)(unsafe.Pointer(C.CString(uri)))
-	defer C.free(unsafe.Pointer(carg1))
+	carg1 = (*C.gchar)(transfer.GLibString(uri))
+	defer C.g_free(C.gpointer(carg1))
 
 	cret = C.g_bookmark_file_get_applications(carg0, carg1, &carg2, &_cerr)
 	runtime.KeepAlive(bookmark)
@@ -12286,8 +12287,8 @@ func (bookmark *BookmarkFile) GetDescription(uri string) (string, error) {
 	var _cerr *C.GError        // out, full, converted, nullable
 
 	carg0 = (*C.GBookmarkFile)(UnsafeBookmarkFileToGlibNone(bookmark))
-	carg1 = (*C.gchar)(unsafe.Pointer(C.CString(uri)))
-	defer C.free(unsafe.Pointer(carg1))
+	carg1 = (*C.gchar)(transfer.GLibString(uri))
+	defer C.g_free(C.gpointer(carg1))
 
 	cret = C.g_bookmark_file_get_description(carg0, carg1, &_cerr)
 	runtime.KeepAlive(bookmark)
@@ -12316,8 +12317,8 @@ func (bookmark *BookmarkFile) GetGroups(uri string) (uint, []string, error) {
 	var _cerr *C.GError        // out, full, converted, nullable
 
 	carg0 = (*C.GBookmarkFile)(UnsafeBookmarkFileToGlibNone(bookmark))
-	carg1 = (*C.gchar)(unsafe.Pointer(C.CString(uri)))
-	defer C.free(unsafe.Pointer(carg1))
+	carg1 = (*C.gchar)(transfer.GLibString(uri))
+	defer C.g_free(C.gpointer(carg1))
 
 	cret = C.g_bookmark_file_get_groups(carg0, carg1, &carg2, &_cerr)
 	runtime.KeepAlive(bookmark)
@@ -12350,8 +12351,8 @@ func (bookmark *BookmarkFile) GetIcon(uri string) (string, string, bool, error) 
 	var _cerr *C.GError        // out, full, converted, nullable
 
 	carg0 = (*C.GBookmarkFile)(UnsafeBookmarkFileToGlibNone(bookmark))
-	carg1 = (*C.gchar)(unsafe.Pointer(C.CString(uri)))
-	defer C.free(unsafe.Pointer(carg1))
+	carg1 = (*C.gchar)(transfer.GLibString(uri))
+	defer C.g_free(C.gpointer(carg1))
 
 	cret = C.g_bookmark_file_get_icon(carg0, carg1, &carg2, &carg3, &_cerr)
 	runtime.KeepAlive(bookmark)
@@ -12386,8 +12387,8 @@ func (bookmark *BookmarkFile) GetIsPrivate(uri string) (bool, error) {
 	var _cerr *C.GError        // out, full, converted, nullable
 
 	carg0 = (*C.GBookmarkFile)(UnsafeBookmarkFileToGlibNone(bookmark))
-	carg1 = (*C.gchar)(unsafe.Pointer(C.CString(uri)))
-	defer C.free(unsafe.Pointer(carg1))
+	carg1 = (*C.gchar)(transfer.GLibString(uri))
+	defer C.g_free(C.gpointer(carg1))
 
 	cret = C.g_bookmark_file_get_is_private(carg0, carg1, &_cerr)
 	runtime.KeepAlive(bookmark)
@@ -12416,8 +12417,8 @@ func (bookmark *BookmarkFile) GetMimeType(uri string) (string, error) {
 	var _cerr *C.GError        // out, full, converted, nullable
 
 	carg0 = (*C.GBookmarkFile)(UnsafeBookmarkFileToGlibNone(bookmark))
-	carg1 = (*C.gchar)(unsafe.Pointer(C.CString(uri)))
-	defer C.free(unsafe.Pointer(carg1))
+	carg1 = (*C.gchar)(transfer.GLibString(uri))
+	defer C.g_free(C.gpointer(carg1))
 
 	cret = C.g_bookmark_file_get_mime_type(carg0, carg1, &_cerr)
 	runtime.KeepAlive(bookmark)
@@ -12465,8 +12466,8 @@ func (bookmark *BookmarkFile) GetTitle(uri string) (string, error) {
 
 	carg0 = (*C.GBookmarkFile)(UnsafeBookmarkFileToGlibNone(bookmark))
 	if uri != "" {
-		carg1 = (*C.gchar)(unsafe.Pointer(C.CString(uri)))
-		defer C.free(unsafe.Pointer(carg1))
+		carg1 = (*C.gchar)(transfer.GLibString(uri))
+		defer C.g_free(C.gpointer(carg1))
 	}
 
 	cret = C.g_bookmark_file_get_title(carg0, carg1, &_cerr)
@@ -12520,10 +12521,10 @@ func (bookmark *BookmarkFile) HasApplication(uri string, name string) (bool, err
 	var _cerr *C.GError        // out, full, converted, nullable
 
 	carg0 = (*C.GBookmarkFile)(UnsafeBookmarkFileToGlibNone(bookmark))
-	carg1 = (*C.gchar)(unsafe.Pointer(C.CString(uri)))
-	defer C.free(unsafe.Pointer(carg1))
-	carg2 = (*C.gchar)(unsafe.Pointer(C.CString(name)))
-	defer C.free(unsafe.Pointer(carg2))
+	carg1 = (*C.gchar)(transfer.GLibString(uri))
+	defer C.g_free(C.gpointer(carg1))
+	carg2 = (*C.gchar)(transfer.GLibString(name))
+	defer C.g_free(C.gpointer(carg2))
 
 	cret = C.g_bookmark_file_has_application(carg0, carg1, carg2, &_cerr)
 	runtime.KeepAlive(bookmark)
@@ -12554,10 +12555,10 @@ func (bookmark *BookmarkFile) HasGroup(uri string, group string) (bool, error) {
 	var _cerr *C.GError        // out, full, converted, nullable
 
 	carg0 = (*C.GBookmarkFile)(UnsafeBookmarkFileToGlibNone(bookmark))
-	carg1 = (*C.gchar)(unsafe.Pointer(C.CString(uri)))
-	defer C.free(unsafe.Pointer(carg1))
-	carg2 = (*C.gchar)(unsafe.Pointer(C.CString(group)))
-	defer C.free(unsafe.Pointer(carg2))
+	carg1 = (*C.gchar)(transfer.GLibString(uri))
+	defer C.g_free(C.gpointer(carg1))
+	carg2 = (*C.gchar)(transfer.GLibString(group))
+	defer C.g_free(C.gpointer(carg2))
 
 	cret = C.g_bookmark_file_has_group(carg0, carg1, carg2, &_cerr)
 	runtime.KeepAlive(bookmark)
@@ -12586,8 +12587,8 @@ func (bookmark *BookmarkFile) HasItem(uri string) bool {
 	var cret  C.gboolean       // return
 
 	carg0 = (*C.GBookmarkFile)(UnsafeBookmarkFileToGlibNone(bookmark))
-	carg1 = (*C.gchar)(unsafe.Pointer(C.CString(uri)))
-	defer C.free(unsafe.Pointer(carg1))
+	carg1 = (*C.gchar)(transfer.GLibString(uri))
+	defer C.g_free(C.gpointer(carg1))
 
 	cret = C.g_bookmark_file_has_item(carg0, carg1)
 	runtime.KeepAlive(bookmark)
@@ -12646,8 +12647,8 @@ func (bookmark *BookmarkFile) LoadFromDataDirs(file string) (string, bool, error
 	var _cerr *C.GError        // out, full, converted, nullable
 
 	carg0 = (*C.GBookmarkFile)(UnsafeBookmarkFileToGlibNone(bookmark))
-	carg1 = (*C.gchar)(unsafe.Pointer(C.CString(file)))
-	defer C.free(unsafe.Pointer(carg1))
+	carg1 = (*C.gchar)(transfer.GLibString(file))
+	defer C.g_free(C.gpointer(carg1))
 
 	cret = C.g_bookmark_file_load_from_data_dirs(carg0, carg1, &carg2, &_cerr)
 	runtime.KeepAlive(bookmark)
@@ -12679,8 +12680,8 @@ func (bookmark *BookmarkFile) LoadFromFile(filename string) (bool, error) {
 	var _cerr *C.GError        // out, full, converted, nullable
 
 	carg0 = (*C.GBookmarkFile)(UnsafeBookmarkFileToGlibNone(bookmark))
-	carg1 = (*C.gchar)(unsafe.Pointer(C.CString(filename)))
-	defer C.free(unsafe.Pointer(carg1))
+	carg1 = (*C.gchar)(transfer.GLibString(filename))
+	defer C.g_free(C.gpointer(carg1))
 
 	cret = C.g_bookmark_file_load_from_file(carg0, carg1, &_cerr)
 	runtime.KeepAlive(bookmark)
@@ -12710,11 +12711,11 @@ func (bookmark *BookmarkFile) MoveItem(oldUri string, newUri string) (bool, erro
 	var _cerr *C.GError        // out, full, converted, nullable
 
 	carg0 = (*C.GBookmarkFile)(UnsafeBookmarkFileToGlibNone(bookmark))
-	carg1 = (*C.gchar)(unsafe.Pointer(C.CString(oldUri)))
-	defer C.free(unsafe.Pointer(carg1))
+	carg1 = (*C.gchar)(transfer.GLibString(oldUri))
+	defer C.g_free(C.gpointer(carg1))
 	if newUri != "" {
-		carg2 = (*C.gchar)(unsafe.Pointer(C.CString(newUri)))
-		defer C.free(unsafe.Pointer(carg2))
+		carg2 = (*C.gchar)(transfer.GLibString(newUri))
+		defer C.g_free(C.gpointer(carg2))
 	}
 
 	cret = C.g_bookmark_file_move_item(carg0, carg1, carg2, &_cerr)
@@ -12746,10 +12747,10 @@ func (bookmark *BookmarkFile) RemoveApplication(uri string, name string) (bool, 
 	var _cerr *C.GError        // out, full, converted, nullable
 
 	carg0 = (*C.GBookmarkFile)(UnsafeBookmarkFileToGlibNone(bookmark))
-	carg1 = (*C.gchar)(unsafe.Pointer(C.CString(uri)))
-	defer C.free(unsafe.Pointer(carg1))
-	carg2 = (*C.gchar)(unsafe.Pointer(C.CString(name)))
-	defer C.free(unsafe.Pointer(carg2))
+	carg1 = (*C.gchar)(transfer.GLibString(uri))
+	defer C.g_free(C.gpointer(carg1))
+	carg2 = (*C.gchar)(transfer.GLibString(name))
+	defer C.g_free(C.gpointer(carg2))
 
 	cret = C.g_bookmark_file_remove_application(carg0, carg1, carg2, &_cerr)
 	runtime.KeepAlive(bookmark)
@@ -12780,10 +12781,10 @@ func (bookmark *BookmarkFile) RemoveGroup(uri string, group string) (bool, error
 	var _cerr *C.GError        // out, full, converted, nullable
 
 	carg0 = (*C.GBookmarkFile)(UnsafeBookmarkFileToGlibNone(bookmark))
-	carg1 = (*C.gchar)(unsafe.Pointer(C.CString(uri)))
-	defer C.free(unsafe.Pointer(carg1))
-	carg2 = (*C.gchar)(unsafe.Pointer(C.CString(group)))
-	defer C.free(unsafe.Pointer(carg2))
+	carg1 = (*C.gchar)(transfer.GLibString(uri))
+	defer C.g_free(C.gpointer(carg1))
+	carg2 = (*C.gchar)(transfer.GLibString(group))
+	defer C.g_free(C.gpointer(carg2))
 
 	cret = C.g_bookmark_file_remove_group(carg0, carg1, carg2, &_cerr)
 	runtime.KeepAlive(bookmark)
@@ -12813,8 +12814,8 @@ func (bookmark *BookmarkFile) RemoveItem(uri string) (bool, error) {
 	var _cerr *C.GError        // out, full, converted, nullable
 
 	carg0 = (*C.GBookmarkFile)(UnsafeBookmarkFileToGlibNone(bookmark))
-	carg1 = (*C.gchar)(unsafe.Pointer(C.CString(uri)))
-	defer C.free(unsafe.Pointer(carg1))
+	carg1 = (*C.gchar)(transfer.GLibString(uri))
+	defer C.g_free(C.gpointer(carg1))
 
 	cret = C.g_bookmark_file_remove_item(carg0, carg1, &_cerr)
 	runtime.KeepAlive(bookmark)
@@ -12843,11 +12844,11 @@ func (bookmark *BookmarkFile) SetDescription(uri string, description string) {
 
 	carg0 = (*C.GBookmarkFile)(UnsafeBookmarkFileToGlibNone(bookmark))
 	if uri != "" {
-		carg1 = (*C.gchar)(unsafe.Pointer(C.CString(uri)))
-		defer C.free(unsafe.Pointer(carg1))
+		carg1 = (*C.gchar)(transfer.GLibString(uri))
+		defer C.g_free(C.gpointer(carg1))
 	}
-	carg2 = (*C.gchar)(unsafe.Pointer(C.CString(description)))
-	defer C.free(unsafe.Pointer(carg2))
+	carg2 = (*C.gchar)(transfer.GLibString(description))
+	defer C.g_free(C.gpointer(carg2))
 
 	C.g_bookmark_file_set_description(carg0, carg1, carg2)
 	runtime.KeepAlive(bookmark)
@@ -12865,8 +12866,8 @@ func (bookmark *BookmarkFile) SetGroups(uri string, groups []string) {
 	var carg3 C.gsize          // implicit
 
 	carg0 = (*C.GBookmarkFile)(UnsafeBookmarkFileToGlibNone(bookmark))
-	carg1 = (*C.gchar)(unsafe.Pointer(C.CString(uri)))
-	defer C.free(unsafe.Pointer(carg1))
+	carg1 = (*C.gchar)(transfer.GLibString(uri))
+	defer C.g_free(C.gpointer(carg1))
 	_ = groups
 	_ = carg2
 	_ = carg3
@@ -12888,14 +12889,14 @@ func (bookmark *BookmarkFile) SetIcon(uri string, href string, mimeType string) 
 	var carg3 *C.gchar         // in, none, string
 
 	carg0 = (*C.GBookmarkFile)(UnsafeBookmarkFileToGlibNone(bookmark))
-	carg1 = (*C.gchar)(unsafe.Pointer(C.CString(uri)))
-	defer C.free(unsafe.Pointer(carg1))
+	carg1 = (*C.gchar)(transfer.GLibString(uri))
+	defer C.g_free(C.gpointer(carg1))
 	if href != "" {
-		carg2 = (*C.gchar)(unsafe.Pointer(C.CString(href)))
-		defer C.free(unsafe.Pointer(carg2))
+		carg2 = (*C.gchar)(transfer.GLibString(href))
+		defer C.g_free(C.gpointer(carg2))
 	}
-	carg3 = (*C.gchar)(unsafe.Pointer(C.CString(mimeType)))
-	defer C.free(unsafe.Pointer(carg3))
+	carg3 = (*C.gchar)(transfer.GLibString(mimeType))
+	defer C.g_free(C.gpointer(carg3))
 
 	C.g_bookmark_file_set_icon(carg0, carg1, carg2, carg3)
 	runtime.KeepAlive(bookmark)
@@ -12913,8 +12914,8 @@ func (bookmark *BookmarkFile) SetIsPrivate(uri string, isPrivate bool) {
 	var carg2 C.gboolean       // in
 
 	carg0 = (*C.GBookmarkFile)(UnsafeBookmarkFileToGlibNone(bookmark))
-	carg1 = (*C.gchar)(unsafe.Pointer(C.CString(uri)))
-	defer C.free(unsafe.Pointer(carg1))
+	carg1 = (*C.gchar)(transfer.GLibString(uri))
+	defer C.g_free(C.gpointer(carg1))
 	if isPrivate {
 		carg2 = C.TRUE
 	}
@@ -12934,10 +12935,10 @@ func (bookmark *BookmarkFile) SetMimeType(uri string, mimeType string) {
 	var carg2 *C.gchar         // in, none, string
 
 	carg0 = (*C.GBookmarkFile)(UnsafeBookmarkFileToGlibNone(bookmark))
-	carg1 = (*C.gchar)(unsafe.Pointer(C.CString(uri)))
-	defer C.free(unsafe.Pointer(carg1))
-	carg2 = (*C.gchar)(unsafe.Pointer(C.CString(mimeType)))
-	defer C.free(unsafe.Pointer(carg2))
+	carg1 = (*C.gchar)(transfer.GLibString(uri))
+	defer C.g_free(C.gpointer(carg1))
+	carg2 = (*C.gchar)(transfer.GLibString(mimeType))
+	defer C.g_free(C.gpointer(carg2))
 
 	C.g_bookmark_file_set_mime_type(carg0, carg1, carg2)
 	runtime.KeepAlive(bookmark)
@@ -12955,11 +12956,11 @@ func (bookmark *BookmarkFile) SetTitle(uri string, title string) {
 
 	carg0 = (*C.GBookmarkFile)(UnsafeBookmarkFileToGlibNone(bookmark))
 	if uri != "" {
-		carg1 = (*C.gchar)(unsafe.Pointer(C.CString(uri)))
-		defer C.free(unsafe.Pointer(carg1))
+		carg1 = (*C.gchar)(transfer.GLibString(uri))
+		defer C.g_free(C.gpointer(carg1))
 	}
-	carg2 = (*C.gchar)(unsafe.Pointer(C.CString(title)))
-	defer C.free(unsafe.Pointer(carg2))
+	carg2 = (*C.gchar)(transfer.GLibString(title))
+	defer C.g_free(C.gpointer(carg2))
 
 	C.g_bookmark_file_set_title(carg0, carg1, carg2)
 	runtime.KeepAlive(bookmark)
@@ -13006,8 +13007,8 @@ func (bookmark *BookmarkFile) ToFile(filename string) (bool, error) {
 	var _cerr *C.GError        // out, full, converted, nullable
 
 	carg0 = (*C.GBookmarkFile)(UnsafeBookmarkFileToGlibNone(bookmark))
-	carg1 = (*C.gchar)(unsafe.Pointer(C.CString(filename)))
-	defer C.free(unsafe.Pointer(carg1))
+	carg1 = (*C.gchar)(transfer.GLibString(filename))
+	defer C.g_free(C.gpointer(carg1))
 
 	cret = C.g_bookmark_file_to_file(carg0, carg1, &_cerr)
 	runtime.KeepAlive(bookmark)
@@ -13836,8 +13837,8 @@ func DirOpen(path string, flags uint) (*Dir, error) {
 	var cret  *C.GDir   // return, full, converted
 	var _cerr *C.GError // out, full, converted, nullable
 
-	carg1 = (*C.gchar)(unsafe.Pointer(C.CString(path)))
-	defer C.free(unsafe.Pointer(carg1))
+	carg1 = (*C.gchar)(transfer.GLibString(path))
+	defer C.g_free(C.gpointer(carg1))
 	carg2 = C.guint(flags)
 
 	cret = C.g_dir_open(carg1, carg2, &_cerr)
@@ -13864,8 +13865,8 @@ func DirMakeTmp(tmpl string) (string, error) {
 	var _cerr *C.GError // out, full, converted, nullable
 
 	if tmpl != "" {
-		carg1 = (*C.gchar)(unsafe.Pointer(C.CString(tmpl)))
-		defer C.free(unsafe.Pointer(carg1))
+		carg1 = (*C.gchar)(transfer.GLibString(tmpl))
+		defer C.g_free(C.gpointer(carg1))
 	}
 
 	cret = C.g_dir_make_tmp(carg1, &_cerr)
@@ -14667,10 +14668,10 @@ func NewIOChannelFile(filename string, mode string) (*IOChannel, error) {
 	var cret  *C.GIOChannel // return, full, converted
 	var _cerr *C.GError     // out, full, converted, nullable
 
-	carg1 = (*C.gchar)(unsafe.Pointer(C.CString(filename)))
-	defer C.free(unsafe.Pointer(carg1))
-	carg2 = (*C.gchar)(unsafe.Pointer(C.CString(mode)))
-	defer C.free(unsafe.Pointer(carg2))
+	carg1 = (*C.gchar)(transfer.GLibString(filename))
+	defer C.g_free(C.gpointer(carg1))
+	carg2 = (*C.gchar)(transfer.GLibString(mode))
+	defer C.g_free(C.gpointer(carg2))
 
 	cret = C.g_io_channel_new_file(carg1, carg2, &_cerr)
 	runtime.KeepAlive(filename)
@@ -15079,8 +15080,8 @@ func (channel *IOChannel) SetEncoding(encoding string) (IOStatus, error) {
 
 	carg0 = (*C.GIOChannel)(UnsafeIOChannelToGlibNone(channel))
 	if encoding != "" {
-		carg1 = (*C.gchar)(unsafe.Pointer(C.CString(encoding)))
-		defer C.free(unsafe.Pointer(carg1))
+		carg1 = (*C.gchar)(transfer.GLibString(encoding))
+		defer C.g_free(C.gpointer(carg1))
 	}
 
 	cret = C.g_io_channel_set_encoding(carg0, carg1, &_cerr)
@@ -15135,8 +15136,8 @@ func (channel *IOChannel) SetLineTerm(lineTerm string, length int32) {
 
 	carg0 = (*C.GIOChannel)(UnsafeIOChannelToGlibNone(channel))
 	if lineTerm != "" {
-		carg1 = (*C.gchar)(unsafe.Pointer(C.CString(lineTerm)))
-		defer C.free(unsafe.Pointer(carg1))
+		carg1 = (*C.gchar)(transfer.GLibString(lineTerm))
+		defer C.g_free(C.gpointer(carg1))
 	}
 	carg2 = C.gint(length)
 
@@ -15420,10 +15421,10 @@ func (keyFile *KeyFile) GetBoolean(groupName string, key string) (bool, error) {
 	var _cerr *C.GError   // out, full, converted, nullable
 
 	carg0 = (*C.GKeyFile)(UnsafeKeyFileToGlibNone(keyFile))
-	carg1 = (*C.gchar)(unsafe.Pointer(C.CString(groupName)))
-	defer C.free(unsafe.Pointer(carg1))
-	carg2 = (*C.gchar)(unsafe.Pointer(C.CString(key)))
-	defer C.free(unsafe.Pointer(carg2))
+	carg1 = (*C.gchar)(transfer.GLibString(groupName))
+	defer C.g_free(C.gpointer(carg1))
+	carg2 = (*C.gchar)(transfer.GLibString(key))
+	defer C.g_free(C.gpointer(carg2))
 
 	cret = C.g_key_file_get_boolean(carg0, carg1, carg2, &_cerr)
 	runtime.KeepAlive(keyFile)
@@ -15455,10 +15456,10 @@ func (keyFile *KeyFile) GetBooleanList(groupName string, key string) (uint, []bo
 	var _cerr *C.GError   // out, full, converted, nullable
 
 	carg0 = (*C.GKeyFile)(UnsafeKeyFileToGlibNone(keyFile))
-	carg1 = (*C.gchar)(unsafe.Pointer(C.CString(groupName)))
-	defer C.free(unsafe.Pointer(carg1))
-	carg2 = (*C.gchar)(unsafe.Pointer(C.CString(key)))
-	defer C.free(unsafe.Pointer(carg2))
+	carg1 = (*C.gchar)(transfer.GLibString(groupName))
+	defer C.g_free(C.gpointer(carg1))
+	carg2 = (*C.gchar)(transfer.GLibString(key))
+	defer C.g_free(C.gpointer(carg2))
 
 	cret = C.g_key_file_get_boolean_list(carg0, carg1, carg2, &carg3, &_cerr)
 	runtime.KeepAlive(keyFile)
@@ -15492,12 +15493,12 @@ func (keyFile *KeyFile) GetComment(groupName string, key string) (string, error)
 
 	carg0 = (*C.GKeyFile)(UnsafeKeyFileToGlibNone(keyFile))
 	if groupName != "" {
-		carg1 = (*C.gchar)(unsafe.Pointer(C.CString(groupName)))
-		defer C.free(unsafe.Pointer(carg1))
+		carg1 = (*C.gchar)(transfer.GLibString(groupName))
+		defer C.g_free(C.gpointer(carg1))
 	}
 	if key != "" {
-		carg2 = (*C.gchar)(unsafe.Pointer(C.CString(key)))
-		defer C.free(unsafe.Pointer(carg2))
+		carg2 = (*C.gchar)(transfer.GLibString(key))
+		defer C.g_free(C.gpointer(carg2))
 	}
 
 	cret = C.g_key_file_get_comment(carg0, carg1, carg2, &_cerr)
@@ -15528,10 +15529,10 @@ func (keyFile *KeyFile) GetDouble(groupName string, key string) (float64, error)
 	var _cerr *C.GError   // out, full, converted, nullable
 
 	carg0 = (*C.GKeyFile)(UnsafeKeyFileToGlibNone(keyFile))
-	carg1 = (*C.gchar)(unsafe.Pointer(C.CString(groupName)))
-	defer C.free(unsafe.Pointer(carg1))
-	carg2 = (*C.gchar)(unsafe.Pointer(C.CString(key)))
-	defer C.free(unsafe.Pointer(carg2))
+	carg1 = (*C.gchar)(transfer.GLibString(groupName))
+	defer C.g_free(C.gpointer(carg1))
+	carg2 = (*C.gchar)(transfer.GLibString(key))
+	defer C.g_free(C.gpointer(carg2))
 
 	cret = C.g_key_file_get_double(carg0, carg1, carg2, &_cerr)
 	runtime.KeepAlive(keyFile)
@@ -15561,10 +15562,10 @@ func (keyFile *KeyFile) GetDoubleList(groupName string, key string) (uint, []flo
 	var _cerr *C.GError   // out, full, converted, nullable
 
 	carg0 = (*C.GKeyFile)(UnsafeKeyFileToGlibNone(keyFile))
-	carg1 = (*C.gchar)(unsafe.Pointer(C.CString(groupName)))
-	defer C.free(unsafe.Pointer(carg1))
-	carg2 = (*C.gchar)(unsafe.Pointer(C.CString(key)))
-	defer C.free(unsafe.Pointer(carg2))
+	carg1 = (*C.gchar)(transfer.GLibString(groupName))
+	defer C.g_free(C.gpointer(carg1))
+	carg2 = (*C.gchar)(transfer.GLibString(key))
+	defer C.g_free(C.gpointer(carg2))
 
 	cret = C.g_key_file_get_double_list(carg0, carg1, carg2, &carg3, &_cerr)
 	runtime.KeepAlive(keyFile)
@@ -15621,10 +15622,10 @@ func (keyFile *KeyFile) GetInt64(groupName string, key string) (int64, error) {
 	var _cerr *C.GError   // out, full, converted, nullable
 
 	carg0 = (*C.GKeyFile)(UnsafeKeyFileToGlibNone(keyFile))
-	carg1 = (*C.gchar)(unsafe.Pointer(C.CString(groupName)))
-	defer C.free(unsafe.Pointer(carg1))
-	carg2 = (*C.gchar)(unsafe.Pointer(C.CString(key)))
-	defer C.free(unsafe.Pointer(carg2))
+	carg1 = (*C.gchar)(transfer.GLibString(groupName))
+	defer C.g_free(C.gpointer(carg1))
+	carg2 = (*C.gchar)(transfer.GLibString(key))
+	defer C.g_free(C.gpointer(carg2))
 
 	cret = C.g_key_file_get_int64(carg0, carg1, carg2, &_cerr)
 	runtime.KeepAlive(keyFile)
@@ -15653,10 +15654,10 @@ func (keyFile *KeyFile) GetInteger(groupName string, key string) (int32, error) 
 	var _cerr *C.GError   // out, full, converted, nullable
 
 	carg0 = (*C.GKeyFile)(UnsafeKeyFileToGlibNone(keyFile))
-	carg1 = (*C.gchar)(unsafe.Pointer(C.CString(groupName)))
-	defer C.free(unsafe.Pointer(carg1))
-	carg2 = (*C.gchar)(unsafe.Pointer(C.CString(key)))
-	defer C.free(unsafe.Pointer(carg2))
+	carg1 = (*C.gchar)(transfer.GLibString(groupName))
+	defer C.g_free(C.gpointer(carg1))
+	carg2 = (*C.gchar)(transfer.GLibString(key))
+	defer C.g_free(C.gpointer(carg2))
 
 	cret = C.g_key_file_get_integer(carg0, carg1, carg2, &_cerr)
 	runtime.KeepAlive(keyFile)
@@ -15686,10 +15687,10 @@ func (keyFile *KeyFile) GetIntegerList(groupName string, key string) (uint, []in
 	var _cerr *C.GError   // out, full, converted, nullable
 
 	carg0 = (*C.GKeyFile)(UnsafeKeyFileToGlibNone(keyFile))
-	carg1 = (*C.gchar)(unsafe.Pointer(C.CString(groupName)))
-	defer C.free(unsafe.Pointer(carg1))
-	carg2 = (*C.gchar)(unsafe.Pointer(C.CString(key)))
-	defer C.free(unsafe.Pointer(carg2))
+	carg1 = (*C.gchar)(transfer.GLibString(groupName))
+	defer C.g_free(C.gpointer(carg1))
+	carg2 = (*C.gchar)(transfer.GLibString(key))
+	defer C.g_free(C.gpointer(carg2))
 
 	cret = C.g_key_file_get_integer_list(carg0, carg1, carg2, &carg3, &_cerr)
 	runtime.KeepAlive(keyFile)
@@ -15722,8 +15723,8 @@ func (keyFile *KeyFile) GetKeys(groupName string) (uint, []string, error) {
 	var _cerr *C.GError   // out, full, converted, nullable
 
 	carg0 = (*C.GKeyFile)(UnsafeKeyFileToGlibNone(keyFile))
-	carg1 = (*C.gchar)(unsafe.Pointer(C.CString(groupName)))
-	defer C.free(unsafe.Pointer(carg1))
+	carg1 = (*C.gchar)(transfer.GLibString(groupName))
+	defer C.g_free(C.gpointer(carg1))
 
 	cret = C.g_key_file_get_keys(carg0, carg1, &carg2, &_cerr)
 	runtime.KeepAlive(keyFile)
@@ -15755,13 +15756,13 @@ func (keyFile *KeyFile) GetLocaleForKey(groupName string, key string, locale str
 	var cret  *C.gchar    // return, full, string, nullable-string
 
 	carg0 = (*C.GKeyFile)(UnsafeKeyFileToGlibNone(keyFile))
-	carg1 = (*C.gchar)(unsafe.Pointer(C.CString(groupName)))
-	defer C.free(unsafe.Pointer(carg1))
-	carg2 = (*C.gchar)(unsafe.Pointer(C.CString(key)))
-	defer C.free(unsafe.Pointer(carg2))
+	carg1 = (*C.gchar)(transfer.GLibString(groupName))
+	defer C.g_free(C.gpointer(carg1))
+	carg2 = (*C.gchar)(transfer.GLibString(key))
+	defer C.g_free(C.gpointer(carg2))
 	if locale != "" {
-		carg3 = (*C.gchar)(unsafe.Pointer(C.CString(locale)))
-		defer C.free(unsafe.Pointer(carg3))
+		carg3 = (*C.gchar)(transfer.GLibString(locale))
+		defer C.g_free(C.gpointer(carg3))
 	}
 
 	cret = C.g_key_file_get_locale_for_key(carg0, carg1, carg2, carg3)
@@ -15792,13 +15793,13 @@ func (keyFile *KeyFile) GetLocaleString(groupName string, key string, locale str
 	var _cerr *C.GError   // out, full, converted, nullable
 
 	carg0 = (*C.GKeyFile)(UnsafeKeyFileToGlibNone(keyFile))
-	carg1 = (*C.gchar)(unsafe.Pointer(C.CString(groupName)))
-	defer C.free(unsafe.Pointer(carg1))
-	carg2 = (*C.gchar)(unsafe.Pointer(C.CString(key)))
-	defer C.free(unsafe.Pointer(carg2))
+	carg1 = (*C.gchar)(transfer.GLibString(groupName))
+	defer C.g_free(C.gpointer(carg1))
+	carg2 = (*C.gchar)(transfer.GLibString(key))
+	defer C.g_free(C.gpointer(carg2))
 	if locale != "" {
-		carg3 = (*C.gchar)(unsafe.Pointer(C.CString(locale)))
-		defer C.free(unsafe.Pointer(carg3))
+		carg3 = (*C.gchar)(transfer.GLibString(locale))
+		defer C.g_free(C.gpointer(carg3))
 	}
 
 	cret = C.g_key_file_get_locale_string(carg0, carg1, carg2, carg3, &_cerr)
@@ -15832,13 +15833,13 @@ func (keyFile *KeyFile) GetLocaleStringList(groupName string, key string, locale
 	var _cerr *C.GError   // out, full, converted, nullable
 
 	carg0 = (*C.GKeyFile)(UnsafeKeyFileToGlibNone(keyFile))
-	carg1 = (*C.gchar)(unsafe.Pointer(C.CString(groupName)))
-	defer C.free(unsafe.Pointer(carg1))
-	carg2 = (*C.gchar)(unsafe.Pointer(C.CString(key)))
-	defer C.free(unsafe.Pointer(carg2))
+	carg1 = (*C.gchar)(transfer.GLibString(groupName))
+	defer C.g_free(C.gpointer(carg1))
+	carg2 = (*C.gchar)(transfer.GLibString(key))
+	defer C.g_free(C.gpointer(carg2))
 	if locale != "" {
-		carg3 = (*C.gchar)(unsafe.Pointer(C.CString(locale)))
-		defer C.free(unsafe.Pointer(carg3))
+		carg3 = (*C.gchar)(transfer.GLibString(locale))
+		defer C.g_free(C.gpointer(carg3))
 	}
 
 	cret = C.g_key_file_get_locale_string_list(carg0, carg1, carg2, carg3, &carg4, &_cerr)
@@ -15895,10 +15896,10 @@ func (keyFile *KeyFile) GetString(groupName string, key string) (string, error) 
 	var _cerr *C.GError   // out, full, converted, nullable
 
 	carg0 = (*C.GKeyFile)(UnsafeKeyFileToGlibNone(keyFile))
-	carg1 = (*C.gchar)(unsafe.Pointer(C.CString(groupName)))
-	defer C.free(unsafe.Pointer(carg1))
-	carg2 = (*C.gchar)(unsafe.Pointer(C.CString(key)))
-	defer C.free(unsafe.Pointer(carg2))
+	carg1 = (*C.gchar)(transfer.GLibString(groupName))
+	defer C.g_free(C.gpointer(carg1))
+	carg2 = (*C.gchar)(transfer.GLibString(key))
+	defer C.g_free(C.gpointer(carg2))
 
 	cret = C.g_key_file_get_string(carg0, carg1, carg2, &_cerr)
 	runtime.KeepAlive(keyFile)
@@ -15929,10 +15930,10 @@ func (keyFile *KeyFile) GetStringList(groupName string, key string) (uint, []str
 	var _cerr *C.GError   // out, full, converted, nullable
 
 	carg0 = (*C.GKeyFile)(UnsafeKeyFileToGlibNone(keyFile))
-	carg1 = (*C.gchar)(unsafe.Pointer(C.CString(groupName)))
-	defer C.free(unsafe.Pointer(carg1))
-	carg2 = (*C.gchar)(unsafe.Pointer(C.CString(key)))
-	defer C.free(unsafe.Pointer(carg2))
+	carg1 = (*C.gchar)(transfer.GLibString(groupName))
+	defer C.g_free(C.gpointer(carg1))
+	carg2 = (*C.gchar)(transfer.GLibString(key))
+	defer C.g_free(C.gpointer(carg2))
 
 	cret = C.g_key_file_get_string_list(carg0, carg1, carg2, &carg3, &_cerr)
 	runtime.KeepAlive(keyFile)
@@ -15965,10 +15966,10 @@ func (keyFile *KeyFile) GetUint64(groupName string, key string) (uint64, error) 
 	var _cerr *C.GError   // out, full, converted, nullable
 
 	carg0 = (*C.GKeyFile)(UnsafeKeyFileToGlibNone(keyFile))
-	carg1 = (*C.gchar)(unsafe.Pointer(C.CString(groupName)))
-	defer C.free(unsafe.Pointer(carg1))
-	carg2 = (*C.gchar)(unsafe.Pointer(C.CString(key)))
-	defer C.free(unsafe.Pointer(carg2))
+	carg1 = (*C.gchar)(transfer.GLibString(groupName))
+	defer C.g_free(C.gpointer(carg1))
+	carg2 = (*C.gchar)(transfer.GLibString(key))
+	defer C.g_free(C.gpointer(carg2))
 
 	cret = C.g_key_file_get_uint64(carg0, carg1, carg2, &_cerr)
 	runtime.KeepAlive(keyFile)
@@ -15997,10 +15998,10 @@ func (keyFile *KeyFile) GetValue(groupName string, key string) (string, error) {
 	var _cerr *C.GError   // out, full, converted, nullable
 
 	carg0 = (*C.GKeyFile)(UnsafeKeyFileToGlibNone(keyFile))
-	carg1 = (*C.gchar)(unsafe.Pointer(C.CString(groupName)))
-	defer C.free(unsafe.Pointer(carg1))
-	carg2 = (*C.gchar)(unsafe.Pointer(C.CString(key)))
-	defer C.free(unsafe.Pointer(carg2))
+	carg1 = (*C.gchar)(transfer.GLibString(groupName))
+	defer C.g_free(C.gpointer(carg1))
+	carg2 = (*C.gchar)(transfer.GLibString(key))
+	defer C.g_free(C.gpointer(carg2))
 
 	cret = C.g_key_file_get_value(carg0, carg1, carg2, &_cerr)
 	runtime.KeepAlive(keyFile)
@@ -16028,8 +16029,8 @@ func (keyFile *KeyFile) HasGroup(groupName string) bool {
 	var cret  C.gboolean  // return
 
 	carg0 = (*C.GKeyFile)(UnsafeKeyFileToGlibNone(keyFile))
-	carg1 = (*C.gchar)(unsafe.Pointer(C.CString(groupName)))
-	defer C.free(unsafe.Pointer(carg1))
+	carg1 = (*C.gchar)(transfer.GLibString(groupName))
+	defer C.g_free(C.gpointer(carg1))
 
 	cret = C.g_key_file_has_group(carg0, carg1)
 	runtime.KeepAlive(keyFile)
@@ -16088,8 +16089,8 @@ func (keyFile *KeyFile) LoadFromData(data string, length uint, flags KeyFileFlag
 	var _cerr *C.GError       // out, full, converted, nullable
 
 	carg0 = (*C.GKeyFile)(UnsafeKeyFileToGlibNone(keyFile))
-	carg1 = (*C.gchar)(unsafe.Pointer(C.CString(data)))
-	defer C.free(unsafe.Pointer(carg1))
+	carg1 = (*C.gchar)(transfer.GLibString(data))
+	defer C.g_free(C.gpointer(carg1))
 	carg2 = C.gsize(length)
 	carg3 = C.GKeyFileFlags(flags)
 
@@ -16124,8 +16125,8 @@ func (keyFile *KeyFile) LoadFromDataDirs(file string, flags KeyFileFlags) (strin
 	var _cerr *C.GError       // out, full, converted, nullable
 
 	carg0 = (*C.GKeyFile)(UnsafeKeyFileToGlibNone(keyFile))
-	carg1 = (*C.gchar)(unsafe.Pointer(C.CString(file)))
-	defer C.free(unsafe.Pointer(carg1))
+	carg1 = (*C.gchar)(transfer.GLibString(file))
+	defer C.g_free(C.gpointer(carg1))
 	carg3 = C.GKeyFileFlags(flags)
 
 	cret = C.g_key_file_load_from_data_dirs(carg0, carg1, &carg2, carg3, &_cerr)
@@ -16162,8 +16163,8 @@ func (keyFile *KeyFile) LoadFromDirs(file string, searchDirs []string, flags Key
 	var _cerr *C.GError       // out, full, converted, nullable
 
 	carg0 = (*C.GKeyFile)(UnsafeKeyFileToGlibNone(keyFile))
-	carg1 = (*C.gchar)(unsafe.Pointer(C.CString(file)))
-	defer C.free(unsafe.Pointer(carg1))
+	carg1 = (*C.gchar)(transfer.GLibString(file))
+	defer C.g_free(C.gpointer(carg1))
 	_ = searchDirs
 	_ = carg2
 	panic("unimplemented conversion of []string (const gchar**) because of unimplemented: inner pointers in array")
@@ -16202,8 +16203,8 @@ func (keyFile *KeyFile) LoadFromFile(file string, flags KeyFileFlags) (bool, err
 	var _cerr *C.GError       // out, full, converted, nullable
 
 	carg0 = (*C.GKeyFile)(UnsafeKeyFileToGlibNone(keyFile))
-	carg1 = (*C.gchar)(unsafe.Pointer(C.CString(file)))
-	defer C.free(unsafe.Pointer(carg1))
+	carg1 = (*C.gchar)(transfer.GLibString(file))
+	defer C.g_free(C.gpointer(carg1))
 	carg2 = C.GKeyFileFlags(flags)
 
 	cret = C.g_key_file_load_from_file(carg0, carg1, carg2, &_cerr)
@@ -16236,12 +16237,12 @@ func (keyFile *KeyFile) RemoveComment(groupName string, key string) (bool, error
 
 	carg0 = (*C.GKeyFile)(UnsafeKeyFileToGlibNone(keyFile))
 	if groupName != "" {
-		carg1 = (*C.gchar)(unsafe.Pointer(C.CString(groupName)))
-		defer C.free(unsafe.Pointer(carg1))
+		carg1 = (*C.gchar)(transfer.GLibString(groupName))
+		defer C.g_free(C.gpointer(carg1))
 	}
 	if key != "" {
-		carg2 = (*C.gchar)(unsafe.Pointer(C.CString(key)))
-		defer C.free(unsafe.Pointer(carg2))
+		carg2 = (*C.gchar)(transfer.GLibString(key))
+		defer C.g_free(C.gpointer(carg2))
 	}
 
 	cret = C.g_key_file_remove_comment(carg0, carg1, carg2, &_cerr)
@@ -16272,8 +16273,8 @@ func (keyFile *KeyFile) RemoveGroup(groupName string) (bool, error) {
 	var _cerr *C.GError   // out, full, converted, nullable
 
 	carg0 = (*C.GKeyFile)(UnsafeKeyFileToGlibNone(keyFile))
-	carg1 = (*C.gchar)(unsafe.Pointer(C.CString(groupName)))
-	defer C.free(unsafe.Pointer(carg1))
+	carg1 = (*C.gchar)(transfer.GLibString(groupName))
+	defer C.g_free(C.gpointer(carg1))
 
 	cret = C.g_key_file_remove_group(carg0, carg1, &_cerr)
 	runtime.KeepAlive(keyFile)
@@ -16303,10 +16304,10 @@ func (keyFile *KeyFile) RemoveKey(groupName string, key string) (bool, error) {
 	var _cerr *C.GError   // out, full, converted, nullable
 
 	carg0 = (*C.GKeyFile)(UnsafeKeyFileToGlibNone(keyFile))
-	carg1 = (*C.gchar)(unsafe.Pointer(C.CString(groupName)))
-	defer C.free(unsafe.Pointer(carg1))
-	carg2 = (*C.gchar)(unsafe.Pointer(C.CString(key)))
-	defer C.free(unsafe.Pointer(carg2))
+	carg1 = (*C.gchar)(transfer.GLibString(groupName))
+	defer C.g_free(C.gpointer(carg1))
+	carg2 = (*C.gchar)(transfer.GLibString(key))
+	defer C.g_free(C.gpointer(carg2))
 
 	cret = C.g_key_file_remove_key(carg0, carg1, carg2, &_cerr)
 	runtime.KeepAlive(keyFile)
@@ -16336,8 +16337,8 @@ func (keyFile *KeyFile) SaveToFile(filename string) (bool, error) {
 	var _cerr *C.GError   // out, full, converted, nullable
 
 	carg0 = (*C.GKeyFile)(UnsafeKeyFileToGlibNone(keyFile))
-	carg1 = (*C.gchar)(unsafe.Pointer(C.CString(filename)))
-	defer C.free(unsafe.Pointer(carg1))
+	carg1 = (*C.gchar)(transfer.GLibString(filename))
+	defer C.g_free(C.gpointer(carg1))
 
 	cret = C.g_key_file_save_to_file(carg0, carg1, &_cerr)
 	runtime.KeepAlive(keyFile)
@@ -16366,10 +16367,10 @@ func (keyFile *KeyFile) SetBoolean(groupName string, key string, value bool) {
 	var carg3 C.gboolean  // in
 
 	carg0 = (*C.GKeyFile)(UnsafeKeyFileToGlibNone(keyFile))
-	carg1 = (*C.gchar)(unsafe.Pointer(C.CString(groupName)))
-	defer C.free(unsafe.Pointer(carg1))
-	carg2 = (*C.gchar)(unsafe.Pointer(C.CString(key)))
-	defer C.free(unsafe.Pointer(carg2))
+	carg1 = (*C.gchar)(transfer.GLibString(groupName))
+	defer C.g_free(C.gpointer(carg1))
+	carg2 = (*C.gchar)(transfer.GLibString(key))
+	defer C.g_free(C.gpointer(carg2))
 	if value {
 		carg3 = C.TRUE
 	}
@@ -16392,10 +16393,10 @@ func (keyFile *KeyFile) SetBooleanList(groupName string, key string, list []bool
 	var carg4 C.gsize     // implicit
 
 	carg0 = (*C.GKeyFile)(UnsafeKeyFileToGlibNone(keyFile))
-	carg1 = (*C.gchar)(unsafe.Pointer(C.CString(groupName)))
-	defer C.free(unsafe.Pointer(carg1))
-	carg2 = (*C.gchar)(unsafe.Pointer(C.CString(key)))
-	defer C.free(unsafe.Pointer(carg2))
+	carg1 = (*C.gchar)(transfer.GLibString(groupName))
+	defer C.g_free(C.gpointer(carg1))
+	carg2 = (*C.gchar)(transfer.GLibString(key))
+	defer C.g_free(C.gpointer(carg2))
 	_ = list
 	_ = carg3
 	_ = carg4
@@ -16421,15 +16422,15 @@ func (keyFile *KeyFile) SetComment(groupName string, key string, comment string)
 
 	carg0 = (*C.GKeyFile)(UnsafeKeyFileToGlibNone(keyFile))
 	if groupName != "" {
-		carg1 = (*C.gchar)(unsafe.Pointer(C.CString(groupName)))
-		defer C.free(unsafe.Pointer(carg1))
+		carg1 = (*C.gchar)(transfer.GLibString(groupName))
+		defer C.g_free(C.gpointer(carg1))
 	}
 	if key != "" {
-		carg2 = (*C.gchar)(unsafe.Pointer(C.CString(key)))
-		defer C.free(unsafe.Pointer(carg2))
+		carg2 = (*C.gchar)(transfer.GLibString(key))
+		defer C.g_free(C.gpointer(carg2))
 	}
-	carg3 = (*C.gchar)(unsafe.Pointer(C.CString(comment)))
-	defer C.free(unsafe.Pointer(carg3))
+	carg3 = (*C.gchar)(transfer.GLibString(comment))
+	defer C.g_free(C.gpointer(carg3))
 
 	cret = C.g_key_file_set_comment(carg0, carg1, carg2, carg3, &_cerr)
 	runtime.KeepAlive(keyFile)
@@ -16460,10 +16461,10 @@ func (keyFile *KeyFile) SetDouble(groupName string, key string, value float64) {
 	var carg3 C.gdouble   // in, none, casted
 
 	carg0 = (*C.GKeyFile)(UnsafeKeyFileToGlibNone(keyFile))
-	carg1 = (*C.gchar)(unsafe.Pointer(C.CString(groupName)))
-	defer C.free(unsafe.Pointer(carg1))
-	carg2 = (*C.gchar)(unsafe.Pointer(C.CString(key)))
-	defer C.free(unsafe.Pointer(carg2))
+	carg1 = (*C.gchar)(transfer.GLibString(groupName))
+	defer C.g_free(C.gpointer(carg1))
+	carg2 = (*C.gchar)(transfer.GLibString(key))
+	defer C.g_free(C.gpointer(carg2))
 	carg3 = C.gdouble(value)
 
 	C.g_key_file_set_double(carg0, carg1, carg2, carg3)
@@ -16484,10 +16485,10 @@ func (keyFile *KeyFile) SetDoubleList(groupName string, key string, list []float
 	var carg4 C.gsize     // implicit
 
 	carg0 = (*C.GKeyFile)(UnsafeKeyFileToGlibNone(keyFile))
-	carg1 = (*C.gchar)(unsafe.Pointer(C.CString(groupName)))
-	defer C.free(unsafe.Pointer(carg1))
-	carg2 = (*C.gchar)(unsafe.Pointer(C.CString(key)))
-	defer C.free(unsafe.Pointer(carg2))
+	carg1 = (*C.gchar)(transfer.GLibString(groupName))
+	defer C.g_free(C.gpointer(carg1))
+	carg2 = (*C.gchar)(transfer.GLibString(key))
+	defer C.g_free(C.gpointer(carg2))
 	_ = list
 	_ = carg3
 	_ = carg4
@@ -16510,10 +16511,10 @@ func (keyFile *KeyFile) SetInt64(groupName string, key string, value int64) {
 	var carg3 C.gint64    // in, none, casted
 
 	carg0 = (*C.GKeyFile)(UnsafeKeyFileToGlibNone(keyFile))
-	carg1 = (*C.gchar)(unsafe.Pointer(C.CString(groupName)))
-	defer C.free(unsafe.Pointer(carg1))
-	carg2 = (*C.gchar)(unsafe.Pointer(C.CString(key)))
-	defer C.free(unsafe.Pointer(carg2))
+	carg1 = (*C.gchar)(transfer.GLibString(groupName))
+	defer C.g_free(C.gpointer(carg1))
+	carg2 = (*C.gchar)(transfer.GLibString(key))
+	defer C.g_free(C.gpointer(carg2))
 	carg3 = C.gint64(value)
 
 	C.g_key_file_set_int64(carg0, carg1, carg2, carg3)
@@ -16533,10 +16534,10 @@ func (keyFile *KeyFile) SetInteger(groupName string, key string, value int32) {
 	var carg3 C.gint      // in, none, casted
 
 	carg0 = (*C.GKeyFile)(UnsafeKeyFileToGlibNone(keyFile))
-	carg1 = (*C.gchar)(unsafe.Pointer(C.CString(groupName)))
-	defer C.free(unsafe.Pointer(carg1))
-	carg2 = (*C.gchar)(unsafe.Pointer(C.CString(key)))
-	defer C.free(unsafe.Pointer(carg2))
+	carg1 = (*C.gchar)(transfer.GLibString(groupName))
+	defer C.g_free(C.gpointer(carg1))
+	carg2 = (*C.gchar)(transfer.GLibString(key))
+	defer C.g_free(C.gpointer(carg2))
 	carg3 = C.gint(value)
 
 	C.g_key_file_set_integer(carg0, carg1, carg2, carg3)
@@ -16557,10 +16558,10 @@ func (keyFile *KeyFile) SetIntegerList(groupName string, key string, list []int3
 	var carg4 C.gsize     // implicit
 
 	carg0 = (*C.GKeyFile)(UnsafeKeyFileToGlibNone(keyFile))
-	carg1 = (*C.gchar)(unsafe.Pointer(C.CString(groupName)))
-	defer C.free(unsafe.Pointer(carg1))
-	carg2 = (*C.gchar)(unsafe.Pointer(C.CString(key)))
-	defer C.free(unsafe.Pointer(carg2))
+	carg1 = (*C.gchar)(transfer.GLibString(groupName))
+	defer C.g_free(C.gpointer(carg1))
+	carg2 = (*C.gchar)(transfer.GLibString(key))
+	defer C.g_free(C.gpointer(carg2))
 	_ = list
 	_ = carg3
 	_ = carg4
@@ -16599,14 +16600,14 @@ func (keyFile *KeyFile) SetLocaleString(groupName string, key string, locale str
 	var carg4 *C.gchar    // in, none, string
 
 	carg0 = (*C.GKeyFile)(UnsafeKeyFileToGlibNone(keyFile))
-	carg1 = (*C.gchar)(unsafe.Pointer(C.CString(groupName)))
-	defer C.free(unsafe.Pointer(carg1))
-	carg2 = (*C.gchar)(unsafe.Pointer(C.CString(key)))
-	defer C.free(unsafe.Pointer(carg2))
-	carg3 = (*C.gchar)(unsafe.Pointer(C.CString(locale)))
-	defer C.free(unsafe.Pointer(carg3))
-	carg4 = (*C.gchar)(unsafe.Pointer(C.CString(str)))
-	defer C.free(unsafe.Pointer(carg4))
+	carg1 = (*C.gchar)(transfer.GLibString(groupName))
+	defer C.g_free(C.gpointer(carg1))
+	carg2 = (*C.gchar)(transfer.GLibString(key))
+	defer C.g_free(C.gpointer(carg2))
+	carg3 = (*C.gchar)(transfer.GLibString(locale))
+	defer C.g_free(C.gpointer(carg3))
+	carg4 = (*C.gchar)(transfer.GLibString(str))
+	defer C.g_free(C.gpointer(carg4))
 
 	C.g_key_file_set_locale_string(carg0, carg1, carg2, carg3, carg4)
 	runtime.KeepAlive(keyFile)
@@ -16628,12 +16629,12 @@ func (keyFile *KeyFile) SetLocaleStringList(groupName string, key string, locale
 	var carg5 C.gsize     // implicit
 
 	carg0 = (*C.GKeyFile)(UnsafeKeyFileToGlibNone(keyFile))
-	carg1 = (*C.gchar)(unsafe.Pointer(C.CString(groupName)))
-	defer C.free(unsafe.Pointer(carg1))
-	carg2 = (*C.gchar)(unsafe.Pointer(C.CString(key)))
-	defer C.free(unsafe.Pointer(carg2))
-	carg3 = (*C.gchar)(unsafe.Pointer(C.CString(locale)))
-	defer C.free(unsafe.Pointer(carg3))
+	carg1 = (*C.gchar)(transfer.GLibString(groupName))
+	defer C.g_free(C.gpointer(carg1))
+	carg2 = (*C.gchar)(transfer.GLibString(key))
+	defer C.g_free(C.gpointer(carg2))
+	carg3 = (*C.gchar)(transfer.GLibString(locale))
+	defer C.g_free(C.gpointer(carg3))
 	_ = list
 	_ = carg4
 	_ = carg5
@@ -16657,12 +16658,12 @@ func (keyFile *KeyFile) SetString(groupName string, key string, str string) {
 	var carg3 *C.gchar    // in, none, string
 
 	carg0 = (*C.GKeyFile)(UnsafeKeyFileToGlibNone(keyFile))
-	carg1 = (*C.gchar)(unsafe.Pointer(C.CString(groupName)))
-	defer C.free(unsafe.Pointer(carg1))
-	carg2 = (*C.gchar)(unsafe.Pointer(C.CString(key)))
-	defer C.free(unsafe.Pointer(carg2))
-	carg3 = (*C.gchar)(unsafe.Pointer(C.CString(str)))
-	defer C.free(unsafe.Pointer(carg3))
+	carg1 = (*C.gchar)(transfer.GLibString(groupName))
+	defer C.g_free(C.gpointer(carg1))
+	carg2 = (*C.gchar)(transfer.GLibString(key))
+	defer C.g_free(C.gpointer(carg2))
+	carg3 = (*C.gchar)(transfer.GLibString(str))
+	defer C.g_free(C.gpointer(carg3))
 
 	C.g_key_file_set_string(carg0, carg1, carg2, carg3)
 	runtime.KeepAlive(keyFile)
@@ -16682,10 +16683,10 @@ func (keyFile *KeyFile) SetStringList(groupName string, key string, list []strin
 	var carg4 C.gsize     // implicit
 
 	carg0 = (*C.GKeyFile)(UnsafeKeyFileToGlibNone(keyFile))
-	carg1 = (*C.gchar)(unsafe.Pointer(C.CString(groupName)))
-	defer C.free(unsafe.Pointer(carg1))
-	carg2 = (*C.gchar)(unsafe.Pointer(C.CString(key)))
-	defer C.free(unsafe.Pointer(carg2))
+	carg1 = (*C.gchar)(transfer.GLibString(groupName))
+	defer C.g_free(C.gpointer(carg1))
+	carg2 = (*C.gchar)(transfer.GLibString(key))
+	defer C.g_free(C.gpointer(carg2))
 	_ = list
 	_ = carg3
 	_ = carg4
@@ -16708,10 +16709,10 @@ func (keyFile *KeyFile) SetUint64(groupName string, key string, value uint64) {
 	var carg3 C.guint64   // in, none, casted
 
 	carg0 = (*C.GKeyFile)(UnsafeKeyFileToGlibNone(keyFile))
-	carg1 = (*C.gchar)(unsafe.Pointer(C.CString(groupName)))
-	defer C.free(unsafe.Pointer(carg1))
-	carg2 = (*C.gchar)(unsafe.Pointer(C.CString(key)))
-	defer C.free(unsafe.Pointer(carg2))
+	carg1 = (*C.gchar)(transfer.GLibString(groupName))
+	defer C.g_free(C.gpointer(carg1))
+	carg2 = (*C.gchar)(transfer.GLibString(key))
+	defer C.g_free(C.gpointer(carg2))
 	carg3 = C.guint64(value)
 
 	C.g_key_file_set_uint64(carg0, carg1, carg2, carg3)
@@ -16731,12 +16732,12 @@ func (keyFile *KeyFile) SetValue(groupName string, key string, value string) {
 	var carg3 *C.gchar    // in, none, string
 
 	carg0 = (*C.GKeyFile)(UnsafeKeyFileToGlibNone(keyFile))
-	carg1 = (*C.gchar)(unsafe.Pointer(C.CString(groupName)))
-	defer C.free(unsafe.Pointer(carg1))
-	carg2 = (*C.gchar)(unsafe.Pointer(C.CString(key)))
-	defer C.free(unsafe.Pointer(carg2))
-	carg3 = (*C.gchar)(unsafe.Pointer(C.CString(value)))
-	defer C.free(unsafe.Pointer(carg3))
+	carg1 = (*C.gchar)(transfer.GLibString(groupName))
+	defer C.g_free(C.gpointer(carg1))
+	carg2 = (*C.gchar)(transfer.GLibString(key))
+	defer C.g_free(C.gpointer(carg2))
+	carg3 = (*C.gchar)(transfer.GLibString(value))
+	defer C.g_free(C.gpointer(carg3))
 
 	C.g_key_file_set_value(carg0, carg1, carg2, carg3)
 	runtime.KeepAlive(keyFile)
@@ -17548,8 +17549,8 @@ func NewMappedFile(filename string, writable bool) (*MappedFile, error) {
 	var cret  *C.GMappedFile // return, full, converted
 	var _cerr *C.GError      // out, full, converted, nullable
 
-	carg1 = (*C.gchar)(unsafe.Pointer(C.CString(filename)))
-	defer C.free(unsafe.Pointer(carg1))
+	carg1 = (*C.gchar)(transfer.GLibString(filename))
+	defer C.g_free(C.gpointer(carg1))
 	if writable {
 		carg2 = C.TRUE
 	}
@@ -17856,8 +17857,8 @@ func (_context *MarkupParseContext) Parse(text string, textLen int) (bool, error
 	var _cerr *C.GError              // out, full, converted, nullable
 
 	carg0 = (*C.GMarkupParseContext)(UnsafeMarkupParseContextToGlibNone(_context))
-	carg1 = (*C.gchar)(unsafe.Pointer(C.CString(text)))
-	defer C.free(unsafe.Pointer(carg1))
+	carg1 = (*C.gchar)(transfer.GLibString(text))
+	defer C.g_free(C.gpointer(carg1))
 	carg2 = C.gssize(textLen)
 
 	cret = C.g_markup_parse_context_parse(carg0, carg1, carg2, &_cerr)
@@ -18065,8 +18066,8 @@ func (matchInfo *MatchInfo) ExpandReferences(stringToExpand string) (string, err
 	var _cerr *C.GError     // out, full, converted, nullable
 
 	carg0 = (*C.GMatchInfo)(UnsafeMatchInfoToGlibNone(matchInfo))
-	carg1 = (*C.gchar)(unsafe.Pointer(C.CString(stringToExpand)))
-	defer C.free(unsafe.Pointer(carg1))
+	carg1 = (*C.gchar)(transfer.GLibString(stringToExpand))
+	defer C.g_free(C.gpointer(carg1))
 
 	cret = C.g_match_info_expand_references(carg0, carg1, &_cerr)
 	runtime.KeepAlive(matchInfo)
@@ -18141,8 +18142,8 @@ func (matchInfo *MatchInfo) FetchNamed(name string) string {
 	var cret  *C.gchar      // return, full, string, nullable-string
 
 	carg0 = (*C.GMatchInfo)(UnsafeMatchInfoToGlibNone(matchInfo))
-	carg1 = (*C.gchar)(unsafe.Pointer(C.CString(name)))
-	defer C.free(unsafe.Pointer(carg1))
+	carg1 = (*C.gchar)(transfer.GLibString(name))
+	defer C.g_free(C.gpointer(carg1))
 
 	cret = C.g_match_info_fetch_named(carg0, carg1)
 	runtime.KeepAlive(matchInfo)
@@ -18169,8 +18170,8 @@ func (matchInfo *MatchInfo) FetchNamedPos(name string) (int32, int32, bool) {
 	var cret  C.gboolean    // return
 
 	carg0 = (*C.GMatchInfo)(UnsafeMatchInfoToGlibNone(matchInfo))
-	carg1 = (*C.gchar)(unsafe.Pointer(C.CString(name)))
-	defer C.free(unsafe.Pointer(carg1))
+	carg1 = (*C.gchar)(transfer.GLibString(name))
+	defer C.g_free(C.gpointer(carg1))
 
 	cret = C.g_match_info_fetch_named_pos(carg0, carg1, &carg2, &carg3)
 	runtime.KeepAlive(matchInfo)
@@ -19018,8 +19019,8 @@ func (_context *OptionContext) SetDescription(description string) {
 
 	carg0 = (*C.GOptionContext)(UnsafeOptionContextToGlibNone(_context))
 	if description != "" {
-		carg1 = (*C.gchar)(unsafe.Pointer(C.CString(description)))
-		defer C.free(unsafe.Pointer(carg1))
+		carg1 = (*C.gchar)(transfer.GLibString(description))
+		defer C.g_free(C.gpointer(carg1))
 	}
 
 	C.g_option_context_set_description(carg0, carg1)
@@ -19102,8 +19103,8 @@ func (_context *OptionContext) SetSummary(summary string) {
 
 	carg0 = (*C.GOptionContext)(UnsafeOptionContextToGlibNone(_context))
 	if summary != "" {
-		carg1 = (*C.gchar)(unsafe.Pointer(C.CString(summary)))
-		defer C.free(unsafe.Pointer(carg1))
+		carg1 = (*C.gchar)(transfer.GLibString(summary))
+		defer C.g_free(C.gpointer(carg1))
 	}
 
 	C.g_option_context_set_summary(carg0, carg1)
@@ -19119,8 +19120,8 @@ func (_context *OptionContext) SetTranslationDomain(domain string) {
 	var carg1 *C.gchar          // in, none, string
 
 	carg0 = (*C.GOptionContext)(UnsafeOptionContextToGlibNone(_context))
-	carg1 = (*C.gchar)(unsafe.Pointer(C.CString(domain)))
-	defer C.free(unsafe.Pointer(carg1))
+	carg1 = (*C.gchar)(transfer.GLibString(domain))
+	defer C.g_free(C.gpointer(carg1))
 
 	C.g_option_context_set_translation_domain(carg0, carg1)
 	runtime.KeepAlive(_context)
@@ -19312,8 +19313,8 @@ func (group *OptionGroup) SetTranslationDomain(domain string) {
 	var carg1 *C.gchar        // in, none, string
 
 	carg0 = (*C.GOptionGroup)(UnsafeOptionGroupToGlibNone(group))
-	carg1 = (*C.gchar)(unsafe.Pointer(C.CString(domain)))
-	defer C.free(unsafe.Pointer(carg1))
+	carg1 = (*C.gchar)(transfer.GLibString(domain))
+	defer C.g_free(C.gpointer(carg1))
 
 	C.g_option_group_set_translation_domain(carg0, carg1)
 	runtime.KeepAlive(group)
@@ -19487,8 +19488,8 @@ func (buf *PathBuf) InitFromPath(path string) *PathBuf {
 
 	carg0 = (*C.GPathBuf)(UnsafePathBufToGlibNone(buf))
 	if path != "" {
-		carg1 = (*C.char)(unsafe.Pointer(C.CString(path)))
-		defer C.free(unsafe.Pointer(carg1))
+		carg1 = (*C.char)(transfer.GLibString(path))
+		defer C.g_free(C.gpointer(carg1))
 	}
 
 	cret = C.g_path_buf_init_from_path(carg0, carg1)
@@ -19532,8 +19533,8 @@ func (buf *PathBuf) Push(path string) *PathBuf {
 	var cret  *C.GPathBuf // return, none, converted
 
 	carg0 = (*C.GPathBuf)(UnsafePathBufToGlibNone(buf))
-	carg1 = (*C.char)(unsafe.Pointer(C.CString(path)))
-	defer C.free(unsafe.Pointer(carg1))
+	carg1 = (*C.char)(transfer.GLibString(path))
+	defer C.g_free(C.gpointer(carg1))
 
 	cret = C.g_path_buf_push(carg0, carg1)
 	runtime.KeepAlive(buf)
@@ -19556,8 +19557,8 @@ func (buf *PathBuf) SetExtension(extension string) bool {
 
 	carg0 = (*C.GPathBuf)(UnsafePathBufToGlibNone(buf))
 	if extension != "" {
-		carg1 = (*C.char)(unsafe.Pointer(C.CString(extension)))
-		defer C.free(unsafe.Pointer(carg1))
+		carg1 = (*C.char)(transfer.GLibString(extension))
+		defer C.g_free(C.gpointer(carg1))
 	}
 
 	cret = C.g_path_buf_set_extension(carg0, carg1)
@@ -19582,8 +19583,8 @@ func (buf *PathBuf) SetFilename(fileName string) bool {
 	var cret  C.gboolean  // return
 
 	carg0 = (*C.GPathBuf)(UnsafePathBufToGlibNone(buf))
-	carg1 = (*C.char)(unsafe.Pointer(C.CString(fileName)))
-	defer C.free(unsafe.Pointer(carg1))
+	carg1 = (*C.char)(transfer.GLibString(fileName))
+	defer C.g_free(C.gpointer(carg1))
 
 	cret = C.g_path_buf_set_filename(carg0, carg1)
 	runtime.KeepAlive(buf)
@@ -19709,8 +19710,8 @@ func NewPatternSpec(pattern string) *PatternSpec {
 	var carg1 *C.gchar        // in, none, string
 	var cret  *C.GPatternSpec // return, full, converted
 
-	carg1 = (*C.gchar)(unsafe.Pointer(C.CString(pattern)))
-	defer C.free(unsafe.Pointer(carg1))
+	carg1 = (*C.gchar)(transfer.GLibString(pattern))
+	defer C.g_free(C.gpointer(carg1))
 
 	cret = C.g_pattern_spec_new(carg1)
 	runtime.KeepAlive(pattern)
@@ -19777,11 +19778,11 @@ func (pspec *PatternSpec) Match(stringLength uint, str string, stringReversed st
 
 	carg0 = (*C.GPatternSpec)(UnsafePatternSpecToGlibNone(pspec))
 	carg1 = C.gsize(stringLength)
-	carg2 = (*C.gchar)(unsafe.Pointer(C.CString(str)))
-	defer C.free(unsafe.Pointer(carg2))
+	carg2 = (*C.gchar)(transfer.GLibString(str))
+	defer C.g_free(C.gpointer(carg2))
 	if stringReversed != "" {
-		carg3 = (*C.gchar)(unsafe.Pointer(C.CString(stringReversed)))
-		defer C.free(unsafe.Pointer(carg3))
+		carg3 = (*C.gchar)(transfer.GLibString(stringReversed))
+		defer C.g_free(C.gpointer(carg3))
 	}
 
 	cret = C.g_pattern_spec_match(carg0, carg1, carg2, carg3)
@@ -19808,8 +19809,8 @@ func (pspec *PatternSpec) MatchString(str string) bool {
 	var cret  C.gboolean      // return
 
 	carg0 = (*C.GPatternSpec)(UnsafePatternSpecToGlibNone(pspec))
-	carg1 = (*C.gchar)(unsafe.Pointer(C.CString(str)))
-	defer C.free(unsafe.Pointer(carg1))
+	carg1 = (*C.gchar)(transfer.GLibString(str))
+	defer C.g_free(C.gpointer(carg1))
 
 	cret = C.g_pattern_spec_match_string(carg0, carg1)
 	runtime.KeepAlive(pspec)
@@ -20640,8 +20641,8 @@ func NewRegex(pattern string, compileOptions RegexCompileFlags, matchOptions Reg
 	var cret  *C.GRegex            // return, full, converted, nullable
 	var _cerr *C.GError            // out, full, converted, nullable
 
-	carg1 = (*C.gchar)(unsafe.Pointer(C.CString(pattern)))
-	defer C.free(unsafe.Pointer(carg1))
+	carg1 = (*C.gchar)(transfer.GLibString(pattern))
+	defer C.g_free(C.gpointer(carg1))
 	carg2 = C.GRegexCompileFlags(compileOptions)
 	carg3 = C.GRegexMatchFlags(matchOptions)
 
@@ -20672,8 +20673,8 @@ func RegexCheckReplacement(replacement string) (bool, bool, error) {
 	var cret  C.gboolean // return
 	var _cerr *C.GError  // out, full, converted, nullable
 
-	carg1 = (*C.gchar)(unsafe.Pointer(C.CString(replacement)))
-	defer C.free(unsafe.Pointer(carg1))
+	carg1 = (*C.gchar)(transfer.GLibString(replacement))
+	defer C.g_free(C.gpointer(carg1))
 
 	cret = C.g_regex_check_replacement(carg1, &carg2, &_cerr)
 	runtime.KeepAlive(replacement)
@@ -20718,8 +20719,8 @@ func RegexEscapeNul(str string, length int32) string {
 	var carg2 C.gint   // in, none, casted
 	var cret  *C.gchar // return, full, string
 
-	carg1 = (*C.gchar)(unsafe.Pointer(C.CString(str)))
-	defer C.free(unsafe.Pointer(carg1))
+	carg1 = (*C.gchar)(transfer.GLibString(str))
+	defer C.g_free(C.gpointer(carg1))
 	carg2 = C.gint(length)
 
 	cret = C.g_regex_escape_nul(carg1, carg2)
@@ -20742,8 +20743,8 @@ func RegexEscapeString(str string, length int32) string {
 	var carg2 C.gint   // in, none, casted
 	var cret  *C.gchar // return, full, string
 
-	carg1 = (*C.gchar)(unsafe.Pointer(C.CString(str)))
-	defer C.free(unsafe.Pointer(carg1))
+	carg1 = (*C.gchar)(transfer.GLibString(str))
+	defer C.g_free(C.gpointer(carg1))
 	carg2 = C.gint(length)
 
 	cret = C.g_regex_escape_string(carg1, carg2)
@@ -20768,10 +20769,10 @@ func RegexMatchSimple(pattern string, str string, compileOptions RegexCompileFla
 	var carg4 C.GRegexMatchFlags   // in, none, casted
 	var cret  C.gboolean           // return
 
-	carg1 = (*C.gchar)(unsafe.Pointer(C.CString(pattern)))
-	defer C.free(unsafe.Pointer(carg1))
-	carg2 = (*C.gchar)(unsafe.Pointer(C.CString(str)))
-	defer C.free(unsafe.Pointer(carg2))
+	carg1 = (*C.gchar)(transfer.GLibString(pattern))
+	defer C.g_free(C.gpointer(carg1))
+	carg2 = (*C.gchar)(transfer.GLibString(str))
+	defer C.g_free(C.gpointer(carg2))
 	carg3 = C.GRegexCompileFlags(compileOptions)
 	carg4 = C.GRegexMatchFlags(matchOptions)
 
@@ -20800,10 +20801,10 @@ func RegexSplitSimple(pattern string, str string, compileOptions RegexCompileFla
 	var carg4 C.GRegexMatchFlags   // in, none, casted
 	var cret  **C.gchar            // return, transfer: full, C Pointers: 2, Name: array[utf8], scope: , array (inner gchar* (*typesystem.StringPrimitive), zero-terminated)
 
-	carg1 = (*C.gchar)(unsafe.Pointer(C.CString(pattern)))
-	defer C.free(unsafe.Pointer(carg1))
-	carg2 = (*C.gchar)(unsafe.Pointer(C.CString(str)))
-	defer C.free(unsafe.Pointer(carg2))
+	carg1 = (*C.gchar)(transfer.GLibString(pattern))
+	defer C.g_free(C.gpointer(carg1))
+	carg2 = (*C.gchar)(transfer.GLibString(str))
+	defer C.g_free(C.gpointer(carg2))
 	carg3 = C.GRegexCompileFlags(compileOptions)
 	carg4 = C.GRegexMatchFlags(matchOptions)
 
@@ -20966,8 +20967,8 @@ func (regex *Regex) GetStringNumber(name string) int32 {
 	var cret  C.gint    // return, none, casted
 
 	carg0 = (*C.GRegex)(UnsafeRegexToGlibNone(regex))
-	carg1 = (*C.gchar)(unsafe.Pointer(C.CString(name)))
-	defer C.free(unsafe.Pointer(carg1))
+	carg1 = (*C.gchar)(transfer.GLibString(name))
+	defer C.g_free(C.gpointer(carg1))
 
 	cret = C.g_regex_get_string_number(carg0, carg1)
 	runtime.KeepAlive(regex)
@@ -20991,8 +20992,8 @@ func (regex *Regex) Match(str string, matchOptions RegexMatchFlags) (*MatchInfo,
 	var cret  C.gboolean         // return
 
 	carg0 = (*C.GRegex)(UnsafeRegexToGlibNone(regex))
-	carg1 = (*C.gchar)(unsafe.Pointer(C.CString(str)))
-	defer C.free(unsafe.Pointer(carg1))
+	carg1 = (*C.gchar)(transfer.GLibString(str))
+	defer C.g_free(C.gpointer(carg1))
 	carg2 = C.GRegexMatchFlags(matchOptions)
 
 	cret = C.g_regex_match(carg0, carg1, carg2, &carg3)
@@ -21022,8 +21023,8 @@ func (regex *Regex) MatchAll(str string, matchOptions RegexMatchFlags) (*MatchIn
 	var cret  C.gboolean         // return
 
 	carg0 = (*C.GRegex)(UnsafeRegexToGlibNone(regex))
-	carg1 = (*C.gchar)(unsafe.Pointer(C.CString(str)))
-	defer C.free(unsafe.Pointer(carg1))
+	carg1 = (*C.gchar)(transfer.GLibString(str))
+	defer C.g_free(C.gpointer(carg1))
 	carg2 = C.GRegexMatchFlags(matchOptions)
 
 	cret = C.g_regex_match_all(carg0, carg1, carg2, &carg3)
@@ -21145,8 +21146,8 @@ func (regex *Regex) Replace(str string, startPosition int32, replacement string,
 	_ = carg2
 	panic("unimplemented conversion of string (const gchar*) because of unimplemented: non-fixed size array")
 	carg3 = C.gint(startPosition)
-	carg4 = (*C.gchar)(unsafe.Pointer(C.CString(replacement)))
-	defer C.free(unsafe.Pointer(carg4))
+	carg4 = (*C.gchar)(transfer.GLibString(replacement))
+	defer C.g_free(C.gpointer(carg4))
 	carg5 = C.GRegexMatchFlags(matchOptions)
 
 	cret = C.g_regex_replace(carg0, carg1, carg2, carg3, carg4, carg5, &_cerr)
@@ -21187,8 +21188,8 @@ func (regex *Regex) ReplaceLiteral(str string, startPosition int32, replacement 
 	_ = carg2
 	panic("unimplemented conversion of string (const gchar*) because of unimplemented: non-fixed size array")
 	carg3 = C.gint(startPosition)
-	carg4 = (*C.gchar)(unsafe.Pointer(C.CString(replacement)))
-	defer C.free(unsafe.Pointer(carg4))
+	carg4 = (*C.gchar)(transfer.GLibString(replacement))
+	defer C.g_free(C.gpointer(carg4))
 	carg5 = C.GRegexMatchFlags(matchOptions)
 
 	cret = C.g_regex_replace_literal(carg0, carg1, carg2, carg3, carg4, carg5, &_cerr)
@@ -21220,8 +21221,8 @@ func (regex *Regex) Split(str string, matchOptions RegexMatchFlags) []string {
 	var cret  **C.gchar          // return, transfer: full, C Pointers: 2, Name: array[utf8], scope: , array (inner gchar* (*typesystem.StringPrimitive), zero-terminated)
 
 	carg0 = (*C.GRegex)(UnsafeRegexToGlibNone(regex))
-	carg1 = (*C.gchar)(unsafe.Pointer(C.CString(str)))
-	defer C.free(unsafe.Pointer(carg1))
+	carg1 = (*C.gchar)(transfer.GLibString(str))
+	defer C.g_free(C.gpointer(carg1))
 	carg2 = C.GRegexMatchFlags(matchOptions)
 
 	cret = C.g_regex_split(carg0, carg1, carg2)
@@ -21483,8 +21484,8 @@ func (scanner *Scanner) InputText(text string, textLen uint) {
 	var carg2 C.guint     // in, none, casted
 
 	carg0 = (*C.GScanner)(UnsafeScannerToGlibNone(scanner))
-	carg1 = (*C.gchar)(unsafe.Pointer(C.CString(text)))
-	defer C.free(unsafe.Pointer(carg1))
+	carg1 = (*C.gchar)(transfer.GLibString(text))
+	defer C.g_free(C.gpointer(carg1))
 	carg2 = C.guint(textLen)
 
 	C.g_scanner_input_text(carg0, carg1, carg2)
@@ -21522,8 +21523,8 @@ func (scanner *Scanner) ScopeRemoveSymbol(scopeId uint, symbol string) {
 
 	carg0 = (*C.GScanner)(UnsafeScannerToGlibNone(scanner))
 	carg1 = C.guint(scopeId)
-	carg2 = (*C.gchar)(unsafe.Pointer(C.CString(symbol)))
-	defer C.free(unsafe.Pointer(carg2))
+	carg2 = (*C.gchar)(transfer.GLibString(symbol))
+	defer C.g_free(C.gpointer(carg2))
 
 	C.g_scanner_scope_remove_symbol(carg0, carg1, carg2)
 	runtime.KeepAlive(scanner)
@@ -21579,14 +21580,14 @@ func (scanner *Scanner) UnexpToken(expectedToken TokenType, identifierSpec strin
 
 	carg0 = (*C.GScanner)(UnsafeScannerToGlibNone(scanner))
 	carg1 = C.GTokenType(expectedToken)
-	carg2 = (*C.gchar)(unsafe.Pointer(C.CString(identifierSpec)))
-	defer C.free(unsafe.Pointer(carg2))
-	carg3 = (*C.gchar)(unsafe.Pointer(C.CString(symbolSpec)))
-	defer C.free(unsafe.Pointer(carg3))
-	carg4 = (*C.gchar)(unsafe.Pointer(C.CString(symbolName)))
-	defer C.free(unsafe.Pointer(carg4))
-	carg5 = (*C.gchar)(unsafe.Pointer(C.CString(message)))
-	defer C.free(unsafe.Pointer(carg5))
+	carg2 = (*C.gchar)(transfer.GLibString(identifierSpec))
+	defer C.g_free(C.gpointer(carg2))
+	carg3 = (*C.gchar)(transfer.GLibString(symbolSpec))
+	defer C.g_free(C.gpointer(carg3))
+	carg4 = (*C.gchar)(transfer.GLibString(symbolName))
+	defer C.g_free(C.gpointer(carg4))
+	carg5 = (*C.gchar)(transfer.GLibString(message))
+	defer C.g_free(C.gpointer(carg5))
 	carg6 = C.gint(isError)
 
 	C.g_scanner_unexp_token(carg0, carg1, carg2, carg3, carg4, carg5, carg6)
@@ -22471,8 +22472,8 @@ func (chunk *StringChunk) Insert(str string) string {
 	var cret  *C.gchar        // return, full, string
 
 	carg0 = (*C.GStringChunk)(UnsafeStringChunkToGlibNone(chunk))
-	carg1 = (*C.gchar)(unsafe.Pointer(C.CString(str)))
-	defer C.free(unsafe.Pointer(carg1))
+	carg1 = (*C.gchar)(transfer.GLibString(str))
+	defer C.g_free(C.gpointer(carg1))
 
 	cret = C.g_string_chunk_insert(carg0, carg1)
 	runtime.KeepAlive(chunk)
@@ -22495,8 +22496,8 @@ func (chunk *StringChunk) InsertConst(str string) string {
 	var cret  *C.gchar        // return, full, string
 
 	carg0 = (*C.GStringChunk)(UnsafeStringChunkToGlibNone(chunk))
-	carg1 = (*C.gchar)(unsafe.Pointer(C.CString(str)))
-	defer C.free(unsafe.Pointer(carg1))
+	carg1 = (*C.gchar)(transfer.GLibString(str))
+	defer C.g_free(C.gpointer(carg1))
 
 	cret = C.g_string_chunk_insert_const(carg0, carg1)
 	runtime.KeepAlive(chunk)
@@ -22520,8 +22521,8 @@ func (chunk *StringChunk) InsertLen(str string, len int) string {
 	var cret  *C.gchar        // return, full, string
 
 	carg0 = (*C.GStringChunk)(UnsafeStringChunkToGlibNone(chunk))
-	carg1 = (*C.gchar)(unsafe.Pointer(C.CString(str)))
-	defer C.free(unsafe.Pointer(carg1))
+	carg1 = (*C.gchar)(transfer.GLibString(str))
+	defer C.g_free(C.gpointer(carg1))
 	carg2 = C.gssize(len)
 
 	cret = C.g_string_chunk_insert_len(carg0, carg1, carg2)
@@ -22655,8 +22656,8 @@ func (builder *StrvBuilder) Add(value string) {
 	var carg1 *C.char         // in, none, string
 
 	carg0 = (*C.GStrvBuilder)(UnsafeStrvBuilderToGlibNone(builder))
-	carg1 = (*C.char)(unsafe.Pointer(C.CString(value)))
-	defer C.free(unsafe.Pointer(carg1))
+	carg1 = (*C.char)(transfer.GLibString(value))
+	defer C.g_free(C.gpointer(carg1))
 
 	C.g_strv_builder_add(carg0, carg1)
 	runtime.KeepAlive(builder)
@@ -22676,6 +22677,21 @@ func (builder *StrvBuilder) Addv(value []string) {
 	panic("unimplemented conversion of []string (const char**) because of unimplemented: inner pointers in array")
 
 	C.g_strv_builder_addv(carg0, carg1)
+	runtime.KeepAlive(builder)
+	runtime.KeepAlive(value)
+}
+
+// Take wraps g_strv_builder_take
+// 
+// see also https://docs.gtk.org/glib/method.g_strv_builder_take.g_strv_builder_take.html
+func (builder *StrvBuilder) Take(value string) {
+	var carg0 *C.GStrvBuilder // in, none, converted
+	var carg1 *C.char         // in, full, string
+
+	carg0 = (*C.GStrvBuilder)(UnsafeStrvBuilderToGlibNone(builder))
+	carg1 = (*C.char)(transfer.GLibString(value))
+
+	C.g_strv_builder_take(carg0, carg1)
 	runtime.KeepAlive(builder)
 	runtime.KeepAlive(value)
 }
@@ -23161,8 +23177,8 @@ func NewTimeZoneIdentifier(identifier string) *TimeZone {
 	var cret  *C.GTimeZone // return, full, converted, nullable
 
 	if identifier != "" {
-		carg1 = (*C.gchar)(unsafe.Pointer(C.CString(identifier)))
-		defer C.free(unsafe.Pointer(carg1))
+		carg1 = (*C.gchar)(transfer.GLibString(identifier))
+		defer C.g_free(C.gpointer(carg1))
 	}
 
 	cret = C.g_time_zone_new_identifier(carg1)
@@ -23747,26 +23763,26 @@ func UriBuild(flags UriFlags, scheme string, userinfo string, host string, port 
 	var cret  *C.GUri     // return, full, converted
 
 	carg1 = C.GUriFlags(flags)
-	carg2 = (*C.gchar)(unsafe.Pointer(C.CString(scheme)))
-	defer C.free(unsafe.Pointer(carg2))
+	carg2 = (*C.gchar)(transfer.GLibString(scheme))
+	defer C.g_free(C.gpointer(carg2))
 	if userinfo != "" {
-		carg3 = (*C.gchar)(unsafe.Pointer(C.CString(userinfo)))
-		defer C.free(unsafe.Pointer(carg3))
+		carg3 = (*C.gchar)(transfer.GLibString(userinfo))
+		defer C.g_free(C.gpointer(carg3))
 	}
 	if host != "" {
-		carg4 = (*C.gchar)(unsafe.Pointer(C.CString(host)))
-		defer C.free(unsafe.Pointer(carg4))
+		carg4 = (*C.gchar)(transfer.GLibString(host))
+		defer C.g_free(C.gpointer(carg4))
 	}
 	carg5 = C.gint(port)
-	carg6 = (*C.gchar)(unsafe.Pointer(C.CString(path)))
-	defer C.free(unsafe.Pointer(carg6))
+	carg6 = (*C.gchar)(transfer.GLibString(path))
+	defer C.g_free(C.gpointer(carg6))
 	if query != "" {
-		carg7 = (*C.gchar)(unsafe.Pointer(C.CString(query)))
-		defer C.free(unsafe.Pointer(carg7))
+		carg7 = (*C.gchar)(transfer.GLibString(query))
+		defer C.g_free(C.gpointer(carg7))
 	}
 	if fragment != "" {
-		carg8 = (*C.gchar)(unsafe.Pointer(C.CString(fragment)))
-		defer C.free(unsafe.Pointer(carg8))
+		carg8 = (*C.gchar)(transfer.GLibString(fragment))
+		defer C.g_free(C.gpointer(carg8))
 	}
 
 	cret = C.g_uri_build(carg1, carg2, carg3, carg4, carg5, carg6, carg7, carg8)
@@ -23803,34 +23819,34 @@ func UriBuildWithUser(flags UriFlags, scheme string, user string, password strin
 	var cret   *C.GUri     // return, full, converted
 
 	carg1 = C.GUriFlags(flags)
-	carg2 = (*C.gchar)(unsafe.Pointer(C.CString(scheme)))
-	defer C.free(unsafe.Pointer(carg2))
+	carg2 = (*C.gchar)(transfer.GLibString(scheme))
+	defer C.g_free(C.gpointer(carg2))
 	if user != "" {
-		carg3 = (*C.gchar)(unsafe.Pointer(C.CString(user)))
-		defer C.free(unsafe.Pointer(carg3))
+		carg3 = (*C.gchar)(transfer.GLibString(user))
+		defer C.g_free(C.gpointer(carg3))
 	}
 	if password != "" {
-		carg4 = (*C.gchar)(unsafe.Pointer(C.CString(password)))
-		defer C.free(unsafe.Pointer(carg4))
+		carg4 = (*C.gchar)(transfer.GLibString(password))
+		defer C.g_free(C.gpointer(carg4))
 	}
 	if authParams != "" {
-		carg5 = (*C.gchar)(unsafe.Pointer(C.CString(authParams)))
-		defer C.free(unsafe.Pointer(carg5))
+		carg5 = (*C.gchar)(transfer.GLibString(authParams))
+		defer C.g_free(C.gpointer(carg5))
 	}
 	if host != "" {
-		carg6 = (*C.gchar)(unsafe.Pointer(C.CString(host)))
-		defer C.free(unsafe.Pointer(carg6))
+		carg6 = (*C.gchar)(transfer.GLibString(host))
+		defer C.g_free(C.gpointer(carg6))
 	}
 	carg7 = C.gint(port)
-	carg8 = (*C.gchar)(unsafe.Pointer(C.CString(path)))
-	defer C.free(unsafe.Pointer(carg8))
+	carg8 = (*C.gchar)(transfer.GLibString(path))
+	defer C.g_free(C.gpointer(carg8))
 	if query != "" {
-		carg9 = (*C.gchar)(unsafe.Pointer(C.CString(query)))
-		defer C.free(unsafe.Pointer(carg9))
+		carg9 = (*C.gchar)(transfer.GLibString(query))
+		defer C.g_free(C.gpointer(carg9))
 	}
 	if fragment != "" {
-		carg10 = (*C.gchar)(unsafe.Pointer(C.CString(fragment)))
-		defer C.free(unsafe.Pointer(carg10))
+		carg10 = (*C.gchar)(transfer.GLibString(fragment))
+		defer C.g_free(C.gpointer(carg10))
 	}
 
 	cret = C.g_uri_build_with_user(carg1, carg2, carg3, carg4, carg5, carg6, carg7, carg8, carg9, carg10)
@@ -23881,8 +23897,8 @@ func UriEscapeBytes(unescaped []uint8, reservedCharsAllowed string) string {
 	_ = carg2
 	panic("unimplemented conversion of []uint8 (const guint8*) because of unimplemented: non-fixed size array")
 	if reservedCharsAllowed != "" {
-		carg3 = (*C.char)(unsafe.Pointer(C.CString(reservedCharsAllowed)))
-		defer C.free(unsafe.Pointer(carg3))
+		carg3 = (*C.char)(transfer.GLibString(reservedCharsAllowed))
+		defer C.g_free(C.gpointer(carg3))
 	}
 
 	cret = C.g_uri_escape_bytes(carg1, carg2, carg3)
@@ -23906,11 +23922,11 @@ func UriEscapeString(unescaped string, reservedCharsAllowed string, allowUtf8 bo
 	var carg3 C.gboolean // in
 	var cret  *C.char    // return, full, string
 
-	carg1 = (*C.char)(unsafe.Pointer(C.CString(unescaped)))
-	defer C.free(unsafe.Pointer(carg1))
+	carg1 = (*C.char)(transfer.GLibString(unescaped))
+	defer C.g_free(C.gpointer(carg1))
 	if reservedCharsAllowed != "" {
-		carg2 = (*C.char)(unsafe.Pointer(C.CString(reservedCharsAllowed)))
-		defer C.free(unsafe.Pointer(carg2))
+		carg2 = (*C.char)(transfer.GLibString(reservedCharsAllowed))
+		defer C.g_free(C.gpointer(carg2))
 	}
 	if allowUtf8 {
 		carg3 = C.TRUE
@@ -23938,8 +23954,8 @@ func UriIsValid(uriString string, flags UriFlags) (bool, error) {
 	var cret  C.gboolean  // return
 	var _cerr *C.GError   // out, full, converted, nullable
 
-	carg1 = (*C.gchar)(unsafe.Pointer(C.CString(uriString)))
-	defer C.free(unsafe.Pointer(carg1))
+	carg1 = (*C.gchar)(transfer.GLibString(uriString))
+	defer C.g_free(C.gpointer(carg1))
 	carg2 = C.GUriFlags(flags)
 
 	cret = C.g_uri_is_valid(carg1, carg2, &_cerr)
@@ -23975,27 +23991,27 @@ func UriJoin(flags UriFlags, scheme string, userinfo string, host string, port i
 
 	carg1 = C.GUriFlags(flags)
 	if scheme != "" {
-		carg2 = (*C.gchar)(unsafe.Pointer(C.CString(scheme)))
-		defer C.free(unsafe.Pointer(carg2))
+		carg2 = (*C.gchar)(transfer.GLibString(scheme))
+		defer C.g_free(C.gpointer(carg2))
 	}
 	if userinfo != "" {
-		carg3 = (*C.gchar)(unsafe.Pointer(C.CString(userinfo)))
-		defer C.free(unsafe.Pointer(carg3))
+		carg3 = (*C.gchar)(transfer.GLibString(userinfo))
+		defer C.g_free(C.gpointer(carg3))
 	}
 	if host != "" {
-		carg4 = (*C.gchar)(unsafe.Pointer(C.CString(host)))
-		defer C.free(unsafe.Pointer(carg4))
+		carg4 = (*C.gchar)(transfer.GLibString(host))
+		defer C.g_free(C.gpointer(carg4))
 	}
 	carg5 = C.gint(port)
-	carg6 = (*C.gchar)(unsafe.Pointer(C.CString(path)))
-	defer C.free(unsafe.Pointer(carg6))
+	carg6 = (*C.gchar)(transfer.GLibString(path))
+	defer C.g_free(C.gpointer(carg6))
 	if query != "" {
-		carg7 = (*C.gchar)(unsafe.Pointer(C.CString(query)))
-		defer C.free(unsafe.Pointer(carg7))
+		carg7 = (*C.gchar)(transfer.GLibString(query))
+		defer C.g_free(C.gpointer(carg7))
 	}
 	if fragment != "" {
-		carg8 = (*C.gchar)(unsafe.Pointer(C.CString(fragment)))
-		defer C.free(unsafe.Pointer(carg8))
+		carg8 = (*C.gchar)(transfer.GLibString(fragment))
+		defer C.g_free(C.gpointer(carg8))
 	}
 
 	cret = C.g_uri_join(carg1, carg2, carg3, carg4, carg5, carg6, carg7, carg8)
@@ -24034,35 +24050,35 @@ func UriJoinWithUser(flags UriFlags, scheme string, user string, password string
 
 	carg1 = C.GUriFlags(flags)
 	if scheme != "" {
-		carg2 = (*C.gchar)(unsafe.Pointer(C.CString(scheme)))
-		defer C.free(unsafe.Pointer(carg2))
+		carg2 = (*C.gchar)(transfer.GLibString(scheme))
+		defer C.g_free(C.gpointer(carg2))
 	}
 	if user != "" {
-		carg3 = (*C.gchar)(unsafe.Pointer(C.CString(user)))
-		defer C.free(unsafe.Pointer(carg3))
+		carg3 = (*C.gchar)(transfer.GLibString(user))
+		defer C.g_free(C.gpointer(carg3))
 	}
 	if password != "" {
-		carg4 = (*C.gchar)(unsafe.Pointer(C.CString(password)))
-		defer C.free(unsafe.Pointer(carg4))
+		carg4 = (*C.gchar)(transfer.GLibString(password))
+		defer C.g_free(C.gpointer(carg4))
 	}
 	if authParams != "" {
-		carg5 = (*C.gchar)(unsafe.Pointer(C.CString(authParams)))
-		defer C.free(unsafe.Pointer(carg5))
+		carg5 = (*C.gchar)(transfer.GLibString(authParams))
+		defer C.g_free(C.gpointer(carg5))
 	}
 	if host != "" {
-		carg6 = (*C.gchar)(unsafe.Pointer(C.CString(host)))
-		defer C.free(unsafe.Pointer(carg6))
+		carg6 = (*C.gchar)(transfer.GLibString(host))
+		defer C.g_free(C.gpointer(carg6))
 	}
 	carg7 = C.gint(port)
-	carg8 = (*C.gchar)(unsafe.Pointer(C.CString(path)))
-	defer C.free(unsafe.Pointer(carg8))
+	carg8 = (*C.gchar)(transfer.GLibString(path))
+	defer C.g_free(C.gpointer(carg8))
 	if query != "" {
-		carg9 = (*C.gchar)(unsafe.Pointer(C.CString(query)))
-		defer C.free(unsafe.Pointer(carg9))
+		carg9 = (*C.gchar)(transfer.GLibString(query))
+		defer C.g_free(C.gpointer(carg9))
 	}
 	if fragment != "" {
-		carg10 = (*C.gchar)(unsafe.Pointer(C.CString(fragment)))
-		defer C.free(unsafe.Pointer(carg10))
+		carg10 = (*C.gchar)(transfer.GLibString(fragment))
+		defer C.g_free(C.gpointer(carg10))
 	}
 
 	cret = C.g_uri_join_with_user(carg1, carg2, carg3, carg4, carg5, carg6, carg7, carg8, carg9, carg10)
@@ -24092,8 +24108,8 @@ func UriListExtractUris(uriList string) []string {
 	var carg1 *C.gchar  // in, none, string
 	var cret  **C.gchar // return, transfer: full, C Pointers: 2, Name: array[utf8], scope: , array (inner gchar* (*typesystem.StringPrimitive), zero-terminated)
 
-	carg1 = (*C.gchar)(unsafe.Pointer(C.CString(uriList)))
-	defer C.free(unsafe.Pointer(carg1))
+	carg1 = (*C.gchar)(transfer.GLibString(uriList))
+	defer C.g_free(C.gpointer(carg1))
 
 	cret = C.g_uri_list_extract_uris(carg1)
 	runtime.KeepAlive(uriList)
@@ -24116,8 +24132,8 @@ func UriParse(uriString string, flags UriFlags) (*Uri, error) {
 	var cret  *C.GUri     // return, full, converted
 	var _cerr *C.GError   // out, full, converted, nullable
 
-	carg1 = (*C.gchar)(unsafe.Pointer(C.CString(uriString)))
-	defer C.free(unsafe.Pointer(carg1))
+	carg1 = (*C.gchar)(transfer.GLibString(uriString))
+	defer C.g_free(C.gpointer(carg1))
 	carg2 = C.GUriFlags(flags)
 
 	cret = C.g_uri_parse(carg1, carg2, &_cerr)
@@ -24142,8 +24158,8 @@ func UriParseScheme(uri string) string {
 	var carg1 *C.char // in, none, string
 	var cret  *C.char // return, full, string, nullable-string
 
-	carg1 = (*C.char)(unsafe.Pointer(C.CString(uri)))
-	defer C.free(unsafe.Pointer(carg1))
+	carg1 = (*C.char)(transfer.GLibString(uri))
+	defer C.g_free(C.gpointer(carg1))
 
 	cret = C.g_uri_parse_scheme(carg1)
 	runtime.KeepAlive(uri)
@@ -24165,8 +24181,8 @@ func UriPeekScheme(uri string) string {
 	var carg1 *C.char // in, none, string
 	var cret  *C.char // return, none, string, nullable-string
 
-	carg1 = (*C.char)(unsafe.Pointer(C.CString(uri)))
-	defer C.free(unsafe.Pointer(carg1))
+	carg1 = (*C.char)(transfer.GLibString(uri))
+	defer C.g_free(C.gpointer(carg1))
 
 	cret = C.g_uri_peek_scheme(carg1)
 	runtime.KeepAlive(uri)
@@ -24191,11 +24207,11 @@ func UriResolveRelative(baseUriString string, uriRef string, flags UriFlags) (st
 	var _cerr *C.GError   // out, full, converted, nullable
 
 	if baseUriString != "" {
-		carg1 = (*C.gchar)(unsafe.Pointer(C.CString(baseUriString)))
-		defer C.free(unsafe.Pointer(carg1))
+		carg1 = (*C.gchar)(transfer.GLibString(baseUriString))
+		defer C.g_free(C.gpointer(carg1))
 	}
-	carg2 = (*C.gchar)(unsafe.Pointer(C.CString(uriRef)))
-	defer C.free(unsafe.Pointer(carg2))
+	carg2 = (*C.gchar)(transfer.GLibString(uriRef))
+	defer C.g_free(C.gpointer(carg2))
 	carg3 = C.GUriFlags(flags)
 
 	cret = C.g_uri_resolve_relative(carg1, carg2, carg3, &_cerr)
@@ -24231,8 +24247,8 @@ func UriSplit(uriRef string, flags UriFlags) (string, string, string, int32, str
 	var cret  C.gboolean  // return
 	var _cerr *C.GError   // out, full, converted, nullable
 
-	carg1 = (*C.gchar)(unsafe.Pointer(C.CString(uriRef)))
-	defer C.free(unsafe.Pointer(carg1))
+	carg1 = (*C.gchar)(transfer.GLibString(uriRef))
+	defer C.g_free(C.gpointer(carg1))
 	carg2 = C.GUriFlags(flags)
 
 	cret = C.g_uri_split(carg1, carg2, &carg3, &carg4, &carg5, &carg6, &carg7, &carg8, &carg9, &_cerr)
@@ -24294,8 +24310,8 @@ func UriSplitNetwork(uriString string, flags UriFlags) (string, string, int32, b
 	var cret  C.gboolean  // return
 	var _cerr *C.GError   // out, full, converted, nullable
 
-	carg1 = (*C.gchar)(unsafe.Pointer(C.CString(uriString)))
-	defer C.free(unsafe.Pointer(carg1))
+	carg1 = (*C.gchar)(transfer.GLibString(uriString))
+	defer C.g_free(C.gpointer(carg1))
 	carg2 = C.GUriFlags(flags)
 
 	cret = C.g_uri_split_network(carg1, carg2, &carg3, &carg4, &carg5, &_cerr)
@@ -24345,8 +24361,8 @@ func UriSplitWithUser(uriRef string, flags UriFlags) (string, string, string, st
 	var cret   C.gboolean  // return
 	var _cerr  *C.GError   // out, full, converted, nullable
 
-	carg1 = (*C.gchar)(unsafe.Pointer(C.CString(uriRef)))
-	defer C.free(unsafe.Pointer(carg1))
+	carg1 = (*C.gchar)(transfer.GLibString(uriRef))
+	defer C.g_free(C.gpointer(carg1))
 	carg2 = C.GUriFlags(flags)
 
 	cret = C.g_uri_split_with_user(carg1, carg2, &carg3, &carg4, &carg5, &carg6, &carg7, &carg8, &carg9, &carg10, &carg11, &_cerr)
@@ -24416,12 +24432,12 @@ func UriUnescapeBytes(escapedString string, length int, illegalCharacters string
 	var cret  *C.GBytes // return, full, converted
 	var _cerr *C.GError // out, full, converted, nullable
 
-	carg1 = (*C.char)(unsafe.Pointer(C.CString(escapedString)))
-	defer C.free(unsafe.Pointer(carg1))
+	carg1 = (*C.char)(transfer.GLibString(escapedString))
+	defer C.g_free(C.gpointer(carg1))
 	carg2 = C.gssize(length)
 	if illegalCharacters != "" {
-		carg3 = (*C.char)(unsafe.Pointer(C.CString(illegalCharacters)))
-		defer C.free(unsafe.Pointer(carg3))
+		carg3 = (*C.char)(transfer.GLibString(illegalCharacters))
+		defer C.g_free(C.gpointer(carg3))
 	}
 
 	cret = C.g_uri_unescape_bytes(carg1, carg2, carg3, &_cerr)
@@ -24450,16 +24466,16 @@ func UriUnescapeSegment(escapedString string, escapedStringEnd string, illegalCh
 	var cret  *C.char // return, full, string, nullable-string
 
 	if escapedString != "" {
-		carg1 = (*C.char)(unsafe.Pointer(C.CString(escapedString)))
-		defer C.free(unsafe.Pointer(carg1))
+		carg1 = (*C.char)(transfer.GLibString(escapedString))
+		defer C.g_free(C.gpointer(carg1))
 	}
 	if escapedStringEnd != "" {
-		carg2 = (*C.char)(unsafe.Pointer(C.CString(escapedStringEnd)))
-		defer C.free(unsafe.Pointer(carg2))
+		carg2 = (*C.char)(transfer.GLibString(escapedStringEnd))
+		defer C.g_free(C.gpointer(carg2))
 	}
 	if illegalCharacters != "" {
-		carg3 = (*C.char)(unsafe.Pointer(C.CString(illegalCharacters)))
-		defer C.free(unsafe.Pointer(carg3))
+		carg3 = (*C.char)(transfer.GLibString(illegalCharacters))
+		defer C.g_free(C.gpointer(carg3))
 	}
 
 	cret = C.g_uri_unescape_segment(carg1, carg2, carg3)
@@ -24485,11 +24501,11 @@ func UriUnescapeString(escapedString string, illegalCharacters string) string {
 	var carg2 *C.char // in, none, string, nullable-string
 	var cret  *C.char // return, full, string, nullable-string
 
-	carg1 = (*C.char)(unsafe.Pointer(C.CString(escapedString)))
-	defer C.free(unsafe.Pointer(carg1))
+	carg1 = (*C.char)(transfer.GLibString(escapedString))
+	defer C.g_free(C.gpointer(carg1))
 	if illegalCharacters != "" {
-		carg2 = (*C.char)(unsafe.Pointer(C.CString(illegalCharacters)))
-		defer C.free(unsafe.Pointer(carg2))
+		carg2 = (*C.char)(transfer.GLibString(illegalCharacters))
+		defer C.g_free(C.gpointer(carg2))
 	}
 
 	cret = C.g_uri_unescape_string(carg1, carg2)
@@ -24740,8 +24756,8 @@ func (baseUri *Uri) ParseRelative(uriRef string, flags UriFlags) (*Uri, error) {
 	var _cerr *C.GError   // out, full, converted, nullable
 
 	carg0 = (*C.GUri)(UnsafeUriToGlibNone(baseUri))
-	carg1 = (*C.gchar)(unsafe.Pointer(C.CString(uriRef)))
-	defer C.free(unsafe.Pointer(carg1))
+	carg1 = (*C.gchar)(transfer.GLibString(uriRef))
+	defer C.g_free(C.gpointer(carg1))
 	carg2 = C.GUriFlags(flags)
 
 	cret = C.g_uri_parse_relative(carg0, carg1, carg2, &_cerr)
@@ -24896,11 +24912,11 @@ func (iter *UriParamsIter) Init(params string, length int, separators string, fl
 	var carg4 C.GUriParamsFlags // in, none, casted
 
 	carg0 = (*C.GUriParamsIter)(UnsafeUriParamsIterToGlibNone(iter))
-	carg1 = (*C.gchar)(unsafe.Pointer(C.CString(params)))
-	defer C.free(unsafe.Pointer(carg1))
+	carg1 = (*C.gchar)(transfer.GLibString(params))
+	defer C.g_free(C.gpointer(carg1))
 	carg2 = C.gssize(length)
-	carg3 = (*C.gchar)(unsafe.Pointer(C.CString(separators)))
-	defer C.free(unsafe.Pointer(carg3))
+	carg3 = (*C.gchar)(transfer.GLibString(separators))
+	defer C.g_free(C.gpointer(carg3))
 	carg4 = C.GUriParamsFlags(flags)
 
 	C.g_uri_params_iter_init(carg0, carg1, carg2, carg3, carg4)
@@ -25206,8 +25222,8 @@ func (dict *VariantDict) Contains(key string) bool {
 	var cret  C.gboolean      // return
 
 	carg0 = (*C.GVariantDict)(UnsafeVariantDictToGlibNone(dict))
-	carg1 = (*C.gchar)(unsafe.Pointer(C.CString(key)))
-	defer C.free(unsafe.Pointer(carg1))
+	carg1 = (*C.gchar)(transfer.GLibString(key))
+	defer C.g_free(C.gpointer(carg1))
 
 	cret = C.g_variant_dict_contains(carg0, carg1)
 	runtime.KeepAlive(dict)
@@ -25231,8 +25247,8 @@ func (dict *VariantDict) Remove(key string) bool {
 	var cret  C.gboolean      // return
 
 	carg0 = (*C.GVariantDict)(UnsafeVariantDictToGlibNone(dict))
-	carg1 = (*C.gchar)(unsafe.Pointer(C.CString(key)))
-	defer C.free(unsafe.Pointer(carg1))
+	carg1 = (*C.gchar)(transfer.GLibString(key))
+	defer C.g_free(C.gpointer(carg1))
 
 	cret = C.g_variant_dict_remove(carg0, carg1)
 	runtime.KeepAlive(dict)
@@ -25336,8 +25352,8 @@ func NewVariantType(typeString string) *VariantType {
 	var carg1 *C.gchar        // in, none, string
 	var cret  *C.GVariantType // return, full, converted
 
-	carg1 = (*C.gchar)(unsafe.Pointer(C.CString(typeString)))
-	defer C.free(unsafe.Pointer(carg1))
+	carg1 = (*C.gchar)(transfer.GLibString(typeString))
+	defer C.g_free(C.gpointer(carg1))
 
 	cret = C.g_variant_type_new(carg1)
 	runtime.KeepAlive(typeString)
@@ -25439,8 +25455,8 @@ func VariantTypeChecked(typeString string) *VariantType {
 	var carg1 *C.gchar        // in, none, string
 	var cret  *C.GVariantType // return, none, converted
 
-	carg1 = (*C.gchar)(unsafe.Pointer(C.CString(typeString)))
-	defer C.free(unsafe.Pointer(carg1))
+	carg1 = (*C.gchar)(transfer.GLibString(typeString))
+	defer C.g_free(C.gpointer(carg1))
 
 	cret = C.g_variant_type_checked_(carg1)
 	runtime.KeepAlive(typeString)
@@ -25459,8 +25475,8 @@ func VariantTypeStringGetDepth(typeString string) uint {
 	var carg1 *C.gchar // in, none, string
 	var cret  C.gsize  // return, none, casted
 
-	carg1 = (*C.gchar)(unsafe.Pointer(C.CString(typeString)))
-	defer C.free(unsafe.Pointer(carg1))
+	carg1 = (*C.gchar)(transfer.GLibString(typeString))
+	defer C.g_free(C.gpointer(carg1))
 
 	cret = C.g_variant_type_string_get_depth_(carg1)
 	runtime.KeepAlive(typeString)
@@ -25479,8 +25495,8 @@ func VariantTypeStringIsValid(typeString string) bool {
 	var carg1 *C.gchar   // in, none, string
 	var cret  C.gboolean // return
 
-	carg1 = (*C.gchar)(unsafe.Pointer(C.CString(typeString)))
-	defer C.free(unsafe.Pointer(carg1))
+	carg1 = (*C.gchar)(transfer.GLibString(typeString))
+	defer C.g_free(C.gpointer(carg1))
 
 	cret = C.g_variant_type_string_is_valid(carg1)
 	runtime.KeepAlive(typeString)
@@ -25503,11 +25519,11 @@ func VariantTypeStringScan(str string, limit string) (string, bool) {
 	var carg3 *C.gchar   // out, full, string
 	var cret  C.gboolean // return
 
-	carg1 = (*C.gchar)(unsafe.Pointer(C.CString(str)))
-	defer C.free(unsafe.Pointer(carg1))
+	carg1 = (*C.gchar)(transfer.GLibString(str))
+	defer C.g_free(C.gpointer(carg1))
 	if limit != "" {
-		carg2 = (*C.gchar)(unsafe.Pointer(C.CString(limit)))
-		defer C.free(unsafe.Pointer(carg2))
+		carg2 = (*C.gchar)(transfer.GLibString(limit))
+		defer C.g_free(C.gpointer(carg2))
 	}
 
 	cret = C.g_variant_type_string_scan(carg1, carg2, &carg3)
