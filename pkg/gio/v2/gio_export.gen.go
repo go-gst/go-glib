@@ -386,18 +386,6 @@ func _goglib_gio2_IOStream_get_output_stream(carg0 *C.GIOStream) (cret *C.GOutpu
 	return fn(carg0)
 }
 
-//export _goglib_gio2_InetAddress_to_string
-func _goglib_gio2_InetAddress_to_string(carg0 *C.GInetAddress) (cret *C.gchar) {
-	var fn func(carg0 *C.GInetAddress) (cret *C.gchar)
-	{
-		fn = classdata.LoadVirtualMethodFromInstance(unsafe.Pointer(carg0), "_goglib_gio2_InetAddress_to_string").(func(carg0 *C.GInetAddress) (cret *C.gchar))
-		if fn == nil {
-			panic("_goglib_gio2_InetAddress_to_string: no function pointer found")
-		}
-	}
-	return fn(carg0)
-}
-
 //export _goglib_gio2_InputStream_close_finish
 func _goglib_gio2_InputStream_close_finish(carg0 *C.GInputStream, carg1 *C.GAsyncResult, _cerr **C.GError) (cret C.gboolean) {
 	var fn func(carg0 *C.GInputStream, carg1 *C.GAsyncResult, _cerr **C.GError) (cret C.gboolean)
@@ -698,18 +686,6 @@ func _goglib_gio2_OutputStream_writev_finish(carg0 *C.GOutputStream, carg1 *C.GA
 	return fn(carg0, carg1, carg2, _cerr)
 }
 
-//export _goglib_gio2_OutputStream_writev_fn
-func _goglib_gio2_OutputStream_writev_fn(carg0 *C.GOutputStream, carg1 *C.GOutputVector, carg2 C.gsize, carg3 *C.gsize, carg4 *C.GCancellable, _cerr **C.GError) (cret C.gboolean) {
-	var fn func(carg0 *C.GOutputStream, carg1 *C.GOutputVector, carg2 C.gsize, carg3 *C.gsize, carg4 *C.GCancellable, _cerr **C.GError) (cret C.gboolean)
-	{
-		fn = classdata.LoadVirtualMethodFromInstance(unsafe.Pointer(carg0), "_goglib_gio2_OutputStream_writev_fn").(func(carg0 *C.GOutputStream, carg1 *C.GOutputVector, carg2 C.gsize, carg3 *C.gsize, carg4 *C.GCancellable, _cerr **C.GError) (cret C.gboolean))
-		if fn == nil {
-			panic("_goglib_gio2_OutputStream_writev_fn: no function pointer found")
-		}
-	}
-	return fn(carg0, carg1, carg2, carg3, carg4, _cerr)
-}
-
 //export _goglib_gio2_Permission_acquire
 func _goglib_gio2_Permission_acquire(carg0 *C.GPermission, carg1 *C.GCancellable, _cerr **C.GError) (cret C.gboolean) {
 	var fn func(carg0 *C.GPermission, carg1 *C.GCancellable, _cerr **C.GError) (cret C.gboolean)
@@ -753,30 +729,6 @@ func _goglib_gio2_Permission_release_finish(carg0 *C.GPermission, carg1 *C.GAsyn
 		fn = classdata.LoadVirtualMethodFromInstance(unsafe.Pointer(carg0), "_goglib_gio2_Permission_release_finish").(func(carg0 *C.GPermission, carg1 *C.GAsyncResult, _cerr **C.GError) (cret C.gboolean))
 		if fn == nil {
 			panic("_goglib_gio2_Permission_release_finish: no function pointer found")
-		}
-	}
-	return fn(carg0, carg1, _cerr)
-}
-
-//export _goglib_gio2_Resolver_lookup_by_address
-func _goglib_gio2_Resolver_lookup_by_address(carg0 *C.GResolver, carg1 *C.GInetAddress, carg2 *C.GCancellable, _cerr **C.GError) (cret *C.gchar) {
-	var fn func(carg0 *C.GResolver, carg1 *C.GInetAddress, carg2 *C.GCancellable, _cerr **C.GError) (cret *C.gchar)
-	{
-		fn = classdata.LoadVirtualMethodFromInstance(unsafe.Pointer(carg0), "_goglib_gio2_Resolver_lookup_by_address").(func(carg0 *C.GResolver, carg1 *C.GInetAddress, carg2 *C.GCancellable, _cerr **C.GError) (cret *C.gchar))
-		if fn == nil {
-			panic("_goglib_gio2_Resolver_lookup_by_address: no function pointer found")
-		}
-	}
-	return fn(carg0, carg1, carg2, _cerr)
-}
-
-//export _goglib_gio2_Resolver_lookup_by_address_finish
-func _goglib_gio2_Resolver_lookup_by_address_finish(carg0 *C.GResolver, carg1 *C.GAsyncResult, _cerr **C.GError) (cret *C.gchar) {
-	var fn func(carg0 *C.GResolver, carg1 *C.GAsyncResult, _cerr **C.GError) (cret *C.gchar)
-	{
-		fn = classdata.LoadVirtualMethodFromInstance(unsafe.Pointer(carg0), "_goglib_gio2_Resolver_lookup_by_address_finish").(func(carg0 *C.GResolver, carg1 *C.GAsyncResult, _cerr **C.GError) (cret *C.gchar))
-		if fn == nil {
-			panic("_goglib_gio2_Resolver_lookup_by_address_finish: no function pointer found")
 		}
 	}
 	return fn(carg0, carg1, _cerr)
@@ -1104,18 +1056,6 @@ func _goglib_gio2_TlsConnection_handshake_finish(carg0 *C.GTlsConnection, carg1 
 		}
 	}
 	return fn(carg0, carg1, _cerr)
-}
-
-//export _goglib_gio2_TlsDatabase_create_certificate_handle
-func _goglib_gio2_TlsDatabase_create_certificate_handle(carg0 *C.GTlsDatabase, carg1 *C.GTlsCertificate) (cret *C.gchar) {
-	var fn func(carg0 *C.GTlsDatabase, carg1 *C.GTlsCertificate) (cret *C.gchar)
-	{
-		fn = classdata.LoadVirtualMethodFromInstance(unsafe.Pointer(carg0), "_goglib_gio2_TlsDatabase_create_certificate_handle").(func(carg0 *C.GTlsDatabase, carg1 *C.GTlsCertificate) (cret *C.gchar))
-		if fn == nil {
-			panic("_goglib_gio2_TlsDatabase_create_certificate_handle: no function pointer found")
-		}
-	}
-	return fn(carg0, carg1)
 }
 
 //export _goglib_gio2_TlsDatabase_lookup_certificate_for_handle
@@ -1610,18 +1550,6 @@ func _goglib_gio2_FileIOStream_can_truncate(carg0 *C.GFileIOStream) (cret C.gboo
 	return fn(carg0)
 }
 
-//export _goglib_gio2_FileIOStream_get_etag
-func _goglib_gio2_FileIOStream_get_etag(carg0 *C.GFileIOStream) (cret *C.char) {
-	var fn func(carg0 *C.GFileIOStream) (cret *C.char)
-	{
-		fn = classdata.LoadVirtualMethodFromInstance(unsafe.Pointer(carg0), "_goglib_gio2_FileIOStream_get_etag").(func(carg0 *C.GFileIOStream) (cret *C.char))
-		if fn == nil {
-			panic("_goglib_gio2_FileIOStream_get_etag: no function pointer found")
-		}
-	}
-	return fn(carg0)
-}
-
 //export _goglib_gio2_FileIOStream_query_info
 func _goglib_gio2_FileIOStream_query_info(carg0 *C.GFileIOStream, carg1 *C.char, carg2 *C.GCancellable, _cerr **C.GError) (cret *C.GFileInfo) {
 	var fn func(carg0 *C.GFileIOStream, carg1 *C.char, carg2 *C.GCancellable, _cerr **C.GError) (cret *C.GFileInfo)
@@ -1761,18 +1689,6 @@ func _goglib_gio2_FileOutputStream_can_truncate(carg0 *C.GFileOutputStream) (cre
 		fn = classdata.LoadVirtualMethodFromInstance(unsafe.Pointer(carg0), "_goglib_gio2_FileOutputStream_can_truncate").(func(carg0 *C.GFileOutputStream) (cret C.gboolean))
 		if fn == nil {
 			panic("_goglib_gio2_FileOutputStream_can_truncate: no function pointer found")
-		}
-	}
-	return fn(carg0)
-}
-
-//export _goglib_gio2_FileOutputStream_get_etag
-func _goglib_gio2_FileOutputStream_get_etag(carg0 *C.GFileOutputStream) (cret *C.char) {
-	var fn func(carg0 *C.GFileOutputStream) (cret *C.char)
-	{
-		fn = classdata.LoadVirtualMethodFromInstance(unsafe.Pointer(carg0), "_goglib_gio2_FileOutputStream_get_etag").(func(carg0 *C.GFileOutputStream) (cret *C.char))
-		if fn == nil {
-			panic("_goglib_gio2_FileOutputStream_get_etag: no function pointer found")
 		}
 	}
 	return fn(carg0)

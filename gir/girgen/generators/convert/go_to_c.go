@@ -75,7 +75,7 @@ func newGoToCBasicConverter(p *typesystem.Param) Converter {
 
 	if ok && p.CTypePointers == 1 {
 
-		if ok && conv.CanTransferToGlib(p.TransferOwnership) {
+		if ok && conv.CanTransfer(typesystem.DirectionGoToC, p.TransferOwnership) {
 			return &GoToCConvertibleConverter{
 				Param:       p,
 				ConvertFunc: p.Type.WithForeignNamespace(conv.GetTransferToGlibFunction(p.TransferOwnership)),

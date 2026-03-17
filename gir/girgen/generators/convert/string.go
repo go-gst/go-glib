@@ -21,7 +21,7 @@ func (c *CToGoStringConverter) Convert(w file.File) {
 	switch c.Param.TransferOwnership {
 	case typesystem.TransferFull:
 		// GoString copies the param, so free it immediately
-		fmt.Fprintf(w.Go(), "defer C.free(unsafe.Pointer(%s))\n", c.Param.CName)
+		fmt.Fprintf(w.Go(), "defer C.g_free(C.gpointer(%s))\n", c.Param.CName)
 	case typesystem.TransferNone:
 		// C will free it
 	default:
@@ -55,7 +55,7 @@ func (c *GoToCStringConverter) Convert(w file.File) {
 
 	switch c.Param.TransferOwnership {
 	case typesystem.TransferFull:
-		return // C will free it
+		panic("TransferFull is not supported for GoToCStringConverter, because the free function may be different than C.free")
 	case typesystem.TransferNone:
 		fmt.Fprintf(w.Go(), "defer C.free(unsafe.Pointer(%s))\n", c.Param.CName)
 	default:

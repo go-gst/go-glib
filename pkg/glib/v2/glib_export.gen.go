@@ -35,34 +35,6 @@ func _goglib_glib2_LogFunc(carg1 *C.gchar, carg2 C.GLogLevelFlags, carg3 *C.gcha
 	fn(logDomain, logLevel, message)
 }
 
-//export _goglib_glib2_LogWriterFunc
-func _goglib_glib2_LogWriterFunc(carg1 C.GLogLevelFlags, carg2 *C.GLogField, carg3 C.gsize, carg4 C.gpointer) (cret C.GLogWriterOutput) {
-	var fn LogWriterFunc
-	{
-		v := userdata.Load(unsafe.Pointer(carg4))
-		if v == nil {
-			panic(`callback not found`)
-		}
-		fn = v.(LogWriterFunc)
-	}
-
-	var logLevel LogLevelFlags   // in, none, casted
-	var fields   []LogField      // in, transfer: none, C Pointers: 1, Name: array[LogField], array (inner GLogField (*typesystem.Record), length-by: carg3)
-	var goret    LogWriterOutput // return, none, casted
-
-	logLevel = LogLevelFlags(carg1)
-	_ = fields
-	_ = carg2
-	_ = carg3
-	panic("unimplemented conversion of []LogField (const GLogField*) because of unknown reason")
-
-	goret = fn(logLevel, fields)
-
-	cret = C.GLogWriterOutput(goret)
-
-	return cret
-}
-
 //export _goglib_glib2_SourceFunc
 func _goglib_glib2_SourceFunc(carg1 C.gpointer) (cret C.gboolean) {
 	var fn SourceFunc

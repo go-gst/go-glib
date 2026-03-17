@@ -130,10 +130,6 @@ import (
 // GOutputStream* _goglib_gio2_IOStream_virtual_get_output_stream(void* fnptr, GIOStream* carg0) {
 // 	return ((GOutputStream* (*) (GIOStream*))(fnptr))(carg0);
 // }
-// extern gchar* _goglib_gio2_InetAddress_to_string(GInetAddress*);
-// gchar* _goglib_gio2_InetAddress_virtual_to_string(void* fnptr, GInetAddress* carg0) {
-// 	return ((gchar* (*) (GInetAddress*))(fnptr))(carg0);
-// }
 // extern gboolean _goglib_gio2_InputStream_close_finish(GInputStream*, GAsyncResult*, GError*);
 // extern gboolean _goglib_gio2_InputStream_close_fn(GInputStream*, GCancellable*, GError*);
 // extern gssize _goglib_gio2_InputStream_read_finish(GInputStream*, GAsyncResult*, GError*);
@@ -207,7 +203,6 @@ import (
 // extern gssize _goglib_gio2_OutputStream_write_finish(GOutputStream*, GAsyncResult*, GError*);
 // extern gssize _goglib_gio2_OutputStream_write_fn(GOutputStream*, void*, gsize, GCancellable*, GError*);
 // extern gboolean _goglib_gio2_OutputStream_writev_finish(GOutputStream*, GAsyncResult*, gsize, GError*);
-// extern gboolean _goglib_gio2_OutputStream_writev_fn(GOutputStream*, const GOutputVector*, gsize, gsize, GCancellable*, GError*);
 // gboolean _goglib_gio2_OutputStream_virtual_close_finish(void* fnptr, GOutputStream* carg0, GAsyncResult* carg1, GError** _cerr) {
 // 	return ((gboolean (*) (GOutputStream*, GAsyncResult*, GError**))(fnptr))(carg0, carg1, _cerr);
 // }
@@ -235,9 +230,6 @@ import (
 // gboolean _goglib_gio2_OutputStream_virtual_writev_finish(void* fnptr, GOutputStream* carg0, GAsyncResult* carg1, gsize* carg2, GError** _cerr) {
 // 	return ((gboolean (*) (GOutputStream*, GAsyncResult*, gsize*, GError**))(fnptr))(carg0, carg1, carg2, _cerr);
 // }
-// gboolean _goglib_gio2_OutputStream_virtual_writev_fn(void* fnptr, GOutputStream* carg0, const GOutputVector* carg1, gsize carg2, gsize* carg3, GCancellable* carg4, GError** _cerr) {
-// 	return ((gboolean (*) (GOutputStream*, const GOutputVector*, gsize, gsize*, GCancellable*, GError**))(fnptr))(carg0, carg1, carg2, carg3, carg4, _cerr);
-// }
 // extern gboolean _goglib_gio2_Permission_acquire(GPermission*, GCancellable*, GError*);
 // extern gboolean _goglib_gio2_Permission_acquire_finish(GPermission*, GAsyncResult*, GError*);
 // extern gboolean _goglib_gio2_Permission_release(GPermission*, GCancellable*, GError*);
@@ -254,20 +246,12 @@ import (
 // gboolean _goglib_gio2_Permission_virtual_release_finish(void* fnptr, GPermission* carg0, GAsyncResult* carg1, GError** _cerr) {
 // 	return ((gboolean (*) (GPermission*, GAsyncResult*, GError**))(fnptr))(carg0, carg1, _cerr);
 // }
-// extern gchar* _goglib_gio2_Resolver_lookup_by_address(GResolver*, GInetAddress*, GCancellable*, GError*);
-// extern gchar* _goglib_gio2_Resolver_lookup_by_address_finish(GResolver*, GAsyncResult*, GError*);
 // extern GList* _goglib_gio2_Resolver_lookup_by_name(GResolver*, const gchar*, GCancellable*, GError*);
 // extern GList* _goglib_gio2_Resolver_lookup_by_name_finish(GResolver*, GAsyncResult*, GError*);
 // extern GList* _goglib_gio2_Resolver_lookup_by_name_with_flags(GResolver*, const gchar*, GResolverNameLookupFlags, GCancellable*, GError*);
 // extern GList* _goglib_gio2_Resolver_lookup_by_name_with_flags_finish(GResolver*, GAsyncResult*, GError*);
 // extern GList* _goglib_gio2_Resolver_lookup_service_finish(GResolver*, GAsyncResult*, GError*);
 // extern void _goglib_gio2_Resolver_reload(GResolver*);
-// gchar* _goglib_gio2_Resolver_virtual_lookup_by_address(void* fnptr, GResolver* carg0, GInetAddress* carg1, GCancellable* carg2, GError** _cerr) {
-// 	return ((gchar* (*) (GResolver*, GInetAddress*, GCancellable*, GError**))(fnptr))(carg0, carg1, carg2, _cerr);
-// }
-// gchar* _goglib_gio2_Resolver_virtual_lookup_by_address_finish(void* fnptr, GResolver* carg0, GAsyncResult* carg1, GError** _cerr) {
-// 	return ((gchar* (*) (GResolver*, GAsyncResult*, GError**))(fnptr))(carg0, carg1, _cerr);
-// }
 // GList* _goglib_gio2_Resolver_virtual_lookup_by_name(void* fnptr, GResolver* carg0, const gchar* carg1, GCancellable* carg2, GError** _cerr) {
 // 	return ((GList* (*) (GResolver*, const gchar*, GCancellable*, GError**))(fnptr))(carg0, carg1, carg2, _cerr);
 // }
@@ -370,7 +354,6 @@ import (
 // gboolean _goglib_gio2_TlsConnection_virtual_handshake_finish(void* fnptr, GTlsConnection* carg0, GAsyncResult* carg1, GError** _cerr) {
 // 	return ((gboolean (*) (GTlsConnection*, GAsyncResult*, GError**))(fnptr))(carg0, carg1, _cerr);
 // }
-// extern gchar* _goglib_gio2_TlsDatabase_create_certificate_handle(GTlsDatabase*, GTlsCertificate*);
 // extern GTlsCertificate* _goglib_gio2_TlsDatabase_lookup_certificate_for_handle(GTlsDatabase*, const gchar*, GTlsInteraction*, GTlsDatabaseLookupFlags, GCancellable*, GError*);
 // extern GTlsCertificate* _goglib_gio2_TlsDatabase_lookup_certificate_for_handle_finish(GTlsDatabase*, GAsyncResult*, GError*);
 // extern GTlsCertificate* _goglib_gio2_TlsDatabase_lookup_certificate_issuer(GTlsDatabase*, GTlsCertificate*, GTlsInteraction*, GTlsDatabaseLookupFlags, GCancellable*, GError*);
@@ -378,9 +361,6 @@ import (
 // extern GList* _goglib_gio2_TlsDatabase_lookup_certificates_issued_by_finish(GTlsDatabase*, GAsyncResult*, GError*);
 // extern GTlsCertificateFlags _goglib_gio2_TlsDatabase_verify_chain(GTlsDatabase*, GTlsCertificate*, const gchar*, GSocketConnectable*, GTlsInteraction*, GTlsDatabaseVerifyFlags, GCancellable*, GError*);
 // extern GTlsCertificateFlags _goglib_gio2_TlsDatabase_verify_chain_finish(GTlsDatabase*, GAsyncResult*, GError*);
-// gchar* _goglib_gio2_TlsDatabase_virtual_create_certificate_handle(void* fnptr, GTlsDatabase* carg0, GTlsCertificate* carg1) {
-// 	return ((gchar* (*) (GTlsDatabase*, GTlsCertificate*))(fnptr))(carg0, carg1);
-// }
 // GTlsCertificate* _goglib_gio2_TlsDatabase_virtual_lookup_certificate_for_handle(void* fnptr, GTlsDatabase* carg0, const gchar* carg1, GTlsInteraction* carg2, GTlsDatabaseLookupFlags carg3, GCancellable* carg4, GError** _cerr) {
 // 	return ((GTlsCertificate* (*) (GTlsDatabase*, const gchar*, GTlsInteraction*, GTlsDatabaseLookupFlags, GCancellable*, GError**))(fnptr))(carg0, carg1, carg2, carg3, carg4, _cerr);
 // }
@@ -532,7 +512,6 @@ import (
 // }
 // extern gboolean _goglib_gio2_FileIOStream_can_seek(GFileIOStream*);
 // extern gboolean _goglib_gio2_FileIOStream_can_truncate(GFileIOStream*);
-// extern char* _goglib_gio2_FileIOStream_get_etag(GFileIOStream*);
 // extern GFileInfo* _goglib_gio2_FileIOStream_query_info(GFileIOStream*, const char*, GCancellable*, GError*);
 // extern GFileInfo* _goglib_gio2_FileIOStream_query_info_finish(GFileIOStream*, GAsyncResult*, GError*);
 // extern gboolean _goglib_gio2_FileIOStream_seek(GFileIOStream*, goffset, GSeekType, GCancellable*, GError*);
@@ -543,9 +522,6 @@ import (
 // }
 // gboolean _goglib_gio2_FileIOStream_virtual_can_truncate(void* fnptr, GFileIOStream* carg0) {
 // 	return ((gboolean (*) (GFileIOStream*))(fnptr))(carg0);
-// }
-// char* _goglib_gio2_FileIOStream_virtual_get_etag(void* fnptr, GFileIOStream* carg0) {
-// 	return ((char* (*) (GFileIOStream*))(fnptr))(carg0);
 // }
 // GFileInfo* _goglib_gio2_FileIOStream_virtual_query_info(void* fnptr, GFileIOStream* carg0, const char* carg1, GCancellable* carg2, GError** _cerr) {
 // 	return ((GFileInfo* (*) (GFileIOStream*, const char*, GCancellable*, GError**))(fnptr))(carg0, carg1, carg2, _cerr);
@@ -584,7 +560,6 @@ import (
 // }
 // extern gboolean _goglib_gio2_FileOutputStream_can_seek(GFileOutputStream*);
 // extern gboolean _goglib_gio2_FileOutputStream_can_truncate(GFileOutputStream*);
-// extern char* _goglib_gio2_FileOutputStream_get_etag(GFileOutputStream*);
 // extern GFileInfo* _goglib_gio2_FileOutputStream_query_info(GFileOutputStream*, const char*, GCancellable*, GError*);
 // extern GFileInfo* _goglib_gio2_FileOutputStream_query_info_finish(GFileOutputStream*, GAsyncResult*, GError*);
 // extern gboolean _goglib_gio2_FileOutputStream_seek(GFileOutputStream*, goffset, GSeekType, GCancellable*, GError*);
@@ -595,9 +570,6 @@ import (
 // }
 // gboolean _goglib_gio2_FileOutputStream_virtual_can_truncate(void* fnptr, GFileOutputStream* carg0) {
 // 	return ((gboolean (*) (GFileOutputStream*))(fnptr))(carg0);
-// }
-// char* _goglib_gio2_FileOutputStream_virtual_get_etag(void* fnptr, GFileOutputStream* carg0) {
-// 	return ((char* (*) (GFileOutputStream*))(fnptr))(carg0);
 // }
 // GFileInfo* _goglib_gio2_FileOutputStream_virtual_query_info(void* fnptr, GFileOutputStream* carg0, const char* carg1, GCancellable* carg2, GError** _cerr) {
 // 	return ((GFileInfo* (*) (GFileOutputStream*, const char*, GCancellable*, GError**))(fnptr))(carg0, carg1, carg2, _cerr);
@@ -4884,7 +4856,7 @@ func ContentTypeFromMimeType(mimeType string) string {
 
 	if cret != nil {
 		goret = C.GoString((*C.char)(unsafe.Pointer(cret)))
-		defer C.free(unsafe.Pointer(cret))
+		defer C.g_free(C.gpointer(cret))
 	}
 
 	return goret
@@ -4906,7 +4878,7 @@ func ContentTypeGetDescription(typ string) string {
 	var goret string
 
 	goret = C.GoString((*C.char)(unsafe.Pointer(cret)))
-	defer C.free(unsafe.Pointer(cret))
+	defer C.g_free(C.gpointer(cret))
 
 	return goret
 }
@@ -4928,7 +4900,7 @@ func ContentTypeGetGenericIconName(typ string) string {
 
 	if cret != nil {
 		goret = C.GoString((*C.char)(unsafe.Pointer(cret)))
-		defer C.free(unsafe.Pointer(cret))
+		defer C.g_free(C.gpointer(cret))
 	}
 
 	return goret
@@ -4988,7 +4960,7 @@ func ContentTypeGetMimeType(typ string) string {
 
 	if cret != nil {
 		goret = C.GoString((*C.char)(unsafe.Pointer(cret)))
-		defer C.free(unsafe.Pointer(cret))
+		defer C.g_free(C.gpointer(cret))
 	}
 
 	return goret
@@ -5044,7 +5016,7 @@ func ContentTypeGuess(filename string, data []byte) (bool, string) {
 		resultUncertain = true
 	}
 	goret = C.GoString((*C.char)(unsafe.Pointer(cret)))
-	defer C.free(unsafe.Pointer(cret))
+	defer C.g_free(C.gpointer(cret))
 
 	return resultUncertain, goret
 }
@@ -5197,7 +5169,7 @@ func DBusAddressEscapeValue(str string) string {
 	var goret string
 
 	goret = C.GoString((*C.char)(unsafe.Pointer(cret)))
-	defer C.free(unsafe.Pointer(cret))
+	defer C.g_free(C.gpointer(cret))
 
 	return goret
 }
@@ -5224,7 +5196,7 @@ func DBusAddressGetForBusSync(busType BusType, cancellable Cancellable) (string,
 	var _goerr error
 
 	goret = C.GoString((*C.char)(unsafe.Pointer(cret)))
-	defer C.free(unsafe.Pointer(cret))
+	defer C.g_free(C.gpointer(cret))
 	if _cerr != nil {
 		_goerr = glib.UnsafeErrorFromGlibFull(unsafe.Pointer(_cerr))
 	}
@@ -5277,7 +5249,7 @@ func DBusAddressGetStreamFinish(res AsyncResult) (string, IOStream, error) {
 
 	if carg2 != nil {
 		outGuid = C.GoString((*C.char)(unsafe.Pointer(carg2)))
-		defer C.free(unsafe.Pointer(carg2))
+		defer C.g_free(C.gpointer(carg2))
 	}
 	goret = UnsafeIOStreamFromGlibFull(unsafe.Pointer(cret))
 	if _cerr != nil {
@@ -5313,7 +5285,7 @@ func DBusAddressGetStreamSync(address string, cancellable Cancellable) (string, 
 
 	if carg2 != nil {
 		outGuid = C.GoString((*C.char)(unsafe.Pointer(carg2)))
-		defer C.free(unsafe.Pointer(carg2))
+		defer C.g_free(C.gpointer(carg2))
 	}
 	goret = UnsafeIOStreamFromGlibFull(unsafe.Pointer(cret))
 	if _cerr != nil {
@@ -5339,7 +5311,7 @@ func DBusEscapeObjectPath(s string) string {
 	var goret string
 
 	goret = C.GoString((*C.char)(unsafe.Pointer(cret)))
-	defer C.free(unsafe.Pointer(cret))
+	defer C.g_free(C.gpointer(cret))
 
 	return goret
 }
@@ -5361,7 +5333,7 @@ func DBusEscapeObjectPathBytestring(bytes []uint8) string {
 	var goret string
 
 	goret = C.GoString((*C.char)(unsafe.Pointer(cret)))
-	defer C.free(unsafe.Pointer(cret))
+	defer C.g_free(C.gpointer(cret))
 
 	return goret
 }
@@ -5377,7 +5349,7 @@ func DBusGenerateGuid() string {
 	var goret string
 
 	goret = C.GoString((*C.char)(unsafe.Pointer(cret)))
-	defer C.free(unsafe.Pointer(cret))
+	defer C.g_free(C.gpointer(cret))
 
 	return goret
 }
@@ -6430,10 +6402,6 @@ type ActionMap interface {
 	// 
 	// see also https://docs.gtk.org/gio/method.g_action_map_remove_action.g_action_map_remove_action.html
 	RemoveAction(string)
-	// RemoveActionEntries wraps g_action_map_remove_action_entries
-	// 
-	// see also https://docs.gtk.org/gio/method.g_action_map_remove_action_entries.g_action_map_remove_action_entries.html
-	RemoveActionEntries([]ActionEntry)
 }
 
 var _ ActionMap = (*ActionMapInstance)(nil)
@@ -6533,25 +6501,6 @@ func (actionMap *ActionMapInstance) RemoveAction(actionName string) {
 	C.g_action_map_remove_action(carg0, carg1)
 	runtime.KeepAlive(actionMap)
 	runtime.KeepAlive(actionName)
-}
-
-// RemoveActionEntries wraps g_action_map_remove_action_entries
-// 
-// see also https://docs.gtk.org/gio/method.g_action_map_remove_action_entries.g_action_map_remove_action_entries.html
-func (actionMap *ActionMapInstance) RemoveActionEntries(entries []ActionEntry) {
-	var carg0 *C.GActionMap   // in, none, converted
-	var carg1 *C.GActionEntry // in, transfer: none, C Pointers: 1, Name: array[ActionEntry], array (inner GActionEntry (*typesystem.Record), length-by: carg2)
-	var carg2 C.gint          // implicit
-
-	carg0 = (*C.GActionMap)(UnsafeActionMapToGlibNone(actionMap))
-	_ = entries
-	_ = carg1
-	_ = carg2
-	panic("unimplemented conversion of []ActionEntry (const GActionEntry*) because of unimplemented: non-fixed size array")
-
-	C.g_action_map_remove_action_entries(carg0, carg1, carg2)
-	runtime.KeepAlive(actionMap)
-	runtime.KeepAlive(entries)
 }
 
 // AppInfoInstance is the instance type used by all types implementing GAppInfo. It is used internally by the bindings. Users should use the interface [AppInfo] instead.
@@ -8048,14 +7997,6 @@ type DatagramBased interface {
 	// 
 	// see also https://docs.gtk.org/gio/method.g_datagram_based_condition_wait.g_datagram_based_condition_wait.html
 	ConditionWait(glib.IOCondition, int64, Cancellable) (bool, error)
-	// ReceiveMessages wraps g_datagram_based_receive_messages
-	// 
-	// see also https://docs.gtk.org/gio/method.g_datagram_based_receive_messages.g_datagram_based_receive_messages.html
-	ReceiveMessages([]InputMessage, int32, int64, Cancellable) (int32, error)
-	// SendMessages wraps g_datagram_based_send_messages
-	// 
-	// see also https://docs.gtk.org/gio/method.g_datagram_based_send_messages.g_datagram_based_send_messages.html
-	SendMessages([]OutputMessage, int32, int64, Cancellable) (int32, error)
 }
 
 var _ DatagramBased = (*DatagramBasedInstance)(nil)
@@ -8153,90 +8094,6 @@ func (datagramBased *DatagramBasedInstance) ConditionWait(condition glib.IOCondi
 	if cret != 0 {
 		goret = true
 	}
-	if _cerr != nil {
-		_goerr = glib.UnsafeErrorFromGlibFull(unsafe.Pointer(_cerr))
-	}
-
-	return goret, _goerr
-}
-
-// ReceiveMessages wraps g_datagram_based_receive_messages
-// 
-// see also https://docs.gtk.org/gio/method.g_datagram_based_receive_messages.g_datagram_based_receive_messages.html
-func (datagramBased *DatagramBasedInstance) ReceiveMessages(messages []InputMessage, flags int32, timeout int64, cancellable Cancellable) (int32, error) {
-	var carg0 *C.GDatagramBased // in, none, converted
-	var carg1 *C.GInputMessage  // in, transfer: none, C Pointers: 1, Name: array[InputMessage], array (inner GInputMessage (*typesystem.Record), length-by: carg2)
-	var carg2 C.guint           // implicit
-	var carg3 C.gint            // in, none, casted
-	var carg4 C.gint64          // in, none, casted
-	var carg5 *C.GCancellable   // in, none, converted, nullable
-	var cret  C.gint            // return, none, casted
-	var _cerr *C.GError         // out, full, converted, nullable
-
-	carg0 = (*C.GDatagramBased)(UnsafeDatagramBasedToGlibNone(datagramBased))
-	_ = messages
-	_ = carg1
-	_ = carg2
-	panic("unimplemented conversion of []InputMessage (GInputMessage*) because of unimplemented: non-fixed size array")
-	carg3 = C.gint(flags)
-	carg4 = C.gint64(timeout)
-	if cancellable != nil {
-		carg5 = (*C.GCancellable)(UnsafeCancellableToGlibNone(cancellable))
-	}
-
-	cret = C.g_datagram_based_receive_messages(carg0, carg1, carg2, carg3, carg4, carg5, &_cerr)
-	runtime.KeepAlive(datagramBased)
-	runtime.KeepAlive(messages)
-	runtime.KeepAlive(flags)
-	runtime.KeepAlive(timeout)
-	runtime.KeepAlive(cancellable)
-
-	var goret  int32
-	var _goerr error
-
-	goret = int32(cret)
-	if _cerr != nil {
-		_goerr = glib.UnsafeErrorFromGlibFull(unsafe.Pointer(_cerr))
-	}
-
-	return goret, _goerr
-}
-
-// SendMessages wraps g_datagram_based_send_messages
-// 
-// see also https://docs.gtk.org/gio/method.g_datagram_based_send_messages.g_datagram_based_send_messages.html
-func (datagramBased *DatagramBasedInstance) SendMessages(messages []OutputMessage, flags int32, timeout int64, cancellable Cancellable) (int32, error) {
-	var carg0 *C.GDatagramBased // in, none, converted
-	var carg1 *C.GOutputMessage // in, transfer: none, C Pointers: 1, Name: array[OutputMessage], array (inner GOutputMessage (*typesystem.Record), length-by: carg2)
-	var carg2 C.guint           // implicit
-	var carg3 C.gint            // in, none, casted
-	var carg4 C.gint64          // in, none, casted
-	var carg5 *C.GCancellable   // in, none, converted, nullable
-	var cret  C.gint            // return, none, casted
-	var _cerr *C.GError         // out, full, converted, nullable
-
-	carg0 = (*C.GDatagramBased)(UnsafeDatagramBasedToGlibNone(datagramBased))
-	_ = messages
-	_ = carg1
-	_ = carg2
-	panic("unimplemented conversion of []OutputMessage (GOutputMessage*) because of unimplemented: non-fixed size array")
-	carg3 = C.gint(flags)
-	carg4 = C.gint64(timeout)
-	if cancellable != nil {
-		carg5 = (*C.GCancellable)(UnsafeCancellableToGlibNone(cancellable))
-	}
-
-	cret = C.g_datagram_based_send_messages(carg0, carg1, carg2, carg3, carg4, carg5, &_cerr)
-	runtime.KeepAlive(datagramBased)
-	runtime.KeepAlive(messages)
-	runtime.KeepAlive(flags)
-	runtime.KeepAlive(timeout)
-	runtime.KeepAlive(cancellable)
-
-	var goret  int32
-	var _goerr error
-
-	goret = int32(cret)
 	if _cerr != nil {
 		_goerr = glib.UnsafeErrorFromGlibFull(unsafe.Pointer(_cerr))
 	}
@@ -8721,7 +8578,7 @@ func (drive *DriveInstance) GetIdentifier(kind string) string {
 
 	if cret != nil {
 		goret = C.GoString((*C.char)(unsafe.Pointer(cret)))
-		defer C.free(unsafe.Pointer(cret))
+		defer C.g_free(C.gpointer(cret))
 	}
 
 	return goret
@@ -8742,7 +8599,7 @@ func (drive *DriveInstance) GetName() string {
 	var goret string
 
 	goret = C.GoString((*C.char)(unsafe.Pointer(cret)))
-	defer C.free(unsafe.Pointer(cret))
+	defer C.g_free(C.gpointer(cret))
 
 	return goret
 }
@@ -9462,7 +9319,7 @@ func (conn *DtlsConnectionInstance) GetCiphersuiteName() string {
 
 	if cret != nil {
 		goret = C.GoString((*C.char)(unsafe.Pointer(cret)))
-		defer C.free(unsafe.Pointer(cret))
+		defer C.g_free(C.gpointer(cret))
 	}
 
 	return goret
@@ -10947,7 +10804,7 @@ func (file *FileInstance) BuildAttributeListForCopy(flags FileCopyFlags, cancell
 	var _goerr error
 
 	goret = C.GoString((*C.char)(unsafe.Pointer(cret)))
-	defer C.free(unsafe.Pointer(cret))
+	defer C.g_free(C.gpointer(cret))
 	if _cerr != nil {
 		_goerr = glib.UnsafeErrorFromGlibFull(unsafe.Pointer(_cerr))
 	}
@@ -11646,7 +11503,7 @@ func (file *FileInstance) GetBasename() string {
 
 	if cret != nil {
 		goret = C.GoString((*C.char)(unsafe.Pointer(cret)))
-		defer C.free(unsafe.Pointer(cret))
+		defer C.g_free(C.gpointer(cret))
 	}
 
 	return goret
@@ -11739,7 +11596,7 @@ func (file *FileInstance) GetParseName() string {
 	var goret string
 
 	goret = C.GoString((*C.char)(unsafe.Pointer(cret)))
-	defer C.free(unsafe.Pointer(cret))
+	defer C.g_free(C.gpointer(cret))
 
 	return goret
 }
@@ -11760,7 +11617,7 @@ func (file *FileInstance) GetPath() string {
 
 	if cret != nil {
 		goret = C.GoString((*C.char)(unsafe.Pointer(cret)))
-		defer C.free(unsafe.Pointer(cret))
+		defer C.g_free(C.gpointer(cret))
 	}
 
 	return goret
@@ -11785,7 +11642,7 @@ func (parent *FileInstance) GetRelativePath(descendant File) string {
 
 	if cret != nil {
 		goret = C.GoString((*C.char)(unsafe.Pointer(cret)))
-		defer C.free(unsafe.Pointer(cret))
+		defer C.g_free(C.gpointer(cret))
 	}
 
 	return goret
@@ -11806,7 +11663,7 @@ func (file *FileInstance) GetURI() string {
 	var goret string
 
 	goret = C.GoString((*C.char)(unsafe.Pointer(cret)))
-	defer C.free(unsafe.Pointer(cret))
+	defer C.g_free(C.gpointer(cret))
 
 	return goret
 }
@@ -11827,7 +11684,7 @@ func (file *FileInstance) GetURIScheme() string {
 
 	if cret != nil {
 		goret = C.GoString((*C.char)(unsafe.Pointer(cret)))
-		defer C.free(unsafe.Pointer(cret))
+		defer C.g_free(C.gpointer(cret))
 	}
 
 	return goret
@@ -11954,7 +11811,7 @@ func (file *FileInstance) LoadBytes(cancellable Cancellable) (string, *glib.Byte
 
 	if carg2 != nil {
 		etagOut = C.GoString((*C.char)(unsafe.Pointer(carg2)))
-		defer C.free(unsafe.Pointer(carg2))
+		defer C.g_free(C.gpointer(carg2))
 	}
 	goret = glib.UnsafeBytesFromGlibFull(unsafe.Pointer(cret))
 	if _cerr != nil {
@@ -12011,7 +11868,7 @@ func (file *FileInstance) LoadBytesFinish(result AsyncResult) (string, *glib.Byt
 
 	if carg2 != nil {
 		etagOut = C.GoString((*C.char)(unsafe.Pointer(carg2)))
-		defer C.free(unsafe.Pointer(carg2))
+		defer C.g_free(C.gpointer(carg2))
 	}
 	goret = glib.UnsafeBytesFromGlibFull(unsafe.Pointer(cret))
 	if _cerr != nil {
@@ -12053,7 +11910,7 @@ func (file *FileInstance) LoadContents(cancellable Cancellable) (string, string,
 	panic("unimplemented conversion of string (char*) because of unknown reason")
 	if carg4 != nil {
 		etagOut = C.GoString((*C.char)(unsafe.Pointer(carg4)))
-		defer C.free(unsafe.Pointer(carg4))
+		defer C.g_free(C.gpointer(carg4))
 	}
 	if cret != 0 {
 		goret = true
@@ -12119,7 +11976,7 @@ func (file *FileInstance) LoadContentsFinish(res AsyncResult) (string, string, b
 	panic("unimplemented conversion of string (char*) because of unknown reason")
 	if carg4 != nil {
 		etagOut = C.GoString((*C.char)(unsafe.Pointer(carg4)))
-		defer C.free(unsafe.Pointer(carg4))
+		defer C.g_free(C.gpointer(carg4))
 	}
 	if cret != 0 {
 		goret = true
@@ -12161,7 +12018,7 @@ func (file *FileInstance) LoadPartialContentsFinish(res AsyncResult) (string, st
 	panic("unimplemented conversion of string (char*) because of unknown reason")
 	if carg4 != nil {
 		etagOut = C.GoString((*C.char)(unsafe.Pointer(carg4)))
-		defer C.free(unsafe.Pointer(carg4))
+		defer C.g_free(C.gpointer(carg4))
 	}
 	if cret != 0 {
 		goret = true
@@ -13421,7 +13278,7 @@ func (file *FileInstance) ReplaceContents(contents string, etag string, makeBack
 
 	if carg6 != nil {
 		newEtag = C.GoString((*C.char)(unsafe.Pointer(carg6)))
-		defer C.free(unsafe.Pointer(carg6))
+		defer C.g_free(C.gpointer(carg6))
 	}
 	if cret != 0 {
 		goret = true
@@ -13542,7 +13399,7 @@ func (file *FileInstance) ReplaceContentsFinish(res AsyncResult) (string, bool, 
 
 	if carg2 != nil {
 		newEtag = C.GoString((*C.char)(unsafe.Pointer(carg2)))
-		defer C.free(unsafe.Pointer(carg2))
+		defer C.g_free(C.gpointer(carg2))
 	}
 	if cret != 0 {
 		goret = true
@@ -14641,7 +14498,7 @@ func (icon *IconInstance) String() string {
 
 	if cret != nil {
 		goret = C.GoString((*C.char)(unsafe.Pointer(cret)))
-		defer C.free(unsafe.Pointer(cret))
+		defer C.g_free(C.gpointer(cret))
 	}
 
 	return goret
@@ -15008,7 +14865,7 @@ func (icon *LoadableIconInstance) Load(size int32, cancellable Cancellable) (str
 	var _goerr error
 
 	typ = C.GoString((*C.char)(unsafe.Pointer(carg2)))
-	defer C.free(unsafe.Pointer(carg2))
+	defer C.g_free(C.gpointer(carg2))
 	goret = UnsafeInputStreamFromGlibFull(unsafe.Pointer(cret))
 	if _cerr != nil {
 		_goerr = glib.UnsafeErrorFromGlibFull(unsafe.Pointer(_cerr))
@@ -15066,7 +14923,7 @@ func (icon *LoadableIconInstance) LoadFinish(res AsyncResult) (string, InputStre
 	var _goerr error
 
 	typ = C.GoString((*C.char)(unsafe.Pointer(carg2)))
-	defer C.free(unsafe.Pointer(carg2))
+	defer C.g_free(C.gpointer(carg2))
 	goret = UnsafeInputStreamFromGlibFull(unsafe.Pointer(cret))
 	if _cerr != nil {
 		_goerr = glib.UnsafeErrorFromGlibFull(unsafe.Pointer(_cerr))
@@ -15584,7 +15441,7 @@ func (mount *MountInstance) GetName() string {
 	var goret string
 
 	goret = C.GoString((*C.char)(unsafe.Pointer(cret)))
-	defer C.free(unsafe.Pointer(cret))
+	defer C.g_free(C.gpointer(cret))
 
 	return goret
 }
@@ -15664,7 +15521,7 @@ func (mount *MountInstance) GetUuid() string {
 
 	if cret != nil {
 		goret = C.GoString((*C.char)(unsafe.Pointer(cret)))
-		defer C.free(unsafe.Pointer(cret))
+		defer C.g_free(C.gpointer(cret))
 	}
 
 	return goret
@@ -16428,10 +16285,6 @@ type PollableOutputStream interface {
 	// 
 	// see also https://docs.gtk.org/gio/method.g_pollable_output_stream_write_nonblocking.g_pollable_output_stream_write_nonblocking.html
 	WriteNonblocking([]byte, Cancellable) (int, error)
-	// WritevNonblocking wraps g_pollable_output_stream_writev_nonblocking
-	// 
-	// see also https://docs.gtk.org/gio/method.g_pollable_output_stream_writev_nonblocking.g_pollable_output_stream_writev_nonblocking.html
-	WritevNonblocking([]OutputVector, Cancellable) (uint, PollableReturn, error)
 }
 
 var _ PollableOutputStream = (*PollableOutputStreamInstance)(nil)
@@ -16553,45 +16406,6 @@ func (stream *PollableOutputStreamInstance) WriteNonblocking(buffer []byte, canc
 	}
 
 	return goret, _goerr
-}
-
-// WritevNonblocking wraps g_pollable_output_stream_writev_nonblocking
-// 
-// see also https://docs.gtk.org/gio/method.g_pollable_output_stream_writev_nonblocking.g_pollable_output_stream_writev_nonblocking.html
-func (stream *PollableOutputStreamInstance) WritevNonblocking(vectors []OutputVector, cancellable Cancellable) (uint, PollableReturn, error) {
-	var carg0 *C.GPollableOutputStream // in, none, converted
-	var carg1 *C.GOutputVector         // in, transfer: none, C Pointers: 1, Name: array[OutputVector], array (inner GOutputVector (*typesystem.Record), length-by: carg2)
-	var carg2 C.gsize                  // implicit
-	var carg4 *C.GCancellable          // in, none, converted, nullable
-	var carg3 C.gsize                  // out, full, casted
-	var cret  C.GPollableReturn        // return, none, casted
-	var _cerr *C.GError                // out, full, converted, nullable
-
-	carg0 = (*C.GPollableOutputStream)(UnsafePollableOutputStreamToGlibNone(stream))
-	_ = vectors
-	_ = carg1
-	_ = carg2
-	panic("unimplemented conversion of []OutputVector (const GOutputVector*) because of unimplemented: non-fixed size array")
-	if cancellable != nil {
-		carg4 = (*C.GCancellable)(UnsafeCancellableToGlibNone(cancellable))
-	}
-
-	cret = C.g_pollable_output_stream_writev_nonblocking(carg0, carg1, carg2, &carg3, carg4, &_cerr)
-	runtime.KeepAlive(stream)
-	runtime.KeepAlive(vectors)
-	runtime.KeepAlive(cancellable)
-
-	var bytesWritten uint
-	var goret        PollableReturn
-	var _goerr       error
-
-	bytesWritten = uint(carg3)
-	goret = PollableReturn(cret)
-	if _cerr != nil {
-		_goerr = glib.UnsafeErrorFromGlibFull(unsafe.Pointer(_cerr))
-	}
-
-	return bytesWritten, goret, _goerr
 }
 
 // PowerProfileMonitorInstance is the instance type used by all types implementing GPowerProfileMonitor. It is used internally by the bindings. Users should use the interface [PowerProfileMonitor] instead.
@@ -17499,7 +17313,7 @@ func (connectable *SocketConnectableInstance) String() string {
 	var goret string
 
 	goret = C.GoString((*C.char)(unsafe.Pointer(cret)))
-	defer C.free(unsafe.Pointer(cret))
+	defer C.g_free(C.gpointer(cret))
 
 	return goret
 }
@@ -18647,7 +18461,7 @@ func (volume *VolumeInstance) GetIdentifier(kind string) string {
 
 	if cret != nil {
 		goret = C.GoString((*C.char)(unsafe.Pointer(cret)))
-		defer C.free(unsafe.Pointer(cret))
+		defer C.g_free(C.gpointer(cret))
 	}
 
 	return goret
@@ -18689,7 +18503,7 @@ func (volume *VolumeInstance) GetName() string {
 	var goret string
 
 	goret = C.GoString((*C.char)(unsafe.Pointer(cret)))
-	defer C.free(unsafe.Pointer(cret))
+	defer C.g_free(C.gpointer(cret))
 
 	return goret
 }
@@ -18750,7 +18564,7 @@ func (volume *VolumeInstance) GetUuid() string {
 
 	if cret != nil {
 		goret = C.GoString((*C.char)(unsafe.Pointer(cret)))
-		defer C.free(unsafe.Pointer(cret))
+		defer C.g_free(C.gpointer(cret))
 	}
 
 	return goret
@@ -19521,10 +19335,6 @@ type Application interface {
 	// 
 	// see also https://docs.gtk.org/gio/method.g_application_add_main_option.g_application_add_main_option.html
 	AddMainOption(string, byte, glib.OptionFlags, glib.OptionArg, string, string)
-	// AddMainOptionEntries wraps g_application_add_main_option_entries
-	// 
-	// see also https://docs.gtk.org/gio/method.g_application_add_main_option_entries.g_application_add_main_option_entries.html
-	AddMainOptionEntries([]glib.OptionEntry)
 	// AddOptionGroup wraps g_application_add_option_group
 	// 
 	// see also https://docs.gtk.org/gio/method.g_application_add_option_group.g_application_add_option_group.html
@@ -19658,7 +19468,7 @@ type Application interface {
 	// ConnectHandleLocalOptions connects the provided callback to the "handle-local-options" signal
 	// 
 	// see also https://docs.gtk.org/gio/signal.Application.handle-local-options.html
-	ConnectHandleLocalOptions(func(Application, glib.VariantDict) int32) gobject.SignalHandle
+	ConnectHandleLocalOptions(func(Application, *glib.VariantDict) int32) gobject.SignalHandle
 	// ConnectNameLost connects the provided callback to the "name-lost" signal
 	// 
 	// see also https://docs.gtk.org/gio/signal.Application.name-lost.html
@@ -19887,23 +19697,6 @@ func (application *ApplicationInstance) AddMainOption(longName string, shortName
 	runtime.KeepAlive(arg)
 	runtime.KeepAlive(description)
 	runtime.KeepAlive(argDescription)
-}
-
-// AddMainOptionEntries wraps g_application_add_main_option_entries
-// 
-// see also https://docs.gtk.org/gio/method.g_application_add_main_option_entries.g_application_add_main_option_entries.html
-func (application *ApplicationInstance) AddMainOptionEntries(entries []glib.OptionEntry) {
-	var carg0 *C.GApplication // in, none, converted
-	var carg1 *C.GOptionEntry // in, transfer: none, C Pointers: 1, Name: array[OptionEntry], array (inner GOptionEntry (*typesystem.Record), zero-terminated)
-
-	carg0 = (*C.GApplication)(UnsafeApplicationToGlibNone(application))
-	_ = entries
-	_ = carg1
-	panic("unimplemented conversion of []glib.OptionEntry (const GOptionEntry*) because of unimplemented: non-fixed size array")
-
-	C.g_application_add_main_option_entries(carg0, carg1)
-	runtime.KeepAlive(application)
-	runtime.KeepAlive(entries)
 }
 
 // AddOptionGroup wraps g_application_add_option_group
@@ -20467,7 +20260,7 @@ func (o *ApplicationInstance) ConnectCommandLine(fn func(Application, Applicatio
 // ConnectHandleLocalOptions connects the provided callback to the "handle-local-options" signal
 // 
 // see also https://docs.gtk.org/gio/signal.Application.handle-local-options.html
-func (o *ApplicationInstance) ConnectHandleLocalOptions(fn func(Application, glib.VariantDict) int32) gobject.SignalHandle {
+func (o *ApplicationInstance) ConnectHandleLocalOptions(fn func(Application, *glib.VariantDict) int32) gobject.SignalHandle {
 	return o.Connect("handle-local-options", fn)
 }
 
@@ -22394,7 +22187,7 @@ func (credentials *CredentialsInstance) String() string {
 	var goret string
 
 	goret = C.GoString((*C.char)(unsafe.Pointer(cret)))
-	defer C.free(unsafe.Pointer(cret))
+	defer C.g_free(C.gpointer(cret))
 
 	return goret
 }
@@ -24017,7 +23810,7 @@ func (info *FileInfoInstance) GetAttributeAsString(attribute string) string {
 
 	if cret != nil {
 		goret = C.GoString((*C.char)(unsafe.Pointer(cret)))
-		defer C.free(unsafe.Pointer(cret))
+		defer C.g_free(C.gpointer(cret))
 	}
 
 	return goret
@@ -25577,7 +25370,7 @@ func (completer *FilenameCompleterInstance) GetCompletionSuffix(initialText stri
 
 	if cret != nil {
 		goret = C.GoString((*C.char)(unsafe.Pointer(cret)))
-		defer C.free(unsafe.Pointer(cret))
+		defer C.g_free(C.gpointer(cret))
 	}
 
 	return goret
@@ -26435,12 +26228,6 @@ type InetAddress interface {
 	String() string
 
 	// chain up virtual methods:
-
-	// ParentToString calls the default implementations of the `GInetAddress.to_string` virtual method.
-	// This function's behavior is not defined when the parent does not implement the virtual method.
-	// 
-	// see also https://docs.gtk.org/gio/method.InetAddress.to_string.html
-	ParentToString() string
 }
 
 func unsafeWrapInetAddress(base *gobject.ObjectInstance) *InetAddressInstance {
@@ -26838,7 +26625,7 @@ func (address *InetAddressInstance) String() string {
 	var goret string
 
 	goret = C.GoString((*C.char)(unsafe.Pointer(cret)))
-	defer C.free(unsafe.Pointer(cret))
+	defer C.g_free(C.gpointer(cret))
 
 	return goret
 }
@@ -26849,61 +26636,12 @@ type InetAddressOverrides[Instance InetAddress] struct {
 	// gobject.ObjectOverrides allows you to override virtual methods from the parent class gobject.Object
 	gobject.ObjectOverrides[Instance]
 
-	// // ToString allows you to override the implementation of the virtual method to_string.
-	// 
-	// see also https://docs.gtk.org/gio/method.InetAddress.to_string.html
-	ToString func(Instance) string
 }
 
 // UnsafeApplyInetAddressOverrides applies the overrides to init the gclass by setting the trampoline functions.
 // This is used by the bindings internally and only exported for visibility to other bindings code.
 func UnsafeApplyInetAddressOverrides[Instance InetAddress](gclass unsafe.Pointer, overrides InetAddressOverrides[Instance]) {
 	gobject.UnsafeApplyObjectOverrides(gclass, overrides.ObjectOverrides)
-
-	pclass := (*C.GInetAddressClass)(gclass)
-
-	if overrides.ToString != nil {
-		pclass.to_string = (*[0]byte)(C._goglib_gio2_InetAddress_to_string)
-		classdata.StoreVirtualMethod(
-			unsafe.Pointer(pclass),
-			"_goglib_gio2_InetAddress_to_string",
-			func(carg0 *C.GInetAddress) (cret *C.gchar) {
-				var address Instance // go GInetAddress subclass
-				var goret   string   // return, full, string
-
-				address = UnsafeInetAddressFromGlibBorrow(unsafe.Pointer(carg0)).UnsafeLoadInstanceFromPrivateData().(Instance)
-
-				goret = overrides.ToString(address)
-
-				cret = (*C.gchar)(unsafe.Pointer(C.CString(goret)))
-
-				return cret
-			},
-		)
-	}
-}
-
-// ParentToString calls the default implementations of the `GInetAddress.to_string` virtual method.
-// This function's behavior is not defined when the parent does not implement the virtual method.
-// 
-// see also https://docs.gtk.org/gio/method.InetAddress.to_string.html
-func (address *InetAddressInstance) ParentToString() string {
-	var carg0 *C.GInetAddress
-	var cret  *C.gchar // return, full, string
-
-	parentclass := (*C.GInetAddressClass)(classdata.PeekParentClass(UnsafeInetAddressToGlibNone(address)))
-
-	carg0 = (*C.GInetAddress)(UnsafeInetAddressToGlibNone(address))
-
-	cret = C._goglib_gio2_InetAddress_virtual_to_string(unsafe.Pointer(parentclass.to_string), carg0)
-	runtime.KeepAlive(address)
-
-	var goret string
-
-	goret = C.GoString((*C.char)(unsafe.Pointer(cret)))
-	defer C.free(unsafe.Pointer(cret))
-
-	return goret
 }
 
 // RegisterInetAddressSubClass is used to register a go subclass of GInetAddress. For this to work safely please implement the
@@ -27195,7 +26933,7 @@ func (mask *InetAddressMaskInstance) String() string {
 	var goret string
 
 	goret = C.GoString((*C.char)(unsafe.Pointer(cret)))
-	defer C.free(unsafe.Pointer(cret))
+	defer C.g_free(C.gpointer(cret))
 
 	return goret
 }
@@ -31523,26 +31261,10 @@ type OutputStream interface {
 	// 
 	// see also https://docs.gtk.org/gio/method.g_output_stream_write_finish.g_output_stream_write_finish.html
 	WriteFinish(AsyncResult) (int, error)
-	// Writev wraps g_output_stream_writev
-	// 
-	// see also https://docs.gtk.org/gio/method.g_output_stream_writev.g_output_stream_writev.html
-	Writev([]OutputVector, Cancellable) (uint, bool, error)
-	// WritevAll wraps g_output_stream_writev_all
-	// 
-	// see also https://docs.gtk.org/gio/method.g_output_stream_writev_all.g_output_stream_writev_all.html
-	WritevAll([]OutputVector, Cancellable) (uint, bool, error)
-	// WritevAllAsync wraps g_output_stream_writev_all_async
-	// 
-	// see also https://docs.gtk.org/gio/method.g_output_stream_writev_all_async.g_output_stream_writev_all_async.html
-	WritevAllAsync([]OutputVector, int32, Cancellable, AsyncReadyCallback)
 	// WritevAllFinish wraps g_output_stream_writev_all_finish
 	// 
 	// see also https://docs.gtk.org/gio/method.g_output_stream_writev_all_finish.g_output_stream_writev_all_finish.html
 	WritevAllFinish(AsyncResult) (uint, bool, error)
-	// WritevAsync wraps g_output_stream_writev_async
-	// 
-	// see also https://docs.gtk.org/gio/method.g_output_stream_writev_async.g_output_stream_writev_async.html
-	WritevAsync([]OutputVector, int32, Cancellable, AsyncReadyCallback)
 	// WritevFinish wraps g_output_stream_writev_finish
 	// 
 	// see also https://docs.gtk.org/gio/method.g_output_stream_writev_finish.g_output_stream_writev_finish.html
@@ -31595,11 +31317,6 @@ type OutputStream interface {
 	// 
 	// see also https://docs.gtk.org/gio/method.OutputStream.writev_finish.html
 	ParentWritevFinish(result AsyncResult) (uint, bool, error)
-	// ParentWritevFn calls the default implementations of the `GOutputStream.writev_fn` virtual method.
-	// This function's behavior is not defined when the parent does not implement the virtual method.
-	// 
-	// see also https://docs.gtk.org/gio/method.OutputStream.writev_fn.html
-	ParentWritevFn(vectors []OutputVector, cancellable Cancellable) (uint, bool, error)
 }
 
 func unsafeWrapOutputStream(base *gobject.ObjectInstance) *OutputStreamInstance {
@@ -32313,122 +32030,6 @@ func (stream *OutputStreamInstance) WriteFinish(result AsyncResult) (int, error)
 	return goret, _goerr
 }
 
-// Writev wraps g_output_stream_writev
-// 
-// see also https://docs.gtk.org/gio/method.g_output_stream_writev.g_output_stream_writev.html
-func (stream *OutputStreamInstance) Writev(vectors []OutputVector, cancellable Cancellable) (uint, bool, error) {
-	var carg0 *C.GOutputStream // in, none, converted
-	var carg1 *C.GOutputVector // in, transfer: none, C Pointers: 1, Name: array[OutputVector], array (inner GOutputVector (*typesystem.Record), length-by: carg2)
-	var carg2 C.gsize          // implicit
-	var carg4 *C.GCancellable  // in, none, converted, nullable
-	var carg3 C.gsize          // out, full, casted
-	var cret  C.gboolean       // return
-	var _cerr *C.GError        // out, full, converted, nullable
-
-	carg0 = (*C.GOutputStream)(UnsafeOutputStreamToGlibNone(stream))
-	_ = vectors
-	_ = carg1
-	_ = carg2
-	panic("unimplemented conversion of []OutputVector (const GOutputVector*) because of unimplemented: non-fixed size array")
-	if cancellable != nil {
-		carg4 = (*C.GCancellable)(UnsafeCancellableToGlibNone(cancellable))
-	}
-
-	cret = C.g_output_stream_writev(carg0, carg1, carg2, &carg3, carg4, &_cerr)
-	runtime.KeepAlive(stream)
-	runtime.KeepAlive(vectors)
-	runtime.KeepAlive(cancellable)
-
-	var bytesWritten uint
-	var goret        bool
-	var _goerr       error
-
-	bytesWritten = uint(carg3)
-	if cret != 0 {
-		goret = true
-	}
-	if _cerr != nil {
-		_goerr = glib.UnsafeErrorFromGlibFull(unsafe.Pointer(_cerr))
-	}
-
-	return bytesWritten, goret, _goerr
-}
-
-// WritevAll wraps g_output_stream_writev_all
-// 
-// see also https://docs.gtk.org/gio/method.g_output_stream_writev_all.g_output_stream_writev_all.html
-func (stream *OutputStreamInstance) WritevAll(vectors []OutputVector, cancellable Cancellable) (uint, bool, error) {
-	var carg0 *C.GOutputStream // in, none, converted
-	var carg1 *C.GOutputVector // in, transfer: none, C Pointers: 1, Name: array[OutputVector], array (inner GOutputVector (*typesystem.Record), length-by: carg2)
-	var carg2 C.gsize          // implicit
-	var carg4 *C.GCancellable  // in, none, converted, nullable
-	var carg3 C.gsize          // out, full, casted
-	var cret  C.gboolean       // return
-	var _cerr *C.GError        // out, full, converted, nullable
-
-	carg0 = (*C.GOutputStream)(UnsafeOutputStreamToGlibNone(stream))
-	_ = vectors
-	_ = carg1
-	_ = carg2
-	panic("unimplemented conversion of []OutputVector (GOutputVector*) because of unimplemented: non-fixed size array")
-	if cancellable != nil {
-		carg4 = (*C.GCancellable)(UnsafeCancellableToGlibNone(cancellable))
-	}
-
-	cret = C.g_output_stream_writev_all(carg0, carg1, carg2, &carg3, carg4, &_cerr)
-	runtime.KeepAlive(stream)
-	runtime.KeepAlive(vectors)
-	runtime.KeepAlive(cancellable)
-
-	var bytesWritten uint
-	var goret        bool
-	var _goerr       error
-
-	bytesWritten = uint(carg3)
-	if cret != 0 {
-		goret = true
-	}
-	if _cerr != nil {
-		_goerr = glib.UnsafeErrorFromGlibFull(unsafe.Pointer(_cerr))
-	}
-
-	return bytesWritten, goret, _goerr
-}
-
-// WritevAllAsync wraps g_output_stream_writev_all_async
-// 
-// see also https://docs.gtk.org/gio/method.g_output_stream_writev_all_async.g_output_stream_writev_all_async.html
-func (stream *OutputStreamInstance) WritevAllAsync(vectors []OutputVector, ioPriority int32, cancellable Cancellable, callback AsyncReadyCallback) {
-	var carg0 *C.GOutputStream      // in, none, converted
-	var carg1 *C.GOutputVector      // in, transfer: none, C Pointers: 1, Name: array[OutputVector], array (inner GOutputVector (*typesystem.Record), length-by: carg2)
-	var carg2 C.gsize               // implicit
-	var carg3 C.int                 // in, none, casted
-	var carg4 *C.GCancellable       // in, none, converted, nullable
-	var carg5 C.GAsyncReadyCallback // callback, scope: async, closure: carg6, nullable
-	var carg6 C.gpointer            // implicit
-
-	carg0 = (*C.GOutputStream)(UnsafeOutputStreamToGlibNone(stream))
-	_ = vectors
-	_ = carg1
-	_ = carg2
-	panic("unimplemented conversion of []OutputVector (GOutputVector*) because of unimplemented: non-fixed size array")
-	carg3 = C.int(ioPriority)
-	if cancellable != nil {
-		carg4 = (*C.GCancellable)(UnsafeCancellableToGlibNone(cancellable))
-	}
-	if callback != nil {
-		carg5 = (*[0]byte)(C._goglib_gio2_AsyncReadyCallback)
-		carg6 = C.gpointer(userdata.RegisterOnce(callback))
-	}
-
-	C.g_output_stream_writev_all_async(carg0, carg1, carg2, carg3, carg4, carg5, carg6)
-	runtime.KeepAlive(stream)
-	runtime.KeepAlive(vectors)
-	runtime.KeepAlive(ioPriority)
-	runtime.KeepAlive(cancellable)
-	runtime.KeepAlive(callback)
-}
-
 // WritevAllFinish wraps g_output_stream_writev_all_finish
 // 
 // see also https://docs.gtk.org/gio/method.g_output_stream_writev_all_finish.g_output_stream_writev_all_finish.html
@@ -32459,40 +32060,6 @@ func (stream *OutputStreamInstance) WritevAllFinish(result AsyncResult) (uint, b
 	}
 
 	return bytesWritten, goret, _goerr
-}
-
-// WritevAsync wraps g_output_stream_writev_async
-// 
-// see also https://docs.gtk.org/gio/method.g_output_stream_writev_async.g_output_stream_writev_async.html
-func (stream *OutputStreamInstance) WritevAsync(vectors []OutputVector, ioPriority int32, cancellable Cancellable, callback AsyncReadyCallback) {
-	var carg0 *C.GOutputStream      // in, none, converted
-	var carg1 *C.GOutputVector      // in, transfer: none, C Pointers: 1, Name: array[OutputVector], array (inner GOutputVector (*typesystem.Record), length-by: carg2)
-	var carg2 C.gsize               // implicit
-	var carg3 C.int                 // in, none, casted
-	var carg4 *C.GCancellable       // in, none, converted, nullable
-	var carg5 C.GAsyncReadyCallback // callback, scope: async, closure: carg6, nullable
-	var carg6 C.gpointer            // implicit
-
-	carg0 = (*C.GOutputStream)(UnsafeOutputStreamToGlibNone(stream))
-	_ = vectors
-	_ = carg1
-	_ = carg2
-	panic("unimplemented conversion of []OutputVector (const GOutputVector*) because of unimplemented: non-fixed size array")
-	carg3 = C.int(ioPriority)
-	if cancellable != nil {
-		carg4 = (*C.GCancellable)(UnsafeCancellableToGlibNone(cancellable))
-	}
-	if callback != nil {
-		carg5 = (*[0]byte)(C._goglib_gio2_AsyncReadyCallback)
-		carg6 = C.gpointer(userdata.RegisterOnce(callback))
-	}
-
-	C.g_output_stream_writev_async(carg0, carg1, carg2, carg3, carg4, carg5, carg6)
-	runtime.KeepAlive(stream)
-	runtime.KeepAlive(vectors)
-	runtime.KeepAlive(ioPriority)
-	runtime.KeepAlive(cancellable)
-	runtime.KeepAlive(callback)
 }
 
 // WritevFinish wraps g_output_stream_writev_finish
@@ -32569,10 +32136,6 @@ type OutputStreamOverrides[Instance OutputStream] struct {
 	// 
 	// see also https://docs.gtk.org/gio/method.OutputStream.writev_finish.html
 	WritevFinish func(Instance, AsyncResult) (uint, bool, error)
-	// // WritevFn allows you to override the implementation of the virtual method writev_fn.
-	// 
-	// see also https://docs.gtk.org/gio/method.OutputStream.writev_fn.html
-	WritevFn func(Instance, []OutputVector, Cancellable) (uint, bool, error)
 }
 
 // UnsafeApplyOutputStreamOverrides applies the overrides to init the gclass by setting the trampoline functions.
@@ -32817,41 +32380,6 @@ func UnsafeApplyOutputStreamOverrides[Instance OutputStream](gclass unsafe.Point
 				bytesWritten, goret, _goerr = overrides.WritevFinish(stream, result)
 
 				*carg2 = C.gsize(bytesWritten)
-				if goret {
-					cret = C.TRUE
-				}
-				*_cerr = (*C.GError)(glib.UnsafeErrorToGlibFull(_goerr))
-
-				return cret
-			},
-		)
-	}
-
-	if overrides.WritevFn != nil {
-		pclass.writev_fn = (*[0]byte)(C._goglib_gio2_OutputStream_writev_fn)
-		classdata.StoreVirtualMethod(
-			unsafe.Pointer(pclass),
-			"_goglib_gio2_OutputStream_writev_fn",
-			func(carg0 *C.GOutputStream, carg1 *C.GOutputVector, carg2 C.gsize, carg3 *C.gsize, carg4 *C.GCancellable, _cerr **C.GError) (cret C.gboolean) {
-				var stream       Instance       // go GOutputStream subclass
-				var vectors      []OutputVector // in, transfer: none, C Pointers: 1, Name: array[OutputVector], array (inner GOutputVector (*typesystem.Record), length-by: carg2)
-				var cancellable  Cancellable    // in, none, converted, nullable
-				var bytesWritten uint           // out, full, casted
-				var goret        bool           // return
-				var _goerr       error          // out, full, converted
-
-				stream = UnsafeOutputStreamFromGlibBorrow(unsafe.Pointer(carg0)).UnsafeLoadInstanceFromPrivateData().(Instance)
-				_ = vectors
-				_ = carg1
-				_ = carg2
-				panic("unimplemented conversion of []OutputVector (const GOutputVector*) because of unknown reason")
-				if carg4 != nil {
-					cancellable = UnsafeCancellableFromGlibNone(unsafe.Pointer(carg4))
-				}
-
-				bytesWritten, goret, _goerr = overrides.WritevFn(stream, vectors, cancellable)
-
-				*carg3 = C.gsize(bytesWritten)
 				if goret {
 					cret = C.TRUE
 				}
@@ -33157,50 +32685,6 @@ func (stream *OutputStreamInstance) ParentWritevFinish(result AsyncResult) (uint
 	var _goerr       error
 
 	bytesWritten = uint(carg2)
-	if cret != 0 {
-		goret = true
-	}
-	if _cerr != nil {
-		_goerr = glib.UnsafeErrorFromGlibFull(unsafe.Pointer(_cerr))
-	}
-
-	return bytesWritten, goret, _goerr
-}
-
-// ParentWritevFn calls the default implementations of the `GOutputStream.writev_fn` virtual method.
-// This function's behavior is not defined when the parent does not implement the virtual method.
-// 
-// see also https://docs.gtk.org/gio/method.OutputStream.writev_fn.html
-func (stream *OutputStreamInstance) ParentWritevFn(vectors []OutputVector, cancellable Cancellable) (uint, bool, error) {
-	var carg0 *C.GOutputStream
-	var carg1 *C.GOutputVector // in, none, converted
-	var carg2 C.gsize          // in, transfer: none, C Pointers: 1, Name: array[OutputVector], array (inner GOutputVector (*typesystem.Record), length-by: carg2)
-	var carg4 *C.GCancellable  // implicit
-	var carg3 C.gsize          // out, full, casted
-	var cret  C.gboolean       // return
-	var _cerr *C.GError        // out, full, converted, nullable
-
-	parentclass := (*C.GOutputStreamClass)(classdata.PeekParentClass(UnsafeOutputStreamToGlibNone(stream)))
-
-	carg0 = (*C.GOutputStream)(UnsafeOutputStreamToGlibNone(stream))
-	_ = vectors
-	_ = carg1
-	_ = carg2
-	panic("unimplemented conversion of []OutputVector (const GOutputVector*) because of unimplemented: non-fixed size array")
-	if cancellable != nil {
-		carg4 = (*C.GCancellable)(UnsafeCancellableToGlibNone(cancellable))
-	}
-
-	cret = C._goglib_gio2_OutputStream_virtual_writev_fn(unsafe.Pointer(parentclass.writev_fn), carg0, carg1, carg2, &carg3, carg4, &_cerr)
-	runtime.KeepAlive(stream)
-	runtime.KeepAlive(vectors)
-	runtime.KeepAlive(cancellable)
-
-	var bytesWritten uint
-	var goret        bool
-	var _goerr       error
-
-	bytesWritten = uint(carg3)
 	if cret != 0 {
 		goret = true
 	}
@@ -34071,16 +33555,6 @@ type Resolver interface {
 
 	// chain up virtual methods:
 
-	// ParentLookupByAddress calls the default implementations of the `GResolver.lookup_by_address` virtual method.
-	// This function's behavior is not defined when the parent does not implement the virtual method.
-	// 
-	// see also https://docs.gtk.org/gio/method.Resolver.lookup_by_address.html
-	ParentLookupByAddress(address InetAddress, cancellable Cancellable) (string, error)
-	// ParentLookupByAddressFinish calls the default implementations of the `GResolver.lookup_by_address_finish` virtual method.
-	// This function's behavior is not defined when the parent does not implement the virtual method.
-	// 
-	// see also https://docs.gtk.org/gio/method.Resolver.lookup_by_address_finish.html
-	ParentLookupByAddressFinish(result AsyncResult) (string, error)
 	// ParentLookupByName calls the default implementations of the `GResolver.lookup_by_name` virtual method.
 	// This function's behavior is not defined when the parent does not implement the virtual method.
 	// 
@@ -34220,7 +33694,7 @@ func (resolver *ResolverInstance) LookupByAddress(address InetAddress, cancellab
 	var _goerr error
 
 	goret = C.GoString((*C.char)(unsafe.Pointer(cret)))
-	defer C.free(unsafe.Pointer(cret))
+	defer C.g_free(C.gpointer(cret))
 	if _cerr != nil {
 		_goerr = glib.UnsafeErrorFromGlibFull(unsafe.Pointer(_cerr))
 	}
@@ -34275,7 +33749,7 @@ func (resolver *ResolverInstance) LookupByAddressFinish(result AsyncResult) (str
 	var _goerr error
 
 	goret = C.GoString((*C.char)(unsafe.Pointer(cret)))
-	defer C.free(unsafe.Pointer(cret))
+	defer C.g_free(C.gpointer(cret))
 	if _cerr != nil {
 		_goerr = glib.UnsafeErrorFromGlibFull(unsafe.Pointer(_cerr))
 	}
@@ -34682,14 +34156,6 @@ type ResolverOverrides[Instance Resolver] struct {
 	// gobject.ObjectOverrides allows you to override virtual methods from the parent class gobject.Object
 	gobject.ObjectOverrides[Instance]
 
-	// // LookupByAddress allows you to override the implementation of the virtual method lookup_by_address.
-	// 
-	// see also https://docs.gtk.org/gio/method.Resolver.lookup_by_address.html
-	LookupByAddress func(Instance, InetAddress, Cancellable) (string, error)
-	// // LookupByAddressFinish allows you to override the implementation of the virtual method lookup_by_address_finish.
-	// 
-	// see also https://docs.gtk.org/gio/method.Resolver.lookup_by_address_finish.html
-	LookupByAddressFinish func(Instance, AsyncResult) (string, error)
 	// // LookupByName allows you to override the implementation of the virtual method lookup_by_name.
 	// 
 	// see also https://docs.gtk.org/gio/method.Resolver.lookup_by_name.html
@@ -34722,58 +34188,6 @@ func UnsafeApplyResolverOverrides[Instance Resolver](gclass unsafe.Pointer, over
 	gobject.UnsafeApplyObjectOverrides(gclass, overrides.ObjectOverrides)
 
 	pclass := (*C.GResolverClass)(gclass)
-
-	if overrides.LookupByAddress != nil {
-		pclass.lookup_by_address = (*[0]byte)(C._goglib_gio2_Resolver_lookup_by_address)
-		classdata.StoreVirtualMethod(
-			unsafe.Pointer(pclass),
-			"_goglib_gio2_Resolver_lookup_by_address",
-			func(carg0 *C.GResolver, carg1 *C.GInetAddress, carg2 *C.GCancellable, _cerr **C.GError) (cret *C.gchar) {
-				var resolver    Instance    // go GResolver subclass
-				var address     InetAddress // in, none, converted
-				var cancellable Cancellable // in, none, converted, nullable
-				var goret       string      // return, full, string
-				var _goerr      error       // out, full, converted
-
-				resolver = UnsafeResolverFromGlibBorrow(unsafe.Pointer(carg0)).UnsafeLoadInstanceFromPrivateData().(Instance)
-				address = UnsafeInetAddressFromGlibNone(unsafe.Pointer(carg1))
-				if carg2 != nil {
-					cancellable = UnsafeCancellableFromGlibNone(unsafe.Pointer(carg2))
-				}
-
-				goret, _goerr = overrides.LookupByAddress(resolver, address, cancellable)
-
-				cret = (*C.gchar)(unsafe.Pointer(C.CString(goret)))
-				*_cerr = (*C.GError)(glib.UnsafeErrorToGlibFull(_goerr))
-
-				return cret
-			},
-		)
-	}
-
-	if overrides.LookupByAddressFinish != nil {
-		pclass.lookup_by_address_finish = (*[0]byte)(C._goglib_gio2_Resolver_lookup_by_address_finish)
-		classdata.StoreVirtualMethod(
-			unsafe.Pointer(pclass),
-			"_goglib_gio2_Resolver_lookup_by_address_finish",
-			func(carg0 *C.GResolver, carg1 *C.GAsyncResult, _cerr **C.GError) (cret *C.gchar) {
-				var resolver Instance    // go GResolver subclass
-				var result   AsyncResult // in, none, converted
-				var goret    string      // return, full, string
-				var _goerr   error       // out, full, converted
-
-				resolver = UnsafeResolverFromGlibBorrow(unsafe.Pointer(carg0)).UnsafeLoadInstanceFromPrivateData().(Instance)
-				result = UnsafeAsyncResultFromGlibNone(unsafe.Pointer(carg1))
-
-				goret, _goerr = overrides.LookupByAddressFinish(resolver, result)
-
-				cret = (*C.gchar)(unsafe.Pointer(C.CString(goret)))
-				*_cerr = (*C.GError)(glib.UnsafeErrorToGlibFull(_goerr))
-
-				return cret
-			},
-		)
-	}
 
 	if overrides.LookupByName != nil {
 		pclass.lookup_by_name = (*[0]byte)(C._goglib_gio2_Resolver_lookup_by_name)
@@ -34929,73 +34343,6 @@ func UnsafeApplyResolverOverrides[Instance Resolver](gclass unsafe.Pointer, over
 			},
 		)
 	}
-}
-
-// ParentLookupByAddress calls the default implementations of the `GResolver.lookup_by_address` virtual method.
-// This function's behavior is not defined when the parent does not implement the virtual method.
-// 
-// see also https://docs.gtk.org/gio/method.Resolver.lookup_by_address.html
-func (resolver *ResolverInstance) ParentLookupByAddress(address InetAddress, cancellable Cancellable) (string, error) {
-	var carg0 *C.GResolver
-	var carg1 *C.GInetAddress // in, none, converted
-	var carg2 *C.GCancellable // in, none, converted
-	var cret  *C.gchar        // return, full, string
-	var _cerr *C.GError       // out, full, converted, nullable
-
-	parentclass := (*C.GResolverClass)(classdata.PeekParentClass(UnsafeResolverToGlibNone(resolver)))
-
-	carg0 = (*C.GResolver)(UnsafeResolverToGlibNone(resolver))
-	carg1 = (*C.GInetAddress)(UnsafeInetAddressToGlibNone(address))
-	if cancellable != nil {
-		carg2 = (*C.GCancellable)(UnsafeCancellableToGlibNone(cancellable))
-	}
-
-	cret = C._goglib_gio2_Resolver_virtual_lookup_by_address(unsafe.Pointer(parentclass.lookup_by_address), carg0, carg1, carg2, &_cerr)
-	runtime.KeepAlive(resolver)
-	runtime.KeepAlive(address)
-	runtime.KeepAlive(cancellable)
-
-	var goret  string
-	var _goerr error
-
-	goret = C.GoString((*C.char)(unsafe.Pointer(cret)))
-	defer C.free(unsafe.Pointer(cret))
-	if _cerr != nil {
-		_goerr = glib.UnsafeErrorFromGlibFull(unsafe.Pointer(_cerr))
-	}
-
-	return goret, _goerr
-}
-
-// ParentLookupByAddressFinish calls the default implementations of the `GResolver.lookup_by_address_finish` virtual method.
-// This function's behavior is not defined when the parent does not implement the virtual method.
-// 
-// see also https://docs.gtk.org/gio/method.Resolver.lookup_by_address_finish.html
-func (resolver *ResolverInstance) ParentLookupByAddressFinish(result AsyncResult) (string, error) {
-	var carg0 *C.GResolver
-	var carg1 *C.GAsyncResult // in, none, converted
-	var cret  *C.gchar        // return, full, string
-	var _cerr *C.GError       // out, full, converted, nullable
-
-	parentclass := (*C.GResolverClass)(classdata.PeekParentClass(UnsafeResolverToGlibNone(resolver)))
-
-	carg0 = (*C.GResolver)(UnsafeResolverToGlibNone(resolver))
-	carg1 = (*C.GAsyncResult)(UnsafeAsyncResultToGlibNone(result))
-
-	cret = C._goglib_gio2_Resolver_virtual_lookup_by_address_finish(unsafe.Pointer(parentclass.lookup_by_address_finish), carg0, carg1, &_cerr)
-	runtime.KeepAlive(resolver)
-	runtime.KeepAlive(result)
-
-	var goret  string
-	var _goerr error
-
-	goret = C.GoString((*C.char)(unsafe.Pointer(cret)))
-	defer C.free(unsafe.Pointer(cret))
-	if _cerr != nil {
-		_goerr = glib.UnsafeErrorFromGlibFull(unsafe.Pointer(_cerr))
-	}
-
-	return goret, _goerr
 }
 
 // ParentLookupByName calls the default implementations of the `GResolver.lookup_by_name` virtual method.
@@ -35805,7 +35152,7 @@ func (settings *SettingsInstance) GetString(key string) string {
 	var goret string
 
 	goret = C.GoString((*C.char)(unsafe.Pointer(cret)))
-	defer C.free(unsafe.Pointer(cret))
+	defer C.g_free(C.gpointer(cret))
 
 	return goret
 }
@@ -37667,26 +37014,10 @@ type Socket interface {
 	// 
 	// see also https://docs.gtk.org/gio/method.g_socket_receive_bytes_from.g_socket_receive_bytes_from.html
 	ReceiveBytesFrom(uint, int64, Cancellable) (SocketAddress, *glib.Bytes, error)
-	// ReceiveMessages wraps g_socket_receive_messages
-	// 
-	// see also https://docs.gtk.org/gio/method.g_socket_receive_messages.g_socket_receive_messages.html
-	ReceiveMessages([]InputMessage, int32, Cancellable) (int32, error)
 	// Send wraps g_socket_send
 	// 
 	// see also https://docs.gtk.org/gio/method.g_socket_send.g_socket_send.html
 	Send(string, Cancellable) (int, error)
-	// SendMessage wraps g_socket_send_message
-	// 
-	// see also https://docs.gtk.org/gio/method.g_socket_send_message.g_socket_send_message.html
-	SendMessage(SocketAddress, []OutputVector, []SocketControlMessage, int32, Cancellable) (int, error)
-	// SendMessageWithTimeout wraps g_socket_send_message_with_timeout
-	// 
-	// see also https://docs.gtk.org/gio/method.g_socket_send_message_with_timeout.g_socket_send_message_with_timeout.html
-	SendMessageWithTimeout(SocketAddress, []OutputVector, []SocketControlMessage, int32, int64, Cancellable) (uint, PollableReturn, error)
-	// SendMessages wraps g_socket_send_messages
-	// 
-	// see also https://docs.gtk.org/gio/method.g_socket_send_messages.g_socket_send_messages.html
-	SendMessages([]OutputMessage, int32, Cancellable) (int32, error)
 	// SendTo wraps g_socket_send_to
 	// 
 	// see also https://docs.gtk.org/gio/method.g_socket_send_to.g_socket_send_to.html
@@ -38769,45 +38100,6 @@ func (socket *SocketInstance) ReceiveBytesFrom(size uint, timeoutUs int64, cance
 	return address, goret, _goerr
 }
 
-// ReceiveMessages wraps g_socket_receive_messages
-// 
-// see also https://docs.gtk.org/gio/method.g_socket_receive_messages.g_socket_receive_messages.html
-func (socket *SocketInstance) ReceiveMessages(messages []InputMessage, flags int32, cancellable Cancellable) (int32, error) {
-	var carg0 *C.GSocket       // in, none, converted
-	var carg1 *C.GInputMessage // in, transfer: none, C Pointers: 1, Name: array[InputMessage], array (inner GInputMessage (*typesystem.Record), length-by: carg2)
-	var carg2 C.guint          // implicit
-	var carg3 C.gint           // in, none, casted
-	var carg4 *C.GCancellable  // in, none, converted, nullable
-	var cret  C.gint           // return, none, casted
-	var _cerr *C.GError        // out, full, converted, nullable
-
-	carg0 = (*C.GSocket)(UnsafeSocketToGlibNone(socket))
-	_ = messages
-	_ = carg1
-	_ = carg2
-	panic("unimplemented conversion of []InputMessage (GInputMessage*) because of unimplemented: non-fixed size array")
-	carg3 = C.gint(flags)
-	if cancellable != nil {
-		carg4 = (*C.GCancellable)(UnsafeCancellableToGlibNone(cancellable))
-	}
-
-	cret = C.g_socket_receive_messages(carg0, carg1, carg2, carg3, carg4, &_cerr)
-	runtime.KeepAlive(socket)
-	runtime.KeepAlive(messages)
-	runtime.KeepAlive(flags)
-	runtime.KeepAlive(cancellable)
-
-	var goret  int32
-	var _goerr error
-
-	goret = int32(cret)
-	if _cerr != nil {
-		_goerr = glib.UnsafeErrorFromGlibFull(unsafe.Pointer(_cerr))
-	}
-
-	return goret, _goerr
-}
-
 // Send wraps g_socket_send
 // 
 // see also https://docs.gtk.org/gio/method.g_socket_send.g_socket_send.html
@@ -38837,153 +38129,6 @@ func (socket *SocketInstance) Send(buffer string, cancellable Cancellable) (int,
 	var _goerr error
 
 	goret = int(cret)
-	if _cerr != nil {
-		_goerr = glib.UnsafeErrorFromGlibFull(unsafe.Pointer(_cerr))
-	}
-
-	return goret, _goerr
-}
-
-// SendMessage wraps g_socket_send_message
-// 
-// see also https://docs.gtk.org/gio/method.g_socket_send_message.g_socket_send_message.html
-func (socket *SocketInstance) SendMessage(address SocketAddress, vectors []OutputVector, messages []SocketControlMessage, flags int32, cancellable Cancellable) (int, error) {
-	var carg0 *C.GSocket                // in, none, converted
-	var carg1 *C.GSocketAddress         // in, none, converted, nullable
-	var carg2 *C.GOutputVector          // in, transfer: none, C Pointers: 1, Name: array[OutputVector], array (inner GOutputVector (*typesystem.Record), length-by: carg3)
-	var carg3 C.gint                    // implicit
-	var carg4 **C.GSocketControlMessage // in, transfer: none, C Pointers: 2, Name: array[SocketControlMessage], nullable, array (inner GSocketControlMessage* (*typesystem.Class), length-by: carg5)
-	var carg5 C.gint                    // implicit
-	var carg6 C.gint                    // in, none, casted
-	var carg7 *C.GCancellable           // in, none, converted, nullable
-	var cret  C.gssize                  // return, none, casted
-	var _cerr *C.GError                 // out, full, converted, nullable
-
-	carg0 = (*C.GSocket)(UnsafeSocketToGlibNone(socket))
-	if address != nil {
-		carg1 = (*C.GSocketAddress)(UnsafeSocketAddressToGlibNone(address))
-	}
-	_ = vectors
-	_ = carg2
-	_ = carg3
-	panic("unimplemented conversion of []OutputVector (GOutputVector*) because of unimplemented: non-fixed size array")
-	_ = messages
-	_ = carg4
-	_ = carg5
-	panic("unimplemented conversion of []SocketControlMessage (GSocketControlMessage**) because of unimplemented: inner pointers in array")
-	carg6 = C.gint(flags)
-	if cancellable != nil {
-		carg7 = (*C.GCancellable)(UnsafeCancellableToGlibNone(cancellable))
-	}
-
-	cret = C.g_socket_send_message(carg0, carg1, carg2, carg3, carg4, carg5, carg6, carg7, &_cerr)
-	runtime.KeepAlive(socket)
-	runtime.KeepAlive(address)
-	runtime.KeepAlive(vectors)
-	runtime.KeepAlive(messages)
-	runtime.KeepAlive(flags)
-	runtime.KeepAlive(cancellable)
-
-	var goret  int
-	var _goerr error
-
-	goret = int(cret)
-	if _cerr != nil {
-		_goerr = glib.UnsafeErrorFromGlibFull(unsafe.Pointer(_cerr))
-	}
-
-	return goret, _goerr
-}
-
-// SendMessageWithTimeout wraps g_socket_send_message_with_timeout
-// 
-// see also https://docs.gtk.org/gio/method.g_socket_send_message_with_timeout.g_socket_send_message_with_timeout.html
-func (socket *SocketInstance) SendMessageWithTimeout(address SocketAddress, vectors []OutputVector, messages []SocketControlMessage, flags int32, timeoutUs int64, cancellable Cancellable) (uint, PollableReturn, error) {
-	var carg0 *C.GSocket                // in, none, converted
-	var carg1 *C.GSocketAddress         // in, none, converted, nullable
-	var carg2 *C.GOutputVector          // in, transfer: none, C Pointers: 1, Name: array[OutputVector], array (inner GOutputVector (*typesystem.Record), length-by: carg3)
-	var carg3 C.gint                    // implicit
-	var carg4 **C.GSocketControlMessage // in, transfer: none, C Pointers: 2, Name: array[SocketControlMessage], nullable, array (inner GSocketControlMessage* (*typesystem.Class), length-by: carg5)
-	var carg5 C.gint                    // implicit
-	var carg6 C.gint                    // in, none, casted
-	var carg7 C.gint64                  // in, none, casted
-	var carg9 *C.GCancellable           // in, none, converted, nullable
-	var carg8 C.gsize                   // out, full, casted
-	var cret  C.GPollableReturn         // return, none, casted
-	var _cerr *C.GError                 // out, full, converted, nullable
-
-	carg0 = (*C.GSocket)(UnsafeSocketToGlibNone(socket))
-	if address != nil {
-		carg1 = (*C.GSocketAddress)(UnsafeSocketAddressToGlibNone(address))
-	}
-	_ = vectors
-	_ = carg2
-	_ = carg3
-	panic("unimplemented conversion of []OutputVector (const GOutputVector*) because of unimplemented: non-fixed size array")
-	_ = messages
-	_ = carg4
-	_ = carg5
-	panic("unimplemented conversion of []SocketControlMessage (GSocketControlMessage**) because of unimplemented: inner pointers in array")
-	carg6 = C.gint(flags)
-	carg7 = C.gint64(timeoutUs)
-	if cancellable != nil {
-		carg9 = (*C.GCancellable)(UnsafeCancellableToGlibNone(cancellable))
-	}
-
-	cret = C.g_socket_send_message_with_timeout(carg0, carg1, carg2, carg3, carg4, carg5, carg6, carg7, &carg8, carg9, &_cerr)
-	runtime.KeepAlive(socket)
-	runtime.KeepAlive(address)
-	runtime.KeepAlive(vectors)
-	runtime.KeepAlive(messages)
-	runtime.KeepAlive(flags)
-	runtime.KeepAlive(timeoutUs)
-	runtime.KeepAlive(cancellable)
-
-	var bytesWritten uint
-	var goret        PollableReturn
-	var _goerr       error
-
-	bytesWritten = uint(carg8)
-	goret = PollableReturn(cret)
-	if _cerr != nil {
-		_goerr = glib.UnsafeErrorFromGlibFull(unsafe.Pointer(_cerr))
-	}
-
-	return bytesWritten, goret, _goerr
-}
-
-// SendMessages wraps g_socket_send_messages
-// 
-// see also https://docs.gtk.org/gio/method.g_socket_send_messages.g_socket_send_messages.html
-func (socket *SocketInstance) SendMessages(messages []OutputMessage, flags int32, cancellable Cancellable) (int32, error) {
-	var carg0 *C.GSocket        // in, none, converted
-	var carg1 *C.GOutputMessage // in, transfer: none, C Pointers: 1, Name: array[OutputMessage], array (inner GOutputMessage (*typesystem.Record), length-by: carg2)
-	var carg2 C.guint           // implicit
-	var carg3 C.gint            // in, none, casted
-	var carg4 *C.GCancellable   // in, none, converted, nullable
-	var cret  C.gint            // return, none, casted
-	var _cerr *C.GError         // out, full, converted, nullable
-
-	carg0 = (*C.GSocket)(UnsafeSocketToGlibNone(socket))
-	_ = messages
-	_ = carg1
-	_ = carg2
-	panic("unimplemented conversion of []OutputMessage (GOutputMessage*) because of unimplemented: non-fixed size array")
-	carg3 = C.gint(flags)
-	if cancellable != nil {
-		carg4 = (*C.GCancellable)(UnsafeCancellableToGlibNone(cancellable))
-	}
-
-	cret = C.g_socket_send_messages(carg0, carg1, carg2, carg3, carg4, &_cerr)
-	runtime.KeepAlive(socket)
-	runtime.KeepAlive(messages)
-	runtime.KeepAlive(flags)
-	runtime.KeepAlive(cancellable)
-
-	var goret  int32
-	var _goerr error
-
-	goret = int32(cret)
 	if _cerr != nil {
 		_goerr = glib.UnsafeErrorFromGlibFull(unsafe.Pointer(_cerr))
 	}
@@ -42590,10 +41735,6 @@ type Task interface {
 	// 
 	// see also https://docs.gtk.org/gio/method.g_task_propagate_int.g_task_propagate_int.html
 	PropagateInt() (int, error)
-	// PropagateValue wraps g_task_propagate_value
-	// 
-	// see also https://docs.gtk.org/gio/method.g_task_propagate_value.g_task_propagate_value.html
-	PropagateValue() (gobject.Value, bool, error)
 	// ReturnBoolean wraps g_task_return_boolean
 	// 
 	// see also https://docs.gtk.org/gio/method.g_task_return_boolean.g_task_return_boolean.html
@@ -42900,37 +42041,6 @@ func (task *TaskInstance) PropagateInt() (int, error) {
 	}
 
 	return goret, _goerr
-}
-
-// PropagateValue wraps g_task_propagate_value
-// 
-// see also https://docs.gtk.org/gio/method.g_task_propagate_value.g_task_propagate_value.html
-func (task *TaskInstance) PropagateValue() (gobject.Value, bool, error) {
-	var carg0 *C.GTask   // in, none, converted
-	var carg1 C.GValue   // out, transfer: none, C Pointers: 0, Name: Value, caller-allocates
-	var cret  C.gboolean // return
-	var _cerr *C.GError  // out, full, converted, nullable
-
-	carg0 = (*C.GTask)(UnsafeTaskToGlibNone(task))
-
-	cret = C.g_task_propagate_value(carg0, &carg1, &_cerr)
-	runtime.KeepAlive(task)
-
-	var value  gobject.Value
-	var goret  bool
-	var _goerr error
-
-	_ = value
-	_ = carg1
-	panic("unimplemented conversion of gobject.Value (GValue) because of unknown reason")
-	if cret != 0 {
-		goret = true
-	}
-	if _cerr != nil {
-		_goerr = glib.UnsafeErrorFromGlibFull(unsafe.Pointer(_cerr))
-	}
-
-	return value, goret, _goerr
 }
 
 // ReturnBoolean wraps g_task_return_boolean
@@ -44189,7 +43299,7 @@ func (cert *TlsCertificateInstance) GetIssuerName() string {
 
 	if cret != nil {
 		goret = C.GoString((*C.char)(unsafe.Pointer(cret)))
-		defer C.free(unsafe.Pointer(cret))
+		defer C.g_free(C.gpointer(cret))
 	}
 
 	return goret
@@ -44211,7 +43321,7 @@ func (cert *TlsCertificateInstance) GetSubjectName() string {
 
 	if cret != nil {
 		goret = C.GoString((*C.char)(unsafe.Pointer(cret)))
-		defer C.free(unsafe.Pointer(cret))
+		defer C.g_free(C.gpointer(cret))
 	}
 
 	return goret
@@ -44630,7 +43740,7 @@ func (conn *TlsConnectionInstance) GetCiphersuiteName() string {
 
 	if cret != nil {
 		goret = C.GoString((*C.char)(unsafe.Pointer(cret)))
-		defer C.free(unsafe.Pointer(cret))
+		defer C.g_free(C.gpointer(cret))
 	}
 
 	return goret
@@ -45379,11 +44489,6 @@ type TlsDatabase interface {
 
 	// chain up virtual methods:
 
-	// ParentCreateCertificateHandle calls the default implementations of the `GTlsDatabase.create_certificate_handle` virtual method.
-	// This function's behavior is not defined when the parent does not implement the virtual method.
-	// 
-	// see also https://docs.gtk.org/gio/method.TlsDatabase.create_certificate_handle.html
-	ParentCreateCertificateHandle(certificate TlsCertificate) string
 	// ParentLookupCertificateForHandle calls the default implementations of the `GTlsDatabase.lookup_certificate_for_handle` virtual method.
 	// This function's behavior is not defined when the parent does not implement the virtual method.
 	// 
@@ -45488,7 +44593,7 @@ func (self *TlsDatabaseInstance) CreateCertificateHandle(certificate TlsCertific
 
 	if cret != nil {
 		goret = C.GoString((*C.char)(unsafe.Pointer(cret)))
-		defer C.free(unsafe.Pointer(cret))
+		defer C.g_free(C.gpointer(cret))
 	}
 
 	return goret
@@ -45862,10 +44967,6 @@ type TlsDatabaseOverrides[Instance TlsDatabase] struct {
 	// gobject.ObjectOverrides allows you to override virtual methods from the parent class gobject.Object
 	gobject.ObjectOverrides[Instance]
 
-	// // CreateCertificateHandle allows you to override the implementation of the virtual method create_certificate_handle.
-	// 
-	// see also https://docs.gtk.org/gio/method.TlsDatabase.create_certificate_handle.html
-	CreateCertificateHandle func(Instance, TlsCertificate) string
 	// // LookupCertificateForHandle allows you to override the implementation of the virtual method lookup_certificate_for_handle.
 	// 
 	// see also https://docs.gtk.org/gio/method.TlsDatabase.lookup_certificate_for_handle.html
@@ -45902,30 +45003,6 @@ func UnsafeApplyTlsDatabaseOverrides[Instance TlsDatabase](gclass unsafe.Pointer
 	gobject.UnsafeApplyObjectOverrides(gclass, overrides.ObjectOverrides)
 
 	pclass := (*C.GTlsDatabaseClass)(gclass)
-
-	if overrides.CreateCertificateHandle != nil {
-		pclass.create_certificate_handle = (*[0]byte)(C._goglib_gio2_TlsDatabase_create_certificate_handle)
-		classdata.StoreVirtualMethod(
-			unsafe.Pointer(pclass),
-			"_goglib_gio2_TlsDatabase_create_certificate_handle",
-			func(carg0 *C.GTlsDatabase, carg1 *C.GTlsCertificate) (cret *C.gchar) {
-				var self        Instance       // go GTlsDatabase subclass
-				var certificate TlsCertificate // in, none, converted
-				var goret       string         // return, full, string, nullable-string
-
-				self = UnsafeTlsDatabaseFromGlibBorrow(unsafe.Pointer(carg0)).UnsafeLoadInstanceFromPrivateData().(Instance)
-				certificate = UnsafeTlsCertificateFromGlibNone(unsafe.Pointer(carg1))
-
-				goret = overrides.CreateCertificateHandle(self, certificate)
-
-				if goret != "" {
-					cret = (*C.gchar)(unsafe.Pointer(C.CString(goret)))
-				}
-
-				return cret
-			},
-		)
-	}
 
 	if overrides.LookupCertificateForHandle != nil {
 		pclass.lookup_certificate_for_handle = (*[0]byte)(C._goglib_gio2_TlsDatabase_lookup_certificate_for_handle)
@@ -46134,34 +45211,6 @@ func UnsafeApplyTlsDatabaseOverrides[Instance TlsDatabase](gclass unsafe.Pointer
 			},
 		)
 	}
-}
-
-// ParentCreateCertificateHandle calls the default implementations of the `GTlsDatabase.create_certificate_handle` virtual method.
-// This function's behavior is not defined when the parent does not implement the virtual method.
-// 
-// see also https://docs.gtk.org/gio/method.TlsDatabase.create_certificate_handle.html
-func (self *TlsDatabaseInstance) ParentCreateCertificateHandle(certificate TlsCertificate) string {
-	var carg0 *C.GTlsDatabase
-	var carg1 *C.GTlsCertificate // in, none, converted
-	var cret  *C.gchar           // return, full, string, nullable-string
-
-	parentclass := (*C.GTlsDatabaseClass)(classdata.PeekParentClass(UnsafeTlsDatabaseToGlibNone(self)))
-
-	carg0 = (*C.GTlsDatabase)(UnsafeTlsDatabaseToGlibNone(self))
-	carg1 = (*C.GTlsCertificate)(UnsafeTlsCertificateToGlibNone(certificate))
-
-	cret = C._goglib_gio2_TlsDatabase_virtual_create_certificate_handle(unsafe.Pointer(parentclass.create_certificate_handle), carg0, carg1)
-	runtime.KeepAlive(self)
-	runtime.KeepAlive(certificate)
-
-	var goret string
-
-	if cret != nil {
-		goret = C.GoString((*C.char)(unsafe.Pointer(cret)))
-		defer C.free(unsafe.Pointer(cret))
-	}
-
-	return goret
 }
 
 // ParentLookupCertificateForHandle calls the default implementations of the `GTlsDatabase.lookup_certificate_for_handle` virtual method.
@@ -49859,11 +48908,6 @@ type FileIOStream interface {
 	// 
 	// see also https://docs.gtk.org/gio/method.FileIOStream.can_truncate.html
 	ParentCanTruncate() bool
-	// ParentGetEtag calls the default implementations of the `GFileIOStream.get_etag` virtual method.
-	// This function's behavior is not defined when the parent does not implement the virtual method.
-	// 
-	// see also https://docs.gtk.org/gio/method.FileIOStream.get_etag.html
-	ParentGetEtag() string
 	// ParentQueryInfo calls the default implementations of the `GFileIOStream.query_info` virtual method.
 	// This function's behavior is not defined when the parent does not implement the virtual method.
 	// 
@@ -49960,7 +49004,7 @@ func (stream *FileIOStreamInstance) GetEtag() string {
 
 	if cret != nil {
 		goret = C.GoString((*C.char)(unsafe.Pointer(cret)))
-		defer C.free(unsafe.Pointer(cret))
+		defer C.g_free(C.gpointer(cret))
 	}
 
 	return goret
@@ -50071,10 +49115,6 @@ type FileIOStreamOverrides[Instance FileIOStream] struct {
 	// 
 	// see also https://docs.gtk.org/gio/method.FileIOStream.can_truncate.html
 	CanTruncate func(Instance) bool
-	// // GetEtag allows you to override the implementation of the virtual method get_etag.
-	// 
-	// see also https://docs.gtk.org/gio/method.FileIOStream.get_etag.html
-	GetEtag func(Instance) string
 	// // QueryInfo allows you to override the implementation of the virtual method query_info.
 	// 
 	// see also https://docs.gtk.org/gio/method.FileIOStream.query_info.html
@@ -50141,28 +49181,6 @@ func UnsafeApplyFileIOStreamOverrides[Instance FileIOStream](gclass unsafe.Point
 
 				if goret {
 					cret = C.TRUE
-				}
-
-				return cret
-			},
-		)
-	}
-
-	if overrides.GetEtag != nil {
-		pclass.get_etag = (*[0]byte)(C._goglib_gio2_FileIOStream_get_etag)
-		classdata.StoreVirtualMethod(
-			unsafe.Pointer(pclass),
-			"_goglib_gio2_FileIOStream_get_etag",
-			func(carg0 *C.GFileIOStream) (cret *C.char) {
-				var stream Instance // go GFileIOStream subclass
-				var goret  string   // return, full, string, nullable-string
-
-				stream = UnsafeFileIOStreamFromGlibBorrow(unsafe.Pointer(carg0)).UnsafeLoadInstanceFromPrivateData().(Instance)
-
-				goret = overrides.GetEtag(stream)
-
-				if goret != "" {
-					cret = (*C.char)(unsafe.Pointer(C.CString(goret)))
 				}
 
 				return cret
@@ -50348,31 +49366,6 @@ func (stream *FileIOStreamInstance) ParentCanTruncate() bool {
 
 	if cret != 0 {
 		goret = true
-	}
-
-	return goret
-}
-
-// ParentGetEtag calls the default implementations of the `GFileIOStream.get_etag` virtual method.
-// This function's behavior is not defined when the parent does not implement the virtual method.
-// 
-// see also https://docs.gtk.org/gio/method.FileIOStream.get_etag.html
-func (stream *FileIOStreamInstance) ParentGetEtag() string {
-	var carg0 *C.GFileIOStream
-	var cret  *C.char // return, full, string, nullable-string
-
-	parentclass := (*C.GFileIOStreamClass)(classdata.PeekParentClass(UnsafeFileIOStreamToGlibNone(stream)))
-
-	carg0 = (*C.GFileIOStream)(UnsafeFileIOStreamToGlibNone(stream))
-
-	cret = C._goglib_gio2_FileIOStream_virtual_get_etag(unsafe.Pointer(parentclass.get_etag), carg0)
-	runtime.KeepAlive(stream)
-
-	var goret string
-
-	if cret != nil {
-		goret = C.GoString((*C.char)(unsafe.Pointer(cret)))
-		defer C.free(unsafe.Pointer(cret))
 	}
 
 	return goret
@@ -51160,11 +50153,6 @@ type FileOutputStream interface {
 	// 
 	// see also https://docs.gtk.org/gio/method.FileOutputStream.can_truncate.html
 	ParentCanTruncate() bool
-	// ParentGetEtag calls the default implementations of the `GFileOutputStream.get_etag` virtual method.
-	// This function's behavior is not defined when the parent does not implement the virtual method.
-	// 
-	// see also https://docs.gtk.org/gio/method.FileOutputStream.get_etag.html
-	ParentGetEtag() string
 	// ParentQueryInfo calls the default implementations of the `GFileOutputStream.query_info` virtual method.
 	// This function's behavior is not defined when the parent does not implement the virtual method.
 	// 
@@ -51261,7 +50249,7 @@ func (stream *FileOutputStreamInstance) GetEtag() string {
 
 	if cret != nil {
 		goret = C.GoString((*C.char)(unsafe.Pointer(cret)))
-		defer C.free(unsafe.Pointer(cret))
+		defer C.g_free(C.gpointer(cret))
 	}
 
 	return goret
@@ -51372,10 +50360,6 @@ type FileOutputStreamOverrides[Instance FileOutputStream] struct {
 	// 
 	// see also https://docs.gtk.org/gio/method.FileOutputStream.can_truncate.html
 	CanTruncate func(Instance) bool
-	// // GetEtag allows you to override the implementation of the virtual method get_etag.
-	// 
-	// see also https://docs.gtk.org/gio/method.FileOutputStream.get_etag.html
-	GetEtag func(Instance) string
 	// // QueryInfo allows you to override the implementation of the virtual method query_info.
 	// 
 	// see also https://docs.gtk.org/gio/method.FileOutputStream.query_info.html
@@ -51442,28 +50426,6 @@ func UnsafeApplyFileOutputStreamOverrides[Instance FileOutputStream](gclass unsa
 
 				if goret {
 					cret = C.TRUE
-				}
-
-				return cret
-			},
-		)
-	}
-
-	if overrides.GetEtag != nil {
-		pclass.get_etag = (*[0]byte)(C._goglib_gio2_FileOutputStream_get_etag)
-		classdata.StoreVirtualMethod(
-			unsafe.Pointer(pclass),
-			"_goglib_gio2_FileOutputStream_get_etag",
-			func(carg0 *C.GFileOutputStream) (cret *C.char) {
-				var stream Instance // go GFileOutputStream subclass
-				var goret  string   // return, full, string, nullable-string
-
-				stream = UnsafeFileOutputStreamFromGlibBorrow(unsafe.Pointer(carg0)).UnsafeLoadInstanceFromPrivateData().(Instance)
-
-				goret = overrides.GetEtag(stream)
-
-				if goret != "" {
-					cret = (*C.char)(unsafe.Pointer(C.CString(goret)))
 				}
 
 				return cret
@@ -51649,31 +50611,6 @@ func (stream *FileOutputStreamInstance) ParentCanTruncate() bool {
 
 	if cret != 0 {
 		goret = true
-	}
-
-	return goret
-}
-
-// ParentGetEtag calls the default implementations of the `GFileOutputStream.get_etag` virtual method.
-// This function's behavior is not defined when the parent does not implement the virtual method.
-// 
-// see also https://docs.gtk.org/gio/method.FileOutputStream.get_etag.html
-func (stream *FileOutputStreamInstance) ParentGetEtag() string {
-	var carg0 *C.GFileOutputStream
-	var cret  *C.char // return, full, string, nullable-string
-
-	parentclass := (*C.GFileOutputStreamClass)(classdata.PeekParentClass(UnsafeFileOutputStreamToGlibNone(stream)))
-
-	carg0 = (*C.GFileOutputStream)(UnsafeFileOutputStreamToGlibNone(stream))
-
-	cret = C._goglib_gio2_FileOutputStream_virtual_get_etag(unsafe.Pointer(parentclass.get_etag), carg0)
-	runtime.KeepAlive(stream)
-
-	var goret string
-
-	if cret != nil {
-		goret = C.GoString((*C.char)(unsafe.Pointer(cret)))
-		defer C.free(unsafe.Pointer(cret))
 	}
 
 	return goret
@@ -55329,7 +54266,7 @@ func (stream *DataInputStreamInstance) ReadLineFinishUTF8(result AsyncResult) (u
 	length = uint(carg2)
 	if cret != nil {
 		goret = C.GoString((*C.char)(unsafe.Pointer(cret)))
-		defer C.free(unsafe.Pointer(cret))
+		defer C.g_free(C.gpointer(cret))
 	}
 	if _cerr != nil {
 		_goerr = glib.UnsafeErrorFromGlibFull(unsafe.Pointer(_cerr))
@@ -55364,7 +54301,7 @@ func (stream *DataInputStreamInstance) ReadLineUTF8(cancellable Cancellable) (ui
 	length = uint(carg1)
 	if cret != nil {
 		goret = C.GoString((*C.char)(unsafe.Pointer(cret)))
-		defer C.free(unsafe.Pointer(cret))
+		defer C.g_free(C.gpointer(cret))
 	}
 	if _cerr != nil {
 		_goerr = glib.UnsafeErrorFromGlibFull(unsafe.Pointer(_cerr))
@@ -55491,7 +54428,7 @@ func (stream *DataInputStreamInstance) ReadUntil(stopChars string, cancellable C
 
 	length = uint(carg2)
 	goret = C.GoString((*C.char)(unsafe.Pointer(cret)))
-	defer C.free(unsafe.Pointer(cret))
+	defer C.g_free(C.gpointer(cret))
 	if _cerr != nil {
 		_goerr = glib.UnsafeErrorFromGlibFull(unsafe.Pointer(_cerr))
 	}
@@ -55557,7 +54494,7 @@ func (stream *DataInputStreamInstance) ReadUntilFinish(result AsyncResult) (uint
 
 	length = uint(carg2)
 	goret = C.GoString((*C.char)(unsafe.Pointer(cret)))
-	defer C.free(unsafe.Pointer(cret))
+	defer C.g_free(C.gpointer(cret))
 	if _cerr != nil {
 		_goerr = glib.UnsafeErrorFromGlibFull(unsafe.Pointer(_cerr))
 	}
@@ -55597,7 +54534,7 @@ func (stream *DataInputStreamInstance) ReadUpto(stopChars string, stopCharsLen i
 
 	length = uint(carg3)
 	goret = C.GoString((*C.char)(unsafe.Pointer(cret)))
-	defer C.free(unsafe.Pointer(cret))
+	defer C.g_free(C.gpointer(cret))
 	if _cerr != nil {
 		_goerr = glib.UnsafeErrorFromGlibFull(unsafe.Pointer(_cerr))
 	}
@@ -55662,7 +54599,7 @@ func (stream *DataInputStreamInstance) ReadUptoFinish(result AsyncResult) (uint,
 
 	length = uint(carg2)
 	goret = C.GoString((*C.char)(unsafe.Pointer(cret)))
-	defer C.free(unsafe.Pointer(cret))
+	defer C.g_free(C.gpointer(cret))
 	if _cerr != nil {
 		_goerr = glib.UnsafeErrorFromGlibFull(unsafe.Pointer(_cerr))
 	}
@@ -58679,7 +57616,7 @@ func (matcher *FileAttributeMatcher) String() string {
 	var goret string
 
 	goret = C.GoString((*C.char)(unsafe.Pointer(cret)))
-	defer C.free(unsafe.Pointer(cret))
+	defer C.g_free(C.gpointer(cret))
 
 	return goret
 }

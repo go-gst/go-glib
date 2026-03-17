@@ -645,32 +645,6 @@ func (f TypeFundamentalFlags) String() string {
 	return "TypeFundamentalFlags(" + strings.Join(parts, "|") + ")"
 }
 
-// EnumCompleteTypeInfo wraps g_enum_complete_type_info
-// 
-// see also https://docs.gtk.org/gobject/func.g_enum_complete_type_info.html
-func EnumCompleteTypeInfo(gEnumType Type, constValues []EnumValue) TypeInfo {
-	var carg1 C.GType       // in, none, casted, alias
-	var carg3 *C.GEnumValue // in, transfer: none, C Pointers: 1, Name: array[EnumValue], array (inner GEnumValue (*typesystem.Record), zero-terminated)
-	var carg2 C.GTypeInfo   // out, transfer: full, C Pointers: 0, Name: TypeInfo
-
-	carg1 = C.GType(gEnumType)
-	_ = constValues
-	_ = carg3
-	panic("unimplemented conversion of []EnumValue (const GEnumValue*) because of unimplemented: non-fixed size array")
-
-	C.g_enum_complete_type_info(carg1, &carg2, carg3)
-	runtime.KeepAlive(gEnumType)
-	runtime.KeepAlive(constValues)
-
-	var info TypeInfo
-
-	_ = info
-	_ = carg2
-	panic("unimplemented conversion of TypeInfo (GTypeInfo) because of unknown reason")
-
-	return info
-}
-
 // EnumGetValue wraps g_enum_get_value
 // 
 // see also https://docs.gtk.org/gobject/func.g_enum_get_value.html
@@ -745,31 +719,6 @@ func EnumGetValueByNick(enumClass *EnumClass, nick string) *EnumValue {
 	return goret
 }
 
-// EnumRegisterStatic wraps g_enum_register_static
-// 
-// see also https://docs.gtk.org/gobject/func.g_enum_register_static.html
-func EnumRegisterStatic(name string, constStaticValues []EnumValue) Type {
-	var carg1 *C.gchar      // in, none, string
-	var carg2 *C.GEnumValue // in, transfer: none, C Pointers: 1, Name: array[EnumValue], array (inner GEnumValue (*typesystem.Record), zero-terminated)
-	var cret  C.GType       // return, none, casted, alias
-
-	carg1 = (*C.gchar)(unsafe.Pointer(C.CString(name)))
-	defer C.free(unsafe.Pointer(carg1))
-	_ = constStaticValues
-	_ = carg2
-	panic("unimplemented conversion of []EnumValue (const GEnumValue*) because of unimplemented: non-fixed size array")
-
-	cret = C.g_enum_register_static(carg1, carg2)
-	runtime.KeepAlive(name)
-	runtime.KeepAlive(constStaticValues)
-
-	var goret Type
-
-	goret = Type(cret)
-
-	return goret
-}
-
 // EnumToString wraps g_enum_to_string
 // 
 // see also https://docs.gtk.org/gobject/func.g_enum_to_string.html
@@ -788,35 +737,9 @@ func EnumToString(gEnumType Type, value int32) string {
 	var goret string
 
 	goret = C.GoString((*C.char)(unsafe.Pointer(cret)))
-	defer C.free(unsafe.Pointer(cret))
+	defer C.g_free(C.gpointer(cret))
 
 	return goret
-}
-
-// FlagsCompleteTypeInfo wraps g_flags_complete_type_info
-// 
-// see also https://docs.gtk.org/gobject/func.g_flags_complete_type_info.html
-func FlagsCompleteTypeInfo(gFlagsType Type, constValues []FlagsValue) TypeInfo {
-	var carg1 C.GType        // in, none, casted, alias
-	var carg3 *C.GFlagsValue // in, transfer: none, C Pointers: 1, Name: array[FlagsValue], array (inner GFlagsValue (*typesystem.Record), zero-terminated)
-	var carg2 C.GTypeInfo    // out, transfer: full, C Pointers: 0, Name: TypeInfo
-
-	carg1 = C.GType(gFlagsType)
-	_ = constValues
-	_ = carg3
-	panic("unimplemented conversion of []FlagsValue (const GFlagsValue*) because of unimplemented: non-fixed size array")
-
-	C.g_flags_complete_type_info(carg1, &carg2, carg3)
-	runtime.KeepAlive(gFlagsType)
-	runtime.KeepAlive(constValues)
-
-	var info TypeInfo
-
-	_ = info
-	_ = carg2
-	panic("unimplemented conversion of TypeInfo (GTypeInfo) because of unknown reason")
-
-	return info
 }
 
 // FlagsGetFirstValue wraps g_flags_get_first_value
@@ -893,31 +816,6 @@ func FlagsGetValueByNick(flagsClass *FlagsClass, nick string) *FlagsValue {
 	return goret
 }
 
-// FlagsRegisterStatic wraps g_flags_register_static
-// 
-// see also https://docs.gtk.org/gobject/func.g_flags_register_static.html
-func FlagsRegisterStatic(name string, constStaticValues []FlagsValue) Type {
-	var carg1 *C.gchar       // in, none, string
-	var carg2 *C.GFlagsValue // in, transfer: none, C Pointers: 1, Name: array[FlagsValue], array (inner GFlagsValue (*typesystem.Record), zero-terminated)
-	var cret  C.GType        // return, none, casted, alias
-
-	carg1 = (*C.gchar)(unsafe.Pointer(C.CString(name)))
-	defer C.free(unsafe.Pointer(carg1))
-	_ = constStaticValues
-	_ = carg2
-	panic("unimplemented conversion of []FlagsValue (const GFlagsValue*) because of unimplemented: non-fixed size array")
-
-	cret = C.g_flags_register_static(carg1, carg2)
-	runtime.KeepAlive(name)
-	runtime.KeepAlive(constStaticValues)
-
-	var goret Type
-
-	goret = Type(cret)
-
-	return goret
-}
-
 // FlagsToString wraps g_flags_to_string
 // 
 // see also https://docs.gtk.org/gobject/func.g_flags_to_string.html
@@ -936,7 +834,7 @@ func FlagsToString(flagsType Type, value uint) string {
 	var goret string
 
 	goret = C.GoString((*C.char)(unsafe.Pointer(cret)))
-	defer C.free(unsafe.Pointer(cret))
+	defer C.g_free(C.gpointer(cret))
 
 	return goret
 }

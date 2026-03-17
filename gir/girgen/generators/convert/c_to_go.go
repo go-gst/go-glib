@@ -81,7 +81,7 @@ func newCToGoBasicConverter(p *typesystem.Param) Converter {
 
 	if ok && p.CTypePointers == 1 {
 
-		if ok && conv.CanTransferFromGlib(p.TransferOwnership) {
+		if ok && conv.CanTransfer(typesystem.DirectionCToGo, p.TransferOwnership) {
 			return &CToGoConvertibleConverter{
 				Param:       p,
 				ConvertFunc: p.Type.WithForeignNamespace(conv.GetTransferFromGlibFunction(p.TransferOwnership)),

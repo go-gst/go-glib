@@ -15,7 +15,6 @@ import (
 // #cgo pkg-config: glib-2.0
 // #cgo CFLAGS: -Wno-deprecated-declarations
 // #include <glib.h>
-// extern GLogWriterOutput _goglib_glib2_LogWriterFunc(GLogLevelFlags, const GLogField*, gsize, gpointer);
 // extern gboolean _goglib_glib2_SourceFunc(gpointer);
 // extern void _goglib_glib2_LogFunc(const gchar*, GLogLevelFlags, const gchar*, gpointer);
 // extern void destroyUserdata(gpointer);
@@ -5204,11 +5203,6 @@ func (f UriParamsFlags) String() string {
 // see also https://docs.gtk.org/glib/callback.LogFunc.html
 type LogFunc func(logDomain string, logLevel LogLevelFlags, message string)
 
-// LogWriterFunc wraps GLogWriterFunc
-// 
-// see also https://docs.gtk.org/glib/callback.LogWriterFunc.html
-type LogWriterFunc func(logLevel LogLevelFlags, fields []LogField) (goret LogWriterOutput)
-
 // SourceFunc wraps GSourceFunc
 // 
 // see also https://docs.gtk.org/glib/callback.SourceFunc.html
@@ -5270,7 +5264,7 @@ func ASCIIDtostr(buffer string, bufLen int32, d float64) string {
 	var goret string
 
 	goret = C.GoString((*C.char)(unsafe.Pointer(cret)))
-	defer C.free(unsafe.Pointer(cret))
+	defer C.g_free(C.gpointer(cret))
 
 	return goret
 }
@@ -5301,7 +5295,7 @@ func ASCIIFormatd(buffer string, bufLen int32, format string, d float64) string 
 	var goret string
 
 	goret = C.GoString((*C.char)(unsafe.Pointer(cret)))
-	defer C.free(unsafe.Pointer(cret))
+	defer C.g_free(C.gpointer(cret))
 
 	return goret
 }
@@ -5349,7 +5343,7 @@ func ASCIIStrdown(str string, len int) string {
 	var goret string
 
 	goret = C.GoString((*C.char)(unsafe.Pointer(cret)))
-	defer C.free(unsafe.Pointer(cret))
+	defer C.g_free(C.gpointer(cret))
 
 	return goret
 }
@@ -5553,7 +5547,7 @@ func ASCIIStrup(str string, len int) string {
 	var goret string
 
 	goret = C.GoString((*C.char)(unsafe.Pointer(cret)))
-	defer C.free(unsafe.Pointer(cret))
+	defer C.g_free(C.gpointer(cret))
 
 	return goret
 }
@@ -5796,7 +5790,7 @@ func Base64Encode(data []uint8) string {
 	var goret string
 
 	goret = C.GoString((*C.char)(unsafe.Pointer(cret)))
-	defer C.free(unsafe.Pointer(cret))
+	defer C.g_free(C.gpointer(cret))
 
 	return goret
 }
@@ -5881,7 +5875,7 @@ func BuildFilenamev(args []string) string {
 	var goret string
 
 	goret = C.GoString((*C.char)(unsafe.Pointer(cret)))
-	defer C.free(unsafe.Pointer(cret))
+	defer C.g_free(C.gpointer(cret))
 
 	return goret
 }
@@ -5907,7 +5901,7 @@ func BuildPathv(separator string, args []string) string {
 	var goret string
 
 	goret = C.GoString((*C.char)(unsafe.Pointer(cret)))
-	defer C.free(unsafe.Pointer(cret))
+	defer C.g_free(C.gpointer(cret))
 
 	return goret
 }
@@ -5934,7 +5928,7 @@ func CanonicalizeFilename(filename string, relativeTo string) string {
 	var goret string
 
 	goret = C.GoString((*C.char)(unsafe.Pointer(cret)))
-	defer C.free(unsafe.Pointer(cret))
+	defer C.g_free(C.gpointer(cret))
 
 	return goret
 }
@@ -6002,7 +5996,7 @@ func ComputeChecksumForBytes(checksumType ChecksumType, data *Bytes) string {
 
 	if cret != nil {
 		goret = C.GoString((*C.char)(unsafe.Pointer(cret)))
-		defer C.free(unsafe.Pointer(cret))
+		defer C.g_free(C.gpointer(cret))
 	}
 
 	return goret
@@ -6031,7 +6025,7 @@ func ComputeChecksumForData(checksumType ChecksumType, data []uint8) string {
 
 	if cret != nil {
 		goret = C.GoString((*C.char)(unsafe.Pointer(cret)))
-		defer C.free(unsafe.Pointer(cret))
+		defer C.g_free(C.gpointer(cret))
 	}
 
 	return goret
@@ -6060,7 +6054,7 @@ func ComputeChecksumForString(checksumType ChecksumType, str string, length int)
 
 	if cret != nil {
 		goret = C.GoString((*C.char)(unsafe.Pointer(cret)))
-		defer C.free(unsafe.Pointer(cret))
+		defer C.g_free(C.gpointer(cret))
 	}
 
 	return goret
@@ -6087,7 +6081,7 @@ func ComputeHmacForBytes(digestType ChecksumType, key *Bytes, data *Bytes) strin
 	var goret string
 
 	goret = C.GoString((*C.char)(unsafe.Pointer(cret)))
-	defer C.free(unsafe.Pointer(cret))
+	defer C.g_free(C.gpointer(cret))
 
 	return goret
 }
@@ -6121,7 +6115,7 @@ func ComputeHmacForData(digestType ChecksumType, key []byte, data []byte) string
 	var goret string
 
 	goret = C.GoString((*C.char)(unsafe.Pointer(cret)))
-	defer C.free(unsafe.Pointer(cret))
+	defer C.g_free(C.gpointer(cret))
 
 	return goret
 }
@@ -6155,7 +6149,7 @@ func ComputeHmacForString(digestType ChecksumType, key []byte, str string, lengt
 	var goret string
 
 	goret = C.GoString((*C.char)(unsafe.Pointer(cret)))
-	defer C.free(unsafe.Pointer(cret))
+	defer C.g_free(C.gpointer(cret))
 
 	return goret
 }
@@ -6594,7 +6588,7 @@ func FileOpenTmp(tmpl string) (string, int32, error) {
 	var _goerr   error
 
 	nameUsed = C.GoString((*C.char)(unsafe.Pointer(carg2)))
-	defer C.free(unsafe.Pointer(carg2))
+	defer C.g_free(C.gpointer(carg2))
 	goret = int32(cret)
 	if _cerr != nil {
 		_goerr = UnsafeErrorFromGlibFull(unsafe.Pointer(_cerr))
@@ -6621,7 +6615,7 @@ func FileReadLink(filename string) (string, error) {
 	var _goerr error
 
 	goret = C.GoString((*C.char)(unsafe.Pointer(cret)))
-	defer C.free(unsafe.Pointer(cret))
+	defer C.g_free(C.gpointer(cret))
 	if _cerr != nil {
 		_goerr = UnsafeErrorFromGlibFull(unsafe.Pointer(_cerr))
 	}
@@ -6744,7 +6738,7 @@ func FilenameDisplayBasename(filename string) string {
 	var goret string
 
 	goret = C.GoString((*C.char)(unsafe.Pointer(cret)))
-	defer C.free(unsafe.Pointer(cret))
+	defer C.g_free(C.gpointer(cret))
 
 	return goret
 }
@@ -6765,7 +6759,7 @@ func FilenameDisplayName(filename string) string {
 	var goret string
 
 	goret = C.GoString((*C.char)(unsafe.Pointer(cret)))
-	defer C.free(unsafe.Pointer(cret))
+	defer C.g_free(C.gpointer(cret))
 
 	return goret
 }
@@ -6791,10 +6785,10 @@ func FilenameFromURI(uri string) (string, string, error) {
 
 	if carg2 != nil {
 		hostname = C.GoString((*C.char)(unsafe.Pointer(carg2)))
-		defer C.free(unsafe.Pointer(carg2))
+		defer C.g_free(C.gpointer(carg2))
 	}
 	goret = C.GoString((*C.char)(unsafe.Pointer(cret)))
-	defer C.free(unsafe.Pointer(cret))
+	defer C.g_free(C.gpointer(cret))
 	if _cerr != nil {
 		_goerr = UnsafeErrorFromGlibFull(unsafe.Pointer(_cerr))
 	}
@@ -6829,7 +6823,7 @@ func FilenameFromUTF8(utf8string string, len int) (uint, uint, string, error) {
 	bytesRead = uint(carg3)
 	bytesWritten = uint(carg4)
 	goret = C.GoString((*C.char)(unsafe.Pointer(cret)))
-	defer C.free(unsafe.Pointer(cret))
+	defer C.g_free(C.gpointer(cret))
 	if _cerr != nil {
 		_goerr = UnsafeErrorFromGlibFull(unsafe.Pointer(_cerr))
 	}
@@ -6861,7 +6855,7 @@ func FilenameToURI(filename string, hostname string) (string, error) {
 	var _goerr error
 
 	goret = C.GoString((*C.char)(unsafe.Pointer(cret)))
-	defer C.free(unsafe.Pointer(cret))
+	defer C.g_free(C.gpointer(cret))
 	if _cerr != nil {
 		_goerr = UnsafeErrorFromGlibFull(unsafe.Pointer(_cerr))
 	}
@@ -6896,7 +6890,7 @@ func FilenameToUTF8(opsysstring string, len int) (uint, uint, string, error) {
 	bytesRead = uint(carg3)
 	bytesWritten = uint(carg4)
 	goret = C.GoString((*C.char)(unsafe.Pointer(cret)))
-	defer C.free(unsafe.Pointer(cret))
+	defer C.g_free(C.gpointer(cret))
 	if _cerr != nil {
 		_goerr = UnsafeErrorFromGlibFull(unsafe.Pointer(_cerr))
 	}
@@ -6921,7 +6915,7 @@ func FindProgramInPath(program string) string {
 
 	if cret != nil {
 		goret = C.GoString((*C.char)(unsafe.Pointer(cret)))
-		defer C.free(unsafe.Pointer(cret))
+		defer C.g_free(C.gpointer(cret))
 	}
 
 	return goret
@@ -6942,7 +6936,7 @@ func FormatSize(size uint64) string {
 	var goret string
 
 	goret = C.GoString((*C.char)(unsafe.Pointer(cret)))
-	defer C.free(unsafe.Pointer(cret))
+	defer C.g_free(C.gpointer(cret))
 
 	return goret
 }
@@ -6965,7 +6959,7 @@ func FormatSizeFull(size uint64, flags FormatSizeFlags) string {
 	var goret string
 
 	goret = C.GoString((*C.char)(unsafe.Pointer(cret)))
-	defer C.free(unsafe.Pointer(cret))
+	defer C.g_free(C.gpointer(cret))
 
 	return goret
 }
@@ -7018,7 +7012,7 @@ func GetCodeset() string {
 	var goret string
 
 	goret = C.GoString((*C.char)(unsafe.Pointer(cret)))
-	defer C.free(unsafe.Pointer(cret))
+	defer C.g_free(C.gpointer(cret))
 
 	return goret
 }
@@ -7054,7 +7048,7 @@ func GetCurrentDir() string {
 	var goret string
 
 	goret = C.GoString((*C.char)(unsafe.Pointer(cret)))
-	defer C.free(unsafe.Pointer(cret))
+	defer C.g_free(C.gpointer(cret))
 
 	return goret
 }
@@ -7214,7 +7208,7 @@ func GetOsInfo(keyName string) string {
 
 	if cret != nil {
 		goret = C.GoString((*C.char)(unsafe.Pointer(cret)))
-		defer C.free(unsafe.Pointer(cret))
+		defer C.g_free(C.gpointer(cret))
 	}
 
 	return goret
@@ -7532,7 +7526,7 @@ func HostnameToASCII(hostname string) string {
 
 	if cret != nil {
 		goret = C.GoString((*C.char)(unsafe.Pointer(cret)))
-		defer C.free(unsafe.Pointer(cret))
+		defer C.g_free(C.gpointer(cret))
 	}
 
 	return goret
@@ -7555,7 +7549,7 @@ func HostnameToUnicode(hostname string) string {
 
 	if cret != nil {
 		goret = C.GoString((*C.char)(unsafe.Pointer(cret)))
-		defer C.free(unsafe.Pointer(cret))
+		defer C.g_free(C.gpointer(cret))
 	}
 
 	return goret
@@ -7711,7 +7705,7 @@ func LocaleToUTF8(opsysstring string) (uint, uint, string, error) {
 	bytesRead = uint(carg3)
 	bytesWritten = uint(carg4)
 	goret = C.GoString((*C.char)(unsafe.Pointer(cret)))
-	defer C.free(unsafe.Pointer(cret))
+	defer C.g_free(C.gpointer(cret))
 	if _cerr != nil {
 		_goerr = UnsafeErrorFromGlibFull(unsafe.Pointer(_cerr))
 	}
@@ -7840,36 +7834,6 @@ func LogSetHandlerFull(logDomain string, logLevels LogLevelFlags, logFunc LogFun
 	return goret
 }
 
-// LogSetWriterFunc wraps g_log_set_writer_func
-// 
-// see also https://docs.gtk.org/glib/func.g_log_set_writer_func.html
-func LogSetWriterFunc() {
-	var carg1 C.GLogWriterFunc // implicit
-	var carg2 C.gpointer       // implicit
-	var carg3 C.GDestroyNotify // implicit
-
-	C.g_log_set_writer_func(carg1, carg2, carg3)
-}
-
-// LogStructuredArray wraps g_log_structured_array
-// 
-// see also https://docs.gtk.org/glib/func.g_log_structured_array.html
-func LogStructuredArray(logLevel LogLevelFlags, fields []LogField) {
-	var carg1 C.GLogLevelFlags // in, none, casted
-	var carg2 *C.GLogField     // in, transfer: none, C Pointers: 1, Name: array[LogField], array (inner GLogField (*typesystem.Record), length-by: carg3)
-	var carg3 C.gsize          // implicit
-
-	carg1 = C.GLogLevelFlags(logLevel)
-	_ = fields
-	_ = carg2
-	_ = carg3
-	panic("unimplemented conversion of []LogField (const GLogField*) because of unimplemented: non-fixed size array")
-
-	C.g_log_structured_array(carg1, carg2, carg3)
-	runtime.KeepAlive(logLevel)
-	runtime.KeepAlive(fields)
-}
-
 // LogWriterDefaultSetUseStderr wraps g_log_writer_default_set_use_stderr
 // 
 // see also https://docs.gtk.org/glib/func.g_log_writer_default_set_use_stderr.html
@@ -7907,38 +7871,6 @@ func LogWriterDefaultWouldDrop(logLevel LogLevelFlags, logDomain string) bool {
 	if cret != 0 {
 		goret = true
 	}
-
-	return goret
-}
-
-// LogWriterFormatFields wraps g_log_writer_format_fields
-// 
-// see also https://docs.gtk.org/glib/func.g_log_writer_format_fields.html
-func LogWriterFormatFields(logLevel LogLevelFlags, fields []LogField, useColor bool) string {
-	var carg1 C.GLogLevelFlags // in, none, casted
-	var carg2 *C.GLogField     // in, transfer: none, C Pointers: 1, Name: array[LogField], array (inner GLogField (*typesystem.Record), length-by: carg3)
-	var carg3 C.gsize          // implicit
-	var carg4 C.gboolean       // in
-	var cret  *C.gchar         // return, full, string
-
-	carg1 = C.GLogLevelFlags(logLevel)
-	_ = fields
-	_ = carg2
-	_ = carg3
-	panic("unimplemented conversion of []LogField (const GLogField*) because of unimplemented: non-fixed size array")
-	if useColor {
-		carg4 = C.TRUE
-	}
-
-	cret = C.g_log_writer_format_fields(carg1, carg2, carg3, carg4)
-	runtime.KeepAlive(logLevel)
-	runtime.KeepAlive(fields)
-	runtime.KeepAlive(useColor)
-
-	var goret string
-
-	goret = C.GoString((*C.char)(unsafe.Pointer(cret)))
-	defer C.free(unsafe.Pointer(cret))
 
 	return goret
 }
@@ -8034,7 +7966,7 @@ func MarkupEscapeText(text string, length int) string {
 	var goret string
 
 	goret = C.GoString((*C.char)(unsafe.Pointer(cret)))
-	defer C.free(unsafe.Pointer(cret))
+	defer C.g_free(C.gpointer(cret))
 
 	return goret
 }
@@ -8120,35 +8052,6 @@ func OptionErrorQuark() Quark {
 	return goret
 }
 
-// ParseDebugString wraps g_parse_debug_string
-// 
-// see also https://docs.gtk.org/glib/func.g_parse_debug_string.html
-func ParseDebugString(str string, keys []DebugKey) uint {
-	var carg1 *C.gchar     // in, none, string, nullable-string
-	var carg2 *C.GDebugKey // in, transfer: none, C Pointers: 1, Name: array[DebugKey], array (inner GDebugKey (*typesystem.Record), length-by: carg3)
-	var carg3 C.guint      // implicit
-	var cret  C.guint      // return, none, casted
-
-	if str != "" {
-		carg1 = (*C.gchar)(unsafe.Pointer(C.CString(str)))
-		defer C.free(unsafe.Pointer(carg1))
-	}
-	_ = keys
-	_ = carg2
-	_ = carg3
-	panic("unimplemented conversion of []DebugKey (const GDebugKey*) because of unimplemented: non-fixed size array")
-
-	cret = C.g_parse_debug_string(carg1, carg2, carg3)
-	runtime.KeepAlive(str)
-	runtime.KeepAlive(keys)
-
-	var goret uint
-
-	goret = uint(cret)
-
-	return goret
-}
-
 // PathGetBasename wraps g_path_get_basename
 // 
 // see also https://docs.gtk.org/glib/func.g_path_get_basename.html
@@ -8165,7 +8068,7 @@ func PathGetBasename(fileName string) string {
 	var goret string
 
 	goret = C.GoString((*C.char)(unsafe.Pointer(cret)))
-	defer C.free(unsafe.Pointer(cret))
+	defer C.g_free(C.gpointer(cret))
 
 	return goret
 }
@@ -8186,7 +8089,7 @@ func PathGetDirname(fileName string) string {
 	var goret string
 
 	goret = C.GoString((*C.char)(unsafe.Pointer(cret)))
-	defer C.free(unsafe.Pointer(cret))
+	defer C.g_free(C.gpointer(cret))
 
 	return goret
 }
@@ -8535,7 +8438,7 @@ func RefStringAcquire(str string) string {
 	var goret string
 
 	goret = C.GoString((*C.char)(unsafe.Pointer(cret)))
-	defer C.free(unsafe.Pointer(cret))
+	defer C.g_free(C.gpointer(cret))
 
 	return goret
 }
@@ -8576,7 +8479,7 @@ func NewRefString(str string) string {
 	var goret string
 
 	goret = C.GoString((*C.char)(unsafe.Pointer(cret)))
-	defer C.free(unsafe.Pointer(cret))
+	defer C.g_free(C.gpointer(cret))
 
 	return goret
 }
@@ -8597,7 +8500,7 @@ func RefStringNewIntern(str string) string {
 	var goret string
 
 	goret = C.GoString((*C.char)(unsafe.Pointer(cret)))
-	defer C.free(unsafe.Pointer(cret))
+	defer C.g_free(C.gpointer(cret))
 
 	return goret
 }
@@ -8621,7 +8524,7 @@ func RefStringNewLen(str string, len int) string {
 	var goret string
 
 	goret = C.GoString((*C.char)(unsafe.Pointer(cret)))
-	defer C.free(unsafe.Pointer(cret))
+	defer C.g_free(C.gpointer(cret))
 
 	return goret
 }
@@ -8795,7 +8698,7 @@ func ShellQuote(unquotedString string) string {
 	var goret string
 
 	goret = C.GoString((*C.char)(unsafe.Pointer(cret)))
-	defer C.free(unsafe.Pointer(cret))
+	defer C.g_free(C.gpointer(cret))
 
 	return goret
 }
@@ -8818,7 +8721,7 @@ func ShellUnquote(quotedString string) (string, error) {
 	var _goerr error
 
 	goret = C.GoString((*C.char)(unsafe.Pointer(cret)))
-	defer C.free(unsafe.Pointer(cret))
+	defer C.g_free(C.gpointer(cret))
 	if _cerr != nil {
 		_goerr = UnsafeErrorFromGlibFull(unsafe.Pointer(_cerr))
 	}
@@ -9051,7 +8954,7 @@ func Stpcpy(dest string, src string) string {
 	var goret string
 
 	goret = C.GoString((*C.char)(unsafe.Pointer(cret)))
-	defer C.free(unsafe.Pointer(cret))
+	defer C.g_free(C.gpointer(cret))
 
 	return goret
 }
@@ -9183,7 +9086,7 @@ func StrToASCII(str string, fromLocale string) string {
 	var goret string
 
 	goret = C.GoString((*C.char)(unsafe.Pointer(cret)))
-	defer C.free(unsafe.Pointer(cret))
+	defer C.g_free(C.gpointer(cret))
 
 	return goret
 }
@@ -9211,7 +9114,7 @@ func Strcanon(str string, validChars string, substitutor byte) string {
 	var goret string
 
 	goret = C.GoString((*C.char)(unsafe.Pointer(cret)))
-	defer C.free(unsafe.Pointer(cret))
+	defer C.g_free(C.gpointer(cret))
 
 	return goret
 }
@@ -9232,7 +9135,7 @@ func Strchomp(str string) string {
 	var goret string
 
 	goret = C.GoString((*C.char)(unsafe.Pointer(cret)))
-	defer C.free(unsafe.Pointer(cret))
+	defer C.g_free(C.gpointer(cret))
 
 	return goret
 }
@@ -9253,7 +9156,7 @@ func Strchug(str string) string {
 	var goret string
 
 	goret = C.GoString((*C.char)(unsafe.Pointer(cret)))
-	defer C.free(unsafe.Pointer(cret))
+	defer C.g_free(C.gpointer(cret))
 
 	return goret
 }
@@ -9302,7 +9205,7 @@ func Strcompress(source string) string {
 	var goret string
 
 	goret = C.GoString((*C.char)(unsafe.Pointer(cret)))
-	defer C.free(unsafe.Pointer(cret))
+	defer C.g_free(C.gpointer(cret))
 
 	return goret
 }
@@ -9332,7 +9235,7 @@ func Strdelimit(str string, delimiters string, newDelimiter byte) string {
 	var goret string
 
 	goret = C.GoString((*C.char)(unsafe.Pointer(cret)))
-	defer C.free(unsafe.Pointer(cret))
+	defer C.g_free(C.gpointer(cret))
 
 	return goret
 }
@@ -9355,7 +9258,7 @@ func Strdup(str string) string {
 	var goret string
 
 	goret = C.GoString((*C.char)(unsafe.Pointer(cret)))
-	defer C.free(unsafe.Pointer(cret))
+	defer C.g_free(C.gpointer(cret))
 
 	return goret
 }
@@ -9424,7 +9327,7 @@ func Strescape(source string, exceptions string) string {
 	var goret string
 
 	goret = C.GoString((*C.char)(unsafe.Pointer(cret)))
-	defer C.free(unsafe.Pointer(cret))
+	defer C.g_free(C.gpointer(cret))
 
 	return goret
 }
@@ -9490,7 +9393,7 @@ func Strjoinv(separator string, strArray []string) string {
 	var goret string
 
 	goret = C.GoString((*C.char)(unsafe.Pointer(cret)))
-	defer C.free(unsafe.Pointer(cret))
+	defer C.g_free(C.gpointer(cret))
 
 	return goret
 }
@@ -9571,7 +9474,7 @@ func Strndup(str string, n uint) string {
 
 	if cret != nil {
 		goret = C.GoString((*C.char)(unsafe.Pointer(cret)))
-		defer C.free(unsafe.Pointer(cret))
+		defer C.g_free(C.gpointer(cret))
 	}
 
 	return goret
@@ -9595,7 +9498,7 @@ func Strnfill(length uint, fillChar byte) string {
 	var goret string
 
 	goret = C.GoString((*C.char)(unsafe.Pointer(cret)))
-	defer C.free(unsafe.Pointer(cret))
+	defer C.g_free(C.gpointer(cret))
 
 	return goret
 }
@@ -9616,7 +9519,7 @@ func Strreverse(str string) string {
 	var goret string
 
 	goret = C.GoString((*C.char)(unsafe.Pointer(cret)))
-	defer C.free(unsafe.Pointer(cret))
+	defer C.g_free(C.gpointer(cret))
 
 	return goret
 }
@@ -10450,7 +10353,7 @@ func UCS4ToUTF8(str []uint32) (int32, int32, string, error) {
 	itemsRead = int32(carg3)
 	itemsWritten = int32(carg4)
 	goret = C.GoString((*C.char)(unsafe.Pointer(cret)))
-	defer C.free(unsafe.Pointer(cret))
+	defer C.g_free(C.gpointer(cret))
 	if _cerr != nil {
 		_goerr = UnsafeErrorFromGlibFull(unsafe.Pointer(_cerr))
 	}
@@ -11245,7 +11148,7 @@ func UTF16ToUTF8(str []uint16) (int32, int32, string, error) {
 	itemsRead = int32(carg3)
 	itemsWritten = int32(carg4)
 	goret = C.GoString((*C.char)(unsafe.Pointer(cret)))
-	defer C.free(unsafe.Pointer(cret))
+	defer C.g_free(C.gpointer(cret))
 	if _cerr != nil {
 		_goerr = UnsafeErrorFromGlibFull(unsafe.Pointer(_cerr))
 	}
@@ -11272,7 +11175,7 @@ func UTF8Casefold(str string, len int) string {
 	var goret string
 
 	goret = C.GoString((*C.char)(unsafe.Pointer(cret)))
-	defer C.free(unsafe.Pointer(cret))
+	defer C.g_free(C.gpointer(cret))
 
 	return goret
 }
@@ -11320,7 +11223,7 @@ func UTF8CollateKey(str string, len int) string {
 	var goret string
 
 	goret = C.GoString((*C.char)(unsafe.Pointer(cret)))
-	defer C.free(unsafe.Pointer(cret))
+	defer C.g_free(C.gpointer(cret))
 
 	return goret
 }
@@ -11344,7 +11247,7 @@ func UTF8CollateKeyForFilename(str string, len int) string {
 	var goret string
 
 	goret = C.GoString((*C.char)(unsafe.Pointer(cret)))
-	defer C.free(unsafe.Pointer(cret))
+	defer C.g_free(C.gpointer(cret))
 
 	return goret
 }
@@ -11465,7 +11368,7 @@ func UTF8MakeValid(str string, len int) string {
 	var goret string
 
 	goret = C.GoString((*C.char)(unsafe.Pointer(cret)))
-	defer C.free(unsafe.Pointer(cret))
+	defer C.g_free(C.gpointer(cret))
 
 	return goret
 }
@@ -11493,7 +11396,7 @@ func UTF8Normalize(str string, len int, mode NormalizeMode) string {
 
 	if cret != nil {
 		goret = C.GoString((*C.char)(unsafe.Pointer(cret)))
-		defer C.free(unsafe.Pointer(cret))
+		defer C.g_free(C.gpointer(cret))
 	}
 
 	return goret
@@ -11613,7 +11516,7 @@ func UTF8Strdown(str string, len int) string {
 	var goret string
 
 	goret = C.GoString((*C.char)(unsafe.Pointer(cret)))
-	defer C.free(unsafe.Pointer(cret))
+	defer C.g_free(C.gpointer(cret))
 
 	return goret
 }
@@ -11715,7 +11618,7 @@ func UTF8Strreverse(str string, len int) string {
 	var goret string
 
 	goret = C.GoString((*C.char)(unsafe.Pointer(cret)))
-	defer C.free(unsafe.Pointer(cret))
+	defer C.g_free(C.gpointer(cret))
 
 	return goret
 }
@@ -11739,7 +11642,7 @@ func UTF8Strup(str string, len int) string {
 	var goret string
 
 	goret = C.GoString((*C.char)(unsafe.Pointer(cret)))
-	defer C.free(unsafe.Pointer(cret))
+	defer C.g_free(C.gpointer(cret))
 
 	return goret
 }
@@ -11766,7 +11669,7 @@ func UTF8Substring(str string, startPos int32, endPos int32) string {
 	var goret string
 
 	goret = C.GoString((*C.char)(unsafe.Pointer(cret)))
-	defer C.free(unsafe.Pointer(cret))
+	defer C.g_free(C.gpointer(cret))
 
 	return goret
 }
@@ -11890,7 +11793,7 @@ func UTF8TruncateMiddle(str string, truncateLength uint) string {
 	var goret string
 
 	goret = C.GoString((*C.char)(unsafe.Pointer(cret)))
-	defer C.free(unsafe.Pointer(cret))
+	defer C.g_free(C.gpointer(cret))
 
 	return goret
 }
@@ -11984,7 +11887,7 @@ func UuidStringRandom() string {
 	var goret string
 
 	goret = C.GoString((*C.char)(unsafe.Pointer(cret)))
-	defer C.free(unsafe.Pointer(cret))
+	defer C.g_free(C.gpointer(cret))
 
 	return goret
 }
@@ -12394,7 +12297,7 @@ func (bookmark *BookmarkFile) GetDescription(uri string) (string, error) {
 	var _goerr error
 
 	goret = C.GoString((*C.char)(unsafe.Pointer(cret)))
-	defer C.free(unsafe.Pointer(cret))
+	defer C.g_free(C.gpointer(cret))
 	if _cerr != nil {
 		_goerr = UnsafeErrorFromGlibFull(unsafe.Pointer(_cerr))
 	}
@@ -12460,9 +12363,9 @@ func (bookmark *BookmarkFile) GetIcon(uri string) (string, string, bool, error) 
 	var _goerr   error
 
 	href = C.GoString((*C.char)(unsafe.Pointer(carg2)))
-	defer C.free(unsafe.Pointer(carg2))
+	defer C.g_free(C.gpointer(carg2))
 	mimeType = C.GoString((*C.char)(unsafe.Pointer(carg3)))
-	defer C.free(unsafe.Pointer(carg3))
+	defer C.g_free(C.gpointer(carg3))
 	if cret != 0 {
 		goret = true
 	}
@@ -12524,7 +12427,7 @@ func (bookmark *BookmarkFile) GetMimeType(uri string) (string, error) {
 	var _goerr error
 
 	goret = C.GoString((*C.char)(unsafe.Pointer(cret)))
-	defer C.free(unsafe.Pointer(cret))
+	defer C.g_free(C.gpointer(cret))
 	if _cerr != nil {
 		_goerr = UnsafeErrorFromGlibFull(unsafe.Pointer(_cerr))
 	}
@@ -12574,7 +12477,7 @@ func (bookmark *BookmarkFile) GetTitle(uri string) (string, error) {
 	var _goerr error
 
 	goret = C.GoString((*C.char)(unsafe.Pointer(cret)))
-	defer C.free(unsafe.Pointer(cret))
+	defer C.g_free(C.gpointer(cret))
 	if _cerr != nil {
 		_goerr = UnsafeErrorFromGlibFull(unsafe.Pointer(_cerr))
 	}
@@ -12755,7 +12658,7 @@ func (bookmark *BookmarkFile) LoadFromDataDirs(file string) (string, bool, error
 	var _goerr   error
 
 	fullPath = C.GoString((*C.char)(unsafe.Pointer(carg2)))
-	defer C.free(unsafe.Pointer(carg2))
+	defer C.g_free(C.gpointer(carg2))
 	if cret != 0 {
 		goret = true
 	}
@@ -13972,7 +13875,7 @@ func DirMakeTmp(tmpl string) (string, error) {
 	var _goerr error
 
 	goret = C.GoString((*C.char)(unsafe.Pointer(cret)))
-	defer C.free(unsafe.Pointer(cret))
+	defer C.g_free(C.gpointer(cret))
 	if _cerr != nil {
 		_goerr = UnsafeErrorFromGlibFull(unsafe.Pointer(_cerr))
 	}
@@ -15017,7 +14920,7 @@ func (channel *IOChannel) ReadLine() (string, uint, uint, IOStatus, error) {
 	var _goerr        error
 
 	strReturn = C.GoString((*C.char)(unsafe.Pointer(carg1)))
-	defer C.free(unsafe.Pointer(carg1))
+	defer C.g_free(C.gpointer(carg1))
 	length = uint(carg2)
 	terminatorPos = uint(carg3)
 	goret = IOStatus(cret)
@@ -15606,7 +15509,7 @@ func (keyFile *KeyFile) GetComment(groupName string, key string) (string, error)
 	var _goerr error
 
 	goret = C.GoString((*C.char)(unsafe.Pointer(cret)))
-	defer C.free(unsafe.Pointer(cret))
+	defer C.g_free(C.gpointer(cret))
 	if _cerr != nil {
 		_goerr = UnsafeErrorFromGlibFull(unsafe.Pointer(_cerr))
 	}
@@ -15871,7 +15774,7 @@ func (keyFile *KeyFile) GetLocaleForKey(groupName string, key string, locale str
 
 	if cret != nil {
 		goret = C.GoString((*C.char)(unsafe.Pointer(cret)))
-		defer C.free(unsafe.Pointer(cret))
+		defer C.g_free(C.gpointer(cret))
 	}
 
 	return goret
@@ -15908,7 +15811,7 @@ func (keyFile *KeyFile) GetLocaleString(groupName string, key string, locale str
 	var _goerr error
 
 	goret = C.GoString((*C.char)(unsafe.Pointer(cret)))
-	defer C.free(unsafe.Pointer(cret))
+	defer C.g_free(C.gpointer(cret))
 	if _cerr != nil {
 		_goerr = UnsafeErrorFromGlibFull(unsafe.Pointer(_cerr))
 	}
@@ -15975,7 +15878,7 @@ func (keyFile *KeyFile) GetStartGroup() string {
 
 	if cret != nil {
 		goret = C.GoString((*C.char)(unsafe.Pointer(cret)))
-		defer C.free(unsafe.Pointer(cret))
+		defer C.g_free(C.gpointer(cret))
 	}
 
 	return goret
@@ -16006,7 +15909,7 @@ func (keyFile *KeyFile) GetString(groupName string, key string) (string, error) 
 	var _goerr error
 
 	goret = C.GoString((*C.char)(unsafe.Pointer(cret)))
-	defer C.free(unsafe.Pointer(cret))
+	defer C.g_free(C.gpointer(cret))
 	if _cerr != nil {
 		_goerr = UnsafeErrorFromGlibFull(unsafe.Pointer(_cerr))
 	}
@@ -16108,7 +16011,7 @@ func (keyFile *KeyFile) GetValue(groupName string, key string) (string, error) {
 	var _goerr error
 
 	goret = C.GoString((*C.char)(unsafe.Pointer(cret)))
-	defer C.free(unsafe.Pointer(cret))
+	defer C.g_free(C.gpointer(cret))
 	if _cerr != nil {
 		_goerr = UnsafeErrorFromGlibFull(unsafe.Pointer(_cerr))
 	}
@@ -16235,7 +16138,7 @@ func (keyFile *KeyFile) LoadFromDataDirs(file string, flags KeyFileFlags) (strin
 	var _goerr   error
 
 	fullPath = C.GoString((*C.char)(unsafe.Pointer(carg2)))
-	defer C.free(unsafe.Pointer(carg2))
+	defer C.g_free(C.gpointer(carg2))
 	if cret != 0 {
 		goret = true
 	}
@@ -16277,7 +16180,7 @@ func (keyFile *KeyFile) LoadFromDirs(file string, searchDirs []string, flags Key
 	var _goerr   error
 
 	fullPath = C.GoString((*C.char)(unsafe.Pointer(carg3)))
-	defer C.free(unsafe.Pointer(carg3))
+	defer C.g_free(C.gpointer(carg3))
 	if cret != 0 {
 		goret = true
 	}
@@ -16862,7 +16765,7 @@ func (keyFile *KeyFile) ToData() (uint, string, error) {
 
 	length = uint(carg1)
 	goret = C.GoString((*C.char)(unsafe.Pointer(cret)))
-	defer C.free(unsafe.Pointer(cret))
+	defer C.g_free(C.gpointer(cret))
 	if _cerr != nil {
 		_goerr = UnsafeErrorFromGlibFull(unsafe.Pointer(_cerr))
 	}
@@ -17165,37 +17068,6 @@ func (_context *MainContext) AddPoll(fd *PollFD, priority int32) {
 	runtime.KeepAlive(_context)
 	runtime.KeepAlive(fd)
 	runtime.KeepAlive(priority)
-}
-
-// Check wraps g_main_context_check
-// 
-// see also https://docs.gtk.org/glib/method.g_main_context_check.g_main_context_check.html
-func (_context *MainContext) Check(maxPriority int32, fds []PollFD) bool {
-	var carg0 *C.GMainContext // in, none, converted
-	var carg1 C.gint          // in, none, casted
-	var carg2 *C.GPollFD      // in, transfer: none, C Pointers: 1, Name: array[PollFD], array (inner GPollFD (*typesystem.Record), length-by: carg3)
-	var carg3 C.gint          // implicit
-	var cret  C.gboolean      // return
-
-	carg0 = (*C.GMainContext)(UnsafeMainContextToGlibNone(_context))
-	carg1 = C.gint(maxPriority)
-	_ = fds
-	_ = carg2
-	_ = carg3
-	panic("unimplemented conversion of []PollFD (GPollFD*) because of unimplemented: non-fixed size array")
-
-	cret = C.g_main_context_check(carg0, carg1, carg2, carg3)
-	runtime.KeepAlive(_context)
-	runtime.KeepAlive(maxPriority)
-	runtime.KeepAlive(fds)
-
-	var goret bool
-
-	if cret != 0 {
-		goret = true
-	}
-
-	return goret
 }
 
 // Dispatch wraps g_main_context_dispatch
@@ -18205,7 +18077,7 @@ func (matchInfo *MatchInfo) ExpandReferences(stringToExpand string) (string, err
 
 	if cret != nil {
 		goret = C.GoString((*C.char)(unsafe.Pointer(cret)))
-		defer C.free(unsafe.Pointer(cret))
+		defer C.g_free(C.gpointer(cret))
 	}
 	if _cerr != nil {
 		_goerr = UnsafeErrorFromGlibFull(unsafe.Pointer(_cerr))
@@ -18233,7 +18105,7 @@ func (matchInfo *MatchInfo) Fetch(matchNum int32) string {
 
 	if cret != nil {
 		goret = C.GoString((*C.char)(unsafe.Pointer(cret)))
-		defer C.free(unsafe.Pointer(cret))
+		defer C.g_free(C.gpointer(cret))
 	}
 
 	return goret
@@ -18280,7 +18152,7 @@ func (matchInfo *MatchInfo) FetchNamed(name string) string {
 
 	if cret != nil {
 		goret = C.GoString((*C.char)(unsafe.Pointer(cret)))
-		defer C.free(unsafe.Pointer(cret))
+		defer C.g_free(C.gpointer(cret))
 	}
 
 	return goret
@@ -18987,29 +18859,6 @@ func (_context *OptionContext) AddGroup(group *OptionGroup) {
 	runtime.KeepAlive(group)
 }
 
-// AddMainEntries wraps g_option_context_add_main_entries
-// 
-// see also https://docs.gtk.org/glib/method.g_option_context_add_main_entries.g_option_context_add_main_entries.html
-func (_context *OptionContext) AddMainEntries(entries []OptionEntry, translationDomain string) {
-	var carg0 *C.GOptionContext // in, none, converted
-	var carg1 *C.GOptionEntry   // in, transfer: none, C Pointers: 1, Name: array[OptionEntry], array (inner GOptionEntry (*typesystem.Record), zero-terminated)
-	var carg2 *C.gchar          // in, none, string, nullable-string
-
-	carg0 = (*C.GOptionContext)(UnsafeOptionContextToGlibNone(_context))
-	_ = entries
-	_ = carg1
-	panic("unimplemented conversion of []OptionEntry (const GOptionEntry*) because of unimplemented: non-fixed size array")
-	if translationDomain != "" {
-		carg2 = (*C.gchar)(unsafe.Pointer(C.CString(translationDomain)))
-		defer C.free(unsafe.Pointer(carg2))
-	}
-
-	C.g_option_context_add_main_entries(carg0, carg1, carg2)
-	runtime.KeepAlive(_context)
-	runtime.KeepAlive(entries)
-	runtime.KeepAlive(translationDomain)
-}
-
 // GetDescription wraps g_option_context_get_description
 // 
 // see also https://docs.gtk.org/glib/method.g_option_context_get_description.g_option_context_get_description.html
@@ -19054,7 +18903,7 @@ func (_context *OptionContext) GetHelp(mainHelp bool, group *OptionGroup) string
 	var goret string
 
 	goret = C.GoString((*C.char)(unsafe.Pointer(cret)))
-	defer C.free(unsafe.Pointer(cret))
+	defer C.g_free(C.gpointer(cret))
 
 	return goret
 }
@@ -19455,23 +19304,6 @@ func UnsafeOptionGroupToGlibFull(o *OptionGroup) unsafe.Pointer {
 	return _p
 }
 
-// AddEntries wraps g_option_group_add_entries
-// 
-// see also https://docs.gtk.org/glib/method.g_option_group_add_entries.g_option_group_add_entries.html
-func (group *OptionGroup) AddEntries(entries []OptionEntry) {
-	var carg0 *C.GOptionGroup // in, none, converted
-	var carg1 *C.GOptionEntry // in, transfer: none, C Pointers: 1, Name: array[OptionEntry], array (inner GOptionEntry (*typesystem.Record), zero-terminated)
-
-	carg0 = (*C.GOptionGroup)(UnsafeOptionGroupToGlibNone(group))
-	_ = entries
-	_ = carg1
-	panic("unimplemented conversion of []OptionEntry (const GOptionEntry*) because of unimplemented: non-fixed size array")
-
-	C.g_option_group_add_entries(carg0, carg1)
-	runtime.KeepAlive(group)
-	runtime.KeepAlive(entries)
-}
-
 // SetTranslationDomain wraps g_option_group_set_translation_domain
 // 
 // see also https://docs.gtk.org/glib/method.g_option_group_set_translation_domain.g_option_group_set_translation_domain.html
@@ -19598,7 +19430,7 @@ func (buf *PathBuf) ClearToPath() string {
 
 	if cret != nil {
 		goret = C.GoString((*C.char)(unsafe.Pointer(cret)))
-		defer C.free(unsafe.Pointer(cret))
+		defer C.g_free(C.gpointer(cret))
 	}
 
 	return goret
@@ -19620,7 +19452,7 @@ func (buf *PathBuf) FreeToPath() string {
 
 	if cret != nil {
 		goret = C.GoString((*C.char)(unsafe.Pointer(cret)))
-		defer C.free(unsafe.Pointer(cret))
+		defer C.g_free(C.gpointer(cret))
 	}
 
 	return goret
@@ -19782,7 +19614,7 @@ func (buf *PathBuf) ToPath() string {
 
 	if cret != nil {
 		goret = C.GoString((*C.char)(unsafe.Pointer(cret)))
-		defer C.free(unsafe.Pointer(cret))
+		defer C.g_free(C.gpointer(cret))
 	}
 
 	return goret
@@ -20897,7 +20729,7 @@ func RegexEscapeNul(str string, length int32) string {
 	var goret string
 
 	goret = C.GoString((*C.char)(unsafe.Pointer(cret)))
-	defer C.free(unsafe.Pointer(cret))
+	defer C.g_free(C.gpointer(cret))
 
 	return goret
 }
@@ -20921,7 +20753,7 @@ func RegexEscapeString(str string, length int32) string {
 	var goret string
 
 	goret = C.GoString((*C.char)(unsafe.Pointer(cret)))
-	defer C.free(unsafe.Pointer(cret))
+	defer C.g_free(C.gpointer(cret))
 
 	return goret
 }
@@ -21328,7 +21160,7 @@ func (regex *Regex) Replace(str string, startPosition int32, replacement string,
 	var _goerr error
 
 	goret = C.GoString((*C.char)(unsafe.Pointer(cret)))
-	defer C.free(unsafe.Pointer(cret))
+	defer C.g_free(C.gpointer(cret))
 	if _cerr != nil {
 		_goerr = UnsafeErrorFromGlibFull(unsafe.Pointer(_cerr))
 	}
@@ -21370,7 +21202,7 @@ func (regex *Regex) ReplaceLiteral(str string, startPosition int32, replacement 
 	var _goerr error
 
 	goret = C.GoString((*C.char)(unsafe.Pointer(cret)))
-	defer C.free(unsafe.Pointer(cret))
+	defer C.g_free(C.gpointer(cret))
 	if _cerr != nil {
 		_goerr = UnsafeErrorFromGlibFull(unsafe.Pointer(_cerr))
 	}
@@ -22649,7 +22481,7 @@ func (chunk *StringChunk) Insert(str string) string {
 	var goret string
 
 	goret = C.GoString((*C.char)(unsafe.Pointer(cret)))
-	defer C.free(unsafe.Pointer(cret))
+	defer C.g_free(C.gpointer(cret))
 
 	return goret
 }
@@ -22673,7 +22505,7 @@ func (chunk *StringChunk) InsertConst(str string) string {
 	var goret string
 
 	goret = C.GoString((*C.char)(unsafe.Pointer(cret)))
-	defer C.free(unsafe.Pointer(cret))
+	defer C.g_free(C.gpointer(cret))
 
 	return goret
 }
@@ -22700,7 +22532,7 @@ func (chunk *StringChunk) InsertLen(str string, len int) string {
 	var goret string
 
 	goret = C.GoString((*C.char)(unsafe.Pointer(cret)))
-	defer C.free(unsafe.Pointer(cret))
+	defer C.g_free(C.gpointer(cret))
 
 	return goret
 }
@@ -22844,21 +22676,6 @@ func (builder *StrvBuilder) Addv(value []string) {
 	panic("unimplemented conversion of []string (const char**) because of unimplemented: inner pointers in array")
 
 	C.g_strv_builder_addv(carg0, carg1)
-	runtime.KeepAlive(builder)
-	runtime.KeepAlive(value)
-}
-
-// Take wraps g_strv_builder_take
-// 
-// see also https://docs.gtk.org/glib/method.g_strv_builder_take.g_strv_builder_take.html
-func (builder *StrvBuilder) Take(value string) {
-	var carg0 *C.GStrvBuilder // in, none, converted
-	var carg1 *C.char         // in, full, string
-
-	carg0 = (*C.GStrvBuilder)(UnsafeStrvBuilderToGlibNone(builder))
-	carg1 = (*C.char)(unsafe.Pointer(C.CString(value)))
-
-	C.g_strv_builder_take(carg0, carg1)
 	runtime.KeepAlive(builder)
 	runtime.KeepAlive(value)
 }
@@ -24075,7 +23892,7 @@ func UriEscapeBytes(unescaped []uint8, reservedCharsAllowed string) string {
 	var goret string
 
 	goret = C.GoString((*C.char)(unsafe.Pointer(cret)))
-	defer C.free(unsafe.Pointer(cret))
+	defer C.g_free(C.gpointer(cret))
 
 	return goret
 }
@@ -24107,7 +23924,7 @@ func UriEscapeString(unescaped string, reservedCharsAllowed string, allowUtf8 bo
 	var goret string
 
 	goret = C.GoString((*C.char)(unsafe.Pointer(cret)))
-	defer C.free(unsafe.Pointer(cret))
+	defer C.g_free(C.gpointer(cret))
 
 	return goret
 }
@@ -24194,7 +24011,7 @@ func UriJoin(flags UriFlags, scheme string, userinfo string, host string, port i
 	var goret string
 
 	goret = C.GoString((*C.char)(unsafe.Pointer(cret)))
-	defer C.free(unsafe.Pointer(cret))
+	defer C.g_free(C.gpointer(cret))
 
 	return goret
 }
@@ -24263,7 +24080,7 @@ func UriJoinWithUser(flags UriFlags, scheme string, user string, password string
 	var goret string
 
 	goret = C.GoString((*C.char)(unsafe.Pointer(cret)))
-	defer C.free(unsafe.Pointer(cret))
+	defer C.g_free(C.gpointer(cret))
 
 	return goret
 }
@@ -24335,7 +24152,7 @@ func UriParseScheme(uri string) string {
 
 	if cret != nil {
 		goret = C.GoString((*C.char)(unsafe.Pointer(cret)))
-		defer C.free(unsafe.Pointer(cret))
+		defer C.g_free(C.gpointer(cret))
 	}
 
 	return goret
@@ -24390,7 +24207,7 @@ func UriResolveRelative(baseUriString string, uriRef string, flags UriFlags) (st
 	var _goerr error
 
 	goret = C.GoString((*C.char)(unsafe.Pointer(cret)))
-	defer C.free(unsafe.Pointer(cret))
+	defer C.g_free(C.gpointer(cret))
 	if _cerr != nil {
 		_goerr = UnsafeErrorFromGlibFull(unsafe.Pointer(_cerr))
 	}
@@ -24434,26 +24251,26 @@ func UriSplit(uriRef string, flags UriFlags) (string, string, string, int32, str
 
 	if carg3 != nil {
 		scheme = C.GoString((*C.char)(unsafe.Pointer(carg3)))
-		defer C.free(unsafe.Pointer(carg3))
+		defer C.g_free(C.gpointer(carg3))
 	}
 	if carg4 != nil {
 		userinfo = C.GoString((*C.char)(unsafe.Pointer(carg4)))
-		defer C.free(unsafe.Pointer(carg4))
+		defer C.g_free(C.gpointer(carg4))
 	}
 	if carg5 != nil {
 		host = C.GoString((*C.char)(unsafe.Pointer(carg5)))
-		defer C.free(unsafe.Pointer(carg5))
+		defer C.g_free(C.gpointer(carg5))
 	}
 	port = int32(carg6)
 	path = C.GoString((*C.char)(unsafe.Pointer(carg7)))
-	defer C.free(unsafe.Pointer(carg7))
+	defer C.g_free(C.gpointer(carg7))
 	if carg8 != nil {
 		query = C.GoString((*C.char)(unsafe.Pointer(carg8)))
-		defer C.free(unsafe.Pointer(carg8))
+		defer C.g_free(C.gpointer(carg8))
 	}
 	if carg9 != nil {
 		fragment = C.GoString((*C.char)(unsafe.Pointer(carg9)))
-		defer C.free(unsafe.Pointer(carg9))
+		defer C.g_free(C.gpointer(carg9))
 	}
 	if cret != 0 {
 		goret = true
@@ -24493,11 +24310,11 @@ func UriSplitNetwork(uriString string, flags UriFlags) (string, string, int32, b
 
 	if carg3 != nil {
 		scheme = C.GoString((*C.char)(unsafe.Pointer(carg3)))
-		defer C.free(unsafe.Pointer(carg3))
+		defer C.g_free(C.gpointer(carg3))
 	}
 	if carg4 != nil {
 		host = C.GoString((*C.char)(unsafe.Pointer(carg4)))
-		defer C.free(unsafe.Pointer(carg4))
+		defer C.g_free(C.gpointer(carg4))
 	}
 	port = int32(carg5)
 	if cret != 0 {
@@ -24550,34 +24367,34 @@ func UriSplitWithUser(uriRef string, flags UriFlags) (string, string, string, st
 
 	if carg3 != nil {
 		scheme = C.GoString((*C.char)(unsafe.Pointer(carg3)))
-		defer C.free(unsafe.Pointer(carg3))
+		defer C.g_free(C.gpointer(carg3))
 	}
 	if carg4 != nil {
 		user = C.GoString((*C.char)(unsafe.Pointer(carg4)))
-		defer C.free(unsafe.Pointer(carg4))
+		defer C.g_free(C.gpointer(carg4))
 	}
 	if carg5 != nil {
 		password = C.GoString((*C.char)(unsafe.Pointer(carg5)))
-		defer C.free(unsafe.Pointer(carg5))
+		defer C.g_free(C.gpointer(carg5))
 	}
 	if carg6 != nil {
 		authParams = C.GoString((*C.char)(unsafe.Pointer(carg6)))
-		defer C.free(unsafe.Pointer(carg6))
+		defer C.g_free(C.gpointer(carg6))
 	}
 	if carg7 != nil {
 		host = C.GoString((*C.char)(unsafe.Pointer(carg7)))
-		defer C.free(unsafe.Pointer(carg7))
+		defer C.g_free(C.gpointer(carg7))
 	}
 	port = int32(carg8)
 	path = C.GoString((*C.char)(unsafe.Pointer(carg9)))
-	defer C.free(unsafe.Pointer(carg9))
+	defer C.g_free(C.gpointer(carg9))
 	if carg10 != nil {
 		query = C.GoString((*C.char)(unsafe.Pointer(carg10)))
-		defer C.free(unsafe.Pointer(carg10))
+		defer C.g_free(C.gpointer(carg10))
 	}
 	if carg11 != nil {
 		fragment = C.GoString((*C.char)(unsafe.Pointer(carg11)))
-		defer C.free(unsafe.Pointer(carg11))
+		defer C.g_free(C.gpointer(carg11))
 	}
 	if cret != 0 {
 		goret = true
@@ -24654,7 +24471,7 @@ func UriUnescapeSegment(escapedString string, escapedStringEnd string, illegalCh
 
 	if cret != nil {
 		goret = C.GoString((*C.char)(unsafe.Pointer(cret)))
-		defer C.free(unsafe.Pointer(cret))
+		defer C.g_free(C.gpointer(cret))
 	}
 
 	return goret
@@ -24683,7 +24500,7 @@ func UriUnescapeString(escapedString string, illegalCharacters string) string {
 
 	if cret != nil {
 		goret = C.GoString((*C.char)(unsafe.Pointer(cret)))
-		defer C.free(unsafe.Pointer(cret))
+		defer C.g_free(C.gpointer(cret))
 	}
 
 	return goret
@@ -24958,7 +24775,7 @@ func (uri *Uri) String() string {
 	var goret string
 
 	goret = C.GoString((*C.char)(unsafe.Pointer(cret)))
-	defer C.free(unsafe.Pointer(cret))
+	defer C.g_free(C.gpointer(cret))
 
 	return goret
 }
@@ -24981,7 +24798,7 @@ func (uri *Uri) ToStringPartial(flags UriHideFlags) string {
 	var goret string
 
 	goret = C.GoString((*C.char)(unsafe.Pointer(cret)))
-	defer C.free(unsafe.Pointer(cret))
+	defer C.g_free(C.gpointer(cret))
 
 	return goret
 }
@@ -25116,11 +24933,11 @@ func (iter *UriParamsIter) Next() (string, string, bool, error) {
 
 	if carg1 != nil {
 		attribute = C.GoString((*C.char)(unsafe.Pointer(carg1)))
-		defer C.free(unsafe.Pointer(carg1))
+		defer C.g_free(C.gpointer(carg1))
 	}
 	if carg2 != nil {
 		value = C.GoString((*C.char)(unsafe.Pointer(carg2)))
-		defer C.free(unsafe.Pointer(carg2))
+		defer C.g_free(C.gpointer(carg2))
 	}
 	if cret != 0 {
 		goret = true
@@ -25701,7 +25518,7 @@ func VariantTypeStringScan(str string, limit string) (string, bool) {
 	var goret  bool
 
 	endptr = C.GoString((*C.char)(unsafe.Pointer(carg3)))
-	defer C.free(unsafe.Pointer(carg3))
+	defer C.g_free(C.gpointer(carg3))
 	if cret != 0 {
 		goret = true
 	}
@@ -25743,7 +25560,7 @@ func (typ *VariantType) DupString() string {
 	var goret string
 
 	goret = C.GoString((*C.char)(unsafe.Pointer(cret)))
-	defer C.free(unsafe.Pointer(cret))
+	defer C.g_free(C.gpointer(cret))
 
 	return goret
 }

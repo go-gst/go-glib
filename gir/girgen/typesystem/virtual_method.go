@@ -51,6 +51,15 @@ func NewVirtualMethod(e *env, parent ConvertibleType, typestruct *Record, v *gir
 	params, _ := NewCallableParameters(e, v.CallableAttrs)
 
 	if params == nil {
+		e.logger.Warn("skipping because parameters are not supported")
+		return nil
+	}
+
+	// trampoline parameters are inverted, so we need to check them as well
+	trampolineParams, _ := NewCallbackParameters(e, v.CallableAttrs)
+
+	if trampolineParams == nil {
+		e.logger.Warn("skipping because trampoline parameters are not supported")
 		return nil
 	}
 

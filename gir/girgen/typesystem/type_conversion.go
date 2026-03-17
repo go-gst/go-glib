@@ -2,10 +2,20 @@ package typesystem
 
 import "fmt"
 
-type ConvertibleType interface {
+type TransferDirection string
+
+const (
+	DirectionCToGo TransferDirection = "c->go"
+	DirectionGoToC TransferDirection = "go->c"
+)
+
+type MaybeTransferableType interface {
 	Type
-	CanTransferToGlib(transfer TransferOwnership) bool
-	CanTransferFromGlib(transfer TransferOwnership) bool
+	CanTransfer(dir TransferDirection, transfer TransferOwnership) bool
+}
+
+type ConvertibleType interface {
+	MaybeTransferableType
 
 	GetTransferToGlibFunction(transfer TransferOwnership) string
 	GetTransferFromGlibFunction(transfer TransferOwnership) string
@@ -27,28 +37,30 @@ type BaseConversions struct {
 }
 
 // CanTransferFromGlib implements ConvertibleType.
-func (b BaseConversions) CanTransferFromGlib(transfer TransferOwnership) bool {
-	switch transfer {
-	case TransferNone:
-		return b.FromGlibNoneFunction != ""
-	case TransferFull:
-		return b.FromGlibFullFunction != ""
-	case TransferBorrow:
-		return b.FromGlibBorrowFunction != ""
+func (b BaseConversions) CanTransfer(dir TransferDirection, transfer TransferOwnership) bool {
+	switch dir {
+	case DirectionCToGo:
+		switch transfer {
+		case TransferNone:
+			return b.FromGlibNoneFunction != ""
+		case TransferFull:
+			return b.FromGlibFullFunction != ""
+		case TransferBorrow:
+			return b.FromGlibBorrowFunction != ""
+		default:
+			return false
+		}
+	case DirectionGoToC:
+		switch transfer {
+		case TransferNone:
+			return b.ToGlibNoneFunction != ""
+		case TransferFull:
+			return b.ToGlibFullFunction != ""
+		default:
+			return false
+		}
 	default:
-		return false
-	}
-}
-
-// CanTransferToGlib implements ConvertibleType.
-func (b BaseConversions) CanTransferToGlib(transfer TransferOwnership) bool {
-	switch transfer {
-	case TransferNone:
-		return b.ToGlibNoneFunction != ""
-	case TransferFull:
-		return b.ToGlibFullFunction != ""
-	default:
-		return false
+		panic(fmt.Sprintf("unexpected typesystem.TransferDirection: %#v", dir))
 	}
 }
 

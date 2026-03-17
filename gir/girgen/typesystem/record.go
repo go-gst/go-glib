@@ -208,15 +208,7 @@ func (r *Record) ParentTypeStruct() *CouldBeForeign[*Record] {
 
 // minPointersRequired implements Type.
 func (a *Record) minPointersRequired() int {
-	if a.gir == nil {
-		return 0 // probably a manual type
-	}
-
-	if a.gir.Foreign || a.gir.Disguised {
-		return 1
-	}
-
-	return 0
+	return 1
 }
 
 // maxPointersAllowed implements maxPointerConstrainedType.

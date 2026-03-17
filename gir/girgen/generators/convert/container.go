@@ -28,7 +28,7 @@ func newCToGoContainerConverter(p *typesystem.Param) Converter {
 	childConverters := make([]Converter, 0, len(container.InnerTypes))
 
 	for _, inner := range container.InnerTypes {
-		if conv, ok := inner.Type.(typesystem.ConvertibleType); ok && conv.CanTransferFromGlib(innerTransfer) {
+		if conv, ok := inner.Type.(typesystem.ConvertibleType); ok && conv.CanTransfer(typesystem.DirectionCToGo, innerTransfer) {
 
 			childConverters = append(childConverters, &CToGoContainerChildConvertibleConverter{
 				ConvertFunc: inner.WithForeignNamespace(conv.GetTransferFromGlibFunction(innerTransfer)),

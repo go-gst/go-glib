@@ -176,31 +176,43 @@ const (
 	ParameterModeCallback
 )
 
+// Invert returns the inverted mode, useful for return parameters, which are always in the opposite direction of the call.
+func (p ParameterMode) Invert() ParameterMode {
+	switch p {
+	case ParameterModeCallable:
+		return ParameterModeCallback
+	case ParameterModeCallback:
+		return ParameterModeCallable
+	default:
+		panic("invalid ParameterMode")
+	}
+}
+
 // validForCallable checks if the param is valid for a function or method, aka go->c call.
 func (param *Param) valid(e *env, mode ParameterMode) bool {
 	if param.Implicit || param.Skip {
 		return true
 	}
 
-	if conv, ok := param.Type.Type.(ConvertibleType); ok {
+	if conv, ok := param.Type.Type.(MaybeTransferableType); ok {
 		switch param.Direction {
 		case "inout":
 			panic("should not be inout")
 		case "in":
-			if mode == ParameterModeCallable && !conv.CanTransferToGlib(param.TransferOwnership) {
+			if mode == ParameterModeCallable && !conv.CanTransfer(DirectionGoToC, param.TransferOwnership) {
 				e.logger.Warn("transfer ownership not valid for type", "type", param.Type.Type.GIRName(), "transfer", param.TransferOwnership)
 				return false
 			}
-			if mode == ParameterModeCallback && !conv.CanTransferFromGlib(param.TransferOwnership) {
+			if mode == ParameterModeCallback && !conv.CanTransfer(DirectionCToGo, param.TransferOwnership) {
 				e.logger.Warn("transfer ownership not valid for type", "type", param.Type.Type.GIRName(), "transfer", param.TransferOwnership)
 				return false
 			}
 		case "out", "return":
-			if mode == ParameterModeCallable && !conv.CanTransferFromGlib(param.TransferOwnership) {
+			if mode == ParameterModeCallable && !conv.CanTransfer(DirectionCToGo, param.TransferOwnership) {
 				e.logger.Warn("transfer ownership not valid for type", "type", param.Type.Type.GIRName(), "transfer", param.TransferOwnership)
 				return false
 			}
-			if mode == ParameterModeCallback && !conv.CanTransferToGlib(param.TransferOwnership) {
+			if mode == ParameterModeCallback && !conv.CanTransfer(DirectionGoToC, param.TransferOwnership) {
 				e.logger.Warn("transfer ownership not valid for type", "type", param.Type.Type.GIRName(), "transfer", param.TransferOwnership)
 				return false
 			}
