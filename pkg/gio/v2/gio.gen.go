@@ -1033,7 +1033,7 @@ func (e BusType) GoValueType() gobject.Type {
 }
 
 func (e BusType) SetGoValue(v *gobject.Value) {
-	v.SetEnum(int(e))
+	v.SetEnum(int32(e))
 }
 
 func (e BusType) String() string {
@@ -1081,7 +1081,7 @@ func (e ConverterResult) GoValueType() gobject.Type {
 }
 
 func (e ConverterResult) SetGoValue(v *gobject.Value) {
-	v.SetEnum(int(e))
+	v.SetEnum(int32(e))
 }
 
 func (e ConverterResult) String() string {
@@ -1145,7 +1145,7 @@ func (e CredentialsType) GoValueType() gobject.Type {
 }
 
 func (e CredentialsType) SetGoValue(v *gobject.Value) {
-	v.SetEnum(int(e))
+	v.SetEnum(int32(e))
 }
 
 func (e CredentialsType) String() string {
@@ -1193,7 +1193,7 @@ func (e DataStreamByteOrder) GoValueType() gobject.Type {
 }
 
 func (e DataStreamByteOrder) SetGoValue(v *gobject.Value) {
-	v.SetEnum(int(e))
+	v.SetEnum(int32(e))
 }
 
 func (e DataStreamByteOrder) String() string {
@@ -1240,7 +1240,7 @@ func (e DataStreamNewlineType) GoValueType() gobject.Type {
 }
 
 func (e DataStreamNewlineType) SetGoValue(v *gobject.Value) {
-	v.SetEnum(int(e))
+	v.SetEnum(int32(e))
 }
 
 func (e DataStreamNewlineType) String() string {
@@ -1292,7 +1292,7 @@ func (e DriveStartStopType) GoValueType() gobject.Type {
 }
 
 func (e DriveStartStopType) SetGoValue(v *gobject.Value) {
-	v.SetEnum(int(e))
+	v.SetEnum(int32(e))
 }
 
 func (e DriveStartStopType) String() string {
@@ -1341,7 +1341,7 @@ func (e EmblemOrigin) GoValueType() gobject.Type {
 }
 
 func (e EmblemOrigin) SetGoValue(v *gobject.Value) {
-	v.SetEnum(int(e))
+	v.SetEnum(int32(e))
 }
 
 func (e EmblemOrigin) String() string {
@@ -1385,7 +1385,7 @@ func (e FileAttributeStatus) GoValueType() gobject.Type {
 }
 
 func (e FileAttributeStatus) SetGoValue(v *gobject.Value) {
-	v.SetEnum(int(e))
+	v.SetEnum(int32(e))
 }
 
 func (e FileAttributeStatus) String() string {
@@ -1456,7 +1456,7 @@ func (e FileAttributeType) GoValueType() gobject.Type {
 }
 
 func (e FileAttributeType) SetGoValue(v *gobject.Value) {
-	v.SetEnum(int(e))
+	v.SetEnum(int32(e))
 }
 
 func (e FileAttributeType) String() string {
@@ -1538,7 +1538,7 @@ func (e FileMonitorEvent) GoValueType() gobject.Type {
 }
 
 func (e FileMonitorEvent) SetGoValue(v *gobject.Value) {
-	v.SetEnum(int(e))
+	v.SetEnum(int32(e))
 }
 
 func (e FileMonitorEvent) String() string {
@@ -1605,7 +1605,7 @@ func (e FileType) GoValueType() gobject.Type {
 }
 
 func (e FileType) SetGoValue(v *gobject.Value) {
-	v.SetEnum(int(e))
+	v.SetEnum(int32(e))
 }
 
 func (e FileType) String() string {
@@ -1652,7 +1652,7 @@ func (e FilesystemPreviewType) GoValueType() gobject.Type {
 }
 
 func (e FilesystemPreviewType) SetGoValue(v *gobject.Value) {
-	v.SetEnum(int(e))
+	v.SetEnum(int32(e))
 }
 
 func (e FilesystemPreviewType) String() string {
@@ -1883,7 +1883,7 @@ func (e IOErrorEnum) GoValueType() gobject.Type {
 }
 
 func (e IOErrorEnum) SetGoValue(v *gobject.Value) {
-	v.SetEnum(int(e))
+	v.SetEnum(int32(e))
 }
 
 func (e IOErrorEnum) String() string {
@@ -1968,7 +1968,7 @@ func (e IOModuleScopeFlags) GoValueType() gobject.Type {
 }
 
 func (e IOModuleScopeFlags) SetGoValue(v *gobject.Value) {
-	v.SetEnum(int(e))
+	v.SetEnum(int32(e))
 }
 
 func (e IOModuleScopeFlags) String() string {
@@ -2010,7 +2010,7 @@ func (e MemoryMonitorWarningLevel) GoValueType() gobject.Type {
 }
 
 func (e MemoryMonitorWarningLevel) SetGoValue(v *gobject.Value) {
-	v.SetEnum(int(e))
+	v.SetEnum(int32(e))
 }
 
 func (e MemoryMonitorWarningLevel) String() string {
@@ -2053,7 +2053,7 @@ func (e MountOperationResult) GoValueType() gobject.Type {
 }
 
 func (e MountOperationResult) SetGoValue(v *gobject.Value) {
-	v.SetEnum(int(e))
+	v.SetEnum(int32(e))
 }
 
 func (e MountOperationResult) String() string {
@@ -2100,7 +2100,7 @@ func (e NetworkConnectivity) GoValueType() gobject.Type {
 }
 
 func (e NetworkConnectivity) SetGoValue(v *gobject.Value) {
-	v.SetEnum(int(e))
+	v.SetEnum(int32(e))
 }
 
 func (e NetworkConnectivity) String() string {
@@ -2148,7 +2148,7 @@ func (e NotificationPriority) GoValueType() gobject.Type {
 }
 
 func (e NotificationPriority) SetGoValue(v *gobject.Value) {
-	v.SetEnum(int(e))
+	v.SetEnum(int32(e))
 }
 
 func (e NotificationPriority) String() string {
@@ -2192,7 +2192,7 @@ func (e PasswordSave) GoValueType() gobject.Type {
 }
 
 func (e PasswordSave) SetGoValue(v *gobject.Value) {
-	v.SetEnum(int(e))
+	v.SetEnum(int32(e))
 }
 
 func (e PasswordSave) String() string {
@@ -2235,7 +2235,7 @@ func (e PollableReturn) GoValueType() gobject.Type {
 }
 
 func (e PollableReturn) SetGoValue(v *gobject.Value) {
-	v.SetEnum(int(e))
+	v.SetEnum(int32(e))
 }
 
 func (e PollableReturn) String() string {
@@ -2278,7 +2278,7 @@ func (e ResolverError) GoValueType() gobject.Type {
 }
 
 func (e ResolverError) SetGoValue(v *gobject.Value) {
-	v.SetEnum(int(e))
+	v.SetEnum(int32(e))
 }
 
 func (e ResolverError) String() string {
@@ -2344,7 +2344,7 @@ func (e ResolverRecordType) GoValueType() gobject.Type {
 }
 
 func (e ResolverRecordType) SetGoValue(v *gobject.Value) {
-	v.SetEnum(int(e))
+	v.SetEnum(int32(e))
 }
 
 func (e ResolverRecordType) String() string {
@@ -2385,7 +2385,7 @@ func (e ResourceError) GoValueType() gobject.Type {
 }
 
 func (e ResourceError) SetGoValue(v *gobject.Value) {
-	v.SetEnum(int(e))
+	v.SetEnum(int32(e))
 }
 
 func (e ResourceError) String() string {
@@ -2466,7 +2466,7 @@ func (e SocketClientEvent) GoValueType() gobject.Type {
 }
 
 func (e SocketClientEvent) SetGoValue(v *gobject.Value) {
-	v.SetEnum(int(e))
+	v.SetEnum(int32(e))
 }
 
 func (e SocketClientEvent) String() string {
@@ -2515,7 +2515,7 @@ func (e SocketFamily) GoValueType() gobject.Type {
 }
 
 func (e SocketFamily) SetGoValue(v *gobject.Value) {
-	v.SetEnum(int(e))
+	v.SetEnum(int32(e))
 }
 
 func (e SocketFamily) String() string {
@@ -2562,7 +2562,7 @@ func (e SocketListenerEvent) GoValueType() gobject.Type {
 }
 
 func (e SocketListenerEvent) SetGoValue(v *gobject.Value) {
-	v.SetEnum(int(e))
+	v.SetEnum(int32(e))
 }
 
 func (e SocketListenerEvent) String() string {
@@ -2614,7 +2614,7 @@ func (e SocketProtocol) GoValueType() gobject.Type {
 }
 
 func (e SocketProtocol) SetGoValue(v *gobject.Value) {
-	v.SetEnum(int(e))
+	v.SetEnum(int32(e))
 }
 
 func (e SocketProtocol) String() string {
@@ -2663,7 +2663,7 @@ func (e SocketType) GoValueType() gobject.Type {
 }
 
 func (e SocketType) SetGoValue(v *gobject.Value) {
-	v.SetEnum(int(e))
+	v.SetEnum(int32(e))
 }
 
 func (e SocketType) String() string {
@@ -2707,7 +2707,7 @@ func (e TlsAuthenticationMode) GoValueType() gobject.Type {
 }
 
 func (e TlsAuthenticationMode) SetGoValue(v *gobject.Value) {
-	v.SetEnum(int(e))
+	v.SetEnum(int32(e))
 }
 
 func (e TlsAuthenticationMode) String() string {
@@ -2742,7 +2742,7 @@ func (e TlsCertificateRequestFlags) GoValueType() gobject.Type {
 }
 
 func (e TlsCertificateRequestFlags) SetGoValue(v *gobject.Value) {
-	v.SetEnum(int(e))
+	v.SetEnum(int32(e))
 }
 
 func (e TlsCertificateRequestFlags) String() string {
@@ -2791,7 +2791,7 @@ func (e TlsChannelBindingError) GoValueType() gobject.Type {
 }
 
 func (e TlsChannelBindingError) SetGoValue(v *gobject.Value) {
-	v.SetEnum(int(e))
+	v.SetEnum(int32(e))
 }
 
 func (e TlsChannelBindingError) String() string {
@@ -2851,7 +2851,7 @@ func (e TlsChannelBindingType) GoValueType() gobject.Type {
 }
 
 func (e TlsChannelBindingType) SetGoValue(v *gobject.Value) {
-	v.SetEnum(int(e))
+	v.SetEnum(int32(e))
 }
 
 func (e TlsChannelBindingType) String() string {
@@ -2890,7 +2890,7 @@ func (e TlsDatabaseLookupFlags) GoValueType() gobject.Type {
 }
 
 func (e TlsDatabaseLookupFlags) SetGoValue(v *gobject.Value) {
-	v.SetEnum(int(e))
+	v.SetEnum(int32(e))
 }
 
 func (e TlsDatabaseLookupFlags) String() string {
@@ -2956,7 +2956,7 @@ func (e TlsError) GoValueType() gobject.Type {
 }
 
 func (e TlsError) SetGoValue(v *gobject.Value) {
-	v.SetEnum(int(e))
+	v.SetEnum(int32(e))
 }
 
 func (e TlsError) String() string {
@@ -3020,7 +3020,7 @@ func (e TlsInteractionResult) GoValueType() gobject.Type {
 }
 
 func (e TlsInteractionResult) SetGoValue(v *gobject.Value) {
-	v.SetEnum(int(e))
+	v.SetEnum(int32(e))
 }
 
 func (e TlsInteractionResult) String() string {
@@ -3083,7 +3083,7 @@ func (e TlsProtocolVersion) GoValueType() gobject.Type {
 }
 
 func (e TlsProtocolVersion) SetGoValue(v *gobject.Value) {
-	v.SetEnum(int(e))
+	v.SetEnum(int32(e))
 }
 
 func (e TlsProtocolVersion) String() string {
@@ -3133,7 +3133,7 @@ func (e TlsRehandshakeMode) GoValueType() gobject.Type {
 }
 
 func (e TlsRehandshakeMode) SetGoValue(v *gobject.Value) {
-	v.SetEnum(int(e))
+	v.SetEnum(int32(e))
 }
 
 func (e TlsRehandshakeMode) String() string {
@@ -3176,7 +3176,7 @@ func (e ZlibCompressorFormat) GoValueType() gobject.Type {
 }
 
 func (e ZlibCompressorFormat) SetGoValue(v *gobject.Value) {
-	v.SetEnum(int(e))
+	v.SetEnum(int32(e))
 }
 
 func (e ZlibCompressorFormat) String() string {
@@ -3227,7 +3227,7 @@ func (f AppInfoCreateFlags) GoValueType() gobject.Type {
 }
 
 func (f AppInfoCreateFlags) SetGoValue(v *gobject.Value) {
-	v.SetFlags(int(f))
+	v.SetFlags(int32(f))
 }
 
 func (f AppInfoCreateFlags) String() string {
@@ -3320,7 +3320,7 @@ func (f ApplicationFlags) GoValueType() gobject.Type {
 }
 
 func (f ApplicationFlags) SetGoValue(v *gobject.Value) {
-	v.SetFlags(int(f))
+	v.SetFlags(int32(f))
 }
 
 func (f ApplicationFlags) String() string {
@@ -3412,7 +3412,7 @@ func (f AskPasswordFlags) GoValueType() gobject.Type {
 }
 
 func (f AskPasswordFlags) SetGoValue(v *gobject.Value) {
-	v.SetFlags(int(f))
+	v.SetFlags(int32(f))
 }
 
 func (f AskPasswordFlags) String() string {
@@ -3481,7 +3481,7 @@ func (f BusNameOwnerFlags) GoValueType() gobject.Type {
 }
 
 func (f BusNameOwnerFlags) SetGoValue(v *gobject.Value) {
-	v.SetFlags(int(f))
+	v.SetFlags(int32(f))
 }
 
 func (f BusNameOwnerFlags) String() string {
@@ -3536,7 +3536,7 @@ func (f BusNameWatcherFlags) GoValueType() gobject.Type {
 }
 
 func (f BusNameWatcherFlags) SetGoValue(v *gobject.Value) {
-	v.SetFlags(int(f))
+	v.SetFlags(int32(f))
 }
 
 func (f BusNameWatcherFlags) String() string {
@@ -3589,7 +3589,7 @@ func (f ConverterFlags) GoValueType() gobject.Type {
 }
 
 func (f ConverterFlags) SetGoValue(v *gobject.Value) {
-	v.SetFlags(int(f))
+	v.SetFlags(int32(f))
 }
 
 func (f ConverterFlags) String() string {
@@ -3637,7 +3637,7 @@ func (f DriveStartFlags) GoValueType() gobject.Type {
 }
 
 func (f DriveStartFlags) SetGoValue(v *gobject.Value) {
-	v.SetFlags(int(f))
+	v.SetFlags(int32(f))
 }
 
 func (f DriveStartFlags) String() string {
@@ -3687,7 +3687,7 @@ func (f FileAttributeInfoFlags) GoValueType() gobject.Type {
 }
 
 func (f FileAttributeInfoFlags) SetGoValue(v *gobject.Value) {
-	v.SetFlags(int(f))
+	v.SetFlags(int32(f))
 }
 
 func (f FileAttributeInfoFlags) String() string {
@@ -3763,7 +3763,7 @@ func (f FileCopyFlags) GoValueType() gobject.Type {
 }
 
 func (f FileCopyFlags) SetGoValue(v *gobject.Value) {
-	v.SetFlags(int(f))
+	v.SetFlags(int32(f))
 }
 
 func (f FileCopyFlags) String() string {
@@ -3834,7 +3834,7 @@ func (f FileCreateFlags) GoValueType() gobject.Type {
 }
 
 func (f FileCreateFlags) SetGoValue(v *gobject.Value) {
-	v.SetFlags(int(f))
+	v.SetFlags(int32(f))
 }
 
 func (f FileCreateFlags) String() string {
@@ -3894,7 +3894,7 @@ func (f FileMeasureFlags) GoValueType() gobject.Type {
 }
 
 func (f FileMeasureFlags) SetGoValue(v *gobject.Value) {
-	v.SetFlags(int(f))
+	v.SetFlags(int32(f))
 }
 
 func (f FileMeasureFlags) String() string {
@@ -3961,7 +3961,7 @@ func (f FileMonitorFlags) GoValueType() gobject.Type {
 }
 
 func (f FileMonitorFlags) SetGoValue(v *gobject.Value) {
-	v.SetFlags(int(f))
+	v.SetFlags(int32(f))
 }
 
 func (f FileMonitorFlags) String() string {
@@ -4019,7 +4019,7 @@ func (f FileQueryInfoFlags) GoValueType() gobject.Type {
 }
 
 func (f FileQueryInfoFlags) SetGoValue(v *gobject.Value) {
-	v.SetFlags(int(f))
+	v.SetFlags(int32(f))
 }
 
 func (f FileQueryInfoFlags) String() string {
@@ -4076,7 +4076,7 @@ func (f IOStreamSpliceFlags) GoValueType() gobject.Type {
 }
 
 func (f IOStreamSpliceFlags) SetGoValue(v *gobject.Value) {
-	v.SetFlags(int(f))
+	v.SetFlags(int32(f))
 }
 
 func (f IOStreamSpliceFlags) String() string {
@@ -4127,7 +4127,7 @@ func (f MountMountFlags) GoValueType() gobject.Type {
 }
 
 func (f MountMountFlags) SetGoValue(v *gobject.Value) {
-	v.SetFlags(int(f))
+	v.SetFlags(int32(f))
 }
 
 func (f MountMountFlags) String() string {
@@ -4173,7 +4173,7 @@ func (f MountUnmountFlags) GoValueType() gobject.Type {
 }
 
 func (f MountUnmountFlags) SetGoValue(v *gobject.Value) {
-	v.SetFlags(int(f))
+	v.SetFlags(int32(f))
 }
 
 func (f MountUnmountFlags) String() string {
@@ -4226,7 +4226,7 @@ func (f OutputStreamSpliceFlags) GoValueType() gobject.Type {
 }
 
 func (f OutputStreamSpliceFlags) SetGoValue(v *gobject.Value) {
-	v.SetFlags(int(f))
+	v.SetFlags(int32(f))
 }
 
 func (f OutputStreamSpliceFlags) String() string {
@@ -4282,7 +4282,7 @@ func (f ResolverNameLookupFlags) GoValueType() gobject.Type {
 }
 
 func (f ResolverNameLookupFlags) SetGoValue(v *gobject.Value) {
-	v.SetFlags(int(f))
+	v.SetFlags(int32(f))
 }
 
 func (f ResolverNameLookupFlags) String() string {
@@ -4334,7 +4334,7 @@ func (f ResourceFlags) GoValueType() gobject.Type {
 }
 
 func (f ResourceFlags) SetGoValue(v *gobject.Value) {
-	v.SetFlags(int(f))
+	v.SetFlags(int32(f))
 }
 
 func (f ResourceFlags) String() string {
@@ -4379,7 +4379,7 @@ func (f ResourceLookupFlags) GoValueType() gobject.Type {
 }
 
 func (f ResourceLookupFlags) SetGoValue(v *gobject.Value) {
-	v.SetFlags(int(f))
+	v.SetFlags(int32(f))
 }
 
 func (f ResourceLookupFlags) String() string {
@@ -4441,7 +4441,7 @@ func (f SettingsBindFlags) GoValueType() gobject.Type {
 }
 
 func (f SettingsBindFlags) SetGoValue(v *gobject.Value) {
-	v.SetFlags(int(f))
+	v.SetFlags(int32(f))
 }
 
 func (f SettingsBindFlags) String() string {
@@ -4510,7 +4510,7 @@ func (f SocketMsgFlags) GoValueType() gobject.Type {
 }
 
 func (f SocketMsgFlags) SetGoValue(v *gobject.Value) {
-	v.SetFlags(int(f))
+	v.SetFlags(int32(f))
 }
 
 func (f SocketMsgFlags) String() string {
@@ -4593,7 +4593,7 @@ func (f TlsCertificateFlags) GoValueType() gobject.Type {
 }
 
 func (f TlsCertificateFlags) SetGoValue(v *gobject.Value) {
-	v.SetFlags(int(f))
+	v.SetFlags(int32(f))
 }
 
 func (f TlsCertificateFlags) String() string {
@@ -4659,7 +4659,7 @@ func (f TlsDatabaseVerifyFlags) GoValueType() gobject.Type {
 }
 
 func (f TlsDatabaseVerifyFlags) SetGoValue(v *gobject.Value) {
-	v.SetFlags(int(f))
+	v.SetFlags(int32(f))
 }
 
 func (f TlsDatabaseVerifyFlags) String() string {
@@ -4725,7 +4725,7 @@ func (f TlsPasswordFlags) GoValueType() gobject.Type {
 }
 
 func (f TlsPasswordFlags) SetGoValue(v *gobject.Value) {
-	v.SetFlags(int(f))
+	v.SetFlags(int32(f))
 }
 
 func (f TlsPasswordFlags) String() string {

@@ -63,7 +63,7 @@ func (g *EnumGenerator) Generate(w *file.Package) {
 
 		fmt.Fprintf(w.Go(), "func (e %s) SetGoValue(v *%s) {\n", g.GoType(0), g.Value().NamespacedGoType(0))
 		w.Go().Indent()
-		fmt.Fprintf(w.Go(), "v.SetEnum(int(e))\n")
+		fmt.Fprintf(w.Go(), "v.SetEnum(int32(e))\n")
 		w.Go().Unindent()
 		fmt.Fprintf(w.Go(), "}\n\n")
 	}

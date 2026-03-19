@@ -173,6 +173,13 @@ type GoValueInitializer interface {
 // InitGoValue sets the Go value of the GValue. The GValue MUST NOT HAVE BEEN
 // INITIALIZED ALREADY!
 func (v *Value) InitGoValue(goValue any) {
+	switch goValue.(type) {
+	case int:
+		panic("int is not supported because its size is platform dependent. Use int32 or int64 instead.")
+	case uint:
+		panic("uint is not supported because its size is platform dependent. Use uint32 or uint64 instead.")
+	}
+
 	if goValue == InvalidValue {
 		v.Init(TypeInvalid)
 		return
@@ -216,6 +223,10 @@ func (v *Value) SetGoValue(goValue any) {
 
 	var ok bool
 	switch rval.Kind() {
+	case reflect.Int:
+		panic("int is not supported because its size is platform dependent. Use int32 or int64 instead.")
+	case reflect.Uint:
+		panic("uint is not supported because its size is platform dependent. Use uint32 or uint64 instead.")
 	case reflect.Bool:
 		ok = setValuePrimitive(v, rval.Bool())
 	case reflect.Int8:
@@ -224,16 +235,12 @@ func (v *Value) SetGoValue(goValue any) {
 		ok = setValuePrimitive(v, int32(rval.Int()))
 	case reflect.Int64:
 		ok = setValuePrimitive(v, int64(rval.Int()))
-	case reflect.Int:
-		ok = setValuePrimitive(v, int(rval.Int()))
 	case reflect.Uint8:
 		ok = setValuePrimitive(v, uint8(rval.Uint()))
 	case reflect.Uint32:
 		ok = setValuePrimitive(v, uint32(rval.Uint()))
 	case reflect.Uint64:
 		ok = setValuePrimitive(v, uint64(rval.Uint()))
-	case reflect.Uint:
-		ok = setValuePrimitive(v, uint(rval.Uint()))
 	case reflect.Float32:
 		ok = setValuePrimitive(v, float32(rval.Float()))
 	case reflect.Float64:
@@ -281,16 +288,12 @@ func valueTypeForPrimitive(v interface{}) Type {
 		return TypeInt // C int is 32-bit
 	case int64:
 		return TypeInt64
-	case int:
-		return TypeInt // C int is 32-bit
 	case uint8:
 		return TypeUchar
 	case uint32:
-		return TypeUint
+		return TypeUint // C uint is 32-bit
 	case uint64:
 		return TypeUint64
-	case uint:
-		return TypeUint // C uint is 32-bit
 	case float32:
 		return TypeFloat
 	case float64:
@@ -307,6 +310,10 @@ func valueTypeForPrimitiveReflect(goValue any) Type {
 	rval := reflect.Indirect(reflect.ValueOf(goValue))
 
 	switch rval.Kind() {
+	case reflect.Int:
+		panic("int is not supported because its size is platform dependent. Use int32 or int64 instead.")
+	case reflect.Uint:
+		panic("uint is not supported because its size is platform dependent. Use uint32 or uint64 instead.")
 	case reflect.Bool:
 		return valueTypeForPrimitive(rval.Bool())
 	case reflect.Int8:
@@ -315,16 +322,12 @@ func valueTypeForPrimitiveReflect(goValue any) Type {
 		return valueTypeForPrimitive(int32(rval.Int()))
 	case reflect.Int64:
 		return valueTypeForPrimitive(int64(rval.Int()))
-	case reflect.Int:
-		return valueTypeForPrimitive(int(rval.Int()))
 	case reflect.Uint8:
 		return valueTypeForPrimitive(uint8(rval.Uint()))
 	case reflect.Uint32:
 		return valueTypeForPrimitive(uint32(rval.Uint()))
 	case reflect.Uint64:
 		return valueTypeForPrimitive(uint64(rval.Uint()))
-	case reflect.Uint:
-		return valueTypeForPrimitive(uint(rval.Uint()))
 	case reflect.Float32:
 		return valueTypeForPrimitive(float32(rval.Float()))
 	case reflect.Float64:
@@ -338,24 +341,24 @@ func valueTypeForPrimitiveReflect(goValue any) Type {
 
 func setValuePrimitive(val *Value, v interface{}) bool {
 	switch e := v.(type) {
+	case int:
+		panic("int is not supported because its size is platform dependent. Use int32 or int64 instead.")
+	case uint:
+		panic("uint is not supported because its size is platform dependent. Use uint32 or uint64 instead.")
 	case bool:
 		val.SetBool(e)
 	case int8:
 		val.SetSchar(e)
 	case int32:
-		val.SetInt(int(e))
+		val.SetInt32(e)
 	case int64:
 		val.SetInt64(e)
-	case int:
-		val.SetInt(int(e))
 	case uint8:
 		val.SetUchar(e)
 	case uint32:
-		val.SetUint(uint(e))
+		val.SetUint32(e)
 	case uint64:
 		val.SetUint64(e)
-	case uint:
-		val.SetUint(uint(e))
 	case float32:
 		val.SetFloat(e)
 	case float64:
@@ -396,13 +399,13 @@ func (v *Value) SetInt64(val int64) {
 }
 
 // SetLong is a wrapper around g_value_set_long().
-func (v *Value) SetLong(long int32) {
+func (v *Value) SetLong(long int64) {
 	C.g_value_set_long(v.native(), C.glong(long))
 	runtime.KeepAlive(v)
 }
 
 // SetInt is a wrapper around g_value_set_int().
-func (v *Value) SetInt(val int) {
+func (v *Value) SetInt32(val int32) {
 	C.g_value_set_int(v.native(), C.gint(val))
 	runtime.KeepAlive(v)
 }
@@ -420,13 +423,13 @@ func (v *Value) SetUint64(val uint64) {
 }
 
 // SetUlong is a wrapper around g_value_set_ulong().
-func (v *Value) SetUlong(ulong uint32) {
+func (v *Value) SetUlong(ulong uint64) {
 	C.g_value_set_ulong(v.native(), C.gulong(ulong))
 	runtime.KeepAlive(v)
 }
 
 // SetUint is a wrapper around g_value_set_uint().
-func (v *Value) SetUint(val uint) {
+func (v *Value) SetUint32(val uint32) {
 	C.g_value_set_uint(v.native(), C.guint(val))
 	runtime.KeepAlive(v)
 }
@@ -473,13 +476,13 @@ func (v *Value) SetPointer(p unsafe.Pointer) {
 }
 
 // SetFlags is a wrapper around g_value_set_flags().
-func (v *Value) SetFlags(f int) {
+func (v *Value) SetFlags(f int32) {
 	C.g_value_set_flags(v.native(), C.guint(f))
 	runtime.KeepAlive(v)
 }
 
 // SetEnum is a wrapper around g_value_set_enum().
-func (v *Value) SetEnum(e int) {
+func (v *Value) SetEnum(e int32) {
 	C.g_value_set_enum(v.native(), C.gint(e))
 	runtime.KeepAlive(v)
 }
@@ -512,8 +515,8 @@ func (v *Value) Object() Object {
 }
 
 // Enum is a wrapper around g_value_get_enum().
-func (v *Value) Enum() int {
-	i := int(C.g_value_get_enum(v.native()))
+func (v *Value) Enum() int32 {
+	i := int32(C.g_value_get_enum(v.native()))
 	runtime.KeepAlive(v)
 	return i
 }
@@ -526,8 +529,8 @@ func (v *Value) Param() unsafe.Pointer {
 }
 
 // Flags is a wrapper around g_value_get_flags().
-func (v *Value) Flags() uint {
-	u := uint(C.g_value_get_flags(v.native()))
+func (v *Value) Flags() uint32 {
+	u := uint32(C.g_value_get_flags(v.native()))
 	runtime.KeepAlive(v)
 	return u
 }

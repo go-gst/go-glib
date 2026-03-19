@@ -133,7 +133,7 @@ func (f BindingFlags) GoValueType() Type {
 }
 
 func (f BindingFlags) SetGoValue(v *Value) {
-	v.SetFlags(int(f))
+	v.SetFlags(int32(f))
 }
 
 func (f BindingFlags) String() string {
@@ -247,7 +247,7 @@ func (f IOCondition) GoValueType() Type {
 }
 
 func (f IOCondition) SetGoValue(v *Value) {
-	v.SetFlags(int(f))
+	v.SetFlags(int32(f))
 }
 
 func (f IOCondition) String() string {

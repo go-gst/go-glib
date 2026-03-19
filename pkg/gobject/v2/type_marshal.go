@@ -68,8 +68,8 @@ func (t Type) String() string {
 }
 
 // Depth is a wrapper around g_type_depth().
-func (t Type) Depth() uint {
-	return uint(C.g_type_depth(C.GType(t)))
+func (t Type) Depth() uint32 {
+	return uint32(C.g_type_depth(C.GType(t)))
 }
 
 // Parent is a wrapper around g_type_parent().
@@ -142,10 +142,10 @@ func init() {
 	RegisterGValueMarshaler(TypeChar, marshalChar)
 	RegisterGValueMarshaler(TypeUchar, marshalUchar)
 	RegisterGValueMarshaler(TypeBoolean, marshalBoolean)
-	RegisterGValueMarshaler(TypeInt, marshalInt)
+	RegisterGValueMarshaler(TypeInt, marshalInt32)
 	RegisterGValueMarshaler(TypeLong, marshalLong)
 	RegisterGValueMarshaler(TypeInt64, marshalInt64)
-	RegisterGValueMarshaler(TypeUint, marshalUint)
+	RegisterGValueMarshaler(TypeUint, marshalUint32)
 	RegisterGValueMarshaler(TypeUlong, marshalUlong)
 	RegisterGValueMarshaler(TypeUint64, marshalUint64)
 	RegisterGValueMarshaler(TypeFloat, marshalFloat)
@@ -276,9 +276,9 @@ func marshalBoolean(p unsafe.Pointer) (interface{}, error) {
 	return c != 0, nil
 }
 
-func marshalInt(p unsafe.Pointer) (interface{}, error) {
+func marshalInt32(p unsafe.Pointer) (interface{}, error) {
 	c := C.g_value_get_int((*C.GValue)(unsafe.Pointer(p)))
-	return int(c), nil
+	return int32(c), nil
 }
 
 func marshalLong(p unsafe.Pointer) (interface{}, error) {
@@ -288,7 +288,7 @@ func marshalLong(p unsafe.Pointer) (interface{}, error) {
 
 func marshalEnum(p unsafe.Pointer) (interface{}, error) {
 	c := C.g_value_get_enum((*C.GValue)(unsafe.Pointer(p)))
-	return int(c), nil
+	return int32(c), nil
 }
 
 func marshalInt64(p unsafe.Pointer) (interface{}, error) {
@@ -296,19 +296,19 @@ func marshalInt64(p unsafe.Pointer) (interface{}, error) {
 	return int64(c), nil
 }
 
-func marshalUint(p unsafe.Pointer) (interface{}, error) {
+func marshalUint32(p unsafe.Pointer) (interface{}, error) {
 	c := C.g_value_get_uint((*C.GValue)(unsafe.Pointer(p)))
-	return uint(c), nil
+	return uint32(c), nil
 }
 
 func marshalUlong(p unsafe.Pointer) (interface{}, error) {
 	c := C.g_value_get_ulong((*C.GValue)(unsafe.Pointer(p)))
-	return uint(c), nil
+	return uint64(c), nil
 }
 
 func marshalFlags(p unsafe.Pointer) (interface{}, error) {
 	c := C.g_value_get_flags((*C.GValue)(unsafe.Pointer(p)))
-	return uint(c), nil
+	return uint32(c), nil
 }
 
 func marshalUint64(p unsafe.Pointer) (interface{}, error) {

@@ -66,7 +66,7 @@ func (g *BitfieldGenerator) Generate(w *file.Package) {
 
 		fmt.Fprintf(w.Go(), "func (f %s) SetGoValue(v *%s) {\n", g.GoType(0), g.Value().NamespacedGoType(0))
 		w.Go().Indent()
-		fmt.Fprintf(w.Go(), "v.SetFlags(int(f))\n")
+		fmt.Fprintf(w.Go(), "v.SetFlags(int32(f))\n")
 		w.Go().Unindent()
 		fmt.Fprintf(w.Go(), "}\n\n")
 	}
