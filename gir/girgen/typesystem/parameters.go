@@ -540,6 +540,11 @@ func NewGenericParameters(e *env, v *gir.CallableAttrs, mode ParameterMode) (*Pa
 
 		params.GIRParameters = append(params.GIRParameters, throwParam)
 		params.GoReturns = append(params.GoReturns, throwParam)
+
+		if params.CReturn != nil && params.CReturn.CTypePointers >= 1 {
+			// implied nullability when the function throws:
+			params.CReturn.Nullable = true
+		}
 	}
 
 	for _, p := range params.CParameters() {

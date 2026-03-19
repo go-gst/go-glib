@@ -6165,7 +6165,7 @@ func Convert(str string, toCodeset string, fromCodeset string) (uint, uint, stri
 	var carg4 *C.gchar  // in, none, string
 	var carg5 C.gsize   // out, full, casted
 	var carg6 C.gsize   // out, full, casted
-	var cret  *C.gchar  // return, transfer: full, C Pointers: 1, Name: array[unknown], scope: , array (inner unknown)
+	var cret  *C.gchar  // return, transfer: full, C Pointers: 1, Name: array[unknown], scope: , nullable, array (inner unknown)
 	var _cerr *C.GError // out, full, converted, nullable
 
 	_ = str
@@ -6225,7 +6225,7 @@ func ConvertWithFallback(str string, toCodeset string, fromCodeset string, fallb
 	var carg5 *C.gchar  // in, none, string
 	var carg6 C.gsize   // out, full, casted
 	var carg7 C.gsize   // out, full, casted
-	var cret  *C.gchar  // return, transfer: full, C Pointers: 1, Name: array[unknown], scope: , array (inner unknown)
+	var cret  *C.gchar  // return, transfer: full, C Pointers: 1, Name: array[unknown], scope: , nullable, array (inner unknown)
 	var _cerr *C.GError // out, full, converted, nullable
 
 	_ = str
@@ -6603,7 +6603,7 @@ func FileOpenTmp(tmpl string) (string, int32, error) {
 // see also https://docs.gtk.org/glib/func.g_file_read_link.html
 func FileReadLink(filename string) (string, error) {
 	var carg1 *C.gchar  // in, none, string
-	var cret  *C.gchar  // return, full, string
+	var cret  *C.gchar  // return, full, string, nullable-string
 	var _cerr *C.GError // out, full, converted, nullable
 
 	carg1 = (*C.gchar)(transfer.GLibString(filename))
@@ -6615,8 +6615,10 @@ func FileReadLink(filename string) (string, error) {
 	var goret  string
 	var _goerr error
 
-	goret = C.GoString((*C.char)(unsafe.Pointer(cret)))
-	defer C.g_free(C.gpointer(cret))
+	if cret != nil {
+		goret = C.GoString((*C.char)(unsafe.Pointer(cret)))
+		defer C.g_free(C.gpointer(cret))
+	}
 	if _cerr != nil {
 		_goerr = UnsafeErrorFromGlibFull(unsafe.Pointer(_cerr))
 	}
@@ -6771,7 +6773,7 @@ func FilenameDisplayName(filename string) string {
 func FilenameFromURI(uri string) (string, string, error) {
 	var carg1 *C.gchar  // in, none, string
 	var carg2 *C.gchar  // out, full, string, nullable-string
-	var cret  *C.gchar  // return, full, string
+	var cret  *C.gchar  // return, full, string, nullable-string
 	var _cerr *C.GError // out, full, converted, nullable
 
 	carg1 = (*C.gchar)(transfer.GLibString(uri))
@@ -6788,8 +6790,10 @@ func FilenameFromURI(uri string) (string, string, error) {
 		hostname = C.GoString((*C.char)(unsafe.Pointer(carg2)))
 		defer C.g_free(C.gpointer(carg2))
 	}
-	goret = C.GoString((*C.char)(unsafe.Pointer(cret)))
-	defer C.g_free(C.gpointer(cret))
+	if cret != nil {
+		goret = C.GoString((*C.char)(unsafe.Pointer(cret)))
+		defer C.g_free(C.gpointer(cret))
+	}
 	if _cerr != nil {
 		_goerr = UnsafeErrorFromGlibFull(unsafe.Pointer(_cerr))
 	}
@@ -6805,7 +6809,7 @@ func FilenameFromUTF8(utf8string string, len int) (uint, uint, string, error) {
 	var carg2 C.gssize  // in, none, casted
 	var carg3 C.gsize   // out, full, casted
 	var carg4 C.gsize   // out, full, casted
-	var cret  *C.gchar  // return, full, string
+	var cret  *C.gchar  // return, full, string, nullable-string
 	var _cerr *C.GError // out, full, converted, nullable
 
 	carg1 = (*C.gchar)(transfer.GLibString(utf8string))
@@ -6823,8 +6827,10 @@ func FilenameFromUTF8(utf8string string, len int) (uint, uint, string, error) {
 
 	bytesRead = uint(carg3)
 	bytesWritten = uint(carg4)
-	goret = C.GoString((*C.char)(unsafe.Pointer(cret)))
-	defer C.g_free(C.gpointer(cret))
+	if cret != nil {
+		goret = C.GoString((*C.char)(unsafe.Pointer(cret)))
+		defer C.g_free(C.gpointer(cret))
+	}
 	if _cerr != nil {
 		_goerr = UnsafeErrorFromGlibFull(unsafe.Pointer(_cerr))
 	}
@@ -6838,7 +6844,7 @@ func FilenameFromUTF8(utf8string string, len int) (uint, uint, string, error) {
 func FilenameToURI(filename string, hostname string) (string, error) {
 	var carg1 *C.gchar  // in, none, string
 	var carg2 *C.gchar  // in, none, string, nullable-string
-	var cret  *C.gchar  // return, full, string
+	var cret  *C.gchar  // return, full, string, nullable-string
 	var _cerr *C.GError // out, full, converted, nullable
 
 	carg1 = (*C.gchar)(transfer.GLibString(filename))
@@ -6855,8 +6861,10 @@ func FilenameToURI(filename string, hostname string) (string, error) {
 	var goret  string
 	var _goerr error
 
-	goret = C.GoString((*C.char)(unsafe.Pointer(cret)))
-	defer C.g_free(C.gpointer(cret))
+	if cret != nil {
+		goret = C.GoString((*C.char)(unsafe.Pointer(cret)))
+		defer C.g_free(C.gpointer(cret))
+	}
 	if _cerr != nil {
 		_goerr = UnsafeErrorFromGlibFull(unsafe.Pointer(_cerr))
 	}
@@ -6872,7 +6880,7 @@ func FilenameToUTF8(opsysstring string, len int) (uint, uint, string, error) {
 	var carg2 C.gssize  // in, none, casted
 	var carg3 C.gsize   // out, full, casted
 	var carg4 C.gsize   // out, full, casted
-	var cret  *C.gchar  // return, full, string
+	var cret  *C.gchar  // return, full, string, nullable-string
 	var _cerr *C.GError // out, full, converted, nullable
 
 	carg1 = (*C.gchar)(transfer.GLibString(opsysstring))
@@ -6890,8 +6898,10 @@ func FilenameToUTF8(opsysstring string, len int) (uint, uint, string, error) {
 
 	bytesRead = uint(carg3)
 	bytesWritten = uint(carg4)
-	goret = C.GoString((*C.char)(unsafe.Pointer(cret)))
-	defer C.g_free(C.gpointer(cret))
+	if cret != nil {
+		goret = C.GoString((*C.char)(unsafe.Pointer(cret)))
+		defer C.g_free(C.gpointer(cret))
+	}
 	if _cerr != nil {
 		_goerr = UnsafeErrorFromGlibFull(unsafe.Pointer(_cerr))
 	}
@@ -7651,7 +7661,7 @@ func LocaleFromUTF8(utf8string string, len int) (uint, uint, string, error) {
 	var carg2 C.gssize  // in, none, casted
 	var carg3 C.gsize   // out, full, casted
 	var carg4 C.gsize   // out, full, casted
-	var cret  *C.gchar  // return, transfer: full, C Pointers: 1, Name: array[unknown], scope: , array (inner unknown)
+	var cret  *C.gchar  // return, transfer: full, C Pointers: 1, Name: array[unknown], scope: , nullable, array (inner unknown)
 	var _cerr *C.GError // out, full, converted, nullable
 
 	carg1 = (*C.gchar)(transfer.GLibString(utf8string))
@@ -7687,7 +7697,7 @@ func LocaleToUTF8(opsysstring string) (uint, uint, string, error) {
 	var carg2 C.gssize  // implicit
 	var carg3 C.gsize   // out, full, casted
 	var carg4 C.gsize   // out, full, casted
-	var cret  *C.gchar  // return, full, string
+	var cret  *C.gchar  // return, full, string, nullable-string
 	var _cerr *C.GError // out, full, converted, nullable
 
 	_ = opsysstring
@@ -7705,8 +7715,10 @@ func LocaleToUTF8(opsysstring string) (uint, uint, string, error) {
 
 	bytesRead = uint(carg3)
 	bytesWritten = uint(carg4)
-	goret = C.GoString((*C.char)(unsafe.Pointer(cret)))
-	defer C.g_free(C.gpointer(cret))
+	if cret != nil {
+		goret = C.GoString((*C.char)(unsafe.Pointer(cret)))
+		defer C.g_free(C.gpointer(cret))
+	}
 	if _cerr != nil {
 		_goerr = UnsafeErrorFromGlibFull(unsafe.Pointer(_cerr))
 	}
@@ -8709,7 +8721,7 @@ func ShellQuote(unquotedString string) string {
 // see also https://docs.gtk.org/glib/func.g_shell_unquote.html
 func ShellUnquote(quotedString string) (string, error) {
 	var carg1 *C.gchar  // in, none, string
-	var cret  *C.gchar  // return, full, string
+	var cret  *C.gchar  // return, full, string, nullable-string
 	var _cerr *C.GError // out, full, converted, nullable
 
 	carg1 = (*C.gchar)(transfer.GLibString(quotedString))
@@ -8721,8 +8733,10 @@ func ShellUnquote(quotedString string) (string, error) {
 	var goret  string
 	var _goerr error
 
-	goret = C.GoString((*C.char)(unsafe.Pointer(cret)))
-	defer C.g_free(C.gpointer(cret))
+	if cret != nil {
+		goret = C.GoString((*C.char)(unsafe.Pointer(cret)))
+		defer C.g_free(C.gpointer(cret))
+	}
 	if _cerr != nil {
 		_goerr = UnsafeErrorFromGlibFull(unsafe.Pointer(_cerr))
 	}
@@ -10335,7 +10349,7 @@ func UCS4ToUTF8(str []uint32) (int32, int32, string, error) {
 	var carg2 C.glong     // implicit
 	var carg3 C.glong     // out, full, casted
 	var carg4 C.glong     // out, full, casted
-	var cret  *C.gchar    // return, full, string
+	var cret  *C.gchar    // return, full, string, nullable-string
 	var _cerr *C.GError   // out, full, converted, nullable
 
 	_ = str
@@ -10353,8 +10367,10 @@ func UCS4ToUTF8(str []uint32) (int32, int32, string, error) {
 
 	itemsRead = int32(carg3)
 	itemsWritten = int32(carg4)
-	goret = C.GoString((*C.char)(unsafe.Pointer(cret)))
-	defer C.g_free(C.gpointer(cret))
+	if cret != nil {
+		goret = C.GoString((*C.char)(unsafe.Pointer(cret)))
+		defer C.g_free(C.gpointer(cret))
+	}
 	if _cerr != nil {
 		_goerr = UnsafeErrorFromGlibFull(unsafe.Pointer(_cerr))
 	}
@@ -11094,7 +11110,7 @@ func UTF16ToUCS4(str []uint16) (int32, int32, *uint32, error) {
 	var carg2 C.glong      // implicit
 	var carg3 C.glong      // out, full, casted
 	var carg4 C.glong      // out, full, casted
-	var cret  *C.gunichar  // return, transfer: full, C Pointers: 1, Name: gunichar, scope: 
+	var cret  *C.gunichar  // return, transfer: full, C Pointers: 1, Name: gunichar, scope: , nullable, nullable
 	var _cerr *C.GError    // out, full, converted, nullable
 
 	_ = str
@@ -11112,9 +11128,11 @@ func UTF16ToUCS4(str []uint16) (int32, int32, *uint32, error) {
 
 	itemsRead = int32(carg3)
 	itemsWritten = int32(carg4)
-	_ = goret
-	_ = cret
-	panic("unimplemented conversion of *uint32 (gunichar*) because of unknown reason")
+	if cret != nil {
+		_ = goret
+		_ = cret
+		panic("unimplemented conversion of *uint32 (gunichar*) because of unknown reason")
+	}
 	if _cerr != nil {
 		_goerr = UnsafeErrorFromGlibFull(unsafe.Pointer(_cerr))
 	}
@@ -11130,7 +11148,7 @@ func UTF16ToUTF8(str []uint16) (int32, int32, string, error) {
 	var carg2 C.glong      // implicit
 	var carg3 C.glong      // out, full, casted
 	var carg4 C.glong      // out, full, casted
-	var cret  *C.gchar     // return, full, string
+	var cret  *C.gchar     // return, full, string, nullable-string
 	var _cerr *C.GError    // out, full, converted, nullable
 
 	_ = str
@@ -11148,8 +11166,10 @@ func UTF16ToUTF8(str []uint16) (int32, int32, string, error) {
 
 	itemsRead = int32(carg3)
 	itemsWritten = int32(carg4)
-	goret = C.GoString((*C.char)(unsafe.Pointer(cret)))
-	defer C.g_free(C.gpointer(cret))
+	if cret != nil {
+		goret = C.GoString((*C.char)(unsafe.Pointer(cret)))
+		defer C.g_free(C.gpointer(cret))
+	}
 	if _cerr != nil {
 		_goerr = UnsafeErrorFromGlibFull(unsafe.Pointer(_cerr))
 	}
@@ -11683,7 +11703,7 @@ func UTF8ToUCS4(str string, len int32) (int32, int32, *uint32, error) {
 	var carg2 C.glong     // in, none, casted
 	var carg3 C.glong     // out, full, casted
 	var carg4 C.glong     // out, full, casted
-	var cret  *C.gunichar // return, transfer: full, C Pointers: 1, Name: gunichar, scope: 
+	var cret  *C.gunichar // return, transfer: full, C Pointers: 1, Name: gunichar, scope: , nullable, nullable
 	var _cerr *C.GError   // out, full, converted, nullable
 
 	carg1 = (*C.gchar)(transfer.GLibString(str))
@@ -11701,9 +11721,11 @@ func UTF8ToUCS4(str string, len int32) (int32, int32, *uint32, error) {
 
 	itemsRead = int32(carg3)
 	itemsWritten = int32(carg4)
-	_ = goret
-	_ = cret
-	panic("unimplemented conversion of *uint32 (gunichar*) because of unknown reason")
+	if cret != nil {
+		_ = goret
+		_ = cret
+		panic("unimplemented conversion of *uint32 (gunichar*) because of unknown reason")
+	}
 	if _cerr != nil {
 		_goerr = UnsafeErrorFromGlibFull(unsafe.Pointer(_cerr))
 	}
@@ -11747,7 +11769,7 @@ func UTF8ToUTF16(str string, len int32) (int32, int32, *uint16, error) {
 	var carg2 C.glong      // in, none, casted
 	var carg3 C.glong      // out, full, casted
 	var carg4 C.glong      // out, full, casted
-	var cret  *C.gunichar2 // return, transfer: full, C Pointers: 1, Name: guint16, scope: 
+	var cret  *C.gunichar2 // return, transfer: full, C Pointers: 1, Name: guint16, scope: , nullable, nullable
 	var _cerr *C.GError    // out, full, converted, nullable
 
 	carg1 = (*C.gchar)(transfer.GLibString(str))
@@ -11765,9 +11787,11 @@ func UTF8ToUTF16(str string, len int32) (int32, int32, *uint16, error) {
 
 	itemsRead = int32(carg3)
 	itemsWritten = int32(carg4)
-	_ = goret
-	_ = cret
-	panic("unimplemented conversion of *uint16 (gunichar2*) because of unknown reason")
+	if cret != nil {
+		_ = goret
+		_ = cret
+		panic("unimplemented conversion of *uint16 (gunichar2*) because of unknown reason")
+	}
 	if _cerr != nil {
 		_goerr = UnsafeErrorFromGlibFull(unsafe.Pointer(_cerr))
 	}
@@ -12251,7 +12275,7 @@ func (bookmark *BookmarkFile) GetApplications(uri string) (uint, []string, error
 	var carg0 *C.GBookmarkFile // in, none, converted
 	var carg1 *C.gchar         // in, none, string
 	var carg2 C.gsize          // out, full, casted
-	var cret  **C.gchar        // return, transfer: full, C Pointers: 2, Name: array[utf8], scope: , array (inner gchar* (*typesystem.StringPrimitive))
+	var cret  **C.gchar        // return, transfer: full, C Pointers: 2, Name: array[utf8], scope: , nullable, array (inner gchar* (*typesystem.StringPrimitive))
 	var _cerr *C.GError        // out, full, converted, nullable
 
 	carg0 = (*C.GBookmarkFile)(UnsafeBookmarkFileToGlibNone(bookmark))
@@ -12283,7 +12307,7 @@ func (bookmark *BookmarkFile) GetApplications(uri string) (uint, []string, error
 func (bookmark *BookmarkFile) GetDescription(uri string) (string, error) {
 	var carg0 *C.GBookmarkFile // in, none, converted
 	var carg1 *C.gchar         // in, none, string
-	var cret  *C.gchar         // return, full, string
+	var cret  *C.gchar         // return, full, string, nullable-string
 	var _cerr *C.GError        // out, full, converted, nullable
 
 	carg0 = (*C.GBookmarkFile)(UnsafeBookmarkFileToGlibNone(bookmark))
@@ -12297,8 +12321,10 @@ func (bookmark *BookmarkFile) GetDescription(uri string) (string, error) {
 	var goret  string
 	var _goerr error
 
-	goret = C.GoString((*C.char)(unsafe.Pointer(cret)))
-	defer C.g_free(C.gpointer(cret))
+	if cret != nil {
+		goret = C.GoString((*C.char)(unsafe.Pointer(cret)))
+		defer C.g_free(C.gpointer(cret))
+	}
 	if _cerr != nil {
 		_goerr = UnsafeErrorFromGlibFull(unsafe.Pointer(_cerr))
 	}
@@ -12313,7 +12339,7 @@ func (bookmark *BookmarkFile) GetGroups(uri string) (uint, []string, error) {
 	var carg0 *C.GBookmarkFile // in, none, converted
 	var carg1 *C.gchar         // in, none, string
 	var carg2 C.gsize          // out, full, casted
-	var cret  **C.gchar        // return, transfer: full, C Pointers: 2, Name: array[utf8], scope: , array (inner gchar* (*typesystem.StringPrimitive))
+	var cret  **C.gchar        // return, transfer: full, C Pointers: 2, Name: array[utf8], scope: , nullable, array (inner gchar* (*typesystem.StringPrimitive))
 	var _cerr *C.GError        // out, full, converted, nullable
 
 	carg0 = (*C.GBookmarkFile)(UnsafeBookmarkFileToGlibNone(bookmark))
@@ -12413,7 +12439,7 @@ func (bookmark *BookmarkFile) GetIsPrivate(uri string) (bool, error) {
 func (bookmark *BookmarkFile) GetMimeType(uri string) (string, error) {
 	var carg0 *C.GBookmarkFile // in, none, converted
 	var carg1 *C.gchar         // in, none, string
-	var cret  *C.gchar         // return, full, string
+	var cret  *C.gchar         // return, full, string, nullable-string
 	var _cerr *C.GError        // out, full, converted, nullable
 
 	carg0 = (*C.GBookmarkFile)(UnsafeBookmarkFileToGlibNone(bookmark))
@@ -12427,8 +12453,10 @@ func (bookmark *BookmarkFile) GetMimeType(uri string) (string, error) {
 	var goret  string
 	var _goerr error
 
-	goret = C.GoString((*C.char)(unsafe.Pointer(cret)))
-	defer C.g_free(C.gpointer(cret))
+	if cret != nil {
+		goret = C.GoString((*C.char)(unsafe.Pointer(cret)))
+		defer C.g_free(C.gpointer(cret))
+	}
 	if _cerr != nil {
 		_goerr = UnsafeErrorFromGlibFull(unsafe.Pointer(_cerr))
 	}
@@ -12461,7 +12489,7 @@ func (bookmark *BookmarkFile) GetSize() int32 {
 func (bookmark *BookmarkFile) GetTitle(uri string) (string, error) {
 	var carg0 *C.GBookmarkFile // in, none, converted
 	var carg1 *C.gchar         // in, none, string, nullable-string
-	var cret  *C.gchar         // return, full, string
+	var cret  *C.gchar         // return, full, string, nullable-string
 	var _cerr *C.GError        // out, full, converted, nullable
 
 	carg0 = (*C.GBookmarkFile)(UnsafeBookmarkFileToGlibNone(bookmark))
@@ -12477,8 +12505,10 @@ func (bookmark *BookmarkFile) GetTitle(uri string) (string, error) {
 	var goret  string
 	var _goerr error
 
-	goret = C.GoString((*C.char)(unsafe.Pointer(cret)))
-	defer C.g_free(C.gpointer(cret))
+	if cret != nil {
+		goret = C.GoString((*C.char)(unsafe.Pointer(cret)))
+		defer C.g_free(C.gpointer(cret))
+	}
 	if _cerr != nil {
 		_goerr = UnsafeErrorFromGlibFull(unsafe.Pointer(_cerr))
 	}
@@ -12974,7 +13004,7 @@ func (bookmark *BookmarkFile) SetTitle(uri string, title string) {
 func (bookmark *BookmarkFile) ToData() (uint, string, error) {
 	var carg0 *C.GBookmarkFile // in, none, converted
 	var carg1 C.gsize          // out, full, casted
-	var cret  *C.gchar         // return, transfer: full, C Pointers: 1, Name: array[unknown], scope: , array (inner unknown)
+	var cret  *C.gchar         // return, transfer: full, C Pointers: 1, Name: array[unknown], scope: , nullable, array (inner unknown)
 	var _cerr *C.GError        // out, full, converted, nullable
 
 	carg0 = (*C.GBookmarkFile)(UnsafeBookmarkFileToGlibNone(bookmark))
@@ -13834,7 +13864,7 @@ func UnsafeDirToGlibFull(d *Dir) unsafe.Pointer {
 func DirOpen(path string, flags uint) (*Dir, error) {
 	var carg1 *C.gchar  // in, none, string
 	var carg2 C.guint   // in, none, casted
-	var cret  *C.GDir   // return, full, converted
+	var cret  *C.GDir   // return, full, converted, nullable
 	var _cerr *C.GError // out, full, converted, nullable
 
 	carg1 = (*C.gchar)(transfer.GLibString(path))
@@ -13848,7 +13878,9 @@ func DirOpen(path string, flags uint) (*Dir, error) {
 	var goret  *Dir
 	var _goerr error
 
-	goret = UnsafeDirFromGlibFull(unsafe.Pointer(cret))
+	if cret != nil {
+		goret = UnsafeDirFromGlibFull(unsafe.Pointer(cret))
+	}
 	if _cerr != nil {
 		_goerr = UnsafeErrorFromGlibFull(unsafe.Pointer(_cerr))
 	}
@@ -13861,7 +13893,7 @@ func DirOpen(path string, flags uint) (*Dir, error) {
 // see also https://docs.gtk.org/glib/func.g_dir_make_tmp.html
 func DirMakeTmp(tmpl string) (string, error) {
 	var carg1 *C.gchar  // in, none, string, nullable-string
-	var cret  *C.gchar  // return, full, string
+	var cret  *C.gchar  // return, full, string, nullable-string
 	var _cerr *C.GError // out, full, converted, nullable
 
 	if tmpl != "" {
@@ -13875,8 +13907,10 @@ func DirMakeTmp(tmpl string) (string, error) {
 	var goret  string
 	var _goerr error
 
-	goret = C.GoString((*C.char)(unsafe.Pointer(cret)))
-	defer C.g_free(C.gpointer(cret))
+	if cret != nil {
+		goret = C.GoString((*C.char)(unsafe.Pointer(cret)))
+		defer C.g_free(C.gpointer(cret))
+	}
 	if _cerr != nil {
 		_goerr = UnsafeErrorFromGlibFull(unsafe.Pointer(_cerr))
 	}
@@ -14665,7 +14699,7 @@ func UnsafeIOChannelToGlibFull(i *IOChannel) unsafe.Pointer {
 func NewIOChannelFile(filename string, mode string) (*IOChannel, error) {
 	var carg1 *C.gchar      // in, none, string
 	var carg2 *C.gchar      // in, none, string
-	var cret  *C.GIOChannel // return, full, converted
+	var cret  *C.GIOChannel // return, full, converted, nullable
 	var _cerr *C.GError     // out, full, converted, nullable
 
 	carg1 = (*C.gchar)(transfer.GLibString(filename))
@@ -14680,7 +14714,9 @@ func NewIOChannelFile(filename string, mode string) (*IOChannel, error) {
 	var goret  *IOChannel
 	var _goerr error
 
-	goret = UnsafeIOChannelFromGlibFull(unsafe.Pointer(cret))
+	if cret != nil {
+		goret = UnsafeIOChannelFromGlibFull(unsafe.Pointer(cret))
+	}
 	if _cerr != nil {
 		_goerr = UnsafeErrorFromGlibFull(unsafe.Pointer(_cerr))
 	}
@@ -15452,7 +15488,7 @@ func (keyFile *KeyFile) GetBooleanList(groupName string, key string) (uint, []bo
 	var carg1 *C.gchar    // in, none, string
 	var carg2 *C.gchar    // in, none, string
 	var carg3 C.gsize     // out, full, casted
-	var cret  *C.gboolean // return, transfer: container, C Pointers: 1, Name: array[gboolean], scope: , array (inner gboolean (*typesystem.BooleanPrimitive))
+	var cret  *C.gboolean // return, transfer: container, C Pointers: 1, Name: array[gboolean], scope: , nullable, array (inner gboolean (*typesystem.BooleanPrimitive))
 	var _cerr *C.GError   // out, full, converted, nullable
 
 	carg0 = (*C.GKeyFile)(UnsafeKeyFileToGlibNone(keyFile))
@@ -15488,7 +15524,7 @@ func (keyFile *KeyFile) GetComment(groupName string, key string) (string, error)
 	var carg0 *C.GKeyFile // in, none, converted
 	var carg1 *C.gchar    // in, none, string, nullable-string
 	var carg2 *C.gchar    // in, none, string, nullable-string
-	var cret  *C.gchar    // return, full, string
+	var cret  *C.gchar    // return, full, string, nullable-string
 	var _cerr *C.GError   // out, full, converted, nullable
 
 	carg0 = (*C.GKeyFile)(UnsafeKeyFileToGlibNone(keyFile))
@@ -15509,8 +15545,10 @@ func (keyFile *KeyFile) GetComment(groupName string, key string) (string, error)
 	var goret  string
 	var _goerr error
 
-	goret = C.GoString((*C.char)(unsafe.Pointer(cret)))
-	defer C.g_free(C.gpointer(cret))
+	if cret != nil {
+		goret = C.GoString((*C.char)(unsafe.Pointer(cret)))
+		defer C.g_free(C.gpointer(cret))
+	}
 	if _cerr != nil {
 		_goerr = UnsafeErrorFromGlibFull(unsafe.Pointer(_cerr))
 	}
@@ -15558,7 +15596,7 @@ func (keyFile *KeyFile) GetDoubleList(groupName string, key string) (uint, []flo
 	var carg1 *C.gchar    // in, none, string
 	var carg2 *C.gchar    // in, none, string
 	var carg3 C.gsize     // out, full, casted
-	var cret  *C.gdouble  // return, transfer: container, C Pointers: 1, Name: array[gdouble], scope: , array (inner gdouble (*typesystem.CastablePrimitive))
+	var cret  *C.gdouble  // return, transfer: container, C Pointers: 1, Name: array[gdouble], scope: , nullable, array (inner gdouble (*typesystem.CastablePrimitive))
 	var _cerr *C.GError   // out, full, converted, nullable
 
 	carg0 = (*C.GKeyFile)(UnsafeKeyFileToGlibNone(keyFile))
@@ -15683,7 +15721,7 @@ func (keyFile *KeyFile) GetIntegerList(groupName string, key string) (uint, []in
 	var carg1 *C.gchar    // in, none, string
 	var carg2 *C.gchar    // in, none, string
 	var carg3 C.gsize     // out, full, casted
-	var cret  *C.gint     // return, transfer: container, C Pointers: 1, Name: array[gint], scope: , array (inner gint (*typesystem.CastablePrimitive))
+	var cret  *C.gint     // return, transfer: container, C Pointers: 1, Name: array[gint], scope: , nullable, array (inner gint (*typesystem.CastablePrimitive))
 	var _cerr *C.GError   // out, full, converted, nullable
 
 	carg0 = (*C.GKeyFile)(UnsafeKeyFileToGlibNone(keyFile))
@@ -15719,7 +15757,7 @@ func (keyFile *KeyFile) GetKeys(groupName string) (uint, []string, error) {
 	var carg0 *C.GKeyFile // in, none, converted
 	var carg1 *C.gchar    // in, none, string
 	var carg2 C.gsize     // out, full, casted
-	var cret  **C.gchar   // return, transfer: full, C Pointers: 2, Name: array[utf8], scope: , array (inner gchar* (*typesystem.StringPrimitive), zero-terminated)
+	var cret  **C.gchar   // return, transfer: full, C Pointers: 2, Name: array[utf8], scope: , nullable, array (inner gchar* (*typesystem.StringPrimitive), zero-terminated)
 	var _cerr *C.GError   // out, full, converted, nullable
 
 	carg0 = (*C.GKeyFile)(UnsafeKeyFileToGlibNone(keyFile))
@@ -15789,7 +15827,7 @@ func (keyFile *KeyFile) GetLocaleString(groupName string, key string, locale str
 	var carg1 *C.gchar    // in, none, string
 	var carg2 *C.gchar    // in, none, string
 	var carg3 *C.gchar    // in, none, string, nullable-string
-	var cret  *C.gchar    // return, full, string
+	var cret  *C.gchar    // return, full, string, nullable-string
 	var _cerr *C.GError   // out, full, converted, nullable
 
 	carg0 = (*C.GKeyFile)(UnsafeKeyFileToGlibNone(keyFile))
@@ -15811,8 +15849,10 @@ func (keyFile *KeyFile) GetLocaleString(groupName string, key string, locale str
 	var goret  string
 	var _goerr error
 
-	goret = C.GoString((*C.char)(unsafe.Pointer(cret)))
-	defer C.g_free(C.gpointer(cret))
+	if cret != nil {
+		goret = C.GoString((*C.char)(unsafe.Pointer(cret)))
+		defer C.g_free(C.gpointer(cret))
+	}
 	if _cerr != nil {
 		_goerr = UnsafeErrorFromGlibFull(unsafe.Pointer(_cerr))
 	}
@@ -15829,7 +15869,7 @@ func (keyFile *KeyFile) GetLocaleStringList(groupName string, key string, locale
 	var carg2 *C.gchar    // in, none, string
 	var carg3 *C.gchar    // in, none, string, nullable-string
 	var carg4 C.gsize     // out, full, casted
-	var cret  **C.gchar   // return, transfer: full, C Pointers: 2, Name: array[utf8], scope: , array (inner gchar* (*typesystem.StringPrimitive), zero-terminated)
+	var cret  **C.gchar   // return, transfer: full, C Pointers: 2, Name: array[utf8], scope: , nullable, array (inner gchar* (*typesystem.StringPrimitive), zero-terminated)
 	var _cerr *C.GError   // out, full, converted, nullable
 
 	carg0 = (*C.GKeyFile)(UnsafeKeyFileToGlibNone(keyFile))
@@ -15892,7 +15932,7 @@ func (keyFile *KeyFile) GetString(groupName string, key string) (string, error) 
 	var carg0 *C.GKeyFile // in, none, converted
 	var carg1 *C.gchar    // in, none, string
 	var carg2 *C.gchar    // in, none, string
-	var cret  *C.gchar    // return, full, string
+	var cret  *C.gchar    // return, full, string, nullable-string
 	var _cerr *C.GError   // out, full, converted, nullable
 
 	carg0 = (*C.GKeyFile)(UnsafeKeyFileToGlibNone(keyFile))
@@ -15909,8 +15949,10 @@ func (keyFile *KeyFile) GetString(groupName string, key string) (string, error) 
 	var goret  string
 	var _goerr error
 
-	goret = C.GoString((*C.char)(unsafe.Pointer(cret)))
-	defer C.g_free(C.gpointer(cret))
+	if cret != nil {
+		goret = C.GoString((*C.char)(unsafe.Pointer(cret)))
+		defer C.g_free(C.gpointer(cret))
+	}
 	if _cerr != nil {
 		_goerr = UnsafeErrorFromGlibFull(unsafe.Pointer(_cerr))
 	}
@@ -15926,7 +15968,7 @@ func (keyFile *KeyFile) GetStringList(groupName string, key string) (uint, []str
 	var carg1 *C.gchar    // in, none, string
 	var carg2 *C.gchar    // in, none, string
 	var carg3 C.gsize     // out, full, casted
-	var cret  **C.gchar   // return, transfer: full, C Pointers: 2, Name: array[utf8], scope: , array (inner gchar* (*typesystem.StringPrimitive), zero-terminated)
+	var cret  **C.gchar   // return, transfer: full, C Pointers: 2, Name: array[utf8], scope: , nullable, array (inner gchar* (*typesystem.StringPrimitive), zero-terminated)
 	var _cerr *C.GError   // out, full, converted, nullable
 
 	carg0 = (*C.GKeyFile)(UnsafeKeyFileToGlibNone(keyFile))
@@ -15994,7 +16036,7 @@ func (keyFile *KeyFile) GetValue(groupName string, key string) (string, error) {
 	var carg0 *C.GKeyFile // in, none, converted
 	var carg1 *C.gchar    // in, none, string
 	var carg2 *C.gchar    // in, none, string
-	var cret  *C.gchar    // return, full, string
+	var cret  *C.gchar    // return, full, string, nullable-string
 	var _cerr *C.GError   // out, full, converted, nullable
 
 	carg0 = (*C.GKeyFile)(UnsafeKeyFileToGlibNone(keyFile))
@@ -16011,8 +16053,10 @@ func (keyFile *KeyFile) GetValue(groupName string, key string) (string, error) {
 	var goret  string
 	var _goerr error
 
-	goret = C.GoString((*C.char)(unsafe.Pointer(cret)))
-	defer C.g_free(C.gpointer(cret))
+	if cret != nil {
+		goret = C.GoString((*C.char)(unsafe.Pointer(cret)))
+		defer C.g_free(C.gpointer(cret))
+	}
 	if _cerr != nil {
 		_goerr = UnsafeErrorFromGlibFull(unsafe.Pointer(_cerr))
 	}
@@ -16752,7 +16796,7 @@ func (keyFile *KeyFile) SetValue(groupName string, key string, value string) {
 func (keyFile *KeyFile) ToData() (uint, string, error) {
 	var carg0 *C.GKeyFile // in, none, converted
 	var carg1 C.gsize     // out, full, casted
-	var cret  *C.gchar    // return, full, string
+	var cret  *C.gchar    // return, full, string, nullable-string
 	var _cerr *C.GError   // out, full, converted, nullable
 
 	carg0 = (*C.GKeyFile)(UnsafeKeyFileToGlibNone(keyFile))
@@ -16765,8 +16809,10 @@ func (keyFile *KeyFile) ToData() (uint, string, error) {
 	var _goerr error
 
 	length = uint(carg1)
-	goret = C.GoString((*C.char)(unsafe.Pointer(cret)))
-	defer C.g_free(C.gpointer(cret))
+	if cret != nil {
+		goret = C.GoString((*C.char)(unsafe.Pointer(cret)))
+		defer C.g_free(C.gpointer(cret))
+	}
 	if _cerr != nil {
 		_goerr = UnsafeErrorFromGlibFull(unsafe.Pointer(_cerr))
 	}
@@ -17546,7 +17592,7 @@ func UnsafeMappedFileToGlibFull(m *MappedFile) unsafe.Pointer {
 func NewMappedFile(filename string, writable bool) (*MappedFile, error) {
 	var carg1 *C.gchar       // in, none, string
 	var carg2 C.gboolean     // in
-	var cret  *C.GMappedFile // return, full, converted
+	var cret  *C.GMappedFile // return, full, converted, nullable
 	var _cerr *C.GError      // out, full, converted, nullable
 
 	carg1 = (*C.gchar)(transfer.GLibString(filename))
@@ -17562,7 +17608,9 @@ func NewMappedFile(filename string, writable bool) (*MappedFile, error) {
 	var goret  *MappedFile
 	var _goerr error
 
-	goret = UnsafeMappedFileFromGlibFull(unsafe.Pointer(cret))
+	if cret != nil {
+		goret = UnsafeMappedFileFromGlibFull(unsafe.Pointer(cret))
+	}
 	if _cerr != nil {
 		_goerr = UnsafeErrorFromGlibFull(unsafe.Pointer(_cerr))
 	}
@@ -17576,7 +17624,7 @@ func NewMappedFile(filename string, writable bool) (*MappedFile, error) {
 func NewMappedFileFromFd(fd int32, writable bool) (*MappedFile, error) {
 	var carg1 C.gint         // in, none, casted
 	var carg2 C.gboolean     // in
-	var cret  *C.GMappedFile // return, full, converted
+	var cret  *C.GMappedFile // return, full, converted, nullable
 	var _cerr *C.GError      // out, full, converted, nullable
 
 	carg1 = C.gint(fd)
@@ -17591,7 +17639,9 @@ func NewMappedFileFromFd(fd int32, writable bool) (*MappedFile, error) {
 	var goret  *MappedFile
 	var _goerr error
 
-	goret = UnsafeMappedFileFromGlibFull(unsafe.Pointer(cret))
+	if cret != nil {
+		goret = UnsafeMappedFileFromGlibFull(unsafe.Pointer(cret))
+	}
 	if _cerr != nil {
 		_goerr = UnsafeErrorFromGlibFull(unsafe.Pointer(_cerr))
 	}
@@ -21137,7 +21187,7 @@ func (regex *Regex) Replace(str string, startPosition int32, replacement string,
 	var carg3 C.gint             // in, none, casted
 	var carg4 *C.gchar           // in, none, string
 	var carg5 C.GRegexMatchFlags // in, none, casted
-	var cret  *C.gchar           // return, full, string
+	var cret  *C.gchar           // return, full, string, nullable-string
 	var _cerr *C.GError          // out, full, converted, nullable
 
 	carg0 = (*C.GRegex)(UnsafeRegexToGlibNone(regex))
@@ -21160,8 +21210,10 @@ func (regex *Regex) Replace(str string, startPosition int32, replacement string,
 	var goret  string
 	var _goerr error
 
-	goret = C.GoString((*C.char)(unsafe.Pointer(cret)))
-	defer C.g_free(C.gpointer(cret))
+	if cret != nil {
+		goret = C.GoString((*C.char)(unsafe.Pointer(cret)))
+		defer C.g_free(C.gpointer(cret))
+	}
 	if _cerr != nil {
 		_goerr = UnsafeErrorFromGlibFull(unsafe.Pointer(_cerr))
 	}
@@ -21179,7 +21231,7 @@ func (regex *Regex) ReplaceLiteral(str string, startPosition int32, replacement 
 	var carg3 C.gint             // in, none, casted
 	var carg4 *C.gchar           // in, none, string
 	var carg5 C.GRegexMatchFlags // in, none, casted
-	var cret  *C.gchar           // return, full, string
+	var cret  *C.gchar           // return, full, string, nullable-string
 	var _cerr *C.GError          // out, full, converted, nullable
 
 	carg0 = (*C.GRegex)(UnsafeRegexToGlibNone(regex))
@@ -21202,8 +21254,10 @@ func (regex *Regex) ReplaceLiteral(str string, startPosition int32, replacement 
 	var goret  string
 	var _goerr error
 
-	goret = C.GoString((*C.char)(unsafe.Pointer(cret)))
-	defer C.g_free(C.gpointer(cret))
+	if cret != nil {
+		goret = C.GoString((*C.char)(unsafe.Pointer(cret)))
+		defer C.g_free(C.gpointer(cret))
+	}
 	if _cerr != nil {
 		_goerr = UnsafeErrorFromGlibFull(unsafe.Pointer(_cerr))
 	}
@@ -21249,7 +21303,7 @@ func (regex *Regex) SplitFull(str string, startPosition int32, matchOptions Rege
 	var carg3 C.gint             // in, none, casted
 	var carg4 C.GRegexMatchFlags // in, none, casted
 	var carg5 C.gint             // in, none, casted
-	var cret  **C.gchar          // return, transfer: full, C Pointers: 2, Name: array[utf8], scope: , array (inner gchar* (*typesystem.StringPrimitive), zero-terminated)
+	var cret  **C.gchar          // return, transfer: full, C Pointers: 2, Name: array[utf8], scope: , nullable, array (inner gchar* (*typesystem.StringPrimitive), zero-terminated)
 	var _cerr *C.GError          // out, full, converted, nullable
 
 	carg0 = (*C.GRegex)(UnsafeRegexToGlibNone(regex))
@@ -24129,7 +24183,7 @@ func UriListExtractUris(uriList string) []string {
 func UriParse(uriString string, flags UriFlags) (*Uri, error) {
 	var carg1 *C.gchar    // in, none, string
 	var carg2 C.GUriFlags // in, none, casted
-	var cret  *C.GUri     // return, full, converted
+	var cret  *C.GUri     // return, full, converted, nullable
 	var _cerr *C.GError   // out, full, converted, nullable
 
 	carg1 = (*C.gchar)(transfer.GLibString(uriString))
@@ -24143,7 +24197,9 @@ func UriParse(uriString string, flags UriFlags) (*Uri, error) {
 	var goret  *Uri
 	var _goerr error
 
-	goret = UnsafeUriFromGlibFull(unsafe.Pointer(cret))
+	if cret != nil {
+		goret = UnsafeUriFromGlibFull(unsafe.Pointer(cret))
+	}
 	if _cerr != nil {
 		_goerr = UnsafeErrorFromGlibFull(unsafe.Pointer(_cerr))
 	}
@@ -24203,7 +24259,7 @@ func UriResolveRelative(baseUriString string, uriRef string, flags UriFlags) (st
 	var carg1 *C.gchar    // in, none, string, nullable-string
 	var carg2 *C.gchar    // in, none, string
 	var carg3 C.GUriFlags // in, none, casted
-	var cret  *C.gchar    // return, full, string
+	var cret  *C.gchar    // return, full, string, nullable-string
 	var _cerr *C.GError   // out, full, converted, nullable
 
 	if baseUriString != "" {
@@ -24222,8 +24278,10 @@ func UriResolveRelative(baseUriString string, uriRef string, flags UriFlags) (st
 	var goret  string
 	var _goerr error
 
-	goret = C.GoString((*C.char)(unsafe.Pointer(cret)))
-	defer C.g_free(C.gpointer(cret))
+	if cret != nil {
+		goret = C.GoString((*C.char)(unsafe.Pointer(cret)))
+		defer C.g_free(C.gpointer(cret))
+	}
 	if _cerr != nil {
 		_goerr = UnsafeErrorFromGlibFull(unsafe.Pointer(_cerr))
 	}
@@ -24429,7 +24487,7 @@ func UriUnescapeBytes(escapedString string, length int, illegalCharacters string
 	var carg1 *C.char   // in, none, string
 	var carg2 C.gssize  // in, none, casted
 	var carg3 *C.char   // in, none, string, nullable-string
-	var cret  *C.GBytes // return, full, converted
+	var cret  *C.GBytes // return, full, converted, nullable
 	var _cerr *C.GError // out, full, converted, nullable
 
 	carg1 = (*C.char)(transfer.GLibString(escapedString))
@@ -24448,7 +24506,9 @@ func UriUnescapeBytes(escapedString string, length int, illegalCharacters string
 	var goret  *Bytes
 	var _goerr error
 
-	goret = UnsafeBytesFromGlibFull(unsafe.Pointer(cret))
+	if cret != nil {
+		goret = UnsafeBytesFromGlibFull(unsafe.Pointer(cret))
+	}
 	if _cerr != nil {
 		_goerr = UnsafeErrorFromGlibFull(unsafe.Pointer(_cerr))
 	}
@@ -24752,7 +24812,7 @@ func (baseUri *Uri) ParseRelative(uriRef string, flags UriFlags) (*Uri, error) {
 	var carg0 *C.GUri     // in, none, converted
 	var carg1 *C.gchar    // in, none, string
 	var carg2 C.GUriFlags // in, none, casted
-	var cret  *C.GUri     // return, full, converted
+	var cret  *C.GUri     // return, full, converted, nullable
 	var _cerr *C.GError   // out, full, converted, nullable
 
 	carg0 = (*C.GUri)(UnsafeUriToGlibNone(baseUri))
@@ -24768,7 +24828,9 @@ func (baseUri *Uri) ParseRelative(uriRef string, flags UriFlags) (*Uri, error) {
 	var goret  *Uri
 	var _goerr error
 
-	goret = UnsafeUriFromGlibFull(unsafe.Pointer(cret))
+	if cret != nil {
+		goret = UnsafeUriFromGlibFull(unsafe.Pointer(cret))
+	}
 	if _cerr != nil {
 		_goerr = UnsafeErrorFromGlibFull(unsafe.Pointer(_cerr))
 	}

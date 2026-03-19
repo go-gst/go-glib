@@ -5205,7 +5205,7 @@ func DBusAddressEscapeValue(str string) string {
 func DBusAddressGetForBusSync(busType BusType, cancellable Cancellable) (string, error) {
 	var carg1 C.GBusType      // in, none, casted
 	var carg2 *C.GCancellable // in, none, converted, nullable
-	var cret  *C.gchar        // return, full, string
+	var cret  *C.gchar        // return, full, string, nullable-string
 	var _cerr *C.GError       // out, full, converted, nullable
 
 	carg1 = C.GBusType(busType)
@@ -5220,8 +5220,10 @@ func DBusAddressGetForBusSync(busType BusType, cancellable Cancellable) (string,
 	var goret  string
 	var _goerr error
 
-	goret = C.GoString((*C.char)(unsafe.Pointer(cret)))
-	defer C.g_free(C.gpointer(cret))
+	if cret != nil {
+		goret = C.GoString((*C.char)(unsafe.Pointer(cret)))
+		defer C.g_free(C.gpointer(cret))
+	}
 	if _cerr != nil {
 		_goerr = glib.UnsafeErrorFromGlibFull(unsafe.Pointer(_cerr))
 	}
@@ -5260,7 +5262,7 @@ func DBusAddressGetStream(address string, cancellable Cancellable, callback Asyn
 func DBusAddressGetStreamFinish(res AsyncResult) (string, IOStream, error) {
 	var carg1 *C.GAsyncResult // in, none, converted
 	var carg2 *C.gchar        // out, full, string, nullable-string
-	var cret  *C.GIOStream    // return, full, converted
+	var cret  *C.GIOStream    // return, full, converted, nullable
 	var _cerr *C.GError       // out, full, converted, nullable
 
 	carg1 = (*C.GAsyncResult)(UnsafeAsyncResultToGlibNone(res))
@@ -5276,7 +5278,9 @@ func DBusAddressGetStreamFinish(res AsyncResult) (string, IOStream, error) {
 		outGuid = C.GoString((*C.char)(unsafe.Pointer(carg2)))
 		defer C.g_free(C.gpointer(carg2))
 	}
-	goret = UnsafeIOStreamFromGlibFull(unsafe.Pointer(cret))
+	if cret != nil {
+		goret = UnsafeIOStreamFromGlibFull(unsafe.Pointer(cret))
+	}
 	if _cerr != nil {
 		_goerr = glib.UnsafeErrorFromGlibFull(unsafe.Pointer(_cerr))
 	}
@@ -5291,7 +5295,7 @@ func DBusAddressGetStreamSync(address string, cancellable Cancellable) (string, 
 	var carg1 *C.gchar        // in, none, string
 	var carg3 *C.GCancellable // in, none, converted, nullable
 	var carg2 *C.gchar        // out, full, string, nullable-string
-	var cret  *C.GIOStream    // return, full, converted
+	var cret  *C.GIOStream    // return, full, converted, nullable
 	var _cerr *C.GError       // out, full, converted, nullable
 
 	carg1 = (*C.gchar)(transfer.GLibString(address))
@@ -5312,7 +5316,9 @@ func DBusAddressGetStreamSync(address string, cancellable Cancellable) (string, 
 		outGuid = C.GoString((*C.char)(unsafe.Pointer(carg2)))
 		defer C.g_free(C.gpointer(carg2))
 	}
-	goret = UnsafeIOStreamFromGlibFull(unsafe.Pointer(cret))
+	if cret != nil {
+		goret = UnsafeIOStreamFromGlibFull(unsafe.Pointer(cret))
+	}
 	if _cerr != nil {
 		_goerr = glib.UnsafeErrorFromGlibFull(unsafe.Pointer(_cerr))
 	}
@@ -5808,7 +5814,7 @@ func PollableStreamWriteAll(stream OutputStream, buffer []byte, blocking bool, c
 func ResourcesEnumerateChildren(path string, lookupFlags ResourceLookupFlags) ([]string, error) {
 	var carg1 *C.char                // in, none, string
 	var carg2 C.GResourceLookupFlags // in, none, casted
-	var cret  **C.char               // return, transfer: full, C Pointers: 2, Name: array[utf8], scope: , array (inner gchar* (*typesystem.StringPrimitive), zero-terminated)
+	var cret  **C.char               // return, transfer: full, C Pointers: 2, Name: array[utf8], scope: , nullable, array (inner gchar* (*typesystem.StringPrimitive), zero-terminated)
 	var _cerr *C.GError              // out, full, converted, nullable
 
 	carg1 = (*C.char)(transfer.GLibString(path))
@@ -5874,7 +5880,7 @@ func ResourcesGetInfo(path string, lookupFlags ResourceLookupFlags) (uint, uint3
 func ResourcesLookupData(path string, lookupFlags ResourceLookupFlags) (*glib.Bytes, error) {
 	var carg1 *C.char                // in, none, string
 	var carg2 C.GResourceLookupFlags // in, none, casted
-	var cret  *C.GBytes              // return, full, converted
+	var cret  *C.GBytes              // return, full, converted, nullable
 	var _cerr *C.GError              // out, full, converted, nullable
 
 	carg1 = (*C.char)(transfer.GLibString(path))
@@ -5888,7 +5894,9 @@ func ResourcesLookupData(path string, lookupFlags ResourceLookupFlags) (*glib.By
 	var goret  *glib.Bytes
 	var _goerr error
 
-	goret = glib.UnsafeBytesFromGlibFull(unsafe.Pointer(cret))
+	if cret != nil {
+		goret = glib.UnsafeBytesFromGlibFull(unsafe.Pointer(cret))
+	}
 	if _cerr != nil {
 		_goerr = glib.UnsafeErrorFromGlibFull(unsafe.Pointer(_cerr))
 	}
@@ -5902,7 +5910,7 @@ func ResourcesLookupData(path string, lookupFlags ResourceLookupFlags) (*glib.By
 func ResourcesOpenStream(path string, lookupFlags ResourceLookupFlags) (InputStream, error) {
 	var carg1 *C.char                // in, none, string
 	var carg2 C.GResourceLookupFlags // in, none, casted
-	var cret  *C.GInputStream        // return, full, converted
+	var cret  *C.GInputStream        // return, full, converted, nullable
 	var _cerr *C.GError              // out, full, converted, nullable
 
 	carg1 = (*C.char)(transfer.GLibString(path))
@@ -5916,7 +5924,9 @@ func ResourcesOpenStream(path string, lookupFlags ResourceLookupFlags) (InputStr
 	var goret  InputStream
 	var _goerr error
 
-	goret = UnsafeInputStreamFromGlibFull(unsafe.Pointer(cret))
+	if cret != nil {
+		goret = UnsafeInputStreamFromGlibFull(unsafe.Pointer(cret))
+	}
 	if _cerr != nil {
 		_goerr = glib.UnsafeErrorFromGlibFull(unsafe.Pointer(_cerr))
 	}
@@ -6682,7 +6692,7 @@ func AppInfoCreateFromCommandline(commandline string, applicationName string, fl
 	var carg1 *C.char               // in, none, string
 	var carg2 *C.char               // in, none, string, nullable-string
 	var carg3 C.GAppInfoCreateFlags // in, none, casted
-	var cret  *C.GAppInfo           // return, full, converted
+	var cret  *C.GAppInfo           // return, full, converted, nullable
 	var _cerr *C.GError             // out, full, converted, nullable
 
 	carg1 = (*C.char)(transfer.GLibString(commandline))
@@ -6701,7 +6711,9 @@ func AppInfoCreateFromCommandline(commandline string, applicationName string, fl
 	var goret  AppInfo
 	var _goerr error
 
-	goret = UnsafeAppInfoFromGlibFull(unsafe.Pointer(cret))
+	if cret != nil {
+		goret = UnsafeAppInfoFromGlibFull(unsafe.Pointer(cret))
+	}
 	if _cerr != nil {
 		_goerr = glib.UnsafeErrorFromGlibFull(unsafe.Pointer(_cerr))
 	}
@@ -6820,7 +6832,7 @@ func AppInfoGetDefaultForTypeAsync(contentType string, mustSupportUris bool, can
 // see also https://docs.gtk.org/gio/func.g_app_info_get_default_for_type_finish.html
 func AppInfoGetDefaultForTypeFinish(result AsyncResult) (AppInfo, error) {
 	var carg1 *C.GAsyncResult // in, none, converted
-	var cret  *C.GAppInfo     // return, full, converted
+	var cret  *C.GAppInfo     // return, full, converted, nullable
 	var _cerr *C.GError       // out, full, converted, nullable
 
 	carg1 = (*C.GAsyncResult)(UnsafeAsyncResultToGlibNone(result))
@@ -6831,7 +6843,9 @@ func AppInfoGetDefaultForTypeFinish(result AsyncResult) (AppInfo, error) {
 	var goret  AppInfo
 	var _goerr error
 
-	goret = UnsafeAppInfoFromGlibFull(unsafe.Pointer(cret))
+	if cret != nil {
+		goret = UnsafeAppInfoFromGlibFull(unsafe.Pointer(cret))
+	}
 	if _cerr != nil {
 		_goerr = glib.UnsafeErrorFromGlibFull(unsafe.Pointer(_cerr))
 	}
@@ -6891,7 +6905,7 @@ func AppInfoGetDefaultForURISchemeAsync(uriScheme string, cancellable Cancellabl
 // see also https://docs.gtk.org/gio/func.g_app_info_get_default_for_uri_scheme_finish.html
 func AppInfoGetDefaultForURISchemeFinish(result AsyncResult) (AppInfo, error) {
 	var carg1 *C.GAsyncResult // in, none, converted
-	var cret  *C.GAppInfo     // return, full, converted
+	var cret  *C.GAppInfo     // return, full, converted, nullable
 	var _cerr *C.GError       // out, full, converted, nullable
 
 	carg1 = (*C.GAsyncResult)(UnsafeAsyncResultToGlibNone(result))
@@ -6902,7 +6916,9 @@ func AppInfoGetDefaultForURISchemeFinish(result AsyncResult) (AppInfo, error) {
 	var goret  AppInfo
 	var _goerr error
 
-	goret = UnsafeAppInfoFromGlibFull(unsafe.Pointer(cret))
+	if cret != nil {
+		goret = UnsafeAppInfoFromGlibFull(unsafe.Pointer(cret))
+	}
 	if _cerr != nil {
 		_goerr = glib.UnsafeErrorFromGlibFull(unsafe.Pointer(_cerr))
 	}
@@ -7708,7 +7724,7 @@ func (initable *AsyncInitableInstance) InitFinish(res AsyncResult) (bool, error)
 func (initable *AsyncInitableInstance) NewFinish(res AsyncResult) (gobject.Object, error) {
 	var carg0 *C.GAsyncInitable // in, none, converted
 	var carg1 *C.GAsyncResult   // in, none, converted
-	var cret  *C.GObject        // return, full, converted
+	var cret  *C.GObject        // return, full, converted, nullable
 	var _cerr *C.GError         // out, full, converted, nullable
 
 	carg0 = (*C.GAsyncInitable)(UnsafeAsyncInitableToGlibNone(initable))
@@ -7721,7 +7737,9 @@ func (initable *AsyncInitableInstance) NewFinish(res AsyncResult) (gobject.Objec
 	var goret  gobject.Object
 	var _goerr error
 
-	goret = gobject.UnsafeObjectFromGlibFull(unsafe.Pointer(cret))
+	if cret != nil {
+		goret = gobject.UnsafeObjectFromGlibFull(unsafe.Pointer(cret))
+	}
 	if _cerr != nil {
 		_goerr = glib.UnsafeErrorFromGlibFull(unsafe.Pointer(_cerr))
 	}
@@ -7967,7 +7985,7 @@ func (converter *ConverterInstance) Convert(inbuf []byte, outbuf []byte, flags C
 func (converter *ConverterInstance) ConvertBytes(bytes *glib.Bytes) (*glib.Bytes, error) {
 	var carg0 *C.GConverter // in, none, converted
 	var carg1 *C.GBytes     // in, none, converted
-	var cret  *C.GBytes     // return, full, converted
+	var cret  *C.GBytes     // return, full, converted, nullable
 	var _cerr *C.GError     // out, full, converted, nullable
 
 	carg0 = (*C.GConverter)(UnsafeConverterToGlibNone(converter))
@@ -7980,7 +7998,9 @@ func (converter *ConverterInstance) ConvertBytes(bytes *glib.Bytes) (*glib.Bytes
 	var goret  *glib.Bytes
 	var _goerr error
 
-	goret = glib.UnsafeBytesFromGlibFull(unsafe.Pointer(cret))
+	if cret != nil {
+		goret = glib.UnsafeBytesFromGlibFull(unsafe.Pointer(cret))
+	}
 	if _cerr != nil {
 		_goerr = glib.UnsafeErrorFromGlibFull(unsafe.Pointer(_cerr))
 	}
@@ -9879,7 +9899,7 @@ func UnsafeDtlsServerConnectionToGlibFull(c DtlsServerConnection) unsafe.Pointer
 func NewDtlsServerConnection(baseSocket DatagramBased, certificate TlsCertificate) (DtlsServerConnection, error) {
 	var carg1 *C.GDatagramBased  // in, none, converted
 	var carg2 *C.GTlsCertificate // in, none, converted, nullable
-	var cret  *C.GDatagramBased  // return, full, converted
+	var cret  *C.GDatagramBased  // return, full, converted, nullable
 	var _cerr *C.GError          // out, full, converted, nullable
 
 	carg1 = (*C.GDatagramBased)(UnsafeDatagramBasedToGlibNone(baseSocket))
@@ -9894,7 +9914,9 @@ func NewDtlsServerConnection(baseSocket DatagramBased, certificate TlsCertificat
 	var goret  DtlsServerConnection
 	var _goerr error
 
-	goret = UnsafeDtlsServerConnectionFromGlibFull(unsafe.Pointer(cret))
+	if cret != nil {
+		goret = UnsafeDtlsServerConnectionFromGlibFull(unsafe.Pointer(cret))
+	}
 	if _cerr != nil {
 		_goerr = glib.UnsafeErrorFromGlibFull(unsafe.Pointer(_cerr))
 	}
@@ -10560,7 +10582,7 @@ func NewFileForURI(uri string) File {
 func NewFileTmp(tmpl string) (FileIOStream, File, error) {
 	var carg1 *C.char          // in, none, string, nullable-string
 	var carg2 *C.GFileIOStream // out, full, converted
-	var cret  *C.GFile         // return, full, converted
+	var cret  *C.GFile         // return, full, converted, nullable
 	var _cerr *C.GError        // out, full, converted, nullable
 
 	if tmpl != "" {
@@ -10576,7 +10598,9 @@ func NewFileTmp(tmpl string) (FileIOStream, File, error) {
 	var _goerr   error
 
 	iostream = UnsafeFileIOStreamFromGlibFull(unsafe.Pointer(carg2))
-	goret = UnsafeFileFromGlibFull(unsafe.Pointer(cret))
+	if cret != nil {
+		goret = UnsafeFileFromGlibFull(unsafe.Pointer(cret))
+	}
 	if _cerr != nil {
 		_goerr = glib.UnsafeErrorFromGlibFull(unsafe.Pointer(_cerr))
 	}
@@ -10649,7 +10673,7 @@ func NewFileTmpDirAsync(tmpl string, ioPriority int32, cancellable Cancellable, 
 // see also https://docs.gtk.org/gio/func.g_file_new_tmp_dir_finish.html
 func NewFileTmpDirFinish(result AsyncResult) (File, error) {
 	var carg1 *C.GAsyncResult // in, none, converted
-	var cret  *C.GFile        // return, full, converted
+	var cret  *C.GFile        // return, full, converted, nullable
 	var _cerr *C.GError       // out, full, converted, nullable
 
 	carg1 = (*C.GAsyncResult)(UnsafeAsyncResultToGlibNone(result))
@@ -10660,7 +10684,9 @@ func NewFileTmpDirFinish(result AsyncResult) (File, error) {
 	var goret  File
 	var _goerr error
 
-	goret = UnsafeFileFromGlibFull(unsafe.Pointer(cret))
+	if cret != nil {
+		goret = UnsafeFileFromGlibFull(unsafe.Pointer(cret))
+	}
 	if _cerr != nil {
 		_goerr = glib.UnsafeErrorFromGlibFull(unsafe.Pointer(_cerr))
 	}
@@ -10674,7 +10700,7 @@ func NewFileTmpDirFinish(result AsyncResult) (File, error) {
 func NewFileTmpFinish(result AsyncResult) (FileIOStream, File, error) {
 	var carg1 *C.GAsyncResult  // in, none, converted
 	var carg2 *C.GFileIOStream // out, full, converted
-	var cret  *C.GFile         // return, full, converted
+	var cret  *C.GFile         // return, full, converted, nullable
 	var _cerr *C.GError        // out, full, converted, nullable
 
 	carg1 = (*C.GAsyncResult)(UnsafeAsyncResultToGlibNone(result))
@@ -10687,7 +10713,9 @@ func NewFileTmpFinish(result AsyncResult) (FileIOStream, File, error) {
 	var _goerr   error
 
 	iostream = UnsafeFileIOStreamFromGlibFull(unsafe.Pointer(carg2))
-	goret = UnsafeFileFromGlibFull(unsafe.Pointer(cret))
+	if cret != nil {
+		goret = UnsafeFileFromGlibFull(unsafe.Pointer(cret))
+	}
 	if _cerr != nil {
 		_goerr = glib.UnsafeErrorFromGlibFull(unsafe.Pointer(_cerr))
 	}
@@ -10722,7 +10750,7 @@ func (file *FileInstance) AppendTo(flags FileCreateFlags, cancellable Cancellabl
 	var carg0 *C.GFile             // in, none, converted
 	var carg1 C.GFileCreateFlags   // in, none, casted
 	var carg2 *C.GCancellable      // in, none, converted, nullable
-	var cret  *C.GFileOutputStream // return, full, converted
+	var cret  *C.GFileOutputStream // return, full, converted, nullable
 	var _cerr *C.GError            // out, full, converted, nullable
 
 	carg0 = (*C.GFile)(UnsafeFileToGlibNone(file))
@@ -10739,7 +10767,9 @@ func (file *FileInstance) AppendTo(flags FileCreateFlags, cancellable Cancellabl
 	var goret  FileOutputStream
 	var _goerr error
 
-	goret = UnsafeFileOutputStreamFromGlibFull(unsafe.Pointer(cret))
+	if cret != nil {
+		goret = UnsafeFileOutputStreamFromGlibFull(unsafe.Pointer(cret))
+	}
 	if _cerr != nil {
 		_goerr = glib.UnsafeErrorFromGlibFull(unsafe.Pointer(_cerr))
 	}
@@ -10783,7 +10813,7 @@ func (file *FileInstance) AppendToAsync(flags FileCreateFlags, ioPriority int32,
 func (file *FileInstance) AppendToFinish(res AsyncResult) (FileOutputStream, error) {
 	var carg0 *C.GFile             // in, none, converted
 	var carg1 *C.GAsyncResult      // in, none, converted
-	var cret  *C.GFileOutputStream // return, full, converted
+	var cret  *C.GFileOutputStream // return, full, converted, nullable
 	var _cerr *C.GError            // out, full, converted, nullable
 
 	carg0 = (*C.GFile)(UnsafeFileToGlibNone(file))
@@ -10796,7 +10826,9 @@ func (file *FileInstance) AppendToFinish(res AsyncResult) (FileOutputStream, err
 	var goret  FileOutputStream
 	var _goerr error
 
-	goret = UnsafeFileOutputStreamFromGlibFull(unsafe.Pointer(cret))
+	if cret != nil {
+		goret = UnsafeFileOutputStreamFromGlibFull(unsafe.Pointer(cret))
+	}
 	if _cerr != nil {
 		_goerr = glib.UnsafeErrorFromGlibFull(unsafe.Pointer(_cerr))
 	}
@@ -10811,7 +10843,7 @@ func (file *FileInstance) BuildAttributeListForCopy(flags FileCopyFlags, cancell
 	var carg0 *C.GFile         // in, none, converted
 	var carg1 C.GFileCopyFlags // in, none, casted
 	var carg2 *C.GCancellable  // in, none, converted, nullable
-	var cret  *C.char          // return, full, string
+	var cret  *C.char          // return, full, string, nullable-string
 	var _cerr *C.GError        // out, full, converted, nullable
 
 	carg0 = (*C.GFile)(UnsafeFileToGlibNone(file))
@@ -10828,8 +10860,10 @@ func (file *FileInstance) BuildAttributeListForCopy(flags FileCopyFlags, cancell
 	var goret  string
 	var _goerr error
 
-	goret = C.GoString((*C.char)(unsafe.Pointer(cret)))
-	defer C.g_free(C.gpointer(cret))
+	if cret != nil {
+		goret = C.GoString((*C.char)(unsafe.Pointer(cret)))
+		defer C.g_free(C.gpointer(cret))
+	}
 	if _cerr != nil {
 		_goerr = glib.UnsafeErrorFromGlibFull(unsafe.Pointer(_cerr))
 	}
@@ -10910,7 +10944,7 @@ func (file *FileInstance) Create(flags FileCreateFlags, cancellable Cancellable)
 	var carg0 *C.GFile             // in, none, converted
 	var carg1 C.GFileCreateFlags   // in, none, casted
 	var carg2 *C.GCancellable      // in, none, converted, nullable
-	var cret  *C.GFileOutputStream // return, full, converted
+	var cret  *C.GFileOutputStream // return, full, converted, nullable
 	var _cerr *C.GError            // out, full, converted, nullable
 
 	carg0 = (*C.GFile)(UnsafeFileToGlibNone(file))
@@ -10927,7 +10961,9 @@ func (file *FileInstance) Create(flags FileCreateFlags, cancellable Cancellable)
 	var goret  FileOutputStream
 	var _goerr error
 
-	goret = UnsafeFileOutputStreamFromGlibFull(unsafe.Pointer(cret))
+	if cret != nil {
+		goret = UnsafeFileOutputStreamFromGlibFull(unsafe.Pointer(cret))
+	}
 	if _cerr != nil {
 		_goerr = glib.UnsafeErrorFromGlibFull(unsafe.Pointer(_cerr))
 	}
@@ -10971,7 +11007,7 @@ func (file *FileInstance) CreateAsync(flags FileCreateFlags, ioPriority int32, c
 func (file *FileInstance) CreateFinish(res AsyncResult) (FileOutputStream, error) {
 	var carg0 *C.GFile             // in, none, converted
 	var carg1 *C.GAsyncResult      // in, none, converted
-	var cret  *C.GFileOutputStream // return, full, converted
+	var cret  *C.GFileOutputStream // return, full, converted, nullable
 	var _cerr *C.GError            // out, full, converted, nullable
 
 	carg0 = (*C.GFile)(UnsafeFileToGlibNone(file))
@@ -10984,7 +11020,9 @@ func (file *FileInstance) CreateFinish(res AsyncResult) (FileOutputStream, error
 	var goret  FileOutputStream
 	var _goerr error
 
-	goret = UnsafeFileOutputStreamFromGlibFull(unsafe.Pointer(cret))
+	if cret != nil {
+		goret = UnsafeFileOutputStreamFromGlibFull(unsafe.Pointer(cret))
+	}
 	if _cerr != nil {
 		_goerr = glib.UnsafeErrorFromGlibFull(unsafe.Pointer(_cerr))
 	}
@@ -10999,7 +11037,7 @@ func (file *FileInstance) CreateReadwrite(flags FileCreateFlags, cancellable Can
 	var carg0 *C.GFile           // in, none, converted
 	var carg1 C.GFileCreateFlags // in, none, casted
 	var carg2 *C.GCancellable    // in, none, converted, nullable
-	var cret  *C.GFileIOStream   // return, full, converted
+	var cret  *C.GFileIOStream   // return, full, converted, nullable
 	var _cerr *C.GError          // out, full, converted, nullable
 
 	carg0 = (*C.GFile)(UnsafeFileToGlibNone(file))
@@ -11016,7 +11054,9 @@ func (file *FileInstance) CreateReadwrite(flags FileCreateFlags, cancellable Can
 	var goret  FileIOStream
 	var _goerr error
 
-	goret = UnsafeFileIOStreamFromGlibFull(unsafe.Pointer(cret))
+	if cret != nil {
+		goret = UnsafeFileIOStreamFromGlibFull(unsafe.Pointer(cret))
+	}
 	if _cerr != nil {
 		_goerr = glib.UnsafeErrorFromGlibFull(unsafe.Pointer(_cerr))
 	}
@@ -11060,7 +11100,7 @@ func (file *FileInstance) CreateReadwriteAsync(flags FileCreateFlags, ioPriority
 func (file *FileInstance) CreateReadwriteFinish(res AsyncResult) (FileIOStream, error) {
 	var carg0 *C.GFile         // in, none, converted
 	var carg1 *C.GAsyncResult  // in, none, converted
-	var cret  *C.GFileIOStream // return, full, converted
+	var cret  *C.GFileIOStream // return, full, converted, nullable
 	var _cerr *C.GError        // out, full, converted, nullable
 
 	carg0 = (*C.GFile)(UnsafeFileToGlibNone(file))
@@ -11073,7 +11113,9 @@ func (file *FileInstance) CreateReadwriteFinish(res AsyncResult) (FileIOStream, 
 	var goret  FileIOStream
 	var _goerr error
 
-	goret = UnsafeFileIOStreamFromGlibFull(unsafe.Pointer(cret))
+	if cret != nil {
+		goret = UnsafeFileIOStreamFromGlibFull(unsafe.Pointer(cret))
+	}
 	if _cerr != nil {
 		_goerr = glib.UnsafeErrorFromGlibFull(unsafe.Pointer(_cerr))
 	}
@@ -11316,7 +11358,7 @@ func (file *FileInstance) EnumerateChildren(attributes string, flags FileQueryIn
 	var carg1 *C.char               // in, none, string
 	var carg2 C.GFileQueryInfoFlags // in, none, casted
 	var carg3 *C.GCancellable       // in, none, converted, nullable
-	var cret  *C.GFileEnumerator    // return, full, converted
+	var cret  *C.GFileEnumerator    // return, full, converted, nullable
 	var _cerr *C.GError             // out, full, converted, nullable
 
 	carg0 = (*C.GFile)(UnsafeFileToGlibNone(file))
@@ -11336,7 +11378,9 @@ func (file *FileInstance) EnumerateChildren(attributes string, flags FileQueryIn
 	var goret  FileEnumerator
 	var _goerr error
 
-	goret = UnsafeFileEnumeratorFromGlibFull(unsafe.Pointer(cret))
+	if cret != nil {
+		goret = UnsafeFileEnumeratorFromGlibFull(unsafe.Pointer(cret))
+	}
 	if _cerr != nil {
 		_goerr = glib.UnsafeErrorFromGlibFull(unsafe.Pointer(_cerr))
 	}
@@ -11384,7 +11428,7 @@ func (file *FileInstance) EnumerateChildrenAsync(attributes string, flags FileQu
 func (file *FileInstance) EnumerateChildrenFinish(res AsyncResult) (FileEnumerator, error) {
 	var carg0 *C.GFile           // in, none, converted
 	var carg1 *C.GAsyncResult    // in, none, converted
-	var cret  *C.GFileEnumerator // return, full, converted
+	var cret  *C.GFileEnumerator // return, full, converted, nullable
 	var _cerr *C.GError          // out, full, converted, nullable
 
 	carg0 = (*C.GFile)(UnsafeFileToGlibNone(file))
@@ -11397,7 +11441,9 @@ func (file *FileInstance) EnumerateChildrenFinish(res AsyncResult) (FileEnumerat
 	var goret  FileEnumerator
 	var _goerr error
 
-	goret = UnsafeFileEnumeratorFromGlibFull(unsafe.Pointer(cret))
+	if cret != nil {
+		goret = UnsafeFileEnumeratorFromGlibFull(unsafe.Pointer(cret))
+	}
 	if _cerr != nil {
 		_goerr = glib.UnsafeErrorFromGlibFull(unsafe.Pointer(_cerr))
 	}
@@ -11435,7 +11481,7 @@ func (file1 *FileInstance) Equal(file2 File) bool {
 func (file *FileInstance) FindEnclosingMount(cancellable Cancellable) (Mount, error) {
 	var carg0 *C.GFile        // in, none, converted
 	var carg1 *C.GCancellable // in, none, converted, nullable
-	var cret  *C.GMount       // return, full, converted
+	var cret  *C.GMount       // return, full, converted, nullable
 	var _cerr *C.GError       // out, full, converted, nullable
 
 	carg0 = (*C.GFile)(UnsafeFileToGlibNone(file))
@@ -11450,7 +11496,9 @@ func (file *FileInstance) FindEnclosingMount(cancellable Cancellable) (Mount, er
 	var goret  Mount
 	var _goerr error
 
-	goret = UnsafeMountFromGlibFull(unsafe.Pointer(cret))
+	if cret != nil {
+		goret = UnsafeMountFromGlibFull(unsafe.Pointer(cret))
+	}
 	if _cerr != nil {
 		_goerr = glib.UnsafeErrorFromGlibFull(unsafe.Pointer(_cerr))
 	}
@@ -11491,7 +11539,7 @@ func (file *FileInstance) FindEnclosingMountAsync(ioPriority int32, cancellable 
 func (file *FileInstance) FindEnclosingMountFinish(res AsyncResult) (Mount, error) {
 	var carg0 *C.GFile        // in, none, converted
 	var carg1 *C.GAsyncResult // in, none, converted
-	var cret  *C.GMount       // return, full, converted
+	var cret  *C.GMount       // return, full, converted, nullable
 	var _cerr *C.GError       // out, full, converted, nullable
 
 	carg0 = (*C.GFile)(UnsafeFileToGlibNone(file))
@@ -11504,7 +11552,9 @@ func (file *FileInstance) FindEnclosingMountFinish(res AsyncResult) (Mount, erro
 	var goret  Mount
 	var _goerr error
 
-	goret = UnsafeMountFromGlibFull(unsafe.Pointer(cret))
+	if cret != nil {
+		goret = UnsafeMountFromGlibFull(unsafe.Pointer(cret))
+	}
 	if _cerr != nil {
 		_goerr = glib.UnsafeErrorFromGlibFull(unsafe.Pointer(_cerr))
 	}
@@ -11563,7 +11613,7 @@ func (file *FileInstance) GetChild(name string) File {
 func (file *FileInstance) GetChildForDisplayName(displayName string) (File, error) {
 	var carg0 *C.GFile  // in, none, converted
 	var carg1 *C.char   // in, none, string
-	var cret  *C.GFile  // return, full, converted
+	var cret  *C.GFile  // return, full, converted, nullable
 	var _cerr *C.GError // out, full, converted, nullable
 
 	carg0 = (*C.GFile)(UnsafeFileToGlibNone(file))
@@ -11577,7 +11627,9 @@ func (file *FileInstance) GetChildForDisplayName(displayName string) (File, erro
 	var goret  File
 	var _goerr error
 
-	goret = UnsafeFileFromGlibFull(unsafe.Pointer(cret))
+	if cret != nil {
+		goret = UnsafeFileFromGlibFull(unsafe.Pointer(cret))
+	}
 	if _cerr != nil {
 		_goerr = glib.UnsafeErrorFromGlibFull(unsafe.Pointer(_cerr))
 	}
@@ -11818,7 +11870,7 @@ func (file *FileInstance) LoadBytes(cancellable Cancellable) (string, *glib.Byte
 	var carg0 *C.GFile        // in, none, converted
 	var carg1 *C.GCancellable // in, none, converted, nullable
 	var carg2 *C.gchar        // out, full, string, nullable-string
-	var cret  *C.GBytes       // return, full, converted
+	var cret  *C.GBytes       // return, full, converted, nullable
 	var _cerr *C.GError       // out, full, converted, nullable
 
 	carg0 = (*C.GFile)(UnsafeFileToGlibNone(file))
@@ -11838,7 +11890,9 @@ func (file *FileInstance) LoadBytes(cancellable Cancellable) (string, *glib.Byte
 		etagOut = C.GoString((*C.char)(unsafe.Pointer(carg2)))
 		defer C.g_free(C.gpointer(carg2))
 	}
-	goret = glib.UnsafeBytesFromGlibFull(unsafe.Pointer(cret))
+	if cret != nil {
+		goret = glib.UnsafeBytesFromGlibFull(unsafe.Pointer(cret))
+	}
 	if _cerr != nil {
 		_goerr = glib.UnsafeErrorFromGlibFull(unsafe.Pointer(_cerr))
 	}
@@ -11877,7 +11931,7 @@ func (file *FileInstance) LoadBytesFinish(result AsyncResult) (string, *glib.Byt
 	var carg0 *C.GFile        // in, none, converted
 	var carg1 *C.GAsyncResult // in, none, converted
 	var carg2 *C.gchar        // out, full, string, nullable-string
-	var cret  *C.GBytes       // return, full, converted
+	var cret  *C.GBytes       // return, full, converted, nullable
 	var _cerr *C.GError       // out, full, converted, nullable
 
 	carg0 = (*C.GFile)(UnsafeFileToGlibNone(file))
@@ -11895,7 +11949,9 @@ func (file *FileInstance) LoadBytesFinish(result AsyncResult) (string, *glib.Byt
 		etagOut = C.GoString((*C.char)(unsafe.Pointer(carg2)))
 		defer C.g_free(C.gpointer(carg2))
 	}
-	goret = glib.UnsafeBytesFromGlibFull(unsafe.Pointer(cret))
+	if cret != nil {
+		goret = glib.UnsafeBytesFromGlibFull(unsafe.Pointer(cret))
+	}
 	if _cerr != nil {
 		_goerr = glib.UnsafeErrorFromGlibFull(unsafe.Pointer(_cerr))
 	}
@@ -12313,7 +12369,7 @@ func (file *FileInstance) Monitor(flags FileMonitorFlags, cancellable Cancellabl
 	var carg0 *C.GFile            // in, none, converted
 	var carg1 C.GFileMonitorFlags // in, none, casted
 	var carg2 *C.GCancellable     // in, none, converted, nullable
-	var cret  *C.GFileMonitor     // return, full, converted
+	var cret  *C.GFileMonitor     // return, full, converted, nullable
 	var _cerr *C.GError           // out, full, converted, nullable
 
 	carg0 = (*C.GFile)(UnsafeFileToGlibNone(file))
@@ -12330,7 +12386,9 @@ func (file *FileInstance) Monitor(flags FileMonitorFlags, cancellable Cancellabl
 	var goret  FileMonitor
 	var _goerr error
 
-	goret = UnsafeFileMonitorFromGlibFull(unsafe.Pointer(cret))
+	if cret != nil {
+		goret = UnsafeFileMonitorFromGlibFull(unsafe.Pointer(cret))
+	}
 	if _cerr != nil {
 		_goerr = glib.UnsafeErrorFromGlibFull(unsafe.Pointer(_cerr))
 	}
@@ -12345,7 +12403,7 @@ func (file *FileInstance) MonitorDirectory(flags FileMonitorFlags, cancellable C
 	var carg0 *C.GFile            // in, none, converted
 	var carg1 C.GFileMonitorFlags // in, none, casted
 	var carg2 *C.GCancellable     // in, none, converted, nullable
-	var cret  *C.GFileMonitor     // return, full, converted
+	var cret  *C.GFileMonitor     // return, full, converted, nullable
 	var _cerr *C.GError           // out, full, converted, nullable
 
 	carg0 = (*C.GFile)(UnsafeFileToGlibNone(file))
@@ -12362,7 +12420,9 @@ func (file *FileInstance) MonitorDirectory(flags FileMonitorFlags, cancellable C
 	var goret  FileMonitor
 	var _goerr error
 
-	goret = UnsafeFileMonitorFromGlibFull(unsafe.Pointer(cret))
+	if cret != nil {
+		goret = UnsafeFileMonitorFromGlibFull(unsafe.Pointer(cret))
+	}
 	if _cerr != nil {
 		_goerr = glib.UnsafeErrorFromGlibFull(unsafe.Pointer(_cerr))
 	}
@@ -12377,7 +12437,7 @@ func (file *FileInstance) MonitorFile(flags FileMonitorFlags, cancellable Cancel
 	var carg0 *C.GFile            // in, none, converted
 	var carg1 C.GFileMonitorFlags // in, none, casted
 	var carg2 *C.GCancellable     // in, none, converted, nullable
-	var cret  *C.GFileMonitor     // return, full, converted
+	var cret  *C.GFileMonitor     // return, full, converted, nullable
 	var _cerr *C.GError           // out, full, converted, nullable
 
 	carg0 = (*C.GFile)(UnsafeFileToGlibNone(file))
@@ -12394,7 +12454,9 @@ func (file *FileInstance) MonitorFile(flags FileMonitorFlags, cancellable Cancel
 	var goret  FileMonitor
 	var _goerr error
 
-	goret = UnsafeFileMonitorFromGlibFull(unsafe.Pointer(cret))
+	if cret != nil {
+		goret = UnsafeFileMonitorFromGlibFull(unsafe.Pointer(cret))
+	}
 	if _cerr != nil {
 		_goerr = glib.UnsafeErrorFromGlibFull(unsafe.Pointer(_cerr))
 	}
@@ -12501,7 +12563,7 @@ func (file *FileInstance) MountMountable(flags MountMountFlags, mountOperation M
 func (file *FileInstance) MountMountableFinish(result AsyncResult) (File, error) {
 	var carg0 *C.GFile        // in, none, converted
 	var carg1 *C.GAsyncResult // in, none, converted
-	var cret  *C.GFile        // return, full, converted
+	var cret  *C.GFile        // return, full, converted, nullable
 	var _cerr *C.GError       // out, full, converted, nullable
 
 	carg0 = (*C.GFile)(UnsafeFileToGlibNone(file))
@@ -12514,7 +12576,9 @@ func (file *FileInstance) MountMountableFinish(result AsyncResult) (File, error)
 	var goret  File
 	var _goerr error
 
-	goret = UnsafeFileFromGlibFull(unsafe.Pointer(cret))
+	if cret != nil {
+		goret = UnsafeFileFromGlibFull(unsafe.Pointer(cret))
+	}
 	if _cerr != nil {
 		_goerr = glib.UnsafeErrorFromGlibFull(unsafe.Pointer(_cerr))
 	}
@@ -12557,7 +12621,7 @@ func (file *FileInstance) MoveFinish(result AsyncResult) (bool, error) {
 func (file *FileInstance) OpenReadwrite(cancellable Cancellable) (FileIOStream, error) {
 	var carg0 *C.GFile         // in, none, converted
 	var carg1 *C.GCancellable  // in, none, converted, nullable
-	var cret  *C.GFileIOStream // return, full, converted
+	var cret  *C.GFileIOStream // return, full, converted, nullable
 	var _cerr *C.GError        // out, full, converted, nullable
 
 	carg0 = (*C.GFile)(UnsafeFileToGlibNone(file))
@@ -12572,7 +12636,9 @@ func (file *FileInstance) OpenReadwrite(cancellable Cancellable) (FileIOStream, 
 	var goret  FileIOStream
 	var _goerr error
 
-	goret = UnsafeFileIOStreamFromGlibFull(unsafe.Pointer(cret))
+	if cret != nil {
+		goret = UnsafeFileIOStreamFromGlibFull(unsafe.Pointer(cret))
+	}
 	if _cerr != nil {
 		_goerr = glib.UnsafeErrorFromGlibFull(unsafe.Pointer(_cerr))
 	}
@@ -12613,7 +12679,7 @@ func (file *FileInstance) OpenReadwriteAsync(ioPriority int32, cancellable Cance
 func (file *FileInstance) OpenReadwriteFinish(res AsyncResult) (FileIOStream, error) {
 	var carg0 *C.GFile         // in, none, converted
 	var carg1 *C.GAsyncResult  // in, none, converted
-	var cret  *C.GFileIOStream // return, full, converted
+	var cret  *C.GFileIOStream // return, full, converted, nullable
 	var _cerr *C.GError        // out, full, converted, nullable
 
 	carg0 = (*C.GFile)(UnsafeFileToGlibNone(file))
@@ -12626,7 +12692,9 @@ func (file *FileInstance) OpenReadwriteFinish(res AsyncResult) (FileIOStream, er
 	var goret  FileIOStream
 	var _goerr error
 
-	goret = UnsafeFileIOStreamFromGlibFull(unsafe.Pointer(cret))
+	if cret != nil {
+		goret = UnsafeFileIOStreamFromGlibFull(unsafe.Pointer(cret))
+	}
 	if _cerr != nil {
 		_goerr = glib.UnsafeErrorFromGlibFull(unsafe.Pointer(_cerr))
 	}
@@ -12714,7 +12782,7 @@ func (file *FileInstance) PollMountableFinish(result AsyncResult) (bool, error) 
 func (file *FileInstance) QueryDefaultHandler(cancellable Cancellable) (AppInfo, error) {
 	var carg0 *C.GFile        // in, none, converted
 	var carg1 *C.GCancellable // in, none, converted, nullable
-	var cret  *C.GAppInfo     // return, full, converted
+	var cret  *C.GAppInfo     // return, full, converted, nullable
 	var _cerr *C.GError       // out, full, converted, nullable
 
 	carg0 = (*C.GFile)(UnsafeFileToGlibNone(file))
@@ -12729,7 +12797,9 @@ func (file *FileInstance) QueryDefaultHandler(cancellable Cancellable) (AppInfo,
 	var goret  AppInfo
 	var _goerr error
 
-	goret = UnsafeAppInfoFromGlibFull(unsafe.Pointer(cret))
+	if cret != nil {
+		goret = UnsafeAppInfoFromGlibFull(unsafe.Pointer(cret))
+	}
 	if _cerr != nil {
 		_goerr = glib.UnsafeErrorFromGlibFull(unsafe.Pointer(_cerr))
 	}
@@ -12770,7 +12840,7 @@ func (file *FileInstance) QueryDefaultHandlerAsync(ioPriority int32, cancellable
 func (file *FileInstance) QueryDefaultHandlerFinish(result AsyncResult) (AppInfo, error) {
 	var carg0 *C.GFile        // in, none, converted
 	var carg1 *C.GAsyncResult // in, none, converted
-	var cret  *C.GAppInfo     // return, full, converted
+	var cret  *C.GAppInfo     // return, full, converted, nullable
 	var _cerr *C.GError       // out, full, converted, nullable
 
 	carg0 = (*C.GFile)(UnsafeFileToGlibNone(file))
@@ -12783,7 +12853,9 @@ func (file *FileInstance) QueryDefaultHandlerFinish(result AsyncResult) (AppInfo
 	var goret  AppInfo
 	var _goerr error
 
-	goret = UnsafeAppInfoFromGlibFull(unsafe.Pointer(cret))
+	if cret != nil {
+		goret = UnsafeAppInfoFromGlibFull(unsafe.Pointer(cret))
+	}
 	if _cerr != nil {
 		_goerr = glib.UnsafeErrorFromGlibFull(unsafe.Pointer(_cerr))
 	}
@@ -12851,7 +12923,7 @@ func (file *FileInstance) QueryFilesystemInfo(attributes string, cancellable Can
 	var carg0 *C.GFile        // in, none, converted
 	var carg1 *C.char         // in, none, string
 	var carg2 *C.GCancellable // in, none, converted, nullable
-	var cret  *C.GFileInfo    // return, full, converted
+	var cret  *C.GFileInfo    // return, full, converted, nullable
 	var _cerr *C.GError       // out, full, converted, nullable
 
 	carg0 = (*C.GFile)(UnsafeFileToGlibNone(file))
@@ -12869,7 +12941,9 @@ func (file *FileInstance) QueryFilesystemInfo(attributes string, cancellable Can
 	var goret  FileInfo
 	var _goerr error
 
-	goret = UnsafeFileInfoFromGlibFull(unsafe.Pointer(cret))
+	if cret != nil {
+		goret = UnsafeFileInfoFromGlibFull(unsafe.Pointer(cret))
+	}
 	if _cerr != nil {
 		_goerr = glib.UnsafeErrorFromGlibFull(unsafe.Pointer(_cerr))
 	}
@@ -12914,7 +12988,7 @@ func (file *FileInstance) QueryFilesystemInfoAsync(attributes string, ioPriority
 func (file *FileInstance) QueryFilesystemInfoFinish(res AsyncResult) (FileInfo, error) {
 	var carg0 *C.GFile        // in, none, converted
 	var carg1 *C.GAsyncResult // in, none, converted
-	var cret  *C.GFileInfo    // return, full, converted
+	var cret  *C.GFileInfo    // return, full, converted, nullable
 	var _cerr *C.GError       // out, full, converted, nullable
 
 	carg0 = (*C.GFile)(UnsafeFileToGlibNone(file))
@@ -12927,7 +13001,9 @@ func (file *FileInstance) QueryFilesystemInfoFinish(res AsyncResult) (FileInfo, 
 	var goret  FileInfo
 	var _goerr error
 
-	goret = UnsafeFileInfoFromGlibFull(unsafe.Pointer(cret))
+	if cret != nil {
+		goret = UnsafeFileInfoFromGlibFull(unsafe.Pointer(cret))
+	}
 	if _cerr != nil {
 		_goerr = glib.UnsafeErrorFromGlibFull(unsafe.Pointer(_cerr))
 	}
@@ -12943,7 +13019,7 @@ func (file *FileInstance) QueryInfo(attributes string, flags FileQueryInfoFlags,
 	var carg1 *C.char               // in, none, string
 	var carg2 C.GFileQueryInfoFlags // in, none, casted
 	var carg3 *C.GCancellable       // in, none, converted, nullable
-	var cret  *C.GFileInfo          // return, full, converted
+	var cret  *C.GFileInfo          // return, full, converted, nullable
 	var _cerr *C.GError             // out, full, converted, nullable
 
 	carg0 = (*C.GFile)(UnsafeFileToGlibNone(file))
@@ -12963,7 +13039,9 @@ func (file *FileInstance) QueryInfo(attributes string, flags FileQueryInfoFlags,
 	var goret  FileInfo
 	var _goerr error
 
-	goret = UnsafeFileInfoFromGlibFull(unsafe.Pointer(cret))
+	if cret != nil {
+		goret = UnsafeFileInfoFromGlibFull(unsafe.Pointer(cret))
+	}
 	if _cerr != nil {
 		_goerr = glib.UnsafeErrorFromGlibFull(unsafe.Pointer(_cerr))
 	}
@@ -13011,7 +13089,7 @@ func (file *FileInstance) QueryInfoAsync(attributes string, flags FileQueryInfoF
 func (file *FileInstance) QueryInfoFinish(res AsyncResult) (FileInfo, error) {
 	var carg0 *C.GFile        // in, none, converted
 	var carg1 *C.GAsyncResult // in, none, converted
-	var cret  *C.GFileInfo    // return, full, converted
+	var cret  *C.GFileInfo    // return, full, converted, nullable
 	var _cerr *C.GError       // out, full, converted, nullable
 
 	carg0 = (*C.GFile)(UnsafeFileToGlibNone(file))
@@ -13024,7 +13102,9 @@ func (file *FileInstance) QueryInfoFinish(res AsyncResult) (FileInfo, error) {
 	var goret  FileInfo
 	var _goerr error
 
-	goret = UnsafeFileInfoFromGlibFull(unsafe.Pointer(cret))
+	if cret != nil {
+		goret = UnsafeFileInfoFromGlibFull(unsafe.Pointer(cret))
+	}
 	if _cerr != nil {
 		_goerr = glib.UnsafeErrorFromGlibFull(unsafe.Pointer(_cerr))
 	}
@@ -13038,7 +13118,7 @@ func (file *FileInstance) QueryInfoFinish(res AsyncResult) (FileInfo, error) {
 func (file *FileInstance) QuerySettableAttributes(cancellable Cancellable) (*FileAttributeInfoList, error) {
 	var carg0 *C.GFile                  // in, none, converted
 	var carg1 *C.GCancellable           // in, none, converted, nullable
-	var cret  *C.GFileAttributeInfoList // return, full, converted
+	var cret  *C.GFileAttributeInfoList // return, full, converted, nullable
 	var _cerr *C.GError                 // out, full, converted, nullable
 
 	carg0 = (*C.GFile)(UnsafeFileToGlibNone(file))
@@ -13053,7 +13133,9 @@ func (file *FileInstance) QuerySettableAttributes(cancellable Cancellable) (*Fil
 	var goret  *FileAttributeInfoList
 	var _goerr error
 
-	goret = UnsafeFileAttributeInfoListFromGlibFull(unsafe.Pointer(cret))
+	if cret != nil {
+		goret = UnsafeFileAttributeInfoListFromGlibFull(unsafe.Pointer(cret))
+	}
 	if _cerr != nil {
 		_goerr = glib.UnsafeErrorFromGlibFull(unsafe.Pointer(_cerr))
 	}
@@ -13067,7 +13149,7 @@ func (file *FileInstance) QuerySettableAttributes(cancellable Cancellable) (*Fil
 func (file *FileInstance) QueryWritableNamespaces(cancellable Cancellable) (*FileAttributeInfoList, error) {
 	var carg0 *C.GFile                  // in, none, converted
 	var carg1 *C.GCancellable           // in, none, converted, nullable
-	var cret  *C.GFileAttributeInfoList // return, full, converted
+	var cret  *C.GFileAttributeInfoList // return, full, converted, nullable
 	var _cerr *C.GError                 // out, full, converted, nullable
 
 	carg0 = (*C.GFile)(UnsafeFileToGlibNone(file))
@@ -13082,7 +13164,9 @@ func (file *FileInstance) QueryWritableNamespaces(cancellable Cancellable) (*Fil
 	var goret  *FileAttributeInfoList
 	var _goerr error
 
-	goret = UnsafeFileAttributeInfoListFromGlibFull(unsafe.Pointer(cret))
+	if cret != nil {
+		goret = UnsafeFileAttributeInfoListFromGlibFull(unsafe.Pointer(cret))
+	}
 	if _cerr != nil {
 		_goerr = glib.UnsafeErrorFromGlibFull(unsafe.Pointer(_cerr))
 	}
@@ -13096,7 +13180,7 @@ func (file *FileInstance) QueryWritableNamespaces(cancellable Cancellable) (*Fil
 func (file *FileInstance) Read(cancellable Cancellable) (FileInputStream, error) {
 	var carg0 *C.GFile            // in, none, converted
 	var carg1 *C.GCancellable     // in, none, converted, nullable
-	var cret  *C.GFileInputStream // return, full, converted
+	var cret  *C.GFileInputStream // return, full, converted, nullable
 	var _cerr *C.GError           // out, full, converted, nullable
 
 	carg0 = (*C.GFile)(UnsafeFileToGlibNone(file))
@@ -13111,7 +13195,9 @@ func (file *FileInstance) Read(cancellable Cancellable) (FileInputStream, error)
 	var goret  FileInputStream
 	var _goerr error
 
-	goret = UnsafeFileInputStreamFromGlibFull(unsafe.Pointer(cret))
+	if cret != nil {
+		goret = UnsafeFileInputStreamFromGlibFull(unsafe.Pointer(cret))
+	}
 	if _cerr != nil {
 		_goerr = glib.UnsafeErrorFromGlibFull(unsafe.Pointer(_cerr))
 	}
@@ -13152,7 +13238,7 @@ func (file *FileInstance) ReadAsync(ioPriority int32, cancellable Cancellable, c
 func (file *FileInstance) ReadFinish(res AsyncResult) (FileInputStream, error) {
 	var carg0 *C.GFile            // in, none, converted
 	var carg1 *C.GAsyncResult     // in, none, converted
-	var cret  *C.GFileInputStream // return, full, converted
+	var cret  *C.GFileInputStream // return, full, converted, nullable
 	var _cerr *C.GError           // out, full, converted, nullable
 
 	carg0 = (*C.GFile)(UnsafeFileToGlibNone(file))
@@ -13165,7 +13251,9 @@ func (file *FileInstance) ReadFinish(res AsyncResult) (FileInputStream, error) {
 	var goret  FileInputStream
 	var _goerr error
 
-	goret = UnsafeFileInputStreamFromGlibFull(unsafe.Pointer(cret))
+	if cret != nil {
+		goret = UnsafeFileInputStreamFromGlibFull(unsafe.Pointer(cret))
+	}
 	if _cerr != nil {
 		_goerr = glib.UnsafeErrorFromGlibFull(unsafe.Pointer(_cerr))
 	}
@@ -13182,7 +13270,7 @@ func (file *FileInstance) Replace(etag string, makeBackup bool, flags FileCreate
 	var carg2 C.gboolean           // in
 	var carg3 C.GFileCreateFlags   // in, none, casted
 	var carg4 *C.GCancellable      // in, none, converted, nullable
-	var cret  *C.GFileOutputStream // return, full, converted
+	var cret  *C.GFileOutputStream // return, full, converted, nullable
 	var _cerr *C.GError            // out, full, converted, nullable
 
 	carg0 = (*C.GFile)(UnsafeFileToGlibNone(file))
@@ -13208,7 +13296,9 @@ func (file *FileInstance) Replace(etag string, makeBackup bool, flags FileCreate
 	var goret  FileOutputStream
 	var _goerr error
 
-	goret = UnsafeFileOutputStreamFromGlibFull(unsafe.Pointer(cret))
+	if cret != nil {
+		goret = UnsafeFileOutputStreamFromGlibFull(unsafe.Pointer(cret))
+	}
 	if _cerr != nil {
 		_goerr = glib.UnsafeErrorFromGlibFull(unsafe.Pointer(_cerr))
 	}
@@ -13442,7 +13532,7 @@ func (file *FileInstance) ReplaceContentsFinish(res AsyncResult) (string, bool, 
 func (file *FileInstance) ReplaceFinish(res AsyncResult) (FileOutputStream, error) {
 	var carg0 *C.GFile             // in, none, converted
 	var carg1 *C.GAsyncResult      // in, none, converted
-	var cret  *C.GFileOutputStream // return, full, converted
+	var cret  *C.GFileOutputStream // return, full, converted, nullable
 	var _cerr *C.GError            // out, full, converted, nullable
 
 	carg0 = (*C.GFile)(UnsafeFileToGlibNone(file))
@@ -13455,7 +13545,9 @@ func (file *FileInstance) ReplaceFinish(res AsyncResult) (FileOutputStream, erro
 	var goret  FileOutputStream
 	var _goerr error
 
-	goret = UnsafeFileOutputStreamFromGlibFull(unsafe.Pointer(cret))
+	if cret != nil {
+		goret = UnsafeFileOutputStreamFromGlibFull(unsafe.Pointer(cret))
+	}
 	if _cerr != nil {
 		_goerr = glib.UnsafeErrorFromGlibFull(unsafe.Pointer(_cerr))
 	}
@@ -13472,7 +13564,7 @@ func (file *FileInstance) ReplaceReadwrite(etag string, makeBackup bool, flags F
 	var carg2 C.gboolean         // in
 	var carg3 C.GFileCreateFlags // in, none, casted
 	var carg4 *C.GCancellable    // in, none, converted, nullable
-	var cret  *C.GFileIOStream   // return, full, converted
+	var cret  *C.GFileIOStream   // return, full, converted, nullable
 	var _cerr *C.GError          // out, full, converted, nullable
 
 	carg0 = (*C.GFile)(UnsafeFileToGlibNone(file))
@@ -13498,7 +13590,9 @@ func (file *FileInstance) ReplaceReadwrite(etag string, makeBackup bool, flags F
 	var goret  FileIOStream
 	var _goerr error
 
-	goret = UnsafeFileIOStreamFromGlibFull(unsafe.Pointer(cret))
+	if cret != nil {
+		goret = UnsafeFileIOStreamFromGlibFull(unsafe.Pointer(cret))
+	}
 	if _cerr != nil {
 		_goerr = glib.UnsafeErrorFromGlibFull(unsafe.Pointer(_cerr))
 	}
@@ -13553,7 +13647,7 @@ func (file *FileInstance) ReplaceReadwriteAsync(etag string, makeBackup bool, fl
 func (file *FileInstance) ReplaceReadwriteFinish(res AsyncResult) (FileIOStream, error) {
 	var carg0 *C.GFile         // in, none, converted
 	var carg1 *C.GAsyncResult  // in, none, converted
-	var cret  *C.GFileIOStream // return, full, converted
+	var cret  *C.GFileIOStream // return, full, converted, nullable
 	var _cerr *C.GError        // out, full, converted, nullable
 
 	carg0 = (*C.GFile)(UnsafeFileToGlibNone(file))
@@ -13566,7 +13660,9 @@ func (file *FileInstance) ReplaceReadwriteFinish(res AsyncResult) (FileIOStream,
 	var goret  FileIOStream
 	var _goerr error
 
-	goret = UnsafeFileIOStreamFromGlibFull(unsafe.Pointer(cret))
+	if cret != nil {
+		goret = UnsafeFileIOStreamFromGlibFull(unsafe.Pointer(cret))
+	}
 	if _cerr != nil {
 		_goerr = glib.UnsafeErrorFromGlibFull(unsafe.Pointer(_cerr))
 	}
@@ -13954,7 +14050,7 @@ func (file *FileInstance) SetDisplayName(displayName string, cancellable Cancell
 	var carg0 *C.GFile        // in, none, converted
 	var carg1 *C.char         // in, none, string
 	var carg2 *C.GCancellable // in, none, converted, nullable
-	var cret  *C.GFile        // return, full, converted
+	var cret  *C.GFile        // return, full, converted, nullable
 	var _cerr *C.GError       // out, full, converted, nullable
 
 	carg0 = (*C.GFile)(UnsafeFileToGlibNone(file))
@@ -13972,7 +14068,9 @@ func (file *FileInstance) SetDisplayName(displayName string, cancellable Cancell
 	var goret  File
 	var _goerr error
 
-	goret = UnsafeFileFromGlibFull(unsafe.Pointer(cret))
+	if cret != nil {
+		goret = UnsafeFileFromGlibFull(unsafe.Pointer(cret))
+	}
 	if _cerr != nil {
 		_goerr = glib.UnsafeErrorFromGlibFull(unsafe.Pointer(_cerr))
 	}
@@ -14017,7 +14115,7 @@ func (file *FileInstance) SetDisplayNameAsync(displayName string, ioPriority int
 func (file *FileInstance) SetDisplayNameFinish(res AsyncResult) (File, error) {
 	var carg0 *C.GFile        // in, none, converted
 	var carg1 *C.GAsyncResult // in, none, converted
-	var cret  *C.GFile        // return, full, converted
+	var cret  *C.GFile        // return, full, converted, nullable
 	var _cerr *C.GError       // out, full, converted, nullable
 
 	carg0 = (*C.GFile)(UnsafeFileToGlibNone(file))
@@ -14030,7 +14128,9 @@ func (file *FileInstance) SetDisplayNameFinish(res AsyncResult) (File, error) {
 	var goret  File
 	var _goerr error
 
-	goret = UnsafeFileFromGlibFull(unsafe.Pointer(cret))
+	if cret != nil {
+		goret = UnsafeFileFromGlibFull(unsafe.Pointer(cret))
+	}
 	if _cerr != nil {
 		_goerr = glib.UnsafeErrorFromGlibFull(unsafe.Pointer(_cerr))
 	}
@@ -14461,7 +14561,7 @@ func UnsafeIconToGlibFull(c Icon) unsafe.Pointer {
 // see also https://docs.gtk.org/gio/func.g_icon_new_for_string.html
 func NewIconForString(str string) (Icon, error) {
 	var carg1 *C.gchar  // in, none, string
-	var cret  *C.GIcon  // return, full, converted
+	var cret  *C.GIcon  // return, full, converted, nullable
 	var _cerr *C.GError // out, full, converted, nullable
 
 	carg1 = (*C.gchar)(transfer.GLibString(str))
@@ -14473,7 +14573,9 @@ func NewIconForString(str string) (Icon, error) {
 	var goret  Icon
 	var _goerr error
 
-	goret = UnsafeIconFromGlibFull(unsafe.Pointer(cret))
+	if cret != nil {
+		goret = UnsafeIconFromGlibFull(unsafe.Pointer(cret))
+	}
 	if _cerr != nil {
 		_goerr = glib.UnsafeErrorFromGlibFull(unsafe.Pointer(_cerr))
 	}
@@ -14871,7 +14973,7 @@ func (icon *LoadableIconInstance) Load(size int32, cancellable Cancellable) (str
 	var carg1 C.int            // in, none, casted
 	var carg3 *C.GCancellable  // in, none, converted, nullable
 	var carg2 *C.char          // out, full, string
-	var cret  *C.GInputStream  // return, full, converted
+	var cret  *C.GInputStream  // return, full, converted, nullable
 	var _cerr *C.GError        // out, full, converted, nullable
 
 	carg0 = (*C.GLoadableIcon)(UnsafeLoadableIconToGlibNone(icon))
@@ -14891,7 +14993,9 @@ func (icon *LoadableIconInstance) Load(size int32, cancellable Cancellable) (str
 
 	typ = C.GoString((*C.char)(unsafe.Pointer(carg2)))
 	defer C.g_free(C.gpointer(carg2))
-	goret = UnsafeInputStreamFromGlibFull(unsafe.Pointer(cret))
+	if cret != nil {
+		goret = UnsafeInputStreamFromGlibFull(unsafe.Pointer(cret))
+	}
 	if _cerr != nil {
 		_goerr = glib.UnsafeErrorFromGlibFull(unsafe.Pointer(_cerr))
 	}
@@ -14933,7 +15037,7 @@ func (icon *LoadableIconInstance) LoadFinish(res AsyncResult) (string, InputStre
 	var carg0 *C.GLoadableIcon // in, none, converted
 	var carg1 *C.GAsyncResult  // in, none, converted
 	var carg2 *C.char          // out, full, string
-	var cret  *C.GInputStream  // return, full, converted
+	var cret  *C.GInputStream  // return, full, converted, nullable
 	var _cerr *C.GError        // out, full, converted, nullable
 
 	carg0 = (*C.GLoadableIcon)(UnsafeLoadableIconToGlibNone(icon))
@@ -14949,7 +15053,9 @@ func (icon *LoadableIconInstance) LoadFinish(res AsyncResult) (string, InputStre
 
 	typ = C.GoString((*C.char)(unsafe.Pointer(carg2)))
 	defer C.g_free(C.gpointer(carg2))
-	goret = UnsafeInputStreamFromGlibFull(unsafe.Pointer(cret))
+	if cret != nil {
+		goret = UnsafeInputStreamFromGlibFull(unsafe.Pointer(cret))
+	}
 	if _cerr != nil {
 		_goerr = glib.UnsafeErrorFromGlibFull(unsafe.Pointer(_cerr))
 	}
@@ -15608,7 +15714,7 @@ func (mount *MountInstance) GuessContentType(forceRescan bool, cancellable Cance
 func (mount *MountInstance) GuessContentTypeFinish(result AsyncResult) ([]string, error) {
 	var carg0 *C.GMount       // in, none, converted
 	var carg1 *C.GAsyncResult // in, none, converted
-	var cret  **C.gchar       // return, transfer: full, C Pointers: 2, Name: array[utf8], scope: , array (inner gchar* (*typesystem.StringPrimitive), zero-terminated)
+	var cret  **C.gchar       // return, transfer: full, C Pointers: 2, Name: array[utf8], scope: , nullable, array (inner gchar* (*typesystem.StringPrimitive), zero-terminated)
 	var _cerr *C.GError       // out, full, converted, nullable
 
 	carg0 = (*C.GMount)(UnsafeMountToGlibNone(mount))
@@ -15638,7 +15744,7 @@ func (mount *MountInstance) GuessContentTypeSync(forceRescan bool, cancellable C
 	var carg0 *C.GMount       // in, none, converted
 	var carg1 C.gboolean      // in
 	var carg2 *C.GCancellable // in, none, converted, nullable
-	var cret  **C.gchar       // return, transfer: full, C Pointers: 2, Name: array[utf8], scope: , array (inner gchar* (*typesystem.StringPrimitive), zero-terminated)
+	var cret  **C.gchar       // return, transfer: full, C Pointers: 2, Name: array[utf8], scope: , nullable, array (inner gchar* (*typesystem.StringPrimitive), zero-terminated)
 	var _cerr *C.GError       // out, full, converted, nullable
 
 	carg0 = (*C.GMount)(UnsafeMountToGlibNone(mount))
@@ -16637,7 +16743,7 @@ func (proxy *ProxyInstance) ConnectProxy(connection IOStream, proxyAddress Proxy
 	var carg1 *C.GIOStream     // in, none, converted
 	var carg2 *C.GProxyAddress // in, none, converted
 	var carg3 *C.GCancellable  // in, none, converted, nullable
-	var cret  *C.GIOStream     // return, full, converted
+	var cret  *C.GIOStream     // return, full, converted, nullable
 	var _cerr *C.GError        // out, full, converted, nullable
 
 	carg0 = (*C.GProxy)(UnsafeProxyToGlibNone(proxy))
@@ -16656,7 +16762,9 @@ func (proxy *ProxyInstance) ConnectProxy(connection IOStream, proxyAddress Proxy
 	var goret  IOStream
 	var _goerr error
 
-	goret = UnsafeIOStreamFromGlibFull(unsafe.Pointer(cret))
+	if cret != nil {
+		goret = UnsafeIOStreamFromGlibFull(unsafe.Pointer(cret))
+	}
 	if _cerr != nil {
 		_goerr = glib.UnsafeErrorFromGlibFull(unsafe.Pointer(_cerr))
 	}
@@ -16700,7 +16808,7 @@ func (proxy *ProxyInstance) ConnectAsync(connection IOStream, proxyAddress Proxy
 func (proxy *ProxyInstance) ConnectFinish(result AsyncResult) (IOStream, error) {
 	var carg0 *C.GProxy       // in, none, converted
 	var carg1 *C.GAsyncResult // in, none, converted
-	var cret  *C.GIOStream    // return, full, converted
+	var cret  *C.GIOStream    // return, full, converted, nullable
 	var _cerr *C.GError       // out, full, converted, nullable
 
 	carg0 = (*C.GProxy)(UnsafeProxyToGlibNone(proxy))
@@ -16713,7 +16821,9 @@ func (proxy *ProxyInstance) ConnectFinish(result AsyncResult) (IOStream, error) 
 	var goret  IOStream
 	var _goerr error
 
-	goret = UnsafeIOStreamFromGlibFull(unsafe.Pointer(cret))
+	if cret != nil {
+		goret = UnsafeIOStreamFromGlibFull(unsafe.Pointer(cret))
+	}
 	if _cerr != nil {
 		_goerr = glib.UnsafeErrorFromGlibFull(unsafe.Pointer(_cerr))
 	}
@@ -16860,7 +16970,7 @@ func (resolver *ProxyResolverInstance) Lookup(uri string, cancellable Cancellabl
 	var carg0 *C.GProxyResolver // in, none, converted
 	var carg1 *C.gchar          // in, none, string
 	var carg2 *C.GCancellable   // in, none, converted, nullable
-	var cret  **C.gchar         // return, transfer: full, C Pointers: 2, Name: array[utf8], scope: , array (inner gchar* (*typesystem.StringPrimitive), zero-terminated)
+	var cret  **C.gchar         // return, transfer: full, C Pointers: 2, Name: array[utf8], scope: , nullable, array (inner gchar* (*typesystem.StringPrimitive), zero-terminated)
 	var _cerr *C.GError         // out, full, converted, nullable
 
 	carg0 = (*C.GProxyResolver)(UnsafeProxyResolverToGlibNone(resolver))
@@ -16922,7 +17032,7 @@ func (resolver *ProxyResolverInstance) LookupAsync(uri string, cancellable Cance
 func (resolver *ProxyResolverInstance) LookupFinish(result AsyncResult) ([]string, error) {
 	var carg0 *C.GProxyResolver // in, none, converted
 	var carg1 *C.GAsyncResult   // in, none, converted
-	var cret  **C.gchar         // return, transfer: full, C Pointers: 2, Name: array[utf8], scope: , array (inner gchar* (*typesystem.StringPrimitive), zero-terminated)
+	var cret  **C.gchar         // return, transfer: full, C Pointers: 2, Name: array[utf8], scope: , nullable, array (inner gchar* (*typesystem.StringPrimitive), zero-terminated)
 	var _cerr *C.GError         // out, full, converted, nullable
 
 	carg0 = (*C.GProxyResolver)(UnsafeProxyResolverToGlibNone(resolver))
@@ -17750,7 +17860,7 @@ func UnsafeTlsClientConnectionToGlibFull(c TlsClientConnection) unsafe.Pointer {
 func NewTlsClientConnection(baseIoStream IOStream, serverIdentity SocketConnectable) (TlsClientConnection, error) {
 	var carg1 *C.GIOStream          // in, none, converted
 	var carg2 *C.GSocketConnectable // in, none, converted, nullable
-	var cret  *C.GIOStream          // return, full, converted
+	var cret  *C.GIOStream          // return, full, converted, nullable
 	var _cerr *C.GError             // out, full, converted, nullable
 
 	carg1 = (*C.GIOStream)(UnsafeIOStreamToGlibNone(baseIoStream))
@@ -17765,7 +17875,9 @@ func NewTlsClientConnection(baseIoStream IOStream, serverIdentity SocketConnecta
 	var goret  TlsClientConnection
 	var _goerr error
 
-	goret = UnsafeTlsClientConnectionFromGlibFull(unsafe.Pointer(cret))
+	if cret != nil {
+		goret = UnsafeTlsClientConnectionFromGlibFull(unsafe.Pointer(cret))
+	}
 	if _cerr != nil {
 		_goerr = glib.UnsafeErrorFromGlibFull(unsafe.Pointer(_cerr))
 	}
@@ -17967,7 +18079,7 @@ func UnsafeTlsFileDatabaseToGlibFull(c TlsFileDatabase) unsafe.Pointer {
 // see also https://docs.gtk.org/gio/func.g_tls_file_database_new.html
 func NewTlsFileDatabase(anchors string) (TlsFileDatabase, error) {
 	var carg1 *C.gchar        // in, none, string
-	var cret  *C.GTlsDatabase // return, full, converted
+	var cret  *C.GTlsDatabase // return, full, converted, nullable
 	var _cerr *C.GError       // out, full, converted, nullable
 
 	carg1 = (*C.gchar)(transfer.GLibString(anchors))
@@ -17979,7 +18091,9 @@ func NewTlsFileDatabase(anchors string) (TlsFileDatabase, error) {
 	var goret  TlsFileDatabase
 	var _goerr error
 
-	goret = UnsafeTlsFileDatabaseFromGlibFull(unsafe.Pointer(cret))
+	if cret != nil {
+		goret = UnsafeTlsFileDatabaseFromGlibFull(unsafe.Pointer(cret))
+	}
 	if _cerr != nil {
 		_goerr = glib.UnsafeErrorFromGlibFull(unsafe.Pointer(_cerr))
 	}
@@ -18051,7 +18165,7 @@ func UnsafeTlsServerConnectionToGlibFull(c TlsServerConnection) unsafe.Pointer {
 func NewTlsServerConnection(baseIoStream IOStream, certificate TlsCertificate) (TlsServerConnection, error) {
 	var carg1 *C.GIOStream       // in, none, converted
 	var carg2 *C.GTlsCertificate // in, none, converted, nullable
-	var cret  *C.GIOStream       // return, full, converted
+	var cret  *C.GIOStream       // return, full, converted, nullable
 	var _cerr *C.GError          // out, full, converted, nullable
 
 	carg1 = (*C.GIOStream)(UnsafeIOStreamToGlibNone(baseIoStream))
@@ -18066,7 +18180,9 @@ func NewTlsServerConnection(baseIoStream IOStream, certificate TlsCertificate) (
 	var goret  TlsServerConnection
 	var _goerr error
 
-	goret = UnsafeTlsServerConnectionFromGlibFull(unsafe.Pointer(cret))
+	if cret != nil {
+		goret = UnsafeTlsServerConnectionFromGlibFull(unsafe.Pointer(cret))
+	}
 	if _cerr != nil {
 		_goerr = glib.UnsafeErrorFromGlibFull(unsafe.Pointer(_cerr))
 	}
@@ -18881,7 +18997,7 @@ func UnsafeDtlsClientConnectionToGlibFull(c DtlsClientConnection) unsafe.Pointer
 func NewDtlsClientConnection(baseSocket DatagramBased, serverIdentity SocketConnectable) (DtlsClientConnection, error) {
 	var carg1 *C.GDatagramBased     // in, none, converted
 	var carg2 *C.GSocketConnectable // in, none, converted, nullable
-	var cret  *C.GDatagramBased     // return, full, converted
+	var cret  *C.GDatagramBased     // return, full, converted, nullable
 	var _cerr *C.GError             // out, full, converted, nullable
 
 	carg1 = (*C.GDatagramBased)(UnsafeDatagramBasedToGlibNone(baseSocket))
@@ -18896,7 +19012,9 @@ func NewDtlsClientConnection(baseSocket DatagramBased, serverIdentity SocketConn
 	var goret  DtlsClientConnection
 	var _goerr error
 
-	goret = UnsafeDtlsClientConnectionFromGlibFull(unsafe.Pointer(cret))
+	if cret != nil {
+		goret = UnsafeDtlsClientConnectionFromGlibFull(unsafe.Pointer(cret))
+	}
 	if _cerr != nil {
 		_goerr = glib.UnsafeErrorFromGlibFull(unsafe.Pointer(_cerr))
 	}
@@ -21960,7 +22078,7 @@ func UnsafeCharsetConverterToGlibFull(c CharsetConverter) unsafe.Pointer {
 func NewCharsetConverter(toCharset string, fromCharset string) (CharsetConverter, error) {
 	var carg1 *C.gchar             // in, none, string
 	var carg2 *C.gchar             // in, none, string
-	var cret  *C.GCharsetConverter // return, full, converted
+	var cret  *C.GCharsetConverter // return, full, converted, nullable
 	var _cerr *C.GError            // out, full, converted, nullable
 
 	carg1 = (*C.gchar)(transfer.GLibString(toCharset))
@@ -21975,7 +22093,9 @@ func NewCharsetConverter(toCharset string, fromCharset string) (CharsetConverter
 	var goret  CharsetConverter
 	var _goerr error
 
-	goret = UnsafeCharsetConverterFromGlibFull(unsafe.Pointer(cret))
+	if cret != nil {
+		goret = UnsafeCharsetConverterFromGlibFull(unsafe.Pointer(cret))
+	}
 	if _cerr != nil {
 		_goerr = glib.UnsafeErrorFromGlibFull(unsafe.Pointer(_cerr))
 	}
@@ -23164,7 +23284,7 @@ func UnsafeApplyFileEnumeratorOverrides[Instance FileEnumerator](gclass unsafe.P
 			func(carg0 *C.GFileEnumerator, carg1 *C.GAsyncResult, _cerr **C.GError) (cret *C.GList) {
 				var enumerator Instance    // go GFileEnumerator subclass
 				var result     AsyncResult // in, none, converted
-				var goret      []FileInfo  // return, transfer: full, C Pointers: 1, Name: List, scope: 
+				var goret      []FileInfo  // return, transfer: full, C Pointers: 1, Name: List, scope: , nullable, nullable
 				var _goerr     error       // out, full, converted
 
 				enumerator = UnsafeFileEnumeratorFromGlibBorrow(unsafe.Pointer(carg0)).UnsafeLoadInstanceFromPrivateData().(Instance)
@@ -23172,9 +23292,11 @@ func UnsafeApplyFileEnumeratorOverrides[Instance FileEnumerator](gclass unsafe.P
 
 				goret, _goerr = overrides.NextFilesFinish(enumerator, result)
 
-				_ = goret
-				_ = cret
-				panic("unimplemented conversion of []FileInfo (GList*) because of no basic converter found")
+				if goret != nil {
+					_ = goret
+					_ = cret
+					panic("unimplemented conversion of []FileInfo (GList*) because of no basic converter found")
+				}
 				*_cerr = (*C.GError)(glib.UnsafeErrorToGlibFull(_goerr))
 
 				return cret
@@ -26847,7 +26969,7 @@ func UnsafeInetAddressMaskToGlibFull(c InetAddressMask) unsafe.Pointer {
 func NewInetAddressMask(addr InetAddress, length uint) (InetAddressMask, error) {
 	var carg1 *C.GInetAddress     // in, none, converted
 	var carg2 C.guint             // in, none, casted
-	var cret  *C.GInetAddressMask // return, full, converted
+	var cret  *C.GInetAddressMask // return, full, converted, nullable
 	var _cerr *C.GError           // out, full, converted, nullable
 
 	carg1 = (*C.GInetAddress)(UnsafeInetAddressToGlibNone(addr))
@@ -26860,7 +26982,9 @@ func NewInetAddressMask(addr InetAddress, length uint) (InetAddressMask, error) 
 	var goret  InetAddressMask
 	var _goerr error
 
-	goret = UnsafeInetAddressMaskFromGlibFull(unsafe.Pointer(cret))
+	if cret != nil {
+		goret = UnsafeInetAddressMaskFromGlibFull(unsafe.Pointer(cret))
+	}
 	if _cerr != nil {
 		_goerr = glib.UnsafeErrorFromGlibFull(unsafe.Pointer(_cerr))
 	}
@@ -26873,7 +26997,7 @@ func NewInetAddressMask(addr InetAddress, length uint) (InetAddressMask, error) 
 // see also https://docs.gtk.org/gio/func.g_inet_address_mask_new_from_string.html
 func NewInetAddressMaskFromString(maskString string) (InetAddressMask, error) {
 	var carg1 *C.gchar            // in, none, string
-	var cret  *C.GInetAddressMask // return, full, converted
+	var cret  *C.GInetAddressMask // return, full, converted, nullable
 	var _cerr *C.GError           // out, full, converted, nullable
 
 	carg1 = (*C.gchar)(transfer.GLibString(maskString))
@@ -26885,7 +27009,9 @@ func NewInetAddressMaskFromString(maskString string) (InetAddressMask, error) {
 	var goret  InetAddressMask
 	var _goerr error
 
-	goret = UnsafeInetAddressMaskFromGlibFull(unsafe.Pointer(cret))
+	if cret != nil {
+		goret = UnsafeInetAddressMaskFromGlibFull(unsafe.Pointer(cret))
+	}
 	if _cerr != nil {
 		_goerr = glib.UnsafeErrorFromGlibFull(unsafe.Pointer(_cerr))
 	}
@@ -27391,7 +27517,7 @@ func (stream *InputStreamInstance) ReadBytes(count uint, cancellable Cancellable
 	var carg0 *C.GInputStream // in, none, converted
 	var carg1 C.gsize         // in, none, casted
 	var carg2 *C.GCancellable // in, none, converted, nullable
-	var cret  *C.GBytes       // return, full, converted
+	var cret  *C.GBytes       // return, full, converted, nullable
 	var _cerr *C.GError       // out, full, converted, nullable
 
 	carg0 = (*C.GInputStream)(UnsafeInputStreamToGlibNone(stream))
@@ -27408,7 +27534,9 @@ func (stream *InputStreamInstance) ReadBytes(count uint, cancellable Cancellable
 	var goret  *glib.Bytes
 	var _goerr error
 
-	goret = glib.UnsafeBytesFromGlibFull(unsafe.Pointer(cret))
+	if cret != nil {
+		goret = glib.UnsafeBytesFromGlibFull(unsafe.Pointer(cret))
+	}
 	if _cerr != nil {
 		_goerr = glib.UnsafeErrorFromGlibFull(unsafe.Pointer(_cerr))
 	}
@@ -27452,7 +27580,7 @@ func (stream *InputStreamInstance) ReadBytesAsync(count uint, ioPriority int32, 
 func (stream *InputStreamInstance) ReadBytesFinish(result AsyncResult) (*glib.Bytes, error) {
 	var carg0 *C.GInputStream // in, none, converted
 	var carg1 *C.GAsyncResult // in, none, converted
-	var cret  *C.GBytes       // return, full, converted
+	var cret  *C.GBytes       // return, full, converted, nullable
 	var _cerr *C.GError       // out, full, converted, nullable
 
 	carg0 = (*C.GInputStream)(UnsafeInputStreamToGlibNone(stream))
@@ -27465,7 +27593,9 @@ func (stream *InputStreamInstance) ReadBytesFinish(result AsyncResult) (*glib.By
 	var goret  *glib.Bytes
 	var _goerr error
 
-	goret = glib.UnsafeBytesFromGlibFull(unsafe.Pointer(cret))
+	if cret != nil {
+		goret = glib.UnsafeBytesFromGlibFull(unsafe.Pointer(cret))
+	}
 	if _cerr != nil {
 		_goerr = glib.UnsafeErrorFromGlibFull(unsafe.Pointer(_cerr))
 	}
@@ -30582,7 +30712,7 @@ func NewNetworkAddressLoopback(port uint16) NetworkAddress {
 func NetworkAddressParse(hostAndPort string, defaultPort uint16) (NetworkAddress, error) {
 	var carg1 *C.gchar              // in, none, string
 	var carg2 C.guint16             // in, none, casted
-	var cret  *C.GSocketConnectable // return, full, converted
+	var cret  *C.GSocketConnectable // return, full, converted, nullable
 	var _cerr *C.GError             // out, full, converted, nullable
 
 	carg1 = (*C.gchar)(transfer.GLibString(hostAndPort))
@@ -30596,7 +30726,9 @@ func NetworkAddressParse(hostAndPort string, defaultPort uint16) (NetworkAddress
 	var goret  NetworkAddress
 	var _goerr error
 
-	goret = UnsafeNetworkAddressFromGlibFull(unsafe.Pointer(cret))
+	if cret != nil {
+		goret = UnsafeNetworkAddressFromGlibFull(unsafe.Pointer(cret))
+	}
 	if _cerr != nil {
 		_goerr = glib.UnsafeErrorFromGlibFull(unsafe.Pointer(_cerr))
 	}
@@ -30610,7 +30742,7 @@ func NetworkAddressParse(hostAndPort string, defaultPort uint16) (NetworkAddress
 func NetworkAddressParseURI(uri string, defaultPort uint16) (NetworkAddress, error) {
 	var carg1 *C.gchar              // in, none, string
 	var carg2 C.guint16             // in, none, casted
-	var cret  *C.GSocketConnectable // return, full, converted
+	var cret  *C.GSocketConnectable // return, full, converted, nullable
 	var _cerr *C.GError             // out, full, converted, nullable
 
 	carg1 = (*C.gchar)(transfer.GLibString(uri))
@@ -30624,7 +30756,9 @@ func NetworkAddressParseURI(uri string, defaultPort uint16) (NetworkAddress, err
 	var goret  NetworkAddress
 	var _goerr error
 
-	goret = UnsafeNetworkAddressFromGlibFull(unsafe.Pointer(cret))
+	if cret != nil {
+		goret = UnsafeNetworkAddressFromGlibFull(unsafe.Pointer(cret))
+	}
 	if _cerr != nil {
 		_goerr = glib.UnsafeErrorFromGlibFull(unsafe.Pointer(_cerr))
 	}
@@ -33766,7 +33900,7 @@ func (resolver *ResolverInstance) LookupByAddress(address InetAddress, cancellab
 	var carg0 *C.GResolver    // in, none, converted
 	var carg1 *C.GInetAddress // in, none, converted
 	var carg2 *C.GCancellable // in, none, converted, nullable
-	var cret  *C.gchar        // return, full, string
+	var cret  *C.gchar        // return, full, string, nullable-string
 	var _cerr *C.GError       // out, full, converted, nullable
 
 	carg0 = (*C.GResolver)(UnsafeResolverToGlibNone(resolver))
@@ -33783,8 +33917,10 @@ func (resolver *ResolverInstance) LookupByAddress(address InetAddress, cancellab
 	var goret  string
 	var _goerr error
 
-	goret = C.GoString((*C.char)(unsafe.Pointer(cret)))
-	defer C.g_free(C.gpointer(cret))
+	if cret != nil {
+		goret = C.GoString((*C.char)(unsafe.Pointer(cret)))
+		defer C.g_free(C.gpointer(cret))
+	}
 	if _cerr != nil {
 		_goerr = glib.UnsafeErrorFromGlibFull(unsafe.Pointer(_cerr))
 	}
@@ -33825,7 +33961,7 @@ func (resolver *ResolverInstance) LookupByAddressAsync(address InetAddress, canc
 func (resolver *ResolverInstance) LookupByAddressFinish(result AsyncResult) (string, error) {
 	var carg0 *C.GResolver    // in, none, converted
 	var carg1 *C.GAsyncResult // in, none, converted
-	var cret  *C.gchar        // return, full, string
+	var cret  *C.gchar        // return, full, string, nullable-string
 	var _cerr *C.GError       // out, full, converted, nullable
 
 	carg0 = (*C.GResolver)(UnsafeResolverToGlibNone(resolver))
@@ -33838,8 +33974,10 @@ func (resolver *ResolverInstance) LookupByAddressFinish(result AsyncResult) (str
 	var goret  string
 	var _goerr error
 
-	goret = C.GoString((*C.char)(unsafe.Pointer(cret)))
-	defer C.g_free(C.gpointer(cret))
+	if cret != nil {
+		goret = C.GoString((*C.char)(unsafe.Pointer(cret)))
+		defer C.g_free(C.gpointer(cret))
+	}
 	if _cerr != nil {
 		_goerr = glib.UnsafeErrorFromGlibFull(unsafe.Pointer(_cerr))
 	}
@@ -34296,7 +34434,7 @@ func UnsafeApplyResolverOverrides[Instance Resolver](gclass unsafe.Pointer, over
 				var resolver    Instance    // go GResolver subclass
 				var address     InetAddress // in, none, converted
 				var cancellable Cancellable // in, none, converted, nullable
-				var goret       string      // return, full, string
+				var goret       string      // return, full, string, nullable-string
 				var _goerr      error       // out, full, converted
 
 				resolver = UnsafeResolverFromGlibBorrow(unsafe.Pointer(carg0)).UnsafeLoadInstanceFromPrivateData().(Instance)
@@ -34307,7 +34445,9 @@ func UnsafeApplyResolverOverrides[Instance Resolver](gclass unsafe.Pointer, over
 
 				goret, _goerr = overrides.LookupByAddress(resolver, address, cancellable)
 
-				cret = (*C.gchar)(transfer.GLibString(goret))
+				if goret != "" {
+					cret = (*C.gchar)(transfer.GLibString(goret))
+				}
 				*_cerr = (*C.GError)(glib.UnsafeErrorToGlibFull(_goerr))
 
 				return cret
@@ -34323,7 +34463,7 @@ func UnsafeApplyResolverOverrides[Instance Resolver](gclass unsafe.Pointer, over
 			func(carg0 *C.GResolver, carg1 *C.GAsyncResult, _cerr **C.GError) (cret *C.gchar) {
 				var resolver Instance    // go GResolver subclass
 				var result   AsyncResult // in, none, converted
-				var goret    string      // return, full, string
+				var goret    string      // return, full, string, nullable-string
 				var _goerr   error       // out, full, converted
 
 				resolver = UnsafeResolverFromGlibBorrow(unsafe.Pointer(carg0)).UnsafeLoadInstanceFromPrivateData().(Instance)
@@ -34331,7 +34471,9 @@ func UnsafeApplyResolverOverrides[Instance Resolver](gclass unsafe.Pointer, over
 
 				goret, _goerr = overrides.LookupByAddressFinish(resolver, result)
 
-				cret = (*C.gchar)(transfer.GLibString(goret))
+				if goret != "" {
+					cret = (*C.gchar)(transfer.GLibString(goret))
+				}
 				*_cerr = (*C.GError)(glib.UnsafeErrorToGlibFull(_goerr))
 
 				return cret
@@ -34348,7 +34490,7 @@ func UnsafeApplyResolverOverrides[Instance Resolver](gclass unsafe.Pointer, over
 				var resolver    Instance      // go GResolver subclass
 				var hostname    string        // in, none, string
 				var cancellable Cancellable   // in, none, converted, nullable
-				var goret       []InetAddress // return, transfer: full, C Pointers: 1, Name: List, scope: 
+				var goret       []InetAddress // return, transfer: full, C Pointers: 1, Name: List, scope: , nullable, nullable
 				var _goerr      error         // out, full, converted
 
 				resolver = UnsafeResolverFromGlibBorrow(unsafe.Pointer(carg0)).UnsafeLoadInstanceFromPrivateData().(Instance)
@@ -34359,9 +34501,11 @@ func UnsafeApplyResolverOverrides[Instance Resolver](gclass unsafe.Pointer, over
 
 				goret, _goerr = overrides.LookupByName(resolver, hostname, cancellable)
 
-				_ = goret
-				_ = cret
-				panic("unimplemented conversion of []InetAddress (GList*) because of no basic converter found")
+				if goret != nil {
+					_ = goret
+					_ = cret
+					panic("unimplemented conversion of []InetAddress (GList*) because of no basic converter found")
+				}
 				*_cerr = (*C.GError)(glib.UnsafeErrorToGlibFull(_goerr))
 
 				return cret
@@ -34377,7 +34521,7 @@ func UnsafeApplyResolverOverrides[Instance Resolver](gclass unsafe.Pointer, over
 			func(carg0 *C.GResolver, carg1 *C.GAsyncResult, _cerr **C.GError) (cret *C.GList) {
 				var resolver Instance      // go GResolver subclass
 				var result   AsyncResult   // in, none, converted
-				var goret    []InetAddress // return, transfer: full, C Pointers: 1, Name: List, scope: 
+				var goret    []InetAddress // return, transfer: full, C Pointers: 1, Name: List, scope: , nullable, nullable
 				var _goerr   error         // out, full, converted
 
 				resolver = UnsafeResolverFromGlibBorrow(unsafe.Pointer(carg0)).UnsafeLoadInstanceFromPrivateData().(Instance)
@@ -34385,9 +34529,11 @@ func UnsafeApplyResolverOverrides[Instance Resolver](gclass unsafe.Pointer, over
 
 				goret, _goerr = overrides.LookupByNameFinish(resolver, result)
 
-				_ = goret
-				_ = cret
-				panic("unimplemented conversion of []InetAddress (GList*) because of no basic converter found")
+				if goret != nil {
+					_ = goret
+					_ = cret
+					panic("unimplemented conversion of []InetAddress (GList*) because of no basic converter found")
+				}
 				*_cerr = (*C.GError)(glib.UnsafeErrorToGlibFull(_goerr))
 
 				return cret
@@ -34405,7 +34551,7 @@ func UnsafeApplyResolverOverrides[Instance Resolver](gclass unsafe.Pointer, over
 				var hostname    string                  // in, none, string
 				var flags       ResolverNameLookupFlags // in, none, casted
 				var cancellable Cancellable             // in, none, converted, nullable
-				var goret       []InetAddress           // return, transfer: full, C Pointers: 1, Name: List, scope: 
+				var goret       []InetAddress           // return, transfer: full, C Pointers: 1, Name: List, scope: , nullable, nullable
 				var _goerr      error                   // out, full, converted
 
 				resolver = UnsafeResolverFromGlibBorrow(unsafe.Pointer(carg0)).UnsafeLoadInstanceFromPrivateData().(Instance)
@@ -34417,9 +34563,11 @@ func UnsafeApplyResolverOverrides[Instance Resolver](gclass unsafe.Pointer, over
 
 				goret, _goerr = overrides.LookupByNameWithFlags(resolver, hostname, flags, cancellable)
 
-				_ = goret
-				_ = cret
-				panic("unimplemented conversion of []InetAddress (GList*) because of no basic converter found")
+				if goret != nil {
+					_ = goret
+					_ = cret
+					panic("unimplemented conversion of []InetAddress (GList*) because of no basic converter found")
+				}
 				*_cerr = (*C.GError)(glib.UnsafeErrorToGlibFull(_goerr))
 
 				return cret
@@ -34435,7 +34583,7 @@ func UnsafeApplyResolverOverrides[Instance Resolver](gclass unsafe.Pointer, over
 			func(carg0 *C.GResolver, carg1 *C.GAsyncResult, _cerr **C.GError) (cret *C.GList) {
 				var resolver Instance      // go GResolver subclass
 				var result   AsyncResult   // in, none, converted
-				var goret    []InetAddress // return, transfer: full, C Pointers: 1, Name: List, scope: 
+				var goret    []InetAddress // return, transfer: full, C Pointers: 1, Name: List, scope: , nullable, nullable
 				var _goerr   error         // out, full, converted
 
 				resolver = UnsafeResolverFromGlibBorrow(unsafe.Pointer(carg0)).UnsafeLoadInstanceFromPrivateData().(Instance)
@@ -34443,9 +34591,11 @@ func UnsafeApplyResolverOverrides[Instance Resolver](gclass unsafe.Pointer, over
 
 				goret, _goerr = overrides.LookupByNameWithFlagsFinish(resolver, result)
 
-				_ = goret
-				_ = cret
-				panic("unimplemented conversion of []InetAddress (GList*) because of no basic converter found")
+				if goret != nil {
+					_ = goret
+					_ = cret
+					panic("unimplemented conversion of []InetAddress (GList*) because of no basic converter found")
+				}
 				*_cerr = (*C.GError)(glib.UnsafeErrorToGlibFull(_goerr))
 
 				return cret
@@ -34461,7 +34611,7 @@ func UnsafeApplyResolverOverrides[Instance Resolver](gclass unsafe.Pointer, over
 			func(carg0 *C.GResolver, carg1 *C.GAsyncResult, _cerr **C.GError) (cret *C.GList) {
 				var resolver Instance     // go GResolver subclass
 				var result   AsyncResult  // in, none, converted
-				var goret    []*SrvTarget // return, transfer: full, C Pointers: 1, Name: List, scope: 
+				var goret    []*SrvTarget // return, transfer: full, C Pointers: 1, Name: List, scope: , nullable, nullable
 				var _goerr   error        // out, full, converted
 
 				resolver = UnsafeResolverFromGlibBorrow(unsafe.Pointer(carg0)).UnsafeLoadInstanceFromPrivateData().(Instance)
@@ -34469,9 +34619,11 @@ func UnsafeApplyResolverOverrides[Instance Resolver](gclass unsafe.Pointer, over
 
 				goret, _goerr = overrides.LookupServiceFinish(resolver, result)
 
-				_ = goret
-				_ = cret
-				panic("unimplemented conversion of []*SrvTarget (GList*) because of no basic converter found")
+				if goret != nil {
+					_ = goret
+					_ = cret
+					panic("unimplemented conversion of []*SrvTarget (GList*) because of no basic converter found")
+				}
 				*_cerr = (*C.GError)(glib.UnsafeErrorToGlibFull(_goerr))
 
 				return cret
@@ -34503,7 +34655,7 @@ func (resolver *ResolverInstance) ParentLookupByAddress(address InetAddress, can
 	var carg0 *C.GResolver
 	var carg1 *C.GInetAddress // in, none, converted
 	var carg2 *C.GCancellable // in, none, converted
-	var cret  *C.gchar        // return, full, string
+	var cret  *C.gchar        // return, full, string, nullable-string
 	var _cerr *C.GError       // out, full, converted, nullable
 
 	parentclass := (*C.GResolverClass)(classdata.PeekParentClass(UnsafeResolverToGlibNone(resolver)))
@@ -34522,8 +34674,10 @@ func (resolver *ResolverInstance) ParentLookupByAddress(address InetAddress, can
 	var goret  string
 	var _goerr error
 
-	goret = C.GoString((*C.char)(unsafe.Pointer(cret)))
-	defer C.g_free(C.gpointer(cret))
+	if cret != nil {
+		goret = C.GoString((*C.char)(unsafe.Pointer(cret)))
+		defer C.g_free(C.gpointer(cret))
+	}
 	if _cerr != nil {
 		_goerr = glib.UnsafeErrorFromGlibFull(unsafe.Pointer(_cerr))
 	}
@@ -34538,7 +34692,7 @@ func (resolver *ResolverInstance) ParentLookupByAddress(address InetAddress, can
 func (resolver *ResolverInstance) ParentLookupByAddressFinish(result AsyncResult) (string, error) {
 	var carg0 *C.GResolver
 	var carg1 *C.GAsyncResult // in, none, converted
-	var cret  *C.gchar        // return, full, string
+	var cret  *C.gchar        // return, full, string, nullable-string
 	var _cerr *C.GError       // out, full, converted, nullable
 
 	parentclass := (*C.GResolverClass)(classdata.PeekParentClass(UnsafeResolverToGlibNone(resolver)))
@@ -34553,8 +34707,10 @@ func (resolver *ResolverInstance) ParentLookupByAddressFinish(result AsyncResult
 	var goret  string
 	var _goerr error
 
-	goret = C.GoString((*C.char)(unsafe.Pointer(cret)))
-	defer C.g_free(C.gpointer(cret))
+	if cret != nil {
+		goret = C.GoString((*C.char)(unsafe.Pointer(cret)))
+		defer C.g_free(C.gpointer(cret))
+	}
 	if _cerr != nil {
 		_goerr = glib.UnsafeErrorFromGlibFull(unsafe.Pointer(_cerr))
 	}
@@ -37346,7 +37502,7 @@ func NewSocket(family SocketFamily, typ SocketType, protocol SocketProtocol) (So
 	var carg1 C.GSocketFamily   // in, none, casted
 	var carg2 C.GSocketType     // in, none, casted
 	var carg3 C.GSocketProtocol // in, none, casted
-	var cret  *C.GSocket        // return, full, converted
+	var cret  *C.GSocket        // return, full, converted, nullable
 	var _cerr *C.GError         // out, full, converted, nullable
 
 	carg1 = C.GSocketFamily(family)
@@ -37361,7 +37517,9 @@ func NewSocket(family SocketFamily, typ SocketType, protocol SocketProtocol) (So
 	var goret  Socket
 	var _goerr error
 
-	goret = UnsafeSocketFromGlibFull(unsafe.Pointer(cret))
+	if cret != nil {
+		goret = UnsafeSocketFromGlibFull(unsafe.Pointer(cret))
+	}
 	if _cerr != nil {
 		_goerr = glib.UnsafeErrorFromGlibFull(unsafe.Pointer(_cerr))
 	}
@@ -37374,7 +37532,7 @@ func NewSocket(family SocketFamily, typ SocketType, protocol SocketProtocol) (So
 // see also https://docs.gtk.org/gio/func.g_socket_new_from_fd.html
 func NewSocketFromFd(fd int32) (Socket, error) {
 	var carg1 C.gint     // in, none, casted
-	var cret  *C.GSocket // return, full, converted
+	var cret  *C.GSocket // return, full, converted, nullable
 	var _cerr *C.GError  // out, full, converted, nullable
 
 	carg1 = C.gint(fd)
@@ -37385,7 +37543,9 @@ func NewSocketFromFd(fd int32) (Socket, error) {
 	var goret  Socket
 	var _goerr error
 
-	goret = UnsafeSocketFromGlibFull(unsafe.Pointer(cret))
+	if cret != nil {
+		goret = UnsafeSocketFromGlibFull(unsafe.Pointer(cret))
+	}
 	if _cerr != nil {
 		_goerr = glib.UnsafeErrorFromGlibFull(unsafe.Pointer(_cerr))
 	}
@@ -37399,7 +37559,7 @@ func NewSocketFromFd(fd int32) (Socket, error) {
 func (socket *SocketInstance) Accept(cancellable Cancellable) (Socket, error) {
 	var carg0 *C.GSocket      // in, none, converted
 	var carg1 *C.GCancellable // in, none, converted, nullable
-	var cret  *C.GSocket      // return, full, converted
+	var cret  *C.GSocket      // return, full, converted, nullable
 	var _cerr *C.GError       // out, full, converted, nullable
 
 	carg0 = (*C.GSocket)(UnsafeSocketToGlibNone(socket))
@@ -37414,7 +37574,9 @@ func (socket *SocketInstance) Accept(cancellable Cancellable) (Socket, error) {
 	var goret  Socket
 	var _goerr error
 
-	goret = UnsafeSocketFromGlibFull(unsafe.Pointer(cret))
+	if cret != nil {
+		goret = UnsafeSocketFromGlibFull(unsafe.Pointer(cret))
+	}
 	if _cerr != nil {
 		_goerr = glib.UnsafeErrorFromGlibFull(unsafe.Pointer(_cerr))
 	}
@@ -37720,7 +37882,7 @@ func (socket *SocketInstance) GetBroadcast() bool {
 // see also https://docs.gtk.org/gio/method.g_socket_get_credentials.g_socket_get_credentials.html
 func (socket *SocketInstance) GetCredentials() (Credentials, error) {
 	var carg0 *C.GSocket      // in, none, converted
-	var cret  *C.GCredentials // return, full, converted
+	var cret  *C.GCredentials // return, full, converted, nullable
 	var _cerr *C.GError       // out, full, converted, nullable
 
 	carg0 = (*C.GSocket)(UnsafeSocketToGlibNone(socket))
@@ -37731,7 +37893,9 @@ func (socket *SocketInstance) GetCredentials() (Credentials, error) {
 	var goret  Credentials
 	var _goerr error
 
-	goret = UnsafeCredentialsFromGlibFull(unsafe.Pointer(cret))
+	if cret != nil {
+		goret = UnsafeCredentialsFromGlibFull(unsafe.Pointer(cret))
+	}
 	if _cerr != nil {
 		_goerr = glib.UnsafeErrorFromGlibFull(unsafe.Pointer(_cerr))
 	}
@@ -37822,7 +37986,7 @@ func (socket *SocketInstance) GetListenBacklog() int32 {
 // see also https://docs.gtk.org/gio/method.g_socket_get_local_address.g_socket_get_local_address.html
 func (socket *SocketInstance) GetLocalAddress() (SocketAddress, error) {
 	var carg0 *C.GSocket        // in, none, converted
-	var cret  *C.GSocketAddress // return, full, converted
+	var cret  *C.GSocketAddress // return, full, converted, nullable
 	var _cerr *C.GError         // out, full, converted, nullable
 
 	carg0 = (*C.GSocket)(UnsafeSocketToGlibNone(socket))
@@ -37833,7 +37997,9 @@ func (socket *SocketInstance) GetLocalAddress() (SocketAddress, error) {
 	var goret  SocketAddress
 	var _goerr error
 
-	goret = UnsafeSocketAddressFromGlibFull(unsafe.Pointer(cret))
+	if cret != nil {
+		goret = UnsafeSocketAddressFromGlibFull(unsafe.Pointer(cret))
+	}
 	if _cerr != nil {
 		_goerr = glib.UnsafeErrorFromGlibFull(unsafe.Pointer(_cerr))
 	}
@@ -37940,7 +38106,7 @@ func (socket *SocketInstance) GetProtocol() SocketProtocol {
 // see also https://docs.gtk.org/gio/method.g_socket_get_remote_address.g_socket_get_remote_address.html
 func (socket *SocketInstance) GetRemoteAddress() (SocketAddress, error) {
 	var carg0 *C.GSocket        // in, none, converted
-	var cret  *C.GSocketAddress // return, full, converted
+	var cret  *C.GSocketAddress // return, full, converted, nullable
 	var _cerr *C.GError         // out, full, converted, nullable
 
 	carg0 = (*C.GSocket)(UnsafeSocketToGlibNone(socket))
@@ -37951,7 +38117,9 @@ func (socket *SocketInstance) GetRemoteAddress() (SocketAddress, error) {
 	var goret  SocketAddress
 	var _goerr error
 
-	goret = UnsafeSocketAddressFromGlibFull(unsafe.Pointer(cret))
+	if cret != nil {
+		goret = UnsafeSocketAddressFromGlibFull(unsafe.Pointer(cret))
+	}
 	if _cerr != nil {
 		_goerr = glib.UnsafeErrorFromGlibFull(unsafe.Pointer(_cerr))
 	}
@@ -38252,7 +38420,7 @@ func (socket *SocketInstance) ReceiveBytes(size uint, timeoutUs int64, cancellab
 	var carg1 C.gsize         // in, none, casted
 	var carg2 C.gint64        // in, none, casted
 	var carg3 *C.GCancellable // in, none, converted, nullable
-	var cret  *C.GBytes       // return, full, converted
+	var cret  *C.GBytes       // return, full, converted, nullable
 	var _cerr *C.GError       // out, full, converted, nullable
 
 	carg0 = (*C.GSocket)(UnsafeSocketToGlibNone(socket))
@@ -38271,7 +38439,9 @@ func (socket *SocketInstance) ReceiveBytes(size uint, timeoutUs int64, cancellab
 	var goret  *glib.Bytes
 	var _goerr error
 
-	goret = glib.UnsafeBytesFromGlibFull(unsafe.Pointer(cret))
+	if cret != nil {
+		goret = glib.UnsafeBytesFromGlibFull(unsafe.Pointer(cret))
+	}
 	if _cerr != nil {
 		_goerr = glib.UnsafeErrorFromGlibFull(unsafe.Pointer(_cerr))
 	}
@@ -38288,7 +38458,7 @@ func (socket *SocketInstance) ReceiveBytesFrom(size uint, timeoutUs int64, cance
 	var carg3 C.gint64          // in, none, casted
 	var carg4 *C.GCancellable   // in, none, converted, nullable
 	var carg1 *C.GSocketAddress // out, full, converted
-	var cret  *C.GBytes         // return, full, converted
+	var cret  *C.GBytes         // return, full, converted, nullable
 	var _cerr *C.GError         // out, full, converted, nullable
 
 	carg0 = (*C.GSocket)(UnsafeSocketToGlibNone(socket))
@@ -38309,7 +38479,9 @@ func (socket *SocketInstance) ReceiveBytesFrom(size uint, timeoutUs int64, cance
 	var _goerr  error
 
 	address = UnsafeSocketAddressFromGlibFull(unsafe.Pointer(carg1))
-	goret = glib.UnsafeBytesFromGlibFull(unsafe.Pointer(cret))
+	if cret != nil {
+		goret = glib.UnsafeBytesFromGlibFull(unsafe.Pointer(cret))
+	}
 	if _cerr != nil {
 		_goerr = glib.UnsafeErrorFromGlibFull(unsafe.Pointer(_cerr))
 	}
@@ -39540,7 +39712,7 @@ func (client *SocketClientInstance) ConnectSocketClient(connectable SocketConnec
 	var carg0 *C.GSocketClient      // in, none, converted
 	var carg1 *C.GSocketConnectable // in, none, converted
 	var carg2 *C.GCancellable       // in, none, converted, nullable
-	var cret  *C.GSocketConnection  // return, full, converted
+	var cret  *C.GSocketConnection  // return, full, converted, nullable
 	var _cerr *C.GError             // out, full, converted, nullable
 
 	carg0 = (*C.GSocketClient)(UnsafeSocketClientToGlibNone(client))
@@ -39557,7 +39729,9 @@ func (client *SocketClientInstance) ConnectSocketClient(connectable SocketConnec
 	var goret  SocketConnection
 	var _goerr error
 
-	goret = UnsafeSocketConnectionFromGlibFull(unsafe.Pointer(cret))
+	if cret != nil {
+		goret = UnsafeSocketConnectionFromGlibFull(unsafe.Pointer(cret))
+	}
 	if _cerr != nil {
 		_goerr = glib.UnsafeErrorFromGlibFull(unsafe.Pointer(_cerr))
 	}
@@ -39598,7 +39772,7 @@ func (client *SocketClientInstance) ConnectAsync(connectable SocketConnectable, 
 func (client *SocketClientInstance) ConnectFinish(result AsyncResult) (SocketConnection, error) {
 	var carg0 *C.GSocketClient     // in, none, converted
 	var carg1 *C.GAsyncResult      // in, none, converted
-	var cret  *C.GSocketConnection // return, full, converted
+	var cret  *C.GSocketConnection // return, full, converted, nullable
 	var _cerr *C.GError            // out, full, converted, nullable
 
 	carg0 = (*C.GSocketClient)(UnsafeSocketClientToGlibNone(client))
@@ -39611,7 +39785,9 @@ func (client *SocketClientInstance) ConnectFinish(result AsyncResult) (SocketCon
 	var goret  SocketConnection
 	var _goerr error
 
-	goret = UnsafeSocketConnectionFromGlibFull(unsafe.Pointer(cret))
+	if cret != nil {
+		goret = UnsafeSocketConnectionFromGlibFull(unsafe.Pointer(cret))
+	}
 	if _cerr != nil {
 		_goerr = glib.UnsafeErrorFromGlibFull(unsafe.Pointer(_cerr))
 	}
@@ -39627,7 +39803,7 @@ func (client *SocketClientInstance) ConnectToHost(hostAndPort string, defaultPor
 	var carg1 *C.gchar             // in, none, string
 	var carg2 C.guint16            // in, none, casted
 	var carg3 *C.GCancellable      // in, none, converted, nullable
-	var cret  *C.GSocketConnection // return, full, converted
+	var cret  *C.GSocketConnection // return, full, converted, nullable
 	var _cerr *C.GError            // out, full, converted, nullable
 
 	carg0 = (*C.GSocketClient)(UnsafeSocketClientToGlibNone(client))
@@ -39647,7 +39823,9 @@ func (client *SocketClientInstance) ConnectToHost(hostAndPort string, defaultPor
 	var goret  SocketConnection
 	var _goerr error
 
-	goret = UnsafeSocketConnectionFromGlibFull(unsafe.Pointer(cret))
+	if cret != nil {
+		goret = UnsafeSocketConnectionFromGlibFull(unsafe.Pointer(cret))
+	}
 	if _cerr != nil {
 		_goerr = glib.UnsafeErrorFromGlibFull(unsafe.Pointer(_cerr))
 	}
@@ -39692,7 +39870,7 @@ func (client *SocketClientInstance) ConnectToHostAsync(hostAndPort string, defau
 func (client *SocketClientInstance) ConnectToHostFinish(result AsyncResult) (SocketConnection, error) {
 	var carg0 *C.GSocketClient     // in, none, converted
 	var carg1 *C.GAsyncResult      // in, none, converted
-	var cret  *C.GSocketConnection // return, full, converted
+	var cret  *C.GSocketConnection // return, full, converted, nullable
 	var _cerr *C.GError            // out, full, converted, nullable
 
 	carg0 = (*C.GSocketClient)(UnsafeSocketClientToGlibNone(client))
@@ -39705,7 +39883,9 @@ func (client *SocketClientInstance) ConnectToHostFinish(result AsyncResult) (Soc
 	var goret  SocketConnection
 	var _goerr error
 
-	goret = UnsafeSocketConnectionFromGlibFull(unsafe.Pointer(cret))
+	if cret != nil {
+		goret = UnsafeSocketConnectionFromGlibFull(unsafe.Pointer(cret))
+	}
 	if _cerr != nil {
 		_goerr = glib.UnsafeErrorFromGlibFull(unsafe.Pointer(_cerr))
 	}
@@ -39721,7 +39901,7 @@ func (client *SocketClientInstance) ConnectToService(domain string, service stri
 	var carg1 *C.gchar             // in, none, string
 	var carg2 *C.gchar             // in, none, string
 	var carg3 *C.GCancellable      // in, none, converted, nullable
-	var cret  *C.GSocketConnection // return, full, converted
+	var cret  *C.GSocketConnection // return, full, converted, nullable
 	var _cerr *C.GError            // out, full, converted, nullable
 
 	carg0 = (*C.GSocketClient)(UnsafeSocketClientToGlibNone(client))
@@ -39742,7 +39922,9 @@ func (client *SocketClientInstance) ConnectToService(domain string, service stri
 	var goret  SocketConnection
 	var _goerr error
 
-	goret = UnsafeSocketConnectionFromGlibFull(unsafe.Pointer(cret))
+	if cret != nil {
+		goret = UnsafeSocketConnectionFromGlibFull(unsafe.Pointer(cret))
+	}
 	if _cerr != nil {
 		_goerr = glib.UnsafeErrorFromGlibFull(unsafe.Pointer(_cerr))
 	}
@@ -39788,7 +39970,7 @@ func (client *SocketClientInstance) ConnectToServiceAsync(domain string, service
 func (client *SocketClientInstance) ConnectToServiceFinish(result AsyncResult) (SocketConnection, error) {
 	var carg0 *C.GSocketClient     // in, none, converted
 	var carg1 *C.GAsyncResult      // in, none, converted
-	var cret  *C.GSocketConnection // return, full, converted
+	var cret  *C.GSocketConnection // return, full, converted, nullable
 	var _cerr *C.GError            // out, full, converted, nullable
 
 	carg0 = (*C.GSocketClient)(UnsafeSocketClientToGlibNone(client))
@@ -39801,7 +39983,9 @@ func (client *SocketClientInstance) ConnectToServiceFinish(result AsyncResult) (
 	var goret  SocketConnection
 	var _goerr error
 
-	goret = UnsafeSocketConnectionFromGlibFull(unsafe.Pointer(cret))
+	if cret != nil {
+		goret = UnsafeSocketConnectionFromGlibFull(unsafe.Pointer(cret))
+	}
 	if _cerr != nil {
 		_goerr = glib.UnsafeErrorFromGlibFull(unsafe.Pointer(_cerr))
 	}
@@ -39817,7 +40001,7 @@ func (client *SocketClientInstance) ConnectToURI(uri string, defaultPort uint16,
 	var carg1 *C.gchar             // in, none, string
 	var carg2 C.guint16            // in, none, casted
 	var carg3 *C.GCancellable      // in, none, converted, nullable
-	var cret  *C.GSocketConnection // return, full, converted
+	var cret  *C.GSocketConnection // return, full, converted, nullable
 	var _cerr *C.GError            // out, full, converted, nullable
 
 	carg0 = (*C.GSocketClient)(UnsafeSocketClientToGlibNone(client))
@@ -39837,7 +40021,9 @@ func (client *SocketClientInstance) ConnectToURI(uri string, defaultPort uint16,
 	var goret  SocketConnection
 	var _goerr error
 
-	goret = UnsafeSocketConnectionFromGlibFull(unsafe.Pointer(cret))
+	if cret != nil {
+		goret = UnsafeSocketConnectionFromGlibFull(unsafe.Pointer(cret))
+	}
 	if _cerr != nil {
 		_goerr = glib.UnsafeErrorFromGlibFull(unsafe.Pointer(_cerr))
 	}
@@ -39882,7 +40068,7 @@ func (client *SocketClientInstance) ConnectToURIAsync(uri string, defaultPort ui
 func (client *SocketClientInstance) ConnectToURIFinish(result AsyncResult) (SocketConnection, error) {
 	var carg0 *C.GSocketClient     // in, none, converted
 	var carg1 *C.GAsyncResult      // in, none, converted
-	var cret  *C.GSocketConnection // return, full, converted
+	var cret  *C.GSocketConnection // return, full, converted, nullable
 	var _cerr *C.GError            // out, full, converted, nullable
 
 	carg0 = (*C.GSocketClient)(UnsafeSocketClientToGlibNone(client))
@@ -39895,7 +40081,9 @@ func (client *SocketClientInstance) ConnectToURIFinish(result AsyncResult) (Sock
 	var goret  SocketConnection
 	var _goerr error
 
-	goret = UnsafeSocketConnectionFromGlibFull(unsafe.Pointer(cret))
+	if cret != nil {
+		goret = UnsafeSocketConnectionFromGlibFull(unsafe.Pointer(cret))
+	}
 	if _cerr != nil {
 		_goerr = glib.UnsafeErrorFromGlibFull(unsafe.Pointer(_cerr))
 	}
@@ -40563,7 +40751,7 @@ func (connection *SocketConnectionInstance) ConnectFinish(result AsyncResult) (b
 // see also https://docs.gtk.org/gio/method.g_socket_connection_get_local_address.g_socket_connection_get_local_address.html
 func (connection *SocketConnectionInstance) GetLocalAddress() (SocketAddress, error) {
 	var carg0 *C.GSocketConnection // in, none, converted
-	var cret  *C.GSocketAddress    // return, full, converted
+	var cret  *C.GSocketAddress    // return, full, converted, nullable
 	var _cerr *C.GError            // out, full, converted, nullable
 
 	carg0 = (*C.GSocketConnection)(UnsafeSocketConnectionToGlibNone(connection))
@@ -40574,7 +40762,9 @@ func (connection *SocketConnectionInstance) GetLocalAddress() (SocketAddress, er
 	var goret  SocketAddress
 	var _goerr error
 
-	goret = UnsafeSocketAddressFromGlibFull(unsafe.Pointer(cret))
+	if cret != nil {
+		goret = UnsafeSocketAddressFromGlibFull(unsafe.Pointer(cret))
+	}
 	if _cerr != nil {
 		_goerr = glib.UnsafeErrorFromGlibFull(unsafe.Pointer(_cerr))
 	}
@@ -40587,7 +40777,7 @@ func (connection *SocketConnectionInstance) GetLocalAddress() (SocketAddress, er
 // see also https://docs.gtk.org/gio/method.g_socket_connection_get_remote_address.g_socket_connection_get_remote_address.html
 func (connection *SocketConnectionInstance) GetRemoteAddress() (SocketAddress, error) {
 	var carg0 *C.GSocketConnection // in, none, converted
-	var cret  *C.GSocketAddress    // return, full, converted
+	var cret  *C.GSocketAddress    // return, full, converted, nullable
 	var _cerr *C.GError            // out, full, converted, nullable
 
 	carg0 = (*C.GSocketConnection)(UnsafeSocketConnectionToGlibNone(connection))
@@ -40598,7 +40788,9 @@ func (connection *SocketConnectionInstance) GetRemoteAddress() (SocketAddress, e
 	var goret  SocketAddress
 	var _goerr error
 
-	goret = UnsafeSocketAddressFromGlibFull(unsafe.Pointer(cret))
+	if cret != nil {
+		goret = UnsafeSocketAddressFromGlibFull(unsafe.Pointer(cret))
+	}
 	if _cerr != nil {
 		_goerr = glib.UnsafeErrorFromGlibFull(unsafe.Pointer(_cerr))
 	}
@@ -41170,7 +41362,7 @@ func (listener *SocketListenerInstance) Accept(cancellable Cancellable) (gobject
 	var carg0 *C.GSocketListener   // in, none, converted
 	var carg2 *C.GCancellable      // in, none, converted, nullable
 	var carg1 *C.GObject           // out, none, converted, nullable
-	var cret  *C.GSocketConnection // return, full, converted
+	var cret  *C.GSocketConnection // return, full, converted, nullable
 	var _cerr *C.GError            // out, full, converted, nullable
 
 	carg0 = (*C.GSocketListener)(UnsafeSocketListenerToGlibNone(listener))
@@ -41189,7 +41381,9 @@ func (listener *SocketListenerInstance) Accept(cancellable Cancellable) (gobject
 	if carg1 != nil {
 		sourceObject = gobject.UnsafeObjectFromGlibNone(unsafe.Pointer(carg1))
 	}
-	goret = UnsafeSocketConnectionFromGlibFull(unsafe.Pointer(cret))
+	if cret != nil {
+		goret = UnsafeSocketConnectionFromGlibFull(unsafe.Pointer(cret))
+	}
 	if _cerr != nil {
 		_goerr = glib.UnsafeErrorFromGlibFull(unsafe.Pointer(_cerr))
 	}
@@ -41228,7 +41422,7 @@ func (listener *SocketListenerInstance) AcceptFinish(result AsyncResult) (gobjec
 	var carg0 *C.GSocketListener   // in, none, converted
 	var carg1 *C.GAsyncResult      // in, none, converted
 	var carg2 *C.GObject           // out, none, converted, nullable
-	var cret  *C.GSocketConnection // return, full, converted
+	var cret  *C.GSocketConnection // return, full, converted, nullable
 	var _cerr *C.GError            // out, full, converted, nullable
 
 	carg0 = (*C.GSocketListener)(UnsafeSocketListenerToGlibNone(listener))
@@ -41245,7 +41439,9 @@ func (listener *SocketListenerInstance) AcceptFinish(result AsyncResult) (gobjec
 	if carg2 != nil {
 		sourceObject = gobject.UnsafeObjectFromGlibNone(unsafe.Pointer(carg2))
 	}
-	goret = UnsafeSocketConnectionFromGlibFull(unsafe.Pointer(cret))
+	if cret != nil {
+		goret = UnsafeSocketConnectionFromGlibFull(unsafe.Pointer(cret))
+	}
 	if _cerr != nil {
 		_goerr = glib.UnsafeErrorFromGlibFull(unsafe.Pointer(_cerr))
 	}
@@ -41260,7 +41456,7 @@ func (listener *SocketListenerInstance) AcceptSocket(cancellable Cancellable) (g
 	var carg0 *C.GSocketListener // in, none, converted
 	var carg2 *C.GCancellable    // in, none, converted, nullable
 	var carg1 *C.GObject         // out, none, converted, nullable
-	var cret  *C.GSocket         // return, full, converted
+	var cret  *C.GSocket         // return, full, converted, nullable
 	var _cerr *C.GError          // out, full, converted, nullable
 
 	carg0 = (*C.GSocketListener)(UnsafeSocketListenerToGlibNone(listener))
@@ -41279,7 +41475,9 @@ func (listener *SocketListenerInstance) AcceptSocket(cancellable Cancellable) (g
 	if carg1 != nil {
 		sourceObject = gobject.UnsafeObjectFromGlibNone(unsafe.Pointer(carg1))
 	}
-	goret = UnsafeSocketFromGlibFull(unsafe.Pointer(cret))
+	if cret != nil {
+		goret = UnsafeSocketFromGlibFull(unsafe.Pointer(cret))
+	}
 	if _cerr != nil {
 		_goerr = glib.UnsafeErrorFromGlibFull(unsafe.Pointer(_cerr))
 	}
@@ -41318,7 +41516,7 @@ func (listener *SocketListenerInstance) AcceptSocketFinish(result AsyncResult) (
 	var carg0 *C.GSocketListener // in, none, converted
 	var carg1 *C.GAsyncResult    // in, none, converted
 	var carg2 *C.GObject         // out, none, converted, nullable
-	var cret  *C.GSocket         // return, full, converted
+	var cret  *C.GSocket         // return, full, converted, nullable
 	var _cerr *C.GError          // out, full, converted, nullable
 
 	carg0 = (*C.GSocketListener)(UnsafeSocketListenerToGlibNone(listener))
@@ -41335,7 +41533,9 @@ func (listener *SocketListenerInstance) AcceptSocketFinish(result AsyncResult) (
 	if carg2 != nil {
 		sourceObject = gobject.UnsafeObjectFromGlibNone(unsafe.Pointer(carg2))
 	}
-	goret = UnsafeSocketFromGlibFull(unsafe.Pointer(cret))
+	if cret != nil {
+		goret = UnsafeSocketFromGlibFull(unsafe.Pointer(cret))
+	}
 	if _cerr != nil {
 		_goerr = glib.UnsafeErrorFromGlibFull(unsafe.Pointer(_cerr))
 	}
@@ -43276,7 +43476,7 @@ func UnsafeTlsCertificateToGlibFull(c TlsCertificate) unsafe.Pointer {
 // see also https://docs.gtk.org/gio/func.g_tls_certificate_new_from_file.html
 func NewTlsCertificateFromFile(file string) (TlsCertificate, error) {
 	var carg1 *C.gchar           // in, none, string
-	var cret  *C.GTlsCertificate // return, full, converted
+	var cret  *C.GTlsCertificate // return, full, converted, nullable
 	var _cerr *C.GError          // out, full, converted, nullable
 
 	carg1 = (*C.gchar)(transfer.GLibString(file))
@@ -43288,7 +43488,9 @@ func NewTlsCertificateFromFile(file string) (TlsCertificate, error) {
 	var goret  TlsCertificate
 	var _goerr error
 
-	goret = UnsafeTlsCertificateFromGlibFull(unsafe.Pointer(cret))
+	if cret != nil {
+		goret = UnsafeTlsCertificateFromGlibFull(unsafe.Pointer(cret))
+	}
 	if _cerr != nil {
 		_goerr = glib.UnsafeErrorFromGlibFull(unsafe.Pointer(_cerr))
 	}
@@ -43302,7 +43504,7 @@ func NewTlsCertificateFromFile(file string) (TlsCertificate, error) {
 func NewTlsCertificateFromFileWithPassword(file string, password string) (TlsCertificate, error) {
 	var carg1 *C.gchar           // in, none, string
 	var carg2 *C.gchar           // in, none, string
-	var cret  *C.GTlsCertificate // return, full, converted
+	var cret  *C.GTlsCertificate // return, full, converted, nullable
 	var _cerr *C.GError          // out, full, converted, nullable
 
 	carg1 = (*C.gchar)(transfer.GLibString(file))
@@ -43317,7 +43519,9 @@ func NewTlsCertificateFromFileWithPassword(file string, password string) (TlsCer
 	var goret  TlsCertificate
 	var _goerr error
 
-	goret = UnsafeTlsCertificateFromGlibFull(unsafe.Pointer(cret))
+	if cret != nil {
+		goret = UnsafeTlsCertificateFromGlibFull(unsafe.Pointer(cret))
+	}
 	if _cerr != nil {
 		_goerr = glib.UnsafeErrorFromGlibFull(unsafe.Pointer(_cerr))
 	}
@@ -43331,7 +43535,7 @@ func NewTlsCertificateFromFileWithPassword(file string, password string) (TlsCer
 func NewTlsCertificateFromFiles(certFile string, keyFile string) (TlsCertificate, error) {
 	var carg1 *C.gchar           // in, none, string
 	var carg2 *C.gchar           // in, none, string
-	var cret  *C.GTlsCertificate // return, full, converted
+	var cret  *C.GTlsCertificate // return, full, converted, nullable
 	var _cerr *C.GError          // out, full, converted, nullable
 
 	carg1 = (*C.gchar)(transfer.GLibString(certFile))
@@ -43346,7 +43550,9 @@ func NewTlsCertificateFromFiles(certFile string, keyFile string) (TlsCertificate
 	var goret  TlsCertificate
 	var _goerr error
 
-	goret = UnsafeTlsCertificateFromGlibFull(unsafe.Pointer(cret))
+	if cret != nil {
+		goret = UnsafeTlsCertificateFromGlibFull(unsafe.Pointer(cret))
+	}
 	if _cerr != nil {
 		_goerr = glib.UnsafeErrorFromGlibFull(unsafe.Pointer(_cerr))
 	}
@@ -43360,7 +43566,7 @@ func NewTlsCertificateFromFiles(certFile string, keyFile string) (TlsCertificate
 func NewTlsCertificateFromPem(data string, length int) (TlsCertificate, error) {
 	var carg1 *C.gchar           // in, none, string
 	var carg2 C.gssize           // in, none, casted
-	var cret  *C.GTlsCertificate // return, full, converted
+	var cret  *C.GTlsCertificate // return, full, converted, nullable
 	var _cerr *C.GError          // out, full, converted, nullable
 
 	carg1 = (*C.gchar)(transfer.GLibString(data))
@@ -43374,7 +43580,9 @@ func NewTlsCertificateFromPem(data string, length int) (TlsCertificate, error) {
 	var goret  TlsCertificate
 	var _goerr error
 
-	goret = UnsafeTlsCertificateFromGlibFull(unsafe.Pointer(cret))
+	if cret != nil {
+		goret = UnsafeTlsCertificateFromGlibFull(unsafe.Pointer(cret))
+	}
 	if _cerr != nil {
 		_goerr = glib.UnsafeErrorFromGlibFull(unsafe.Pointer(_cerr))
 	}
@@ -43388,7 +43596,7 @@ func NewTlsCertificateFromPem(data string, length int) (TlsCertificate, error) {
 func NewTlsCertificateFromPkcs11Uris(pkcs11Uri string, privateKeyPkcs11Uri string) (TlsCertificate, error) {
 	var carg1 *C.gchar           // in, none, string
 	var carg2 *C.gchar           // in, none, string, nullable-string
-	var cret  *C.GTlsCertificate // return, full, converted
+	var cret  *C.GTlsCertificate // return, full, converted, nullable
 	var _cerr *C.GError          // out, full, converted, nullable
 
 	carg1 = (*C.gchar)(transfer.GLibString(pkcs11Uri))
@@ -43405,7 +43613,9 @@ func NewTlsCertificateFromPkcs11Uris(pkcs11Uri string, privateKeyPkcs11Uri strin
 	var goret  TlsCertificate
 	var _goerr error
 
-	goret = UnsafeTlsCertificateFromGlibFull(unsafe.Pointer(cret))
+	if cret != nil {
+		goret = UnsafeTlsCertificateFromGlibFull(unsafe.Pointer(cret))
+	}
 	if _cerr != nil {
 		_goerr = glib.UnsafeErrorFromGlibFull(unsafe.Pointer(_cerr))
 	}
@@ -43420,7 +43630,7 @@ func NewTlsCertificateFromPkcs12(data []uint8, password string) (TlsCertificate,
 	var carg1 *C.guint8          // in, transfer: none, C Pointers: 1, Name: array[guint8], array (inner guint8 (*typesystem.CastablePrimitive), length-by: carg2)
 	var carg2 C.gsize            // implicit
 	var carg3 *C.gchar           // in, none, string, nullable-string
-	var cret  *C.GTlsCertificate // return, full, converted
+	var cret  *C.GTlsCertificate // return, full, converted, nullable
 	var _cerr *C.GError          // out, full, converted, nullable
 
 	_ = data
@@ -43439,7 +43649,9 @@ func NewTlsCertificateFromPkcs12(data []uint8, password string) (TlsCertificate,
 	var goret  TlsCertificate
 	var _goerr error
 
-	goret = UnsafeTlsCertificateFromGlibFull(unsafe.Pointer(cret))
+	if cret != nil {
+		goret = UnsafeTlsCertificateFromGlibFull(unsafe.Pointer(cret))
+	}
 	if _cerr != nil {
 		_goerr = glib.UnsafeErrorFromGlibFull(unsafe.Pointer(_cerr))
 	}
@@ -44906,7 +45118,7 @@ func (self *TlsDatabaseInstance) LookupCertificateForHandleAsync(handle string, 
 func (self *TlsDatabaseInstance) LookupCertificateForHandleFinish(result AsyncResult) (TlsCertificate, error) {
 	var carg0 *C.GTlsDatabase    // in, none, converted
 	var carg1 *C.GAsyncResult    // in, none, converted
-	var cret  *C.GTlsCertificate // return, full, converted
+	var cret  *C.GTlsCertificate // return, full, converted, nullable
 	var _cerr *C.GError          // out, full, converted, nullable
 
 	carg0 = (*C.GTlsDatabase)(UnsafeTlsDatabaseToGlibNone(self))
@@ -44919,7 +45131,9 @@ func (self *TlsDatabaseInstance) LookupCertificateForHandleFinish(result AsyncRe
 	var goret  TlsCertificate
 	var _goerr error
 
-	goret = UnsafeTlsCertificateFromGlibFull(unsafe.Pointer(cret))
+	if cret != nil {
+		goret = UnsafeTlsCertificateFromGlibFull(unsafe.Pointer(cret))
+	}
 	if _cerr != nil {
 		_goerr = glib.UnsafeErrorFromGlibFull(unsafe.Pointer(_cerr))
 	}
@@ -44936,7 +45150,7 @@ func (self *TlsDatabaseInstance) LookupCertificateIssuer(certificate TlsCertific
 	var carg2 *C.GTlsInteraction        // in, none, converted, nullable
 	var carg3 C.GTlsDatabaseLookupFlags // in, none, casted
 	var carg4 *C.GCancellable           // in, none, converted, nullable
-	var cret  *C.GTlsCertificate        // return, full, converted
+	var cret  *C.GTlsCertificate        // return, full, converted, nullable
 	var _cerr *C.GError                 // out, full, converted, nullable
 
 	carg0 = (*C.GTlsDatabase)(UnsafeTlsDatabaseToGlibNone(self))
@@ -44959,7 +45173,9 @@ func (self *TlsDatabaseInstance) LookupCertificateIssuer(certificate TlsCertific
 	var goret  TlsCertificate
 	var _goerr error
 
-	goret = UnsafeTlsCertificateFromGlibFull(unsafe.Pointer(cret))
+	if cret != nil {
+		goret = UnsafeTlsCertificateFromGlibFull(unsafe.Pointer(cret))
+	}
 	if _cerr != nil {
 		_goerr = glib.UnsafeErrorFromGlibFull(unsafe.Pointer(_cerr))
 	}
@@ -45008,7 +45224,7 @@ func (self *TlsDatabaseInstance) LookupCertificateIssuerAsync(certificate TlsCer
 func (self *TlsDatabaseInstance) LookupCertificateIssuerFinish(result AsyncResult) (TlsCertificate, error) {
 	var carg0 *C.GTlsDatabase    // in, none, converted
 	var carg1 *C.GAsyncResult    // in, none, converted
-	var cret  *C.GTlsCertificate // return, full, converted
+	var cret  *C.GTlsCertificate // return, full, converted, nullable
 	var _cerr *C.GError          // out, full, converted, nullable
 
 	carg0 = (*C.GTlsDatabase)(UnsafeTlsDatabaseToGlibNone(self))
@@ -45021,7 +45237,9 @@ func (self *TlsDatabaseInstance) LookupCertificateIssuerFinish(result AsyncResul
 	var goret  TlsCertificate
 	var _goerr error
 
-	goret = UnsafeTlsCertificateFromGlibFull(unsafe.Pointer(cret))
+	if cret != nil {
+		goret = UnsafeTlsCertificateFromGlibFull(unsafe.Pointer(cret))
+	}
 	if _cerr != nil {
 		_goerr = glib.UnsafeErrorFromGlibFull(unsafe.Pointer(_cerr))
 	}
@@ -45298,7 +45516,7 @@ func UnsafeApplyTlsDatabaseOverrides[Instance TlsDatabase](gclass unsafe.Pointer
 			func(carg0 *C.GTlsDatabase, carg1 *C.GAsyncResult, _cerr **C.GError) (cret *C.GTlsCertificate) {
 				var self   Instance       // go GTlsDatabase subclass
 				var result AsyncResult    // in, none, converted
-				var goret  TlsCertificate // return, full, converted
+				var goret  TlsCertificate // return, full, converted, nullable
 				var _goerr error          // out, full, converted
 
 				self = UnsafeTlsDatabaseFromGlibBorrow(unsafe.Pointer(carg0)).UnsafeLoadInstanceFromPrivateData().(Instance)
@@ -45306,7 +45524,9 @@ func UnsafeApplyTlsDatabaseOverrides[Instance TlsDatabase](gclass unsafe.Pointer
 
 				goret, _goerr = overrides.LookupCertificateForHandleFinish(self, result)
 
-				cret = (*C.GTlsCertificate)(UnsafeTlsCertificateToGlibFull(goret))
+				if goret != nil {
+					cret = (*C.GTlsCertificate)(UnsafeTlsCertificateToGlibFull(goret))
+				}
 				*_cerr = (*C.GError)(glib.UnsafeErrorToGlibFull(_goerr))
 
 				return cret
@@ -45325,7 +45545,7 @@ func UnsafeApplyTlsDatabaseOverrides[Instance TlsDatabase](gclass unsafe.Pointer
 				var interaction TlsInteraction         // in, none, converted, nullable
 				var flags       TlsDatabaseLookupFlags // in, none, casted
 				var cancellable Cancellable            // in, none, converted, nullable
-				var goret       TlsCertificate         // return, full, converted
+				var goret       TlsCertificate         // return, full, converted, nullable
 				var _goerr      error                  // out, full, converted
 
 				self = UnsafeTlsDatabaseFromGlibBorrow(unsafe.Pointer(carg0)).UnsafeLoadInstanceFromPrivateData().(Instance)
@@ -45340,7 +45560,9 @@ func UnsafeApplyTlsDatabaseOverrides[Instance TlsDatabase](gclass unsafe.Pointer
 
 				goret, _goerr = overrides.LookupCertificateIssuer(self, certificate, interaction, flags, cancellable)
 
-				cret = (*C.GTlsCertificate)(UnsafeTlsCertificateToGlibFull(goret))
+				if goret != nil {
+					cret = (*C.GTlsCertificate)(UnsafeTlsCertificateToGlibFull(goret))
+				}
 				*_cerr = (*C.GError)(glib.UnsafeErrorToGlibFull(_goerr))
 
 				return cret
@@ -45356,7 +45578,7 @@ func UnsafeApplyTlsDatabaseOverrides[Instance TlsDatabase](gclass unsafe.Pointer
 			func(carg0 *C.GTlsDatabase, carg1 *C.GAsyncResult, _cerr **C.GError) (cret *C.GTlsCertificate) {
 				var self   Instance       // go GTlsDatabase subclass
 				var result AsyncResult    // in, none, converted
-				var goret  TlsCertificate // return, full, converted
+				var goret  TlsCertificate // return, full, converted, nullable
 				var _goerr error          // out, full, converted
 
 				self = UnsafeTlsDatabaseFromGlibBorrow(unsafe.Pointer(carg0)).UnsafeLoadInstanceFromPrivateData().(Instance)
@@ -45364,7 +45586,9 @@ func UnsafeApplyTlsDatabaseOverrides[Instance TlsDatabase](gclass unsafe.Pointer
 
 				goret, _goerr = overrides.LookupCertificateIssuerFinish(self, result)
 
-				cret = (*C.GTlsCertificate)(UnsafeTlsCertificateToGlibFull(goret))
+				if goret != nil {
+					cret = (*C.GTlsCertificate)(UnsafeTlsCertificateToGlibFull(goret))
+				}
 				*_cerr = (*C.GError)(glib.UnsafeErrorToGlibFull(_goerr))
 
 				return cret
@@ -45380,7 +45604,7 @@ func UnsafeApplyTlsDatabaseOverrides[Instance TlsDatabase](gclass unsafe.Pointer
 			func(carg0 *C.GTlsDatabase, carg1 *C.GAsyncResult, _cerr **C.GError) (cret *C.GList) {
 				var self   Instance         // go GTlsDatabase subclass
 				var result AsyncResult      // in, none, converted
-				var goret  []TlsCertificate // return, transfer: full, C Pointers: 1, Name: List, scope: 
+				var goret  []TlsCertificate // return, transfer: full, C Pointers: 1, Name: List, scope: , nullable, nullable
 				var _goerr error            // out, full, converted
 
 				self = UnsafeTlsDatabaseFromGlibBorrow(unsafe.Pointer(carg0)).UnsafeLoadInstanceFromPrivateData().(Instance)
@@ -45388,9 +45612,11 @@ func UnsafeApplyTlsDatabaseOverrides[Instance TlsDatabase](gclass unsafe.Pointer
 
 				goret, _goerr = overrides.LookupCertificatesIssuedByFinish(self, result)
 
-				_ = goret
-				_ = cret
-				panic("unimplemented conversion of []TlsCertificate (GList*) because of no basic converter found")
+				if goret != nil {
+					_ = goret
+					_ = cret
+					panic("unimplemented conversion of []TlsCertificate (GList*) because of no basic converter found")
+				}
 				*_cerr = (*C.GError)(glib.UnsafeErrorToGlibFull(_goerr))
 
 				return cret
@@ -45544,7 +45770,7 @@ func (self *TlsDatabaseInstance) ParentLookupCertificateForHandle(handle string,
 func (self *TlsDatabaseInstance) ParentLookupCertificateForHandleFinish(result AsyncResult) (TlsCertificate, error) {
 	var carg0 *C.GTlsDatabase
 	var carg1 *C.GAsyncResult    // in, none, converted
-	var cret  *C.GTlsCertificate // return, full, converted
+	var cret  *C.GTlsCertificate // return, full, converted, nullable
 	var _cerr *C.GError          // out, full, converted, nullable
 
 	parentclass := (*C.GTlsDatabaseClass)(classdata.PeekParentClass(UnsafeTlsDatabaseToGlibNone(self)))
@@ -45559,7 +45785,9 @@ func (self *TlsDatabaseInstance) ParentLookupCertificateForHandleFinish(result A
 	var goret  TlsCertificate
 	var _goerr error
 
-	goret = UnsafeTlsCertificateFromGlibFull(unsafe.Pointer(cret))
+	if cret != nil {
+		goret = UnsafeTlsCertificateFromGlibFull(unsafe.Pointer(cret))
+	}
 	if _cerr != nil {
 		_goerr = glib.UnsafeErrorFromGlibFull(unsafe.Pointer(_cerr))
 	}
@@ -45577,7 +45805,7 @@ func (self *TlsDatabaseInstance) ParentLookupCertificateIssuer(certificate TlsCe
 	var carg2 *C.GTlsInteraction        // in, none, converted
 	var carg3 C.GTlsDatabaseLookupFlags // in, none, converted, nullable
 	var carg4 *C.GCancellable           // in, none, casted
-	var cret  *C.GTlsCertificate        // return, full, converted
+	var cret  *C.GTlsCertificate        // return, full, converted, nullable
 	var _cerr *C.GError                 // out, full, converted, nullable
 
 	parentclass := (*C.GTlsDatabaseClass)(classdata.PeekParentClass(UnsafeTlsDatabaseToGlibNone(self)))
@@ -45602,7 +45830,9 @@ func (self *TlsDatabaseInstance) ParentLookupCertificateIssuer(certificate TlsCe
 	var goret  TlsCertificate
 	var _goerr error
 
-	goret = UnsafeTlsCertificateFromGlibFull(unsafe.Pointer(cret))
+	if cret != nil {
+		goret = UnsafeTlsCertificateFromGlibFull(unsafe.Pointer(cret))
+	}
 	if _cerr != nil {
 		_goerr = glib.UnsafeErrorFromGlibFull(unsafe.Pointer(_cerr))
 	}
@@ -45617,7 +45847,7 @@ func (self *TlsDatabaseInstance) ParentLookupCertificateIssuer(certificate TlsCe
 func (self *TlsDatabaseInstance) ParentLookupCertificateIssuerFinish(result AsyncResult) (TlsCertificate, error) {
 	var carg0 *C.GTlsDatabase
 	var carg1 *C.GAsyncResult    // in, none, converted
-	var cret  *C.GTlsCertificate // return, full, converted
+	var cret  *C.GTlsCertificate // return, full, converted, nullable
 	var _cerr *C.GError          // out, full, converted, nullable
 
 	parentclass := (*C.GTlsDatabaseClass)(classdata.PeekParentClass(UnsafeTlsDatabaseToGlibNone(self)))
@@ -45632,7 +45862,9 @@ func (self *TlsDatabaseInstance) ParentLookupCertificateIssuerFinish(result Asyn
 	var goret  TlsCertificate
 	var _goerr error
 
-	goret = UnsafeTlsCertificateFromGlibFull(unsafe.Pointer(cret))
+	if cret != nil {
+		goret = UnsafeTlsCertificateFromGlibFull(unsafe.Pointer(cret))
+	}
 	if _cerr != nil {
 		_goerr = glib.UnsafeErrorFromGlibFull(unsafe.Pointer(_cerr))
 	}
@@ -49300,7 +49532,7 @@ func (stream *FileIOStreamInstance) QueryInfo(attributes string, cancellable Can
 	var carg0 *C.GFileIOStream // in, none, converted
 	var carg1 *C.char          // in, none, string
 	var carg2 *C.GCancellable  // in, none, converted, nullable
-	var cret  *C.GFileInfo     // return, full, converted
+	var cret  *C.GFileInfo     // return, full, converted, nullable
 	var _cerr *C.GError        // out, full, converted, nullable
 
 	carg0 = (*C.GFileIOStream)(UnsafeFileIOStreamToGlibNone(stream))
@@ -49318,7 +49550,9 @@ func (stream *FileIOStreamInstance) QueryInfo(attributes string, cancellable Can
 	var goret  FileInfo
 	var _goerr error
 
-	goret = UnsafeFileInfoFromGlibFull(unsafe.Pointer(cret))
+	if cret != nil {
+		goret = UnsafeFileInfoFromGlibFull(unsafe.Pointer(cret))
+	}
 	if _cerr != nil {
 		_goerr = glib.UnsafeErrorFromGlibFull(unsafe.Pointer(_cerr))
 	}
@@ -49363,7 +49597,7 @@ func (stream *FileIOStreamInstance) QueryInfoAsync(attributes string, ioPriority
 func (stream *FileIOStreamInstance) QueryInfoFinish(result AsyncResult) (FileInfo, error) {
 	var carg0 *C.GFileIOStream // in, none, converted
 	var carg1 *C.GAsyncResult  // in, none, converted
-	var cret  *C.GFileInfo     // return, full, converted
+	var cret  *C.GFileInfo     // return, full, converted, nullable
 	var _cerr *C.GError        // out, full, converted, nullable
 
 	carg0 = (*C.GFileIOStream)(UnsafeFileIOStreamToGlibNone(stream))
@@ -49376,7 +49610,9 @@ func (stream *FileIOStreamInstance) QueryInfoFinish(result AsyncResult) (FileInf
 	var goret  FileInfo
 	var _goerr error
 
-	goret = UnsafeFileInfoFromGlibFull(unsafe.Pointer(cret))
+	if cret != nil {
+		goret = UnsafeFileInfoFromGlibFull(unsafe.Pointer(cret))
+	}
 	if _cerr != nil {
 		_goerr = glib.UnsafeErrorFromGlibFull(unsafe.Pointer(_cerr))
 	}
@@ -49506,7 +49742,7 @@ func UnsafeApplyFileIOStreamOverrides[Instance FileIOStream](gclass unsafe.Point
 				var stream      Instance    // go GFileIOStream subclass
 				var attributes  string      // in, none, string
 				var cancellable Cancellable // in, none, converted, nullable
-				var goret       FileInfo    // return, full, converted
+				var goret       FileInfo    // return, full, converted, nullable
 				var _goerr      error       // out, full, converted
 
 				stream = UnsafeFileIOStreamFromGlibBorrow(unsafe.Pointer(carg0)).UnsafeLoadInstanceFromPrivateData().(Instance)
@@ -49517,7 +49753,9 @@ func UnsafeApplyFileIOStreamOverrides[Instance FileIOStream](gclass unsafe.Point
 
 				goret, _goerr = overrides.QueryInfo(stream, attributes, cancellable)
 
-				cret = (*C.GFileInfo)(UnsafeFileInfoToGlibFull(goret))
+				if goret != nil {
+					cret = (*C.GFileInfo)(UnsafeFileInfoToGlibFull(goret))
+				}
 				*_cerr = (*C.GError)(glib.UnsafeErrorToGlibFull(_goerr))
 
 				return cret
@@ -49533,7 +49771,7 @@ func UnsafeApplyFileIOStreamOverrides[Instance FileIOStream](gclass unsafe.Point
 			func(carg0 *C.GFileIOStream, carg1 *C.GAsyncResult, _cerr **C.GError) (cret *C.GFileInfo) {
 				var stream Instance    // go GFileIOStream subclass
 				var result AsyncResult // in, none, converted
-				var goret  FileInfo    // return, full, converted
+				var goret  FileInfo    // return, full, converted, nullable
 				var _goerr error       // out, full, converted
 
 				stream = UnsafeFileIOStreamFromGlibBorrow(unsafe.Pointer(carg0)).UnsafeLoadInstanceFromPrivateData().(Instance)
@@ -49541,7 +49779,9 @@ func UnsafeApplyFileIOStreamOverrides[Instance FileIOStream](gclass unsafe.Point
 
 				goret, _goerr = overrides.QueryInfoFinish(stream, result)
 
-				cret = (*C.GFileInfo)(UnsafeFileInfoToGlibFull(goret))
+				if goret != nil {
+					cret = (*C.GFileInfo)(UnsafeFileInfoToGlibFull(goret))
+				}
 				*_cerr = (*C.GError)(glib.UnsafeErrorToGlibFull(_goerr))
 
 				return cret
@@ -49713,7 +49953,7 @@ func (stream *FileIOStreamInstance) ParentQueryInfo(attributes string, cancellab
 	var carg0 *C.GFileIOStream
 	var carg1 *C.char         // in, none, converted
 	var carg2 *C.GCancellable // in, none, string
-	var cret  *C.GFileInfo    // return, full, converted
+	var cret  *C.GFileInfo    // return, full, converted, nullable
 	var _cerr *C.GError       // out, full, converted, nullable
 
 	parentclass := (*C.GFileIOStreamClass)(classdata.PeekParentClass(UnsafeFileIOStreamToGlibNone(stream)))
@@ -49733,7 +49973,9 @@ func (stream *FileIOStreamInstance) ParentQueryInfo(attributes string, cancellab
 	var goret  FileInfo
 	var _goerr error
 
-	goret = UnsafeFileInfoFromGlibFull(unsafe.Pointer(cret))
+	if cret != nil {
+		goret = UnsafeFileInfoFromGlibFull(unsafe.Pointer(cret))
+	}
 	if _cerr != nil {
 		_goerr = glib.UnsafeErrorFromGlibFull(unsafe.Pointer(_cerr))
 	}
@@ -49748,7 +49990,7 @@ func (stream *FileIOStreamInstance) ParentQueryInfo(attributes string, cancellab
 func (stream *FileIOStreamInstance) ParentQueryInfoFinish(result AsyncResult) (FileInfo, error) {
 	var carg0 *C.GFileIOStream
 	var carg1 *C.GAsyncResult // in, none, converted
-	var cret  *C.GFileInfo    // return, full, converted
+	var cret  *C.GFileInfo    // return, full, converted, nullable
 	var _cerr *C.GError       // out, full, converted, nullable
 
 	parentclass := (*C.GFileIOStreamClass)(classdata.PeekParentClass(UnsafeFileIOStreamToGlibNone(stream)))
@@ -49763,7 +50005,9 @@ func (stream *FileIOStreamInstance) ParentQueryInfoFinish(result AsyncResult) (F
 	var goret  FileInfo
 	var _goerr error
 
-	goret = UnsafeFileInfoFromGlibFull(unsafe.Pointer(cret))
+	if cret != nil {
+		goret = UnsafeFileInfoFromGlibFull(unsafe.Pointer(cret))
+	}
 	if _cerr != nil {
 		_goerr = glib.UnsafeErrorFromGlibFull(unsafe.Pointer(_cerr))
 	}
@@ -50016,7 +50260,7 @@ func (stream *FileInputStreamInstance) QueryInfo(attributes string, cancellable 
 	var carg0 *C.GFileInputStream // in, none, converted
 	var carg1 *C.char             // in, none, string
 	var carg2 *C.GCancellable     // in, none, converted, nullable
-	var cret  *C.GFileInfo        // return, full, converted
+	var cret  *C.GFileInfo        // return, full, converted, nullable
 	var _cerr *C.GError           // out, full, converted, nullable
 
 	carg0 = (*C.GFileInputStream)(UnsafeFileInputStreamToGlibNone(stream))
@@ -50034,7 +50278,9 @@ func (stream *FileInputStreamInstance) QueryInfo(attributes string, cancellable 
 	var goret  FileInfo
 	var _goerr error
 
-	goret = UnsafeFileInfoFromGlibFull(unsafe.Pointer(cret))
+	if cret != nil {
+		goret = UnsafeFileInfoFromGlibFull(unsafe.Pointer(cret))
+	}
 	if _cerr != nil {
 		_goerr = glib.UnsafeErrorFromGlibFull(unsafe.Pointer(_cerr))
 	}
@@ -50079,7 +50325,7 @@ func (stream *FileInputStreamInstance) QueryInfoAsync(attributes string, ioPrior
 func (stream *FileInputStreamInstance) QueryInfoFinish(result AsyncResult) (FileInfo, error) {
 	var carg0 *C.GFileInputStream // in, none, converted
 	var carg1 *C.GAsyncResult     // in, none, converted
-	var cret  *C.GFileInfo        // return, full, converted
+	var cret  *C.GFileInfo        // return, full, converted, nullable
 	var _cerr *C.GError           // out, full, converted, nullable
 
 	carg0 = (*C.GFileInputStream)(UnsafeFileInputStreamToGlibNone(stream))
@@ -50092,7 +50338,9 @@ func (stream *FileInputStreamInstance) QueryInfoFinish(result AsyncResult) (File
 	var goret  FileInfo
 	var _goerr error
 
-	goret = UnsafeFileInfoFromGlibFull(unsafe.Pointer(cret))
+	if cret != nil {
+		goret = UnsafeFileInfoFromGlibFull(unsafe.Pointer(cret))
+	}
 	if _cerr != nil {
 		_goerr = glib.UnsafeErrorFromGlibFull(unsafe.Pointer(_cerr))
 	}
@@ -50166,7 +50414,7 @@ func UnsafeApplyFileInputStreamOverrides[Instance FileInputStream](gclass unsafe
 				var stream      Instance    // go GFileInputStream subclass
 				var attributes  string      // in, none, string
 				var cancellable Cancellable // in, none, converted, nullable
-				var goret       FileInfo    // return, full, converted
+				var goret       FileInfo    // return, full, converted, nullable
 				var _goerr      error       // out, full, converted
 
 				stream = UnsafeFileInputStreamFromGlibBorrow(unsafe.Pointer(carg0)).UnsafeLoadInstanceFromPrivateData().(Instance)
@@ -50177,7 +50425,9 @@ func UnsafeApplyFileInputStreamOverrides[Instance FileInputStream](gclass unsafe
 
 				goret, _goerr = overrides.QueryInfo(stream, attributes, cancellable)
 
-				cret = (*C.GFileInfo)(UnsafeFileInfoToGlibFull(goret))
+				if goret != nil {
+					cret = (*C.GFileInfo)(UnsafeFileInfoToGlibFull(goret))
+				}
 				*_cerr = (*C.GError)(glib.UnsafeErrorToGlibFull(_goerr))
 
 				return cret
@@ -50193,7 +50443,7 @@ func UnsafeApplyFileInputStreamOverrides[Instance FileInputStream](gclass unsafe
 			func(carg0 *C.GFileInputStream, carg1 *C.GAsyncResult, _cerr **C.GError) (cret *C.GFileInfo) {
 				var stream Instance    // go GFileInputStream subclass
 				var result AsyncResult // in, none, converted
-				var goret  FileInfo    // return, full, converted
+				var goret  FileInfo    // return, full, converted, nullable
 				var _goerr error       // out, full, converted
 
 				stream = UnsafeFileInputStreamFromGlibBorrow(unsafe.Pointer(carg0)).UnsafeLoadInstanceFromPrivateData().(Instance)
@@ -50201,7 +50451,9 @@ func UnsafeApplyFileInputStreamOverrides[Instance FileInputStream](gclass unsafe
 
 				goret, _goerr = overrides.QueryInfoFinish(stream, result)
 
-				cret = (*C.GFileInfo)(UnsafeFileInfoToGlibFull(goret))
+				if goret != nil {
+					cret = (*C.GFileInfo)(UnsafeFileInfoToGlibFull(goret))
+				}
 				*_cerr = (*C.GError)(glib.UnsafeErrorToGlibFull(_goerr))
 
 				return cret
@@ -50294,7 +50546,7 @@ func (stream *FileInputStreamInstance) ParentQueryInfo(attributes string, cancel
 	var carg0 *C.GFileInputStream
 	var carg1 *C.char         // in, none, converted
 	var carg2 *C.GCancellable // in, none, string
-	var cret  *C.GFileInfo    // return, full, converted
+	var cret  *C.GFileInfo    // return, full, converted, nullable
 	var _cerr *C.GError       // out, full, converted, nullable
 
 	parentclass := (*C.GFileInputStreamClass)(classdata.PeekParentClass(UnsafeFileInputStreamToGlibNone(stream)))
@@ -50314,7 +50566,9 @@ func (stream *FileInputStreamInstance) ParentQueryInfo(attributes string, cancel
 	var goret  FileInfo
 	var _goerr error
 
-	goret = UnsafeFileInfoFromGlibFull(unsafe.Pointer(cret))
+	if cret != nil {
+		goret = UnsafeFileInfoFromGlibFull(unsafe.Pointer(cret))
+	}
 	if _cerr != nil {
 		_goerr = glib.UnsafeErrorFromGlibFull(unsafe.Pointer(_cerr))
 	}
@@ -50329,7 +50583,7 @@ func (stream *FileInputStreamInstance) ParentQueryInfo(attributes string, cancel
 func (stream *FileInputStreamInstance) ParentQueryInfoFinish(result AsyncResult) (FileInfo, error) {
 	var carg0 *C.GFileInputStream
 	var carg1 *C.GAsyncResult // in, none, converted
-	var cret  *C.GFileInfo    // return, full, converted
+	var cret  *C.GFileInfo    // return, full, converted, nullable
 	var _cerr *C.GError       // out, full, converted, nullable
 
 	parentclass := (*C.GFileInputStreamClass)(classdata.PeekParentClass(UnsafeFileInputStreamToGlibNone(stream)))
@@ -50344,7 +50598,9 @@ func (stream *FileInputStreamInstance) ParentQueryInfoFinish(result AsyncResult)
 	var goret  FileInfo
 	var _goerr error
 
-	goret = UnsafeFileInfoFromGlibFull(unsafe.Pointer(cret))
+	if cret != nil {
+		goret = UnsafeFileInfoFromGlibFull(unsafe.Pointer(cret))
+	}
 	if _cerr != nil {
 		_goerr = glib.UnsafeErrorFromGlibFull(unsafe.Pointer(_cerr))
 	}
@@ -50601,7 +50857,7 @@ func (stream *FileOutputStreamInstance) QueryInfo(attributes string, cancellable
 	var carg0 *C.GFileOutputStream // in, none, converted
 	var carg1 *C.char              // in, none, string
 	var carg2 *C.GCancellable      // in, none, converted, nullable
-	var cret  *C.GFileInfo         // return, full, converted
+	var cret  *C.GFileInfo         // return, full, converted, nullable
 	var _cerr *C.GError            // out, full, converted, nullable
 
 	carg0 = (*C.GFileOutputStream)(UnsafeFileOutputStreamToGlibNone(stream))
@@ -50619,7 +50875,9 @@ func (stream *FileOutputStreamInstance) QueryInfo(attributes string, cancellable
 	var goret  FileInfo
 	var _goerr error
 
-	goret = UnsafeFileInfoFromGlibFull(unsafe.Pointer(cret))
+	if cret != nil {
+		goret = UnsafeFileInfoFromGlibFull(unsafe.Pointer(cret))
+	}
 	if _cerr != nil {
 		_goerr = glib.UnsafeErrorFromGlibFull(unsafe.Pointer(_cerr))
 	}
@@ -50664,7 +50922,7 @@ func (stream *FileOutputStreamInstance) QueryInfoAsync(attributes string, ioPrio
 func (stream *FileOutputStreamInstance) QueryInfoFinish(result AsyncResult) (FileInfo, error) {
 	var carg0 *C.GFileOutputStream // in, none, converted
 	var carg1 *C.GAsyncResult      // in, none, converted
-	var cret  *C.GFileInfo         // return, full, converted
+	var cret  *C.GFileInfo         // return, full, converted, nullable
 	var _cerr *C.GError            // out, full, converted, nullable
 
 	carg0 = (*C.GFileOutputStream)(UnsafeFileOutputStreamToGlibNone(stream))
@@ -50677,7 +50935,9 @@ func (stream *FileOutputStreamInstance) QueryInfoFinish(result AsyncResult) (Fil
 	var goret  FileInfo
 	var _goerr error
 
-	goret = UnsafeFileInfoFromGlibFull(unsafe.Pointer(cret))
+	if cret != nil {
+		goret = UnsafeFileInfoFromGlibFull(unsafe.Pointer(cret))
+	}
 	if _cerr != nil {
 		_goerr = glib.UnsafeErrorFromGlibFull(unsafe.Pointer(_cerr))
 	}
@@ -50807,7 +51067,7 @@ func UnsafeApplyFileOutputStreamOverrides[Instance FileOutputStream](gclass unsa
 				var stream      Instance    // go GFileOutputStream subclass
 				var attributes  string      // in, none, string
 				var cancellable Cancellable // in, none, converted, nullable
-				var goret       FileInfo    // return, full, converted
+				var goret       FileInfo    // return, full, converted, nullable
 				var _goerr      error       // out, full, converted
 
 				stream = UnsafeFileOutputStreamFromGlibBorrow(unsafe.Pointer(carg0)).UnsafeLoadInstanceFromPrivateData().(Instance)
@@ -50818,7 +51078,9 @@ func UnsafeApplyFileOutputStreamOverrides[Instance FileOutputStream](gclass unsa
 
 				goret, _goerr = overrides.QueryInfo(stream, attributes, cancellable)
 
-				cret = (*C.GFileInfo)(UnsafeFileInfoToGlibFull(goret))
+				if goret != nil {
+					cret = (*C.GFileInfo)(UnsafeFileInfoToGlibFull(goret))
+				}
 				*_cerr = (*C.GError)(glib.UnsafeErrorToGlibFull(_goerr))
 
 				return cret
@@ -50834,7 +51096,7 @@ func UnsafeApplyFileOutputStreamOverrides[Instance FileOutputStream](gclass unsa
 			func(carg0 *C.GFileOutputStream, carg1 *C.GAsyncResult, _cerr **C.GError) (cret *C.GFileInfo) {
 				var stream Instance    // go GFileOutputStream subclass
 				var result AsyncResult // in, none, converted
-				var goret  FileInfo    // return, full, converted
+				var goret  FileInfo    // return, full, converted, nullable
 				var _goerr error       // out, full, converted
 
 				stream = UnsafeFileOutputStreamFromGlibBorrow(unsafe.Pointer(carg0)).UnsafeLoadInstanceFromPrivateData().(Instance)
@@ -50842,7 +51104,9 @@ func UnsafeApplyFileOutputStreamOverrides[Instance FileOutputStream](gclass unsa
 
 				goret, _goerr = overrides.QueryInfoFinish(stream, result)
 
-				cret = (*C.GFileInfo)(UnsafeFileInfoToGlibFull(goret))
+				if goret != nil {
+					cret = (*C.GFileInfo)(UnsafeFileInfoToGlibFull(goret))
+				}
 				*_cerr = (*C.GError)(glib.UnsafeErrorToGlibFull(_goerr))
 
 				return cret
@@ -51014,7 +51278,7 @@ func (stream *FileOutputStreamInstance) ParentQueryInfo(attributes string, cance
 	var carg0 *C.GFileOutputStream
 	var carg1 *C.char         // in, none, converted
 	var carg2 *C.GCancellable // in, none, string
-	var cret  *C.GFileInfo    // return, full, converted
+	var cret  *C.GFileInfo    // return, full, converted, nullable
 	var _cerr *C.GError       // out, full, converted, nullable
 
 	parentclass := (*C.GFileOutputStreamClass)(classdata.PeekParentClass(UnsafeFileOutputStreamToGlibNone(stream)))
@@ -51034,7 +51298,9 @@ func (stream *FileOutputStreamInstance) ParentQueryInfo(attributes string, cance
 	var goret  FileInfo
 	var _goerr error
 
-	goret = UnsafeFileInfoFromGlibFull(unsafe.Pointer(cret))
+	if cret != nil {
+		goret = UnsafeFileInfoFromGlibFull(unsafe.Pointer(cret))
+	}
 	if _cerr != nil {
 		_goerr = glib.UnsafeErrorFromGlibFull(unsafe.Pointer(_cerr))
 	}
@@ -51049,7 +51315,7 @@ func (stream *FileOutputStreamInstance) ParentQueryInfo(attributes string, cance
 func (stream *FileOutputStreamInstance) ParentQueryInfoFinish(result AsyncResult) (FileInfo, error) {
 	var carg0 *C.GFileOutputStream
 	var carg1 *C.GAsyncResult // in, none, converted
-	var cret  *C.GFileInfo    // return, full, converted
+	var cret  *C.GFileInfo    // return, full, converted, nullable
 	var _cerr *C.GError       // out, full, converted, nullable
 
 	parentclass := (*C.GFileOutputStreamClass)(classdata.PeekParentClass(UnsafeFileOutputStreamToGlibNone(stream)))
@@ -51064,7 +51330,9 @@ func (stream *FileOutputStreamInstance) ParentQueryInfoFinish(result AsyncResult
 	var goret  FileInfo
 	var _goerr error
 
-	goret = UnsafeFileInfoFromGlibFull(unsafe.Pointer(cret))
+	if cret != nil {
+		goret = UnsafeFileInfoFromGlibFull(unsafe.Pointer(cret))
+	}
 	if _cerr != nil {
 		_goerr = glib.UnsafeErrorFromGlibFull(unsafe.Pointer(_cerr))
 	}
@@ -54797,7 +55065,7 @@ func (stream *DataInputStreamInstance) ReadUntil(stopChars string, cancellable C
 	var carg1 *C.gchar            // in, none, string
 	var carg3 *C.GCancellable     // in, none, converted, nullable
 	var carg2 C.gsize             // out, full, casted
-	var cret  *C.char             // return, full, string
+	var cret  *C.char             // return, full, string, nullable-string
 	var _cerr *C.GError           // out, full, converted, nullable
 
 	carg0 = (*C.GDataInputStream)(UnsafeDataInputStreamToGlibNone(stream))
@@ -54817,8 +55085,10 @@ func (stream *DataInputStreamInstance) ReadUntil(stopChars string, cancellable C
 	var _goerr error
 
 	length = uint(carg2)
-	goret = C.GoString((*C.char)(unsafe.Pointer(cret)))
-	defer C.g_free(C.gpointer(cret))
+	if cret != nil {
+		goret = C.GoString((*C.char)(unsafe.Pointer(cret)))
+		defer C.g_free(C.gpointer(cret))
+	}
 	if _cerr != nil {
 		_goerr = glib.UnsafeErrorFromGlibFull(unsafe.Pointer(_cerr))
 	}
@@ -54868,7 +55138,7 @@ func (stream *DataInputStreamInstance) ReadUntilFinish(result AsyncResult) (uint
 	var carg0 *C.GDataInputStream // in, none, converted
 	var carg1 *C.GAsyncResult     // in, none, converted
 	var carg2 C.gsize             // out, full, casted
-	var cret  *C.char             // return, full, string
+	var cret  *C.char             // return, full, string, nullable-string
 	var _cerr *C.GError           // out, full, converted, nullable
 
 	carg0 = (*C.GDataInputStream)(UnsafeDataInputStreamToGlibNone(stream))
@@ -54883,8 +55153,10 @@ func (stream *DataInputStreamInstance) ReadUntilFinish(result AsyncResult) (uint
 	var _goerr error
 
 	length = uint(carg2)
-	goret = C.GoString((*C.char)(unsafe.Pointer(cret)))
-	defer C.g_free(C.gpointer(cret))
+	if cret != nil {
+		goret = C.GoString((*C.char)(unsafe.Pointer(cret)))
+		defer C.g_free(C.gpointer(cret))
+	}
 	if _cerr != nil {
 		_goerr = glib.UnsafeErrorFromGlibFull(unsafe.Pointer(_cerr))
 	}
@@ -54901,7 +55173,7 @@ func (stream *DataInputStreamInstance) ReadUpto(stopChars string, stopCharsLen i
 	var carg2 C.gssize            // in, none, casted
 	var carg4 *C.GCancellable     // in, none, converted, nullable
 	var carg3 C.gsize             // out, full, casted
-	var cret  *C.char             // return, full, string
+	var cret  *C.char             // return, full, string, nullable-string
 	var _cerr *C.GError           // out, full, converted, nullable
 
 	carg0 = (*C.GDataInputStream)(UnsafeDataInputStreamToGlibNone(stream))
@@ -54923,8 +55195,10 @@ func (stream *DataInputStreamInstance) ReadUpto(stopChars string, stopCharsLen i
 	var _goerr error
 
 	length = uint(carg3)
-	goret = C.GoString((*C.char)(unsafe.Pointer(cret)))
-	defer C.g_free(C.gpointer(cret))
+	if cret != nil {
+		goret = C.GoString((*C.char)(unsafe.Pointer(cret)))
+		defer C.g_free(C.gpointer(cret))
+	}
 	if _cerr != nil {
 		_goerr = glib.UnsafeErrorFromGlibFull(unsafe.Pointer(_cerr))
 	}
@@ -54973,7 +55247,7 @@ func (stream *DataInputStreamInstance) ReadUptoFinish(result AsyncResult) (uint,
 	var carg0 *C.GDataInputStream // in, none, converted
 	var carg1 *C.GAsyncResult     // in, none, converted
 	var carg2 C.gsize             // out, full, casted
-	var cret  *C.char             // return, full, string
+	var cret  *C.char             // return, full, string, nullable-string
 	var _cerr *C.GError           // out, full, converted, nullable
 
 	carg0 = (*C.GDataInputStream)(UnsafeDataInputStreamToGlibNone(stream))
@@ -54988,8 +55262,10 @@ func (stream *DataInputStreamInstance) ReadUptoFinish(result AsyncResult) (uint,
 	var _goerr error
 
 	length = uint(carg2)
-	goret = C.GoString((*C.char)(unsafe.Pointer(cret)))
-	defer C.g_free(C.gpointer(cret))
+	if cret != nil {
+		goret = C.GoString((*C.char)(unsafe.Pointer(cret)))
+		defer C.g_free(C.gpointer(cret))
+	}
 	if _cerr != nil {
 		_goerr = glib.UnsafeErrorFromGlibFull(unsafe.Pointer(_cerr))
 	}
@@ -62611,7 +62887,7 @@ func NewSettingsSchemaSourceFromDirectory(directory string, parent *SettingsSche
 	var carg1 *C.gchar                 // in, none, string
 	var carg2 *C.GSettingsSchemaSource // in, none, converted, nullable
 	var carg3 C.gboolean               // in
-	var cret  *C.GSettingsSchemaSource // return, full, converted
+	var cret  *C.GSettingsSchemaSource // return, full, converted, nullable
 	var _cerr *C.GError                // out, full, converted, nullable
 
 	carg1 = (*C.gchar)(transfer.GLibString(directory))
@@ -62631,7 +62907,9 @@ func NewSettingsSchemaSourceFromDirectory(directory string, parent *SettingsSche
 	var goret  *SettingsSchemaSource
 	var _goerr error
 
-	goret = UnsafeSettingsSchemaSourceFromGlibFull(unsafe.Pointer(cret))
+	if cret != nil {
+		goret = UnsafeSettingsSchemaSourceFromGlibFull(unsafe.Pointer(cret))
+	}
 	if _cerr != nil {
 		_goerr = glib.UnsafeErrorFromGlibFull(unsafe.Pointer(_cerr))
 	}
