@@ -1,7 +1,5 @@
 module github.com/go-gst/go-glib
 
-go 1.23.2
+go 1.25.0
 
-require golang.org/x/exp v0.0.0-20240909161429-701f63a606c0
-
-require github.com/go-gst/go-pointer v0.0.0-20241127163939-ba766f075b4c
+retract [v1.0.0, v1.4.0] // Handwritten bindings, not as stable as planned and not licensed open enough
