@@ -12,8 +12,8 @@ import (
 // extern void _goglib_signalAccumulator(GSignalInvocationHint*, GValue*, GValue*, gpointer);
 import "C"
 
-func (s *SignalInvocationHint) SignalID() uint {
-	return uint(s.native.signal_id)
+func (s *SignalInvocationHint) SignalID() uint32 {
+	return uint32(s.native.signal_id)
 }
 
 func (s *SignalInvocationHint) Detail() glib.Quark {

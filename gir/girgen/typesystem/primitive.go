@@ -85,12 +85,12 @@ func (a *StringPrimitive) GoTypeRequiredImport() (alias string, module string) {
 }
 
 var (
-	Guint         = prim("guint", "guint", "C.guint", "uint")
+	Guint         = prim("guint", "guint", "C.guint", "uint32") // C guint is 32 bit
 	Guint8        = prim("guint8", "guint8", "C.guint8", "uint8")
 	Guint16       = prim("guint16", "guint16", "C.guint16", "uint16")
 	Guint32       = prim("guint32", "guint32", "C.guint32", "uint32")
 	Guint64       = prim("guint64", "guint64", "C.guint64", "uint64")
-	Gint          = prim("gint", "gint", "C.gint", "int32") // C int is 32 bit
+	Gint          = prim("gint", "gint", "C.gint", "int32") // C gint is 32 bit
 	Gint8         = prim("gint8", "gint8", "C.gint8", "int8")
 	Gint16        = prim("gint16", "gint16", "C.gint16", "int16")
 	Gint32        = prim("gint32", "gint32", "C.gint32", "int32")
@@ -108,13 +108,13 @@ var (
 	Gconstpointer = prim("gconstpointer", "gconstpointer", "C.gconstpointer", "unsafe.Pointer")
 	Gintptr       = prim("gintptr", "gintptr", "C.gintptr", "uintptr")
 	Guintptr      = prim("guintptr", "guintptr", "C.guintptr", "uintptr")
-	Glong         = prim("glong", "glong", "C.glong", "int32")
-	Gulong        = prim("gulong", "gulong", "C.gulong", "uint32")
-	Time_t        = prim("time_t", "time_t", "C.time_t", "uint64") // TODO: check go type
-	Pid_t         = prim("pid_t", "pid_t", "C.pid_t", "int")       // process ids
-	Ino_t         = prim("ino_t", "ino_t", "C.ino_t", "uint")      // file serial ids
-	Uid_t         = prim("uid_t", "uid_t", "C.uid_t", "uint")      // user ids, may be signed on some platforms
-	Gid_t         = prim("gid_t", "gid_t", "C.gid_t", "uint")      // group ids, may be signed on some platforms
+	Glong         = prim("glong", "glong", "C.glong", "int64")
+	Gulong        = prim("gulong", "gulong", "C.gulong", "uint64")
+	Time_t        = prim("time_t", "time_t", "C.time_t", "int64") // signed, 64 bit on all modern platforms
+	Pid_t         = prim("pid_t", "pid_t", "C.pid_t", "int32")    // process ids
+	Ino_t         = prim("ino_t", "ino_t", "C.ino_t", "uint64")   // file serial ids
+	Uid_t         = prim("uid_t", "uid_t", "C.uid_t", "uint32")   // user ids, may be signed on some platforms
+	Gid_t         = prim("gid_t", "gid_t", "C.gid_t", "uint32")   // group ids, may be signed on some platforms
 )
 
 var Primitives = []Type{

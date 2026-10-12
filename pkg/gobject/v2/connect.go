@@ -17,7 +17,7 @@ import "C"
 //
 // Important: This is only unique per object. Different objects can return the same SignalHandle
 // for different signals.
-type SignalHandle uint
+type SignalHandle uint64
 
 // Connect is a wrapper around g_signal_connect_closure(). f must be a function
 // with at least one parameter matching the type it is connected to.

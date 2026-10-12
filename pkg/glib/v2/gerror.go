@@ -36,7 +36,7 @@ func UnsafeErrorToGlibFull(err error) unsafe.Pointer {
 // GError is converted from a C.GError to implement Go's error interface.
 type GError struct {
 	quark uint32
-	code  int
+	code  int32
 	err   string
 }
 
@@ -46,7 +46,7 @@ func (err *GError) Quark() uint32 {
 	return err.quark
 }
 
-func (err *GError) ErrorCode() int {
+func (err *GError) ErrorCode() int32 {
 	return err.code
 }
 
@@ -66,7 +66,7 @@ func UnsafeErrorFromGlibFull(gerror unsafe.Pointer) error {
 func newGError(v *C.GError) *GError {
 	return &GError{
 		quark: uint32(v.domain),
-		code:  int(v.code),
+		code:  int32(v.code),
 		err:   C.GoString(v.message),
 	}
 }
