@@ -158,10 +158,41 @@ type modifyCallable struct {
 
 // MustIntrospect forces the given type to be introspectable.
 func MustIntrospect(girType string) Preprocessor {
-	return ModifyCallable(girType, func(c *CallableAttrs) {
-		t := new(bool)
-		*t = true
-		c.Introspectable = t
+	return PreprocessorFunc(func(r Repositories) {
+		result := r.FindFullType(girType)
+		if result == nil {
+			log.Panicf("GIR type %q not found", girType)
+			return
+		}
+
+		t := true
+
+		switch v := result.(type) {
+		case *Class:
+			v.Introspectable = &t
+		case *Interface:
+			v.Introspectable = &t
+		case *Record:
+			v.Introspectable = &t
+		case *Enum:
+			v.Introspectable = &t
+		case *Bitfield:
+			v.Introspectable = &t
+		case *Union:
+			v.Introspectable = &t
+		case *Function:
+			v.Introspectable = &t
+		case *Callback:
+			v.Introspectable = &t
+		case *Alias:
+			v.Introspectable = &t
+		case *Constant:
+			v.Introspectable = &t
+		case *Method:
+			v.Introspectable = &t
+		default:
+			log.Panicf("Unexpected GIR type %T", result)
+		}
 	})
 }
 
