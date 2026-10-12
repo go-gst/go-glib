@@ -99,8 +99,8 @@ type ObjectOverrides[Instance Object] struct {
 	// See also https://docs.gtk.org/gobject/vfunc.Object.dispose.html
 	Dispose func(Instance)
 
-	GetProperty func(instance Instance, id uint, pspec *ParamSpec) any
-	SetProperty func(instance Instance, id uint, value any, pspec *ParamSpec)
+	GetProperty func(instance Instance, id uint32, pspec *ParamSpec) any
+	SetProperty func(instance Instance, id uint32, value any, pspec *ParamSpec)
 
 	// Finalize virtual method
 	//
@@ -166,7 +166,7 @@ func UnsafeApplyObjectOverrides[Instance Object](gclass unsafe.Pointer, override
 				param = UnsafeParamSpecFromGlibNone(unsafe.Pointer(pspec))
 
 				// adjust id to reverse the adjustment from InstallProperties
-				goValue := overrides.GetProperty(obj, uint(id)-1, param)
+				goValue := overrides.GetProperty(obj, uint32(id)-1, param)
 
 				v := ValueFromNative(unsafe.Pointer(value))
 
@@ -196,7 +196,7 @@ func UnsafeApplyObjectOverrides[Instance Object](gclass unsafe.Pointer, override
 				v := ValueFromNative(unsafe.Pointer(value))
 
 				// adjust id to reverse the adjustment from InstallProperties
-				overrides.SetProperty(obj, uint(id)-1, v.GoValue(), param)
+				overrides.SetProperty(obj, uint32(id)-1, v.GoValue(), param)
 			},
 		)
 	}

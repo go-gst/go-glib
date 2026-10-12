@@ -4795,7 +4795,7 @@ func BusGet(busType BusType, cancellable Cancellable, callback AsyncReadyCallbac
 // BusUnownName wraps g_bus_unown_name
 // 
 // see also https://docs.gtk.org/gio/func.g_bus_unown_name.html
-func BusUnownName(ownerId uint) {
+func BusUnownName(ownerId uint32) {
 	var carg1 C.guint // in, none, casted
 
 	carg1 = C.guint(ownerId)
@@ -4807,7 +4807,7 @@ func BusUnownName(ownerId uint) {
 // BusUnwatchName wraps g_bus_unwatch_name
 // 
 // see also https://docs.gtk.org/gio/func.g_bus_unwatch_name.html
-func BusUnwatchName(watcherId uint) {
+func BusUnwatchName(watcherId uint32) {
 	var carg1 C.guint // in, none, casted
 
 	carg1 = C.guint(watcherId)
@@ -14746,19 +14746,19 @@ type ListModel interface {
 	// GetNItems wraps g_list_model_get_n_items
 	// 
 	// see also https://docs.gtk.org/gio/method.g_list_model_get_n_items.g_list_model_get_n_items.html
-	GetNItems() uint
+	GetNItems() uint32
 	// GetObject wraps g_list_model_get_object
 	// 
 	// see also https://docs.gtk.org/gio/method.g_list_model_get_object.g_list_model_get_object.html
-	GetObject(uint) gobject.Object
+	GetObject(uint32) gobject.Object
 	// ItemsChanged wraps g_list_model_items_changed
 	// 
 	// see also https://docs.gtk.org/gio/method.g_list_model_items_changed.g_list_model_items_changed.html
-	ItemsChanged(uint, uint, uint)
+	ItemsChanged(uint32, uint32, uint32)
 	// ConnectItemsChanged connects the provided callback to the "items-changed" signal
 	// 
 	// see also https://docs.gtk.org/gio/signal.ListModel.items-changed.html
-	ConnectItemsChanged(func(ListModel, uint, uint, uint)) gobject.SignalHandle
+	ConnectItemsChanged(func(ListModel, uint32, uint32, uint32)) gobject.SignalHandle
 }
 
 var _ ListModel = (*ListModelInstance)(nil)
@@ -14826,7 +14826,7 @@ func (list *ListModelInstance) GetItemType() gobject.Type {
 // GetNItems wraps g_list_model_get_n_items
 // 
 // see also https://docs.gtk.org/gio/method.g_list_model_get_n_items.g_list_model_get_n_items.html
-func (list *ListModelInstance) GetNItems() uint {
+func (list *ListModelInstance) GetNItems() uint32 {
 	var carg0 *C.GListModel // in, none, converted
 	var cret  C.guint       // return, none, casted
 
@@ -14835,9 +14835,9 @@ func (list *ListModelInstance) GetNItems() uint {
 	cret = C.g_list_model_get_n_items(carg0)
 	runtime.KeepAlive(list)
 
-	var goret uint
+	var goret uint32
 
-	goret = uint(cret)
+	goret = uint32(cret)
 
 	return goret
 }
@@ -14845,7 +14845,7 @@ func (list *ListModelInstance) GetNItems() uint {
 // GetObject wraps g_list_model_get_object
 // 
 // see also https://docs.gtk.org/gio/method.g_list_model_get_object.g_list_model_get_object.html
-func (list *ListModelInstance) GetObject(position uint) gobject.Object {
+func (list *ListModelInstance) GetObject(position uint32) gobject.Object {
 	var carg0 *C.GListModel // in, none, converted
 	var carg1 C.guint       // in, none, casted
 	var cret  *C.GObject    // return, full, converted, nullable
@@ -14869,7 +14869,7 @@ func (list *ListModelInstance) GetObject(position uint) gobject.Object {
 // ItemsChanged wraps g_list_model_items_changed
 // 
 // see also https://docs.gtk.org/gio/method.g_list_model_items_changed.g_list_model_items_changed.html
-func (list *ListModelInstance) ItemsChanged(position uint, removed uint, added uint) {
+func (list *ListModelInstance) ItemsChanged(position uint32, removed uint32, added uint32) {
 	var carg0 *C.GListModel // in, none, converted
 	var carg1 C.guint       // in, none, casted
 	var carg2 C.guint       // in, none, casted
@@ -14890,7 +14890,7 @@ func (list *ListModelInstance) ItemsChanged(position uint, removed uint, added u
 // ConnectItemsChanged connects the provided callback to the "items-changed" signal
 // 
 // see also https://docs.gtk.org/gio/signal.ListModel.items-changed.html
-func (o *ListModelInstance) ConnectItemsChanged(fn func(ListModel, uint, uint, uint)) gobject.SignalHandle {
+func (o *ListModelInstance) ConnectItemsChanged(fn func(ListModel, uint32, uint32, uint32)) gobject.SignalHandle {
 	return o.Instance.Connect("items-changed", fn)
 }
 
@@ -19497,7 +19497,7 @@ type Application interface {
 	// GetInactivityTimeout wraps g_application_get_inactivity_timeout
 	// 
 	// see also https://docs.gtk.org/gio/method.g_application_get_inactivity_timeout.g_application_get_inactivity_timeout.html
-	GetInactivityTimeout() uint
+	GetInactivityTimeout() uint32
 	// GetIsBusy wraps g_application_get_is_busy
 	// 
 	// see also https://docs.gtk.org/gio/method.g_application_get_is_busy.g_application_get_is_busy.html
@@ -19571,7 +19571,7 @@ type Application interface {
 	// SetInactivityTimeout wraps g_application_set_inactivity_timeout
 	// 
 	// see also https://docs.gtk.org/gio/method.g_application_set_inactivity_timeout.g_application_set_inactivity_timeout.html
-	SetInactivityTimeout(uint)
+	SetInactivityTimeout(uint32)
 	// SetOptionContextDescription wraps g_application_set_option_context_description
 	// 
 	// see also https://docs.gtk.org/gio/method.g_application_set_option_context_description.g_application_set_option_context_description.html
@@ -19921,7 +19921,7 @@ func (application *ApplicationInstance) GetFlags() ApplicationFlags {
 // GetInactivityTimeout wraps g_application_get_inactivity_timeout
 // 
 // see also https://docs.gtk.org/gio/method.g_application_get_inactivity_timeout.g_application_get_inactivity_timeout.html
-func (application *ApplicationInstance) GetInactivityTimeout() uint {
+func (application *ApplicationInstance) GetInactivityTimeout() uint32 {
 	var carg0 *C.GApplication // in, none, converted
 	var cret  C.guint         // return, none, casted
 
@@ -19930,9 +19930,9 @@ func (application *ApplicationInstance) GetInactivityTimeout() uint {
 	cret = C.g_application_get_inactivity_timeout(carg0)
 	runtime.KeepAlive(application)
 
-	var goret uint
+	var goret uint32
 
-	goret = uint(cret)
+	goret = uint32(cret)
 
 	return goret
 }
@@ -20258,7 +20258,7 @@ func (application *ApplicationInstance) SetFlags(flags ApplicationFlags) {
 // SetInactivityTimeout wraps g_application_set_inactivity_timeout
 // 
 // see also https://docs.gtk.org/gio/method.g_application_set_inactivity_timeout.g_application_set_inactivity_timeout.html
-func (application *ApplicationInstance) SetInactivityTimeout(inactivityTimeout uint) {
+func (application *ApplicationInstance) SetInactivityTimeout(inactivityTimeout uint32) {
 	var carg0 *C.GApplication // in, none, converted
 	var carg1 C.guint         // in, none, casted
 
@@ -21618,7 +21618,7 @@ type Cancellable interface {
 	// Disconnect wraps g_cancellable_disconnect
 	// 
 	// see also https://docs.gtk.org/gio/method.g_cancellable_disconnect.g_cancellable_disconnect.html
-	Disconnect(uint32)
+	Disconnect(uint64)
 	// GetFd wraps g_cancellable_get_fd
 	// 
 	// see also https://docs.gtk.org/gio/method.g_cancellable_get_fd.g_cancellable_get_fd.html
@@ -21760,7 +21760,7 @@ func (cancellable *CancellableInstance) Cancel() {
 // Disconnect wraps g_cancellable_disconnect
 // 
 // see also https://docs.gtk.org/gio/method.g_cancellable_disconnect.g_cancellable_disconnect.html
-func (cancellable *CancellableInstance) Disconnect(handlerId uint32) {
+func (cancellable *CancellableInstance) Disconnect(handlerId uint64) {
 	var carg0 *C.GCancellable // in, none, converted
 	var carg1 C.gulong        // in, none, casted
 
@@ -22011,7 +22011,7 @@ type CharsetConverter interface {
 	// GetNumFallbacks wraps g_charset_converter_get_num_fallbacks
 	// 
 	// see also https://docs.gtk.org/gio/method.g_charset_converter_get_num_fallbacks.g_charset_converter_get_num_fallbacks.html
-	GetNumFallbacks() uint
+	GetNumFallbacks() uint32
 	// GetUseFallback wraps g_charset_converter_get_use_fallback
 	// 
 	// see also https://docs.gtk.org/gio/method.g_charset_converter_get_use_fallback.g_charset_converter_get_use_fallback.html
@@ -22106,7 +22106,7 @@ func NewCharsetConverter(toCharset string, fromCharset string) (CharsetConverter
 // GetNumFallbacks wraps g_charset_converter_get_num_fallbacks
 // 
 // see also https://docs.gtk.org/gio/method.g_charset_converter_get_num_fallbacks.g_charset_converter_get_num_fallbacks.html
-func (converter *CharsetConverterInstance) GetNumFallbacks() uint {
+func (converter *CharsetConverterInstance) GetNumFallbacks() uint32 {
 	var carg0 *C.GCharsetConverter // in, none, converted
 	var cret  C.guint              // return, none, casted
 
@@ -22115,9 +22115,9 @@ func (converter *CharsetConverterInstance) GetNumFallbacks() uint {
 	cret = C.g_charset_converter_get_num_fallbacks(carg0)
 	runtime.KeepAlive(converter)
 
-	var goret uint
+	var goret uint32
 
-	goret = uint(cret)
+	goret = uint32(cret)
 
 	return goret
 }
@@ -26902,7 +26902,7 @@ type InetAddressMask interface {
 	// GetLength wraps g_inet_address_mask_get_length
 	// 
 	// see also https://docs.gtk.org/gio/method.g_inet_address_mask_get_length.g_inet_address_mask_get_length.html
-	GetLength() uint
+	GetLength() uint32
 	// Matches wraps g_inet_address_mask_matches
 	// 
 	// see also https://docs.gtk.org/gio/method.g_inet_address_mask_matches.g_inet_address_mask_matches.html
@@ -26966,7 +26966,7 @@ func UnsafeInetAddressMaskToGlibFull(c InetAddressMask) unsafe.Pointer {
 // NewInetAddressMask wraps g_inet_address_mask_new
 // 
 // see also https://docs.gtk.org/gio/func.g_inet_address_mask_new.html
-func NewInetAddressMask(addr InetAddress, length uint) (InetAddressMask, error) {
+func NewInetAddressMask(addr InetAddress, length uint32) (InetAddressMask, error) {
 	var carg1 *C.GInetAddress     // in, none, converted
 	var carg2 C.guint             // in, none, casted
 	var cret  *C.GInetAddressMask // return, full, converted, nullable
@@ -27084,7 +27084,7 @@ func (mask *InetAddressMaskInstance) GetFamily() SocketFamily {
 // GetLength wraps g_inet_address_mask_get_length
 // 
 // see also https://docs.gtk.org/gio/method.g_inet_address_mask_get_length.g_inet_address_mask_get_length.html
-func (mask *InetAddressMaskInstance) GetLength() uint {
+func (mask *InetAddressMaskInstance) GetLength() uint32 {
 	var carg0 *C.GInetAddressMask // in, none, converted
 	var cret  C.guint             // return, none, casted
 
@@ -27093,9 +27093,9 @@ func (mask *InetAddressMaskInstance) GetLength() uint {
 	cret = C.g_inet_address_mask_get_length(carg0)
 	runtime.KeepAlive(mask)
 
-	var goret uint
+	var goret uint32
 
-	goret = uint(cret)
+	goret = uint32(cret)
 
 	return goret
 }
@@ -28116,7 +28116,7 @@ type ListStore interface {
 	// Remove wraps g_list_store_remove
 	// 
 	// see also https://docs.gtk.org/gio/method.g_list_store_remove.g_list_store_remove.html
-	Remove(uint)
+	Remove(uint32)
 	// RemoveAll wraps g_list_store_remove_all
 	// 
 	// see also https://docs.gtk.org/gio/method.g_list_store_remove_all.g_list_store_remove_all.html
@@ -28195,7 +28195,7 @@ func NewListStore(itemType gobject.Type) ListStore {
 // Remove wraps g_list_store_remove
 // 
 // see also https://docs.gtk.org/gio/method.g_list_store_remove.g_list_store_remove.html
-func (store *ListStoreInstance) Remove(position uint) {
+func (store *ListStoreInstance) Remove(position uint32) {
 	var carg0 *C.GListStore // in, none, converted
 	var carg1 C.guint       // in, none, casted
 
@@ -29784,7 +29784,7 @@ type MountOperation interface {
 	// GetPim wraps g_mount_operation_get_pim
 	// 
 	// see also https://docs.gtk.org/gio/method.g_mount_operation_get_pim.g_mount_operation_get_pim.html
-	GetPim() uint
+	GetPim() uint32
 	// GetUsername wraps g_mount_operation_get_username
 	// 
 	// see also https://docs.gtk.org/gio/method.g_mount_operation_get_username.g_mount_operation_get_username.html
@@ -29824,7 +29824,7 @@ type MountOperation interface {
 	// SetPim wraps g_mount_operation_set_pim
 	// 
 	// see also https://docs.gtk.org/gio/method.g_mount_operation_set_pim.g_mount_operation_set_pim.html
-	SetPim(uint)
+	SetPim(uint32)
 	// SetUsername wraps g_mount_operation_set_username
 	// 
 	// see also https://docs.gtk.org/gio/method.g_mount_operation_set_username.g_mount_operation_set_username.html
@@ -30084,7 +30084,7 @@ func (op *MountOperationInstance) GetPasswordSave() PasswordSave {
 // GetPim wraps g_mount_operation_get_pim
 // 
 // see also https://docs.gtk.org/gio/method.g_mount_operation_get_pim.g_mount_operation_get_pim.html
-func (op *MountOperationInstance) GetPim() uint {
+func (op *MountOperationInstance) GetPim() uint32 {
 	var carg0 *C.GMountOperation // in, none, converted
 	var cret  C.guint            // return, none, casted
 
@@ -30093,9 +30093,9 @@ func (op *MountOperationInstance) GetPim() uint {
 	cret = C.g_mount_operation_get_pim(carg0)
 	runtime.KeepAlive(op)
 
-	var goret uint
+	var goret uint32
 
-	goret = uint(cret)
+	goret = uint32(cret)
 
 	return goret
 }
@@ -30256,7 +30256,7 @@ func (op *MountOperationInstance) SetPasswordSave(save PasswordSave) {
 // SetPim wraps g_mount_operation_set_pim
 // 
 // see also https://docs.gtk.org/gio/method.g_mount_operation_set_pim.g_mount_operation_set_pim.html
-func (op *MountOperationInstance) SetPim(pim uint) {
+func (op *MountOperationInstance) SetPim(pim uint32) {
 	var carg0 *C.GMountOperation // in, none, converted
 	var carg1 C.guint            // in, none, casted
 
@@ -33701,7 +33701,7 @@ type Resolver interface {
 	// GetTimeout wraps g_resolver_get_timeout
 	// 
 	// see also https://docs.gtk.org/gio/method.g_resolver_get_timeout.g_resolver_get_timeout.html
-	GetTimeout() uint
+	GetTimeout() uint32
 	// LookupByAddress wraps g_resolver_lookup_by_address
 	// 
 	// see also https://docs.gtk.org/gio/method.g_resolver_lookup_by_address.g_resolver_lookup_by_address.html
@@ -33761,7 +33761,7 @@ type Resolver interface {
 	// SetTimeout wraps g_resolver_set_timeout
 	// 
 	// see also https://docs.gtk.org/gio/method.g_resolver_set_timeout.g_resolver_set_timeout.html
-	SetTimeout(uint)
+	SetTimeout(uint32)
 	// ConnectReload connects the provided callback to the "reload" signal
 	// 
 	// see also https://docs.gtk.org/gio/signal.Resolver.reload.html
@@ -33877,7 +33877,7 @@ func ResolverGetDefault() Resolver {
 // GetTimeout wraps g_resolver_get_timeout
 // 
 // see also https://docs.gtk.org/gio/method.g_resolver_get_timeout.g_resolver_get_timeout.html
-func (resolver *ResolverInstance) GetTimeout() uint {
+func (resolver *ResolverInstance) GetTimeout() uint32 {
 	var carg0 *C.GResolver // in, none, converted
 	var cret  C.unsigned   // return, none, casted
 
@@ -33886,9 +33886,9 @@ func (resolver *ResolverInstance) GetTimeout() uint {
 	cret = C.g_resolver_get_timeout(carg0)
 	runtime.KeepAlive(resolver)
 
-	var goret uint
+	var goret uint32
 
-	goret = uint(cret)
+	goret = uint32(cret)
 
 	return goret
 }
@@ -34359,7 +34359,7 @@ func (resolver *ResolverInstance) SetDefault() {
 // SetTimeout wraps g_resolver_set_timeout
 // 
 // see also https://docs.gtk.org/gio/method.g_resolver_set_timeout.g_resolver_set_timeout.html
-func (resolver *ResolverInstance) SetTimeout(timeoutMs uint) {
+func (resolver *ResolverInstance) SetTimeout(timeoutMs uint32) {
 	var carg0 *C.GResolver // in, none, converted
 	var carg1 C.unsigned   // in, none, casted
 
@@ -35005,7 +35005,7 @@ type Settings interface {
 	// GetFlags wraps g_settings_get_flags
 	// 
 	// see also https://docs.gtk.org/gio/method.g_settings_get_flags.g_settings_get_flags.html
-	GetFlags(string) uint
+	GetFlags(string) uint32
 	// GetHasUnapplied wraps g_settings_get_has_unapplied
 	// 
 	// see also https://docs.gtk.org/gio/method.g_settings_get_has_unapplied.g_settings_get_has_unapplied.html
@@ -35029,7 +35029,7 @@ type Settings interface {
 	// GetUint wraps g_settings_get_uint
 	// 
 	// see also https://docs.gtk.org/gio/method.g_settings_get_uint.g_settings_get_uint.html
-	GetUint(string) uint
+	GetUint(string) uint32
 	// GetUint64 wraps g_settings_get_uint64
 	// 
 	// see also https://docs.gtk.org/gio/method.g_settings_get_uint64.g_settings_get_uint64.html
@@ -35071,7 +35071,7 @@ type Settings interface {
 	// SetFlags wraps g_settings_set_flags
 	// 
 	// see also https://docs.gtk.org/gio/method.g_settings_set_flags.g_settings_set_flags.html
-	SetFlags(string, uint) bool
+	SetFlags(string, uint32) bool
 	// SetInt wraps g_settings_set_int
 	// 
 	// see also https://docs.gtk.org/gio/method.g_settings_set_int.g_settings_set_int.html
@@ -35091,7 +35091,7 @@ type Settings interface {
 	// SetUint wraps g_settings_set_uint
 	// 
 	// see also https://docs.gtk.org/gio/method.g_settings_set_uint.g_settings_set_uint.html
-	SetUint(string, uint) bool
+	SetUint(string, uint32) bool
 	// SetUint64 wraps g_settings_set_uint64
 	// 
 	// see also https://docs.gtk.org/gio/method.g_settings_set_uint64.g_settings_set_uint64.html
@@ -35107,7 +35107,7 @@ type Settings interface {
 	// ConnectWritableChangeEvent connects the provided callback to the "writable-change-event" signal
 	// 
 	// see also https://docs.gtk.org/gio/signal.Settings.writable-change-event.html
-	ConnectWritableChangeEvent(func(Settings, uint) bool) gobject.SignalHandle
+	ConnectWritableChangeEvent(func(Settings, uint32) bool) gobject.SignalHandle
 	// ConnectWritableChanged connects the provided callback to the "writable-changed" signal
 	// 
 	// see also https://docs.gtk.org/gio/signal.Settings.writable-changed.html
@@ -35419,7 +35419,7 @@ func (settings *SettingsInstance) GetEnum(key string) int32 {
 // GetFlags wraps g_settings_get_flags
 // 
 // see also https://docs.gtk.org/gio/method.g_settings_get_flags.g_settings_get_flags.html
-func (settings *SettingsInstance) GetFlags(key string) uint {
+func (settings *SettingsInstance) GetFlags(key string) uint32 {
 	var carg0 *C.GSettings // in, none, converted
 	var carg1 *C.gchar     // in, none, string
 	var cret  C.guint      // return, none, casted
@@ -35432,9 +35432,9 @@ func (settings *SettingsInstance) GetFlags(key string) uint {
 	runtime.KeepAlive(settings)
 	runtime.KeepAlive(key)
 
-	var goret uint
+	var goret uint32
 
-	goret = uint(cret)
+	goret = uint32(cret)
 
 	return goret
 }
@@ -35558,7 +35558,7 @@ func (settings *SettingsInstance) GetStrv(key string) []string {
 // GetUint wraps g_settings_get_uint
 // 
 // see also https://docs.gtk.org/gio/method.g_settings_get_uint.g_settings_get_uint.html
-func (settings *SettingsInstance) GetUint(key string) uint {
+func (settings *SettingsInstance) GetUint(key string) uint32 {
 	var carg0 *C.GSettings // in, none, converted
 	var carg1 *C.gchar     // in, none, string
 	var cret  C.guint      // return, none, casted
@@ -35571,9 +35571,9 @@ func (settings *SettingsInstance) GetUint(key string) uint {
 	runtime.KeepAlive(settings)
 	runtime.KeepAlive(key)
 
-	var goret uint
+	var goret uint32
 
-	goret = uint(cret)
+	goret = uint32(cret)
 
 	return goret
 }
@@ -35787,7 +35787,7 @@ func (settings *SettingsInstance) SetEnum(key string, value int32) bool {
 // SetFlags wraps g_settings_set_flags
 // 
 // see also https://docs.gtk.org/gio/method.g_settings_set_flags.g_settings_set_flags.html
-func (settings *SettingsInstance) SetFlags(key string, value uint) bool {
+func (settings *SettingsInstance) SetFlags(key string, value uint32) bool {
 	var carg0 *C.GSettings // in, none, converted
 	var carg1 *C.gchar     // in, none, string
 	var carg2 C.guint      // in, none, casted
@@ -35930,7 +35930,7 @@ func (settings *SettingsInstance) SetStrv(key string, value []string) bool {
 // SetUint wraps g_settings_set_uint
 // 
 // see also https://docs.gtk.org/gio/method.g_settings_set_uint.g_settings_set_uint.html
-func (settings *SettingsInstance) SetUint(key string, value uint) bool {
+func (settings *SettingsInstance) SetUint(key string, value uint32) bool {
 	var carg0 *C.GSettings // in, none, converted
 	var carg1 *C.gchar     // in, none, string
 	var carg2 C.guint      // in, none, casted
@@ -36000,7 +36000,7 @@ func (o *SettingsInstance) ConnectChanged(fn func(Settings, string)) gobject.Sig
 // ConnectWritableChangeEvent connects the provided callback to the "writable-change-event" signal
 // 
 // see also https://docs.gtk.org/gio/signal.Settings.writable-change-event.html
-func (o *SettingsInstance) ConnectWritableChangeEvent(fn func(Settings, uint) bool) gobject.SignalHandle {
+func (o *SettingsInstance) ConnectWritableChangeEvent(fn func(Settings, uint32) bool) gobject.SignalHandle {
 	return o.Connect("writable-change-event", fn)
 }
 
@@ -37326,7 +37326,7 @@ type Socket interface {
 	// GetMulticastTtl wraps g_socket_get_multicast_ttl
 	// 
 	// see also https://docs.gtk.org/gio/method.g_socket_get_multicast_ttl.g_socket_get_multicast_ttl.html
-	GetMulticastTtl() uint
+	GetMulticastTtl() uint32
 	// GetOption wraps g_socket_get_option
 	// 
 	// see also https://docs.gtk.org/gio/method.g_socket_get_option.g_socket_get_option.html
@@ -37346,11 +37346,11 @@ type Socket interface {
 	// GetTimeout wraps g_socket_get_timeout
 	// 
 	// see also https://docs.gtk.org/gio/method.g_socket_get_timeout.g_socket_get_timeout.html
-	GetTimeout() uint
+	GetTimeout() uint32
 	// GetTtl wraps g_socket_get_ttl
 	// 
 	// see also https://docs.gtk.org/gio/method.g_socket_get_ttl.g_socket_get_ttl.html
-	GetTtl() uint
+	GetTtl() uint32
 	// IsClosed wraps g_socket_is_closed
 	// 
 	// see also https://docs.gtk.org/gio/method.g_socket_is_closed.g_socket_is_closed.html
@@ -37422,7 +37422,7 @@ type Socket interface {
 	// SetMulticastTtl wraps g_socket_set_multicast_ttl
 	// 
 	// see also https://docs.gtk.org/gio/method.g_socket_set_multicast_ttl.g_socket_set_multicast_ttl.html
-	SetMulticastTtl(uint)
+	SetMulticastTtl(uint32)
 	// SetOption wraps g_socket_set_option
 	// 
 	// see also https://docs.gtk.org/gio/method.g_socket_set_option.g_socket_set_option.html
@@ -37430,11 +37430,11 @@ type Socket interface {
 	// SetTimeout wraps g_socket_set_timeout
 	// 
 	// see also https://docs.gtk.org/gio/method.g_socket_set_timeout.g_socket_set_timeout.html
-	SetTimeout(uint)
+	SetTimeout(uint32)
 	// SetTtl wraps g_socket_set_ttl
 	// 
 	// see also https://docs.gtk.org/gio/method.g_socket_set_ttl.g_socket_set_ttl.html
-	SetTtl(uint)
+	SetTtl(uint32)
 	// Shutdown wraps g_socket_shutdown
 	// 
 	// see also https://docs.gtk.org/gio/method.g_socket_shutdown.g_socket_shutdown.html
@@ -38031,7 +38031,7 @@ func (socket *SocketInstance) GetMulticastLoopback() bool {
 // GetMulticastTtl wraps g_socket_get_multicast_ttl
 // 
 // see also https://docs.gtk.org/gio/method.g_socket_get_multicast_ttl.g_socket_get_multicast_ttl.html
-func (socket *SocketInstance) GetMulticastTtl() uint {
+func (socket *SocketInstance) GetMulticastTtl() uint32 {
 	var carg0 *C.GSocket // in, none, converted
 	var cret  C.guint    // return, none, casted
 
@@ -38040,9 +38040,9 @@ func (socket *SocketInstance) GetMulticastTtl() uint {
 	cret = C.g_socket_get_multicast_ttl(carg0)
 	runtime.KeepAlive(socket)
 
-	var goret uint
+	var goret uint32
 
-	goret = uint(cret)
+	goret = uint32(cret)
 
 	return goret
 }
@@ -38149,7 +38149,7 @@ func (socket *SocketInstance) GetSocketType() SocketType {
 // GetTimeout wraps g_socket_get_timeout
 // 
 // see also https://docs.gtk.org/gio/method.g_socket_get_timeout.g_socket_get_timeout.html
-func (socket *SocketInstance) GetTimeout() uint {
+func (socket *SocketInstance) GetTimeout() uint32 {
 	var carg0 *C.GSocket // in, none, converted
 	var cret  C.guint    // return, none, casted
 
@@ -38158,9 +38158,9 @@ func (socket *SocketInstance) GetTimeout() uint {
 	cret = C.g_socket_get_timeout(carg0)
 	runtime.KeepAlive(socket)
 
-	var goret uint
+	var goret uint32
 
-	goret = uint(cret)
+	goret = uint32(cret)
 
 	return goret
 }
@@ -38168,7 +38168,7 @@ func (socket *SocketInstance) GetTimeout() uint {
 // GetTtl wraps g_socket_get_ttl
 // 
 // see also https://docs.gtk.org/gio/method.g_socket_get_ttl.g_socket_get_ttl.html
-func (socket *SocketInstance) GetTtl() uint {
+func (socket *SocketInstance) GetTtl() uint32 {
 	var carg0 *C.GSocket // in, none, converted
 	var cret  C.guint    // return, none, casted
 
@@ -38177,9 +38177,9 @@ func (socket *SocketInstance) GetTtl() uint {
 	cret = C.g_socket_get_ttl(carg0)
 	runtime.KeepAlive(socket)
 
-	var goret uint
+	var goret uint32
 
-	goret = uint(cret)
+	goret = uint32(cret)
 
 	return goret
 }
@@ -38693,7 +38693,7 @@ func (socket *SocketInstance) SetMulticastLoopback(loopback bool) {
 // SetMulticastTtl wraps g_socket_set_multicast_ttl
 // 
 // see also https://docs.gtk.org/gio/method.g_socket_set_multicast_ttl.g_socket_set_multicast_ttl.html
-func (socket *SocketInstance) SetMulticastTtl(ttl uint) {
+func (socket *SocketInstance) SetMulticastTtl(ttl uint32) {
 	var carg0 *C.GSocket // in, none, converted
 	var carg1 C.guint    // in, none, casted
 
@@ -38743,7 +38743,7 @@ func (socket *SocketInstance) SetOption(level int32, optname int32, value int32)
 // SetTimeout wraps g_socket_set_timeout
 // 
 // see also https://docs.gtk.org/gio/method.g_socket_set_timeout.g_socket_set_timeout.html
-func (socket *SocketInstance) SetTimeout(timeout uint) {
+func (socket *SocketInstance) SetTimeout(timeout uint32) {
 	var carg0 *C.GSocket // in, none, converted
 	var carg1 C.guint    // in, none, casted
 
@@ -38758,7 +38758,7 @@ func (socket *SocketInstance) SetTimeout(timeout uint) {
 // SetTtl wraps g_socket_set_ttl
 // 
 // see also https://docs.gtk.org/gio/method.g_socket_set_ttl.g_socket_set_ttl.html
-func (socket *SocketInstance) SetTtl(ttl uint) {
+func (socket *SocketInstance) SetTtl(ttl uint32) {
 	var carg0 *C.GSocket // in, none, converted
 	var carg1 C.guint    // in, none, casted
 
@@ -39563,7 +39563,7 @@ type SocketClient interface {
 	// GetTimeout wraps g_socket_client_get_timeout
 	// 
 	// see also https://docs.gtk.org/gio/method.g_socket_client_get_timeout.g_socket_client_get_timeout.html
-	GetTimeout() uint
+	GetTimeout() uint32
 	// GetTls wraps g_socket_client_get_tls
 	// 
 	// see also https://docs.gtk.org/gio/method.g_socket_client_get_tls.g_socket_client_get_tls.html
@@ -39601,7 +39601,7 @@ type SocketClient interface {
 	// SetTimeout wraps g_socket_client_set_timeout
 	// 
 	// see also https://docs.gtk.org/gio/method.g_socket_client_set_timeout.g_socket_client_set_timeout.html
-	SetTimeout(uint)
+	SetTimeout(uint32)
 	// SetTls wraps g_socket_client_set_tls
 	// 
 	// see also https://docs.gtk.org/gio/method.g_socket_client_set_tls.g_socket_client_set_tls.html
@@ -40212,7 +40212,7 @@ func (client *SocketClientInstance) GetSocketType() SocketType {
 // GetTimeout wraps g_socket_client_get_timeout
 // 
 // see also https://docs.gtk.org/gio/method.g_socket_client_get_timeout.g_socket_client_get_timeout.html
-func (client *SocketClientInstance) GetTimeout() uint {
+func (client *SocketClientInstance) GetTimeout() uint32 {
 	var carg0 *C.GSocketClient // in, none, converted
 	var cret  C.guint          // return, none, casted
 
@@ -40221,9 +40221,9 @@ func (client *SocketClientInstance) GetTimeout() uint {
 	cret = C.g_socket_client_get_timeout(carg0)
 	runtime.KeepAlive(client)
 
-	var goret uint
+	var goret uint32
 
-	goret = uint(cret)
+	goret = uint32(cret)
 
 	return goret
 }
@@ -40369,7 +40369,7 @@ func (client *SocketClientInstance) SetSocketType(typ SocketType) {
 // SetTimeout wraps g_socket_client_set_timeout
 // 
 // see also https://docs.gtk.org/gio/method.g_socket_client_set_timeout.g_socket_client_set_timeout.html
-func (client *SocketClientInstance) SetTimeout(timeout uint) {
+func (client *SocketClientInstance) SetTimeout(timeout uint32) {
 	var carg0 *C.GSocketClient // in, none, converted
 	var carg1 C.guint          // in, none, casted
 
@@ -51937,7 +51937,7 @@ func NewInetSocketAddress(address InetAddress, port uint16) SocketAddress {
 // NewInetSocketAddressFromString wraps g_inet_socket_address_new_from_string
 // 
 // see also https://docs.gtk.org/gio/func.g_inet_socket_address_new_from_string.html
-func NewInetSocketAddressFromString(address string, port uint) SocketAddress {
+func NewInetSocketAddressFromString(address string, port uint32) SocketAddress {
 	var carg1 *C.char           // in, none, string
 	var carg2 C.guint           // in, none, casted
 	var cret  *C.GSocketAddress // return, full, converted, nullable

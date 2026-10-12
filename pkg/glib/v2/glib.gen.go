@@ -5352,7 +5352,7 @@ func ASCIIStrdown(str string, len int) string {
 // ASCIIStringToSigned wraps g_ascii_string_to_signed
 // 
 // see also https://docs.gtk.org/glib/func.g_ascii_string_to_signed.html
-func ASCIIStringToSigned(str string, base uint, min int64, max int64) (int64, bool, error) {
+func ASCIIStringToSigned(str string, base uint32, min int64, max int64) (int64, bool, error) {
 	var carg1 *C.gchar   // in, none, string
 	var carg2 C.guint    // in, none, casted
 	var carg3 C.gint64   // in, none, casted
@@ -5391,7 +5391,7 @@ func ASCIIStringToSigned(str string, base uint, min int64, max int64) (int64, bo
 // ASCIIStringToUnsigned wraps g_ascii_string_to_unsigned
 // 
 // see also https://docs.gtk.org/glib/func.g_ascii_string_to_unsigned.html
-func ASCIIStringToUnsigned(str string, base uint, min uint64, max uint64) (uint64, bool, error) {
+func ASCIIStringToUnsigned(str string, base uint32, min uint64, max uint64) (uint64, bool, error) {
 	var carg1 *C.gchar   // in, none, string
 	var carg2 C.guint    // in, none, casted
 	var carg3 C.guint64  // in, none, casted
@@ -5480,7 +5480,7 @@ func ASCIIStrtod(nptr string) (string, float64) {
 // ASCIIStrtoll wraps g_ascii_strtoll
 // 
 // see also https://docs.gtk.org/glib/func.g_ascii_strtoll.html
-func ASCIIStrtoll(nptr string, base uint) (string, int64) {
+func ASCIIStrtoll(nptr string, base uint32) (string, int64) {
 	var carg1 *C.gchar // in, none, string
 	var carg3 C.guint  // in, none, casted
 	var carg2 *C.gchar // out, none, string
@@ -5506,7 +5506,7 @@ func ASCIIStrtoll(nptr string, base uint) (string, int64) {
 // ASCIIStrtoull wraps g_ascii_strtoull
 // 
 // see also https://docs.gtk.org/glib/func.g_ascii_strtoull.html
-func ASCIIStrtoull(nptr string, base uint) (string, uint64) {
+func ASCIIStrtoull(nptr string, base uint32) (string, uint64) {
 	var carg1 *C.gchar  // in, none, string
 	var carg3 C.guint   // in, none, casted
 	var carg2 *C.gchar  // out, none, string
@@ -5799,7 +5799,7 @@ func Base64Encode(data []uint8) string {
 // BitNthLsf wraps g_bit_nth_lsf
 // 
 // see also https://docs.gtk.org/glib/func.g_bit_nth_lsf.html
-func BitNthLsf(mask uint32, nthBit int32) int32 {
+func BitNthLsf(mask uint64, nthBit int32) int32 {
 	var carg1 C.gulong // in, none, casted
 	var carg2 C.gint   // in, none, casted
 	var cret  C.gint   // return, none, casted
@@ -5821,7 +5821,7 @@ func BitNthLsf(mask uint32, nthBit int32) int32 {
 // BitNthMsf wraps g_bit_nth_msf
 // 
 // see also https://docs.gtk.org/glib/func.g_bit_nth_msf.html
-func BitNthMsf(mask uint32, nthBit int32) int32 {
+func BitNthMsf(mask uint64, nthBit int32) int32 {
 	var carg1 C.gulong // in, none, casted
 	var carg2 C.gint   // in, none, casted
 	var cret  C.gint   // return, none, casted
@@ -5843,7 +5843,7 @@ func BitNthMsf(mask uint32, nthBit int32) int32 {
 // BitStorage wraps g_bit_storage
 // 
 // see also https://docs.gtk.org/glib/func.g_bit_storage.html
-func BitStorage(number uint32) uint {
+func BitStorage(number uint64) uint32 {
 	var carg1 C.gulong // in, none, casted
 	var cret  C.guint  // return, none, casted
 
@@ -5852,9 +5852,9 @@ func BitStorage(number uint32) uint {
 	cret = C.g_bit_storage(carg1)
 	runtime.KeepAlive(number)
 
-	var goret uint
+	var goret uint32
 
-	goret = uint(cret)
+	goret = uint32(cret)
 
 	return goret
 }
@@ -5937,7 +5937,7 @@ func CanonicalizeFilename(filename string, relativeTo string) string {
 // CheckVersion wraps glib_check_version
 // 
 // see also https://docs.gtk.org/glib/func.glib_check_version.html
-func CheckVersion(requiredMajor uint, requiredMinor uint, requiredMicro uint) string {
+func CheckVersion(requiredMajor uint32, requiredMinor uint32, requiredMicro uint32) string {
 	var carg1 C.guint  // in, none, casted
 	var carg2 C.guint  // in, none, casted
 	var carg3 C.guint  // in, none, casted
@@ -6320,7 +6320,7 @@ func Dgettext(domain string, msgid string) string {
 // Dngettext wraps g_dngettext
 // 
 // see also https://docs.gtk.org/glib/func.g_dngettext.html
-func Dngettext(domain string, msgid string, msgidPlural string, n uint32) string {
+func Dngettext(domain string, msgid string, msgidPlural string, n uint64) string {
 	var carg1 *C.gchar // in, none, string, nullable-string
 	var carg2 *C.gchar // in, none, string
 	var carg3 *C.gchar // in, none, string
@@ -7190,14 +7190,14 @@ func GetMonotonicTime() int64 {
 // GetNumProcessors wraps g_get_num_processors
 // 
 // see also https://docs.gtk.org/glib/func.g_get_num_processors.html
-func GetNumProcessors() uint {
+func GetNumProcessors() uint32 {
 	var cret C.guint // return, none, casted
 
 	cret = C.g_get_num_processors()
 
-	var goret uint
+	var goret uint32
 
-	goret = uint(cret)
+	goret = uint32(cret)
 
 	return goret
 }
@@ -7569,7 +7569,7 @@ func HostnameToUnicode(hostname string) string {
 // IdleAddFull wraps g_idle_add_full
 // 
 // see also https://docs.gtk.org/glib/func.g_idle_add_full.html
-func IdleAddFull(priority int32, function SourceFunc) uint {
+func IdleAddFull(priority int32, function SourceFunc) uint32 {
 	var carg1 C.gint           // in, none, casted
 	var carg2 C.GSourceFunc    // callback, scope: notified, closure: carg3, destroy: carg4
 	var carg3 C.gpointer       // implicit
@@ -7585,9 +7585,9 @@ func IdleAddFull(priority int32, function SourceFunc) uint {
 	runtime.KeepAlive(priority)
 	runtime.KeepAlive(function)
 
-	var goret uint
+	var goret uint32
 
-	goret = uint(cret)
+	goret = uint32(cret)
 
 	return goret
 }
@@ -7746,7 +7746,7 @@ func LogGetDebugEnabled() bool {
 // LogRemoveHandler wraps g_log_remove_handler
 // 
 // see also https://docs.gtk.org/glib/func.g_log_remove_handler.html
-func LogRemoveHandler(logDomain string, handlerId uint) {
+func LogRemoveHandler(logDomain string, handlerId uint32) {
 	var carg1 *C.gchar // in, none, string
 	var carg2 C.guint  // in, none, casted
 
@@ -7818,7 +7818,7 @@ func LogSetFatalMask(logDomain string, fatalMask LogLevelFlags) LogLevelFlags {
 // LogSetHandlerFull wraps g_log_set_handler_full
 // 
 // see also https://docs.gtk.org/glib/func.g_log_set_handler_full.html
-func LogSetHandlerFull(logDomain string, logLevels LogLevelFlags, logFunc LogFunc) uint {
+func LogSetHandlerFull(logDomain string, logLevels LogLevelFlags, logFunc LogFunc) uint32 {
 	var carg1 *C.gchar         // in, none, string, nullable-string
 	var carg2 C.GLogLevelFlags // in, none, casted
 	var carg3 C.GLogFunc       // callback, scope: notified, closure: carg4, destroy: carg5
@@ -7840,9 +7840,9 @@ func LogSetHandlerFull(logDomain string, logLevels LogLevelFlags, logFunc LogFun
 	runtime.KeepAlive(logLevels)
 	runtime.KeepAlive(logFunc)
 
-	var goret uint
+	var goret uint32
 
-	goret = uint(cret)
+	goret = uint32(cret)
 
 	return goret
 }
@@ -8180,7 +8180,7 @@ func PatternMatchSimple(pattern string, str string) bool {
 // Poll wraps g_poll
 // 
 // see also https://docs.gtk.org/glib/func.g_poll.html
-func Poll(fds *PollFD, nfds uint, timeout int32) int32 {
+func Poll(fds *PollFD, nfds uint32, timeout int32) int32 {
 	var carg1 *C.GPollFD // in, none, converted
 	var carg2 C.guint    // in, none, casted
 	var carg3 C.gint     // in, none, casted
@@ -8766,7 +8766,7 @@ func SliceGetConfig(ckey SliceConfig) int64 {
 // SliceGetConfigState wraps g_slice_get_config_state
 // 
 // see also https://docs.gtk.org/glib/func.g_slice_get_config_state.html
-func SliceGetConfigState(ckey SliceConfig, address int64, nValues *uint) *int64 {
+func SliceGetConfigState(ckey SliceConfig, address int64, nValues *uint32) *int64 {
 	var carg1 C.GSliceConfig // in, none, casted
 	var carg2 C.gint64       // in, none, casted
 	var carg3 *C.guint       // in, transfer: none, C Pointers: 1, Name: guint
@@ -8776,7 +8776,7 @@ func SliceGetConfigState(ckey SliceConfig, address int64, nValues *uint) *int64 
 	carg2 = C.gint64(address)
 	_ = nValues
 	_ = carg3
-	panic("unimplemented conversion of *uint (guint*) because of no basic converter found")
+	panic("unimplemented conversion of *uint32 (guint*) because of no basic converter found")
 
 	cret = C.g_slice_get_config_state(carg1, carg2, carg3)
 	runtime.KeepAlive(ckey)
@@ -8810,7 +8810,7 @@ func SliceSetConfig(ckey SliceConfig, value int64) {
 // SpacedPrimesClosest wraps g_spaced_primes_closest
 // 
 // see also https://docs.gtk.org/glib/func.g_spaced_primes_closest.html
-func SpacedPrimesClosest(num uint) uint {
+func SpacedPrimesClosest(num uint32) uint32 {
 	var carg1 C.guint // in, none, casted
 	var cret  C.guint // return, none, casted
 
@@ -8819,9 +8819,9 @@ func SpacedPrimesClosest(num uint) uint {
 	cret = C.g_spaced_primes_closest(carg1)
 	runtime.KeepAlive(num)
 
-	var goret uint
+	var goret uint32
 
-	goret = uint(cret)
+	goret = uint32(cret)
 
 	return goret
 }
@@ -9781,7 +9781,7 @@ func StrvEqual(strv1 []string, strv2 []string) bool {
 // StrvLength wraps g_strv_length
 // 
 // see also https://docs.gtk.org/glib/func.g_strv_length.html
-func StrvLength(strArray []string) uint {
+func StrvLength(strArray []string) uint32 {
 	var carg1 **C.gchar // in, transfer: none, C Pointers: 2, Name: array[utf8], array (inner gchar* (*typesystem.StringPrimitive), zero-terminated)
 	var cret  C.guint   // return, none, casted
 
@@ -9792,9 +9792,9 @@ func StrvLength(strArray []string) uint {
 	cret = C.g_strv_length(carg1)
 	runtime.KeepAlive(strArray)
 
-	var goret uint
+	var goret uint32
 
-	goret = uint(cret)
+	goret = uint32(cret)
 
 	return goret
 }
@@ -10286,7 +10286,7 @@ func TestTrapSubprocessWithEnvp(testPath string, envp []string, usecTimeout uint
 // TimeoutAddFull wraps g_timeout_add_full
 // 
 // see also https://docs.gtk.org/glib/func.g_timeout_add_full.html
-func TimeoutAddFull(priority int32, interval uint, function SourceFunc) uint {
+func TimeoutAddFull(priority int32, interval uint32, function SourceFunc) uint32 {
 	var carg1 C.gint           // in, none, casted
 	var carg2 C.guint          // in, none, casted
 	var carg3 C.GSourceFunc    // callback, scope: notified, closure: carg4, destroy: carg5
@@ -10305,9 +10305,9 @@ func TimeoutAddFull(priority int32, interval uint, function SourceFunc) uint {
 	runtime.KeepAlive(interval)
 	runtime.KeepAlive(function)
 
-	var goret uint
+	var goret uint32
 
-	goret = uint(cret)
+	goret = uint32(cret)
 
 	return goret
 }
@@ -10315,7 +10315,7 @@ func TimeoutAddFull(priority int32, interval uint, function SourceFunc) uint {
 // TimeoutAddSecondsFull wraps g_timeout_add_seconds_full
 // 
 // see also https://docs.gtk.org/glib/func.g_timeout_add_seconds_full.html
-func TimeoutAddSecondsFull(priority int32, interval uint, function SourceFunc) uint {
+func TimeoutAddSecondsFull(priority int32, interval uint32, function SourceFunc) uint32 {
 	var carg1 C.gint           // in, none, casted
 	var carg2 C.guint          // in, none, casted
 	var carg3 C.GSourceFunc    // callback, scope: notified, closure: carg4, destroy: carg5
@@ -10334,9 +10334,9 @@ func TimeoutAddSecondsFull(priority int32, interval uint, function SourceFunc) u
 	runtime.KeepAlive(interval)
 	runtime.KeepAlive(function)
 
-	var goret uint
+	var goret uint32
 
-	goret = uint(cret)
+	goret = uint32(cret)
 
 	return goret
 }
@@ -10344,7 +10344,7 @@ func TimeoutAddSecondsFull(priority int32, interval uint, function SourceFunc) u
 // UCS4ToUTF8 wraps g_ucs4_to_utf8
 // 
 // see also https://docs.gtk.org/glib/func.g_ucs4_to_utf8.html
-func UCS4ToUTF8(str []uint32) (int32, int32, string, error) {
+func UCS4ToUTF8(str []uint32) (int64, int64, string, error) {
 	var carg1 *C.gunichar // in, transfer: none, C Pointers: 1, Name: array[gunichar], array (inner gunichar (*typesystem.CastablePrimitive), length-by: carg2)
 	var carg2 C.glong     // implicit
 	var carg3 C.glong     // out, full, casted
@@ -10360,13 +10360,13 @@ func UCS4ToUTF8(str []uint32) (int32, int32, string, error) {
 	cret = C.g_ucs4_to_utf8(carg1, carg2, &carg3, &carg4, &_cerr)
 	runtime.KeepAlive(str)
 
-	var itemsRead    int32
-	var itemsWritten int32
+	var itemsRead    int64
+	var itemsWritten int64
 	var goret        string
 	var _goerr       error
 
-	itemsRead = int32(carg3)
-	itemsWritten = int32(carg4)
+	itemsRead = int64(carg3)
+	itemsWritten = int64(carg4)
 	if cret != nil {
 		goret = C.GoString((*C.char)(unsafe.Pointer(cret)))
 		defer C.g_free(C.gpointer(cret))
@@ -11093,7 +11093,7 @@ func Unsetenv(variable string) {
 // Usleep wraps g_usleep
 // 
 // see also https://docs.gtk.org/glib/func.g_usleep.html
-func Usleep(microseconds uint32) {
+func Usleep(microseconds uint64) {
 	var carg1 C.gulong // in, none, casted
 
 	carg1 = C.gulong(microseconds)
@@ -11105,7 +11105,7 @@ func Usleep(microseconds uint32) {
 // UTF16ToUCS4 wraps g_utf16_to_ucs4
 // 
 // see also https://docs.gtk.org/glib/func.g_utf16_to_ucs4.html
-func UTF16ToUCS4(str []uint16) (int32, int32, *uint32, error) {
+func UTF16ToUCS4(str []uint16) (int64, int64, *uint32, error) {
 	var carg1 *C.gunichar2 // in, transfer: none, C Pointers: 1, Name: array[guint16], array (inner guint16 (*typesystem.CastablePrimitive), length-by: carg2)
 	var carg2 C.glong      // implicit
 	var carg3 C.glong      // out, full, casted
@@ -11121,13 +11121,13 @@ func UTF16ToUCS4(str []uint16) (int32, int32, *uint32, error) {
 	cret = C.g_utf16_to_ucs4(carg1, carg2, &carg3, &carg4, &_cerr)
 	runtime.KeepAlive(str)
 
-	var itemsRead    int32
-	var itemsWritten int32
+	var itemsRead    int64
+	var itemsWritten int64
 	var goret        *uint32
 	var _goerr       error
 
-	itemsRead = int32(carg3)
-	itemsWritten = int32(carg4)
+	itemsRead = int64(carg3)
+	itemsWritten = int64(carg4)
 	if cret != nil {
 		_ = goret
 		_ = cret
@@ -11143,7 +11143,7 @@ func UTF16ToUCS4(str []uint16) (int32, int32, *uint32, error) {
 // UTF16ToUTF8 wraps g_utf16_to_utf8
 // 
 // see also https://docs.gtk.org/glib/func.g_utf16_to_utf8.html
-func UTF16ToUTF8(str []uint16) (int32, int32, string, error) {
+func UTF16ToUTF8(str []uint16) (int64, int64, string, error) {
 	var carg1 *C.gunichar2 // in, transfer: none, C Pointers: 1, Name: array[guint16], array (inner guint16 (*typesystem.CastablePrimitive), length-by: carg2)
 	var carg2 C.glong      // implicit
 	var carg3 C.glong      // out, full, casted
@@ -11159,13 +11159,13 @@ func UTF16ToUTF8(str []uint16) (int32, int32, string, error) {
 	cret = C.g_utf16_to_utf8(carg1, carg2, &carg3, &carg4, &_cerr)
 	runtime.KeepAlive(str)
 
-	var itemsRead    int32
-	var itemsWritten int32
+	var itemsRead    int64
+	var itemsWritten int64
 	var goret        string
 	var _goerr       error
 
-	itemsRead = int32(carg3)
-	itemsWritten = int32(carg4)
+	itemsRead = int64(carg3)
+	itemsWritten = int64(carg4)
 	if cret != nil {
 		goret = C.GoString((*C.char)(unsafe.Pointer(cret)))
 		defer C.g_free(C.gpointer(cret))
@@ -11426,7 +11426,7 @@ func UTF8Normalize(str string, len int, mode NormalizeMode) string {
 // UTF8OffsetToPointer wraps g_utf8_offset_to_pointer
 // 
 // see also https://docs.gtk.org/glib/func.g_utf8_offset_to_pointer.html
-func UTF8OffsetToPointer(str string, offset int32) string {
+func UTF8OffsetToPointer(str string, offset int64) string {
 	var carg1 *C.gchar // in, none, string
 	var carg2 C.glong  // in, none, casted
 	var cret  *C.gchar // return, none, string
@@ -11449,7 +11449,7 @@ func UTF8OffsetToPointer(str string, offset int32) string {
 // UTF8PointerToOffset wraps g_utf8_pointer_to_offset
 // 
 // see also https://docs.gtk.org/glib/func.g_utf8_pointer_to_offset.html
-func UTF8PointerToOffset(str string, pos string) int32 {
+func UTF8PointerToOffset(str string, pos string) int64 {
 	var carg1 *C.gchar // in, none, string
 	var carg2 *C.gchar // in, none, string
 	var cret  C.glong  // return, none, casted
@@ -11463,9 +11463,9 @@ func UTF8PointerToOffset(str string, pos string) int32 {
 	runtime.KeepAlive(str)
 	runtime.KeepAlive(pos)
 
-	var goret int32
+	var goret int64
 
-	goret = int32(cret)
+	goret = int64(cret)
 
 	return goret
 }
@@ -11545,7 +11545,7 @@ func UTF8Strdown(str string, len int) string {
 // UTF8Strlen wraps g_utf8_strlen
 // 
 // see also https://docs.gtk.org/glib/func.g_utf8_strlen.html
-func UTF8Strlen(p string, max int) int32 {
+func UTF8Strlen(p string, max int) int64 {
 	var carg1 *C.gchar // in, none, string
 	var carg2 C.gssize // in, none, casted
 	var cret  C.glong  // return, none, casted
@@ -11558,9 +11558,9 @@ func UTF8Strlen(p string, max int) int32 {
 	runtime.KeepAlive(p)
 	runtime.KeepAlive(max)
 
-	var goret int32
+	var goret int64
 
-	goret = int32(cret)
+	goret = int64(cret)
 
 	return goret
 }
@@ -11671,7 +11671,7 @@ func UTF8Strup(str string, len int) string {
 // UTF8Substring wraps g_utf8_substring
 // 
 // see also https://docs.gtk.org/glib/func.g_utf8_substring.html
-func UTF8Substring(str string, startPos int32, endPos int32) string {
+func UTF8Substring(str string, startPos int64, endPos int64) string {
 	var carg1 *C.gchar // in, none, string
 	var carg2 C.glong  // in, none, casted
 	var carg3 C.glong  // in, none, casted
@@ -11698,7 +11698,7 @@ func UTF8Substring(str string, startPos int32, endPos int32) string {
 // UTF8ToUCS4 wraps g_utf8_to_ucs4
 // 
 // see also https://docs.gtk.org/glib/func.g_utf8_to_ucs4.html
-func UTF8ToUCS4(str string, len int32) (int32, int32, *uint32, error) {
+func UTF8ToUCS4(str string, len int64) (int64, int64, *uint32, error) {
 	var carg1 *C.gchar    // in, none, string
 	var carg2 C.glong     // in, none, casted
 	var carg3 C.glong     // out, full, casted
@@ -11714,13 +11714,13 @@ func UTF8ToUCS4(str string, len int32) (int32, int32, *uint32, error) {
 	runtime.KeepAlive(str)
 	runtime.KeepAlive(len)
 
-	var itemsRead    int32
-	var itemsWritten int32
+	var itemsRead    int64
+	var itemsWritten int64
 	var goret        *uint32
 	var _goerr       error
 
-	itemsRead = int32(carg3)
-	itemsWritten = int32(carg4)
+	itemsRead = int64(carg3)
+	itemsWritten = int64(carg4)
 	if cret != nil {
 		_ = goret
 		_ = cret
@@ -11736,7 +11736,7 @@ func UTF8ToUCS4(str string, len int32) (int32, int32, *uint32, error) {
 // UTF8ToUCS4Fast wraps g_utf8_to_ucs4_fast
 // 
 // see also https://docs.gtk.org/glib/func.g_utf8_to_ucs4_fast.html
-func UTF8ToUCS4Fast(str string, len int32) (int32, *uint32) {
+func UTF8ToUCS4Fast(str string, len int64) (int64, *uint32) {
 	var carg1 *C.gchar    // in, none, string
 	var carg2 C.glong     // in, none, casted
 	var carg3 C.glong     // out, full, casted
@@ -11750,10 +11750,10 @@ func UTF8ToUCS4Fast(str string, len int32) (int32, *uint32) {
 	runtime.KeepAlive(str)
 	runtime.KeepAlive(len)
 
-	var itemsWritten int32
+	var itemsWritten int64
 	var goret        *uint32
 
-	itemsWritten = int32(carg3)
+	itemsWritten = int64(carg3)
 	_ = goret
 	_ = cret
 	panic("unimplemented conversion of *uint32 (gunichar*) because of unknown reason")
@@ -11764,7 +11764,7 @@ func UTF8ToUCS4Fast(str string, len int32) (int32, *uint32) {
 // UTF8ToUTF16 wraps g_utf8_to_utf16
 // 
 // see also https://docs.gtk.org/glib/func.g_utf8_to_utf16.html
-func UTF8ToUTF16(str string, len int32) (int32, int32, *uint16, error) {
+func UTF8ToUTF16(str string, len int64) (int64, int64, *uint16, error) {
 	var carg1 *C.gchar     // in, none, string
 	var carg2 C.glong      // in, none, casted
 	var carg3 C.glong      // out, full, casted
@@ -11780,13 +11780,13 @@ func UTF8ToUTF16(str string, len int32) (int32, int32, *uint16, error) {
 	runtime.KeepAlive(str)
 	runtime.KeepAlive(len)
 
-	var itemsRead    int32
-	var itemsWritten int32
+	var itemsRead    int64
+	var itemsWritten int64
 	var goret        *uint16
 	var _goerr       error
 
-	itemsRead = int32(carg3)
-	itemsWritten = int32(carg4)
+	itemsRead = int64(carg3)
+	itemsWritten = int64(carg4)
 	if cret != nil {
 		_ = goret
 		_ = cret
@@ -13861,7 +13861,7 @@ func UnsafeDirToGlibFull(d *Dir) unsafe.Pointer {
 // DirOpen wraps g_dir_open
 // 
 // see also https://docs.gtk.org/glib/func.g_dir_open.html
-func DirOpen(path string, flags uint) (*Dir, error) {
+func DirOpen(path string, flags uint32) (*Dir, error) {
 	var carg1 *C.gchar  // in, none, string
 	var carg2 C.guint   // in, none, casted
 	var cret  *C.GDir   // return, full, converted, nullable
@@ -14332,7 +14332,7 @@ func UnsafeHookToGlibFull(h *Hook) unsafe.Pointer {
 // HookDestroy wraps g_hook_destroy
 // 
 // see also https://docs.gtk.org/glib/func.g_hook_destroy.html
-func HookDestroy(hookList *HookList, hookId uint32) bool {
+func HookDestroy(hookList *HookList, hookId uint64) bool {
 	var carg1 *C.GHookList // in, none, converted
 	var carg2 C.gulong     // in, none, casted
 	var cret  C.gboolean   // return
@@ -14552,7 +14552,7 @@ func (hookList *HookList) Clear() {
 // Init wraps g_hook_list_init
 // 
 // see also https://docs.gtk.org/glib/method.g_hook_list_init.g_hook_list_init.html
-func (hookList *HookList) Init(hookSize uint) {
+func (hookList *HookList) Init(hookSize uint32) {
 	var carg0 *C.GHookList // in, none, converted
 	var carg1 C.guint      // in, none, casted
 
@@ -18584,7 +18584,7 @@ func (node *Node) ChildPosition(child *Node) int32 {
 // Depth wraps g_node_depth
 // 
 // see also https://docs.gtk.org/glib/method.g_node_depth.g_node_depth.html
-func (node *Node) Depth() uint {
+func (node *Node) Depth() uint32 {
 	var carg0 *C.GNode // in, none, converted
 	var cret  C.guint  // return, none, casted
 
@@ -18593,9 +18593,9 @@ func (node *Node) Depth() uint {
 	cret = C.g_node_depth(carg0)
 	runtime.KeepAlive(node)
 
-	var goret uint
+	var goret uint32
 
-	goret = uint(cret)
+	goret = uint32(cret)
 
 	return goret
 }
@@ -18627,7 +18627,7 @@ func (node *Node) IsAncestor(descendant *Node) bool {
 // MaxHeight wraps g_node_max_height
 // 
 // see also https://docs.gtk.org/glib/method.g_node_max_height.g_node_max_height.html
-func (root *Node) MaxHeight() uint {
+func (root *Node) MaxHeight() uint32 {
 	var carg0 *C.GNode // in, none, converted
 	var cret  C.guint  // return, none, casted
 
@@ -18636,9 +18636,9 @@ func (root *Node) MaxHeight() uint {
 	cret = C.g_node_max_height(carg0)
 	runtime.KeepAlive(root)
 
-	var goret uint
+	var goret uint32
 
-	goret = uint(cret)
+	goret = uint32(cret)
 
 	return goret
 }
@@ -18646,7 +18646,7 @@ func (root *Node) MaxHeight() uint {
 // NChildren wraps g_node_n_children
 // 
 // see also https://docs.gtk.org/glib/method.g_node_n_children.g_node_n_children.html
-func (node *Node) NChildren() uint {
+func (node *Node) NChildren() uint32 {
 	var carg0 *C.GNode // in, none, converted
 	var cret  C.guint  // return, none, casted
 
@@ -18655,9 +18655,9 @@ func (node *Node) NChildren() uint {
 	cret = C.g_node_n_children(carg0)
 	runtime.KeepAlive(node)
 
-	var goret uint
+	var goret uint32
 
-	goret = uint(cret)
+	goret = uint32(cret)
 
 	return goret
 }
@@ -18665,7 +18665,7 @@ func (node *Node) NChildren() uint {
 // NNodes wraps g_node_n_nodes
 // 
 // see also https://docs.gtk.org/glib/method.g_node_n_nodes.g_node_n_nodes.html
-func (root *Node) NNodes(flags TraverseFlags) uint {
+func (root *Node) NNodes(flags TraverseFlags) uint32 {
 	var carg0 *C.GNode         // in, none, converted
 	var carg1 C.GTraverseFlags // in, none, casted
 	var cret  C.guint          // return, none, casted
@@ -18677,9 +18677,9 @@ func (root *Node) NNodes(flags TraverseFlags) uint {
 	runtime.KeepAlive(root)
 	runtime.KeepAlive(flags)
 
-	var goret uint
+	var goret uint32
 
-	goret = uint(cret)
+	goret = uint32(cret)
 
 	return goret
 }
@@ -20272,7 +20272,7 @@ func NewRandWithSeed(seed uint32) *Rand {
 // NewRandWithSeedArray wraps g_rand_new_with_seed_array
 // 
 // see also https://docs.gtk.org/glib/func.g_rand_new_with_seed_array.html
-func NewRandWithSeedArray(seed *uint32, seedLength uint) *Rand {
+func NewRandWithSeedArray(seed *uint32, seedLength uint32) *Rand {
 	var carg1 *C.guint32 // in, transfer: none, C Pointers: 1, Name: guint32
 	var carg2 C.guint    // in, none, casted
 	var cret  *C.GRand   // return, full, converted
@@ -20418,7 +20418,7 @@ func (rand *Rand) SetSeed(seed uint32) {
 // SetSeedArray wraps g_rand_set_seed_array
 // 
 // see also https://docs.gtk.org/glib/method.g_rand_set_seed_array.g_rand_set_seed_array.html
-func (rand *Rand) SetSeedArray(seed *uint32, seedLength uint) {
+func (rand *Rand) SetSeedArray(seed *uint32, seedLength uint32) {
 	var carg0 *C.GRand   // in, none, converted
 	var carg1 *C.guint32 // in, transfer: none, C Pointers: 1, Name: guint32
 	var carg2 C.guint    // in, none, casted
@@ -21420,7 +21420,7 @@ func UnsafeScannerToGlibFull(s *Scanner) unsafe.Pointer {
 // CurLine wraps g_scanner_cur_line
 // 
 // see also https://docs.gtk.org/glib/method.g_scanner_cur_line.g_scanner_cur_line.html
-func (scanner *Scanner) CurLine() uint {
+func (scanner *Scanner) CurLine() uint32 {
 	var carg0 *C.GScanner // in, none, converted
 	var cret  C.guint     // return, none, casted
 
@@ -21429,9 +21429,9 @@ func (scanner *Scanner) CurLine() uint {
 	cret = C.g_scanner_cur_line(carg0)
 	runtime.KeepAlive(scanner)
 
-	var goret uint
+	var goret uint32
 
-	goret = uint(cret)
+	goret = uint32(cret)
 
 	return goret
 }
@@ -21439,7 +21439,7 @@ func (scanner *Scanner) CurLine() uint {
 // CurPosition wraps g_scanner_cur_position
 // 
 // see also https://docs.gtk.org/glib/method.g_scanner_cur_position.g_scanner_cur_position.html
-func (scanner *Scanner) CurPosition() uint {
+func (scanner *Scanner) CurPosition() uint32 {
 	var carg0 *C.GScanner // in, none, converted
 	var cret  C.guint     // return, none, casted
 
@@ -21448,9 +21448,9 @@ func (scanner *Scanner) CurPosition() uint {
 	cret = C.g_scanner_cur_position(carg0)
 	runtime.KeepAlive(scanner)
 
-	var goret uint
+	var goret uint32
 
-	goret = uint(cret)
+	goret = uint32(cret)
 
 	return goret
 }
@@ -21532,7 +21532,7 @@ func (scanner *Scanner) InputFile(inputFd int32) {
 // InputText wraps g_scanner_input_text
 // 
 // see also https://docs.gtk.org/glib/method.g_scanner_input_text.g_scanner_input_text.html
-func (scanner *Scanner) InputText(text string, textLen uint) {
+func (scanner *Scanner) InputText(text string, textLen uint32) {
 	var carg0 *C.GScanner // in, none, converted
 	var carg1 *C.gchar    // in, none, string
 	var carg2 C.guint     // in, none, casted
@@ -21570,7 +21570,7 @@ func (scanner *Scanner) PeekNextToken() TokenType {
 // ScopeRemoveSymbol wraps g_scanner_scope_remove_symbol
 // 
 // see also https://docs.gtk.org/glib/method.g_scanner_scope_remove_symbol.g_scanner_scope_remove_symbol.html
-func (scanner *Scanner) ScopeRemoveSymbol(scopeId uint, symbol string) {
+func (scanner *Scanner) ScopeRemoveSymbol(scopeId uint32, symbol string) {
 	var carg0 *C.GScanner // in, none, converted
 	var carg1 C.guint     // in, none, casted
 	var carg2 *C.gchar    // in, none, string
@@ -21589,7 +21589,7 @@ func (scanner *Scanner) ScopeRemoveSymbol(scopeId uint, symbol string) {
 // SetScope wraps g_scanner_set_scope
 // 
 // see also https://docs.gtk.org/glib/method.g_scanner_set_scope.g_scanner_set_scope.html
-func (scanner *Scanner) SetScope(scopeId uint) uint {
+func (scanner *Scanner) SetScope(scopeId uint32) uint32 {
 	var carg0 *C.GScanner // in, none, converted
 	var carg1 C.guint     // in, none, casted
 	var cret  C.guint     // return, none, casted
@@ -21601,9 +21601,9 @@ func (scanner *Scanner) SetScope(scopeId uint) uint {
 	runtime.KeepAlive(scanner)
 	runtime.KeepAlive(scopeId)
 
-	var goret uint
+	var goret uint32
 
-	goret = uint(cret)
+	goret = uint32(cret)
 
 	return goret
 }
@@ -22999,7 +22999,7 @@ func UnsafeTestLogBufferToGlibFull(t *TestLogBuffer) unsafe.Pointer {
 // Push wraps g_test_log_buffer_push
 // 
 // see also https://docs.gtk.org/glib/method.g_test_log_buffer_push.g_test_log_buffer_push.html
-func (tbuffer *TestLogBuffer) Push(nBytes uint, bytes *uint8) {
+func (tbuffer *TestLogBuffer) Push(nBytes uint32, bytes *uint8) {
 	var carg0 *C.GTestLogBuffer // in, none, converted
 	var carg1 C.guint           // in, none, casted
 	var carg2 *C.guint8         // in, transfer: none, C Pointers: 1, Name: guint8
@@ -23505,7 +23505,7 @@ func (timer *Timer) Continue() {
 // Elapsed wraps g_timer_elapsed
 // 
 // see also https://docs.gtk.org/glib/method.g_timer_elapsed.g_timer_elapsed.html
-func (timer *Timer) Elapsed(microseconds *uint32) float64 {
+func (timer *Timer) Elapsed(microseconds *uint64) float64 {
 	var carg0 *C.GTimer // in, none, converted
 	var carg1 *C.gulong // in, transfer: none, C Pointers: 1, Name: gulong
 	var cret  C.gdouble // return, none, casted
@@ -23513,7 +23513,7 @@ func (timer *Timer) Elapsed(microseconds *uint32) float64 {
 	carg0 = (*C.GTimer)(UnsafeTimerToGlibNone(timer))
 	_ = microseconds
 	_ = carg1
-	panic("unimplemented conversion of *uint32 (gulong*) because of no basic converter found")
+	panic("unimplemented conversion of *uint64 (gulong*) because of no basic converter found")
 
 	cret = C.g_timer_elapsed(carg0, carg1)
 	runtime.KeepAlive(timer)

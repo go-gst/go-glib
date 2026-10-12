@@ -746,7 +746,7 @@ func EnumToString(gEnumType Type, value int32) string {
 // FlagsGetFirstValue wraps g_flags_get_first_value
 // 
 // see also https://docs.gtk.org/gobject/func.g_flags_get_first_value.html
-func FlagsGetFirstValue(flagsClass *FlagsClass, value uint) *FlagsValue {
+func FlagsGetFirstValue(flagsClass *FlagsClass, value uint32) *FlagsValue {
 	var carg1 *C.GFlagsClass // in, none, converted
 	var carg2 C.guint        // in, none, casted
 	var cret  *C.GFlagsValue // return, none, converted, nullable
@@ -820,7 +820,7 @@ func FlagsGetValueByNick(flagsClass *FlagsClass, nick string) *FlagsValue {
 // FlagsToString wraps g_flags_to_string
 // 
 // see also https://docs.gtk.org/gobject/func.g_flags_to_string.html
-func FlagsToString(flagsType Type, value uint) string {
+func FlagsToString(flagsType Type, value uint32) string {
 	var carg1 C.GType  // in, none, casted, alias
 	var carg2 C.guint  // in, none, casted
 	var cret  *C.gchar // return, full, string
@@ -1065,7 +1065,7 @@ func ParamSpecEnum(name string, nick string, blurb string, enumType Type, defaul
 // ParamSpecFlags wraps g_param_spec_flags
 // 
 // see also https://docs.gtk.org/gobject/func.g_param_spec_flags.html
-func ParamSpecFlags(name string, nick string, blurb string, flagsType Type, defaultValue uint, flags ParamFlags) *ParamSpec {
+func ParamSpecFlags(name string, nick string, blurb string, flagsType Type, defaultValue uint32, flags ParamFlags) *ParamSpec {
 	var carg1 *C.gchar      // in, none, string
 	var carg2 *C.gchar      // in, none, string, nullable-string
 	var carg3 *C.gchar      // in, none, string, nullable-string
@@ -1276,7 +1276,7 @@ func ParamSpecInt64(name string, nick string, blurb string, minimum int64, maxim
 // ParamSpecLong wraps g_param_spec_long
 // 
 // see also https://docs.gtk.org/gobject/func.g_param_spec_long.html
-func ParamSpecLong(name string, nick string, blurb string, minimum int32, maximum int32, defaultValue int32, flags ParamFlags) *ParamSpec {
+func ParamSpecLong(name string, nick string, blurb string, minimum int64, maximum int64, defaultValue int64, flags ParamFlags) *ParamSpec {
 	var carg1 *C.gchar      // in, none, string
 	var carg2 *C.gchar      // in, none, string, nullable-string
 	var carg3 *C.gchar      // in, none, string, nullable-string
@@ -1516,7 +1516,7 @@ func ParamSpecUchar(name string, nick string, blurb string, minimum uint8, maxim
 // ParamSpecUint wraps g_param_spec_uint
 // 
 // see also https://docs.gtk.org/gobject/func.g_param_spec_uint.html
-func ParamSpecUint(name string, nick string, blurb string, minimum uint, maximum uint, defaultValue uint, flags ParamFlags) *ParamSpec {
+func ParamSpecUint(name string, nick string, blurb string, minimum uint32, maximum uint32, defaultValue uint32, flags ParamFlags) *ParamSpec {
 	var carg1 *C.gchar      // in, none, string
 	var carg2 *C.gchar      // in, none, string, nullable-string
 	var carg3 *C.gchar      // in, none, string, nullable-string
@@ -1604,7 +1604,7 @@ func ParamSpecUint64(name string, nick string, blurb string, minimum uint64, max
 // ParamSpecUlong wraps g_param_spec_ulong
 // 
 // see also https://docs.gtk.org/gobject/func.g_param_spec_ulong.html
-func ParamSpecUlong(name string, nick string, blurb string, minimum uint32, maximum uint32, defaultValue uint32, flags ParamFlags) *ParamSpec {
+func ParamSpecUlong(name string, nick string, blurb string, minimum uint64, maximum uint64, defaultValue uint64, flags ParamFlags) *ParamSpec {
 	var carg1 *C.gchar      // in, none, string
 	var carg2 *C.gchar      // in, none, string, nullable-string
 	var carg3 *C.gchar      // in, none, string, nullable-string
@@ -1872,7 +1872,7 @@ func SignalIsValidName(name string) bool {
 // SignalListIDs wraps g_signal_list_ids
 // 
 // see also https://docs.gtk.org/gobject/func.g_signal_list_ids.html
-func SignalListIDs(itype Type) (uint, []uint) {
+func SignalListIDs(itype Type) (uint32, []uint32) {
 	var carg1 C.GType  // in, none, casted, alias
 	var carg2 C.guint  // out, full, casted
 	var cret  *C.guint // return, transfer: full, C Pointers: 1, Name: array[guint], scope: , array (inner guint (*typesystem.CastablePrimitive))
@@ -1882,13 +1882,13 @@ func SignalListIDs(itype Type) (uint, []uint) {
 	cret = C.g_signal_list_ids(carg1, &carg2)
 	runtime.KeepAlive(itype)
 
-	var nIds  uint
-	var goret []uint
+	var nIds  uint32
+	var goret []uint32
 
-	nIds = uint(carg2)
+	nIds = uint32(carg2)
 	_ = goret
 	_ = cret
-	panic("unimplemented conversion of []uint (guint*) because of unknown reason")
+	panic("unimplemented conversion of []uint32 (guint*) because of unknown reason")
 
 	return nIds, goret
 }
@@ -1896,7 +1896,7 @@ func SignalListIDs(itype Type) (uint, []uint) {
 // SignalLookup wraps g_signal_lookup
 // 
 // see also https://docs.gtk.org/gobject/func.g_signal_lookup.html
-func SignalLookup(name string, itype Type) uint {
+func SignalLookup(name string, itype Type) uint32 {
 	var carg1 *C.gchar // in, none, string
 	var carg2 C.GType  // in, none, casted, alias
 	var cret  C.guint  // return, none, casted
@@ -1909,9 +1909,9 @@ func SignalLookup(name string, itype Type) uint {
 	runtime.KeepAlive(name)
 	runtime.KeepAlive(itype)
 
-	var goret uint
+	var goret uint32
 
-	goret = uint(cret)
+	goret = uint32(cret)
 
 	return goret
 }
@@ -1919,7 +1919,7 @@ func SignalLookup(name string, itype Type) uint {
 // SignalName wraps g_signal_name
 // 
 // see also https://docs.gtk.org/gobject/func.g_signal_name.html
-func SignalName(signalId uint) string {
+func SignalName(signalId uint32) string {
 	var carg1 C.guint  // in, none, casted
 	var cret  *C.gchar // return, none, string, nullable-string
 
@@ -1940,7 +1940,7 @@ func SignalName(signalId uint) string {
 // SignalParseName wraps g_signal_parse_name
 // 
 // see also https://docs.gtk.org/gobject/func.g_signal_parse_name.html
-func SignalParseName(detailedSignal string, itype Type, forceDetailQuark bool) (uint, glib.Quark, bool) {
+func SignalParseName(detailedSignal string, itype Type, forceDetailQuark bool) (uint32, glib.Quark, bool) {
 	var carg1 *C.gchar   // in, none, string
 	var carg2 C.GType    // in, none, casted, alias
 	var carg5 C.gboolean // in
@@ -1960,11 +1960,11 @@ func SignalParseName(detailedSignal string, itype Type, forceDetailQuark bool) (
 	runtime.KeepAlive(itype)
 	runtime.KeepAlive(forceDetailQuark)
 
-	var signalIdP uint
+	var signalIdP uint32
 	var detailP   glib.Quark
 	var goret     bool
 
-	signalIdP = uint(carg3)
+	signalIdP = uint32(carg3)
 	detailP = glib.Quark(carg4)
 	if cret != 0 {
 		goret = true
@@ -1976,7 +1976,7 @@ func SignalParseName(detailedSignal string, itype Type, forceDetailQuark bool) (
 // SignalRemoveEmissionHook wraps g_signal_remove_emission_hook
 // 
 // see also https://docs.gtk.org/gobject/func.g_signal_remove_emission_hook.html
-func SignalRemoveEmissionHook(signalId uint, hookId uint32) {
+func SignalRemoveEmissionHook(signalId uint32, hookId uint64) {
 	var carg1 C.guint  // in, none, casted
 	var carg2 C.gulong // in, none, casted
 
@@ -2136,7 +2136,7 @@ func TypeCheckIsValueType(typ Type) bool {
 // TypeChildren wraps g_type_children
 // 
 // see also https://docs.gtk.org/gobject/func.g_type_children.html
-func TypeChildren(typ Type) (uint, []Type) {
+func TypeChildren(typ Type) (uint32, []Type) {
 	var carg1 C.GType  // in, none, casted, alias
 	var carg2 C.guint  // out, full, casted
 	var cret  *C.GType // return, transfer: full, C Pointers: 1, Name: array[Type], scope: , array (inner GType (*typesystem.Alias))
@@ -2146,10 +2146,10 @@ func TypeChildren(typ Type) (uint, []Type) {
 	cret = C.g_type_children(carg1, &carg2)
 	runtime.KeepAlive(typ)
 
-	var nChildren uint
+	var nChildren uint32
 	var goret     []Type
 
-	nChildren = uint(carg2)
+	nChildren = uint32(carg2)
 	_ = goret
 	_ = cret
 	panic("unimplemented conversion of []Type (GType*) because of unknown reason")
@@ -2160,7 +2160,7 @@ func TypeChildren(typ Type) (uint, []Type) {
 // TypeDepth wraps g_type_depth
 // 
 // see also https://docs.gtk.org/gobject/func.g_type_depth.html
-func TypeDepth(typ Type) uint {
+func TypeDepth(typ Type) uint32 {
 	var carg1 C.GType // in, none, casted, alias
 	var cret  C.guint // return, none, casted
 
@@ -2169,9 +2169,9 @@ func TypeDepth(typ Type) uint {
 	cret = C.g_type_depth(carg1)
 	runtime.KeepAlive(typ)
 
-	var goret uint
+	var goret uint32
 
-	goret = uint(cret)
+	goret = uint32(cret)
 
 	return goret
 }
@@ -2276,14 +2276,14 @@ func TypeGetInstanceCount(typ Type) int32 {
 // TypeGetTypeRegistrationSerial wraps g_type_get_type_registration_serial
 // 
 // see also https://docs.gtk.org/gobject/func.g_type_get_type_registration_serial.html
-func TypeGetTypeRegistrationSerial() uint {
+func TypeGetTypeRegistrationSerial() uint32 {
 	var cret C.guint // return, none, casted
 
 	cret = C.g_type_get_type_registration_serial()
 
-	var goret uint
+	var goret uint32
 
-	goret = uint(cret)
+	goret = uint32(cret)
 
 	return goret
 }
@@ -2291,7 +2291,7 @@ func TypeGetTypeRegistrationSerial() uint {
 // TypeInterfaces wraps g_type_interfaces
 // 
 // see also https://docs.gtk.org/gobject/func.g_type_interfaces.html
-func TypeInterfaces(typ Type) (uint, []Type) {
+func TypeInterfaces(typ Type) (uint32, []Type) {
 	var carg1 C.GType  // in, none, casted, alias
 	var carg2 C.guint  // out, full, casted
 	var cret  *C.GType // return, transfer: full, C Pointers: 1, Name: array[Type], scope: , array (inner GType (*typesystem.Alias))
@@ -2301,10 +2301,10 @@ func TypeInterfaces(typ Type) (uint, []Type) {
 	cret = C.g_type_interfaces(carg1, &carg2)
 	runtime.KeepAlive(typ)
 
-	var nInterfaces uint
+	var nInterfaces uint32
 	var goret       []Type
 
-	nInterfaces = uint(carg2)
+	nInterfaces = uint32(carg2)
 	_ = goret
 	_ = cret
 	panic("unimplemented conversion of []Type (GType*) because of unknown reason")
@@ -2439,7 +2439,7 @@ func TypeQname(typ Type) glib.Quark {
 // TypeTestFlags wraps g_type_test_flags
 // 
 // see also https://docs.gtk.org/gobject/func.g_type_test_flags.html
-func TypeTestFlags(typ Type, flags uint) bool {
+func TypeTestFlags(typ Type, flags uint32) bool {
 	var carg1 C.GType    // in, none, casted, alias
 	var carg2 C.guint    // in, none, casted
 	var cret  C.gboolean // return
