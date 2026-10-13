@@ -16,6 +16,9 @@ type Record struct {
 
 	Fields []*Field
 
+	// Opaque records have no accessible C layout, including disguised records.
+	Opaque bool
+
 	// PrivateGoType is the inner struct that contains the C pointer and gets the finalizer attached
 	PrivateGoType string
 
@@ -69,6 +72,7 @@ func DeclareRecord(e *env, v *gir.Record) *Record {
 	return &Record{
 		Doc:           NewDoc(&v.InfoAttrs, &v.InfoElements),
 		PrivateGoType: strcases.Unexport(gotyp),
+		Opaque:        v.Opaque || v.Disguised,
 
 		BaseConversions: newDefaultBaseConversions(v.Name),
 

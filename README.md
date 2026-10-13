@@ -18,3 +18,13 @@ In https://github.com/go-gst/go-glib/pull/32 this repo was migrated to using a g
 The old code isn't gone, you can always pin your versions on the old commits. The tags have been retracted though, so you may end up seeing some logs from the go toolchain complaining.
 
 There are some migrations needed, as this is a breaking change, but mostly this is simple syntax or function naming. The underlying GStreamer logic does not change from this. See the [go-gst examples](https://github.com/go-gst/go-gst/tree/main/examples) for some reference.
+
+## Generated native ownership
+
+Owned records retain their native reference in a private owner with a finalizer.
+For opaque or disguised records, the generator stores that reference as a
+GC-scanned `unsafe.Pointer` and casts it to the native type at C call boundaries.
+This keeps the owner pointer-sized without placing it in Go's noscan tiny
+allocator, where a neighboring live allocation can otherwise indefinitely delay
+native release. Public wrappers, pointer conversion helpers, and ownership
+transfer semantics are unchanged.

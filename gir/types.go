@@ -447,6 +447,7 @@ type Record struct {
 	CSymbolPrefix        string   `xml:"http://www.gtk.org/introspection/c/1.0 symbol-prefix,attr"`
 	GLibIsGTypeStructFor string   `xml:"http://www.gtk.org/introspection/glib/1.0 is-gtype-struct-for,attr"`
 	Disguised            bool     `xml:"disguised,attr"`
+	Opaque               bool     `xml:"opaque,attr"`
 	Foreign              bool     `xml:"foreign,attr"`
 
 	Fields       []*Field       `xml:"http://www.gtk.org/introspection/core/1.0 field"`

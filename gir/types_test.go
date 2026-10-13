@@ -1,6 +1,7 @@
 package gir_test
 
 import (
+	"encoding/xml"
 	"testing"
 
 	"github.com/go-gst/go-glib/gir"
@@ -26,5 +27,16 @@ func TestVersionLessEqual(t *testing.T) {
 		if result != tt.expected {
 			t.Errorf("Expected %v.LessEqual(%v) to be %v, but got %v", tt.v1, tt.v2, tt.expected, result)
 		}
+	}
+}
+
+func TestRecordOpaque(t *testing.T) {
+	var record gir.Record
+	err := xml.Unmarshal([]byte(`<record xmlns="http://www.gtk.org/introspection/core/1.0" name="Sample" opaque="1"/>`), &record)
+	if err != nil {
+		t.Fatal(err)
+	}
+	if !record.Opaque {
+		t.Fatal("GIR opaque attribute was not preserved")
 	}
 }
