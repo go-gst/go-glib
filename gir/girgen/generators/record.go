@@ -36,7 +36,6 @@ func (g *RecordGenerator) Generate(w *file.Package) {
 		fmt.Fprintf(w.Go(), "// %s is the type struct for [%s]\n", g.GoType(0), g.IsTypeStructFor.GoType(1))
 	}
 
-	// TODO: attach a cleanup field here of type runtime.Cleanup, and drop the SetFinalizer for AddCleanup
 	fmt.Fprintf(w.Go(), "type %s struct {\n", g.GoType(0))
 	fmt.Fprintf(w.Go(), "\t*%s\n", g.PrivateGoType)
 	fmt.Fprintf(w.Go(), "}\n")
@@ -44,7 +43,16 @@ func (g *RecordGenerator) Generate(w *file.Package) {
 
 	fmt.Fprintf(w.Go(), "// %s is the struct that's finalized\n", g.PrivateGoType)
 	fmt.Fprintf(w.Go(), "type %s struct {\n", g.PrivateGoType)
-	fmt.Fprintf(w.Go(), "\tnative *%s\n", g.CGoType(0))
+	if g.Opaque {
+		// Pointers to cgo.Incomplete are not GC-scanned. A pointer-sized owner
+		// would use the tiny allocator, where a live neighbor can indefinitely
+		// prevent its finalizer from running. unsafe.Pointer keeps the same
+		// size and native address while making the owner GC-scanned.
+		fmt.Fprintf(w.Go(), "\t// Use a GC-scanned pointer so live tiny allocations cannot pin the finalizer.\n")
+		fmt.Fprintf(w.Go(), "\tnative unsafe.Pointer\n")
+	} else {
+		fmt.Fprintf(w.Go(), "\tnative *%s\n", g.CGoType(0))
+	}
 	fmt.Fprintf(w.Go(), "}\n")
 	w.Go().NewSection()
 
@@ -55,7 +63,11 @@ func (g *RecordGenerator) Generate(w *file.Package) {
 	fmt.Fprintf(w.Go(), "if %s == nil {\n", g.ReceiverName)
 	fmt.Fprintf(w.Go(), "\treturn nil\n")
 	fmt.Fprintf(w.Go(), "}\n")
-	fmt.Fprintf(w.Go(), "return %s.native\n", g.ReceiverName)
+	if g.Opaque {
+		fmt.Fprintf(w.Go(), "return (*%s)(%s.native)\n", g.CGoType(0), g.ReceiverName)
+	} else {
+		fmt.Fprintf(w.Go(), "return %s.native\n", g.ReceiverName)
+	}
 	w.Go().Unindent()
 	fmt.Fprintf(w.Go(), "}\n")
 	w.Go().NewSection()
@@ -92,7 +104,11 @@ func (g *RecordGenerator) Generate(w *file.Package) {
 	fmt.Fprintf(w.Go(), "\tif p == nil {\n")
 	fmt.Fprintf(w.Go(), "\t\treturn nil\n")
 	fmt.Fprintf(w.Go(), "\t}\n")
-	fmt.Fprintf(w.Go(), "\treturn &%s{&%s{(*%s)(p)}}\n", g.GoType(0), g.PrivateGoType, g.CGoType(0))
+	if g.Opaque {
+		fmt.Fprintf(w.Go(), "\treturn &%s{&%s{p}}\n", g.GoType(0), g.PrivateGoType)
+	} else {
+		fmt.Fprintf(w.Go(), "\treturn &%s{&%s{(*%s)(p)}}\n", g.GoType(0), g.PrivateGoType, g.CGoType(0))
+	}
 	fmt.Fprintf(w.Go(), "}\n")
 	w.Go().NewSection()
 
@@ -246,6 +262,8 @@ func (g *RecordGenerator) unrefCall(w file.CodeWriter, variable string) {
 	if g.CgoUnrefNeedsUnsafeCast {
 		// unsafe already imported above
 		fmt.Fprintf(w, "%s(unsafe.Pointer(%s.native))\n", g.CgoUnrefFunction, variable)
+	} else if g.Opaque {
+		fmt.Fprintf(w, "%s((*%s)(%s.native))\n", g.CgoUnrefFunction, g.CGoType(0), variable)
 	} else {
 		fmt.Fprintf(w, "%s(%s.native)\n", g.CgoUnrefFunction, variable)
 	}

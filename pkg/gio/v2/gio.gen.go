@@ -57270,7 +57270,8 @@ type CredentialsClass struct {
 
 // credentialsClass is the struct that's finalized
 type credentialsClass struct {
-	native *C.GCredentialsClass
+	// Use a GC-scanned pointer so live tiny allocations cannot pin the finalizer.
+	native unsafe.Pointer
 }
 
 // UnsafeCredentialsClassToGlibNone returns the underlying C pointer. This is used by the bindings internally.
@@ -57278,7 +57279,7 @@ func (c *CredentialsClass) instance() *C.GCredentialsClass {
 	if c == nil {
 		return nil
 	}
-	return c.native
+	return (*C.GCredentialsClass)(c.native)
 }
 
 // UnsafeCredentialsClassFromGlibBorrow is used to convert raw C.GCredentialsClass pointers to go. This is used by the bindings internally.
@@ -57286,7 +57287,7 @@ func UnsafeCredentialsClassFromGlibBorrow(p unsafe.Pointer) *CredentialsClass {
 	if p == nil {
 		return nil
 	}
-	return &CredentialsClass{&credentialsClass{(*C.GCredentialsClass)(p)}}
+	return &CredentialsClass{&credentialsClass{p}}
 }
 
 // UnsafeCredentialsClassFree unrefs/frees the underlying resource. This can be used to remove the instance before the GC decides to do so.
@@ -57927,7 +57928,8 @@ type EmblemClass struct {
 
 // emblemClass is the struct that's finalized
 type emblemClass struct {
-	native *C.GEmblemClass
+	// Use a GC-scanned pointer so live tiny allocations cannot pin the finalizer.
+	native unsafe.Pointer
 }
 
 // UnsafeEmblemClassToGlibNone returns the underlying C pointer. This is used by the bindings internally.
@@ -57935,7 +57937,7 @@ func (e *EmblemClass) instance() *C.GEmblemClass {
 	if e == nil {
 		return nil
 	}
-	return e.native
+	return (*C.GEmblemClass)(e.native)
 }
 
 // UnsafeEmblemClassFromGlibBorrow is used to convert raw C.GEmblemClass pointers to go. This is used by the bindings internally.
@@ -57943,7 +57945,7 @@ func UnsafeEmblemClassFromGlibBorrow(p unsafe.Pointer) *EmblemClass {
 	if p == nil {
 		return nil
 	}
-	return &EmblemClass{&emblemClass{(*C.GEmblemClass)(p)}}
+	return &EmblemClass{&emblemClass{p}}
 }
 
 // UnsafeEmblemClassFree unrefs/frees the underlying resource. This can be used to remove the instance before the GC decides to do so.
@@ -58306,7 +58308,8 @@ type FileAttributeMatcher struct {
 
 // fileAttributeMatcher is the struct that's finalized
 type fileAttributeMatcher struct {
-	native *C.GFileAttributeMatcher
+	// Use a GC-scanned pointer so live tiny allocations cannot pin the finalizer.
+	native unsafe.Pointer
 }
 
 // UnsafeFileAttributeMatcherToGlibNone returns the underlying C pointer. This is used by the bindings internally.
@@ -58314,7 +58317,7 @@ func (f *FileAttributeMatcher) instance() *C.GFileAttributeMatcher {
 	if f == nil {
 		return nil
 	}
-	return f.native
+	return (*C.GFileAttributeMatcher)(f.native)
 }
 
 var _ gobject.GoValueInitializer = (*FileAttributeMatcher)(nil)
@@ -58337,7 +58340,7 @@ func UnsafeFileAttributeMatcherFromGlibBorrow(p unsafe.Pointer) *FileAttributeMa
 	if p == nil {
 		return nil
 	}
-	return &FileAttributeMatcher{&fileAttributeMatcher{(*C.GFileAttributeMatcher)(p)}}
+	return &FileAttributeMatcher{&fileAttributeMatcher{p}}
 }
 
 // UnsafeFileAttributeMatcherFromGlibNone is used to convert raw C.GFileAttributeMatcher pointers to go without transferring ownership. This is used by the bindings internally.
@@ -58351,7 +58354,7 @@ func UnsafeFileAttributeMatcherFromGlibNone(p unsafe.Pointer) *FileAttributeMatc
 	runtime.SetFinalizer(
 		wrapped.fileAttributeMatcher,
 		func(intern *fileAttributeMatcher) {
-			C.g_file_attribute_matcher_unref(intern.native)
+			C.g_file_attribute_matcher_unref((*C.GFileAttributeMatcher)(intern.native))
 		},
 	)
 	return wrapped
@@ -58366,7 +58369,7 @@ func UnsafeFileAttributeMatcherFromGlibFull(p unsafe.Pointer) *FileAttributeMatc
 	runtime.SetFinalizer(
 		wrapped.fileAttributeMatcher,
 		func(intern *fileAttributeMatcher) {
-			C.g_file_attribute_matcher_unref(intern.native)
+			C.g_file_attribute_matcher_unref((*C.GFileAttributeMatcher)(intern.native))
 		},
 	)
 	return wrapped
@@ -58383,7 +58386,7 @@ func UnsafeFileAttributeMatcherRef(f *FileAttributeMatcher) {
 //
 // After this is called, no other method on [FileAttributeMatcher] is expected to work anymore.
 func UnsafeFileAttributeMatcherUnref(f *FileAttributeMatcher) {
-	C.g_file_attribute_matcher_unref(f.native)
+	C.g_file_attribute_matcher_unref((*C.GFileAttributeMatcher)(f.native))
 	runtime.SetFinalizer(f.fileAttributeMatcher, nil)
 }
 
@@ -58690,7 +58693,8 @@ type FileIconClass struct {
 
 // fileIconClass is the struct that's finalized
 type fileIconClass struct {
-	native *C.GFileIconClass
+	// Use a GC-scanned pointer so live tiny allocations cannot pin the finalizer.
+	native unsafe.Pointer
 }
 
 // UnsafeFileIconClassToGlibNone returns the underlying C pointer. This is used by the bindings internally.
@@ -58698,7 +58702,7 @@ func (f *FileIconClass) instance() *C.GFileIconClass {
 	if f == nil {
 		return nil
 	}
-	return f.native
+	return (*C.GFileIconClass)(f.native)
 }
 
 // UnsafeFileIconClassFromGlibBorrow is used to convert raw C.GFileIconClass pointers to go. This is used by the bindings internally.
@@ -58706,7 +58710,7 @@ func UnsafeFileIconClassFromGlibBorrow(p unsafe.Pointer) *FileIconClass {
 	if p == nil {
 		return nil
 	}
-	return &FileIconClass{&fileIconClass{(*C.GFileIconClass)(p)}}
+	return &FileIconClass{&fileIconClass{p}}
 }
 
 // UnsafeFileIconClassFree unrefs/frees the underlying resource. This can be used to remove the instance before the GC decides to do so.
@@ -58827,7 +58831,8 @@ type FileInfoClass struct {
 
 // fileInfoClass is the struct that's finalized
 type fileInfoClass struct {
-	native *C.GFileInfoClass
+	// Use a GC-scanned pointer so live tiny allocations cannot pin the finalizer.
+	native unsafe.Pointer
 }
 
 // UnsafeFileInfoClassToGlibNone returns the underlying C pointer. This is used by the bindings internally.
@@ -58835,7 +58840,7 @@ func (f *FileInfoClass) instance() *C.GFileInfoClass {
 	if f == nil {
 		return nil
 	}
-	return f.native
+	return (*C.GFileInfoClass)(f.native)
 }
 
 // UnsafeFileInfoClassFromGlibBorrow is used to convert raw C.GFileInfoClass pointers to go. This is used by the bindings internally.
@@ -58843,7 +58848,7 @@ func UnsafeFileInfoClassFromGlibBorrow(p unsafe.Pointer) *FileInfoClass {
 	if p == nil {
 		return nil
 	}
-	return &FileInfoClass{&fileInfoClass{(*C.GFileInfoClass)(p)}}
+	return &FileInfoClass{&fileInfoClass{p}}
 }
 
 // UnsafeFileInfoClassFree unrefs/frees the underlying resource. This can be used to remove the instance before the GC decides to do so.
@@ -59210,7 +59215,8 @@ type IOExtension struct {
 
 // iOExtension is the struct that's finalized
 type iOExtension struct {
-	native *C.GIOExtension
+	// Use a GC-scanned pointer so live tiny allocations cannot pin the finalizer.
+	native unsafe.Pointer
 }
 
 // UnsafeIOExtensionToGlibNone returns the underlying C pointer. This is used by the bindings internally.
@@ -59218,7 +59224,7 @@ func (i *IOExtension) instance() *C.GIOExtension {
 	if i == nil {
 		return nil
 	}
-	return i.native
+	return (*C.GIOExtension)(i.native)
 }
 
 // UnsafeIOExtensionFromGlibBorrow is used to convert raw C.GIOExtension pointers to go. This is used by the bindings internally.
@@ -59226,7 +59232,7 @@ func UnsafeIOExtensionFromGlibBorrow(p unsafe.Pointer) *IOExtension {
 	if p == nil {
 		return nil
 	}
-	return &IOExtension{&iOExtension{(*C.GIOExtension)(p)}}
+	return &IOExtension{&iOExtension{p}}
 }
 
 // UnsafeIOExtensionFromGlibNone is used to convert raw C.GIOExtension pointers to go without transferring ownership. This is used by the bindings internally.
@@ -59349,7 +59355,8 @@ type IOExtensionPoint struct {
 
 // iOExtensionPoint is the struct that's finalized
 type iOExtensionPoint struct {
-	native *C.GIOExtensionPoint
+	// Use a GC-scanned pointer so live tiny allocations cannot pin the finalizer.
+	native unsafe.Pointer
 }
 
 // UnsafeIOExtensionPointToGlibNone returns the underlying C pointer. This is used by the bindings internally.
@@ -59357,7 +59364,7 @@ func (i *IOExtensionPoint) instance() *C.GIOExtensionPoint {
 	if i == nil {
 		return nil
 	}
-	return i.native
+	return (*C.GIOExtensionPoint)(i.native)
 }
 
 // UnsafeIOExtensionPointFromGlibBorrow is used to convert raw C.GIOExtensionPoint pointers to go. This is used by the bindings internally.
@@ -59365,7 +59372,7 @@ func UnsafeIOExtensionPointFromGlibBorrow(p unsafe.Pointer) *IOExtensionPoint {
 	if p == nil {
 		return nil
 	}
-	return &IOExtensionPoint{&iOExtensionPoint{(*C.GIOExtensionPoint)(p)}}
+	return &IOExtensionPoint{&iOExtensionPoint{p}}
 }
 
 // UnsafeIOExtensionPointFromGlibNone is used to convert raw C.GIOExtensionPoint pointers to go without transferring ownership. This is used by the bindings internally.
@@ -59586,7 +59593,8 @@ type IOModuleClass struct {
 
 // iOModuleClass is the struct that's finalized
 type iOModuleClass struct {
-	native *C.GIOModuleClass
+	// Use a GC-scanned pointer so live tiny allocations cannot pin the finalizer.
+	native unsafe.Pointer
 }
 
 // UnsafeIOModuleClassToGlibNone returns the underlying C pointer. This is used by the bindings internally.
@@ -59594,7 +59602,7 @@ func (i *IOModuleClass) instance() *C.GIOModuleClass {
 	if i == nil {
 		return nil
 	}
-	return i.native
+	return (*C.GIOModuleClass)(i.native)
 }
 
 // UnsafeIOModuleClassFromGlibBorrow is used to convert raw C.GIOModuleClass pointers to go. This is used by the bindings internally.
@@ -59602,7 +59610,7 @@ func UnsafeIOModuleClassFromGlibBorrow(p unsafe.Pointer) *IOModuleClass {
 	if p == nil {
 		return nil
 	}
-	return &IOModuleClass{&iOModuleClass{(*C.GIOModuleClass)(p)}}
+	return &IOModuleClass{&iOModuleClass{p}}
 }
 
 // UnsafeIOModuleClassFree unrefs/frees the underlying resource. This can be used to remove the instance before the GC decides to do so.
@@ -59630,7 +59638,8 @@ type IOModuleScope struct {
 
 // iOModuleScope is the struct that's finalized
 type iOModuleScope struct {
-	native *C.GIOModuleScope
+	// Use a GC-scanned pointer so live tiny allocations cannot pin the finalizer.
+	native unsafe.Pointer
 }
 
 // UnsafeIOModuleScopeToGlibNone returns the underlying C pointer. This is used by the bindings internally.
@@ -59638,7 +59647,7 @@ func (i *IOModuleScope) instance() *C.GIOModuleScope {
 	if i == nil {
 		return nil
 	}
-	return i.native
+	return (*C.GIOModuleScope)(i.native)
 }
 
 // UnsafeIOModuleScopeFromGlibBorrow is used to convert raw C.GIOModuleScope pointers to go. This is used by the bindings internally.
@@ -59646,7 +59655,7 @@ func UnsafeIOModuleScopeFromGlibBorrow(p unsafe.Pointer) *IOModuleScope {
 	if p == nil {
 		return nil
 	}
-	return &IOModuleScope{&iOModuleScope{(*C.GIOModuleScope)(p)}}
+	return &IOModuleScope{&iOModuleScope{p}}
 }
 
 // UnsafeIOModuleScopeFromGlibNone is used to convert raw C.GIOModuleScope pointers to go without transferring ownership. This is used by the bindings internally.
@@ -59669,7 +59678,7 @@ func UnsafeIOModuleScopeFromGlibFull(p unsafe.Pointer) *IOModuleScope {
 	runtime.SetFinalizer(
 		wrapped.iOModuleScope,
 		func(intern *iOModuleScope) {
-			C.g_io_module_scope_free(intern.native)
+			C.g_io_module_scope_free((*C.GIOModuleScope)(intern.native))
 		},
 	)
 	return wrapped
@@ -59679,7 +59688,7 @@ func UnsafeIOModuleScopeFromGlibFull(p unsafe.Pointer) *IOModuleScope {
 //
 // After this is called, no other method on [IOModuleScope] is expected to work anymore.
 func UnsafeIOModuleScopeFree(i *IOModuleScope) {
-	C.g_io_module_scope_free(i.native)
+	C.g_io_module_scope_free((*C.GIOModuleScope)(i.native))
 	runtime.SetFinalizer(i.iOModuleScope, nil)
 }
 
@@ -59730,7 +59739,8 @@ type IOSchedulerJob struct {
 
 // iOSchedulerJob is the struct that's finalized
 type iOSchedulerJob struct {
-	native *C.GIOSchedulerJob
+	// Use a GC-scanned pointer so live tiny allocations cannot pin the finalizer.
+	native unsafe.Pointer
 }
 
 // UnsafeIOSchedulerJobToGlibNone returns the underlying C pointer. This is used by the bindings internally.
@@ -59738,7 +59748,7 @@ func (i *IOSchedulerJob) instance() *C.GIOSchedulerJob {
 	if i == nil {
 		return nil
 	}
-	return i.native
+	return (*C.GIOSchedulerJob)(i.native)
 }
 
 // UnsafeIOSchedulerJobFromGlibBorrow is used to convert raw C.GIOSchedulerJob pointers to go. This is used by the bindings internally.
@@ -59746,7 +59756,7 @@ func UnsafeIOSchedulerJobFromGlibBorrow(p unsafe.Pointer) *IOSchedulerJob {
 	if p == nil {
 		return nil
 	}
-	return &IOSchedulerJob{&iOSchedulerJob{(*C.GIOSchedulerJob)(p)}}
+	return &IOSchedulerJob{&iOSchedulerJob{p}}
 }
 
 // UnsafeIOSchedulerJobFromGlibNone is used to convert raw C.GIOSchedulerJob pointers to go without transferring ownership. This is used by the bindings internally.
@@ -59863,7 +59873,8 @@ type IOStreamAdapter struct {
 
 // iOStreamAdapter is the struct that's finalized
 type iOStreamAdapter struct {
-	native *C.GIOStreamAdapter
+	// Use a GC-scanned pointer so live tiny allocations cannot pin the finalizer.
+	native unsafe.Pointer
 }
 
 // UnsafeIOStreamAdapterToGlibNone returns the underlying C pointer. This is used by the bindings internally.
@@ -59871,7 +59882,7 @@ func (i *IOStreamAdapter) instance() *C.GIOStreamAdapter {
 	if i == nil {
 		return nil
 	}
-	return i.native
+	return (*C.GIOStreamAdapter)(i.native)
 }
 
 // UnsafeIOStreamAdapterFromGlibBorrow is used to convert raw C.GIOStreamAdapter pointers to go. This is used by the bindings internally.
@@ -59879,7 +59890,7 @@ func UnsafeIOStreamAdapterFromGlibBorrow(p unsafe.Pointer) *IOStreamAdapter {
 	if p == nil {
 		return nil
 	}
-	return &IOStreamAdapter{&iOStreamAdapter{(*C.GIOStreamAdapter)(p)}}
+	return &IOStreamAdapter{&iOStreamAdapter{p}}
 }
 
 // UnsafeIOStreamAdapterFromGlibNone is used to convert raw C.GIOStreamAdapter pointers to go without transferring ownership. This is used by the bindings internally.
@@ -62631,7 +62642,8 @@ type SettingsSchema struct {
 
 // settingsSchema is the struct that's finalized
 type settingsSchema struct {
-	native *C.GSettingsSchema
+	// Use a GC-scanned pointer so live tiny allocations cannot pin the finalizer.
+	native unsafe.Pointer
 }
 
 // UnsafeSettingsSchemaToGlibNone returns the underlying C pointer. This is used by the bindings internally.
@@ -62639,7 +62651,7 @@ func (s *SettingsSchema) instance() *C.GSettingsSchema {
 	if s == nil {
 		return nil
 	}
-	return s.native
+	return (*C.GSettingsSchema)(s.native)
 }
 
 var _ gobject.GoValueInitializer = (*SettingsSchema)(nil)
@@ -62662,7 +62674,7 @@ func UnsafeSettingsSchemaFromGlibBorrow(p unsafe.Pointer) *SettingsSchema {
 	if p == nil {
 		return nil
 	}
-	return &SettingsSchema{&settingsSchema{(*C.GSettingsSchema)(p)}}
+	return &SettingsSchema{&settingsSchema{p}}
 }
 
 // UnsafeSettingsSchemaFromGlibNone is used to convert raw C.GSettingsSchema pointers to go without transferring ownership. This is used by the bindings internally.
@@ -62676,7 +62688,7 @@ func UnsafeSettingsSchemaFromGlibNone(p unsafe.Pointer) *SettingsSchema {
 	runtime.SetFinalizer(
 		wrapped.settingsSchema,
 		func(intern *settingsSchema) {
-			C.g_settings_schema_unref(intern.native)
+			C.g_settings_schema_unref((*C.GSettingsSchema)(intern.native))
 		},
 	)
 	return wrapped
@@ -62691,7 +62703,7 @@ func UnsafeSettingsSchemaFromGlibFull(p unsafe.Pointer) *SettingsSchema {
 	runtime.SetFinalizer(
 		wrapped.settingsSchema,
 		func(intern *settingsSchema) {
-			C.g_settings_schema_unref(intern.native)
+			C.g_settings_schema_unref((*C.GSettingsSchema)(intern.native))
 		},
 	)
 	return wrapped
@@ -62708,7 +62720,7 @@ func UnsafeSettingsSchemaRef(s *SettingsSchema) {
 //
 // After this is called, no other method on [SettingsSchema] is expected to work anymore.
 func UnsafeSettingsSchemaUnref(s *SettingsSchema) {
-	C.g_settings_schema_unref(s.native)
+	C.g_settings_schema_unref((*C.GSettingsSchema)(s.native))
 	runtime.SetFinalizer(s.settingsSchema, nil)
 }
 
@@ -62871,7 +62883,8 @@ type SettingsSchemaKey struct {
 
 // settingsSchemaKey is the struct that's finalized
 type settingsSchemaKey struct {
-	native *C.GSettingsSchemaKey
+	// Use a GC-scanned pointer so live tiny allocations cannot pin the finalizer.
+	native unsafe.Pointer
 }
 
 // UnsafeSettingsSchemaKeyToGlibNone returns the underlying C pointer. This is used by the bindings internally.
@@ -62879,7 +62892,7 @@ func (s *SettingsSchemaKey) instance() *C.GSettingsSchemaKey {
 	if s == nil {
 		return nil
 	}
-	return s.native
+	return (*C.GSettingsSchemaKey)(s.native)
 }
 
 var _ gobject.GoValueInitializer = (*SettingsSchemaKey)(nil)
@@ -62902,7 +62915,7 @@ func UnsafeSettingsSchemaKeyFromGlibBorrow(p unsafe.Pointer) *SettingsSchemaKey 
 	if p == nil {
 		return nil
 	}
-	return &SettingsSchemaKey{&settingsSchemaKey{(*C.GSettingsSchemaKey)(p)}}
+	return &SettingsSchemaKey{&settingsSchemaKey{p}}
 }
 
 // UnsafeSettingsSchemaKeyFromGlibNone is used to convert raw C.GSettingsSchemaKey pointers to go without transferring ownership. This is used by the bindings internally.
@@ -62916,7 +62929,7 @@ func UnsafeSettingsSchemaKeyFromGlibNone(p unsafe.Pointer) *SettingsSchemaKey {
 	runtime.SetFinalizer(
 		wrapped.settingsSchemaKey,
 		func(intern *settingsSchemaKey) {
-			C.g_settings_schema_key_unref(intern.native)
+			C.g_settings_schema_key_unref((*C.GSettingsSchemaKey)(intern.native))
 		},
 	)
 	return wrapped
@@ -62931,7 +62944,7 @@ func UnsafeSettingsSchemaKeyFromGlibFull(p unsafe.Pointer) *SettingsSchemaKey {
 	runtime.SetFinalizer(
 		wrapped.settingsSchemaKey,
 		func(intern *settingsSchemaKey) {
-			C.g_settings_schema_key_unref(intern.native)
+			C.g_settings_schema_key_unref((*C.GSettingsSchemaKey)(intern.native))
 		},
 	)
 	return wrapped
@@ -62948,7 +62961,7 @@ func UnsafeSettingsSchemaKeyRef(s *SettingsSchemaKey) {
 //
 // After this is called, no other method on [SettingsSchemaKey] is expected to work anymore.
 func UnsafeSettingsSchemaKeyUnref(s *SettingsSchemaKey) {
-	C.g_settings_schema_key_unref(s.native)
+	C.g_settings_schema_key_unref((*C.GSettingsSchemaKey)(s.native))
 	runtime.SetFinalizer(s.settingsSchemaKey, nil)
 }
 
@@ -63061,7 +63074,8 @@ type SettingsSchemaSource struct {
 
 // settingsSchemaSource is the struct that's finalized
 type settingsSchemaSource struct {
-	native *C.GSettingsSchemaSource
+	// Use a GC-scanned pointer so live tiny allocations cannot pin the finalizer.
+	native unsafe.Pointer
 }
 
 // UnsafeSettingsSchemaSourceToGlibNone returns the underlying C pointer. This is used by the bindings internally.
@@ -63069,7 +63083,7 @@ func (s *SettingsSchemaSource) instance() *C.GSettingsSchemaSource {
 	if s == nil {
 		return nil
 	}
-	return s.native
+	return (*C.GSettingsSchemaSource)(s.native)
 }
 
 var _ gobject.GoValueInitializer = (*SettingsSchemaSource)(nil)
@@ -63092,7 +63106,7 @@ func UnsafeSettingsSchemaSourceFromGlibBorrow(p unsafe.Pointer) *SettingsSchemaS
 	if p == nil {
 		return nil
 	}
-	return &SettingsSchemaSource{&settingsSchemaSource{(*C.GSettingsSchemaSource)(p)}}
+	return &SettingsSchemaSource{&settingsSchemaSource{p}}
 }
 
 // UnsafeSettingsSchemaSourceFromGlibNone is used to convert raw C.GSettingsSchemaSource pointers to go without transferring ownership. This is used by the bindings internally.
@@ -63106,7 +63120,7 @@ func UnsafeSettingsSchemaSourceFromGlibNone(p unsafe.Pointer) *SettingsSchemaSou
 	runtime.SetFinalizer(
 		wrapped.settingsSchemaSource,
 		func(intern *settingsSchemaSource) {
-			C.g_settings_schema_source_unref(intern.native)
+			C.g_settings_schema_source_unref((*C.GSettingsSchemaSource)(intern.native))
 		},
 	)
 	return wrapped
@@ -63121,7 +63135,7 @@ func UnsafeSettingsSchemaSourceFromGlibFull(p unsafe.Pointer) *SettingsSchemaSou
 	runtime.SetFinalizer(
 		wrapped.settingsSchemaSource,
 		func(intern *settingsSchemaSource) {
-			C.g_settings_schema_source_unref(intern.native)
+			C.g_settings_schema_source_unref((*C.GSettingsSchemaSource)(intern.native))
 		},
 	)
 	return wrapped
@@ -63138,7 +63152,7 @@ func UnsafeSettingsSchemaSourceRef(s *SettingsSchemaSource) {
 //
 // After this is called, no other method on [SettingsSchemaSource] is expected to work anymore.
 func UnsafeSettingsSchemaSourceUnref(s *SettingsSchemaSource) {
-	C.g_settings_schema_source_unref(s.native)
+	C.g_settings_schema_source_unref((*C.GSettingsSchemaSource)(s.native))
 	runtime.SetFinalizer(s.settingsSchemaSource, nil)
 }
 
@@ -63312,7 +63326,8 @@ type SimpleAsyncResultClass struct {
 
 // simpleAsyncResultClass is the struct that's finalized
 type simpleAsyncResultClass struct {
-	native *C.GSimpleAsyncResultClass
+	// Use a GC-scanned pointer so live tiny allocations cannot pin the finalizer.
+	native unsafe.Pointer
 }
 
 // UnsafeSimpleAsyncResultClassToGlibNone returns the underlying C pointer. This is used by the bindings internally.
@@ -63320,7 +63335,7 @@ func (s *SimpleAsyncResultClass) instance() *C.GSimpleAsyncResultClass {
 	if s == nil {
 		return nil
 	}
-	return s.native
+	return (*C.GSimpleAsyncResultClass)(s.native)
 }
 
 // UnsafeSimpleAsyncResultClassFromGlibBorrow is used to convert raw C.GSimpleAsyncResultClass pointers to go. This is used by the bindings internally.
@@ -63328,7 +63343,7 @@ func UnsafeSimpleAsyncResultClassFromGlibBorrow(p unsafe.Pointer) *SimpleAsyncRe
 	if p == nil {
 		return nil
 	}
-	return &SimpleAsyncResultClass{&simpleAsyncResultClass{(*C.GSimpleAsyncResultClass)(p)}}
+	return &SimpleAsyncResultClass{&simpleAsyncResultClass{p}}
 }
 
 // UnsafeSimpleAsyncResultClassFree unrefs/frees the underlying resource. This can be used to remove the instance before the GC decides to do so.
@@ -63942,7 +63957,8 @@ type SrvTarget struct {
 
 // srvTarget is the struct that's finalized
 type srvTarget struct {
-	native *C.GSrvTarget
+	// Use a GC-scanned pointer so live tiny allocations cannot pin the finalizer.
+	native unsafe.Pointer
 }
 
 // UnsafeSrvTargetToGlibNone returns the underlying C pointer. This is used by the bindings internally.
@@ -63950,7 +63966,7 @@ func (s *SrvTarget) instance() *C.GSrvTarget {
 	if s == nil {
 		return nil
 	}
-	return s.native
+	return (*C.GSrvTarget)(s.native)
 }
 
 var _ gobject.GoValueInitializer = (*SrvTarget)(nil)
@@ -63973,7 +63989,7 @@ func UnsafeSrvTargetFromGlibBorrow(p unsafe.Pointer) *SrvTarget {
 	if p == nil {
 		return nil
 	}
-	return &SrvTarget{&srvTarget{(*C.GSrvTarget)(p)}}
+	return &SrvTarget{&srvTarget{p}}
 }
 
 // UnsafeSrvTargetFromGlibNone is used to convert raw C.GSrvTarget pointers to go without transferring ownership. This is used by the bindings internally.
@@ -63995,7 +64011,7 @@ func UnsafeSrvTargetFromGlibFull(p unsafe.Pointer) *SrvTarget {
 	runtime.SetFinalizer(
 		wrapped.srvTarget,
 		func(intern *srvTarget) {
-			C.g_srv_target_free(intern.native)
+			C.g_srv_target_free((*C.GSrvTarget)(intern.native))
 		},
 	)
 	return wrapped
@@ -64005,7 +64021,7 @@ func UnsafeSrvTargetFromGlibFull(p unsafe.Pointer) *SrvTarget {
 //
 // After this is called, no other method on [SrvTarget] is expected to work anymore.
 func UnsafeSrvTargetFree(s *SrvTarget) {
-	C.g_srv_target_free(s.native)
+	C.g_srv_target_free((*C.GSrvTarget)(s.native))
 	runtime.SetFinalizer(s.srvTarget, nil)
 }
 
@@ -64270,7 +64286,8 @@ type TaskClass struct {
 
 // taskClass is the struct that's finalized
 type taskClass struct {
-	native *C.GTaskClass
+	// Use a GC-scanned pointer so live tiny allocations cannot pin the finalizer.
+	native unsafe.Pointer
 }
 
 // UnsafeTaskClassToGlibNone returns the underlying C pointer. This is used by the bindings internally.
@@ -64278,7 +64295,7 @@ func (t *TaskClass) instance() *C.GTaskClass {
 	if t == nil {
 		return nil
 	}
-	return t.native
+	return (*C.GTaskClass)(t.native)
 }
 
 // UnsafeTaskClassFromGlibBorrow is used to convert raw C.GTaskClass pointers to go. This is used by the bindings internally.
@@ -64286,7 +64303,7 @@ func UnsafeTaskClassFromGlibBorrow(p unsafe.Pointer) *TaskClass {
 	if p == nil {
 		return nil
 	}
-	return &TaskClass{&taskClass{(*C.GTaskClass)(p)}}
+	return &TaskClass{&taskClass{p}}
 }
 
 // UnsafeTaskClassFree unrefs/frees the underlying resource. This can be used to remove the instance before the GC decides to do so.
@@ -64435,7 +64452,8 @@ type ThemedIconClass struct {
 
 // themedIconClass is the struct that's finalized
 type themedIconClass struct {
-	native *C.GThemedIconClass
+	// Use a GC-scanned pointer so live tiny allocations cannot pin the finalizer.
+	native unsafe.Pointer
 }
 
 // UnsafeThemedIconClassToGlibNone returns the underlying C pointer. This is used by the bindings internally.
@@ -64443,7 +64461,7 @@ func (t *ThemedIconClass) instance() *C.GThemedIconClass {
 	if t == nil {
 		return nil
 	}
-	return t.native
+	return (*C.GThemedIconClass)(t.native)
 }
 
 // UnsafeThemedIconClassFromGlibBorrow is used to convert raw C.GThemedIconClass pointers to go. This is used by the bindings internally.
@@ -64451,7 +64469,7 @@ func UnsafeThemedIconClassFromGlibBorrow(p unsafe.Pointer) *ThemedIconClass {
 	if p == nil {
 		return nil
 	}
-	return &ThemedIconClass{&themedIconClass{(*C.GThemedIconClass)(p)}}
+	return &ThemedIconClass{&themedIconClass{p}}
 }
 
 // UnsafeThemedIconClassFree unrefs/frees the underlying resource. This can be used to remove the instance before the GC decides to do so.
