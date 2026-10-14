@@ -17,6 +17,7 @@ func (g *ConstantGenerator) Generate(w *file.Package) {
 	g.Doc.Generate(w.Go())
 
 	fmt.Fprintf(w.Go(), "const %s = %s\n", g.GoIndentifier(), g.GoValue)
+	w.Go().NewSection()
 }
 
 func NewConstantGenerator(cfg *Config, constant *typesystem.Constant) *ConstantGenerator {

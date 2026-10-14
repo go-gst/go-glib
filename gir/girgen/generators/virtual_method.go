@@ -70,11 +70,11 @@ func (v *VirtualMethodGenerator) generateParentCall(w *file.Package) {
 
 	var decls file.DeclarationWriter
 
-	fmt.Fprintf(&decls, "var\t%s\t%s\n", v.InstanceParam.CName, v.InstanceParam.CGoType())
+	fmt.Fprintf(&decls, "var %s %s\n", v.InstanceParam.CName, v.InstanceParam.CGoType())
 
 	for i, param := range v.GoParameters {
 		conv := v.ParentParamConverters[i]
-		fmt.Fprintf(&decls, "var\t%s\t%s\t// %s\n", param.CName, param.CGoType(), conv.Metadata())
+		fmt.Fprintf(&decls, "var %s %s\t// %s\n", param.CName, param.CGoType(), conv.Metadata())
 
 		// w.GoImportType(param.Type) // don't import here, as the CGo type does not reference the namespace
 	}
@@ -82,13 +82,13 @@ func (v *VirtualMethodGenerator) generateParentCall(w *file.Package) {
 	// params that are part of the C call still need to be declared
 	for _, v := range v.CParameters() {
 		if v.Skip {
-			fmt.Fprintf(&decls, "var\t%s\t%s\t// skipped\n", v.CName, v.CGoType())
+			fmt.Fprintf(&decls, "var %s %s\t// skipped\n", v.CName, v.CGoType())
 		}
 	}
 
 	for i, ret := range v.GoReturns {
 		conv := v.ParentReturnConverters[i]
-		fmt.Fprintf(&decls, "var\t%s\t%s\t// %s\n", ret.CName, ret.CGoType(), conv.Metadata())
+		fmt.Fprintf(&decls, "var %s %s\t// %s\n", ret.CName, ret.CGoType(), conv.Metadata())
 
 		// w.GoImportType(ret.Type) // don't import here, as the CGo type does not reference the namespace
 	}
@@ -127,7 +127,7 @@ func (v *VirtualMethodGenerator) generateParentCall(w *file.Package) {
 		if ret.Implicit || ret.Skip {
 			continue
 		}
-		fmt.Fprintf(&decls, "var\t%s\t%s\n", ret.GoName, ret.GoType())
+		fmt.Fprintf(&decls, "var %s %s\n", ret.GoName, ret.GoType())
 	}
 	decls.WriteTo(w.Go())
 
@@ -144,7 +144,8 @@ func (v *VirtualMethodGenerator) generateParentCall(w *file.Package) {
 	}
 
 	w.Go().Unindent()
-	fmt.Fprintf(w.Go(), "}\n\n")
+	fmt.Fprintf(w.Go(), "}\n")
+	w.Go().NewSection()
 }
 
 func (c *VirtualMethodGenerator) isVirtualOnClass() bool {
@@ -250,7 +251,7 @@ func (c *VirtualMethodGenerator) generateExport(pkg *file.Package) {
 	w.Go().Unindent()
 
 	fmt.Fprintln(w.Go(), "}")
-	fmt.Fprintln(w.Go())
+	w.Go().NewSection()
 }
 
 // generateTrampoline is called from the overrides generator to generate the virtual function in a place where we have enough type information
@@ -263,14 +264,14 @@ func (vf *VirtualMethodGenerator) generateTrampoline(w file.File, genericType, g
 
 	var decls file.DeclarationWriter
 
-	fmt.Fprintf(&decls, "var\t%s\t%s\t// go %s subclass\n", vf.InstanceParam.GoName, genericType, vf.InstanceParam.Type.Type.CType(0))
+	fmt.Fprintf(&decls, "var %s %s\t// go %s subclass\n", vf.InstanceParam.GoName, genericType, vf.InstanceParam.Type.Type.CType(0))
 
 	for i, param := range vf.GoParameters {
 		if param.Implicit || param.Skip {
 			continue
 		}
 		conv := vf.VirtualParamConverters[i]
-		fmt.Fprintf(&decls, "var\t%s\t%s\t// %s\n", param.GoName, param.GoType(), conv.Metadata())
+		fmt.Fprintf(&decls, "var %s %s\t// %s\n", param.GoName, param.GoType(), conv.Metadata())
 
 		w.GoImportType(param.Type)
 	}
@@ -281,7 +282,7 @@ func (vf *VirtualMethodGenerator) generateTrampoline(w file.File, genericType, g
 		}
 
 		conv := vf.VirtualReturnConverters[i]
-		fmt.Fprintf(&decls, "var\t%s\t%s\t// %s\n", ret.GoName, ret.GoType(), conv.Metadata())
+		fmt.Fprintf(&decls, "var %s %s\t// %s\n", ret.GoName, ret.GoType(), conv.Metadata())
 
 		w.GoImportType(ret.Type)
 	}
@@ -452,7 +453,7 @@ func NewVirtualMethodGenerator(cfg *Config, vfunc *typesystem.VirtualMethod) *Vi
 	doc := cfg.DocGenerator(vfunc)
 	g := &VirtualMethodGenerator{
 		Doc: doc.WithPrependParagraphs(
-			fmt.Sprintf("// %s allows you to override the implementation of the virtual method %s.\n", vfunc.GoName, vfunc.Invoker.CIndentifier()),
+			fmt.Sprintf("%s allows you to override the implementation of the virtual method %s.\n", vfunc.GoName, vfunc.Invoker.CIndentifier()),
 		),
 		ParentDoc: doc.WithPrependParagraphs(
 			fmt.Sprintf("%s calls the default implementations of the `%s.%s` virtual method.\nThis function's behavior is not defined when the parent does not implement the virtual method.\n", vfunc.ParentName, vfunc.Parent.CType(0), vfunc.Invoker.CIndentifier()),

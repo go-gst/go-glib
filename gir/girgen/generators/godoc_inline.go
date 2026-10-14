@@ -2,7 +2,9 @@ package generators
 
 import (
 	"bufio"
+	"bytes"
 	"fmt"
+	"io"
 	"strings"
 
 	"github.com/go-gst/go-glib/gir/girgen/file"
@@ -28,14 +30,12 @@ func (docg *InlineGoDocGenerator) Generate(w file.CodeWriter) {
 		scanner := bufio.NewScanner(r) // scan lines
 
 		for scanner.Scan() {
-			w.Write([]byte("// "))
-			w.Write(scanner.Bytes())
-			w.Write([]byte("\n"))
+			writeCommentLine(w, scanner.Bytes())
 		}
 
 		// add a blank line between paragraphs
 		if i < len(docg.DocParagraphs)-1 {
-			w.Write([]byte("// \n"))
+			w.Write([]byte("//\n"))
 		}
 	}
 
@@ -52,31 +52,42 @@ func (docg *InlineGoDocGenerator) Generate(w file.CodeWriter) {
 	scanner := bufio.NewScanner(r) // scan lines
 
 	for scanner.Scan() {
-		w.Write([]byte("// "))
-		w.Write(scanner.Bytes())
-		w.Write([]byte("\n"))
+		writeCommentLine(w, scanner.Bytes())
 	}
 
 	if docg.GIRDoc.Deprecated {
 		w.Write([]byte("//\n"))
-		w.Write([]byte("// Deprecated: "))
+		deprecated := "Deprecated: "
 		if docg.GIRDoc.DeprecatedVersion != "" {
-			fmt.Fprintf(w, "(since %s) ", docg.GIRDoc.DeprecatedVersion)
+			deprecated += fmt.Sprintf("(since %s) ", docg.GIRDoc.DeprecatedVersion)
 		}
 
 		r := strings.NewReader(docg.GIRDoc.DocDeprecated)
 		scanner := bufio.NewScanner(r) // scan lines
 
-		scanner.Scan() // initial deprecated line is already prefied
+		scanner.Scan() // initial deprecated line is prefixed with the deprecation notice
 
-		fmt.Fprintf(w, "%s\n", scanner.Bytes())
+		writeCommentLine(w, append([]byte(deprecated), scanner.Bytes()...))
 
 		for scanner.Scan() {
-			w.Write([]byte("// "))
-			w.Write(scanner.Bytes())
-			w.Write([]byte("\n"))
+			writeCommentLine(w, scanner.Bytes())
 		}
 	}
+}
+
+// writeCommentLine writes line as a single "//" comment line. Trailing whitespace is dropped, so
+// that empty lines don't end in a space.
+func writeCommentLine(w io.Writer, line []byte) {
+	line = bytes.TrimRight(line, " \t")
+
+	if len(line) == 0 {
+		w.Write([]byte("//\n"))
+		return
+	}
+
+	w.Write([]byte("// "))
+	w.Write(line)
+	w.Write([]byte("\n"))
 }
 
 // NewInlineGoDocGenerator creates a new InlineGoDocGenerator for the given documented element.

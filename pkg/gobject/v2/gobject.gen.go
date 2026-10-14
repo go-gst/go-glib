@@ -35,85 +35,100 @@ func init() {
 }
 
 // PARAM_MASK wraps G_PARAM_MASK
-// 
+//
 // see also https://docs.gtk.org/gobject/const.PARAM_MASK.html
 const PARAM_MASK = 255
+
 // PARAM_STATIC_STRINGS wraps G_PARAM_STATIC_STRINGS
-// 
+//
 // see also https://docs.gtk.org/gobject/const.PARAM_STATIC_STRINGS.html
 const PARAM_STATIC_STRINGS = 224
+
 // PARAM_USER_SHIFT wraps G_PARAM_USER_SHIFT
-// 
+//
 // see also https://docs.gtk.org/gobject/const.PARAM_USER_SHIFT.html
 const PARAM_USER_SHIFT = 8
+
 // SIGNAL_FLAGS_MASK wraps G_SIGNAL_FLAGS_MASK
-// 
+//
 // see also https://docs.gtk.org/gobject/const.SIGNAL_FLAGS_MASK.html
 const SIGNAL_FLAGS_MASK = 511
+
 // SIGNAL_MATCH_MASK wraps G_SIGNAL_MATCH_MASK
-// 
+//
 // see also https://docs.gtk.org/gobject/const.SIGNAL_MATCH_MASK.html
 const SIGNAL_MATCH_MASK = 63
+
 // TYPE_FUNDAMENTAL_MAX wraps G_TYPE_FUNDAMENTAL_MAX
-// 
+//
 // see also https://docs.gtk.org/gobject/const.TYPE_FUNDAMENTAL_MAX.html
 const TYPE_FUNDAMENTAL_MAX = 1020
+
 // TYPE_FUNDAMENTAL_SHIFT wraps G_TYPE_FUNDAMENTAL_SHIFT
-// 
+//
 // see also https://docs.gtk.org/gobject/const.TYPE_FUNDAMENTAL_SHIFT.html
 const TYPE_FUNDAMENTAL_SHIFT = 2
+
 // TYPE_RESERVED_BSE_FIRST wraps G_TYPE_RESERVED_BSE_FIRST
-// 
+//
 // see also https://docs.gtk.org/gobject/const.TYPE_RESERVED_BSE_FIRST.html
 const TYPE_RESERVED_BSE_FIRST = 32
+
 // TYPE_RESERVED_BSE_LAST wraps G_TYPE_RESERVED_BSE_LAST
-// 
+//
 // see also https://docs.gtk.org/gobject/const.TYPE_RESERVED_BSE_LAST.html
 const TYPE_RESERVED_BSE_LAST = 48
+
 // TYPE_RESERVED_GLIB_FIRST wraps G_TYPE_RESERVED_GLIB_FIRST
-// 
+//
 // see also https://docs.gtk.org/gobject/const.TYPE_RESERVED_GLIB_FIRST.html
 const TYPE_RESERVED_GLIB_FIRST = 22
+
 // TYPE_RESERVED_GLIB_LAST wraps G_TYPE_RESERVED_GLIB_LAST
-// 
+//
 // see also https://docs.gtk.org/gobject/const.TYPE_RESERVED_GLIB_LAST.html
 const TYPE_RESERVED_GLIB_LAST = 31
+
 // TYPE_RESERVED_USER_FIRST wraps G_TYPE_RESERVED_USER_FIRST
-// 
+//
 // see also https://docs.gtk.org/gobject/const.TYPE_RESERVED_USER_FIRST.html
 const TYPE_RESERVED_USER_FIRST = 49
+
 // VALUE_COLLECT_FORMAT_MAX_LENGTH wraps G_VALUE_COLLECT_FORMAT_MAX_LENGTH
-// 
+//
 // see also https://docs.gtk.org/gobject/const.VALUE_COLLECT_FORMAT_MAX_LENGTH.html
 const VALUE_COLLECT_FORMAT_MAX_LENGTH = 8
+
 // VALUE_INTERNED_STRING wraps G_VALUE_INTERNED_STRING
-// 
+//
 // see also https://docs.gtk.org/gobject/const.VALUE_INTERNED_STRING.html
 const VALUE_INTERNED_STRING = 268435456
+
 // VALUE_NOCOPY_CONTENTS wraps G_VALUE_NOCOPY_CONTENTS
-// 
+//
 // see also https://docs.gtk.org/gobject/const.VALUE_NOCOPY_CONTENTS.html
 const VALUE_NOCOPY_CONTENTS = 134217728
+
 // BindingFlags wraps GBindingFlags
-// 
+//
 // see also https://docs.gtk.org/gobject/flags.BindingFlags.html
 type BindingFlags C.gint
 
 const (
 	// BindingDefault wraps G_BINDING_DEFAULT
-	// 
+	//
 	// see also https://docs.gtk.org/gobject/flags.BindingFlags.html#default
 	BindingDefault BindingFlags = 0
 	// BindingBidirectional wraps G_BINDING_BIDIRECTIONAL
-	// 
+	//
 	// see also https://docs.gtk.org/gobject/flags.BindingFlags.html#bidirectional
 	BindingBidirectional BindingFlags = 1
 	// BindingSyncCreate wraps G_BINDING_SYNC_CREATE
-	// 
+	//
 	// see also https://docs.gtk.org/gobject/flags.BindingFlags.html#sync_create
 	BindingSyncCreate BindingFlags = 2
 	// BindingInvertBoolean wraps G_BINDING_INVERT_BOOLEAN
-	// 
+	//
 	// see also https://docs.gtk.org/gobject/flags.BindingFlags.html#invert_boolean
 	BindingInvertBoolean BindingFlags = 4
 )
@@ -121,6 +136,7 @@ const (
 func marshalBindingFlags(p unsafe.Pointer) (any, error) {
 	return BindingFlags(ValueFromNative(p).Flags()), nil
 }
+
 // Has returns true if b contains other
 func (b BindingFlags) Has(other BindingFlags) bool {
 	return (b & other) == other
@@ -158,21 +174,21 @@ func (f BindingFlags) String() string {
 }
 
 // ConnectFlags wraps GConnectFlags
-// 
+//
 // see also https://docs.gtk.org/gobject/flags.ConnectFlags.html
 type ConnectFlags C.gint
 
 const (
 	// ConnectDefault wraps G_CONNECT_DEFAULT
-	// 
+	//
 	// see also https://docs.gtk.org/gobject/flags.ConnectFlags.html#default
 	ConnectDefault ConnectFlags = 0
 	// ConnectAfter wraps G_CONNECT_AFTER
-	// 
+	//
 	// see also https://docs.gtk.org/gobject/flags.ConnectFlags.html#after
 	ConnectAfter ConnectFlags = 1
 	// ConnectSwapped wraps G_CONNECT_SWAPPED
-	// 
+	//
 	// see also https://docs.gtk.org/gobject/flags.ConnectFlags.html#swapped
 	ConnectSwapped ConnectFlags = 2
 )
@@ -201,33 +217,33 @@ func (f ConnectFlags) String() string {
 }
 
 // IOCondition wraps GIOCondition
-// 
+//
 // see also https://docs.gtk.org/gobject/flags.IOCondition.html
 type IOCondition C.gint
 
 const (
 	// IOIn wraps G_IO_IN
-	// 
+	//
 	// see also https://docs.gtk.org/gobject/flags.IOCondition.html#in
 	IOIn IOCondition = 1
 	// IOOut wraps G_IO_OUT
-	// 
+	//
 	// see also https://docs.gtk.org/gobject/flags.IOCondition.html#out
 	IOOut IOCondition = 4
 	// IOPri wraps G_IO_PRI
-	// 
+	//
 	// see also https://docs.gtk.org/gobject/flags.IOCondition.html#pri
 	IOPri IOCondition = 2
 	// IOErr wraps G_IO_ERR
-	// 
+	//
 	// see also https://docs.gtk.org/gobject/flags.IOCondition.html#err
 	IOErr IOCondition = 8
 	// IOHup wraps G_IO_HUP
-	// 
+	//
 	// see also https://docs.gtk.org/gobject/flags.IOCondition.html#hup
 	IOHup IOCondition = 16
 	// IONval wraps G_IO_NVAL
-	// 
+	//
 	// see also https://docs.gtk.org/gobject/flags.IOCondition.html#nval
 	IONval IOCondition = 32
 )
@@ -235,6 +251,7 @@ const (
 func marshalIOCondition(p unsafe.Pointer) (any, error) {
 	return IOCondition(ValueFromNative(p).Flags()), nil
 }
+
 // Has returns true if i contains other
 func (i IOCondition) Has(other IOCondition) bool {
 	return (i & other) == other
@@ -278,57 +295,57 @@ func (f IOCondition) String() string {
 }
 
 // ParamFlags wraps GParamFlags
-// 
+//
 // see also https://docs.gtk.org/gobject/flags.ParamFlags.html
 type ParamFlags C.gint
 
 const (
 	// ParamReadable wraps G_PARAM_READABLE
-	// 
+	//
 	// see also https://docs.gtk.org/gobject/flags.ParamFlags.html#readable
 	ParamReadable ParamFlags = 1
 	// ParamWritable wraps G_PARAM_WRITABLE
-	// 
+	//
 	// see also https://docs.gtk.org/gobject/flags.ParamFlags.html#writable
 	ParamWritable ParamFlags = 2
 	// ParamReadwrite wraps G_PARAM_READWRITE
-	// 
+	//
 	// see also https://docs.gtk.org/gobject/flags.ParamFlags.html#readwrite
 	ParamReadwrite ParamFlags = 3
 	// ParamConstruct wraps G_PARAM_CONSTRUCT
-	// 
+	//
 	// see also https://docs.gtk.org/gobject/flags.ParamFlags.html#construct
 	ParamConstruct ParamFlags = 4
 	// ParamConstructOnly wraps G_PARAM_CONSTRUCT_ONLY
-	// 
+	//
 	// see also https://docs.gtk.org/gobject/flags.ParamFlags.html#construct_only
 	ParamConstructOnly ParamFlags = 8
 	// ParamLaxValidation wraps G_PARAM_LAX_VALIDATION
-	// 
+	//
 	// see also https://docs.gtk.org/gobject/flags.ParamFlags.html#lax_validation
 	ParamLaxValidation ParamFlags = 16
 	// ParamStaticName wraps G_PARAM_STATIC_NAME
-	// 
+	//
 	// see also https://docs.gtk.org/gobject/flags.ParamFlags.html#static_name
 	ParamStaticName ParamFlags = 32
 	// ParamPrivate wraps G_PARAM_PRIVATE
-	// 
+	//
 	// see also https://docs.gtk.org/gobject/flags.ParamFlags.html#private
 	ParamPrivate ParamFlags = 32
 	// ParamStaticNick wraps G_PARAM_STATIC_NICK
-	// 
+	//
 	// see also https://docs.gtk.org/gobject/flags.ParamFlags.html#static_nick
 	ParamStaticNick ParamFlags = 64
 	// ParamStaticBlurb wraps G_PARAM_STATIC_BLURB
-	// 
+	//
 	// see also https://docs.gtk.org/gobject/flags.ParamFlags.html#static_blurb
 	ParamStaticBlurb ParamFlags = 128
 	// ParamExplicitNotify wraps G_PARAM_EXPLICIT_NOTIFY
-	// 
+	//
 	// see also https://docs.gtk.org/gobject/flags.ParamFlags.html#explicit_notify
 	ParamExplicitNotify ParamFlags = 1073741824
 	// ParamDeprecated wraps G_PARAM_DEPRECATED
-	// 
+	//
 	// see also https://docs.gtk.org/gobject/flags.ParamFlags.html#deprecated
 	ParamDeprecated ParamFlags = -2147483648
 )
@@ -384,49 +401,49 @@ func (f ParamFlags) String() string {
 }
 
 // SignalFlags wraps GSignalFlags
-// 
+//
 // see also https://docs.gtk.org/gobject/flags.SignalFlags.html
 type SignalFlags C.gint
 
 const (
 	// SignalRunFirst wraps G_SIGNAL_RUN_FIRST
-	// 
+	//
 	// see also https://docs.gtk.org/gobject/flags.SignalFlags.html#run_first
 	SignalRunFirst SignalFlags = 1
 	// SignalRunLast wraps G_SIGNAL_RUN_LAST
-	// 
+	//
 	// see also https://docs.gtk.org/gobject/flags.SignalFlags.html#run_last
 	SignalRunLast SignalFlags = 2
 	// SignalRunCleanup wraps G_SIGNAL_RUN_CLEANUP
-	// 
+	//
 	// see also https://docs.gtk.org/gobject/flags.SignalFlags.html#run_cleanup
 	SignalRunCleanup SignalFlags = 4
 	// SignalNoRecurse wraps G_SIGNAL_NO_RECURSE
-	// 
+	//
 	// see also https://docs.gtk.org/gobject/flags.SignalFlags.html#no_recurse
 	SignalNoRecurse SignalFlags = 8
 	// SignalDetailed wraps G_SIGNAL_DETAILED
-	// 
+	//
 	// see also https://docs.gtk.org/gobject/flags.SignalFlags.html#detailed
 	SignalDetailed SignalFlags = 16
 	// SignalAction wraps G_SIGNAL_ACTION
-	// 
+	//
 	// see also https://docs.gtk.org/gobject/flags.SignalFlags.html#action
 	SignalAction SignalFlags = 32
 	// SignalNoHooks wraps G_SIGNAL_NO_HOOKS
-	// 
+	//
 	// see also https://docs.gtk.org/gobject/flags.SignalFlags.html#no_hooks
 	SignalNoHooks SignalFlags = 64
 	// SignalMustCollect wraps G_SIGNAL_MUST_COLLECT
-	// 
+	//
 	// see also https://docs.gtk.org/gobject/flags.SignalFlags.html#must_collect
 	SignalMustCollect SignalFlags = 128
 	// SignalDeprecated wraps G_SIGNAL_DEPRECATED
-	// 
+	//
 	// see also https://docs.gtk.org/gobject/flags.SignalFlags.html#deprecated
 	SignalDeprecated SignalFlags = 256
 	// SignalAccumulatorFirstRun wraps G_SIGNAL_ACCUMULATOR_FIRST_RUN
-	// 
+	//
 	// see also https://docs.gtk.org/gobject/flags.SignalFlags.html#accumulator_first_run
 	SignalAccumulatorFirstRun SignalFlags = 131072
 )
@@ -476,33 +493,33 @@ func (f SignalFlags) String() string {
 }
 
 // SignalMatchType wraps GSignalMatchType
-// 
+//
 // see also https://docs.gtk.org/gobject/flags.SignalMatchType.html
 type SignalMatchType C.gint
 
 const (
 	// SignalMatchID wraps G_SIGNAL_MATCH_ID
-	// 
+	//
 	// see also https://docs.gtk.org/gobject/flags.SignalMatchType.html#id
 	SignalMatchID SignalMatchType = 1
 	// SignalMatchDetail wraps G_SIGNAL_MATCH_DETAIL
-	// 
+	//
 	// see also https://docs.gtk.org/gobject/flags.SignalMatchType.html#detail
 	SignalMatchDetail SignalMatchType = 2
 	// SignalMatchClosure wraps G_SIGNAL_MATCH_CLOSURE
-	// 
+	//
 	// see also https://docs.gtk.org/gobject/flags.SignalMatchType.html#closure
 	SignalMatchClosure SignalMatchType = 4
 	// SignalMatchFunc wraps G_SIGNAL_MATCH_FUNC
-	// 
+	//
 	// see also https://docs.gtk.org/gobject/flags.SignalMatchType.html#func
 	SignalMatchFunc SignalMatchType = 8
 	// SignalMatchData wraps G_SIGNAL_MATCH_DATA
-	// 
+	//
 	// see also https://docs.gtk.org/gobject/flags.SignalMatchType.html#data
 	SignalMatchData SignalMatchType = 16
 	// SignalMatchUnblocked wraps G_SIGNAL_MATCH_UNBLOCKED
-	// 
+	//
 	// see also https://docs.gtk.org/gobject/flags.SignalMatchType.html#unblocked
 	SignalMatchUnblocked SignalMatchType = 32
 )
@@ -540,29 +557,29 @@ func (f SignalMatchType) String() string {
 }
 
 // TypeFlags wraps GTypeFlags
-// 
+//
 // see also https://docs.gtk.org/gobject/flags.TypeFlags.html
 type TypeFlags C.gint
 
 const (
 	// TypeFlagNone wraps G_TYPE_FLAG_NONE
-	// 
+	//
 	// see also https://docs.gtk.org/gobject/flags.TypeFlags.html#none
 	TypeFlagNone TypeFlags = 0
 	// TypeFlagAbstract wraps G_TYPE_FLAG_ABSTRACT
-	// 
+	//
 	// see also https://docs.gtk.org/gobject/flags.TypeFlags.html#abstract
 	TypeFlagAbstract TypeFlags = 16
 	// TypeFlagValueAbstract wraps G_TYPE_FLAG_VALUE_ABSTRACT
-	// 
+	//
 	// see also https://docs.gtk.org/gobject/flags.TypeFlags.html#value_abstract
 	TypeFlagValueAbstract TypeFlags = 32
 	// TypeFlagFinal wraps G_TYPE_FLAG_FINAL
-	// 
+	//
 	// see also https://docs.gtk.org/gobject/flags.TypeFlags.html#final
 	TypeFlagFinal TypeFlags = 64
 	// TypeFlagDeprecated wraps G_TYPE_FLAG_DEPRECATED
-	// 
+	//
 	// see also https://docs.gtk.org/gobject/flags.TypeFlags.html#deprecated
 	TypeFlagDeprecated TypeFlags = 128
 )
@@ -597,25 +614,25 @@ func (f TypeFlags) String() string {
 }
 
 // TypeFundamentalFlags wraps GTypeFundamentalFlags
-// 
+//
 // see also https://docs.gtk.org/gobject/flags.TypeFundamentalFlags.html
 type TypeFundamentalFlags C.gint
 
 const (
 	// TypeFlagClassed wraps G_TYPE_FLAG_CLASSED
-	// 
+	//
 	// see also https://docs.gtk.org/gobject/flags.TypeFundamentalFlags.html#classed
 	TypeFlagClassed TypeFundamentalFlags = 1
 	// TypeFlagInstantiatable wraps G_TYPE_FLAG_INSTANTIATABLE
-	// 
+	//
 	// see also https://docs.gtk.org/gobject/flags.TypeFundamentalFlags.html#instantiatable
 	TypeFlagInstantiatable TypeFundamentalFlags = 2
 	// TypeFlagDerivable wraps G_TYPE_FLAG_DERIVABLE
-	// 
+	//
 	// see also https://docs.gtk.org/gobject/flags.TypeFundamentalFlags.html#derivable
 	TypeFlagDerivable TypeFundamentalFlags = 4
 	// TypeFlagDeepDerivable wraps G_TYPE_FLAG_DEEP_DERIVABLE
-	// 
+	//
 	// see also https://docs.gtk.org/gobject/flags.TypeFundamentalFlags.html#deep_derivable
 	TypeFlagDeepDerivable TypeFundamentalFlags = 8
 )
@@ -647,12 +664,12 @@ func (f TypeFundamentalFlags) String() string {
 }
 
 // EnumGetValue wraps g_enum_get_value
-// 
+//
 // see also https://docs.gtk.org/gobject/func.g_enum_get_value.html
 func EnumGetValue(enumClass *EnumClass, value int32) *EnumValue {
 	var carg1 *C.GEnumClass // in, none, converted
 	var carg2 C.gint        // in, none, casted
-	var cret  *C.GEnumValue // return, none, converted, nullable
+	var cret *C.GEnumValue  // return, none, converted, nullable
 
 	carg1 = (*C.GEnumClass)(UnsafeEnumClassToGlibNone(enumClass))
 	carg2 = C.gint(value)
@@ -671,12 +688,12 @@ func EnumGetValue(enumClass *EnumClass, value int32) *EnumValue {
 }
 
 // EnumGetValueByName wraps g_enum_get_value_by_name
-// 
+//
 // see also https://docs.gtk.org/gobject/func.g_enum_get_value_by_name.html
 func EnumGetValueByName(enumClass *EnumClass, name string) *EnumValue {
 	var carg1 *C.GEnumClass // in, none, converted
 	var carg2 *C.gchar      // in, none, string
-	var cret  *C.GEnumValue // return, none, converted, nullable
+	var cret *C.GEnumValue  // return, none, converted, nullable
 
 	carg1 = (*C.GEnumClass)(UnsafeEnumClassToGlibNone(enumClass))
 	carg2 = (*C.gchar)(transfer.GLibString(name))
@@ -696,12 +713,12 @@ func EnumGetValueByName(enumClass *EnumClass, name string) *EnumValue {
 }
 
 // EnumGetValueByNick wraps g_enum_get_value_by_nick
-// 
+//
 // see also https://docs.gtk.org/gobject/func.g_enum_get_value_by_nick.html
 func EnumGetValueByNick(enumClass *EnumClass, nick string) *EnumValue {
 	var carg1 *C.GEnumClass // in, none, converted
 	var carg2 *C.gchar      // in, none, string
-	var cret  *C.GEnumValue // return, none, converted, nullable
+	var cret *C.GEnumValue  // return, none, converted, nullable
 
 	carg1 = (*C.GEnumClass)(UnsafeEnumClassToGlibNone(enumClass))
 	carg2 = (*C.gchar)(transfer.GLibString(nick))
@@ -721,12 +738,12 @@ func EnumGetValueByNick(enumClass *EnumClass, nick string) *EnumValue {
 }
 
 // EnumToString wraps g_enum_to_string
-// 
+//
 // see also https://docs.gtk.org/gobject/func.g_enum_to_string.html
 func EnumToString(gEnumType Type, value int32) string {
-	var carg1 C.GType  // in, none, casted, alias
-	var carg2 C.gint   // in, none, casted
-	var cret  *C.gchar // return, full, string
+	var carg1 C.GType // in, none, casted, alias
+	var carg2 C.gint  // in, none, casted
+	var cret *C.gchar // return, full, string
 
 	carg1 = C.GType(gEnumType)
 	carg2 = C.gint(value)
@@ -744,12 +761,12 @@ func EnumToString(gEnumType Type, value int32) string {
 }
 
 // FlagsGetFirstValue wraps g_flags_get_first_value
-// 
+//
 // see also https://docs.gtk.org/gobject/func.g_flags_get_first_value.html
 func FlagsGetFirstValue(flagsClass *FlagsClass, value uint32) *FlagsValue {
 	var carg1 *C.GFlagsClass // in, none, converted
 	var carg2 C.guint        // in, none, casted
-	var cret  *C.GFlagsValue // return, none, converted, nullable
+	var cret *C.GFlagsValue  // return, none, converted, nullable
 
 	carg1 = (*C.GFlagsClass)(UnsafeFlagsClassToGlibNone(flagsClass))
 	carg2 = C.guint(value)
@@ -768,12 +785,12 @@ func FlagsGetFirstValue(flagsClass *FlagsClass, value uint32) *FlagsValue {
 }
 
 // FlagsGetValueByName wraps g_flags_get_value_by_name
-// 
+//
 // see also https://docs.gtk.org/gobject/func.g_flags_get_value_by_name.html
 func FlagsGetValueByName(flagsClass *FlagsClass, name string) *FlagsValue {
 	var carg1 *C.GFlagsClass // in, none, converted
 	var carg2 *C.gchar       // in, none, string
-	var cret  *C.GFlagsValue // return, none, converted, nullable
+	var cret *C.GFlagsValue  // return, none, converted, nullable
 
 	carg1 = (*C.GFlagsClass)(UnsafeFlagsClassToGlibNone(flagsClass))
 	carg2 = (*C.gchar)(transfer.GLibString(name))
@@ -793,12 +810,12 @@ func FlagsGetValueByName(flagsClass *FlagsClass, name string) *FlagsValue {
 }
 
 // FlagsGetValueByNick wraps g_flags_get_value_by_nick
-// 
+//
 // see also https://docs.gtk.org/gobject/func.g_flags_get_value_by_nick.html
 func FlagsGetValueByNick(flagsClass *FlagsClass, nick string) *FlagsValue {
 	var carg1 *C.GFlagsClass // in, none, converted
 	var carg2 *C.gchar       // in, none, string
-	var cret  *C.GFlagsValue // return, none, converted, nullable
+	var cret *C.GFlagsValue  // return, none, converted, nullable
 
 	carg1 = (*C.GFlagsClass)(UnsafeFlagsClassToGlibNone(flagsClass))
 	carg2 = (*C.gchar)(transfer.GLibString(nick))
@@ -818,12 +835,12 @@ func FlagsGetValueByNick(flagsClass *FlagsClass, nick string) *FlagsValue {
 }
 
 // FlagsToString wraps g_flags_to_string
-// 
+//
 // see also https://docs.gtk.org/gobject/func.g_flags_to_string.html
 func FlagsToString(flagsType Type, value uint32) string {
-	var carg1 C.GType  // in, none, casted, alias
-	var carg2 C.guint  // in, none, casted
-	var cret  *C.gchar // return, full, string
+	var carg1 C.GType // in, none, casted, alias
+	var carg2 C.guint // in, none, casted
+	var cret *C.gchar // return, full, string
 
 	carg1 = C.GType(flagsType)
 	carg2 = C.guint(value)
@@ -841,7 +858,7 @@ func FlagsToString(flagsType Type, value uint32) string {
 }
 
 // GTypeGetType wraps g_gtype_get_type
-// 
+//
 // see also https://docs.gtk.org/gobject/func.g_gtype_get_type.html
 func GTypeGetType() Type {
 	var cret C.GType // return, none, casted, alias
@@ -856,7 +873,7 @@ func GTypeGetType() Type {
 }
 
 // ParamSpecBoolean wraps g_param_spec_boolean
-// 
+//
 // see also https://docs.gtk.org/gobject/func.g_param_spec_boolean.html
 func ParamSpecBoolean(name string, nick string, blurb string, defaultValue bool, flags ParamFlags) *ParamSpec {
 	var carg1 *C.gchar      // in, none, string
@@ -864,7 +881,7 @@ func ParamSpecBoolean(name string, nick string, blurb string, defaultValue bool,
 	var carg3 *C.gchar      // in, none, string, nullable-string
 	var carg4 C.gboolean    // in
 	var carg5 C.GParamFlags // in, none, casted
-	var cret  *C.GParamSpec // return, full, converted
+	var cret *C.GParamSpec  // return, full, converted
 
 	carg1 = (*C.gchar)(transfer.GLibString(name))
 	defer C.g_free(C.gpointer(carg1))
@@ -896,7 +913,7 @@ func ParamSpecBoolean(name string, nick string, blurb string, defaultValue bool,
 }
 
 // ParamSpecBoxed wraps g_param_spec_boxed
-// 
+//
 // see also https://docs.gtk.org/gobject/func.g_param_spec_boxed.html
 func ParamSpecBoxed(name string, nick string, blurb string, boxedType Type, flags ParamFlags) *ParamSpec {
 	var carg1 *C.gchar      // in, none, string
@@ -904,7 +921,7 @@ func ParamSpecBoxed(name string, nick string, blurb string, boxedType Type, flag
 	var carg3 *C.gchar      // in, none, string, nullable-string
 	var carg4 C.GType       // in, none, casted, alias
 	var carg5 C.GParamFlags // in, none, casted
-	var cret  *C.GParamSpec // return, full, converted
+	var cret *C.GParamSpec  // return, full, converted
 
 	carg1 = (*C.gchar)(transfer.GLibString(name))
 	defer C.g_free(C.gpointer(carg1))
@@ -934,7 +951,7 @@ func ParamSpecBoxed(name string, nick string, blurb string, boxedType Type, flag
 }
 
 // ParamSpecChar wraps g_param_spec_char
-// 
+//
 // see also https://docs.gtk.org/gobject/func.g_param_spec_char.html
 func ParamSpecChar(name string, nick string, blurb string, minimum int8, maximum int8, defaultValue int8, flags ParamFlags) *ParamSpec {
 	var carg1 *C.gchar      // in, none, string
@@ -944,7 +961,7 @@ func ParamSpecChar(name string, nick string, blurb string, minimum int8, maximum
 	var carg5 C.gint8       // in, none, casted
 	var carg6 C.gint8       // in, none, casted
 	var carg7 C.GParamFlags // in, none, casted
-	var cret  *C.GParamSpec // return, full, converted
+	var cret *C.GParamSpec  // return, full, converted
 
 	carg1 = (*C.gchar)(transfer.GLibString(name))
 	defer C.g_free(C.gpointer(carg1))
@@ -978,7 +995,7 @@ func ParamSpecChar(name string, nick string, blurb string, minimum int8, maximum
 }
 
 // ParamSpecDouble wraps g_param_spec_double
-// 
+//
 // see also https://docs.gtk.org/gobject/func.g_param_spec_double.html
 func ParamSpecDouble(name string, nick string, blurb string, minimum float64, maximum float64, defaultValue float64, flags ParamFlags) *ParamSpec {
 	var carg1 *C.gchar      // in, none, string
@@ -988,7 +1005,7 @@ func ParamSpecDouble(name string, nick string, blurb string, minimum float64, ma
 	var carg5 C.gdouble     // in, none, casted
 	var carg6 C.gdouble     // in, none, casted
 	var carg7 C.GParamFlags // in, none, casted
-	var cret  *C.GParamSpec // return, full, converted
+	var cret *C.GParamSpec  // return, full, converted
 
 	carg1 = (*C.gchar)(transfer.GLibString(name))
 	defer C.g_free(C.gpointer(carg1))
@@ -1022,7 +1039,7 @@ func ParamSpecDouble(name string, nick string, blurb string, minimum float64, ma
 }
 
 // ParamSpecEnum wraps g_param_spec_enum
-// 
+//
 // see also https://docs.gtk.org/gobject/func.g_param_spec_enum.html
 func ParamSpecEnum(name string, nick string, blurb string, enumType Type, defaultValue int32, flags ParamFlags) *ParamSpec {
 	var carg1 *C.gchar      // in, none, string
@@ -1031,7 +1048,7 @@ func ParamSpecEnum(name string, nick string, blurb string, enumType Type, defaul
 	var carg4 C.GType       // in, none, casted, alias
 	var carg5 C.gint        // in, none, casted
 	var carg6 C.GParamFlags // in, none, casted
-	var cret  *C.GParamSpec // return, full, converted
+	var cret *C.GParamSpec  // return, full, converted
 
 	carg1 = (*C.gchar)(transfer.GLibString(name))
 	defer C.g_free(C.gpointer(carg1))
@@ -1063,7 +1080,7 @@ func ParamSpecEnum(name string, nick string, blurb string, enumType Type, defaul
 }
 
 // ParamSpecFlags wraps g_param_spec_flags
-// 
+//
 // see also https://docs.gtk.org/gobject/func.g_param_spec_flags.html
 func ParamSpecFlags(name string, nick string, blurb string, flagsType Type, defaultValue uint32, flags ParamFlags) *ParamSpec {
 	var carg1 *C.gchar      // in, none, string
@@ -1072,7 +1089,7 @@ func ParamSpecFlags(name string, nick string, blurb string, flagsType Type, defa
 	var carg4 C.GType       // in, none, casted, alias
 	var carg5 C.guint       // in, none, casted
 	var carg6 C.GParamFlags // in, none, casted
-	var cret  *C.GParamSpec // return, full, converted
+	var cret *C.GParamSpec  // return, full, converted
 
 	carg1 = (*C.gchar)(transfer.GLibString(name))
 	defer C.g_free(C.gpointer(carg1))
@@ -1104,7 +1121,7 @@ func ParamSpecFlags(name string, nick string, blurb string, flagsType Type, defa
 }
 
 // ParamSpecFloat wraps g_param_spec_float
-// 
+//
 // see also https://docs.gtk.org/gobject/func.g_param_spec_float.html
 func ParamSpecFloat(name string, nick string, blurb string, minimum float32, maximum float32, defaultValue float32, flags ParamFlags) *ParamSpec {
 	var carg1 *C.gchar      // in, none, string
@@ -1114,7 +1131,7 @@ func ParamSpecFloat(name string, nick string, blurb string, minimum float32, max
 	var carg5 C.gfloat      // in, none, casted
 	var carg6 C.gfloat      // in, none, casted
 	var carg7 C.GParamFlags // in, none, casted
-	var cret  *C.GParamSpec // return, full, converted
+	var cret *C.GParamSpec  // return, full, converted
 
 	carg1 = (*C.gchar)(transfer.GLibString(name))
 	defer C.g_free(C.gpointer(carg1))
@@ -1148,7 +1165,7 @@ func ParamSpecFloat(name string, nick string, blurb string, minimum float32, max
 }
 
 // ParamSpecGType wraps g_param_spec_gtype
-// 
+//
 // see also https://docs.gtk.org/gobject/func.g_param_spec_gtype.html
 func ParamSpecGType(name string, nick string, blurb string, isAType Type, flags ParamFlags) *ParamSpec {
 	var carg1 *C.gchar      // in, none, string
@@ -1156,7 +1173,7 @@ func ParamSpecGType(name string, nick string, blurb string, isAType Type, flags 
 	var carg3 *C.gchar      // in, none, string, nullable-string
 	var carg4 C.GType       // in, none, casted, alias
 	var carg5 C.GParamFlags // in, none, casted
-	var cret  *C.GParamSpec // return, full, converted
+	var cret *C.GParamSpec  // return, full, converted
 
 	carg1 = (*C.gchar)(transfer.GLibString(name))
 	defer C.g_free(C.gpointer(carg1))
@@ -1186,7 +1203,7 @@ func ParamSpecGType(name string, nick string, blurb string, isAType Type, flags 
 }
 
 // ParamSpecInt32 wraps g_param_spec_int
-// 
+//
 // see also https://docs.gtk.org/gobject/func.g_param_spec_int.html
 func ParamSpecInt32(name string, nick string, blurb string, minimum int32, maximum int32, defaultValue int32, flags ParamFlags) *ParamSpec {
 	var carg1 *C.gchar      // in, none, string
@@ -1196,7 +1213,7 @@ func ParamSpecInt32(name string, nick string, blurb string, minimum int32, maxim
 	var carg5 C.gint        // in, none, casted
 	var carg6 C.gint        // in, none, casted
 	var carg7 C.GParamFlags // in, none, casted
-	var cret  *C.GParamSpec // return, full, converted
+	var cret *C.GParamSpec  // return, full, converted
 
 	carg1 = (*C.gchar)(transfer.GLibString(name))
 	defer C.g_free(C.gpointer(carg1))
@@ -1230,7 +1247,7 @@ func ParamSpecInt32(name string, nick string, blurb string, minimum int32, maxim
 }
 
 // ParamSpecInt64 wraps g_param_spec_int64
-// 
+//
 // see also https://docs.gtk.org/gobject/func.g_param_spec_int64.html
 func ParamSpecInt64(name string, nick string, blurb string, minimum int64, maximum int64, defaultValue int64, flags ParamFlags) *ParamSpec {
 	var carg1 *C.gchar      // in, none, string
@@ -1240,7 +1257,7 @@ func ParamSpecInt64(name string, nick string, blurb string, minimum int64, maxim
 	var carg5 C.gint64      // in, none, casted
 	var carg6 C.gint64      // in, none, casted
 	var carg7 C.GParamFlags // in, none, casted
-	var cret  *C.GParamSpec // return, full, converted
+	var cret *C.GParamSpec  // return, full, converted
 
 	carg1 = (*C.gchar)(transfer.GLibString(name))
 	defer C.g_free(C.gpointer(carg1))
@@ -1274,7 +1291,7 @@ func ParamSpecInt64(name string, nick string, blurb string, minimum int64, maxim
 }
 
 // ParamSpecLong wraps g_param_spec_long
-// 
+//
 // see also https://docs.gtk.org/gobject/func.g_param_spec_long.html
 func ParamSpecLong(name string, nick string, blurb string, minimum int64, maximum int64, defaultValue int64, flags ParamFlags) *ParamSpec {
 	var carg1 *C.gchar      // in, none, string
@@ -1284,7 +1301,7 @@ func ParamSpecLong(name string, nick string, blurb string, minimum int64, maximu
 	var carg5 C.glong       // in, none, casted
 	var carg6 C.glong       // in, none, casted
 	var carg7 C.GParamFlags // in, none, casted
-	var cret  *C.GParamSpec // return, full, converted
+	var cret *C.GParamSpec  // return, full, converted
 
 	carg1 = (*C.gchar)(transfer.GLibString(name))
 	defer C.g_free(C.gpointer(carg1))
@@ -1318,7 +1335,7 @@ func ParamSpecLong(name string, nick string, blurb string, minimum int64, maximu
 }
 
 // ParamSpecObject wraps g_param_spec_object
-// 
+//
 // see also https://docs.gtk.org/gobject/func.g_param_spec_object.html
 func ParamSpecObject(name string, nick string, blurb string, objectType Type, flags ParamFlags) *ParamSpec {
 	var carg1 *C.gchar      // in, none, string
@@ -1326,7 +1343,7 @@ func ParamSpecObject(name string, nick string, blurb string, objectType Type, fl
 	var carg3 *C.gchar      // in, none, string, nullable-string
 	var carg4 C.GType       // in, none, casted, alias
 	var carg5 C.GParamFlags // in, none, casted
-	var cret  *C.GParamSpec // return, full, converted
+	var cret *C.GParamSpec  // return, full, converted
 
 	carg1 = (*C.gchar)(transfer.GLibString(name))
 	defer C.g_free(C.gpointer(carg1))
@@ -1356,7 +1373,7 @@ func ParamSpecObject(name string, nick string, blurb string, objectType Type, fl
 }
 
 // ParamSpecParam wraps g_param_spec_param
-// 
+//
 // see also https://docs.gtk.org/gobject/func.g_param_spec_param.html
 func ParamSpecParam(name string, nick string, blurb string, paramType Type, flags ParamFlags) *ParamSpec {
 	var carg1 *C.gchar      // in, none, string
@@ -1364,7 +1381,7 @@ func ParamSpecParam(name string, nick string, blurb string, paramType Type, flag
 	var carg3 *C.gchar      // in, none, string, nullable-string
 	var carg4 C.GType       // in, none, casted, alias
 	var carg5 C.GParamFlags // in, none, casted
-	var cret  *C.GParamSpec // return, full, converted
+	var cret *C.GParamSpec  // return, full, converted
 
 	carg1 = (*C.gchar)(transfer.GLibString(name))
 	defer C.g_free(C.gpointer(carg1))
@@ -1394,14 +1411,14 @@ func ParamSpecParam(name string, nick string, blurb string, paramType Type, flag
 }
 
 // ParamSpecPointer wraps g_param_spec_pointer
-// 
+//
 // see also https://docs.gtk.org/gobject/func.g_param_spec_pointer.html
 func ParamSpecPointer(name string, nick string, blurb string, flags ParamFlags) *ParamSpec {
 	var carg1 *C.gchar      // in, none, string
 	var carg2 *C.gchar      // in, none, string, nullable-string
 	var carg3 *C.gchar      // in, none, string, nullable-string
 	var carg4 C.GParamFlags // in, none, casted
-	var cret  *C.GParamSpec // return, full, converted
+	var cret *C.GParamSpec  // return, full, converted
 
 	carg1 = (*C.gchar)(transfer.GLibString(name))
 	defer C.g_free(C.gpointer(carg1))
@@ -1429,7 +1446,7 @@ func ParamSpecPointer(name string, nick string, blurb string, flags ParamFlags) 
 }
 
 // ParamSpecString wraps g_param_spec_string
-// 
+//
 // see also https://docs.gtk.org/gobject/func.g_param_spec_string.html
 func ParamSpecString(name string, nick string, blurb string, defaultValue string, flags ParamFlags) *ParamSpec {
 	var carg1 *C.gchar      // in, none, string
@@ -1437,7 +1454,7 @@ func ParamSpecString(name string, nick string, blurb string, defaultValue string
 	var carg3 *C.gchar      // in, none, string, nullable-string
 	var carg4 *C.gchar      // in, none, string, nullable-string
 	var carg5 C.GParamFlags // in, none, casted
-	var cret  *C.GParamSpec // return, full, converted
+	var cret *C.GParamSpec  // return, full, converted
 
 	carg1 = (*C.gchar)(transfer.GLibString(name))
 	defer C.g_free(C.gpointer(carg1))
@@ -1470,7 +1487,7 @@ func ParamSpecString(name string, nick string, blurb string, defaultValue string
 }
 
 // ParamSpecUchar wraps g_param_spec_uchar
-// 
+//
 // see also https://docs.gtk.org/gobject/func.g_param_spec_uchar.html
 func ParamSpecUchar(name string, nick string, blurb string, minimum uint8, maximum uint8, defaultValue uint8, flags ParamFlags) *ParamSpec {
 	var carg1 *C.gchar      // in, none, string
@@ -1480,7 +1497,7 @@ func ParamSpecUchar(name string, nick string, blurb string, minimum uint8, maxim
 	var carg5 C.guint8      // in, none, casted
 	var carg6 C.guint8      // in, none, casted
 	var carg7 C.GParamFlags // in, none, casted
-	var cret  *C.GParamSpec // return, full, converted
+	var cret *C.GParamSpec  // return, full, converted
 
 	carg1 = (*C.gchar)(transfer.GLibString(name))
 	defer C.g_free(C.gpointer(carg1))
@@ -1514,7 +1531,7 @@ func ParamSpecUchar(name string, nick string, blurb string, minimum uint8, maxim
 }
 
 // ParamSpecUint wraps g_param_spec_uint
-// 
+//
 // see also https://docs.gtk.org/gobject/func.g_param_spec_uint.html
 func ParamSpecUint(name string, nick string, blurb string, minimum uint32, maximum uint32, defaultValue uint32, flags ParamFlags) *ParamSpec {
 	var carg1 *C.gchar      // in, none, string
@@ -1524,7 +1541,7 @@ func ParamSpecUint(name string, nick string, blurb string, minimum uint32, maxim
 	var carg5 C.guint       // in, none, casted
 	var carg6 C.guint       // in, none, casted
 	var carg7 C.GParamFlags // in, none, casted
-	var cret  *C.GParamSpec // return, full, converted
+	var cret *C.GParamSpec  // return, full, converted
 
 	carg1 = (*C.gchar)(transfer.GLibString(name))
 	defer C.g_free(C.gpointer(carg1))
@@ -1558,7 +1575,7 @@ func ParamSpecUint(name string, nick string, blurb string, minimum uint32, maxim
 }
 
 // ParamSpecUint64 wraps g_param_spec_uint64
-// 
+//
 // see also https://docs.gtk.org/gobject/func.g_param_spec_uint64.html
 func ParamSpecUint64(name string, nick string, blurb string, minimum uint64, maximum uint64, defaultValue uint64, flags ParamFlags) *ParamSpec {
 	var carg1 *C.gchar      // in, none, string
@@ -1568,7 +1585,7 @@ func ParamSpecUint64(name string, nick string, blurb string, minimum uint64, max
 	var carg5 C.guint64     // in, none, casted
 	var carg6 C.guint64     // in, none, casted
 	var carg7 C.GParamFlags // in, none, casted
-	var cret  *C.GParamSpec // return, full, converted
+	var cret *C.GParamSpec  // return, full, converted
 
 	carg1 = (*C.gchar)(transfer.GLibString(name))
 	defer C.g_free(C.gpointer(carg1))
@@ -1602,7 +1619,7 @@ func ParamSpecUint64(name string, nick string, blurb string, minimum uint64, max
 }
 
 // ParamSpecUlong wraps g_param_spec_ulong
-// 
+//
 // see also https://docs.gtk.org/gobject/func.g_param_spec_ulong.html
 func ParamSpecUlong(name string, nick string, blurb string, minimum uint64, maximum uint64, defaultValue uint64, flags ParamFlags) *ParamSpec {
 	var carg1 *C.gchar      // in, none, string
@@ -1612,7 +1629,7 @@ func ParamSpecUlong(name string, nick string, blurb string, minimum uint64, maxi
 	var carg5 C.gulong      // in, none, casted
 	var carg6 C.gulong      // in, none, casted
 	var carg7 C.GParamFlags // in, none, casted
-	var cret  *C.GParamSpec // return, full, converted
+	var cret *C.GParamSpec  // return, full, converted
 
 	carg1 = (*C.gchar)(transfer.GLibString(name))
 	defer C.g_free(C.gpointer(carg1))
@@ -1646,7 +1663,7 @@ func ParamSpecUlong(name string, nick string, blurb string, minimum uint64, maxi
 }
 
 // ParamSpecUnichar wraps g_param_spec_unichar
-// 
+//
 // see also https://docs.gtk.org/gobject/func.g_param_spec_unichar.html
 func ParamSpecUnichar(name string, nick string, blurb string, defaultValue uint32, flags ParamFlags) *ParamSpec {
 	var carg1 *C.gchar      // in, none, string
@@ -1654,7 +1671,7 @@ func ParamSpecUnichar(name string, nick string, blurb string, defaultValue uint3
 	var carg3 *C.gchar      // in, none, string, nullable-string
 	var carg4 C.gunichar    // in, none, casted
 	var carg5 C.GParamFlags // in, none, casted
-	var cret  *C.GParamSpec // return, full, converted
+	var cret *C.GParamSpec  // return, full, converted
 
 	carg1 = (*C.gchar)(transfer.GLibString(name))
 	defer C.g_free(C.gpointer(carg1))
@@ -1684,14 +1701,14 @@ func ParamSpecUnichar(name string, nick string, blurb string, defaultValue uint3
 }
 
 // ParamValueConvert wraps g_param_value_convert
-// 
+//
 // see also https://docs.gtk.org/gobject/func.g_param_value_convert.html
 func ParamValueConvert(pspec *ParamSpec, srcValue *Value, destValue *Value, strictValidation bool) bool {
 	var carg1 *C.GParamSpec // in, none, converted
 	var carg2 *C.GValue     // in, none, converted
 	var carg3 *C.GValue     // in, none, converted
 	var carg4 C.gboolean    // in
-	var cret  C.gboolean    // return
+	var cret C.gboolean     // return
 
 	carg1 = (*C.GParamSpec)(UnsafeParamSpecToGlibNone(pspec))
 	carg2 = (*C.GValue)(UnsafeValueToGlibUseAnyInstead(srcValue))
@@ -1716,12 +1733,12 @@ func ParamValueConvert(pspec *ParamSpec, srcValue *Value, destValue *Value, stri
 }
 
 // ParamValueDefaults wraps g_param_value_defaults
-// 
+//
 // see also https://docs.gtk.org/gobject/func.g_param_value_defaults.html
 func ParamValueDefaults(pspec *ParamSpec, value *Value) bool {
 	var carg1 *C.GParamSpec // in, none, converted
 	var carg2 *C.GValue     // in, none, converted
-	var cret  C.gboolean    // return
+	var cret C.gboolean     // return
 
 	carg1 = (*C.GParamSpec)(UnsafeParamSpecToGlibNone(pspec))
 	carg2 = (*C.GValue)(UnsafeValueToGlibUseAnyInstead(value))
@@ -1740,12 +1757,12 @@ func ParamValueDefaults(pspec *ParamSpec, value *Value) bool {
 }
 
 // ParamValueIsValid wraps g_param_value_is_valid
-// 
+//
 // see also https://docs.gtk.org/gobject/func.g_param_value_is_valid.html
 func ParamValueIsValid(pspec *ParamSpec, value *Value) bool {
 	var carg1 *C.GParamSpec // in, none, converted
 	var carg2 *C.GValue     // in, none, converted
-	var cret  C.gboolean    // return
+	var cret C.gboolean     // return
 
 	carg1 = (*C.GParamSpec)(UnsafeParamSpecToGlibNone(pspec))
 	carg2 = (*C.GValue)(UnsafeValueToGlibUseAnyInstead(value))
@@ -1764,7 +1781,7 @@ func ParamValueIsValid(pspec *ParamSpec, value *Value) bool {
 }
 
 // ParamValueSetDefault wraps g_param_value_set_default
-// 
+//
 // see also https://docs.gtk.org/gobject/func.g_param_value_set_default.html
 func ParamValueSetDefault(pspec *ParamSpec, value *Value) {
 	var carg1 *C.GParamSpec // in, none, converted
@@ -1779,12 +1796,12 @@ func ParamValueSetDefault(pspec *ParamSpec, value *Value) {
 }
 
 // ParamValueValidate wraps g_param_value_validate
-// 
+//
 // see also https://docs.gtk.org/gobject/func.g_param_value_validate.html
 func ParamValueValidate(pspec *ParamSpec, value *Value) bool {
 	var carg1 *C.GParamSpec // in, none, converted
 	var carg2 *C.GValue     // in, none, converted
-	var cret  C.gboolean    // return
+	var cret C.gboolean     // return
 
 	carg1 = (*C.GParamSpec)(UnsafeParamSpecToGlibNone(pspec))
 	carg2 = (*C.GValue)(UnsafeValueToGlibUseAnyInstead(value))
@@ -1803,13 +1820,13 @@ func ParamValueValidate(pspec *ParamSpec, value *Value) bool {
 }
 
 // ParamValuesCmp wraps g_param_values_cmp
-// 
+//
 // see also https://docs.gtk.org/gobject/func.g_param_values_cmp.html
 func ParamValuesCmp(pspec *ParamSpec, value1 *Value, value2 *Value) int32 {
 	var carg1 *C.GParamSpec // in, none, converted
 	var carg2 *C.GValue     // in, none, converted
 	var carg3 *C.GValue     // in, none, converted
-	var cret  C.gint        // return, none, casted
+	var cret C.gint         // return, none, casted
 
 	carg1 = (*C.GParamSpec)(UnsafeParamSpecToGlibNone(pspec))
 	carg2 = (*C.GValue)(UnsafeValueToGlibUseAnyInstead(value1))
@@ -1828,11 +1845,11 @@ func ParamValuesCmp(pspec *ParamSpec, value1 *Value, value2 *Value) int32 {
 }
 
 // PointerTypeRegisterStatic wraps g_pointer_type_register_static
-// 
+//
 // see also https://docs.gtk.org/gobject/func.g_pointer_type_register_static.html
 func PointerTypeRegisterStatic(name string) Type {
 	var carg1 *C.gchar // in, none, string
-	var cret  C.GType  // return, none, casted, alias
+	var cret C.GType   // return, none, casted, alias
 
 	carg1 = (*C.gchar)(transfer.GLibString(name))
 	defer C.g_free(C.gpointer(carg1))
@@ -1848,11 +1865,11 @@ func PointerTypeRegisterStatic(name string) Type {
 }
 
 // SignalIsValidName wraps g_signal_is_valid_name
-// 
+//
 // see also https://docs.gtk.org/gobject/func.g_signal_is_valid_name.html
 func SignalIsValidName(name string) bool {
-	var carg1 *C.gchar   // in, none, string
-	var cret  C.gboolean // return
+	var carg1 *C.gchar  // in, none, string
+	var cret C.gboolean // return
 
 	carg1 = (*C.gchar)(transfer.GLibString(name))
 	defer C.g_free(C.gpointer(carg1))
@@ -1870,19 +1887,19 @@ func SignalIsValidName(name string) bool {
 }
 
 // SignalListIDs wraps g_signal_list_ids
-// 
+//
 // see also https://docs.gtk.org/gobject/func.g_signal_list_ids.html
 func SignalListIDs(itype Type) (uint32, []uint32) {
-	var carg1 C.GType  // in, none, casted, alias
-	var carg2 C.guint  // out, full, casted
-	var cret  *C.guint // return, transfer: full, C Pointers: 1, Name: array[guint], scope: , array (inner guint (*typesystem.CastablePrimitive))
+	var carg1 C.GType // in, none, casted, alias
+	var carg2 C.guint // out, full, casted
+	var cret *C.guint // return, transfer: full, C Pointers: 1, Name: array[guint], array (inner guint (*typesystem.CastablePrimitive))
 
 	carg1 = C.GType(itype)
 
 	cret = C.g_signal_list_ids(carg1, &carg2)
 	runtime.KeepAlive(itype)
 
-	var nIds  uint32
+	var nIds uint32
 	var goret []uint32
 
 	nIds = uint32(carg2)
@@ -1894,12 +1911,12 @@ func SignalListIDs(itype Type) (uint32, []uint32) {
 }
 
 // SignalLookup wraps g_signal_lookup
-// 
+//
 // see also https://docs.gtk.org/gobject/func.g_signal_lookup.html
 func SignalLookup(name string, itype Type) uint32 {
 	var carg1 *C.gchar // in, none, string
 	var carg2 C.GType  // in, none, casted, alias
-	var cret  C.guint  // return, none, casted
+	var cret C.guint   // return, none, casted
 
 	carg1 = (*C.gchar)(transfer.GLibString(name))
 	defer C.g_free(C.gpointer(carg1))
@@ -1917,11 +1934,11 @@ func SignalLookup(name string, itype Type) uint32 {
 }
 
 // SignalName wraps g_signal_name
-// 
+//
 // see also https://docs.gtk.org/gobject/func.g_signal_name.html
 func SignalName(signalId uint32) string {
-	var carg1 C.guint  // in, none, casted
-	var cret  *C.gchar // return, none, string, nullable-string
+	var carg1 C.guint // in, none, casted
+	var cret *C.gchar // return, none, string, nullable-string
 
 	carg1 = C.guint(signalId)
 
@@ -1938,7 +1955,7 @@ func SignalName(signalId uint32) string {
 }
 
 // SignalParseName wraps g_signal_parse_name
-// 
+//
 // see also https://docs.gtk.org/gobject/func.g_signal_parse_name.html
 func SignalParseName(detailedSignal string, itype Type, forceDetailQuark bool) (uint32, glib.Quark, bool) {
 	var carg1 *C.gchar   // in, none, string
@@ -1946,7 +1963,7 @@ func SignalParseName(detailedSignal string, itype Type, forceDetailQuark bool) (
 	var carg5 C.gboolean // in
 	var carg3 C.guint    // out, full, casted
 	var carg4 C.GQuark   // out, full, casted, alias
-	var cret  C.gboolean // return
+	var cret C.gboolean  // return
 
 	carg1 = (*C.gchar)(transfer.GLibString(detailedSignal))
 	defer C.g_free(C.gpointer(carg1))
@@ -1961,8 +1978,8 @@ func SignalParseName(detailedSignal string, itype Type, forceDetailQuark bool) (
 	runtime.KeepAlive(forceDetailQuark)
 
 	var signalIdP uint32
-	var detailP   glib.Quark
-	var goret     bool
+	var detailP glib.Quark
+	var goret bool
 
 	signalIdP = uint32(carg3)
 	detailP = glib.Quark(carg4)
@@ -1974,7 +1991,7 @@ func SignalParseName(detailedSignal string, itype Type, forceDetailQuark bool) (
 }
 
 // SignalRemoveEmissionHook wraps g_signal_remove_emission_hook
-// 
+//
 // see also https://docs.gtk.org/gobject/func.g_signal_remove_emission_hook.html
 func SignalRemoveEmissionHook(signalId uint32, hookId uint64) {
 	var carg1 C.guint  // in, none, casted
@@ -1989,7 +2006,7 @@ func SignalRemoveEmissionHook(signalId uint32, hookId uint64) {
 }
 
 // TypeAddClassPrivate wraps g_type_add_class_private
-// 
+//
 // see also https://docs.gtk.org/gobject/func.g_type_add_class_private.html
 func TypeAddClassPrivate(classType Type, privateSize uint) {
 	var carg1 C.GType // in, none, casted, alias
@@ -2004,12 +2021,12 @@ func TypeAddClassPrivate(classType Type, privateSize uint) {
 }
 
 // TypeAddInstancePrivate wraps g_type_add_instance_private
-// 
+//
 // see also https://docs.gtk.org/gobject/func.g_type_add_instance_private.html
 func TypeAddInstancePrivate(classType Type, privateSize uint) int32 {
 	var carg1 C.GType // in, none, casted, alias
 	var carg2 C.gsize // in, none, casted
-	var cret  C.gint  // return, none, casted
+	var cret C.gint   // return, none, casted
 
 	carg1 = C.GType(classType)
 	carg2 = C.gsize(privateSize)
@@ -2026,7 +2043,7 @@ func TypeAddInstancePrivate(classType Type, privateSize uint) int32 {
 }
 
 // TypeAddInterfaceStatic wraps g_type_add_interface_static
-// 
+//
 // see also https://docs.gtk.org/gobject/func.g_type_add_interface_static.html
 func TypeAddInterfaceStatic(instanceType Type, interfaceType Type, info *InterfaceInfo) {
 	var carg1 C.GType           // in, none, casted, alias
@@ -2044,11 +2061,11 @@ func TypeAddInterfaceStatic(instanceType Type, interfaceType Type, info *Interfa
 }
 
 // TypeCheckInstance wraps g_type_check_instance
-// 
+//
 // see also https://docs.gtk.org/gobject/func.g_type_check_instance.html
 func TypeCheckInstance(instance *TypeInstance) bool {
 	var carg1 *C.GTypeInstance // in, none, converted
-	var cret  C.gboolean       // return
+	var cret C.gboolean        // return
 
 	carg1 = (*C.GTypeInstance)(UnsafeTypeInstanceToGlibNone(instance))
 
@@ -2065,12 +2082,12 @@ func TypeCheckInstance(instance *TypeInstance) bool {
 }
 
 // TypeCheckInstanceIsA wraps g_type_check_instance_is_a
-// 
+//
 // see also https://docs.gtk.org/gobject/func.g_type_check_instance_is_a.html
 func TypeCheckInstanceIsA(instance *TypeInstance, ifaceType Type) bool {
 	var carg1 *C.GTypeInstance // in, none, converted
 	var carg2 C.GType          // in, none, casted, alias
-	var cret  C.gboolean       // return
+	var cret C.gboolean        // return
 
 	carg1 = (*C.GTypeInstance)(UnsafeTypeInstanceToGlibNone(instance))
 	carg2 = C.GType(ifaceType)
@@ -2089,12 +2106,12 @@ func TypeCheckInstanceIsA(instance *TypeInstance, ifaceType Type) bool {
 }
 
 // TypeCheckInstanceIsFundamentallyA wraps g_type_check_instance_is_fundamentally_a
-// 
+//
 // see also https://docs.gtk.org/gobject/func.g_type_check_instance_is_fundamentally_a.html
 func TypeCheckInstanceIsFundamentallyA(instance *TypeInstance, fundamentalType Type) bool {
 	var carg1 *C.GTypeInstance // in, none, converted
 	var carg2 C.GType          // in, none, casted, alias
-	var cret  C.gboolean       // return
+	var cret C.gboolean        // return
 
 	carg1 = (*C.GTypeInstance)(UnsafeTypeInstanceToGlibNone(instance))
 	carg2 = C.GType(fundamentalType)
@@ -2113,11 +2130,11 @@ func TypeCheckInstanceIsFundamentallyA(instance *TypeInstance, fundamentalType T
 }
 
 // TypeCheckIsValueType wraps g_type_check_is_value_type
-// 
+//
 // see also https://docs.gtk.org/gobject/func.g_type_check_is_value_type.html
 func TypeCheckIsValueType(typ Type) bool {
-	var carg1 C.GType    // in, none, casted, alias
-	var cret  C.gboolean // return
+	var carg1 C.GType   // in, none, casted, alias
+	var cret C.gboolean // return
 
 	carg1 = C.GType(typ)
 
@@ -2134,12 +2151,12 @@ func TypeCheckIsValueType(typ Type) bool {
 }
 
 // TypeChildren wraps g_type_children
-// 
+//
 // see also https://docs.gtk.org/gobject/func.g_type_children.html
 func TypeChildren(typ Type) (uint32, []Type) {
-	var carg1 C.GType  // in, none, casted, alias
-	var carg2 C.guint  // out, full, casted
-	var cret  *C.GType // return, transfer: full, C Pointers: 1, Name: array[Type], scope: , array (inner GType (*typesystem.Alias))
+	var carg1 C.GType // in, none, casted, alias
+	var carg2 C.guint // out, full, casted
+	var cret *C.GType // return, transfer: full, C Pointers: 1, Name: array[Type], array (inner GType (*typesystem.Alias))
 
 	carg1 = C.GType(typ)
 
@@ -2147,7 +2164,7 @@ func TypeChildren(typ Type) (uint32, []Type) {
 	runtime.KeepAlive(typ)
 
 	var nChildren uint32
-	var goret     []Type
+	var goret []Type
 
 	nChildren = uint32(carg2)
 	_ = goret
@@ -2158,11 +2175,11 @@ func TypeChildren(typ Type) (uint32, []Type) {
 }
 
 // TypeDepth wraps g_type_depth
-// 
+//
 // see also https://docs.gtk.org/gobject/func.g_type_depth.html
 func TypeDepth(typ Type) uint32 {
 	var carg1 C.GType // in, none, casted, alias
-	var cret  C.guint // return, none, casted
+	var cret C.guint  // return, none, casted
 
 	carg1 = C.GType(typ)
 
@@ -2177,7 +2194,7 @@ func TypeDepth(typ Type) uint32 {
 }
 
 // TypeEnsure wraps g_type_ensure
-// 
+//
 // see also https://docs.gtk.org/gobject/func.g_type_ensure.html
 func TypeEnsure(typ Type) {
 	var carg1 C.GType // in, none, casted, alias
@@ -2189,7 +2206,7 @@ func TypeEnsure(typ Type) {
 }
 
 // TypeFreeInstance wraps g_type_free_instance
-// 
+//
 // see also https://docs.gtk.org/gobject/func.g_type_free_instance.html
 func TypeFreeInstance(instance *TypeInstance) {
 	var carg1 *C.GTypeInstance // in, none, converted
@@ -2201,11 +2218,11 @@ func TypeFreeInstance(instance *TypeInstance) {
 }
 
 // TypeFromName wraps g_type_from_name
-// 
+//
 // see also https://docs.gtk.org/gobject/func.g_type_from_name.html
 func TypeFromName(name string) Type {
 	var carg1 *C.gchar // in, none, string
-	var cret  C.GType  // return, none, casted, alias
+	var cret C.GType   // return, none, casted, alias
 
 	carg1 = (*C.gchar)(transfer.GLibString(name))
 	defer C.g_free(C.gpointer(carg1))
@@ -2221,11 +2238,11 @@ func TypeFromName(name string) Type {
 }
 
 // TypeFundamental wraps g_type_fundamental
-// 
+//
 // see also https://docs.gtk.org/gobject/func.g_type_fundamental.html
 func TypeFundamental(typeId Type) Type {
 	var carg1 C.GType // in, none, casted, alias
-	var cret  C.GType // return, none, casted, alias
+	var cret C.GType  // return, none, casted, alias
 
 	carg1 = C.GType(typeId)
 
@@ -2240,7 +2257,7 @@ func TypeFundamental(typeId Type) Type {
 }
 
 // TypeFundamentalNext wraps g_type_fundamental_next
-// 
+//
 // see also https://docs.gtk.org/gobject/func.g_type_fundamental_next.html
 func TypeFundamentalNext() Type {
 	var cret C.GType // return, none, casted, alias
@@ -2255,11 +2272,11 @@ func TypeFundamentalNext() Type {
 }
 
 // TypeGetInstanceCount wraps g_type_get_instance_count
-// 
+//
 // see also https://docs.gtk.org/gobject/func.g_type_get_instance_count.html
 func TypeGetInstanceCount(typ Type) int32 {
 	var carg1 C.GType // in, none, casted, alias
-	var cret  C.int   // return, none, casted
+	var cret C.int    // return, none, casted
 
 	carg1 = C.GType(typ)
 
@@ -2274,7 +2291,7 @@ func TypeGetInstanceCount(typ Type) int32 {
 }
 
 // TypeGetTypeRegistrationSerial wraps g_type_get_type_registration_serial
-// 
+//
 // see also https://docs.gtk.org/gobject/func.g_type_get_type_registration_serial.html
 func TypeGetTypeRegistrationSerial() uint32 {
 	var cret C.guint // return, none, casted
@@ -2289,12 +2306,12 @@ func TypeGetTypeRegistrationSerial() uint32 {
 }
 
 // TypeInterfaces wraps g_type_interfaces
-// 
+//
 // see also https://docs.gtk.org/gobject/func.g_type_interfaces.html
 func TypeInterfaces(typ Type) (uint32, []Type) {
-	var carg1 C.GType  // in, none, casted, alias
-	var carg2 C.guint  // out, full, casted
-	var cret  *C.GType // return, transfer: full, C Pointers: 1, Name: array[Type], scope: , array (inner GType (*typesystem.Alias))
+	var carg1 C.GType // in, none, casted, alias
+	var carg2 C.guint // out, full, casted
+	var cret *C.GType // return, transfer: full, C Pointers: 1, Name: array[Type], array (inner GType (*typesystem.Alias))
 
 	carg1 = C.GType(typ)
 
@@ -2302,7 +2319,7 @@ func TypeInterfaces(typ Type) (uint32, []Type) {
 	runtime.KeepAlive(typ)
 
 	var nInterfaces uint32
-	var goret       []Type
+	var goret []Type
 
 	nInterfaces = uint32(carg2)
 	_ = goret
@@ -2313,12 +2330,12 @@ func TypeInterfaces(typ Type) (uint32, []Type) {
 }
 
 // TypeIsA wraps g_type_is_a
-// 
+//
 // see also https://docs.gtk.org/gobject/func.g_type_is_a.html
 func TypeIsA(typ Type, isAType Type) bool {
-	var carg1 C.GType    // in, none, casted, alias
-	var carg2 C.GType    // in, none, casted, alias
-	var cret  C.gboolean // return
+	var carg1 C.GType   // in, none, casted, alias
+	var carg2 C.GType   // in, none, casted, alias
+	var cret C.gboolean // return
 
 	carg1 = C.GType(typ)
 	carg2 = C.GType(isAType)
@@ -2337,11 +2354,11 @@ func TypeIsA(typ Type, isAType Type) bool {
 }
 
 // TypeName wraps g_type_name
-// 
+//
 // see also https://docs.gtk.org/gobject/func.g_type_name.html
 func TypeName(typ Type) string {
-	var carg1 C.GType  // in, none, casted, alias
-	var cret  *C.gchar // return, none, string, nullable-string
+	var carg1 C.GType // in, none, casted, alias
+	var cret *C.gchar // return, none, string, nullable-string
 
 	carg1 = C.GType(typ)
 
@@ -2358,11 +2375,11 @@ func TypeName(typ Type) string {
 }
 
 // TypeNameFromInstance wraps g_type_name_from_instance
-// 
+//
 // see also https://docs.gtk.org/gobject/func.g_type_name_from_instance.html
 func TypeNameFromInstance(instance *TypeInstance) string {
 	var carg1 *C.GTypeInstance // in, none, converted
-	var cret  *C.gchar         // return, none, string
+	var cret *C.gchar          // return, none, string
 
 	carg1 = (*C.GTypeInstance)(UnsafeTypeInstanceToGlibNone(instance))
 
@@ -2377,12 +2394,12 @@ func TypeNameFromInstance(instance *TypeInstance) string {
 }
 
 // TypeNextBase wraps g_type_next_base
-// 
+//
 // see also https://docs.gtk.org/gobject/func.g_type_next_base.html
 func TypeNextBase(leafType Type, rootType Type) Type {
 	var carg1 C.GType // in, none, casted, alias
 	var carg2 C.GType // in, none, casted, alias
-	var cret  C.GType // return, none, casted, alias
+	var cret C.GType  // return, none, casted, alias
 
 	carg1 = C.GType(leafType)
 	carg2 = C.GType(rootType)
@@ -2399,11 +2416,11 @@ func TypeNextBase(leafType Type, rootType Type) Type {
 }
 
 // TypeParent wraps g_type_parent
-// 
+//
 // see also https://docs.gtk.org/gobject/func.g_type_parent.html
 func TypeParent(typ Type) Type {
 	var carg1 C.GType // in, none, casted, alias
-	var cret  C.GType // return, none, casted, alias
+	var cret C.GType  // return, none, casted, alias
 
 	carg1 = C.GType(typ)
 
@@ -2418,11 +2435,11 @@ func TypeParent(typ Type) Type {
 }
 
 // TypeQname wraps g_type_qname
-// 
+//
 // see also https://docs.gtk.org/gobject/func.g_type_qname.html
 func TypeQname(typ Type) glib.Quark {
-	var carg1 C.GType  // in, none, casted, alias
-	var cret  C.GQuark // return, none, casted, alias
+	var carg1 C.GType // in, none, casted, alias
+	var cret C.GQuark // return, none, casted, alias
 
 	carg1 = C.GType(typ)
 
@@ -2437,12 +2454,12 @@ func TypeQname(typ Type) glib.Quark {
 }
 
 // TypeTestFlags wraps g_type_test_flags
-// 
+//
 // see also https://docs.gtk.org/gobject/func.g_type_test_flags.html
 func TypeTestFlags(typ Type, flags uint32) bool {
-	var carg1 C.GType    // in, none, casted, alias
-	var carg2 C.guint    // in, none, casted
-	var cret  C.gboolean // return
+	var carg1 C.GType   // in, none, casted, alias
+	var carg2 C.guint   // in, none, casted
+	var cret C.gboolean // return
 
 	carg1 = C.GType(typ)
 	carg2 = C.guint(flags)
@@ -2461,7 +2478,7 @@ func TypeTestFlags(typ Type, flags uint32) bool {
 }
 
 // VariantGetGType wraps g_variant_get_gtype
-// 
+//
 // see also https://docs.gtk.org/gobject/func.g_variant_get_gtype.html
 func VariantGetGType() Type {
 	var cret C.GType // return, none, casted, alias
@@ -2484,7 +2501,7 @@ type BindingGroupInstance struct {
 var _ BindingGroup = (*BindingGroupInstance)(nil)
 
 // BindingGroup wraps GBindingGroup
-// 
+//
 // see also https://docs.gtk.org/gobject/class.BindingGroup.html
 type BindingGroup interface {
 	Object
@@ -2500,7 +2517,7 @@ func unsafeWrapBindingGroup(base *ObjectInstance) *BindingGroupInstance {
 func init() {
 	RegisterObjectCasting(
 		TypeBindingGroup,
-		func (inst *ObjectInstance) Object {
+		func(inst *ObjectInstance) Object {
 			return unsafeWrapBindingGroup(inst)
 		},
 	)
@@ -2540,7 +2557,7 @@ func UnsafeBindingGroupToGlibFull(c BindingGroup) unsafe.Pointer {
 }
 
 // NewBindingGroup wraps g_binding_group_new
-// 
+//
 // see also https://docs.gtk.org/gobject/func.g_binding_group_new.html
 func NewBindingGroup() BindingGroup {
 	var cret *C.GBindingGroup // return, full, converted
@@ -2563,7 +2580,7 @@ type InitiallyUnownedInstance struct {
 var _ InitiallyUnowned = (*InitiallyUnownedInstance)(nil)
 
 // InitiallyUnowned wraps GInitiallyUnowned
-// 
+//
 // see also https://docs.gtk.org/gobject/class.InitiallyUnowned.html
 type InitiallyUnowned interface {
 	Object
@@ -2581,7 +2598,7 @@ func unsafeWrapInitiallyUnowned(base *ObjectInstance) *InitiallyUnownedInstance 
 func init() {
 	RegisterObjectCasting(
 		TypeInitiallyUnowned,
-		func (inst *ObjectInstance) Object {
+		func(inst *ObjectInstance) Object {
 			return unsafeWrapInitiallyUnowned(inst)
 		},
 	)
@@ -2625,7 +2642,6 @@ func UnsafeInitiallyUnownedToGlibFull(c InitiallyUnowned) unsafe.Pointer {
 type InitiallyUnownedOverrides[Instance InitiallyUnowned] struct {
 	// ObjectOverrides allows you to override virtual methods from the parent class Object
 	ObjectOverrides[Instance]
-
 }
 
 // UnsafeApplyInitiallyUnownedOverrides applies the overrides to init the gclass by setting the trampoline functions.
@@ -2637,12 +2653,12 @@ func UnsafeApplyInitiallyUnownedOverrides[Instance InitiallyUnowned](gclass unsa
 // RegisterInitiallyUnownedSubClass is used to register a go subclass of GInitiallyUnowned. For this to work safely please implement the
 // virtual methods required by the implementation.
 func RegisterInitiallyUnownedSubClass[InstanceT InitiallyUnowned](
-		name string,
-		classInit func(class *InitiallyUnownedClass),
-		constructor func() InstanceT,
-		overrides InitiallyUnownedOverrides[InstanceT],
-		signals map[string]SignalDefinition,
-		interfaceInits ...SubClassInterfaceInit[InstanceT],
+	name string,
+	classInit func(class *InitiallyUnownedClass),
+	constructor func() InstanceT,
+	overrides InitiallyUnownedOverrides[InstanceT],
+	signals map[string]SignalDefinition,
+	interfaceInits ...SubClassInterfaceInit[InstanceT],
 ) Type {
 	return UnsafeRegisterSubClass(
 		name,
@@ -2653,7 +2669,7 @@ func RegisterInitiallyUnownedSubClass[InstanceT InitiallyUnowned](
 		TypeInitiallyUnowned,
 		UnsafeInitiallyUnownedClassFromGlibBorrow,
 		UnsafeApplyInitiallyUnownedOverrides,
-		func (obj *ObjectInstance) Object {
+		func(obj *ObjectInstance) Object {
 			return unsafeWrapInitiallyUnowned(obj)
 		},
 		interfaceInits...,
@@ -2661,7 +2677,7 @@ func RegisterInitiallyUnownedSubClass[InstanceT InitiallyUnowned](
 }
 
 // CClosure wraps GCClosure
-// 
+//
 // see also https://docs.gtk.org/gobject/struct.CClosure.html
 type CClosure struct {
 	*cClosure
@@ -2707,7 +2723,7 @@ func UnsafeCClosureFromGlibFull(p unsafe.Pointer) *CClosure {
 	}
 	runtime.SetFinalizer(
 		wrapped.cClosure,
-		func (intern *cClosure) {
+		func(intern *cClosure) {
 			C.free(unsafe.Pointer(intern.native))
 		},
 	)
@@ -2715,7 +2731,7 @@ func UnsafeCClosureFromGlibFull(p unsafe.Pointer) *CClosure {
 }
 
 // UnsafeCClosureFree unrefs/frees the underlying resource. This can be used to remove the instance before the GC decides to do so.
-// 
+//
 // After this is called, no other method on [CClosure] is expected to work anymore.
 func UnsafeCClosureFree(c *CClosure) {
 	C.free(unsafe.Pointer(c.native))
@@ -2743,7 +2759,7 @@ func UnsafeCClosureToGlibFull(c *CClosure) unsafe.Pointer {
 }
 
 // ClosureNotifyData wraps GClosureNotifyData
-// 
+//
 // see also https://docs.gtk.org/gobject/struct.ClosureNotifyData.html
 type ClosureNotifyData struct {
 	*closureNotifyData
@@ -2789,7 +2805,7 @@ func UnsafeClosureNotifyDataFromGlibFull(p unsafe.Pointer) *ClosureNotifyData {
 	}
 	runtime.SetFinalizer(
 		wrapped.closureNotifyData,
-		func (intern *closureNotifyData) {
+		func(intern *closureNotifyData) {
 			C.free(unsafe.Pointer(intern.native))
 		},
 	)
@@ -2797,7 +2813,7 @@ func UnsafeClosureNotifyDataFromGlibFull(p unsafe.Pointer) *ClosureNotifyData {
 }
 
 // UnsafeClosureNotifyDataFree unrefs/frees the underlying resource. This can be used to remove the instance before the GC decides to do so.
-// 
+//
 // After this is called, no other method on [ClosureNotifyData] is expected to work anymore.
 func UnsafeClosureNotifyDataFree(c *ClosureNotifyData) {
 	C.free(unsafe.Pointer(c.native))
@@ -2825,7 +2841,7 @@ func UnsafeClosureNotifyDataToGlibFull(c *ClosureNotifyData) unsafe.Pointer {
 }
 
 // EnumClass wraps GEnumClass
-// 
+//
 // see also https://docs.gtk.org/gobject/struct.EnumClass.html
 type EnumClass struct {
 	*enumClass
@@ -2871,7 +2887,7 @@ func UnsafeEnumClassFromGlibFull(p unsafe.Pointer) *EnumClass {
 	}
 	runtime.SetFinalizer(
 		wrapped.enumClass,
-		func (intern *enumClass) {
+		func(intern *enumClass) {
 			C.free(unsafe.Pointer(intern.native))
 		},
 	)
@@ -2879,7 +2895,7 @@ func UnsafeEnumClassFromGlibFull(p unsafe.Pointer) *EnumClass {
 }
 
 // UnsafeEnumClassFree unrefs/frees the underlying resource. This can be used to remove the instance before the GC decides to do so.
-// 
+//
 // After this is called, no other method on [EnumClass] is expected to work anymore.
 func UnsafeEnumClassFree(e *EnumClass) {
 	C.free(unsafe.Pointer(e.native))
@@ -2907,7 +2923,7 @@ func UnsafeEnumClassToGlibFull(e *EnumClass) unsafe.Pointer {
 }
 
 // EnumValue wraps GEnumValue
-// 
+//
 // see also https://docs.gtk.org/gobject/struct.EnumValue.html
 type EnumValue struct {
 	*enumValue
@@ -2953,7 +2969,7 @@ func UnsafeEnumValueFromGlibFull(p unsafe.Pointer) *EnumValue {
 	}
 	runtime.SetFinalizer(
 		wrapped.enumValue,
-		func (intern *enumValue) {
+		func(intern *enumValue) {
 			C.free(unsafe.Pointer(intern.native))
 		},
 	)
@@ -2961,7 +2977,7 @@ func UnsafeEnumValueFromGlibFull(p unsafe.Pointer) *EnumValue {
 }
 
 // UnsafeEnumValueFree unrefs/frees the underlying resource. This can be used to remove the instance before the GC decides to do so.
-// 
+//
 // After this is called, no other method on [EnumValue] is expected to work anymore.
 func UnsafeEnumValueFree(e *EnumValue) {
 	C.free(unsafe.Pointer(e.native))
@@ -2989,7 +3005,7 @@ func UnsafeEnumValueToGlibFull(e *EnumValue) unsafe.Pointer {
 }
 
 // FlagsClass wraps GFlagsClass
-// 
+//
 // see also https://docs.gtk.org/gobject/struct.FlagsClass.html
 type FlagsClass struct {
 	*flagsClass
@@ -3035,7 +3051,7 @@ func UnsafeFlagsClassFromGlibFull(p unsafe.Pointer) *FlagsClass {
 	}
 	runtime.SetFinalizer(
 		wrapped.flagsClass,
-		func (intern *flagsClass) {
+		func(intern *flagsClass) {
 			C.free(unsafe.Pointer(intern.native))
 		},
 	)
@@ -3043,7 +3059,7 @@ func UnsafeFlagsClassFromGlibFull(p unsafe.Pointer) *FlagsClass {
 }
 
 // UnsafeFlagsClassFree unrefs/frees the underlying resource. This can be used to remove the instance before the GC decides to do so.
-// 
+//
 // After this is called, no other method on [FlagsClass] is expected to work anymore.
 func UnsafeFlagsClassFree(f *FlagsClass) {
 	C.free(unsafe.Pointer(f.native))
@@ -3071,7 +3087,7 @@ func UnsafeFlagsClassToGlibFull(f *FlagsClass) unsafe.Pointer {
 }
 
 // FlagsValue wraps GFlagsValue
-// 
+//
 // see also https://docs.gtk.org/gobject/struct.FlagsValue.html
 type FlagsValue struct {
 	*flagsValue
@@ -3117,7 +3133,7 @@ func UnsafeFlagsValueFromGlibFull(p unsafe.Pointer) *FlagsValue {
 	}
 	runtime.SetFinalizer(
 		wrapped.flagsValue,
-		func (intern *flagsValue) {
+		func(intern *flagsValue) {
 			C.free(unsafe.Pointer(intern.native))
 		},
 	)
@@ -3125,7 +3141,7 @@ func UnsafeFlagsValueFromGlibFull(p unsafe.Pointer) *FlagsValue {
 }
 
 // UnsafeFlagsValueFree unrefs/frees the underlying resource. This can be used to remove the instance before the GC decides to do so.
-// 
+//
 // After this is called, no other method on [FlagsValue] is expected to work anymore.
 func UnsafeFlagsValueFree(f *FlagsValue) {
 	C.free(unsafe.Pointer(f.native))
@@ -3153,9 +3169,9 @@ func UnsafeFlagsValueToGlibFull(f *FlagsValue) unsafe.Pointer {
 }
 
 // InitiallyUnownedClass wraps GInitiallyUnownedClass
-// 
+//
 // see also https://docs.gtk.org/gobject/struct.InitiallyUnownedClass.html
-// 
+//
 // InitiallyUnownedClass is the type struct for [InitiallyUnowned]
 type InitiallyUnownedClass struct {
 	*initiallyUnownedClass
@@ -3183,7 +3199,7 @@ func UnsafeInitiallyUnownedClassFromGlibBorrow(p unsafe.Pointer) *InitiallyUnown
 }
 
 // UnsafeInitiallyUnownedClassFree unrefs/frees the underlying resource. This can be used to remove the instance before the GC decides to do so.
-// 
+//
 // After this is called, no other method on [InitiallyUnownedClass] is expected to work anymore.
 func UnsafeInitiallyUnownedClassFree(i *InitiallyUnownedClass) {
 	C.free(unsafe.Pointer(i.native))
@@ -3208,7 +3224,7 @@ func (i *InitiallyUnownedClass) ParentClass() *ObjectClass {
 }
 
 // InterfaceInfo wraps GInterfaceInfo
-// 
+//
 // see also https://docs.gtk.org/gobject/struct.InterfaceInfo.html
 type InterfaceInfo struct {
 	*interfaceInfo
@@ -3254,7 +3270,7 @@ func UnsafeInterfaceInfoFromGlibFull(p unsafe.Pointer) *InterfaceInfo {
 	}
 	runtime.SetFinalizer(
 		wrapped.interfaceInfo,
-		func (intern *interfaceInfo) {
+		func(intern *interfaceInfo) {
 			C.free(unsafe.Pointer(intern.native))
 		},
 	)
@@ -3262,7 +3278,7 @@ func UnsafeInterfaceInfoFromGlibFull(p unsafe.Pointer) *InterfaceInfo {
 }
 
 // UnsafeInterfaceInfoFree unrefs/frees the underlying resource. This can be used to remove the instance before the GC decides to do so.
-// 
+//
 // After this is called, no other method on [InterfaceInfo] is expected to work anymore.
 func UnsafeInterfaceInfoFree(i *InterfaceInfo) {
 	C.free(unsafe.Pointer(i.native))
@@ -3290,7 +3306,7 @@ func UnsafeInterfaceInfoToGlibFull(i *InterfaceInfo) unsafe.Pointer {
 }
 
 // ObjectConstructParam wraps GObjectConstructParam
-// 
+//
 // see also https://docs.gtk.org/gobject/struct.ObjectConstructParam.html
 type ObjectConstructParam struct {
 	*objectConstructParam
@@ -3336,7 +3352,7 @@ func UnsafeObjectConstructParamFromGlibFull(p unsafe.Pointer) *ObjectConstructPa
 	}
 	runtime.SetFinalizer(
 		wrapped.objectConstructParam,
-		func (intern *objectConstructParam) {
+		func(intern *objectConstructParam) {
 			C.free(unsafe.Pointer(intern.native))
 		},
 	)
@@ -3344,7 +3360,7 @@ func UnsafeObjectConstructParamFromGlibFull(p unsafe.Pointer) *ObjectConstructPa
 }
 
 // UnsafeObjectConstructParamFree unrefs/frees the underlying resource. This can be used to remove the instance before the GC decides to do so.
-// 
+//
 // After this is called, no other method on [ObjectConstructParam] is expected to work anymore.
 func UnsafeObjectConstructParamFree(o *ObjectConstructParam) {
 	C.free(unsafe.Pointer(o.native))
@@ -3372,7 +3388,7 @@ func UnsafeObjectConstructParamToGlibFull(o *ObjectConstructParam) unsafe.Pointe
 }
 
 // SignalInvocationHint wraps GSignalInvocationHint
-// 
+//
 // see also https://docs.gtk.org/gobject/struct.SignalInvocationHint.html
 type SignalInvocationHint struct {
 	*signalInvocationHint
@@ -3418,7 +3434,7 @@ func UnsafeSignalInvocationHintFromGlibFull(p unsafe.Pointer) *SignalInvocationH
 	}
 	runtime.SetFinalizer(
 		wrapped.signalInvocationHint,
-		func (intern *signalInvocationHint) {
+		func(intern *signalInvocationHint) {
 			C.free(unsafe.Pointer(intern.native))
 		},
 	)
@@ -3426,7 +3442,7 @@ func UnsafeSignalInvocationHintFromGlibFull(p unsafe.Pointer) *SignalInvocationH
 }
 
 // UnsafeSignalInvocationHintFree unrefs/frees the underlying resource. This can be used to remove the instance before the GC decides to do so.
-// 
+//
 // After this is called, no other method on [SignalInvocationHint] is expected to work anymore.
 func UnsafeSignalInvocationHintFree(s *SignalInvocationHint) {
 	C.free(unsafe.Pointer(s.native))
@@ -3454,7 +3470,7 @@ func UnsafeSignalInvocationHintToGlibFull(s *SignalInvocationHint) unsafe.Pointe
 }
 
 // TypeFundamentalInfo wraps GTypeFundamentalInfo
-// 
+//
 // see also https://docs.gtk.org/gobject/struct.TypeFundamentalInfo.html
 type TypeFundamentalInfo struct {
 	*typeFundamentalInfo
@@ -3500,7 +3516,7 @@ func UnsafeTypeFundamentalInfoFromGlibFull(p unsafe.Pointer) *TypeFundamentalInf
 	}
 	runtime.SetFinalizer(
 		wrapped.typeFundamentalInfo,
-		func (intern *typeFundamentalInfo) {
+		func(intern *typeFundamentalInfo) {
 			C.free(unsafe.Pointer(intern.native))
 		},
 	)
@@ -3508,7 +3524,7 @@ func UnsafeTypeFundamentalInfoFromGlibFull(p unsafe.Pointer) *TypeFundamentalInf
 }
 
 // UnsafeTypeFundamentalInfoFree unrefs/frees the underlying resource. This can be used to remove the instance before the GC decides to do so.
-// 
+//
 // After this is called, no other method on [TypeFundamentalInfo] is expected to work anymore.
 func UnsafeTypeFundamentalInfoFree(t *TypeFundamentalInfo) {
 	C.free(unsafe.Pointer(t.native))
@@ -3536,7 +3552,7 @@ func UnsafeTypeFundamentalInfoToGlibFull(t *TypeFundamentalInfo) unsafe.Pointer 
 }
 
 // TypeInfo wraps GTypeInfo
-// 
+//
 // see also https://docs.gtk.org/gobject/struct.TypeInfo.html
 type TypeInfo struct {
 	*typeInfo
@@ -3582,7 +3598,7 @@ func UnsafeTypeInfoFromGlibFull(p unsafe.Pointer) *TypeInfo {
 	}
 	runtime.SetFinalizer(
 		wrapped.typeInfo,
-		func (intern *typeInfo) {
+		func(intern *typeInfo) {
 			C.free(unsafe.Pointer(intern.native))
 		},
 	)
@@ -3590,7 +3606,7 @@ func UnsafeTypeInfoFromGlibFull(p unsafe.Pointer) *TypeInfo {
 }
 
 // UnsafeTypeInfoFree unrefs/frees the underlying resource. This can be used to remove the instance before the GC decides to do so.
-// 
+//
 // After this is called, no other method on [TypeInfo] is expected to work anymore.
 func UnsafeTypeInfoFree(t *TypeInfo) {
 	C.free(unsafe.Pointer(t.native))
@@ -3618,7 +3634,7 @@ func UnsafeTypeInfoToGlibFull(t *TypeInfo) unsafe.Pointer {
 }
 
 // TypeInstance wraps GTypeInstance
-// 
+//
 // see also https://docs.gtk.org/gobject/struct.TypeInstance.html
 type TypeInstance struct {
 	*typeInstance
@@ -3664,7 +3680,7 @@ func UnsafeTypeInstanceFromGlibFull(p unsafe.Pointer) *TypeInstance {
 	}
 	runtime.SetFinalizer(
 		wrapped.typeInstance,
-		func (intern *typeInstance) {
+		func(intern *typeInstance) {
 			C.free(unsafe.Pointer(intern.native))
 		},
 	)
@@ -3672,7 +3688,7 @@ func UnsafeTypeInstanceFromGlibFull(p unsafe.Pointer) *TypeInstance {
 }
 
 // UnsafeTypeInstanceFree unrefs/frees the underlying resource. This can be used to remove the instance before the GC decides to do so.
-// 
+//
 // After this is called, no other method on [TypeInstance] is expected to work anymore.
 func UnsafeTypeInstanceFree(t *TypeInstance) {
 	C.free(unsafe.Pointer(t.native))
@@ -3700,7 +3716,7 @@ func UnsafeTypeInstanceToGlibFull(t *TypeInstance) unsafe.Pointer {
 }
 
 // TypeValueTable wraps GTypeValueTable
-// 
+//
 // see also https://docs.gtk.org/gobject/struct.TypeValueTable.html
 type TypeValueTable struct {
 	*typeValueTable
@@ -3746,7 +3762,7 @@ func UnsafeTypeValueTableFromGlibFull(p unsafe.Pointer) *TypeValueTable {
 	}
 	runtime.SetFinalizer(
 		wrapped.typeValueTable,
-		func (intern *typeValueTable) {
+		func(intern *typeValueTable) {
 			C.free(unsafe.Pointer(intern.native))
 		},
 	)
@@ -3754,7 +3770,7 @@ func UnsafeTypeValueTableFromGlibFull(p unsafe.Pointer) *TypeValueTable {
 }
 
 // UnsafeTypeValueTableFree unrefs/frees the underlying resource. This can be used to remove the instance before the GC decides to do so.
-// 
+//
 // After this is called, no other method on [TypeValueTable] is expected to work anymore.
 func UnsafeTypeValueTableFree(t *TypeValueTable) {
 	C.free(unsafe.Pointer(t.native))
@@ -3782,7 +3798,7 @@ func UnsafeTypeValueTableToGlibFull(t *TypeValueTable) unsafe.Pointer {
 }
 
 // WeakRef wraps GWeakRef
-// 
+//
 // see also https://docs.gtk.org/gobject/struct.WeakRef.html
 type WeakRef struct {
 	*weakRef
@@ -3828,7 +3844,7 @@ func UnsafeWeakRefFromGlibFull(p unsafe.Pointer) *WeakRef {
 	}
 	runtime.SetFinalizer(
 		wrapped.weakRef,
-		func (intern *weakRef) {
+		func(intern *weakRef) {
 			C.free(unsafe.Pointer(intern.native))
 		},
 	)
@@ -3836,7 +3852,7 @@ func UnsafeWeakRefFromGlibFull(p unsafe.Pointer) *WeakRef {
 }
 
 // UnsafeWeakRefFree unrefs/frees the underlying resource. This can be used to remove the instance before the GC decides to do so.
-// 
+//
 // After this is called, no other method on [WeakRef] is expected to work anymore.
 func UnsafeWeakRefFree(w *WeakRef) {
 	C.free(unsafe.Pointer(w.native))
@@ -3862,4 +3878,3 @@ func UnsafeWeakRefToGlibFull(w *WeakRef) unsafe.Pointer {
 	w.native = nil // WeakRef is invalid from here on
 	return _p
 }
-

@@ -30,7 +30,8 @@ func (g *EnumGenerator) Generate(w *file.Package) {
 
 	g.Doc.Generate(w.Go())
 
-	fmt.Fprintf(w.Go(), "type %s C.int\n\n", g.GoType(0))
+	fmt.Fprintf(w.Go(), "type %s C.int\n", g.GoType(0))
+	w.Go().NewSection()
 
 	fmt.Fprintf(w.Go(), "const (\n")
 
@@ -42,45 +43,46 @@ func (g *EnumGenerator) Generate(w *file.Package) {
 	}
 	w.Go().Unindent()
 
-	fmt.Fprint(w.Go(), ")\n\n")
+	fmt.Fprint(w.Go(), ")\n")
+	w.Go().NewSection()
 
 	if g.Marshaler != nil {
 		w.RegisterGType(g)
 		g.Marshaler.Generate(w)
 	}
 
-	fmt.Fprint(w.Go(), "\n")
-
 	if g.CanMarshal() {
 		// GoValueInitializer assertion:
-		fmt.Fprintf(w.Go(), "var _ %s = %s(0)\n\n", g.Value().WithForeignNamespace("GoValueInitializer"), g.GoType(0))
+		fmt.Fprintf(w.Go(), "var _ %s = %s(0)\n", g.Value().WithForeignNamespace("GoValueInitializer"), g.GoType(0))
+		w.Go().NewSection()
 
 		fmt.Fprintf(w.Go(), "func (e %s) GoValueType() %s {\n", g.GoType(0), g.Type().NamespacedGoType(0))
 		w.Go().Indent()
 		fmt.Fprintf(w.Go(), "return %s\n", g.GoTypeName())
 		w.Go().Unindent()
-		fmt.Fprintf(w.Go(), "}\n\n")
+		fmt.Fprintf(w.Go(), "}\n")
+		w.Go().NewSection()
 
 		fmt.Fprintf(w.Go(), "func (e %s) SetGoValue(v *%s) {\n", g.GoType(0), g.Value().NamespacedGoType(0))
 		w.Go().Indent()
 		fmt.Fprintf(w.Go(), "v.SetEnum(int32(e))\n")
 		w.Go().Unindent()
-		fmt.Fprintf(w.Go(), "}\n\n")
+		fmt.Fprintf(w.Go(), "}\n")
+		w.Go().NewSection()
 	}
 
 	// Stringer:
 	fmt.Fprintf(w.Go(), "func (e %s) String() string {\n", g.GoType(0))
 	w.Go().Indent()
 	fmt.Fprintf(w.Go(), "switch e {\n")
-	w.Go().Indent()
 	for _, member := range g.Enum.Members.Uniques() {
-		fmt.Fprintf(w.Go(), "case %s: return \"%s\"\n", member.GoIndentifier(), member.GoIndentifier())
+		fmt.Fprintf(w.Go(), "case %s:\n\treturn \"%s\"\n", member.GoIndentifier(), member.GoIndentifier())
 	}
-	fmt.Fprintf(w.Go(), "default: return fmt.Sprintf(\"%s(%%d)\", e)\n", g.GoType(0))
-	w.Go().Unindent()
+	fmt.Fprintf(w.Go(), "default:\n\treturn fmt.Sprintf(\"%s(%%d)\", e)\n", g.GoType(0))
 	fmt.Fprintf(w.Go(), "}\n")
 	w.Go().Unindent()
-	fmt.Fprintf(w.Go(), "}\n\n")
+	fmt.Fprintf(w.Go(), "}\n")
+	w.Go().NewSection()
 
 	g.SubGenerators.Generate(w)
 }

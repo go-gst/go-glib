@@ -27,7 +27,7 @@ func (n *UnimplementedConverter) Metadata() string {
 		fmt.Sprintf("Name: %s", n.Param.Type.Type.GIRName()),
 	)
 
-	if n.Param.Scope != typesystem.CallbackParamScopeCall {
+	if n.Param.Scope != "" && n.Param.Scope != typesystem.CallbackParamScopeCall {
 		contextParts = append(contextParts, fmt.Sprintf("scope: %s", n.Param.Scope))
 	}
 

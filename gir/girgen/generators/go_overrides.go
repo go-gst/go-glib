@@ -46,11 +46,13 @@ func (g *GoOverridesGenerator) Generate(w *file.Package) {
 	w.Go().Indent()
 	if parentOverridesType != "" {
 		fmt.Fprintf(w.Go(), "// %s allows you to override virtual methods from the parent class %s\n", parentOverridesType, parentName)
-		fmt.Fprintf(w.Go(), "%s[%s]\n\n", parentOverridesType, overridesInstanceGenericType)
+		fmt.Fprintf(w.Go(), "%s[%s]\n", parentOverridesType, overridesInstanceGenericType)
+		w.Go().NewSection()
 	}
 	g.VirtualMethods.GenerateClassOverrideFields(w)
 	w.Go().Unindent()
-	fmt.Fprintf(w.Go(), "}\n\n")
+	fmt.Fprintf(w.Go(), "}\n")
+	w.Go().NewSection()
 
 	fmt.Fprintf(w.Go(), "// %s applies the overrides to init the gclass by setting the trampoline functions.\n", applyOverridesName)
 	fmt.Fprintf(w.Go(), "// This is used by the bindings internally and only exported for visibility to other bindings code.\n")
@@ -97,7 +99,8 @@ func (g *GoOverridesGenerator) Generate(w *file.Package) {
 		w.Go().NewSection()
 	}
 	w.Go().Unindent()
-	fmt.Fprintf(w.Go(), "}\n\n")
+	fmt.Fprintf(w.Go(), "}\n")
+	w.Go().NewSection()
 
 	g.VirtualMethods.Generate(w)
 }

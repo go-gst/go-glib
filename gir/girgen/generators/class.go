@@ -44,9 +44,11 @@ func (g *ClassGenerator) Generate(w *file.Package) {
 		fmt.Fprintln(w.Go(), inter.NamespacedGoType(0))
 	}
 	w.Go().Unindent()
-	fmt.Fprintf(w.Go(), "}\n\n")
+	fmt.Fprintf(w.Go(), "}\n")
+	w.Go().NewSection()
 
-	fmt.Fprintf(w.Go(), "var _ %s = (*%s)(nil)\n\n", g.GoInterfaceName, g.GoType(0))
+	fmt.Fprintf(w.Go(), "var _ %s = (*%s)(nil)\n", g.GoInterfaceName, g.GoType(0))
+	w.Go().NewSection()
 
 	g.Doc.Generate(w.Go())
 	fmt.Fprintf(w.Go(), "type %s interface {\n", g.GoInterfaceName)
@@ -72,7 +74,8 @@ func (g *ClassGenerator) Generate(w *file.Package) {
 	}
 
 	w.Go().Unindent()
-	fmt.Fprintf(w.Go(), "}\n\n")
+	fmt.Fprintf(w.Go(), "}\n")
+	w.Go().NewSection()
 
 	g.generateWrapFunction(w)
 
@@ -81,13 +84,13 @@ func (g *ClassGenerator) Generate(w *file.Package) {
 	if g.Marshaler != nil {
 		w.RegisterGType(g)
 		g.Marshaler.Generate(w)
-		fmt.Fprintln(w.Go())
 	}
 
 	mkConstructor := func(constructorName, baseConstructorName string) {
 		fmt.Fprintf(w.Go(), "func %s(c unsafe.Pointer) %s {\n", constructorName, g.GoInterfaceName)
 		fmt.Fprintf(w.Go(), "\treturn %s(c).(%s)\n", baseConstructorName, g.GoInterfaceName)
-		fmt.Fprintf(w.Go(), "}\n\n")
+		fmt.Fprintf(w.Go(), "}\n")
+		w.Go().NewSection()
 	}
 
 	fmt.Fprintf(w.Go(), "// %s is used to convert raw %s pointers to go while taking a reference and attaching a finalizer. This is used by the bindings internally.\n", g.GoUnsafeFromGlibNoneFunction(), g.CType(0))
@@ -100,12 +103,14 @@ func (g *ClassGenerator) Generate(w *file.Package) {
 
 	fmt.Fprintf(w.Go(), "func (%s *%s) %s() *%s {\n", strcases.ReceiverName(g.GoType(0)), g.GoType(0), g.GoPrivateUpcastMethod, g.GoType(0))
 	fmt.Fprintf(w.Go(), "\treturn %s\n", strcases.ReceiverName(g.GoType(0)))
-	fmt.Fprintf(w.Go(), "}\n\n")
+	fmt.Fprintf(w.Go(), "}\n")
+	w.Go().NewSection()
 
 	mkTransfer := func(transfername, baseTransferName string) {
 		fmt.Fprintf(w.Go(), "func %s(c %s) unsafe.Pointer {\n", transfername, g.GoInterfaceName)
 		fmt.Fprintf(w.Go(), "\treturn %s(c)\n", baseTransferName)
-		fmt.Fprintf(w.Go(), "}\n\n")
+		fmt.Fprintf(w.Go(), "}\n")
+		w.Go().NewSection()
 	}
 
 	fmt.Fprintf(w.Go(), "// %s is used to convert the instance to it's C value %s. This is used by the bindings internally.\n", g.GoUnsafeToGlibNoneFunction(), g.CType(0))
@@ -140,12 +145,12 @@ func (g *ClassGenerator) generateRegisterSubclassFunction(w file.File) {
 	fmt.Fprintf(w.Go(), "// %s is used to register a go subclass of %s. For this to work safely please implement the\n// virtual methods required by the implementation.\n", g.GoRegisterSubClassName, g.CType(0))
 	fmt.Fprintf(w.Go(), "func %s[InstanceT %s](\n", g.GoRegisterSubClassName, g.GoInterfaceName)
 	w.Go().Indent()
-	fmt.Fprintf(w.Go(), "\tname string,\n")
-	fmt.Fprintf(w.Go(), "\tclassInit func(class %s),\n", g.TypeStruct.GoType(1))
-	fmt.Fprintf(w.Go(), "\tconstructor func() InstanceT,\n")
-	fmt.Fprintf(w.Go(), "\toverrides %s[InstanceT],\n", g.GoExtendOverrideStructName)
-	fmt.Fprintf(w.Go(), "\tsignals map[string]%s,\n", signalDefinition)
-	fmt.Fprintf(w.Go(), "\tinterfaceInits ...%s,\n", interfaceInit)
+	fmt.Fprintf(w.Go(), "name string,\n")
+	fmt.Fprintf(w.Go(), "classInit func(class %s),\n", g.TypeStruct.GoType(1))
+	fmt.Fprintf(w.Go(), "constructor func() InstanceT,\n")
+	fmt.Fprintf(w.Go(), "overrides %s[InstanceT],\n", g.GoExtendOverrideStructName)
+	fmt.Fprintf(w.Go(), "signals map[string]%s,\n", signalDefinition)
+	fmt.Fprintf(w.Go(), "interfaceInits ...%s,\n", interfaceInit)
 	w.Go().Unindent()
 	fmt.Fprintf(w.Go(), ") %s {\n", gtype)
 	w.Go().Indent()
@@ -159,7 +164,7 @@ func (g *ClassGenerator) generateRegisterSubclassFunction(w file.File) {
 	fmt.Fprintf(w.Go(), "%s,\n", g.Class.Marshaler.GoTypeName())
 	fmt.Fprintf(w.Go(), "%s,\n", g.TypeStruct.GoUnsafeFromGlibBorrowFunction())
 	fmt.Fprintf(w.Go(), "%s,\n", g.GoUnsafeApplyOverridesName)
-	fmt.Fprintf(w.Go(), "func (obj *%s) %s {\n", g.BaseClass.NamespacedGoType(0), g.BaseClass.NamespacedGoType(1))
+	fmt.Fprintf(w.Go(), "func(obj *%s) %s {\n", g.BaseClass.NamespacedGoType(0), g.BaseClass.NamespacedGoType(1))
 	w.Go().Indent()
 	fmt.Fprintf(w.Go(), "return %s(obj)\n", g.GoWrapBaseClassFunction)
 	w.Go().Unindent()
@@ -168,7 +173,8 @@ func (g *ClassGenerator) generateRegisterSubclassFunction(w file.File) {
 	w.Go().Unindent()
 	fmt.Fprintf(w.Go(), ")\n")
 	w.Go().Unindent()
-	fmt.Fprintf(w.Go(), "}\n\n")
+	fmt.Fprintf(w.Go(), "}\n")
+	w.Go().NewSection()
 }
 
 func (g *ClassGenerator) generateWrapFunction(w file.File) {
@@ -188,18 +194,20 @@ func (g *ClassGenerator) generateWrapFunction(w file.File) {
 	fmt.Fprintf(w.Go(), "}\n")
 	w.Go().Unindent()
 
-	fmt.Fprintf(w.Go(), "}\n\n")
+	fmt.Fprintf(w.Go(), "}\n")
+	w.Go().NewSection()
 }
 
 func (g *ClassGenerator) generateRegisterObjectCast(w *file.Package) {
 	fmt.Fprintf(w.Go(), "func init() {\n")
 	fmt.Fprintf(w.Go(), "\t%s(\n", g.BaseClass.WithForeignNamespace("RegisterObjectCasting"))
 	fmt.Fprintf(w.Go(), "\t\t%s,\n", g.GoTypeName())
-	fmt.Fprintf(w.Go(), "\t\tfunc (inst *%s) %s {\n", g.BaseClass.NamespacedGoType(0), g.BaseClass.NamespacedGoType(1))
+	fmt.Fprintf(w.Go(), "\t\tfunc(inst *%s) %s {\n", g.BaseClass.NamespacedGoType(0), g.BaseClass.NamespacedGoType(1))
 	fmt.Fprintf(w.Go(), "\t\t\treturn %s(inst)\n", g.GoWrapBaseClassFunction)
 	fmt.Fprintf(w.Go(), "\t\t},\n")
 	fmt.Fprintf(w.Go(), "\t)\n")
-	fmt.Fprintf(w.Go(), "}\n\n")
+	fmt.Fprintf(w.Go(), "}\n")
+	w.Go().NewSection()
 }
 
 func NewClassGenerator(cfg *Config, c *typesystem.Class) *ClassGenerator {

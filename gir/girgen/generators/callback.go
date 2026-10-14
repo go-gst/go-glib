@@ -54,7 +54,7 @@ func (c *CallbackGenerator) generateGo(w *file.Package) {
 
 	fmt.Fprintf(w.Go(), "type %s func(%s)%s\n", c.GoType(0), c.GoParameters.GoDeclarations(), ret)
 
-	fmt.Fprintln(w.Go())
+	w.Go().NewSection()
 }
 
 func (c *CallbackGenerator) generateExport(pkg *file.Package) {
@@ -92,7 +92,7 @@ func (c *CallbackGenerator) generateExport(pkg *file.Package) {
 			continue
 		}
 		conv := c.ParamConverters[i]
-		fmt.Fprintf(&decls, "var\t%s\t%s\t// %s\n", param.GoName, param.GoType(), conv.Metadata())
+		fmt.Fprintf(&decls, "var %s %s\t// %s\n", param.GoName, param.GoType(), conv.Metadata())
 
 		w.GoImportType(param.Type)
 	}
@@ -102,7 +102,7 @@ func (c *CallbackGenerator) generateExport(pkg *file.Package) {
 		}
 
 		conv := c.ReturnConverters[i]
-		fmt.Fprintf(&decls, "var\t%s\t%s\t// %s\n", ret.GoName, ret.GoType(), conv.Metadata())
+		fmt.Fprintf(&decls, "var %s %s\t// %s\n", ret.GoName, ret.GoType(), conv.Metadata())
 
 		w.GoImportType(ret.Type)
 	}
@@ -140,7 +140,7 @@ func (c *CallbackGenerator) generateExport(pkg *file.Package) {
 	w.Go().Unindent()
 
 	fmt.Fprintln(w.Go(), "}")
-	fmt.Fprintln(w.Go())
+	w.Go().NewSection()
 }
 
 func NewCallbackGenerator(cfg *Config, cb *typesystem.Callback) *CallbackGenerator {

@@ -27,6 +27,7 @@ func (g *MarshalGenerator) Generate(w *file.Package) {
 		fmt.Fprintf(w.Go(), "\treturn %s(p).%s(), nil\n", g.Type.Value().WithForeignNamespace(g.Type.Value().Type.FromGlibBorrowFunction), g.ValueFunction)
 	}
 	fmt.Fprintf(w.Go(), "}\n")
+	w.Go().NewSection()
 }
 
 func NewMarshalEnumGenerator(typ typesystem.Marshalable) *MarshalGenerator {

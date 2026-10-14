@@ -69,11 +69,11 @@ func (m *CallableGenerator) Generate(w *file.Package) {
 	var decls file.DeclarationWriter
 
 	if m.Signature.InstanceParam != nil {
-		fmt.Fprintf(&decls, "var\t%s\t%s\t// %s\n", m.Signature.InstanceParam.CName, m.Signature.InstanceParam.CGoType(), m.ReceiverConverter.Metadata())
+		fmt.Fprintf(&decls, "var %s %s\t// %s\n", m.Signature.InstanceParam.CName, m.Signature.InstanceParam.CGoType(), m.ReceiverConverter.Metadata())
 	}
 	for i, param := range m.Signature.GoParameters {
 		conv := m.ParamConverters[i]
-		fmt.Fprintf(&decls, "var\t%s\t%s\t// %s\n", param.CName, param.CGoType(), conv.Metadata())
+		fmt.Fprintf(&decls, "var %s %s\t// %s\n", param.CName, param.CGoType(), conv.Metadata())
 
 		// w.GoImportType(param.Type) // don't import here, as the CGo type does not reference the namespace
 	}
@@ -81,13 +81,13 @@ func (m *CallableGenerator) Generate(w *file.Package) {
 	// params that are part of the C call still need to be declared
 	for _, v := range m.Signature.CParameters() {
 		if v.Skip {
-			fmt.Fprintf(&decls, "var\t%s\t%s\t// skipped\n", v.CName, v.CGoType())
+			fmt.Fprintf(&decls, "var %s %s\t// skipped\n", v.CName, v.CGoType())
 		}
 	}
 
 	for i, ret := range m.Signature.GoReturns {
 		conv := m.ReturnConverters[i]
-		fmt.Fprintf(&decls, "var\t%s\t%s\t// %s\n", ret.CName, ret.CGoType(), conv.Metadata())
+		fmt.Fprintf(&decls, "var %s %s\t// %s\n", ret.CName, ret.CGoType(), conv.Metadata())
 
 		// w.GoImportType(ret.Type) // don't import here, as the CGo type does not reference the namespace
 	}
@@ -124,7 +124,7 @@ func (m *CallableGenerator) Generate(w *file.Package) {
 		if ret.Implicit || ret.Skip {
 			continue
 		}
-		fmt.Fprintf(&decls, "var\t%s\t%s\n", ret.GoName, ret.GoType())
+		fmt.Fprintf(&decls, "var %s %s\n", ret.GoName, ret.GoType())
 	}
 	decls.WriteTo(w.Go())
 
@@ -141,7 +141,8 @@ func (m *CallableGenerator) Generate(w *file.Package) {
 	}
 
 	w.Go().Unindent()
-	fmt.Fprintf(w.Go(), "}\n\n")
+	fmt.Fprintf(w.Go(), "}\n")
+	w.Go().NewSection()
 }
 
 func NewCallableGenerator(cfg *Config, f *typesystem.CallableSignature) *CallableGenerator {

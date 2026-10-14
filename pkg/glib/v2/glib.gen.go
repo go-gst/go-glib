@@ -21,3129 +21,3672 @@ import (
 // extern void destroyUserdata(gpointer);
 import "C"
 
-
 // ANALYZER_ANALYZING wraps G_ANALYZER_ANALYZING
-// 
+//
 // see also https://docs.gtk.org/glib/const.ANALYZER_ANALYZING.html
 const ANALYZER_ANALYZING = 1
+
 // ASCII_DTOSTR_BUF_SIZE wraps G_ASCII_DTOSTR_BUF_SIZE
-// 
+//
 // see also https://docs.gtk.org/glib/const.ASCII_DTOSTR_BUF_SIZE.html
 const ASCII_DTOSTR_BUF_SIZE = 39
+
 // BIG_ENDIAN wraps G_BIG_ENDIAN
-// 
+//
 // see also https://docs.gtk.org/glib/const.BIG_ENDIAN.html
 const BIG_ENDIAN = 4321
+
 // C_STD_VERSION wraps G_C_STD_VERSION
-// 
+//
 // see also https://docs.gtk.org/glib/const.C_STD_VERSION.html
 const C_STD_VERSION = 199000
+
 // DATALIST_FLAGS_MASK wraps G_DATALIST_FLAGS_MASK
-// 
+//
 // see also https://docs.gtk.org/glib/const.DATALIST_FLAGS_MASK.html
 const DATALIST_FLAGS_MASK = 3
+
 // DATE_BAD_DAY wraps G_DATE_BAD_DAY
-// 
+//
 // see also https://docs.gtk.org/glib/const.DATE_BAD_DAY.html
 const DATE_BAD_DAY = 0
+
 // DATE_BAD_JULIAN wraps G_DATE_BAD_JULIAN
-// 
+//
 // see also https://docs.gtk.org/glib/const.DATE_BAD_JULIAN.html
 const DATE_BAD_JULIAN = 0
+
 // DATE_BAD_YEAR wraps G_DATE_BAD_YEAR
-// 
+//
 // see also https://docs.gtk.org/glib/const.DATE_BAD_YEAR.html
 const DATE_BAD_YEAR = 0
+
 // DIR_SEPARATOR wraps G_DIR_SEPARATOR
-// 
+//
 // see also https://docs.gtk.org/glib/const.DIR_SEPARATOR.html
 const DIR_SEPARATOR = 47
+
 // E wraps G_E
-// 
+//
 // see also https://docs.gtk.org/glib/const.E.html
 const E = 2.718282
+
 // HAVE_GINT64 wraps G_HAVE_GINT64
-// 
+//
 // see also https://docs.gtk.org/glib/const.HAVE_GINT64.html
 const HAVE_GINT64 = 1
+
 // HAVE_GNUC_VARARGS wraps G_HAVE_GNUC_VARARGS
-// 
+//
 // see also https://docs.gtk.org/glib/const.HAVE_GNUC_VARARGS.html
 const HAVE_GNUC_VARARGS = 1
+
 // HAVE_GNUC_VISIBILITY wraps G_HAVE_GNUC_VISIBILITY
-// 
+//
 // see also https://docs.gtk.org/glib/const.HAVE_GNUC_VISIBILITY.html
 const HAVE_GNUC_VISIBILITY = 1
+
 // HAVE_GROWING_STACK wraps G_HAVE_GROWING_STACK
-// 
+//
 // see also https://docs.gtk.org/glib/const.HAVE_GROWING_STACK.html
 const HAVE_GROWING_STACK = 0
+
 // HAVE_ISO_VARARGS wraps G_HAVE_ISO_VARARGS
-// 
+//
 // see also https://docs.gtk.org/glib/const.HAVE_ISO_VARARGS.html
 const HAVE_ISO_VARARGS = 1
+
 // HOOK_FLAG_USER_SHIFT wraps G_HOOK_FLAG_USER_SHIFT
-// 
+//
 // see also https://docs.gtk.org/glib/const.HOOK_FLAG_USER_SHIFT.html
 const HOOK_FLAG_USER_SHIFT = 4
+
 // IEEE754_DOUBLE_BIAS wraps G_IEEE754_DOUBLE_BIAS
-// 
+//
 // see also https://docs.gtk.org/glib/const.IEEE754_DOUBLE_BIAS.html
 const IEEE754_DOUBLE_BIAS = 1023
+
 // IEEE754_FLOAT_BIAS wraps G_IEEE754_FLOAT_BIAS
-// 
+//
 // see also https://docs.gtk.org/glib/const.IEEE754_FLOAT_BIAS.html
 const IEEE754_FLOAT_BIAS = 127
+
 // LITTLE_ENDIAN wraps G_LITTLE_ENDIAN
-// 
+//
 // see also https://docs.gtk.org/glib/const.LITTLE_ENDIAN.html
 const LITTLE_ENDIAN = 1234
+
 // LN10 wraps G_LN10
-// 
+//
 // see also https://docs.gtk.org/glib/const.LN10.html
 const LN10 = 2.302585
+
 // LN2 wraps G_LN2
-// 
+//
 // see also https://docs.gtk.org/glib/const.LN2.html
 const LN2 = 0.693147
+
 // LOG_2_BASE_10 wraps G_LOG_2_BASE_10
-// 
+//
 // see also https://docs.gtk.org/glib/const.LOG_2_BASE_10.html
 const LOG_2_BASE_10 = 0.301030
+
 // LOG_DOMAIN wraps G_LOG_DOMAIN
-// 
+//
 // see also https://docs.gtk.org/glib/const.LOG_DOMAIN.html
 const LOG_DOMAIN = 0
+
 // LOG_FATAL_MASK wraps G_LOG_FATAL_MASK
-// 
+//
 // see also https://docs.gtk.org/glib/const.LOG_FATAL_MASK.html
 const LOG_FATAL_MASK = 5
+
 // LOG_LEVEL_USER_SHIFT wraps G_LOG_LEVEL_USER_SHIFT
-// 
+//
 // see also https://docs.gtk.org/glib/const.LOG_LEVEL_USER_SHIFT.html
 const LOG_LEVEL_USER_SHIFT = 8
+
 // MAJOR_VERSION wraps GLIB_MAJOR_VERSION
-// 
+//
 // see also https://docs.gtk.org/glib/const.MAJOR_VERSION.html
 const MAJOR_VERSION = 2
+
 // MAXINT16 wraps G_MAXINT16
-// 
+//
 // see also https://docs.gtk.org/glib/const.MAXINT16.html
 const MAXINT16 = 32767
+
 // MAXINT32 wraps G_MAXINT32
-// 
+//
 // see also https://docs.gtk.org/glib/const.MAXINT32.html
 const MAXINT32 = 2147483647
+
 // MAXINT64 wraps G_MAXINT64
-// 
+//
 // see also https://docs.gtk.org/glib/const.MAXINT64.html
 const MAXINT64 = 9223372036854775807
+
 // MAXINT8 wraps G_MAXINT8
-// 
+//
 // see also https://docs.gtk.org/glib/const.MAXINT8.html
 const MAXINT8 = 127
+
 // MAXUINT16 wraps G_MAXUINT16
-// 
+//
 // see also https://docs.gtk.org/glib/const.MAXUINT16.html
 const MAXUINT16 = 65535
+
 // MAXUINT32 wraps G_MAXUINT32
-// 
+//
 // see also https://docs.gtk.org/glib/const.MAXUINT32.html
 const MAXUINT32 = 4294967295
+
 // MAXUINT64 wraps G_MAXUINT64
-// 
+//
 // see also https://docs.gtk.org/glib/const.MAXUINT64.html
 const MAXUINT64 = 18446744073709551615
+
 // MAXUINT8 wraps G_MAXUINT8
-// 
+//
 // see also https://docs.gtk.org/glib/const.MAXUINT8.html
 const MAXUINT8 = 255
+
 // MICRO_VERSION wraps GLIB_MICRO_VERSION
-// 
+//
 // see also https://docs.gtk.org/glib/const.MICRO_VERSION.html
 const MICRO_VERSION = 1
+
 // MININT16 wraps G_MININT16
-// 
+//
 // see also https://docs.gtk.org/glib/const.MININT16.html
 const MININT16 = -32768
+
 // MININT32 wraps G_MININT32
-// 
+//
 // see also https://docs.gtk.org/glib/const.MININT32.html
 const MININT32 = -2147483648
+
 // MININT64 wraps G_MININT64
-// 
+//
 // see also https://docs.gtk.org/glib/const.MININT64.html
 const MININT64 = -9223372036854775808
+
 // MININT8 wraps G_MININT8
-// 
+//
 // see also https://docs.gtk.org/glib/const.MININT8.html
 const MININT8 = -128
+
 // MINOR_VERSION wraps GLIB_MINOR_VERSION
-// 
+//
 // see also https://docs.gtk.org/glib/const.MINOR_VERSION.html
 const MINOR_VERSION = 85
+
 // PDP_ENDIAN wraps G_PDP_ENDIAN
-// 
+//
 // see also https://docs.gtk.org/glib/const.PDP_ENDIAN.html
 const PDP_ENDIAN = 3412
+
 // PI wraps G_PI
-// 
+//
 // see also https://docs.gtk.org/glib/const.PI.html
 const PI = 3.141593
+
 // PI_2 wraps G_PI_2
-// 
+//
 // see also https://docs.gtk.org/glib/const.PI_2.html
 const PI_2 = 1.570796
+
 // PI_4 wraps G_PI_4
-// 
+//
 // see also https://docs.gtk.org/glib/const.PI_4.html
 const PI_4 = 0.785398
+
 // PRIORITY_DEFAULT wraps G_PRIORITY_DEFAULT
-// 
+//
 // see also https://docs.gtk.org/glib/const.PRIORITY_DEFAULT.html
 const PRIORITY_DEFAULT = 0
+
 // PRIORITY_DEFAULT_IDLE wraps G_PRIORITY_DEFAULT_IDLE
-// 
+//
 // see also https://docs.gtk.org/glib/const.PRIORITY_DEFAULT_IDLE.html
 const PRIORITY_DEFAULT_IDLE = 200
+
 // PRIORITY_HIGH wraps G_PRIORITY_HIGH
-// 
+//
 // see also https://docs.gtk.org/glib/const.PRIORITY_HIGH.html
 const PRIORITY_HIGH = -100
+
 // PRIORITY_HIGH_IDLE wraps G_PRIORITY_HIGH_IDLE
-// 
+//
 // see also https://docs.gtk.org/glib/const.PRIORITY_HIGH_IDLE.html
 const PRIORITY_HIGH_IDLE = 100
+
 // PRIORITY_LOW wraps G_PRIORITY_LOW
-// 
+//
 // see also https://docs.gtk.org/glib/const.PRIORITY_LOW.html
 const PRIORITY_LOW = 300
+
 // REF_COUNT_INIT wraps G_REF_COUNT_INIT
-// 
+//
 // see also https://docs.gtk.org/glib/const.REF_COUNT_INIT.html
 const REF_COUNT_INIT = -1
+
 // SEARCHPATH_SEPARATOR wraps G_SEARCHPATH_SEPARATOR
-// 
+//
 // see also https://docs.gtk.org/glib/const.SEARCHPATH_SEPARATOR.html
 const SEARCHPATH_SEPARATOR = 58
+
 // SIZEOF_LONG wraps GLIB_SIZEOF_LONG
-// 
+//
 // see also https://docs.gtk.org/glib/const.SIZEOF_LONG.html
 const SIZEOF_LONG = 8
+
 // SIZEOF_SIZE_T wraps GLIB_SIZEOF_SIZE_T
-// 
+//
 // see also https://docs.gtk.org/glib/const.SIZEOF_SIZE_T.html
 const SIZEOF_SIZE_T = 8
+
 // SIZEOF_SSIZE_T wraps GLIB_SIZEOF_SSIZE_T
-// 
+//
 // see also https://docs.gtk.org/glib/const.SIZEOF_SSIZE_T.html
 const SIZEOF_SSIZE_T = 8
+
 // SIZEOF_VOID_P wraps GLIB_SIZEOF_VOID_P
-// 
+//
 // see also https://docs.gtk.org/glib/const.SIZEOF_VOID_P.html
 const SIZEOF_VOID_P = 8
+
 // SQRT2 wraps G_SQRT2
-// 
+//
 // see also https://docs.gtk.org/glib/const.SQRT2.html
 const SQRT2 = 1.414214
+
 // SYSDEF_AF_INET wraps GLIB_SYSDEF_AF_INET
-// 
+//
 // see also https://docs.gtk.org/glib/const.SYSDEF_AF_INET.html
 const SYSDEF_AF_INET = 2
+
 // SYSDEF_AF_INET6 wraps GLIB_SYSDEF_AF_INET6
-// 
+//
 // see also https://docs.gtk.org/glib/const.SYSDEF_AF_INET6.html
 const SYSDEF_AF_INET6 = 10
+
 // SYSDEF_AF_UNIX wraps GLIB_SYSDEF_AF_UNIX
-// 
+//
 // see also https://docs.gtk.org/glib/const.SYSDEF_AF_UNIX.html
 const SYSDEF_AF_UNIX = 1
+
 // SYSDEF_MSG_DONTROUTE wraps GLIB_SYSDEF_MSG_DONTROUTE
-// 
+//
 // see also https://docs.gtk.org/glib/const.SYSDEF_MSG_DONTROUTE.html
 const SYSDEF_MSG_DONTROUTE = 4
+
 // SYSDEF_MSG_OOB wraps GLIB_SYSDEF_MSG_OOB
-// 
+//
 // see also https://docs.gtk.org/glib/const.SYSDEF_MSG_OOB.html
 const SYSDEF_MSG_OOB = 1
+
 // SYSDEF_MSG_PEEK wraps GLIB_SYSDEF_MSG_PEEK
-// 
+//
 // see also https://docs.gtk.org/glib/const.SYSDEF_MSG_PEEK.html
 const SYSDEF_MSG_PEEK = 2
+
 // TIME_SPAN_DAY wraps G_TIME_SPAN_DAY
-// 
+//
 // see also https://docs.gtk.org/glib/const.TIME_SPAN_DAY.html
 const TIME_SPAN_DAY = 86400000000
+
 // TIME_SPAN_HOUR wraps G_TIME_SPAN_HOUR
-// 
+//
 // see also https://docs.gtk.org/glib/const.TIME_SPAN_HOUR.html
 const TIME_SPAN_HOUR = 3600000000
+
 // TIME_SPAN_MILLISECOND wraps G_TIME_SPAN_MILLISECOND
-// 
+//
 // see also https://docs.gtk.org/glib/const.TIME_SPAN_MILLISECOND.html
 const TIME_SPAN_MILLISECOND = 1000
+
 // TIME_SPAN_MINUTE wraps G_TIME_SPAN_MINUTE
-// 
+//
 // see also https://docs.gtk.org/glib/const.TIME_SPAN_MINUTE.html
 const TIME_SPAN_MINUTE = 60000000
+
 // TIME_SPAN_SECOND wraps G_TIME_SPAN_SECOND
-// 
+//
 // see also https://docs.gtk.org/glib/const.TIME_SPAN_SECOND.html
 const TIME_SPAN_SECOND = 1000000
+
 // UNICHAR_MAX_DECOMPOSITION_LENGTH wraps G_UNICHAR_MAX_DECOMPOSITION_LENGTH
-// 
+//
 // see also https://docs.gtk.org/glib/const.UNICHAR_MAX_DECOMPOSITION_LENGTH.html
 const UNICHAR_MAX_DECOMPOSITION_LENGTH = 18
+
 // USEC_PER_SEC wraps G_USEC_PER_SEC
-// 
+//
 // see also https://docs.gtk.org/glib/const.USEC_PER_SEC.html
 const USEC_PER_SEC = 1000000
+
 // VA_COPY_AS_ARRAY wraps G_VA_COPY_AS_ARRAY
-// 
+//
 // see also https://docs.gtk.org/glib/const.VA_COPY_AS_ARRAY.html
 const VA_COPY_AS_ARRAY = 1
+
 // VERSION_MIN_REQUIRED wraps GLIB_VERSION_MIN_REQUIRED
-// 
+//
 // see also https://docs.gtk.org/glib/const.VERSION_MIN_REQUIRED.html
 const VERSION_MIN_REQUIRED = 2
+
 // WIN32_MSG_HANDLE wraps G_WIN32_MSG_HANDLE
-// 
+//
 // see also https://docs.gtk.org/glib/const.WIN32_MSG_HANDLE.html
 const WIN32_MSG_HANDLE = 19981206
+
 // macro__has_attribute___noreturn__ wraps g_macro__has_attribute___noreturn__
-// 
+//
 // see also https://docs.gtk.org/glib/const.macro__has_attribute___noreturn__.html
 const macro__has_attribute___noreturn__ = 0
+
 // macro__has_attribute_ifunc wraps g_macro__has_attribute_ifunc
-// 
+//
 // see also https://docs.gtk.org/glib/const.macro__has_attribute_ifunc.html
 const macro__has_attribute_ifunc = 0
+
 // macro__has_attribute_no_sanitize_address wraps g_macro__has_attribute_no_sanitize_address
-// 
+//
 // see also https://docs.gtk.org/glib/const.macro__has_attribute_no_sanitize_address.html
 const macro__has_attribute_no_sanitize_address = 0
+
 // Quark wraps GQuark
-// 
+//
 // see also https://docs.gtk.org/glib/alias.Quark.html
 type Quark = uint32
+
 // RefString wraps GRefString
-// 
+//
 // see also https://docs.gtk.org/glib/alias.RefString.html
 type RefString = byte
+
 // TimeSpan wraps GTimeSpan
-// 
+//
 // see also https://docs.gtk.org/glib/alias.TimeSpan.html
 type TimeSpan = int64
+
 // BookmarkFileError wraps GBookmarkFileError
-// 
+//
 // see also https://docs.gtk.org/glib/enum.BookmarkFileError.html
 type BookmarkFileError C.int
 
 const (
 	// BookmarkFileErrorInvalidURI wraps G_BOOKMARK_FILE_ERROR_INVALID_URI
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.BookmarkFileError.html#invalid_uri
 	BookmarkFileErrorInvalidURI BookmarkFileError = 0
 	// BookmarkFileErrorInvalidValue wraps G_BOOKMARK_FILE_ERROR_INVALID_VALUE
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.BookmarkFileError.html#invalid_value
 	BookmarkFileErrorInvalidValue BookmarkFileError = 1
 	// BookmarkFileErrorAppNotRegistered wraps G_BOOKMARK_FILE_ERROR_APP_NOT_REGISTERED
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.BookmarkFileError.html#app_not_registered
 	BookmarkFileErrorAppNotRegistered BookmarkFileError = 2
 	// BookmarkFileErrorURINotFound wraps G_BOOKMARK_FILE_ERROR_URI_NOT_FOUND
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.BookmarkFileError.html#uri_not_found
 	BookmarkFileErrorURINotFound BookmarkFileError = 3
 	// BookmarkFileErrorRead wraps G_BOOKMARK_FILE_ERROR_READ
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.BookmarkFileError.html#read
 	BookmarkFileErrorRead BookmarkFileError = 4
 	// BookmarkFileErrorUnknownEncoding wraps G_BOOKMARK_FILE_ERROR_UNKNOWN_ENCODING
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.BookmarkFileError.html#unknown_encoding
 	BookmarkFileErrorUnknownEncoding BookmarkFileError = 5
 	// BookmarkFileErrorWrite wraps G_BOOKMARK_FILE_ERROR_WRITE
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.BookmarkFileError.html#write
 	BookmarkFileErrorWrite BookmarkFileError = 6
 	// BookmarkFileErrorFileNotFound wraps G_BOOKMARK_FILE_ERROR_FILE_NOT_FOUND
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.BookmarkFileError.html#file_not_found
 	BookmarkFileErrorFileNotFound BookmarkFileError = 7
 )
 
-
 func (e BookmarkFileError) String() string {
 	switch e {
-		case BookmarkFileErrorAppNotRegistered: return "BookmarkFileErrorAppNotRegistered"
-		case BookmarkFileErrorFileNotFound: return "BookmarkFileErrorFileNotFound"
-		case BookmarkFileErrorInvalidURI: return "BookmarkFileErrorInvalidURI"
-		case BookmarkFileErrorInvalidValue: return "BookmarkFileErrorInvalidValue"
-		case BookmarkFileErrorRead: return "BookmarkFileErrorRead"
-		case BookmarkFileErrorURINotFound: return "BookmarkFileErrorURINotFound"
-		case BookmarkFileErrorUnknownEncoding: return "BookmarkFileErrorUnknownEncoding"
-		case BookmarkFileErrorWrite: return "BookmarkFileErrorWrite"
-		default: return fmt.Sprintf("BookmarkFileError(%d)", e)
+	case BookmarkFileErrorAppNotRegistered:
+		return "BookmarkFileErrorAppNotRegistered"
+	case BookmarkFileErrorFileNotFound:
+		return "BookmarkFileErrorFileNotFound"
+	case BookmarkFileErrorInvalidURI:
+		return "BookmarkFileErrorInvalidURI"
+	case BookmarkFileErrorInvalidValue:
+		return "BookmarkFileErrorInvalidValue"
+	case BookmarkFileErrorRead:
+		return "BookmarkFileErrorRead"
+	case BookmarkFileErrorURINotFound:
+		return "BookmarkFileErrorURINotFound"
+	case BookmarkFileErrorUnknownEncoding:
+		return "BookmarkFileErrorUnknownEncoding"
+	case BookmarkFileErrorWrite:
+		return "BookmarkFileErrorWrite"
+	default:
+		return fmt.Sprintf("BookmarkFileError(%d)", e)
 	}
 }
 
 // ChecksumType wraps GChecksumType
-// 
+//
 // see also https://docs.gtk.org/glib/enum.ChecksumType.html
 type ChecksumType C.int
 
 const (
 	// ChecksumMD5 wraps G_CHECKSUM_MD5
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.ChecksumType.html#md5
 	ChecksumMD5 ChecksumType = 0
 	// ChecksumSHA1 wraps G_CHECKSUM_SHA1
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.ChecksumType.html#sha1
 	ChecksumSHA1 ChecksumType = 1
 	// ChecksumSHA256 wraps G_CHECKSUM_SHA256
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.ChecksumType.html#sha256
 	ChecksumSHA256 ChecksumType = 2
 	// ChecksumSHA512 wraps G_CHECKSUM_SHA512
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.ChecksumType.html#sha512
 	ChecksumSHA512 ChecksumType = 3
 	// ChecksumSHA384 wraps G_CHECKSUM_SHA384
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.ChecksumType.html#sha384
 	ChecksumSHA384 ChecksumType = 4
 )
 
-
 func (e ChecksumType) String() string {
 	switch e {
-		case ChecksumMD5: return "ChecksumMD5"
-		case ChecksumSHA1: return "ChecksumSHA1"
-		case ChecksumSHA256: return "ChecksumSHA256"
-		case ChecksumSHA384: return "ChecksumSHA384"
-		case ChecksumSHA512: return "ChecksumSHA512"
-		default: return fmt.Sprintf("ChecksumType(%d)", e)
+	case ChecksumMD5:
+		return "ChecksumMD5"
+	case ChecksumSHA1:
+		return "ChecksumSHA1"
+	case ChecksumSHA256:
+		return "ChecksumSHA256"
+	case ChecksumSHA384:
+		return "ChecksumSHA384"
+	case ChecksumSHA512:
+		return "ChecksumSHA512"
+	default:
+		return fmt.Sprintf("ChecksumType(%d)", e)
 	}
 }
 
 // ConvertError wraps GConvertError
-// 
+//
 // see also https://docs.gtk.org/glib/enum.ConvertError.html
 type ConvertError C.int
 
 const (
 	// ConvertErrorNoConversion wraps G_CONVERT_ERROR_NO_CONVERSION
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.ConvertError.html#no_conversion
 	ConvertErrorNoConversion ConvertError = 0
 	// ConvertErrorIllegalSequence wraps G_CONVERT_ERROR_ILLEGAL_SEQUENCE
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.ConvertError.html#illegal_sequence
 	ConvertErrorIllegalSequence ConvertError = 1
 	// ConvertErrorFailed wraps G_CONVERT_ERROR_FAILED
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.ConvertError.html#failed
 	ConvertErrorFailed ConvertError = 2
 	// ConvertErrorPartialInput wraps G_CONVERT_ERROR_PARTIAL_INPUT
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.ConvertError.html#partial_input
 	ConvertErrorPartialInput ConvertError = 3
 	// ConvertErrorBadURI wraps G_CONVERT_ERROR_BAD_URI
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.ConvertError.html#bad_uri
 	ConvertErrorBadURI ConvertError = 4
 	// ConvertErrorNotAbsolutePath wraps G_CONVERT_ERROR_NOT_ABSOLUTE_PATH
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.ConvertError.html#not_absolute_path
 	ConvertErrorNotAbsolutePath ConvertError = 5
 	// ConvertErrorNoMemory wraps G_CONVERT_ERROR_NO_MEMORY
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.ConvertError.html#no_memory
 	ConvertErrorNoMemory ConvertError = 6
 	// ConvertErrorEmbeddedNul wraps G_CONVERT_ERROR_EMBEDDED_NUL
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.ConvertError.html#embedded_nul
 	ConvertErrorEmbeddedNul ConvertError = 7
 )
 
-
 func (e ConvertError) String() string {
 	switch e {
-		case ConvertErrorBadURI: return "ConvertErrorBadURI"
-		case ConvertErrorEmbeddedNul: return "ConvertErrorEmbeddedNul"
-		case ConvertErrorFailed: return "ConvertErrorFailed"
-		case ConvertErrorIllegalSequence: return "ConvertErrorIllegalSequence"
-		case ConvertErrorNoConversion: return "ConvertErrorNoConversion"
-		case ConvertErrorNoMemory: return "ConvertErrorNoMemory"
-		case ConvertErrorNotAbsolutePath: return "ConvertErrorNotAbsolutePath"
-		case ConvertErrorPartialInput: return "ConvertErrorPartialInput"
-		default: return fmt.Sprintf("ConvertError(%d)", e)
+	case ConvertErrorBadURI:
+		return "ConvertErrorBadURI"
+	case ConvertErrorEmbeddedNul:
+		return "ConvertErrorEmbeddedNul"
+	case ConvertErrorFailed:
+		return "ConvertErrorFailed"
+	case ConvertErrorIllegalSequence:
+		return "ConvertErrorIllegalSequence"
+	case ConvertErrorNoConversion:
+		return "ConvertErrorNoConversion"
+	case ConvertErrorNoMemory:
+		return "ConvertErrorNoMemory"
+	case ConvertErrorNotAbsolutePath:
+		return "ConvertErrorNotAbsolutePath"
+	case ConvertErrorPartialInput:
+		return "ConvertErrorPartialInput"
+	default:
+		return fmt.Sprintf("ConvertError(%d)", e)
 	}
 }
 
 // ErrorType wraps GErrorType
-// 
+//
 // see also https://docs.gtk.org/glib/enum.ErrorType.html
 type ErrorType C.int
 
 const (
 	// ErrUnknown wraps G_ERR_UNKNOWN
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.ErrorType.html#unknown
 	ErrUnknown ErrorType = 0
 	// ErrUnexpEOF wraps G_ERR_UNEXP_EOF
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.ErrorType.html#unexp_eof
 	ErrUnexpEOF ErrorType = 1
 	// ErrUnexpEOFInString wraps G_ERR_UNEXP_EOF_IN_STRING
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.ErrorType.html#unexp_eof_in_string
 	ErrUnexpEOFInString ErrorType = 2
 	// ErrUnexpEOFInComment wraps G_ERR_UNEXP_EOF_IN_COMMENT
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.ErrorType.html#unexp_eof_in_comment
 	ErrUnexpEOFInComment ErrorType = 3
 	// ErrNonDigitInConst wraps G_ERR_NON_DIGIT_IN_CONST
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.ErrorType.html#non_digit_in_const
 	ErrNonDigitInConst ErrorType = 4
 	// ErrDigitRadix wraps G_ERR_DIGIT_RADIX
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.ErrorType.html#digit_radix
 	ErrDigitRadix ErrorType = 5
 	// ErrFloatRadix wraps G_ERR_FLOAT_RADIX
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.ErrorType.html#float_radix
 	ErrFloatRadix ErrorType = 6
 	// ErrFloatMalformed wraps G_ERR_FLOAT_MALFORMED
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.ErrorType.html#float_malformed
 	ErrFloatMalformed ErrorType = 7
 )
 
-
 func (e ErrorType) String() string {
 	switch e {
-		case ErrDigitRadix: return "ErrDigitRadix"
-		case ErrFloatMalformed: return "ErrFloatMalformed"
-		case ErrFloatRadix: return "ErrFloatRadix"
-		case ErrNonDigitInConst: return "ErrNonDigitInConst"
-		case ErrUnexpEOF: return "ErrUnexpEOF"
-		case ErrUnexpEOFInComment: return "ErrUnexpEOFInComment"
-		case ErrUnexpEOFInString: return "ErrUnexpEOFInString"
-		case ErrUnknown: return "ErrUnknown"
-		default: return fmt.Sprintf("ErrorType(%d)", e)
+	case ErrDigitRadix:
+		return "ErrDigitRadix"
+	case ErrFloatMalformed:
+		return "ErrFloatMalformed"
+	case ErrFloatRadix:
+		return "ErrFloatRadix"
+	case ErrNonDigitInConst:
+		return "ErrNonDigitInConst"
+	case ErrUnexpEOF:
+		return "ErrUnexpEOF"
+	case ErrUnexpEOFInComment:
+		return "ErrUnexpEOFInComment"
+	case ErrUnexpEOFInString:
+		return "ErrUnexpEOFInString"
+	case ErrUnknown:
+		return "ErrUnknown"
+	default:
+		return fmt.Sprintf("ErrorType(%d)", e)
 	}
 }
 
 // FileError wraps GFileError
-// 
+//
 // see also https://docs.gtk.org/glib/enum.FileError.html
 type FileError C.int
 
 const (
 	// FileErrorExist wraps G_FILE_ERROR_EXIST
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.FileError.html#exist
 	FileErrorExist FileError = 0
 	// FileErrorIsdir wraps G_FILE_ERROR_ISDIR
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.FileError.html#isdir
 	FileErrorIsdir FileError = 1
 	// FileErrorAcces wraps G_FILE_ERROR_ACCES
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.FileError.html#acces
 	FileErrorAcces FileError = 2
 	// FileErrorNametoolong wraps G_FILE_ERROR_NAMETOOLONG
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.FileError.html#nametoolong
 	FileErrorNametoolong FileError = 3
 	// FileErrorNoent wraps G_FILE_ERROR_NOENT
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.FileError.html#noent
 	FileErrorNoent FileError = 4
 	// FileErrorNotdir wraps G_FILE_ERROR_NOTDIR
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.FileError.html#notdir
 	FileErrorNotdir FileError = 5
 	// FileErrorNxio wraps G_FILE_ERROR_NXIO
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.FileError.html#nxio
 	FileErrorNxio FileError = 6
 	// FileErrorNodev wraps G_FILE_ERROR_NODEV
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.FileError.html#nodev
 	FileErrorNodev FileError = 7
 	// FileErrorRofs wraps G_FILE_ERROR_ROFS
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.FileError.html#rofs
 	FileErrorRofs FileError = 8
 	// FileErrorTxtbsy wraps G_FILE_ERROR_TXTBSY
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.FileError.html#txtbsy
 	FileErrorTxtbsy FileError = 9
 	// FileErrorFault wraps G_FILE_ERROR_FAULT
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.FileError.html#fault
 	FileErrorFault FileError = 10
 	// FileErrorLoop wraps G_FILE_ERROR_LOOP
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.FileError.html#loop
 	FileErrorLoop FileError = 11
 	// FileErrorNospc wraps G_FILE_ERROR_NOSPC
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.FileError.html#nospc
 	FileErrorNospc FileError = 12
 	// FileErrorNomem wraps G_FILE_ERROR_NOMEM
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.FileError.html#nomem
 	FileErrorNomem FileError = 13
 	// FileErrorMfile wraps G_FILE_ERROR_MFILE
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.FileError.html#mfile
 	FileErrorMfile FileError = 14
 	// FileErrorNfile wraps G_FILE_ERROR_NFILE
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.FileError.html#nfile
 	FileErrorNfile FileError = 15
 	// FileErrorBadf wraps G_FILE_ERROR_BADF
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.FileError.html#badf
 	FileErrorBadf FileError = 16
 	// FileErrorInval wraps G_FILE_ERROR_INVAL
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.FileError.html#inval
 	FileErrorInval FileError = 17
 	// FileErrorPipe wraps G_FILE_ERROR_PIPE
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.FileError.html#pipe
 	FileErrorPipe FileError = 18
 	// FileErrorAgain wraps G_FILE_ERROR_AGAIN
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.FileError.html#again
 	FileErrorAgain FileError = 19
 	// FileErrorIntr wraps G_FILE_ERROR_INTR
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.FileError.html#intr
 	FileErrorIntr FileError = 20
 	// FileErrorIO wraps G_FILE_ERROR_IO
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.FileError.html#io
 	FileErrorIO FileError = 21
 	// FileErrorPerm wraps G_FILE_ERROR_PERM
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.FileError.html#perm
 	FileErrorPerm FileError = 22
 	// FileErrorNosys wraps G_FILE_ERROR_NOSYS
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.FileError.html#nosys
 	FileErrorNosys FileError = 23
 	// FileErrorFailed wraps G_FILE_ERROR_FAILED
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.FileError.html#failed
 	FileErrorFailed FileError = 24
 )
 
-
 func (e FileError) String() string {
 	switch e {
-		case FileErrorAcces: return "FileErrorAcces"
-		case FileErrorAgain: return "FileErrorAgain"
-		case FileErrorBadf: return "FileErrorBadf"
-		case FileErrorExist: return "FileErrorExist"
-		case FileErrorFailed: return "FileErrorFailed"
-		case FileErrorFault: return "FileErrorFault"
-		case FileErrorIO: return "FileErrorIO"
-		case FileErrorIntr: return "FileErrorIntr"
-		case FileErrorInval: return "FileErrorInval"
-		case FileErrorIsdir: return "FileErrorIsdir"
-		case FileErrorLoop: return "FileErrorLoop"
-		case FileErrorMfile: return "FileErrorMfile"
-		case FileErrorNametoolong: return "FileErrorNametoolong"
-		case FileErrorNfile: return "FileErrorNfile"
-		case FileErrorNodev: return "FileErrorNodev"
-		case FileErrorNoent: return "FileErrorNoent"
-		case FileErrorNomem: return "FileErrorNomem"
-		case FileErrorNospc: return "FileErrorNospc"
-		case FileErrorNosys: return "FileErrorNosys"
-		case FileErrorNotdir: return "FileErrorNotdir"
-		case FileErrorNxio: return "FileErrorNxio"
-		case FileErrorPerm: return "FileErrorPerm"
-		case FileErrorPipe: return "FileErrorPipe"
-		case FileErrorRofs: return "FileErrorRofs"
-		case FileErrorTxtbsy: return "FileErrorTxtbsy"
-		default: return fmt.Sprintf("FileError(%d)", e)
+	case FileErrorAcces:
+		return "FileErrorAcces"
+	case FileErrorAgain:
+		return "FileErrorAgain"
+	case FileErrorBadf:
+		return "FileErrorBadf"
+	case FileErrorExist:
+		return "FileErrorExist"
+	case FileErrorFailed:
+		return "FileErrorFailed"
+	case FileErrorFault:
+		return "FileErrorFault"
+	case FileErrorIO:
+		return "FileErrorIO"
+	case FileErrorIntr:
+		return "FileErrorIntr"
+	case FileErrorInval:
+		return "FileErrorInval"
+	case FileErrorIsdir:
+		return "FileErrorIsdir"
+	case FileErrorLoop:
+		return "FileErrorLoop"
+	case FileErrorMfile:
+		return "FileErrorMfile"
+	case FileErrorNametoolong:
+		return "FileErrorNametoolong"
+	case FileErrorNfile:
+		return "FileErrorNfile"
+	case FileErrorNodev:
+		return "FileErrorNodev"
+	case FileErrorNoent:
+		return "FileErrorNoent"
+	case FileErrorNomem:
+		return "FileErrorNomem"
+	case FileErrorNospc:
+		return "FileErrorNospc"
+	case FileErrorNosys:
+		return "FileErrorNosys"
+	case FileErrorNotdir:
+		return "FileErrorNotdir"
+	case FileErrorNxio:
+		return "FileErrorNxio"
+	case FileErrorPerm:
+		return "FileErrorPerm"
+	case FileErrorPipe:
+		return "FileErrorPipe"
+	case FileErrorRofs:
+		return "FileErrorRofs"
+	case FileErrorTxtbsy:
+		return "FileErrorTxtbsy"
+	default:
+		return fmt.Sprintf("FileError(%d)", e)
 	}
 }
 
 // IOChannelError wraps GIOChannelError
-// 
+//
 // see also https://docs.gtk.org/glib/enum.IOChannelError.html
 type IOChannelError C.int
 
 const (
 	// IOChannelErrorFbig wraps G_IO_CHANNEL_ERROR_FBIG
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.IOChannelError.html#fbig
 	IOChannelErrorFbig IOChannelError = 0
 	// IOChannelErrorInval wraps G_IO_CHANNEL_ERROR_INVAL
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.IOChannelError.html#inval
 	IOChannelErrorInval IOChannelError = 1
 	// IOChannelErrorIO wraps G_IO_CHANNEL_ERROR_IO
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.IOChannelError.html#io
 	IOChannelErrorIO IOChannelError = 2
 	// IOChannelErrorIsdir wraps G_IO_CHANNEL_ERROR_ISDIR
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.IOChannelError.html#isdir
 	IOChannelErrorIsdir IOChannelError = 3
 	// IOChannelErrorNospc wraps G_IO_CHANNEL_ERROR_NOSPC
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.IOChannelError.html#nospc
 	IOChannelErrorNospc IOChannelError = 4
 	// IOChannelErrorNxio wraps G_IO_CHANNEL_ERROR_NXIO
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.IOChannelError.html#nxio
 	IOChannelErrorNxio IOChannelError = 5
 	// IOChannelErrorOverflow wraps G_IO_CHANNEL_ERROR_OVERFLOW
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.IOChannelError.html#overflow
 	IOChannelErrorOverflow IOChannelError = 6
 	// IOChannelErrorPipe wraps G_IO_CHANNEL_ERROR_PIPE
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.IOChannelError.html#pipe
 	IOChannelErrorPipe IOChannelError = 7
 	// IOChannelErrorFailed wraps G_IO_CHANNEL_ERROR_FAILED
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.IOChannelError.html#failed
 	IOChannelErrorFailed IOChannelError = 8
 )
 
-
 func (e IOChannelError) String() string {
 	switch e {
-		case IOChannelErrorFailed: return "IOChannelErrorFailed"
-		case IOChannelErrorFbig: return "IOChannelErrorFbig"
-		case IOChannelErrorIO: return "IOChannelErrorIO"
-		case IOChannelErrorInval: return "IOChannelErrorInval"
-		case IOChannelErrorIsdir: return "IOChannelErrorIsdir"
-		case IOChannelErrorNospc: return "IOChannelErrorNospc"
-		case IOChannelErrorNxio: return "IOChannelErrorNxio"
-		case IOChannelErrorOverflow: return "IOChannelErrorOverflow"
-		case IOChannelErrorPipe: return "IOChannelErrorPipe"
-		default: return fmt.Sprintf("IOChannelError(%d)", e)
+	case IOChannelErrorFailed:
+		return "IOChannelErrorFailed"
+	case IOChannelErrorFbig:
+		return "IOChannelErrorFbig"
+	case IOChannelErrorIO:
+		return "IOChannelErrorIO"
+	case IOChannelErrorInval:
+		return "IOChannelErrorInval"
+	case IOChannelErrorIsdir:
+		return "IOChannelErrorIsdir"
+	case IOChannelErrorNospc:
+		return "IOChannelErrorNospc"
+	case IOChannelErrorNxio:
+		return "IOChannelErrorNxio"
+	case IOChannelErrorOverflow:
+		return "IOChannelErrorOverflow"
+	case IOChannelErrorPipe:
+		return "IOChannelErrorPipe"
+	default:
+		return fmt.Sprintf("IOChannelError(%d)", e)
 	}
 }
 
 // IOError wraps GIOError
-// 
+//
 // see also https://docs.gtk.org/glib/enum.IOError.html
 type IOError C.int
 
 const (
 	// IOErrorNone wraps G_IO_ERROR_NONE
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.IOError.html#none
 	IOErrorNone IOError = 0
 	// IOErrorAgain wraps G_IO_ERROR_AGAIN
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.IOError.html#again
 	IOErrorAgain IOError = 1
 	// IOErrorInval wraps G_IO_ERROR_INVAL
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.IOError.html#inval
 	IOErrorInval IOError = 2
 	// IOErrorUnknown wraps G_IO_ERROR_UNKNOWN
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.IOError.html#unknown
 	IOErrorUnknown IOError = 3
 )
 
-
 func (e IOError) String() string {
 	switch e {
-		case IOErrorAgain: return "IOErrorAgain"
-		case IOErrorInval: return "IOErrorInval"
-		case IOErrorNone: return "IOErrorNone"
-		case IOErrorUnknown: return "IOErrorUnknown"
-		default: return fmt.Sprintf("IOError(%d)", e)
+	case IOErrorAgain:
+		return "IOErrorAgain"
+	case IOErrorInval:
+		return "IOErrorInval"
+	case IOErrorNone:
+		return "IOErrorNone"
+	case IOErrorUnknown:
+		return "IOErrorUnknown"
+	default:
+		return fmt.Sprintf("IOError(%d)", e)
 	}
 }
 
 // IOStatus wraps GIOStatus
-// 
+//
 // see also https://docs.gtk.org/glib/enum.IOStatus.html
 type IOStatus C.int
 
 const (
 	// IOStatusError wraps G_IO_STATUS_ERROR
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.IOStatus.html#error
 	IOStatusError IOStatus = 0
 	// IOStatusNormal wraps G_IO_STATUS_NORMAL
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.IOStatus.html#normal
 	IOStatusNormal IOStatus = 1
 	// IOStatusEOF wraps G_IO_STATUS_EOF
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.IOStatus.html#eof
 	IOStatusEOF IOStatus = 2
 	// IOStatusAgain wraps G_IO_STATUS_AGAIN
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.IOStatus.html#again
 	IOStatusAgain IOStatus = 3
 )
 
-
 func (e IOStatus) String() string {
 	switch e {
-		case IOStatusAgain: return "IOStatusAgain"
-		case IOStatusEOF: return "IOStatusEOF"
-		case IOStatusError: return "IOStatusError"
-		case IOStatusNormal: return "IOStatusNormal"
-		default: return fmt.Sprintf("IOStatus(%d)", e)
+	case IOStatusAgain:
+		return "IOStatusAgain"
+	case IOStatusEOF:
+		return "IOStatusEOF"
+	case IOStatusError:
+		return "IOStatusError"
+	case IOStatusNormal:
+		return "IOStatusNormal"
+	default:
+		return fmt.Sprintf("IOStatus(%d)", e)
 	}
 }
 
 // KeyFileError wraps GKeyFileError
-// 
+//
 // see also https://docs.gtk.org/glib/enum.KeyFileError.html
 type KeyFileError C.int
 
 const (
 	// KeyFileErrorUnknownEncoding wraps G_KEY_FILE_ERROR_UNKNOWN_ENCODING
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.KeyFileError.html#unknown_encoding
 	KeyFileErrorUnknownEncoding KeyFileError = 0
 	// KeyFileErrorParse wraps G_KEY_FILE_ERROR_PARSE
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.KeyFileError.html#parse
 	KeyFileErrorParse KeyFileError = 1
 	// KeyFileErrorNotFound wraps G_KEY_FILE_ERROR_NOT_FOUND
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.KeyFileError.html#not_found
 	KeyFileErrorNotFound KeyFileError = 2
 	// KeyFileErrorKeyNotFound wraps G_KEY_FILE_ERROR_KEY_NOT_FOUND
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.KeyFileError.html#key_not_found
 	KeyFileErrorKeyNotFound KeyFileError = 3
 	// KeyFileErrorGroupNotFound wraps G_KEY_FILE_ERROR_GROUP_NOT_FOUND
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.KeyFileError.html#group_not_found
 	KeyFileErrorGroupNotFound KeyFileError = 4
 	// KeyFileErrorInvalidValue wraps G_KEY_FILE_ERROR_INVALID_VALUE
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.KeyFileError.html#invalid_value
 	KeyFileErrorInvalidValue KeyFileError = 5
 )
 
-
 func (e KeyFileError) String() string {
 	switch e {
-		case KeyFileErrorGroupNotFound: return "KeyFileErrorGroupNotFound"
-		case KeyFileErrorInvalidValue: return "KeyFileErrorInvalidValue"
-		case KeyFileErrorKeyNotFound: return "KeyFileErrorKeyNotFound"
-		case KeyFileErrorNotFound: return "KeyFileErrorNotFound"
-		case KeyFileErrorParse: return "KeyFileErrorParse"
-		case KeyFileErrorUnknownEncoding: return "KeyFileErrorUnknownEncoding"
-		default: return fmt.Sprintf("KeyFileError(%d)", e)
+	case KeyFileErrorGroupNotFound:
+		return "KeyFileErrorGroupNotFound"
+	case KeyFileErrorInvalidValue:
+		return "KeyFileErrorInvalidValue"
+	case KeyFileErrorKeyNotFound:
+		return "KeyFileErrorKeyNotFound"
+	case KeyFileErrorNotFound:
+		return "KeyFileErrorNotFound"
+	case KeyFileErrorParse:
+		return "KeyFileErrorParse"
+	case KeyFileErrorUnknownEncoding:
+		return "KeyFileErrorUnknownEncoding"
+	default:
+		return fmt.Sprintf("KeyFileError(%d)", e)
 	}
 }
 
 // LogWriterOutput wraps GLogWriterOutput
-// 
+//
 // see also https://docs.gtk.org/glib/enum.LogWriterOutput.html
 type LogWriterOutput C.int
 
 const (
 	// LogWriterHandled wraps G_LOG_WRITER_HANDLED
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.LogWriterOutput.html#handled
 	LogWriterHandled LogWriterOutput = 1
 	// LogWriterUnhandled wraps G_LOG_WRITER_UNHANDLED
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.LogWriterOutput.html#unhandled
 	LogWriterUnhandled LogWriterOutput = 0
 )
 
-
 func (e LogWriterOutput) String() string {
 	switch e {
-		case LogWriterHandled: return "LogWriterHandled"
-		case LogWriterUnhandled: return "LogWriterUnhandled"
-		default: return fmt.Sprintf("LogWriterOutput(%d)", e)
+	case LogWriterHandled:
+		return "LogWriterHandled"
+	case LogWriterUnhandled:
+		return "LogWriterUnhandled"
+	default:
+		return fmt.Sprintf("LogWriterOutput(%d)", e)
 	}
 }
 
 // MarkupError wraps GMarkupError
-// 
+//
 // see also https://docs.gtk.org/glib/enum.MarkupError.html
 type MarkupError C.int
 
 const (
 	// MarkupErrorBadUTF8 wraps G_MARKUP_ERROR_BAD_UTF8
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.MarkupError.html#bad_utf8
 	MarkupErrorBadUTF8 MarkupError = 0
 	// MarkupErrorEmpty wraps G_MARKUP_ERROR_EMPTY
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.MarkupError.html#empty
 	MarkupErrorEmpty MarkupError = 1
 	// MarkupErrorParse wraps G_MARKUP_ERROR_PARSE
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.MarkupError.html#parse
 	MarkupErrorParse MarkupError = 2
 	// MarkupErrorUnknownElement wraps G_MARKUP_ERROR_UNKNOWN_ELEMENT
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.MarkupError.html#unknown_element
 	MarkupErrorUnknownElement MarkupError = 3
 	// MarkupErrorUnknownAttribute wraps G_MARKUP_ERROR_UNKNOWN_ATTRIBUTE
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.MarkupError.html#unknown_attribute
 	MarkupErrorUnknownAttribute MarkupError = 4
 	// MarkupErrorInvalidContent wraps G_MARKUP_ERROR_INVALID_CONTENT
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.MarkupError.html#invalid_content
 	MarkupErrorInvalidContent MarkupError = 5
 	// MarkupErrorMissingAttribute wraps G_MARKUP_ERROR_MISSING_ATTRIBUTE
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.MarkupError.html#missing_attribute
 	MarkupErrorMissingAttribute MarkupError = 6
 )
 
-
 func (e MarkupError) String() string {
 	switch e {
-		case MarkupErrorBadUTF8: return "MarkupErrorBadUTF8"
-		case MarkupErrorEmpty: return "MarkupErrorEmpty"
-		case MarkupErrorInvalidContent: return "MarkupErrorInvalidContent"
-		case MarkupErrorMissingAttribute: return "MarkupErrorMissingAttribute"
-		case MarkupErrorParse: return "MarkupErrorParse"
-		case MarkupErrorUnknownAttribute: return "MarkupErrorUnknownAttribute"
-		case MarkupErrorUnknownElement: return "MarkupErrorUnknownElement"
-		default: return fmt.Sprintf("MarkupError(%d)", e)
+	case MarkupErrorBadUTF8:
+		return "MarkupErrorBadUTF8"
+	case MarkupErrorEmpty:
+		return "MarkupErrorEmpty"
+	case MarkupErrorInvalidContent:
+		return "MarkupErrorInvalidContent"
+	case MarkupErrorMissingAttribute:
+		return "MarkupErrorMissingAttribute"
+	case MarkupErrorParse:
+		return "MarkupErrorParse"
+	case MarkupErrorUnknownAttribute:
+		return "MarkupErrorUnknownAttribute"
+	case MarkupErrorUnknownElement:
+		return "MarkupErrorUnknownElement"
+	default:
+		return fmt.Sprintf("MarkupError(%d)", e)
 	}
 }
 
 // NormalizeMode wraps GNormalizeMode
-// 
+//
 // see also https://docs.gtk.org/glib/enum.NormalizeMode.html
 type NormalizeMode C.int
 
 const (
 	// NormalizeDefault wraps G_NORMALIZE_DEFAULT
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.NormalizeMode.html#default
 	NormalizeDefault NormalizeMode = 0
 	// NormalizeNFD wraps G_NORMALIZE_NFD
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.NormalizeMode.html#nfd
 	NormalizeNFD NormalizeMode = 0
 	// NormalizeDefaultCompose wraps G_NORMALIZE_DEFAULT_COMPOSE
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.NormalizeMode.html#default_compose
 	NormalizeDefaultCompose NormalizeMode = 1
 	// NormalizeNFC wraps G_NORMALIZE_NFC
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.NormalizeMode.html#nfc
 	NormalizeNFC NormalizeMode = 1
 	// NormalizeAll wraps G_NORMALIZE_ALL
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.NormalizeMode.html#all
 	NormalizeAll NormalizeMode = 2
 	// NormalizeNFKD wraps G_NORMALIZE_NFKD
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.NormalizeMode.html#nfkd
 	NormalizeNFKD NormalizeMode = 2
 	// NormalizeAllCompose wraps G_NORMALIZE_ALL_COMPOSE
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.NormalizeMode.html#all_compose
 	NormalizeAllCompose NormalizeMode = 3
 	// NormalizeNFKC wraps G_NORMALIZE_NFKC
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.NormalizeMode.html#nfkc
 	NormalizeNFKC NormalizeMode = 3
 )
 
-
 func (e NormalizeMode) String() string {
 	switch e {
-		case NormalizeAll: return "NormalizeAll"
-		case NormalizeAllCompose: return "NormalizeAllCompose"
-		case NormalizeDefault: return "NormalizeDefault"
-		case NormalizeDefaultCompose: return "NormalizeDefaultCompose"
-		default: return fmt.Sprintf("NormalizeMode(%d)", e)
+	case NormalizeAll:
+		return "NormalizeAll"
+	case NormalizeAllCompose:
+		return "NormalizeAllCompose"
+	case NormalizeDefault:
+		return "NormalizeDefault"
+	case NormalizeDefaultCompose:
+		return "NormalizeDefaultCompose"
+	default:
+		return fmt.Sprintf("NormalizeMode(%d)", e)
 	}
 }
 
 // NumberParserError wraps GNumberParserError
-// 
+//
 // see also https://docs.gtk.org/glib/enum.NumberParserError.html
 type NumberParserError C.int
 
 const (
 	// NumberParserErrorInvalid wraps G_NUMBER_PARSER_ERROR_INVALID
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.NumberParserError.html#invalid
 	NumberParserErrorInvalid NumberParserError = 0
 	// NumberParserErrorOutOfBounds wraps G_NUMBER_PARSER_ERROR_OUT_OF_BOUNDS
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.NumberParserError.html#out_of_bounds
 	NumberParserErrorOutOfBounds NumberParserError = 1
 )
 
-
 func (e NumberParserError) String() string {
 	switch e {
-		case NumberParserErrorInvalid: return "NumberParserErrorInvalid"
-		case NumberParserErrorOutOfBounds: return "NumberParserErrorOutOfBounds"
-		default: return fmt.Sprintf("NumberParserError(%d)", e)
+	case NumberParserErrorInvalid:
+		return "NumberParserErrorInvalid"
+	case NumberParserErrorOutOfBounds:
+		return "NumberParserErrorOutOfBounds"
+	default:
+		return fmt.Sprintf("NumberParserError(%d)", e)
 	}
 }
 
 // OnceStatus wraps GOnceStatus
-// 
+//
 // see also https://docs.gtk.org/glib/enum.OnceStatus.html
 type OnceStatus C.int
 
 const (
 	// OnceStatusNotcalled wraps G_ONCE_STATUS_NOTCALLED
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.OnceStatus.html#notcalled
 	OnceStatusNotcalled OnceStatus = 0
 	// OnceStatusProgress wraps G_ONCE_STATUS_PROGRESS
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.OnceStatus.html#progress
 	OnceStatusProgress OnceStatus = 1
 	// OnceStatusReady wraps G_ONCE_STATUS_READY
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.OnceStatus.html#ready
 	OnceStatusReady OnceStatus = 2
 )
 
-
 func (e OnceStatus) String() string {
 	switch e {
-		case OnceStatusNotcalled: return "OnceStatusNotcalled"
-		case OnceStatusProgress: return "OnceStatusProgress"
-		case OnceStatusReady: return "OnceStatusReady"
-		default: return fmt.Sprintf("OnceStatus(%d)", e)
+	case OnceStatusNotcalled:
+		return "OnceStatusNotcalled"
+	case OnceStatusProgress:
+		return "OnceStatusProgress"
+	case OnceStatusReady:
+		return "OnceStatusReady"
+	default:
+		return fmt.Sprintf("OnceStatus(%d)", e)
 	}
 }
 
 // OptionArg wraps GOptionArg
-// 
+//
 // see also https://docs.gtk.org/glib/enum.OptionArg.html
 type OptionArg C.int
 
 const (
 	// OptionArgNone wraps G_OPTION_ARG_NONE
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.OptionArg.html#none
 	OptionArgNone OptionArg = 0
 	// OptionArgString wraps G_OPTION_ARG_STRING
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.OptionArg.html#string
 	OptionArgString OptionArg = 1
 	// OptionArgInt wraps G_OPTION_ARG_INT
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.OptionArg.html#int
 	OptionArgInt OptionArg = 2
 	// OptionArgCallback wraps G_OPTION_ARG_CALLBACK
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.OptionArg.html#callback
 	OptionArgCallback OptionArg = 3
 	// OptionArgFilename wraps G_OPTION_ARG_FILENAME
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.OptionArg.html#filename
 	OptionArgFilename OptionArg = 4
 	// OptionArgStringArray wraps G_OPTION_ARG_STRING_ARRAY
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.OptionArg.html#string_array
 	OptionArgStringArray OptionArg = 5
 	// OptionArgFilenameArray wraps G_OPTION_ARG_FILENAME_ARRAY
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.OptionArg.html#filename_array
 	OptionArgFilenameArray OptionArg = 6
 	// OptionArgDouble wraps G_OPTION_ARG_DOUBLE
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.OptionArg.html#double
 	OptionArgDouble OptionArg = 7
 	// OptionArgInt64 wraps G_OPTION_ARG_INT64
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.OptionArg.html#int64
 	OptionArgInt64 OptionArg = 8
 )
 
-
 func (e OptionArg) String() string {
 	switch e {
-		case OptionArgCallback: return "OptionArgCallback"
-		case OptionArgDouble: return "OptionArgDouble"
-		case OptionArgFilename: return "OptionArgFilename"
-		case OptionArgFilenameArray: return "OptionArgFilenameArray"
-		case OptionArgInt: return "OptionArgInt"
-		case OptionArgInt64: return "OptionArgInt64"
-		case OptionArgNone: return "OptionArgNone"
-		case OptionArgString: return "OptionArgString"
-		case OptionArgStringArray: return "OptionArgStringArray"
-		default: return fmt.Sprintf("OptionArg(%d)", e)
+	case OptionArgCallback:
+		return "OptionArgCallback"
+	case OptionArgDouble:
+		return "OptionArgDouble"
+	case OptionArgFilename:
+		return "OptionArgFilename"
+	case OptionArgFilenameArray:
+		return "OptionArgFilenameArray"
+	case OptionArgInt:
+		return "OptionArgInt"
+	case OptionArgInt64:
+		return "OptionArgInt64"
+	case OptionArgNone:
+		return "OptionArgNone"
+	case OptionArgString:
+		return "OptionArgString"
+	case OptionArgStringArray:
+		return "OptionArgStringArray"
+	default:
+		return fmt.Sprintf("OptionArg(%d)", e)
 	}
 }
 
 // OptionError wraps GOptionError
-// 
+//
 // see also https://docs.gtk.org/glib/enum.OptionError.html
 type OptionError C.int
 
 const (
 	// OptionErrorUnknownOption wraps G_OPTION_ERROR_UNKNOWN_OPTION
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.OptionError.html#unknown_option
 	OptionErrorUnknownOption OptionError = 0
 	// OptionErrorBadValue wraps G_OPTION_ERROR_BAD_VALUE
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.OptionError.html#bad_value
 	OptionErrorBadValue OptionError = 1
 	// OptionErrorFailed wraps G_OPTION_ERROR_FAILED
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.OptionError.html#failed
 	OptionErrorFailed OptionError = 2
 )
 
-
 func (e OptionError) String() string {
 	switch e {
-		case OptionErrorBadValue: return "OptionErrorBadValue"
-		case OptionErrorFailed: return "OptionErrorFailed"
-		case OptionErrorUnknownOption: return "OptionErrorUnknownOption"
-		default: return fmt.Sprintf("OptionError(%d)", e)
+	case OptionErrorBadValue:
+		return "OptionErrorBadValue"
+	case OptionErrorFailed:
+		return "OptionErrorFailed"
+	case OptionErrorUnknownOption:
+		return "OptionErrorUnknownOption"
+	default:
+		return fmt.Sprintf("OptionError(%d)", e)
 	}
 }
 
 // RegexError wraps GRegexError
-// 
+//
 // see also https://docs.gtk.org/glib/enum.RegexError.html
 type RegexError C.int
 
 const (
 	// RegexErrorCompile wraps G_REGEX_ERROR_COMPILE
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.RegexError.html#compile
 	RegexErrorCompile RegexError = 0
 	// RegexErrorOptimize wraps G_REGEX_ERROR_OPTIMIZE
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.RegexError.html#optimize
 	RegexErrorOptimize RegexError = 1
 	// RegexErrorReplace wraps G_REGEX_ERROR_REPLACE
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.RegexError.html#replace
 	RegexErrorReplace RegexError = 2
 	// RegexErrorMatch wraps G_REGEX_ERROR_MATCH
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.RegexError.html#match
 	RegexErrorMatch RegexError = 3
 	// RegexErrorInternal wraps G_REGEX_ERROR_INTERNAL
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.RegexError.html#internal
 	RegexErrorInternal RegexError = 4
 	// RegexErrorStrayBackslash wraps G_REGEX_ERROR_STRAY_BACKSLASH
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.RegexError.html#stray_backslash
 	RegexErrorStrayBackslash RegexError = 101
 	// RegexErrorMissingControlChar wraps G_REGEX_ERROR_MISSING_CONTROL_CHAR
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.RegexError.html#missing_control_char
 	RegexErrorMissingControlChar RegexError = 102
 	// RegexErrorUnrecognizedEscape wraps G_REGEX_ERROR_UNRECOGNIZED_ESCAPE
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.RegexError.html#unrecognized_escape
 	RegexErrorUnrecognizedEscape RegexError = 103
 	// RegexErrorQuantifiersOutOfOrder wraps G_REGEX_ERROR_QUANTIFIERS_OUT_OF_ORDER
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.RegexError.html#quantifiers_out_of_order
 	RegexErrorQuantifiersOutOfOrder RegexError = 104
 	// RegexErrorQuantifierTooBig wraps G_REGEX_ERROR_QUANTIFIER_TOO_BIG
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.RegexError.html#quantifier_too_big
 	RegexErrorQuantifierTooBig RegexError = 105
 	// RegexErrorUnterminatedCharacterClass wraps G_REGEX_ERROR_UNTERMINATED_CHARACTER_CLASS
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.RegexError.html#unterminated_character_class
 	RegexErrorUnterminatedCharacterClass RegexError = 106
 	// RegexErrorInvalidEscapeInCharacterClass wraps G_REGEX_ERROR_INVALID_ESCAPE_IN_CHARACTER_CLASS
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.RegexError.html#invalid_escape_in_character_class
 	RegexErrorInvalidEscapeInCharacterClass RegexError = 107
 	// RegexErrorRangeOutOfOrder wraps G_REGEX_ERROR_RANGE_OUT_OF_ORDER
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.RegexError.html#range_out_of_order
 	RegexErrorRangeOutOfOrder RegexError = 108
 	// RegexErrorNothingToRepeat wraps G_REGEX_ERROR_NOTHING_TO_REPEAT
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.RegexError.html#nothing_to_repeat
 	RegexErrorNothingToRepeat RegexError = 109
 	// RegexErrorUnrecognizedCharacter wraps G_REGEX_ERROR_UNRECOGNIZED_CHARACTER
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.RegexError.html#unrecognized_character
 	RegexErrorUnrecognizedCharacter RegexError = 112
 	// RegexErrorPosixNamedClassOutsideClass wraps G_REGEX_ERROR_POSIX_NAMED_CLASS_OUTSIDE_CLASS
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.RegexError.html#posix_named_class_outside_class
 	RegexErrorPosixNamedClassOutsideClass RegexError = 113
 	// RegexErrorUnmatchedParenthesis wraps G_REGEX_ERROR_UNMATCHED_PARENTHESIS
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.RegexError.html#unmatched_parenthesis
 	RegexErrorUnmatchedParenthesis RegexError = 114
 	// RegexErrorInexistentSubpatternReference wraps G_REGEX_ERROR_INEXISTENT_SUBPATTERN_REFERENCE
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.RegexError.html#inexistent_subpattern_reference
 	RegexErrorInexistentSubpatternReference RegexError = 115
 	// RegexErrorUnterminatedComment wraps G_REGEX_ERROR_UNTERMINATED_COMMENT
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.RegexError.html#unterminated_comment
 	RegexErrorUnterminatedComment RegexError = 118
 	// RegexErrorExpressionTooLarge wraps G_REGEX_ERROR_EXPRESSION_TOO_LARGE
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.RegexError.html#expression_too_large
 	RegexErrorExpressionTooLarge RegexError = 120
 	// RegexErrorMemoryError wraps G_REGEX_ERROR_MEMORY_ERROR
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.RegexError.html#memory_error
 	RegexErrorMemoryError RegexError = 121
 	// RegexErrorVariableLengthLookbehind wraps G_REGEX_ERROR_VARIABLE_LENGTH_LOOKBEHIND
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.RegexError.html#variable_length_lookbehind
 	RegexErrorVariableLengthLookbehind RegexError = 125
 	// RegexErrorMalformedCondition wraps G_REGEX_ERROR_MALFORMED_CONDITION
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.RegexError.html#malformed_condition
 	RegexErrorMalformedCondition RegexError = 126
 	// RegexErrorTooManyConditionalBranches wraps G_REGEX_ERROR_TOO_MANY_CONDITIONAL_BRANCHES
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.RegexError.html#too_many_conditional_branches
 	RegexErrorTooManyConditionalBranches RegexError = 127
 	// RegexErrorAssertionExpected wraps G_REGEX_ERROR_ASSERTION_EXPECTED
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.RegexError.html#assertion_expected
 	RegexErrorAssertionExpected RegexError = 128
 	// RegexErrorUnknownPosixClassName wraps G_REGEX_ERROR_UNKNOWN_POSIX_CLASS_NAME
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.RegexError.html#unknown_posix_class_name
 	RegexErrorUnknownPosixClassName RegexError = 130
 	// RegexErrorPosixCollatingElementsNotSupported wraps G_REGEX_ERROR_POSIX_COLLATING_ELEMENTS_NOT_SUPPORTED
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.RegexError.html#posix_collating_elements_not_supported
 	RegexErrorPosixCollatingElementsNotSupported RegexError = 131
 	// RegexErrorHexCodeTooLarge wraps G_REGEX_ERROR_HEX_CODE_TOO_LARGE
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.RegexError.html#hex_code_too_large
 	RegexErrorHexCodeTooLarge RegexError = 134
 	// RegexErrorInvalidCondition wraps G_REGEX_ERROR_INVALID_CONDITION
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.RegexError.html#invalid_condition
 	RegexErrorInvalidCondition RegexError = 135
 	// RegexErrorSingleByteMatchInLookbehind wraps G_REGEX_ERROR_SINGLE_BYTE_MATCH_IN_LOOKBEHIND
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.RegexError.html#single_byte_match_in_lookbehind
 	RegexErrorSingleByteMatchInLookbehind RegexError = 136
 	// RegexErrorInfiniteLoop wraps G_REGEX_ERROR_INFINITE_LOOP
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.RegexError.html#infinite_loop
 	RegexErrorInfiniteLoop RegexError = 140
 	// RegexErrorMissingSubpatternNameTerminator wraps G_REGEX_ERROR_MISSING_SUBPATTERN_NAME_TERMINATOR
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.RegexError.html#missing_subpattern_name_terminator
 	RegexErrorMissingSubpatternNameTerminator RegexError = 142
 	// RegexErrorDuplicateSubpatternName wraps G_REGEX_ERROR_DUPLICATE_SUBPATTERN_NAME
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.RegexError.html#duplicate_subpattern_name
 	RegexErrorDuplicateSubpatternName RegexError = 143
 	// RegexErrorMalformedProperty wraps G_REGEX_ERROR_MALFORMED_PROPERTY
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.RegexError.html#malformed_property
 	RegexErrorMalformedProperty RegexError = 146
 	// RegexErrorUnknownProperty wraps G_REGEX_ERROR_UNKNOWN_PROPERTY
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.RegexError.html#unknown_property
 	RegexErrorUnknownProperty RegexError = 147
 	// RegexErrorSubpatternNameTooLong wraps G_REGEX_ERROR_SUBPATTERN_NAME_TOO_LONG
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.RegexError.html#subpattern_name_too_long
 	RegexErrorSubpatternNameTooLong RegexError = 148
 	// RegexErrorTooManySubpatterns wraps G_REGEX_ERROR_TOO_MANY_SUBPATTERNS
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.RegexError.html#too_many_subpatterns
 	RegexErrorTooManySubpatterns RegexError = 149
 	// RegexErrorInvalidOctalValue wraps G_REGEX_ERROR_INVALID_OCTAL_VALUE
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.RegexError.html#invalid_octal_value
 	RegexErrorInvalidOctalValue RegexError = 151
 	// RegexErrorTooManyBranchesInDefine wraps G_REGEX_ERROR_TOO_MANY_BRANCHES_IN_DEFINE
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.RegexError.html#too_many_branches_in_define
 	RegexErrorTooManyBranchesInDefine RegexError = 154
 	// RegexErrorDefineRepetion wraps G_REGEX_ERROR_DEFINE_REPETION
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.RegexError.html#define_repetion
 	RegexErrorDefineRepetion RegexError = 155
 	// RegexErrorInconsistentNewlineOptions wraps G_REGEX_ERROR_INCONSISTENT_NEWLINE_OPTIONS
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.RegexError.html#inconsistent_newline_options
 	RegexErrorInconsistentNewlineOptions RegexError = 156
 	// RegexErrorMissingBackReference wraps G_REGEX_ERROR_MISSING_BACK_REFERENCE
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.RegexError.html#missing_back_reference
 	RegexErrorMissingBackReference RegexError = 157
 	// RegexErrorInvalidRelativeReference wraps G_REGEX_ERROR_INVALID_RELATIVE_REFERENCE
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.RegexError.html#invalid_relative_reference
 	RegexErrorInvalidRelativeReference RegexError = 158
 	// RegexErrorBacktrackingControlVerbArgumentForbidden wraps G_REGEX_ERROR_BACKTRACKING_CONTROL_VERB_ARGUMENT_FORBIDDEN
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.RegexError.html#backtracking_control_verb_argument_forbidden
 	RegexErrorBacktrackingControlVerbArgumentForbidden RegexError = 159
 	// RegexErrorUnknownBacktrackingControlVerb wraps G_REGEX_ERROR_UNKNOWN_BACKTRACKING_CONTROL_VERB
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.RegexError.html#unknown_backtracking_control_verb
 	RegexErrorUnknownBacktrackingControlVerb RegexError = 160
 	// RegexErrorNumberTooBig wraps G_REGEX_ERROR_NUMBER_TOO_BIG
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.RegexError.html#number_too_big
 	RegexErrorNumberTooBig RegexError = 161
 	// RegexErrorMissingSubpatternName wraps G_REGEX_ERROR_MISSING_SUBPATTERN_NAME
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.RegexError.html#missing_subpattern_name
 	RegexErrorMissingSubpatternName RegexError = 162
 	// RegexErrorMissingDigit wraps G_REGEX_ERROR_MISSING_DIGIT
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.RegexError.html#missing_digit
 	RegexErrorMissingDigit RegexError = 163
 	// RegexErrorInvalidDataCharacter wraps G_REGEX_ERROR_INVALID_DATA_CHARACTER
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.RegexError.html#invalid_data_character
 	RegexErrorInvalidDataCharacter RegexError = 164
 	// RegexErrorExtraSubpatternName wraps G_REGEX_ERROR_EXTRA_SUBPATTERN_NAME
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.RegexError.html#extra_subpattern_name
 	RegexErrorExtraSubpatternName RegexError = 165
 	// RegexErrorBacktrackingControlVerbArgumentRequired wraps G_REGEX_ERROR_BACKTRACKING_CONTROL_VERB_ARGUMENT_REQUIRED
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.RegexError.html#backtracking_control_verb_argument_required
 	RegexErrorBacktrackingControlVerbArgumentRequired RegexError = 166
 	// RegexErrorInvalidControlChar wraps G_REGEX_ERROR_INVALID_CONTROL_CHAR
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.RegexError.html#invalid_control_char
 	RegexErrorInvalidControlChar RegexError = 168
 	// RegexErrorMissingName wraps G_REGEX_ERROR_MISSING_NAME
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.RegexError.html#missing_name
 	RegexErrorMissingName RegexError = 169
 	// RegexErrorNotSupportedInClass wraps G_REGEX_ERROR_NOT_SUPPORTED_IN_CLASS
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.RegexError.html#not_supported_in_class
 	RegexErrorNotSupportedInClass RegexError = 171
 	// RegexErrorTooManyForwardReferences wraps G_REGEX_ERROR_TOO_MANY_FORWARD_REFERENCES
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.RegexError.html#too_many_forward_references
 	RegexErrorTooManyForwardReferences RegexError = 172
 	// RegexErrorNameTooLong wraps G_REGEX_ERROR_NAME_TOO_LONG
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.RegexError.html#name_too_long
 	RegexErrorNameTooLong RegexError = 175
 	// RegexErrorCharacterValueTooLarge wraps G_REGEX_ERROR_CHARACTER_VALUE_TOO_LARGE
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.RegexError.html#character_value_too_large
 	RegexErrorCharacterValueTooLarge RegexError = 176
 )
 
-
 func (e RegexError) String() string {
 	switch e {
-		case RegexErrorAssertionExpected: return "RegexErrorAssertionExpected"
-		case RegexErrorBacktrackingControlVerbArgumentForbidden: return "RegexErrorBacktrackingControlVerbArgumentForbidden"
-		case RegexErrorBacktrackingControlVerbArgumentRequired: return "RegexErrorBacktrackingControlVerbArgumentRequired"
-		case RegexErrorCharacterValueTooLarge: return "RegexErrorCharacterValueTooLarge"
-		case RegexErrorCompile: return "RegexErrorCompile"
-		case RegexErrorDefineRepetion: return "RegexErrorDefineRepetion"
-		case RegexErrorDuplicateSubpatternName: return "RegexErrorDuplicateSubpatternName"
-		case RegexErrorExpressionTooLarge: return "RegexErrorExpressionTooLarge"
-		case RegexErrorExtraSubpatternName: return "RegexErrorExtraSubpatternName"
-		case RegexErrorHexCodeTooLarge: return "RegexErrorHexCodeTooLarge"
-		case RegexErrorInconsistentNewlineOptions: return "RegexErrorInconsistentNewlineOptions"
-		case RegexErrorInexistentSubpatternReference: return "RegexErrorInexistentSubpatternReference"
-		case RegexErrorInfiniteLoop: return "RegexErrorInfiniteLoop"
-		case RegexErrorInternal: return "RegexErrorInternal"
-		case RegexErrorInvalidCondition: return "RegexErrorInvalidCondition"
-		case RegexErrorInvalidControlChar: return "RegexErrorInvalidControlChar"
-		case RegexErrorInvalidDataCharacter: return "RegexErrorInvalidDataCharacter"
-		case RegexErrorInvalidEscapeInCharacterClass: return "RegexErrorInvalidEscapeInCharacterClass"
-		case RegexErrorInvalidOctalValue: return "RegexErrorInvalidOctalValue"
-		case RegexErrorInvalidRelativeReference: return "RegexErrorInvalidRelativeReference"
-		case RegexErrorMalformedCondition: return "RegexErrorMalformedCondition"
-		case RegexErrorMalformedProperty: return "RegexErrorMalformedProperty"
-		case RegexErrorMatch: return "RegexErrorMatch"
-		case RegexErrorMemoryError: return "RegexErrorMemoryError"
-		case RegexErrorMissingBackReference: return "RegexErrorMissingBackReference"
-		case RegexErrorMissingControlChar: return "RegexErrorMissingControlChar"
-		case RegexErrorMissingDigit: return "RegexErrorMissingDigit"
-		case RegexErrorMissingName: return "RegexErrorMissingName"
-		case RegexErrorMissingSubpatternName: return "RegexErrorMissingSubpatternName"
-		case RegexErrorMissingSubpatternNameTerminator: return "RegexErrorMissingSubpatternNameTerminator"
-		case RegexErrorNameTooLong: return "RegexErrorNameTooLong"
-		case RegexErrorNotSupportedInClass: return "RegexErrorNotSupportedInClass"
-		case RegexErrorNothingToRepeat: return "RegexErrorNothingToRepeat"
-		case RegexErrorNumberTooBig: return "RegexErrorNumberTooBig"
-		case RegexErrorOptimize: return "RegexErrorOptimize"
-		case RegexErrorPosixCollatingElementsNotSupported: return "RegexErrorPosixCollatingElementsNotSupported"
-		case RegexErrorPosixNamedClassOutsideClass: return "RegexErrorPosixNamedClassOutsideClass"
-		case RegexErrorQuantifierTooBig: return "RegexErrorQuantifierTooBig"
-		case RegexErrorQuantifiersOutOfOrder: return "RegexErrorQuantifiersOutOfOrder"
-		case RegexErrorRangeOutOfOrder: return "RegexErrorRangeOutOfOrder"
-		case RegexErrorReplace: return "RegexErrorReplace"
-		case RegexErrorSingleByteMatchInLookbehind: return "RegexErrorSingleByteMatchInLookbehind"
-		case RegexErrorStrayBackslash: return "RegexErrorStrayBackslash"
-		case RegexErrorSubpatternNameTooLong: return "RegexErrorSubpatternNameTooLong"
-		case RegexErrorTooManyBranchesInDefine: return "RegexErrorTooManyBranchesInDefine"
-		case RegexErrorTooManyConditionalBranches: return "RegexErrorTooManyConditionalBranches"
-		case RegexErrorTooManyForwardReferences: return "RegexErrorTooManyForwardReferences"
-		case RegexErrorTooManySubpatterns: return "RegexErrorTooManySubpatterns"
-		case RegexErrorUnknownBacktrackingControlVerb: return "RegexErrorUnknownBacktrackingControlVerb"
-		case RegexErrorUnknownPosixClassName: return "RegexErrorUnknownPosixClassName"
-		case RegexErrorUnknownProperty: return "RegexErrorUnknownProperty"
-		case RegexErrorUnmatchedParenthesis: return "RegexErrorUnmatchedParenthesis"
-		case RegexErrorUnrecognizedCharacter: return "RegexErrorUnrecognizedCharacter"
-		case RegexErrorUnrecognizedEscape: return "RegexErrorUnrecognizedEscape"
-		case RegexErrorUnterminatedCharacterClass: return "RegexErrorUnterminatedCharacterClass"
-		case RegexErrorUnterminatedComment: return "RegexErrorUnterminatedComment"
-		case RegexErrorVariableLengthLookbehind: return "RegexErrorVariableLengthLookbehind"
-		default: return fmt.Sprintf("RegexError(%d)", e)
+	case RegexErrorAssertionExpected:
+		return "RegexErrorAssertionExpected"
+	case RegexErrorBacktrackingControlVerbArgumentForbidden:
+		return "RegexErrorBacktrackingControlVerbArgumentForbidden"
+	case RegexErrorBacktrackingControlVerbArgumentRequired:
+		return "RegexErrorBacktrackingControlVerbArgumentRequired"
+	case RegexErrorCharacterValueTooLarge:
+		return "RegexErrorCharacterValueTooLarge"
+	case RegexErrorCompile:
+		return "RegexErrorCompile"
+	case RegexErrorDefineRepetion:
+		return "RegexErrorDefineRepetion"
+	case RegexErrorDuplicateSubpatternName:
+		return "RegexErrorDuplicateSubpatternName"
+	case RegexErrorExpressionTooLarge:
+		return "RegexErrorExpressionTooLarge"
+	case RegexErrorExtraSubpatternName:
+		return "RegexErrorExtraSubpatternName"
+	case RegexErrorHexCodeTooLarge:
+		return "RegexErrorHexCodeTooLarge"
+	case RegexErrorInconsistentNewlineOptions:
+		return "RegexErrorInconsistentNewlineOptions"
+	case RegexErrorInexistentSubpatternReference:
+		return "RegexErrorInexistentSubpatternReference"
+	case RegexErrorInfiniteLoop:
+		return "RegexErrorInfiniteLoop"
+	case RegexErrorInternal:
+		return "RegexErrorInternal"
+	case RegexErrorInvalidCondition:
+		return "RegexErrorInvalidCondition"
+	case RegexErrorInvalidControlChar:
+		return "RegexErrorInvalidControlChar"
+	case RegexErrorInvalidDataCharacter:
+		return "RegexErrorInvalidDataCharacter"
+	case RegexErrorInvalidEscapeInCharacterClass:
+		return "RegexErrorInvalidEscapeInCharacterClass"
+	case RegexErrorInvalidOctalValue:
+		return "RegexErrorInvalidOctalValue"
+	case RegexErrorInvalidRelativeReference:
+		return "RegexErrorInvalidRelativeReference"
+	case RegexErrorMalformedCondition:
+		return "RegexErrorMalformedCondition"
+	case RegexErrorMalformedProperty:
+		return "RegexErrorMalformedProperty"
+	case RegexErrorMatch:
+		return "RegexErrorMatch"
+	case RegexErrorMemoryError:
+		return "RegexErrorMemoryError"
+	case RegexErrorMissingBackReference:
+		return "RegexErrorMissingBackReference"
+	case RegexErrorMissingControlChar:
+		return "RegexErrorMissingControlChar"
+	case RegexErrorMissingDigit:
+		return "RegexErrorMissingDigit"
+	case RegexErrorMissingName:
+		return "RegexErrorMissingName"
+	case RegexErrorMissingSubpatternName:
+		return "RegexErrorMissingSubpatternName"
+	case RegexErrorMissingSubpatternNameTerminator:
+		return "RegexErrorMissingSubpatternNameTerminator"
+	case RegexErrorNameTooLong:
+		return "RegexErrorNameTooLong"
+	case RegexErrorNotSupportedInClass:
+		return "RegexErrorNotSupportedInClass"
+	case RegexErrorNothingToRepeat:
+		return "RegexErrorNothingToRepeat"
+	case RegexErrorNumberTooBig:
+		return "RegexErrorNumberTooBig"
+	case RegexErrorOptimize:
+		return "RegexErrorOptimize"
+	case RegexErrorPosixCollatingElementsNotSupported:
+		return "RegexErrorPosixCollatingElementsNotSupported"
+	case RegexErrorPosixNamedClassOutsideClass:
+		return "RegexErrorPosixNamedClassOutsideClass"
+	case RegexErrorQuantifierTooBig:
+		return "RegexErrorQuantifierTooBig"
+	case RegexErrorQuantifiersOutOfOrder:
+		return "RegexErrorQuantifiersOutOfOrder"
+	case RegexErrorRangeOutOfOrder:
+		return "RegexErrorRangeOutOfOrder"
+	case RegexErrorReplace:
+		return "RegexErrorReplace"
+	case RegexErrorSingleByteMatchInLookbehind:
+		return "RegexErrorSingleByteMatchInLookbehind"
+	case RegexErrorStrayBackslash:
+		return "RegexErrorStrayBackslash"
+	case RegexErrorSubpatternNameTooLong:
+		return "RegexErrorSubpatternNameTooLong"
+	case RegexErrorTooManyBranchesInDefine:
+		return "RegexErrorTooManyBranchesInDefine"
+	case RegexErrorTooManyConditionalBranches:
+		return "RegexErrorTooManyConditionalBranches"
+	case RegexErrorTooManyForwardReferences:
+		return "RegexErrorTooManyForwardReferences"
+	case RegexErrorTooManySubpatterns:
+		return "RegexErrorTooManySubpatterns"
+	case RegexErrorUnknownBacktrackingControlVerb:
+		return "RegexErrorUnknownBacktrackingControlVerb"
+	case RegexErrorUnknownPosixClassName:
+		return "RegexErrorUnknownPosixClassName"
+	case RegexErrorUnknownProperty:
+		return "RegexErrorUnknownProperty"
+	case RegexErrorUnmatchedParenthesis:
+		return "RegexErrorUnmatchedParenthesis"
+	case RegexErrorUnrecognizedCharacter:
+		return "RegexErrorUnrecognizedCharacter"
+	case RegexErrorUnrecognizedEscape:
+		return "RegexErrorUnrecognizedEscape"
+	case RegexErrorUnterminatedCharacterClass:
+		return "RegexErrorUnterminatedCharacterClass"
+	case RegexErrorUnterminatedComment:
+		return "RegexErrorUnterminatedComment"
+	case RegexErrorVariableLengthLookbehind:
+		return "RegexErrorVariableLengthLookbehind"
+	default:
+		return fmt.Sprintf("RegexError(%d)", e)
 	}
 }
 
 // SeekType wraps GSeekType
-// 
+//
 // see also https://docs.gtk.org/glib/enum.SeekType.html
 type SeekType C.int
 
 const (
 	// SeekCur wraps G_SEEK_CUR
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.SeekType.html#cur
 	SeekCur SeekType = 0
 	// SeekSet wraps G_SEEK_SET
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.SeekType.html#set
 	SeekSet SeekType = 1
 	// SeekEnd wraps G_SEEK_END
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.SeekType.html#end
 	SeekEnd SeekType = 2
 )
 
-
 func (e SeekType) String() string {
 	switch e {
-		case SeekCur: return "SeekCur"
-		case SeekEnd: return "SeekEnd"
-		case SeekSet: return "SeekSet"
-		default: return fmt.Sprintf("SeekType(%d)", e)
+	case SeekCur:
+		return "SeekCur"
+	case SeekEnd:
+		return "SeekEnd"
+	case SeekSet:
+		return "SeekSet"
+	default:
+		return fmt.Sprintf("SeekType(%d)", e)
 	}
 }
 
 // ShellError wraps GShellError
-// 
+//
 // see also https://docs.gtk.org/glib/enum.ShellError.html
 type ShellError C.int
 
 const (
 	// ShellErrorBadQuoting wraps G_SHELL_ERROR_BAD_QUOTING
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.ShellError.html#bad_quoting
 	ShellErrorBadQuoting ShellError = 0
 	// ShellErrorEmptyString wraps G_SHELL_ERROR_EMPTY_STRING
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.ShellError.html#empty_string
 	ShellErrorEmptyString ShellError = 1
 	// ShellErrorFailed wraps G_SHELL_ERROR_FAILED
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.ShellError.html#failed
 	ShellErrorFailed ShellError = 2
 )
 
-
 func (e ShellError) String() string {
 	switch e {
-		case ShellErrorBadQuoting: return "ShellErrorBadQuoting"
-		case ShellErrorEmptyString: return "ShellErrorEmptyString"
-		case ShellErrorFailed: return "ShellErrorFailed"
-		default: return fmt.Sprintf("ShellError(%d)", e)
+	case ShellErrorBadQuoting:
+		return "ShellErrorBadQuoting"
+	case ShellErrorEmptyString:
+		return "ShellErrorEmptyString"
+	case ShellErrorFailed:
+		return "ShellErrorFailed"
+	default:
+		return fmt.Sprintf("ShellError(%d)", e)
 	}
 }
 
 // SliceConfig wraps GSliceConfig
-// 
+//
 // see also https://docs.gtk.org/glib/enum.SliceConfig.html
 type SliceConfig C.int
 
 const (
 	// SliceConfigAlwaysMalloc wraps G_SLICE_CONFIG_ALWAYS_MALLOC
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.SliceConfig.html#always_malloc
 	SliceConfigAlwaysMalloc SliceConfig = 1
 	// SliceConfigBypassMagazines wraps G_SLICE_CONFIG_BYPASS_MAGAZINES
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.SliceConfig.html#bypass_magazines
 	SliceConfigBypassMagazines SliceConfig = 2
 	// SliceConfigWorkingSetMsecs wraps G_SLICE_CONFIG_WORKING_SET_MSECS
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.SliceConfig.html#working_set_msecs
 	SliceConfigWorkingSetMsecs SliceConfig = 3
 	// SliceConfigColorIncrement wraps G_SLICE_CONFIG_COLOR_INCREMENT
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.SliceConfig.html#color_increment
 	SliceConfigColorIncrement SliceConfig = 4
 	// SliceConfigChunkSizes wraps G_SLICE_CONFIG_CHUNK_SIZES
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.SliceConfig.html#chunk_sizes
 	SliceConfigChunkSizes SliceConfig = 5
 	// SliceConfigContentionCounter wraps G_SLICE_CONFIG_CONTENTION_COUNTER
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.SliceConfig.html#contention_counter
 	SliceConfigContentionCounter SliceConfig = 6
 )
 
-
 func (e SliceConfig) String() string {
 	switch e {
-		case SliceConfigAlwaysMalloc: return "SliceConfigAlwaysMalloc"
-		case SliceConfigBypassMagazines: return "SliceConfigBypassMagazines"
-		case SliceConfigChunkSizes: return "SliceConfigChunkSizes"
-		case SliceConfigColorIncrement: return "SliceConfigColorIncrement"
-		case SliceConfigContentionCounter: return "SliceConfigContentionCounter"
-		case SliceConfigWorkingSetMsecs: return "SliceConfigWorkingSetMsecs"
-		default: return fmt.Sprintf("SliceConfig(%d)", e)
+	case SliceConfigAlwaysMalloc:
+		return "SliceConfigAlwaysMalloc"
+	case SliceConfigBypassMagazines:
+		return "SliceConfigBypassMagazines"
+	case SliceConfigChunkSizes:
+		return "SliceConfigChunkSizes"
+	case SliceConfigColorIncrement:
+		return "SliceConfigColorIncrement"
+	case SliceConfigContentionCounter:
+		return "SliceConfigContentionCounter"
+	case SliceConfigWorkingSetMsecs:
+		return "SliceConfigWorkingSetMsecs"
+	default:
+		return fmt.Sprintf("SliceConfig(%d)", e)
 	}
 }
 
 // SpawnError wraps GSpawnError
-// 
+//
 // see also https://docs.gtk.org/glib/enum.SpawnError.html
 type SpawnError C.int
 
 const (
 	// SpawnErrorFork wraps G_SPAWN_ERROR_FORK
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.SpawnError.html#fork
 	SpawnErrorFork SpawnError = 0
 	// SpawnErrorRead wraps G_SPAWN_ERROR_READ
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.SpawnError.html#read
 	SpawnErrorRead SpawnError = 1
 	// SpawnErrorChdir wraps G_SPAWN_ERROR_CHDIR
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.SpawnError.html#chdir
 	SpawnErrorChdir SpawnError = 2
 	// SpawnErrorAcces wraps G_SPAWN_ERROR_ACCES
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.SpawnError.html#acces
 	SpawnErrorAcces SpawnError = 3
 	// SpawnErrorPerm wraps G_SPAWN_ERROR_PERM
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.SpawnError.html#perm
 	SpawnErrorPerm SpawnError = 4
 	// SpawnErrorTooBig wraps G_SPAWN_ERROR_TOO_BIG
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.SpawnError.html#too_big
 	SpawnErrorTooBig SpawnError = 5
 	// SpawnError2big wraps G_SPAWN_ERROR_2BIG
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.SpawnError.html#2big
 	SpawnError2big SpawnError = 5
 	// SpawnErrorNoexec wraps G_SPAWN_ERROR_NOEXEC
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.SpawnError.html#noexec
 	SpawnErrorNoexec SpawnError = 6
 	// SpawnErrorNametoolong wraps G_SPAWN_ERROR_NAMETOOLONG
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.SpawnError.html#nametoolong
 	SpawnErrorNametoolong SpawnError = 7
 	// SpawnErrorNoent wraps G_SPAWN_ERROR_NOENT
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.SpawnError.html#noent
 	SpawnErrorNoent SpawnError = 8
 	// SpawnErrorNomem wraps G_SPAWN_ERROR_NOMEM
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.SpawnError.html#nomem
 	SpawnErrorNomem SpawnError = 9
 	// SpawnErrorNotdir wraps G_SPAWN_ERROR_NOTDIR
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.SpawnError.html#notdir
 	SpawnErrorNotdir SpawnError = 10
 	// SpawnErrorLoop wraps G_SPAWN_ERROR_LOOP
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.SpawnError.html#loop
 	SpawnErrorLoop SpawnError = 11
 	// SpawnErrorTxtbusy wraps G_SPAWN_ERROR_TXTBUSY
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.SpawnError.html#txtbusy
 	SpawnErrorTxtbusy SpawnError = 12
 	// SpawnErrorIO wraps G_SPAWN_ERROR_IO
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.SpawnError.html#io
 	SpawnErrorIO SpawnError = 13
 	// SpawnErrorNfile wraps G_SPAWN_ERROR_NFILE
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.SpawnError.html#nfile
 	SpawnErrorNfile SpawnError = 14
 	// SpawnErrorMfile wraps G_SPAWN_ERROR_MFILE
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.SpawnError.html#mfile
 	SpawnErrorMfile SpawnError = 15
 	// SpawnErrorInval wraps G_SPAWN_ERROR_INVAL
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.SpawnError.html#inval
 	SpawnErrorInval SpawnError = 16
 	// SpawnErrorIsdir wraps G_SPAWN_ERROR_ISDIR
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.SpawnError.html#isdir
 	SpawnErrorIsdir SpawnError = 17
 	// SpawnErrorLibbad wraps G_SPAWN_ERROR_LIBBAD
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.SpawnError.html#libbad
 	SpawnErrorLibbad SpawnError = 18
 	// SpawnErrorFailed wraps G_SPAWN_ERROR_FAILED
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.SpawnError.html#failed
 	SpawnErrorFailed SpawnError = 19
 )
 
-
 func (e SpawnError) String() string {
 	switch e {
-		case SpawnErrorAcces: return "SpawnErrorAcces"
-		case SpawnErrorChdir: return "SpawnErrorChdir"
-		case SpawnErrorFailed: return "SpawnErrorFailed"
-		case SpawnErrorFork: return "SpawnErrorFork"
-		case SpawnErrorIO: return "SpawnErrorIO"
-		case SpawnErrorInval: return "SpawnErrorInval"
-		case SpawnErrorIsdir: return "SpawnErrorIsdir"
-		case SpawnErrorLibbad: return "SpawnErrorLibbad"
-		case SpawnErrorLoop: return "SpawnErrorLoop"
-		case SpawnErrorMfile: return "SpawnErrorMfile"
-		case SpawnErrorNametoolong: return "SpawnErrorNametoolong"
-		case SpawnErrorNfile: return "SpawnErrorNfile"
-		case SpawnErrorNoent: return "SpawnErrorNoent"
-		case SpawnErrorNoexec: return "SpawnErrorNoexec"
-		case SpawnErrorNomem: return "SpawnErrorNomem"
-		case SpawnErrorNotdir: return "SpawnErrorNotdir"
-		case SpawnErrorPerm: return "SpawnErrorPerm"
-		case SpawnErrorRead: return "SpawnErrorRead"
-		case SpawnErrorTooBig: return "SpawnErrorTooBig"
-		case SpawnErrorTxtbusy: return "SpawnErrorTxtbusy"
-		default: return fmt.Sprintf("SpawnError(%d)", e)
+	case SpawnErrorAcces:
+		return "SpawnErrorAcces"
+	case SpawnErrorChdir:
+		return "SpawnErrorChdir"
+	case SpawnErrorFailed:
+		return "SpawnErrorFailed"
+	case SpawnErrorFork:
+		return "SpawnErrorFork"
+	case SpawnErrorIO:
+		return "SpawnErrorIO"
+	case SpawnErrorInval:
+		return "SpawnErrorInval"
+	case SpawnErrorIsdir:
+		return "SpawnErrorIsdir"
+	case SpawnErrorLibbad:
+		return "SpawnErrorLibbad"
+	case SpawnErrorLoop:
+		return "SpawnErrorLoop"
+	case SpawnErrorMfile:
+		return "SpawnErrorMfile"
+	case SpawnErrorNametoolong:
+		return "SpawnErrorNametoolong"
+	case SpawnErrorNfile:
+		return "SpawnErrorNfile"
+	case SpawnErrorNoent:
+		return "SpawnErrorNoent"
+	case SpawnErrorNoexec:
+		return "SpawnErrorNoexec"
+	case SpawnErrorNomem:
+		return "SpawnErrorNomem"
+	case SpawnErrorNotdir:
+		return "SpawnErrorNotdir"
+	case SpawnErrorPerm:
+		return "SpawnErrorPerm"
+	case SpawnErrorRead:
+		return "SpawnErrorRead"
+	case SpawnErrorTooBig:
+		return "SpawnErrorTooBig"
+	case SpawnErrorTxtbusy:
+		return "SpawnErrorTxtbusy"
+	default:
+		return fmt.Sprintf("SpawnError(%d)", e)
 	}
 }
 
 // TestFileType wraps GTestFileType
-// 
+//
 // see also https://docs.gtk.org/glib/enum.TestFileType.html
 type TestFileType C.int
 
 const (
 	// TestDist wraps G_TEST_DIST
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.TestFileType.html#dist
 	TestDist TestFileType = 0
 	// TestBuilt wraps G_TEST_BUILT
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.TestFileType.html#built
 	TestBuilt TestFileType = 1
 )
 
-
 func (e TestFileType) String() string {
 	switch e {
-		case TestBuilt: return "TestBuilt"
-		case TestDist: return "TestDist"
-		default: return fmt.Sprintf("TestFileType(%d)", e)
+	case TestBuilt:
+		return "TestBuilt"
+	case TestDist:
+		return "TestDist"
+	default:
+		return fmt.Sprintf("TestFileType(%d)", e)
 	}
 }
 
 // TestLogType wraps GTestLogType
-// 
+//
 // see also https://docs.gtk.org/glib/enum.TestLogType.html
 type TestLogType C.int
 
 const (
 	// TestLogNone wraps G_TEST_LOG_NONE
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.TestLogType.html#none
 	TestLogNone TestLogType = 0
 	// TestLogError wraps G_TEST_LOG_ERROR
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.TestLogType.html#error
 	TestLogError TestLogType = 1
 	// TestLogStartBinary wraps G_TEST_LOG_START_BINARY
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.TestLogType.html#start_binary
 	TestLogStartBinary TestLogType = 2
 	// TestLogListCase wraps G_TEST_LOG_LIST_CASE
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.TestLogType.html#list_case
 	TestLogListCase TestLogType = 3
 	// TestLogSkipCase wraps G_TEST_LOG_SKIP_CASE
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.TestLogType.html#skip_case
 	TestLogSkipCase TestLogType = 4
 	// TestLogStartCase wraps G_TEST_LOG_START_CASE
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.TestLogType.html#start_case
 	TestLogStartCase TestLogType = 5
 	// TestLogStopCase wraps G_TEST_LOG_STOP_CASE
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.TestLogType.html#stop_case
 	TestLogStopCase TestLogType = 6
 	// TestLogMinResult wraps G_TEST_LOG_MIN_RESULT
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.TestLogType.html#min_result
 	TestLogMinResult TestLogType = 7
 	// TestLogMaxResult wraps G_TEST_LOG_MAX_RESULT
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.TestLogType.html#max_result
 	TestLogMaxResult TestLogType = 8
 	// TestLogMessage wraps G_TEST_LOG_MESSAGE
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.TestLogType.html#message
 	TestLogMessage TestLogType = 9
 	// TestLogStartSuite wraps G_TEST_LOG_START_SUITE
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.TestLogType.html#start_suite
 	TestLogStartSuite TestLogType = 10
 	// TestLogStopSuite wraps G_TEST_LOG_STOP_SUITE
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.TestLogType.html#stop_suite
 	TestLogStopSuite TestLogType = 11
 )
 
-
 func (e TestLogType) String() string {
 	switch e {
-		case TestLogError: return "TestLogError"
-		case TestLogListCase: return "TestLogListCase"
-		case TestLogMaxResult: return "TestLogMaxResult"
-		case TestLogMessage: return "TestLogMessage"
-		case TestLogMinResult: return "TestLogMinResult"
-		case TestLogNone: return "TestLogNone"
-		case TestLogSkipCase: return "TestLogSkipCase"
-		case TestLogStartBinary: return "TestLogStartBinary"
-		case TestLogStartCase: return "TestLogStartCase"
-		case TestLogStartSuite: return "TestLogStartSuite"
-		case TestLogStopCase: return "TestLogStopCase"
-		case TestLogStopSuite: return "TestLogStopSuite"
-		default: return fmt.Sprintf("TestLogType(%d)", e)
+	case TestLogError:
+		return "TestLogError"
+	case TestLogListCase:
+		return "TestLogListCase"
+	case TestLogMaxResult:
+		return "TestLogMaxResult"
+	case TestLogMessage:
+		return "TestLogMessage"
+	case TestLogMinResult:
+		return "TestLogMinResult"
+	case TestLogNone:
+		return "TestLogNone"
+	case TestLogSkipCase:
+		return "TestLogSkipCase"
+	case TestLogStartBinary:
+		return "TestLogStartBinary"
+	case TestLogStartCase:
+		return "TestLogStartCase"
+	case TestLogStartSuite:
+		return "TestLogStartSuite"
+	case TestLogStopCase:
+		return "TestLogStopCase"
+	case TestLogStopSuite:
+		return "TestLogStopSuite"
+	default:
+		return fmt.Sprintf("TestLogType(%d)", e)
 	}
 }
 
 // TestResult wraps GTestResult
-// 
+//
 // see also https://docs.gtk.org/glib/enum.TestResult.html
 type TestResult C.int
 
 const (
 	// TestRunSuccess wraps G_TEST_RUN_SUCCESS
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.TestResult.html#success
 	TestRunSuccess TestResult = 0
 	// TestRunSkipped wraps G_TEST_RUN_SKIPPED
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.TestResult.html#skipped
 	TestRunSkipped TestResult = 1
 	// TestRunFailure wraps G_TEST_RUN_FAILURE
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.TestResult.html#failure
 	TestRunFailure TestResult = 2
 	// TestRunIncomplete wraps G_TEST_RUN_INCOMPLETE
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.TestResult.html#incomplete
 	TestRunIncomplete TestResult = 3
 )
 
-
 func (e TestResult) String() string {
 	switch e {
-		case TestRunFailure: return "TestRunFailure"
-		case TestRunIncomplete: return "TestRunIncomplete"
-		case TestRunSkipped: return "TestRunSkipped"
-		case TestRunSuccess: return "TestRunSuccess"
-		default: return fmt.Sprintf("TestResult(%d)", e)
+	case TestRunFailure:
+		return "TestRunFailure"
+	case TestRunIncomplete:
+		return "TestRunIncomplete"
+	case TestRunSkipped:
+		return "TestRunSkipped"
+	case TestRunSuccess:
+		return "TestRunSuccess"
+	default:
+		return fmt.Sprintf("TestResult(%d)", e)
 	}
 }
 
 // ThreadError wraps GThreadError
-// 
+//
 // see also https://docs.gtk.org/glib/enum.ThreadError.html
 type ThreadError C.int
 
 const (
 	// ThreadErrorAgain wraps G_THREAD_ERROR_AGAIN
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.ThreadError.html#thread_error_again
 	ThreadErrorAgain ThreadError = 0
 )
 
-
 func (e ThreadError) String() string {
 	switch e {
-		case ThreadErrorAgain: return "ThreadErrorAgain"
-		default: return fmt.Sprintf("ThreadError(%d)", e)
+	case ThreadErrorAgain:
+		return "ThreadErrorAgain"
+	default:
+		return fmt.Sprintf("ThreadError(%d)", e)
 	}
 }
 
 // TimeType wraps GTimeType
-// 
+//
 // see also https://docs.gtk.org/glib/enum.TimeType.html
 type TimeType C.int
 
 const (
 	// TimeTypeStandard wraps G_TIME_TYPE_STANDARD
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.TimeType.html#standard
 	TimeTypeStandard TimeType = 0
 	// TimeTypeDaylight wraps G_TIME_TYPE_DAYLIGHT
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.TimeType.html#daylight
 	TimeTypeDaylight TimeType = 1
 	// TimeTypeUniversal wraps G_TIME_TYPE_UNIVERSAL
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.TimeType.html#universal
 	TimeTypeUniversal TimeType = 2
 )
 
-
 func (e TimeType) String() string {
 	switch e {
-		case TimeTypeDaylight: return "TimeTypeDaylight"
-		case TimeTypeStandard: return "TimeTypeStandard"
-		case TimeTypeUniversal: return "TimeTypeUniversal"
-		default: return fmt.Sprintf("TimeType(%d)", e)
+	case TimeTypeDaylight:
+		return "TimeTypeDaylight"
+	case TimeTypeStandard:
+		return "TimeTypeStandard"
+	case TimeTypeUniversal:
+		return "TimeTypeUniversal"
+	default:
+		return fmt.Sprintf("TimeType(%d)", e)
 	}
 }
 
 // TokenType wraps GTokenType
-// 
+//
 // see also https://docs.gtk.org/glib/enum.TokenType.html
 type TokenType C.int
 
 const (
 	// TokenEOF wraps G_TOKEN_EOF
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.TokenType.html#eof
 	TokenEOF TokenType = 0
 	// TokenLeftParen wraps G_TOKEN_LEFT_PAREN
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.TokenType.html#left_paren
 	TokenLeftParen TokenType = 40
 	// TokenRightParen wraps G_TOKEN_RIGHT_PAREN
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.TokenType.html#right_paren
 	TokenRightParen TokenType = 41
 	// TokenLeftCurly wraps G_TOKEN_LEFT_CURLY
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.TokenType.html#left_curly
 	TokenLeftCurly TokenType = 123
 	// TokenRightCurly wraps G_TOKEN_RIGHT_CURLY
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.TokenType.html#right_curly
 	TokenRightCurly TokenType = 125
 	// TokenLeftBrace wraps G_TOKEN_LEFT_BRACE
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.TokenType.html#left_brace
 	TokenLeftBrace TokenType = 91
 	// TokenRightBrace wraps G_TOKEN_RIGHT_BRACE
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.TokenType.html#right_brace
 	TokenRightBrace TokenType = 93
 	// TokenEqualSign wraps G_TOKEN_EQUAL_SIGN
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.TokenType.html#equal_sign
 	TokenEqualSign TokenType = 61
 	// TokenComma wraps G_TOKEN_COMMA
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.TokenType.html#comma
 	TokenComma TokenType = 44
 	// TokenNone wraps G_TOKEN_NONE
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.TokenType.html#none
 	TokenNone TokenType = 256
 	// TokenError wraps G_TOKEN_ERROR
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.TokenType.html#error
 	TokenError TokenType = 257
 	// TokenChar wraps G_TOKEN_CHAR
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.TokenType.html#char
 	TokenChar TokenType = 258
 	// TokenBinary wraps G_TOKEN_BINARY
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.TokenType.html#binary
 	TokenBinary TokenType = 259
 	// TokenOctal wraps G_TOKEN_OCTAL
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.TokenType.html#octal
 	TokenOctal TokenType = 260
 	// TokenInt wraps G_TOKEN_INT
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.TokenType.html#int
 	TokenInt TokenType = 261
 	// TokenHex wraps G_TOKEN_HEX
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.TokenType.html#hex
 	TokenHex TokenType = 262
 	// TokenFloat wraps G_TOKEN_FLOAT
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.TokenType.html#float
 	TokenFloat TokenType = 263
 	// TokenString wraps G_TOKEN_STRING
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.TokenType.html#string
 	TokenString TokenType = 264
 	// TokenSymbol wraps G_TOKEN_SYMBOL
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.TokenType.html#symbol
 	TokenSymbol TokenType = 265
 	// TokenIdentifier wraps G_TOKEN_IDENTIFIER
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.TokenType.html#identifier
 	TokenIdentifier TokenType = 266
 	// TokenIdentifierNull wraps G_TOKEN_IDENTIFIER_NULL
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.TokenType.html#identifier_null
 	TokenIdentifierNull TokenType = 267
 	// TokenCommentSingle wraps G_TOKEN_COMMENT_SINGLE
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.TokenType.html#comment_single
 	TokenCommentSingle TokenType = 268
 	// TokenCommentMulti wraps G_TOKEN_COMMENT_MULTI
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.TokenType.html#comment_multi
 	TokenCommentMulti TokenType = 269
 )
 
-
 func (e TokenType) String() string {
 	switch e {
-		case TokenBinary: return "TokenBinary"
-		case TokenChar: return "TokenChar"
-		case TokenComma: return "TokenComma"
-		case TokenCommentMulti: return "TokenCommentMulti"
-		case TokenCommentSingle: return "TokenCommentSingle"
-		case TokenEOF: return "TokenEOF"
-		case TokenEqualSign: return "TokenEqualSign"
-		case TokenError: return "TokenError"
-		case TokenFloat: return "TokenFloat"
-		case TokenHex: return "TokenHex"
-		case TokenIdentifier: return "TokenIdentifier"
-		case TokenIdentifierNull: return "TokenIdentifierNull"
-		case TokenInt: return "TokenInt"
-		case TokenLeftBrace: return "TokenLeftBrace"
-		case TokenLeftCurly: return "TokenLeftCurly"
-		case TokenLeftParen: return "TokenLeftParen"
-		case TokenNone: return "TokenNone"
-		case TokenOctal: return "TokenOctal"
-		case TokenRightBrace: return "TokenRightBrace"
-		case TokenRightCurly: return "TokenRightCurly"
-		case TokenRightParen: return "TokenRightParen"
-		case TokenString: return "TokenString"
-		case TokenSymbol: return "TokenSymbol"
-		default: return fmt.Sprintf("TokenType(%d)", e)
+	case TokenBinary:
+		return "TokenBinary"
+	case TokenChar:
+		return "TokenChar"
+	case TokenComma:
+		return "TokenComma"
+	case TokenCommentMulti:
+		return "TokenCommentMulti"
+	case TokenCommentSingle:
+		return "TokenCommentSingle"
+	case TokenEOF:
+		return "TokenEOF"
+	case TokenEqualSign:
+		return "TokenEqualSign"
+	case TokenError:
+		return "TokenError"
+	case TokenFloat:
+		return "TokenFloat"
+	case TokenHex:
+		return "TokenHex"
+	case TokenIdentifier:
+		return "TokenIdentifier"
+	case TokenIdentifierNull:
+		return "TokenIdentifierNull"
+	case TokenInt:
+		return "TokenInt"
+	case TokenLeftBrace:
+		return "TokenLeftBrace"
+	case TokenLeftCurly:
+		return "TokenLeftCurly"
+	case TokenLeftParen:
+		return "TokenLeftParen"
+	case TokenNone:
+		return "TokenNone"
+	case TokenOctal:
+		return "TokenOctal"
+	case TokenRightBrace:
+		return "TokenRightBrace"
+	case TokenRightCurly:
+		return "TokenRightCurly"
+	case TokenRightParen:
+		return "TokenRightParen"
+	case TokenString:
+		return "TokenString"
+	case TokenSymbol:
+		return "TokenSymbol"
+	default:
+		return fmt.Sprintf("TokenType(%d)", e)
 	}
 }
 
 // TraverseType wraps GTraverseType
-// 
+//
 // see also https://docs.gtk.org/glib/enum.TraverseType.html
 type TraverseType C.int
 
 const (
 	// InOrder wraps G_IN_ORDER
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.TraverseType.html#in_order
 	InOrder TraverseType = 0
 	// PreOrder wraps G_PRE_ORDER
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.TraverseType.html#pre_order
 	PreOrder TraverseType = 1
 	// PostOrder wraps G_POST_ORDER
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.TraverseType.html#post_order
 	PostOrder TraverseType = 2
 	// LevelOrder wraps G_LEVEL_ORDER
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.TraverseType.html#level_order
 	LevelOrder TraverseType = 3
 )
 
-
 func (e TraverseType) String() string {
 	switch e {
-		case InOrder: return "InOrder"
-		case LevelOrder: return "LevelOrder"
-		case PostOrder: return "PostOrder"
-		case PreOrder: return "PreOrder"
-		default: return fmt.Sprintf("TraverseType(%d)", e)
+	case InOrder:
+		return "InOrder"
+	case LevelOrder:
+		return "LevelOrder"
+	case PostOrder:
+		return "PostOrder"
+	case PreOrder:
+		return "PreOrder"
+	default:
+		return fmt.Sprintf("TraverseType(%d)", e)
 	}
 }
 
 // UnicodeBreakType wraps GUnicodeBreakType
-// 
+//
 // see also https://docs.gtk.org/glib/enum.UnicodeBreakType.html
 type UnicodeBreakType C.int
 
 const (
 	// UnicodeBreakMandatory wraps G_UNICODE_BREAK_MANDATORY
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.UnicodeBreakType.html#mandatory
 	UnicodeBreakMandatory UnicodeBreakType = 0
 	// UnicodeBreakCarriageReturn wraps G_UNICODE_BREAK_CARRIAGE_RETURN
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.UnicodeBreakType.html#carriage_return
 	UnicodeBreakCarriageReturn UnicodeBreakType = 1
 	// UnicodeBreakLineFeed wraps G_UNICODE_BREAK_LINE_FEED
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.UnicodeBreakType.html#line_feed
 	UnicodeBreakLineFeed UnicodeBreakType = 2
 	// UnicodeBreakCombiningMark wraps G_UNICODE_BREAK_COMBINING_MARK
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.UnicodeBreakType.html#combining_mark
 	UnicodeBreakCombiningMark UnicodeBreakType = 3
 	// UnicodeBreakSurrogate wraps G_UNICODE_BREAK_SURROGATE
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.UnicodeBreakType.html#surrogate
 	UnicodeBreakSurrogate UnicodeBreakType = 4
 	// UnicodeBreakZeroWidthSpace wraps G_UNICODE_BREAK_ZERO_WIDTH_SPACE
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.UnicodeBreakType.html#zero_width_space
 	UnicodeBreakZeroWidthSpace UnicodeBreakType = 5
 	// UnicodeBreakInseparable wraps G_UNICODE_BREAK_INSEPARABLE
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.UnicodeBreakType.html#inseparable
 	UnicodeBreakInseparable UnicodeBreakType = 6
 	// UnicodeBreakNonBreakingGlue wraps G_UNICODE_BREAK_NON_BREAKING_GLUE
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.UnicodeBreakType.html#non_breaking_glue
 	UnicodeBreakNonBreakingGlue UnicodeBreakType = 7
 	// UnicodeBreakContingent wraps G_UNICODE_BREAK_CONTINGENT
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.UnicodeBreakType.html#contingent
 	UnicodeBreakContingent UnicodeBreakType = 8
 	// UnicodeBreakSpace wraps G_UNICODE_BREAK_SPACE
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.UnicodeBreakType.html#space
 	UnicodeBreakSpace UnicodeBreakType = 9
 	// UnicodeBreakAfter wraps G_UNICODE_BREAK_AFTER
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.UnicodeBreakType.html#after
 	UnicodeBreakAfter UnicodeBreakType = 10
 	// UnicodeBreakBefore wraps G_UNICODE_BREAK_BEFORE
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.UnicodeBreakType.html#before
 	UnicodeBreakBefore UnicodeBreakType = 11
 	// UnicodeBreakBeforeAndAfter wraps G_UNICODE_BREAK_BEFORE_AND_AFTER
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.UnicodeBreakType.html#before_and_after
 	UnicodeBreakBeforeAndAfter UnicodeBreakType = 12
 	// UnicodeBreakHyphen wraps G_UNICODE_BREAK_HYPHEN
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.UnicodeBreakType.html#hyphen
 	UnicodeBreakHyphen UnicodeBreakType = 13
 	// UnicodeBreakNonStarter wraps G_UNICODE_BREAK_NON_STARTER
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.UnicodeBreakType.html#non_starter
 	UnicodeBreakNonStarter UnicodeBreakType = 14
 	// UnicodeBreakOpenPunctuation wraps G_UNICODE_BREAK_OPEN_PUNCTUATION
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.UnicodeBreakType.html#open_punctuation
 	UnicodeBreakOpenPunctuation UnicodeBreakType = 15
 	// UnicodeBreakClosePunctuation wraps G_UNICODE_BREAK_CLOSE_PUNCTUATION
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.UnicodeBreakType.html#close_punctuation
 	UnicodeBreakClosePunctuation UnicodeBreakType = 16
 	// UnicodeBreakQuotation wraps G_UNICODE_BREAK_QUOTATION
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.UnicodeBreakType.html#quotation
 	UnicodeBreakQuotation UnicodeBreakType = 17
 	// UnicodeBreakExclamation wraps G_UNICODE_BREAK_EXCLAMATION
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.UnicodeBreakType.html#exclamation
 	UnicodeBreakExclamation UnicodeBreakType = 18
 	// UnicodeBreakIdeographic wraps G_UNICODE_BREAK_IDEOGRAPHIC
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.UnicodeBreakType.html#ideographic
 	UnicodeBreakIdeographic UnicodeBreakType = 19
 	// UnicodeBreakNumeric wraps G_UNICODE_BREAK_NUMERIC
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.UnicodeBreakType.html#numeric
 	UnicodeBreakNumeric UnicodeBreakType = 20
 	// UnicodeBreakInfixSeparator wraps G_UNICODE_BREAK_INFIX_SEPARATOR
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.UnicodeBreakType.html#infix_separator
 	UnicodeBreakInfixSeparator UnicodeBreakType = 21
 	// UnicodeBreakSymbol wraps G_UNICODE_BREAK_SYMBOL
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.UnicodeBreakType.html#symbol
 	UnicodeBreakSymbol UnicodeBreakType = 22
 	// UnicodeBreakAlphabetic wraps G_UNICODE_BREAK_ALPHABETIC
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.UnicodeBreakType.html#alphabetic
 	UnicodeBreakAlphabetic UnicodeBreakType = 23
 	// UnicodeBreakPrefix wraps G_UNICODE_BREAK_PREFIX
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.UnicodeBreakType.html#prefix
 	UnicodeBreakPrefix UnicodeBreakType = 24
 	// UnicodeBreakPostfix wraps G_UNICODE_BREAK_POSTFIX
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.UnicodeBreakType.html#postfix
 	UnicodeBreakPostfix UnicodeBreakType = 25
 	// UnicodeBreakComplexContext wraps G_UNICODE_BREAK_COMPLEX_CONTEXT
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.UnicodeBreakType.html#complex_context
 	UnicodeBreakComplexContext UnicodeBreakType = 26
 	// UnicodeBreakAmbiguous wraps G_UNICODE_BREAK_AMBIGUOUS
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.UnicodeBreakType.html#ambiguous
 	UnicodeBreakAmbiguous UnicodeBreakType = 27
 	// UnicodeBreakUnknown wraps G_UNICODE_BREAK_UNKNOWN
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.UnicodeBreakType.html#unknown
 	UnicodeBreakUnknown UnicodeBreakType = 28
 	// UnicodeBreakNextLine wraps G_UNICODE_BREAK_NEXT_LINE
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.UnicodeBreakType.html#next_line
 	UnicodeBreakNextLine UnicodeBreakType = 29
 	// UnicodeBreakWordJoiner wraps G_UNICODE_BREAK_WORD_JOINER
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.UnicodeBreakType.html#word_joiner
 	UnicodeBreakWordJoiner UnicodeBreakType = 30
 	// UnicodeBreakHangulLJamo wraps G_UNICODE_BREAK_HANGUL_L_JAMO
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.UnicodeBreakType.html#hangul_l_jamo
 	UnicodeBreakHangulLJamo UnicodeBreakType = 31
 	// UnicodeBreakHangulVJamo wraps G_UNICODE_BREAK_HANGUL_V_JAMO
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.UnicodeBreakType.html#hangul_v_jamo
 	UnicodeBreakHangulVJamo UnicodeBreakType = 32
 	// UnicodeBreakHangulTJamo wraps G_UNICODE_BREAK_HANGUL_T_JAMO
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.UnicodeBreakType.html#hangul_t_jamo
 	UnicodeBreakHangulTJamo UnicodeBreakType = 33
 	// UnicodeBreakHangulLvSyllable wraps G_UNICODE_BREAK_HANGUL_LV_SYLLABLE
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.UnicodeBreakType.html#hangul_lv_syllable
 	UnicodeBreakHangulLvSyllable UnicodeBreakType = 34
 	// UnicodeBreakHangulLvtSyllable wraps G_UNICODE_BREAK_HANGUL_LVT_SYLLABLE
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.UnicodeBreakType.html#hangul_lvt_syllable
 	UnicodeBreakHangulLvtSyllable UnicodeBreakType = 35
 	// UnicodeBreakCloseParanthesis wraps G_UNICODE_BREAK_CLOSE_PARANTHESIS
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.UnicodeBreakType.html#close_paranthesis
 	UnicodeBreakCloseParanthesis UnicodeBreakType = 36
 	// UnicodeBreakCloseParenthesis wraps G_UNICODE_BREAK_CLOSE_PARENTHESIS
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.UnicodeBreakType.html#close_parenthesis
 	UnicodeBreakCloseParenthesis UnicodeBreakType = 36
 	// UnicodeBreakConditionalJapaneseStarter wraps G_UNICODE_BREAK_CONDITIONAL_JAPANESE_STARTER
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.UnicodeBreakType.html#conditional_japanese_starter
 	UnicodeBreakConditionalJapaneseStarter UnicodeBreakType = 37
 	// UnicodeBreakHebrewLetter wraps G_UNICODE_BREAK_HEBREW_LETTER
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.UnicodeBreakType.html#hebrew_letter
 	UnicodeBreakHebrewLetter UnicodeBreakType = 38
 	// UnicodeBreakRegionalIndicator wraps G_UNICODE_BREAK_REGIONAL_INDICATOR
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.UnicodeBreakType.html#regional_indicator
 	UnicodeBreakRegionalIndicator UnicodeBreakType = 39
 	// UnicodeBreakEmojiBase wraps G_UNICODE_BREAK_EMOJI_BASE
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.UnicodeBreakType.html#emoji_base
 	UnicodeBreakEmojiBase UnicodeBreakType = 40
 	// UnicodeBreakEmojiModifier wraps G_UNICODE_BREAK_EMOJI_MODIFIER
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.UnicodeBreakType.html#emoji_modifier
 	UnicodeBreakEmojiModifier UnicodeBreakType = 41
 	// UnicodeBreakZeroWidthJoiner wraps G_UNICODE_BREAK_ZERO_WIDTH_JOINER
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.UnicodeBreakType.html#zero_width_joiner
 	UnicodeBreakZeroWidthJoiner UnicodeBreakType = 42
 	// UnicodeBreakAksara wraps G_UNICODE_BREAK_AKSARA
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.UnicodeBreakType.html#aksara
 	UnicodeBreakAksara UnicodeBreakType = 43
 	// UnicodeBreakAksaraPreBase wraps G_UNICODE_BREAK_AKSARA_PRE_BASE
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.UnicodeBreakType.html#aksara_pre_base
 	UnicodeBreakAksaraPreBase UnicodeBreakType = 44
 	// UnicodeBreakAksaraStart wraps G_UNICODE_BREAK_AKSARA_START
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.UnicodeBreakType.html#aksara_start
 	UnicodeBreakAksaraStart UnicodeBreakType = 45
 	// UnicodeBreakViramaFinal wraps G_UNICODE_BREAK_VIRAMA_FINAL
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.UnicodeBreakType.html#virama_final
 	UnicodeBreakViramaFinal UnicodeBreakType = 46
 	// UnicodeBreakVirama wraps G_UNICODE_BREAK_VIRAMA
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.UnicodeBreakType.html#virama
 	UnicodeBreakVirama UnicodeBreakType = 47
 )
 
-
 func (e UnicodeBreakType) String() string {
 	switch e {
-		case UnicodeBreakAfter: return "UnicodeBreakAfter"
-		case UnicodeBreakAksara: return "UnicodeBreakAksara"
-		case UnicodeBreakAksaraPreBase: return "UnicodeBreakAksaraPreBase"
-		case UnicodeBreakAksaraStart: return "UnicodeBreakAksaraStart"
-		case UnicodeBreakAlphabetic: return "UnicodeBreakAlphabetic"
-		case UnicodeBreakAmbiguous: return "UnicodeBreakAmbiguous"
-		case UnicodeBreakBefore: return "UnicodeBreakBefore"
-		case UnicodeBreakBeforeAndAfter: return "UnicodeBreakBeforeAndAfter"
-		case UnicodeBreakCarriageReturn: return "UnicodeBreakCarriageReturn"
-		case UnicodeBreakCloseParanthesis: return "UnicodeBreakCloseParanthesis"
-		case UnicodeBreakClosePunctuation: return "UnicodeBreakClosePunctuation"
-		case UnicodeBreakCombiningMark: return "UnicodeBreakCombiningMark"
-		case UnicodeBreakComplexContext: return "UnicodeBreakComplexContext"
-		case UnicodeBreakConditionalJapaneseStarter: return "UnicodeBreakConditionalJapaneseStarter"
-		case UnicodeBreakContingent: return "UnicodeBreakContingent"
-		case UnicodeBreakEmojiBase: return "UnicodeBreakEmojiBase"
-		case UnicodeBreakEmojiModifier: return "UnicodeBreakEmojiModifier"
-		case UnicodeBreakExclamation: return "UnicodeBreakExclamation"
-		case UnicodeBreakHangulLJamo: return "UnicodeBreakHangulLJamo"
-		case UnicodeBreakHangulLvSyllable: return "UnicodeBreakHangulLvSyllable"
-		case UnicodeBreakHangulLvtSyllable: return "UnicodeBreakHangulLvtSyllable"
-		case UnicodeBreakHangulTJamo: return "UnicodeBreakHangulTJamo"
-		case UnicodeBreakHangulVJamo: return "UnicodeBreakHangulVJamo"
-		case UnicodeBreakHebrewLetter: return "UnicodeBreakHebrewLetter"
-		case UnicodeBreakHyphen: return "UnicodeBreakHyphen"
-		case UnicodeBreakIdeographic: return "UnicodeBreakIdeographic"
-		case UnicodeBreakInfixSeparator: return "UnicodeBreakInfixSeparator"
-		case UnicodeBreakInseparable: return "UnicodeBreakInseparable"
-		case UnicodeBreakLineFeed: return "UnicodeBreakLineFeed"
-		case UnicodeBreakMandatory: return "UnicodeBreakMandatory"
-		case UnicodeBreakNextLine: return "UnicodeBreakNextLine"
-		case UnicodeBreakNonBreakingGlue: return "UnicodeBreakNonBreakingGlue"
-		case UnicodeBreakNonStarter: return "UnicodeBreakNonStarter"
-		case UnicodeBreakNumeric: return "UnicodeBreakNumeric"
-		case UnicodeBreakOpenPunctuation: return "UnicodeBreakOpenPunctuation"
-		case UnicodeBreakPostfix: return "UnicodeBreakPostfix"
-		case UnicodeBreakPrefix: return "UnicodeBreakPrefix"
-		case UnicodeBreakQuotation: return "UnicodeBreakQuotation"
-		case UnicodeBreakRegionalIndicator: return "UnicodeBreakRegionalIndicator"
-		case UnicodeBreakSpace: return "UnicodeBreakSpace"
-		case UnicodeBreakSurrogate: return "UnicodeBreakSurrogate"
-		case UnicodeBreakSymbol: return "UnicodeBreakSymbol"
-		case UnicodeBreakUnknown: return "UnicodeBreakUnknown"
-		case UnicodeBreakVirama: return "UnicodeBreakVirama"
-		case UnicodeBreakViramaFinal: return "UnicodeBreakViramaFinal"
-		case UnicodeBreakWordJoiner: return "UnicodeBreakWordJoiner"
-		case UnicodeBreakZeroWidthJoiner: return "UnicodeBreakZeroWidthJoiner"
-		case UnicodeBreakZeroWidthSpace: return "UnicodeBreakZeroWidthSpace"
-		default: return fmt.Sprintf("UnicodeBreakType(%d)", e)
+	case UnicodeBreakAfter:
+		return "UnicodeBreakAfter"
+	case UnicodeBreakAksara:
+		return "UnicodeBreakAksara"
+	case UnicodeBreakAksaraPreBase:
+		return "UnicodeBreakAksaraPreBase"
+	case UnicodeBreakAksaraStart:
+		return "UnicodeBreakAksaraStart"
+	case UnicodeBreakAlphabetic:
+		return "UnicodeBreakAlphabetic"
+	case UnicodeBreakAmbiguous:
+		return "UnicodeBreakAmbiguous"
+	case UnicodeBreakBefore:
+		return "UnicodeBreakBefore"
+	case UnicodeBreakBeforeAndAfter:
+		return "UnicodeBreakBeforeAndAfter"
+	case UnicodeBreakCarriageReturn:
+		return "UnicodeBreakCarriageReturn"
+	case UnicodeBreakCloseParanthesis:
+		return "UnicodeBreakCloseParanthesis"
+	case UnicodeBreakClosePunctuation:
+		return "UnicodeBreakClosePunctuation"
+	case UnicodeBreakCombiningMark:
+		return "UnicodeBreakCombiningMark"
+	case UnicodeBreakComplexContext:
+		return "UnicodeBreakComplexContext"
+	case UnicodeBreakConditionalJapaneseStarter:
+		return "UnicodeBreakConditionalJapaneseStarter"
+	case UnicodeBreakContingent:
+		return "UnicodeBreakContingent"
+	case UnicodeBreakEmojiBase:
+		return "UnicodeBreakEmojiBase"
+	case UnicodeBreakEmojiModifier:
+		return "UnicodeBreakEmojiModifier"
+	case UnicodeBreakExclamation:
+		return "UnicodeBreakExclamation"
+	case UnicodeBreakHangulLJamo:
+		return "UnicodeBreakHangulLJamo"
+	case UnicodeBreakHangulLvSyllable:
+		return "UnicodeBreakHangulLvSyllable"
+	case UnicodeBreakHangulLvtSyllable:
+		return "UnicodeBreakHangulLvtSyllable"
+	case UnicodeBreakHangulTJamo:
+		return "UnicodeBreakHangulTJamo"
+	case UnicodeBreakHangulVJamo:
+		return "UnicodeBreakHangulVJamo"
+	case UnicodeBreakHebrewLetter:
+		return "UnicodeBreakHebrewLetter"
+	case UnicodeBreakHyphen:
+		return "UnicodeBreakHyphen"
+	case UnicodeBreakIdeographic:
+		return "UnicodeBreakIdeographic"
+	case UnicodeBreakInfixSeparator:
+		return "UnicodeBreakInfixSeparator"
+	case UnicodeBreakInseparable:
+		return "UnicodeBreakInseparable"
+	case UnicodeBreakLineFeed:
+		return "UnicodeBreakLineFeed"
+	case UnicodeBreakMandatory:
+		return "UnicodeBreakMandatory"
+	case UnicodeBreakNextLine:
+		return "UnicodeBreakNextLine"
+	case UnicodeBreakNonBreakingGlue:
+		return "UnicodeBreakNonBreakingGlue"
+	case UnicodeBreakNonStarter:
+		return "UnicodeBreakNonStarter"
+	case UnicodeBreakNumeric:
+		return "UnicodeBreakNumeric"
+	case UnicodeBreakOpenPunctuation:
+		return "UnicodeBreakOpenPunctuation"
+	case UnicodeBreakPostfix:
+		return "UnicodeBreakPostfix"
+	case UnicodeBreakPrefix:
+		return "UnicodeBreakPrefix"
+	case UnicodeBreakQuotation:
+		return "UnicodeBreakQuotation"
+	case UnicodeBreakRegionalIndicator:
+		return "UnicodeBreakRegionalIndicator"
+	case UnicodeBreakSpace:
+		return "UnicodeBreakSpace"
+	case UnicodeBreakSurrogate:
+		return "UnicodeBreakSurrogate"
+	case UnicodeBreakSymbol:
+		return "UnicodeBreakSymbol"
+	case UnicodeBreakUnknown:
+		return "UnicodeBreakUnknown"
+	case UnicodeBreakVirama:
+		return "UnicodeBreakVirama"
+	case UnicodeBreakViramaFinal:
+		return "UnicodeBreakViramaFinal"
+	case UnicodeBreakWordJoiner:
+		return "UnicodeBreakWordJoiner"
+	case UnicodeBreakZeroWidthJoiner:
+		return "UnicodeBreakZeroWidthJoiner"
+	case UnicodeBreakZeroWidthSpace:
+		return "UnicodeBreakZeroWidthSpace"
+	default:
+		return fmt.Sprintf("UnicodeBreakType(%d)", e)
 	}
 }
 
 // UnicodeScript wraps GUnicodeScript
-// 
+//
 // see also https://docs.gtk.org/glib/enum.UnicodeScript.html
 type UnicodeScript C.int
 
 const (
 	// UnicodeScriptInvalidCode wraps G_UNICODE_SCRIPT_INVALID_CODE
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.UnicodeScript.html#invalid_code
 	UnicodeScriptInvalidCode UnicodeScript = -1
 	// UnicodeScriptCommon wraps G_UNICODE_SCRIPT_COMMON
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.UnicodeScript.html#common
 	UnicodeScriptCommon UnicodeScript = 0
 	// UnicodeScriptInherited wraps G_UNICODE_SCRIPT_INHERITED
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.UnicodeScript.html#inherited
 	UnicodeScriptInherited UnicodeScript = 1
 	// UnicodeScriptArabic wraps G_UNICODE_SCRIPT_ARABIC
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.UnicodeScript.html#arabic
 	UnicodeScriptArabic UnicodeScript = 2
 	// UnicodeScriptArmenian wraps G_UNICODE_SCRIPT_ARMENIAN
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.UnicodeScript.html#armenian
 	UnicodeScriptArmenian UnicodeScript = 3
 	// UnicodeScriptBengali wraps G_UNICODE_SCRIPT_BENGALI
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.UnicodeScript.html#bengali
 	UnicodeScriptBengali UnicodeScript = 4
 	// UnicodeScriptBopomofo wraps G_UNICODE_SCRIPT_BOPOMOFO
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.UnicodeScript.html#bopomofo
 	UnicodeScriptBopomofo UnicodeScript = 5
 	// UnicodeScriptCherokee wraps G_UNICODE_SCRIPT_CHEROKEE
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.UnicodeScript.html#cherokee
 	UnicodeScriptCherokee UnicodeScript = 6
 	// UnicodeScriptCoptic wraps G_UNICODE_SCRIPT_COPTIC
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.UnicodeScript.html#coptic
 	UnicodeScriptCoptic UnicodeScript = 7
 	// UnicodeScriptCyrillic wraps G_UNICODE_SCRIPT_CYRILLIC
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.UnicodeScript.html#cyrillic
 	UnicodeScriptCyrillic UnicodeScript = 8
 	// UnicodeScriptDeseret wraps G_UNICODE_SCRIPT_DESERET
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.UnicodeScript.html#deseret
 	UnicodeScriptDeseret UnicodeScript = 9
 	// UnicodeScriptDevanagari wraps G_UNICODE_SCRIPT_DEVANAGARI
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.UnicodeScript.html#devanagari
 	UnicodeScriptDevanagari UnicodeScript = 10
 	// UnicodeScriptEthiopic wraps G_UNICODE_SCRIPT_ETHIOPIC
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.UnicodeScript.html#ethiopic
 	UnicodeScriptEthiopic UnicodeScript = 11
 	// UnicodeScriptGeorgian wraps G_UNICODE_SCRIPT_GEORGIAN
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.UnicodeScript.html#georgian
 	UnicodeScriptGeorgian UnicodeScript = 12
 	// UnicodeScriptGothic wraps G_UNICODE_SCRIPT_GOTHIC
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.UnicodeScript.html#gothic
 	UnicodeScriptGothic UnicodeScript = 13
 	// UnicodeScriptGreek wraps G_UNICODE_SCRIPT_GREEK
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.UnicodeScript.html#greek
 	UnicodeScriptGreek UnicodeScript = 14
 	// UnicodeScriptGujarati wraps G_UNICODE_SCRIPT_GUJARATI
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.UnicodeScript.html#gujarati
 	UnicodeScriptGujarati UnicodeScript = 15
 	// UnicodeScriptGurmukhi wraps G_UNICODE_SCRIPT_GURMUKHI
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.UnicodeScript.html#gurmukhi
 	UnicodeScriptGurmukhi UnicodeScript = 16
 	// UnicodeScriptHan wraps G_UNICODE_SCRIPT_HAN
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.UnicodeScript.html#han
 	UnicodeScriptHan UnicodeScript = 17
 	// UnicodeScriptHangul wraps G_UNICODE_SCRIPT_HANGUL
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.UnicodeScript.html#hangul
 	UnicodeScriptHangul UnicodeScript = 18
 	// UnicodeScriptHebrew wraps G_UNICODE_SCRIPT_HEBREW
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.UnicodeScript.html#hebrew
 	UnicodeScriptHebrew UnicodeScript = 19
 	// UnicodeScriptHiragana wraps G_UNICODE_SCRIPT_HIRAGANA
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.UnicodeScript.html#hiragana
 	UnicodeScriptHiragana UnicodeScript = 20
 	// UnicodeScriptKannada wraps G_UNICODE_SCRIPT_KANNADA
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.UnicodeScript.html#kannada
 	UnicodeScriptKannada UnicodeScript = 21
 	// UnicodeScriptKatakana wraps G_UNICODE_SCRIPT_KATAKANA
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.UnicodeScript.html#katakana
 	UnicodeScriptKatakana UnicodeScript = 22
 	// UnicodeScriptKhmer wraps G_UNICODE_SCRIPT_KHMER
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.UnicodeScript.html#khmer
 	UnicodeScriptKhmer UnicodeScript = 23
 	// UnicodeScriptLao wraps G_UNICODE_SCRIPT_LAO
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.UnicodeScript.html#lao
 	UnicodeScriptLao UnicodeScript = 24
 	// UnicodeScriptLatin wraps G_UNICODE_SCRIPT_LATIN
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.UnicodeScript.html#latin
 	UnicodeScriptLatin UnicodeScript = 25
 	// UnicodeScriptMalayalam wraps G_UNICODE_SCRIPT_MALAYALAM
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.UnicodeScript.html#malayalam
 	UnicodeScriptMalayalam UnicodeScript = 26
 	// UnicodeScriptMongolian wraps G_UNICODE_SCRIPT_MONGOLIAN
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.UnicodeScript.html#mongolian
 	UnicodeScriptMongolian UnicodeScript = 27
 	// UnicodeScriptMyanmar wraps G_UNICODE_SCRIPT_MYANMAR
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.UnicodeScript.html#myanmar
 	UnicodeScriptMyanmar UnicodeScript = 28
 	// UnicodeScriptOgham wraps G_UNICODE_SCRIPT_OGHAM
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.UnicodeScript.html#ogham
 	UnicodeScriptOgham UnicodeScript = 29
 	// UnicodeScriptOldItalic wraps G_UNICODE_SCRIPT_OLD_ITALIC
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.UnicodeScript.html#old_italic
 	UnicodeScriptOldItalic UnicodeScript = 30
 	// UnicodeScriptOriya wraps G_UNICODE_SCRIPT_ORIYA
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.UnicodeScript.html#oriya
 	UnicodeScriptOriya UnicodeScript = 31
 	// UnicodeScriptRunic wraps G_UNICODE_SCRIPT_RUNIC
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.UnicodeScript.html#runic
 	UnicodeScriptRunic UnicodeScript = 32
 	// UnicodeScriptSinhala wraps G_UNICODE_SCRIPT_SINHALA
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.UnicodeScript.html#sinhala
 	UnicodeScriptSinhala UnicodeScript = 33
 	// UnicodeScriptSyriac wraps G_UNICODE_SCRIPT_SYRIAC
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.UnicodeScript.html#syriac
 	UnicodeScriptSyriac UnicodeScript = 34
 	// UnicodeScriptTamil wraps G_UNICODE_SCRIPT_TAMIL
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.UnicodeScript.html#tamil
 	UnicodeScriptTamil UnicodeScript = 35
 	// UnicodeScriptTelugu wraps G_UNICODE_SCRIPT_TELUGU
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.UnicodeScript.html#telugu
 	UnicodeScriptTelugu UnicodeScript = 36
 	// UnicodeScriptThaana wraps G_UNICODE_SCRIPT_THAANA
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.UnicodeScript.html#thaana
 	UnicodeScriptThaana UnicodeScript = 37
 	// UnicodeScriptThai wraps G_UNICODE_SCRIPT_THAI
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.UnicodeScript.html#thai
 	UnicodeScriptThai UnicodeScript = 38
 	// UnicodeScriptTibetan wraps G_UNICODE_SCRIPT_TIBETAN
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.UnicodeScript.html#tibetan
 	UnicodeScriptTibetan UnicodeScript = 39
 	// UnicodeScriptCanadianAboriginal wraps G_UNICODE_SCRIPT_CANADIAN_ABORIGINAL
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.UnicodeScript.html#canadian_aboriginal
 	UnicodeScriptCanadianAboriginal UnicodeScript = 40
 	// UnicodeScriptYi wraps G_UNICODE_SCRIPT_YI
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.UnicodeScript.html#yi
 	UnicodeScriptYi UnicodeScript = 41
 	// UnicodeScriptTagalog wraps G_UNICODE_SCRIPT_TAGALOG
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.UnicodeScript.html#tagalog
 	UnicodeScriptTagalog UnicodeScript = 42
 	// UnicodeScriptHanunoo wraps G_UNICODE_SCRIPT_HANUNOO
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.UnicodeScript.html#hanunoo
 	UnicodeScriptHanunoo UnicodeScript = 43
 	// UnicodeScriptBuhid wraps G_UNICODE_SCRIPT_BUHID
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.UnicodeScript.html#buhid
 	UnicodeScriptBuhid UnicodeScript = 44
 	// UnicodeScriptTagbanwa wraps G_UNICODE_SCRIPT_TAGBANWA
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.UnicodeScript.html#tagbanwa
 	UnicodeScriptTagbanwa UnicodeScript = 45
 	// UnicodeScriptBraille wraps G_UNICODE_SCRIPT_BRAILLE
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.UnicodeScript.html#braille
 	UnicodeScriptBraille UnicodeScript = 46
 	// UnicodeScriptCypriot wraps G_UNICODE_SCRIPT_CYPRIOT
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.UnicodeScript.html#cypriot
 	UnicodeScriptCypriot UnicodeScript = 47
 	// UnicodeScriptLimbu wraps G_UNICODE_SCRIPT_LIMBU
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.UnicodeScript.html#limbu
 	UnicodeScriptLimbu UnicodeScript = 48
 	// UnicodeScriptOsmanya wraps G_UNICODE_SCRIPT_OSMANYA
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.UnicodeScript.html#osmanya
 	UnicodeScriptOsmanya UnicodeScript = 49
 	// UnicodeScriptShavian wraps G_UNICODE_SCRIPT_SHAVIAN
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.UnicodeScript.html#shavian
 	UnicodeScriptShavian UnicodeScript = 50
 	// UnicodeScriptLinearB wraps G_UNICODE_SCRIPT_LINEAR_B
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.UnicodeScript.html#linear_b
 	UnicodeScriptLinearB UnicodeScript = 51
 	// UnicodeScriptTaiLe wraps G_UNICODE_SCRIPT_TAI_LE
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.UnicodeScript.html#tai_le
 	UnicodeScriptTaiLe UnicodeScript = 52
 	// UnicodeScriptUgaritic wraps G_UNICODE_SCRIPT_UGARITIC
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.UnicodeScript.html#ugaritic
 	UnicodeScriptUgaritic UnicodeScript = 53
 	// UnicodeScriptNewTaiLue wraps G_UNICODE_SCRIPT_NEW_TAI_LUE
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.UnicodeScript.html#new_tai_lue
 	UnicodeScriptNewTaiLue UnicodeScript = 54
 	// UnicodeScriptBuginese wraps G_UNICODE_SCRIPT_BUGINESE
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.UnicodeScript.html#buginese
 	UnicodeScriptBuginese UnicodeScript = 55
 	// UnicodeScriptGlagolitic wraps G_UNICODE_SCRIPT_GLAGOLITIC
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.UnicodeScript.html#glagolitic
 	UnicodeScriptGlagolitic UnicodeScript = 56
 	// UnicodeScriptTifinagh wraps G_UNICODE_SCRIPT_TIFINAGH
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.UnicodeScript.html#tifinagh
 	UnicodeScriptTifinagh UnicodeScript = 57
 	// UnicodeScriptSylotiNagri wraps G_UNICODE_SCRIPT_SYLOTI_NAGRI
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.UnicodeScript.html#syloti_nagri
 	UnicodeScriptSylotiNagri UnicodeScript = 58
 	// UnicodeScriptOldPersian wraps G_UNICODE_SCRIPT_OLD_PERSIAN
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.UnicodeScript.html#old_persian
 	UnicodeScriptOldPersian UnicodeScript = 59
 	// UnicodeScriptKharoshthi wraps G_UNICODE_SCRIPT_KHAROSHTHI
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.UnicodeScript.html#kharoshthi
 	UnicodeScriptKharoshthi UnicodeScript = 60
 	// UnicodeScriptUnknown wraps G_UNICODE_SCRIPT_UNKNOWN
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.UnicodeScript.html#unknown
 	UnicodeScriptUnknown UnicodeScript = 61
 	// UnicodeScriptBalinese wraps G_UNICODE_SCRIPT_BALINESE
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.UnicodeScript.html#balinese
 	UnicodeScriptBalinese UnicodeScript = 62
 	// UnicodeScriptCuneiform wraps G_UNICODE_SCRIPT_CUNEIFORM
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.UnicodeScript.html#cuneiform
 	UnicodeScriptCuneiform UnicodeScript = 63
 	// UnicodeScriptPhoenician wraps G_UNICODE_SCRIPT_PHOENICIAN
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.UnicodeScript.html#phoenician
 	UnicodeScriptPhoenician UnicodeScript = 64
 	// UnicodeScriptPhagsPa wraps G_UNICODE_SCRIPT_PHAGS_PA
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.UnicodeScript.html#phags_pa
 	UnicodeScriptPhagsPa UnicodeScript = 65
 	// UnicodeScriptNko wraps G_UNICODE_SCRIPT_NKO
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.UnicodeScript.html#nko
 	UnicodeScriptNko UnicodeScript = 66
 	// UnicodeScriptKayahLi wraps G_UNICODE_SCRIPT_KAYAH_LI
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.UnicodeScript.html#kayah_li
 	UnicodeScriptKayahLi UnicodeScript = 67
 	// UnicodeScriptLepcha wraps G_UNICODE_SCRIPT_LEPCHA
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.UnicodeScript.html#lepcha
 	UnicodeScriptLepcha UnicodeScript = 68
 	// UnicodeScriptRejang wraps G_UNICODE_SCRIPT_REJANG
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.UnicodeScript.html#rejang
 	UnicodeScriptRejang UnicodeScript = 69
 	// UnicodeScriptSundanese wraps G_UNICODE_SCRIPT_SUNDANESE
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.UnicodeScript.html#sundanese
 	UnicodeScriptSundanese UnicodeScript = 70
 	// UnicodeScriptSaurashtra wraps G_UNICODE_SCRIPT_SAURASHTRA
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.UnicodeScript.html#saurashtra
 	UnicodeScriptSaurashtra UnicodeScript = 71
 	// UnicodeScriptCham wraps G_UNICODE_SCRIPT_CHAM
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.UnicodeScript.html#cham
 	UnicodeScriptCham UnicodeScript = 72
 	// UnicodeScriptOlChiki wraps G_UNICODE_SCRIPT_OL_CHIKI
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.UnicodeScript.html#ol_chiki
 	UnicodeScriptOlChiki UnicodeScript = 73
 	// UnicodeScriptVai wraps G_UNICODE_SCRIPT_VAI
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.UnicodeScript.html#vai
 	UnicodeScriptVai UnicodeScript = 74
 	// UnicodeScriptCarian wraps G_UNICODE_SCRIPT_CARIAN
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.UnicodeScript.html#carian
 	UnicodeScriptCarian UnicodeScript = 75
 	// UnicodeScriptLycian wraps G_UNICODE_SCRIPT_LYCIAN
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.UnicodeScript.html#lycian
 	UnicodeScriptLycian UnicodeScript = 76
 	// UnicodeScriptLydian wraps G_UNICODE_SCRIPT_LYDIAN
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.UnicodeScript.html#lydian
 	UnicodeScriptLydian UnicodeScript = 77
 	// UnicodeScriptAvestan wraps G_UNICODE_SCRIPT_AVESTAN
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.UnicodeScript.html#avestan
 	UnicodeScriptAvestan UnicodeScript = 78
 	// UnicodeScriptBamum wraps G_UNICODE_SCRIPT_BAMUM
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.UnicodeScript.html#bamum
 	UnicodeScriptBamum UnicodeScript = 79
 	// UnicodeScriptEgyptianHieroglyphs wraps G_UNICODE_SCRIPT_EGYPTIAN_HIEROGLYPHS
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.UnicodeScript.html#egyptian_hieroglyphs
 	UnicodeScriptEgyptianHieroglyphs UnicodeScript = 80
 	// UnicodeScriptImperialAramaic wraps G_UNICODE_SCRIPT_IMPERIAL_ARAMAIC
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.UnicodeScript.html#imperial_aramaic
 	UnicodeScriptImperialAramaic UnicodeScript = 81
 	// UnicodeScriptInscriptionalPahlavi wraps G_UNICODE_SCRIPT_INSCRIPTIONAL_PAHLAVI
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.UnicodeScript.html#inscriptional_pahlavi
 	UnicodeScriptInscriptionalPahlavi UnicodeScript = 82
 	// UnicodeScriptInscriptionalParthian wraps G_UNICODE_SCRIPT_INSCRIPTIONAL_PARTHIAN
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.UnicodeScript.html#inscriptional_parthian
 	UnicodeScriptInscriptionalParthian UnicodeScript = 83
 	// UnicodeScriptJavanese wraps G_UNICODE_SCRIPT_JAVANESE
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.UnicodeScript.html#javanese
 	UnicodeScriptJavanese UnicodeScript = 84
 	// UnicodeScriptKaithi wraps G_UNICODE_SCRIPT_KAITHI
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.UnicodeScript.html#kaithi
 	UnicodeScriptKaithi UnicodeScript = 85
 	// UnicodeScriptLisu wraps G_UNICODE_SCRIPT_LISU
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.UnicodeScript.html#lisu
 	UnicodeScriptLisu UnicodeScript = 86
 	// UnicodeScriptMeeteiMayek wraps G_UNICODE_SCRIPT_MEETEI_MAYEK
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.UnicodeScript.html#meetei_mayek
 	UnicodeScriptMeeteiMayek UnicodeScript = 87
 	// UnicodeScriptOldSouthArabian wraps G_UNICODE_SCRIPT_OLD_SOUTH_ARABIAN
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.UnicodeScript.html#old_south_arabian
 	UnicodeScriptOldSouthArabian UnicodeScript = 88
 	// UnicodeScriptOldTurkic wraps G_UNICODE_SCRIPT_OLD_TURKIC
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.UnicodeScript.html#old_turkic
 	UnicodeScriptOldTurkic UnicodeScript = 89
 	// UnicodeScriptSamaritan wraps G_UNICODE_SCRIPT_SAMARITAN
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.UnicodeScript.html#samaritan
 	UnicodeScriptSamaritan UnicodeScript = 90
 	// UnicodeScriptTaiTham wraps G_UNICODE_SCRIPT_TAI_THAM
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.UnicodeScript.html#tai_tham
 	UnicodeScriptTaiTham UnicodeScript = 91
 	// UnicodeScriptTaiViet wraps G_UNICODE_SCRIPT_TAI_VIET
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.UnicodeScript.html#tai_viet
 	UnicodeScriptTaiViet UnicodeScript = 92
 	// UnicodeScriptBatak wraps G_UNICODE_SCRIPT_BATAK
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.UnicodeScript.html#batak
 	UnicodeScriptBatak UnicodeScript = 93
 	// UnicodeScriptBrahmi wraps G_UNICODE_SCRIPT_BRAHMI
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.UnicodeScript.html#brahmi
 	UnicodeScriptBrahmi UnicodeScript = 94
 	// UnicodeScriptMandaic wraps G_UNICODE_SCRIPT_MANDAIC
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.UnicodeScript.html#mandaic
 	UnicodeScriptMandaic UnicodeScript = 95
 	// UnicodeScriptChakma wraps G_UNICODE_SCRIPT_CHAKMA
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.UnicodeScript.html#chakma
 	UnicodeScriptChakma UnicodeScript = 96
 	// UnicodeScriptMeroiticCursive wraps G_UNICODE_SCRIPT_MEROITIC_CURSIVE
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.UnicodeScript.html#meroitic_cursive
 	UnicodeScriptMeroiticCursive UnicodeScript = 97
 	// UnicodeScriptMeroiticHieroglyphs wraps G_UNICODE_SCRIPT_MEROITIC_HIEROGLYPHS
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.UnicodeScript.html#meroitic_hieroglyphs
 	UnicodeScriptMeroiticHieroglyphs UnicodeScript = 98
 	// UnicodeScriptMiao wraps G_UNICODE_SCRIPT_MIAO
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.UnicodeScript.html#miao
 	UnicodeScriptMiao UnicodeScript = 99
 	// UnicodeScriptSharada wraps G_UNICODE_SCRIPT_SHARADA
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.UnicodeScript.html#sharada
 	UnicodeScriptSharada UnicodeScript = 100
 	// UnicodeScriptSoraSompeng wraps G_UNICODE_SCRIPT_SORA_SOMPENG
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.UnicodeScript.html#sora_sompeng
 	UnicodeScriptSoraSompeng UnicodeScript = 101
 	// UnicodeScriptTakri wraps G_UNICODE_SCRIPT_TAKRI
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.UnicodeScript.html#takri
 	UnicodeScriptTakri UnicodeScript = 102
 	// UnicodeScriptBassaVah wraps G_UNICODE_SCRIPT_BASSA_VAH
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.UnicodeScript.html#bassa_vah
 	UnicodeScriptBassaVah UnicodeScript = 103
 	// UnicodeScriptCaucasianAlbanian wraps G_UNICODE_SCRIPT_CAUCASIAN_ALBANIAN
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.UnicodeScript.html#caucasian_albanian
 	UnicodeScriptCaucasianAlbanian UnicodeScript = 104
 	// UnicodeScriptDuployan wraps G_UNICODE_SCRIPT_DUPLOYAN
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.UnicodeScript.html#duployan
 	UnicodeScriptDuployan UnicodeScript = 105
 	// UnicodeScriptElbasan wraps G_UNICODE_SCRIPT_ELBASAN
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.UnicodeScript.html#elbasan
 	UnicodeScriptElbasan UnicodeScript = 106
 	// UnicodeScriptGrantha wraps G_UNICODE_SCRIPT_GRANTHA
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.UnicodeScript.html#grantha
 	UnicodeScriptGrantha UnicodeScript = 107
 	// UnicodeScriptKhojki wraps G_UNICODE_SCRIPT_KHOJKI
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.UnicodeScript.html#khojki
 	UnicodeScriptKhojki UnicodeScript = 108
 	// UnicodeScriptKhudawadi wraps G_UNICODE_SCRIPT_KHUDAWADI
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.UnicodeScript.html#khudawadi
 	UnicodeScriptKhudawadi UnicodeScript = 109
 	// UnicodeScriptLinearA wraps G_UNICODE_SCRIPT_LINEAR_A
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.UnicodeScript.html#linear_a
 	UnicodeScriptLinearA UnicodeScript = 110
 	// UnicodeScriptMahajani wraps G_UNICODE_SCRIPT_MAHAJANI
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.UnicodeScript.html#mahajani
 	UnicodeScriptMahajani UnicodeScript = 111
 	// UnicodeScriptManichaean wraps G_UNICODE_SCRIPT_MANICHAEAN
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.UnicodeScript.html#manichaean
 	UnicodeScriptManichaean UnicodeScript = 112
 	// UnicodeScriptMendeKikakui wraps G_UNICODE_SCRIPT_MENDE_KIKAKUI
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.UnicodeScript.html#mende_kikakui
 	UnicodeScriptMendeKikakui UnicodeScript = 113
 	// UnicodeScriptModi wraps G_UNICODE_SCRIPT_MODI
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.UnicodeScript.html#modi
 	UnicodeScriptModi UnicodeScript = 114
 	// UnicodeScriptMro wraps G_UNICODE_SCRIPT_MRO
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.UnicodeScript.html#mro
 	UnicodeScriptMro UnicodeScript = 115
 	// UnicodeScriptNabataean wraps G_UNICODE_SCRIPT_NABATAEAN
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.UnicodeScript.html#nabataean
 	UnicodeScriptNabataean UnicodeScript = 116
 	// UnicodeScriptOldNorthArabian wraps G_UNICODE_SCRIPT_OLD_NORTH_ARABIAN
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.UnicodeScript.html#old_north_arabian
 	UnicodeScriptOldNorthArabian UnicodeScript = 117
 	// UnicodeScriptOldPermic wraps G_UNICODE_SCRIPT_OLD_PERMIC
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.UnicodeScript.html#old_permic
 	UnicodeScriptOldPermic UnicodeScript = 118
 	// UnicodeScriptPahawhHmong wraps G_UNICODE_SCRIPT_PAHAWH_HMONG
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.UnicodeScript.html#pahawh_hmong
 	UnicodeScriptPahawhHmong UnicodeScript = 119
 	// UnicodeScriptPalmyrene wraps G_UNICODE_SCRIPT_PALMYRENE
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.UnicodeScript.html#palmyrene
 	UnicodeScriptPalmyrene UnicodeScript = 120
 	// UnicodeScriptPauCinHau wraps G_UNICODE_SCRIPT_PAU_CIN_HAU
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.UnicodeScript.html#pau_cin_hau
 	UnicodeScriptPauCinHau UnicodeScript = 121
 	// UnicodeScriptPsalterPahlavi wraps G_UNICODE_SCRIPT_PSALTER_PAHLAVI
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.UnicodeScript.html#psalter_pahlavi
 	UnicodeScriptPsalterPahlavi UnicodeScript = 122
 	// UnicodeScriptSiddham wraps G_UNICODE_SCRIPT_SIDDHAM
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.UnicodeScript.html#siddham
 	UnicodeScriptSiddham UnicodeScript = 123
 	// UnicodeScriptTirhuta wraps G_UNICODE_SCRIPT_TIRHUTA
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.UnicodeScript.html#tirhuta
 	UnicodeScriptTirhuta UnicodeScript = 124
 	// UnicodeScriptWarangCiti wraps G_UNICODE_SCRIPT_WARANG_CITI
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.UnicodeScript.html#warang_citi
 	UnicodeScriptWarangCiti UnicodeScript = 125
 	// UnicodeScriptAhom wraps G_UNICODE_SCRIPT_AHOM
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.UnicodeScript.html#ahom
 	UnicodeScriptAhom UnicodeScript = 126
 	// UnicodeScriptAnatolianHieroglyphs wraps G_UNICODE_SCRIPT_ANATOLIAN_HIEROGLYPHS
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.UnicodeScript.html#anatolian_hieroglyphs
 	UnicodeScriptAnatolianHieroglyphs UnicodeScript = 127
 	// UnicodeScriptHatran wraps G_UNICODE_SCRIPT_HATRAN
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.UnicodeScript.html#hatran
 	UnicodeScriptHatran UnicodeScript = 128
 	// UnicodeScriptMultani wraps G_UNICODE_SCRIPT_MULTANI
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.UnicodeScript.html#multani
 	UnicodeScriptMultani UnicodeScript = 129
 	// UnicodeScriptOldHungarian wraps G_UNICODE_SCRIPT_OLD_HUNGARIAN
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.UnicodeScript.html#old_hungarian
 	UnicodeScriptOldHungarian UnicodeScript = 130
 	// UnicodeScriptSignwriting wraps G_UNICODE_SCRIPT_SIGNWRITING
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.UnicodeScript.html#signwriting
 	UnicodeScriptSignwriting UnicodeScript = 131
 	// UnicodeScriptAdlam wraps G_UNICODE_SCRIPT_ADLAM
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.UnicodeScript.html#adlam
 	UnicodeScriptAdlam UnicodeScript = 132
 	// UnicodeScriptBhaiksuki wraps G_UNICODE_SCRIPT_BHAIKSUKI
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.UnicodeScript.html#bhaiksuki
 	UnicodeScriptBhaiksuki UnicodeScript = 133
 	// UnicodeScriptMarchen wraps G_UNICODE_SCRIPT_MARCHEN
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.UnicodeScript.html#marchen
 	UnicodeScriptMarchen UnicodeScript = 134
 	// UnicodeScriptNewa wraps G_UNICODE_SCRIPT_NEWA
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.UnicodeScript.html#newa
 	UnicodeScriptNewa UnicodeScript = 135
 	// UnicodeScriptOsage wraps G_UNICODE_SCRIPT_OSAGE
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.UnicodeScript.html#osage
 	UnicodeScriptOsage UnicodeScript = 136
 	// UnicodeScriptTangut wraps G_UNICODE_SCRIPT_TANGUT
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.UnicodeScript.html#tangut
 	UnicodeScriptTangut UnicodeScript = 137
 	// UnicodeScriptMasaramGondi wraps G_UNICODE_SCRIPT_MASARAM_GONDI
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.UnicodeScript.html#masaram_gondi
 	UnicodeScriptMasaramGondi UnicodeScript = 138
 	// UnicodeScriptNushu wraps G_UNICODE_SCRIPT_NUSHU
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.UnicodeScript.html#nushu
 	UnicodeScriptNushu UnicodeScript = 139
 	// UnicodeScriptSoyombo wraps G_UNICODE_SCRIPT_SOYOMBO
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.UnicodeScript.html#soyombo
 	UnicodeScriptSoyombo UnicodeScript = 140
 	// UnicodeScriptZanabazarSquare wraps G_UNICODE_SCRIPT_ZANABAZAR_SQUARE
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.UnicodeScript.html#zanabazar_square
 	UnicodeScriptZanabazarSquare UnicodeScript = 141
 	// UnicodeScriptDogra wraps G_UNICODE_SCRIPT_DOGRA
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.UnicodeScript.html#dogra
 	UnicodeScriptDogra UnicodeScript = 142
 	// UnicodeScriptGunjalaGondi wraps G_UNICODE_SCRIPT_GUNJALA_GONDI
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.UnicodeScript.html#gunjala_gondi
 	UnicodeScriptGunjalaGondi UnicodeScript = 143
 	// UnicodeScriptHanifiRohingya wraps G_UNICODE_SCRIPT_HANIFI_ROHINGYA
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.UnicodeScript.html#hanifi_rohingya
 	UnicodeScriptHanifiRohingya UnicodeScript = 144
 	// UnicodeScriptMakasar wraps G_UNICODE_SCRIPT_MAKASAR
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.UnicodeScript.html#makasar
 	UnicodeScriptMakasar UnicodeScript = 145
 	// UnicodeScriptMedefaidrin wraps G_UNICODE_SCRIPT_MEDEFAIDRIN
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.UnicodeScript.html#medefaidrin
 	UnicodeScriptMedefaidrin UnicodeScript = 146
 	// UnicodeScriptOldSogdian wraps G_UNICODE_SCRIPT_OLD_SOGDIAN
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.UnicodeScript.html#old_sogdian
 	UnicodeScriptOldSogdian UnicodeScript = 147
 	// UnicodeScriptSogdian wraps G_UNICODE_SCRIPT_SOGDIAN
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.UnicodeScript.html#sogdian
 	UnicodeScriptSogdian UnicodeScript = 148
 	// UnicodeScriptElymaic wraps G_UNICODE_SCRIPT_ELYMAIC
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.UnicodeScript.html#elymaic
 	UnicodeScriptElymaic UnicodeScript = 149
 	// UnicodeScriptNandinagari wraps G_UNICODE_SCRIPT_NANDINAGARI
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.UnicodeScript.html#nandinagari
 	UnicodeScriptNandinagari UnicodeScript = 150
 	// UnicodeScriptNyiakengPuachueHmong wraps G_UNICODE_SCRIPT_NYIAKENG_PUACHUE_HMONG
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.UnicodeScript.html#nyiakeng_puachue_hmong
 	UnicodeScriptNyiakengPuachueHmong UnicodeScript = 151
 	// UnicodeScriptWancho wraps G_UNICODE_SCRIPT_WANCHO
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.UnicodeScript.html#wancho
 	UnicodeScriptWancho UnicodeScript = 152
 	// UnicodeScriptChorasmian wraps G_UNICODE_SCRIPT_CHORASMIAN
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.UnicodeScript.html#chorasmian
 	UnicodeScriptChorasmian UnicodeScript = 153
 	// UnicodeScriptDivesAkuru wraps G_UNICODE_SCRIPT_DIVES_AKURU
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.UnicodeScript.html#dives_akuru
 	UnicodeScriptDivesAkuru UnicodeScript = 154
 	// UnicodeScriptKhitanSmallScript wraps G_UNICODE_SCRIPT_KHITAN_SMALL_SCRIPT
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.UnicodeScript.html#khitan_small_script
 	UnicodeScriptKhitanSmallScript UnicodeScript = 155
 	// UnicodeScriptYezidi wraps G_UNICODE_SCRIPT_YEZIDI
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.UnicodeScript.html#yezidi
 	UnicodeScriptYezidi UnicodeScript = 156
 	// UnicodeScriptCyproMinoan wraps G_UNICODE_SCRIPT_CYPRO_MINOAN
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.UnicodeScript.html#cypro_minoan
 	UnicodeScriptCyproMinoan UnicodeScript = 157
 	// UnicodeScriptOldUyghur wraps G_UNICODE_SCRIPT_OLD_UYGHUR
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.UnicodeScript.html#old_uyghur
 	UnicodeScriptOldUyghur UnicodeScript = 158
 	// UnicodeScriptTangsa wraps G_UNICODE_SCRIPT_TANGSA
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.UnicodeScript.html#tangsa
 	UnicodeScriptTangsa UnicodeScript = 159
 	// UnicodeScriptToto wraps G_UNICODE_SCRIPT_TOTO
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.UnicodeScript.html#toto
 	UnicodeScriptToto UnicodeScript = 160
 	// UnicodeScriptVithkuqi wraps G_UNICODE_SCRIPT_VITHKUQI
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.UnicodeScript.html#vithkuqi
 	UnicodeScriptVithkuqi UnicodeScript = 161
 	// UnicodeScriptMath wraps G_UNICODE_SCRIPT_MATH
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.UnicodeScript.html#math
 	UnicodeScriptMath UnicodeScript = 162
 	// UnicodeScriptKawi wraps G_UNICODE_SCRIPT_KAWI
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.UnicodeScript.html#kawi
 	UnicodeScriptKawi UnicodeScript = 163
 	// UnicodeScriptNagMundari wraps G_UNICODE_SCRIPT_NAG_MUNDARI
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.UnicodeScript.html#nag_mundari
 	UnicodeScriptNagMundari UnicodeScript = 164
 	// UnicodeScriptTodhri wraps G_UNICODE_SCRIPT_TODHRI
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.UnicodeScript.html#todhri
 	UnicodeScriptTodhri UnicodeScript = 165
 	// UnicodeScriptGaray wraps G_UNICODE_SCRIPT_GARAY
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.UnicodeScript.html#garay
 	UnicodeScriptGaray UnicodeScript = 166
 	// UnicodeScriptTuluTigalari wraps G_UNICODE_SCRIPT_TULU_TIGALARI
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.UnicodeScript.html#tulu_tigalari
 	UnicodeScriptTuluTigalari UnicodeScript = 167
 	// UnicodeScriptSunuwar wraps G_UNICODE_SCRIPT_SUNUWAR
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.UnicodeScript.html#sunuwar
 	UnicodeScriptSunuwar UnicodeScript = 168
 	// UnicodeScriptGurungKhema wraps G_UNICODE_SCRIPT_GURUNG_KHEMA
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.UnicodeScript.html#gurung_khema
 	UnicodeScriptGurungKhema UnicodeScript = 169
 	// UnicodeScriptKiratRai wraps G_UNICODE_SCRIPT_KIRAT_RAI
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.UnicodeScript.html#kirat_rai
 	UnicodeScriptKiratRai UnicodeScript = 170
 	// UnicodeScriptOlOnal wraps G_UNICODE_SCRIPT_OL_ONAL
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.UnicodeScript.html#ol_onal
 	UnicodeScriptOlOnal UnicodeScript = 171
 )
 
-
 func (e UnicodeScript) String() string {
 	switch e {
-		case UnicodeScriptAdlam: return "UnicodeScriptAdlam"
-		case UnicodeScriptAhom: return "UnicodeScriptAhom"
-		case UnicodeScriptAnatolianHieroglyphs: return "UnicodeScriptAnatolianHieroglyphs"
-		case UnicodeScriptArabic: return "UnicodeScriptArabic"
-		case UnicodeScriptArmenian: return "UnicodeScriptArmenian"
-		case UnicodeScriptAvestan: return "UnicodeScriptAvestan"
-		case UnicodeScriptBalinese: return "UnicodeScriptBalinese"
-		case UnicodeScriptBamum: return "UnicodeScriptBamum"
-		case UnicodeScriptBassaVah: return "UnicodeScriptBassaVah"
-		case UnicodeScriptBatak: return "UnicodeScriptBatak"
-		case UnicodeScriptBengali: return "UnicodeScriptBengali"
-		case UnicodeScriptBhaiksuki: return "UnicodeScriptBhaiksuki"
-		case UnicodeScriptBopomofo: return "UnicodeScriptBopomofo"
-		case UnicodeScriptBrahmi: return "UnicodeScriptBrahmi"
-		case UnicodeScriptBraille: return "UnicodeScriptBraille"
-		case UnicodeScriptBuginese: return "UnicodeScriptBuginese"
-		case UnicodeScriptBuhid: return "UnicodeScriptBuhid"
-		case UnicodeScriptCanadianAboriginal: return "UnicodeScriptCanadianAboriginal"
-		case UnicodeScriptCarian: return "UnicodeScriptCarian"
-		case UnicodeScriptCaucasianAlbanian: return "UnicodeScriptCaucasianAlbanian"
-		case UnicodeScriptChakma: return "UnicodeScriptChakma"
-		case UnicodeScriptCham: return "UnicodeScriptCham"
-		case UnicodeScriptCherokee: return "UnicodeScriptCherokee"
-		case UnicodeScriptChorasmian: return "UnicodeScriptChorasmian"
-		case UnicodeScriptCommon: return "UnicodeScriptCommon"
-		case UnicodeScriptCoptic: return "UnicodeScriptCoptic"
-		case UnicodeScriptCuneiform: return "UnicodeScriptCuneiform"
-		case UnicodeScriptCypriot: return "UnicodeScriptCypriot"
-		case UnicodeScriptCyproMinoan: return "UnicodeScriptCyproMinoan"
-		case UnicodeScriptCyrillic: return "UnicodeScriptCyrillic"
-		case UnicodeScriptDeseret: return "UnicodeScriptDeseret"
-		case UnicodeScriptDevanagari: return "UnicodeScriptDevanagari"
-		case UnicodeScriptDivesAkuru: return "UnicodeScriptDivesAkuru"
-		case UnicodeScriptDogra: return "UnicodeScriptDogra"
-		case UnicodeScriptDuployan: return "UnicodeScriptDuployan"
-		case UnicodeScriptEgyptianHieroglyphs: return "UnicodeScriptEgyptianHieroglyphs"
-		case UnicodeScriptElbasan: return "UnicodeScriptElbasan"
-		case UnicodeScriptElymaic: return "UnicodeScriptElymaic"
-		case UnicodeScriptEthiopic: return "UnicodeScriptEthiopic"
-		case UnicodeScriptGaray: return "UnicodeScriptGaray"
-		case UnicodeScriptGeorgian: return "UnicodeScriptGeorgian"
-		case UnicodeScriptGlagolitic: return "UnicodeScriptGlagolitic"
-		case UnicodeScriptGothic: return "UnicodeScriptGothic"
-		case UnicodeScriptGrantha: return "UnicodeScriptGrantha"
-		case UnicodeScriptGreek: return "UnicodeScriptGreek"
-		case UnicodeScriptGujarati: return "UnicodeScriptGujarati"
-		case UnicodeScriptGunjalaGondi: return "UnicodeScriptGunjalaGondi"
-		case UnicodeScriptGurmukhi: return "UnicodeScriptGurmukhi"
-		case UnicodeScriptGurungKhema: return "UnicodeScriptGurungKhema"
-		case UnicodeScriptHan: return "UnicodeScriptHan"
-		case UnicodeScriptHangul: return "UnicodeScriptHangul"
-		case UnicodeScriptHanifiRohingya: return "UnicodeScriptHanifiRohingya"
-		case UnicodeScriptHanunoo: return "UnicodeScriptHanunoo"
-		case UnicodeScriptHatran: return "UnicodeScriptHatran"
-		case UnicodeScriptHebrew: return "UnicodeScriptHebrew"
-		case UnicodeScriptHiragana: return "UnicodeScriptHiragana"
-		case UnicodeScriptImperialAramaic: return "UnicodeScriptImperialAramaic"
-		case UnicodeScriptInherited: return "UnicodeScriptInherited"
-		case UnicodeScriptInscriptionalPahlavi: return "UnicodeScriptInscriptionalPahlavi"
-		case UnicodeScriptInscriptionalParthian: return "UnicodeScriptInscriptionalParthian"
-		case UnicodeScriptInvalidCode: return "UnicodeScriptInvalidCode"
-		case UnicodeScriptJavanese: return "UnicodeScriptJavanese"
-		case UnicodeScriptKaithi: return "UnicodeScriptKaithi"
-		case UnicodeScriptKannada: return "UnicodeScriptKannada"
-		case UnicodeScriptKatakana: return "UnicodeScriptKatakana"
-		case UnicodeScriptKawi: return "UnicodeScriptKawi"
-		case UnicodeScriptKayahLi: return "UnicodeScriptKayahLi"
-		case UnicodeScriptKharoshthi: return "UnicodeScriptKharoshthi"
-		case UnicodeScriptKhitanSmallScript: return "UnicodeScriptKhitanSmallScript"
-		case UnicodeScriptKhmer: return "UnicodeScriptKhmer"
-		case UnicodeScriptKhojki: return "UnicodeScriptKhojki"
-		case UnicodeScriptKhudawadi: return "UnicodeScriptKhudawadi"
-		case UnicodeScriptKiratRai: return "UnicodeScriptKiratRai"
-		case UnicodeScriptLao: return "UnicodeScriptLao"
-		case UnicodeScriptLatin: return "UnicodeScriptLatin"
-		case UnicodeScriptLepcha: return "UnicodeScriptLepcha"
-		case UnicodeScriptLimbu: return "UnicodeScriptLimbu"
-		case UnicodeScriptLinearA: return "UnicodeScriptLinearA"
-		case UnicodeScriptLinearB: return "UnicodeScriptLinearB"
-		case UnicodeScriptLisu: return "UnicodeScriptLisu"
-		case UnicodeScriptLycian: return "UnicodeScriptLycian"
-		case UnicodeScriptLydian: return "UnicodeScriptLydian"
-		case UnicodeScriptMahajani: return "UnicodeScriptMahajani"
-		case UnicodeScriptMakasar: return "UnicodeScriptMakasar"
-		case UnicodeScriptMalayalam: return "UnicodeScriptMalayalam"
-		case UnicodeScriptMandaic: return "UnicodeScriptMandaic"
-		case UnicodeScriptManichaean: return "UnicodeScriptManichaean"
-		case UnicodeScriptMarchen: return "UnicodeScriptMarchen"
-		case UnicodeScriptMasaramGondi: return "UnicodeScriptMasaramGondi"
-		case UnicodeScriptMath: return "UnicodeScriptMath"
-		case UnicodeScriptMedefaidrin: return "UnicodeScriptMedefaidrin"
-		case UnicodeScriptMeeteiMayek: return "UnicodeScriptMeeteiMayek"
-		case UnicodeScriptMendeKikakui: return "UnicodeScriptMendeKikakui"
-		case UnicodeScriptMeroiticCursive: return "UnicodeScriptMeroiticCursive"
-		case UnicodeScriptMeroiticHieroglyphs: return "UnicodeScriptMeroiticHieroglyphs"
-		case UnicodeScriptMiao: return "UnicodeScriptMiao"
-		case UnicodeScriptModi: return "UnicodeScriptModi"
-		case UnicodeScriptMongolian: return "UnicodeScriptMongolian"
-		case UnicodeScriptMro: return "UnicodeScriptMro"
-		case UnicodeScriptMultani: return "UnicodeScriptMultani"
-		case UnicodeScriptMyanmar: return "UnicodeScriptMyanmar"
-		case UnicodeScriptNabataean: return "UnicodeScriptNabataean"
-		case UnicodeScriptNagMundari: return "UnicodeScriptNagMundari"
-		case UnicodeScriptNandinagari: return "UnicodeScriptNandinagari"
-		case UnicodeScriptNewTaiLue: return "UnicodeScriptNewTaiLue"
-		case UnicodeScriptNewa: return "UnicodeScriptNewa"
-		case UnicodeScriptNko: return "UnicodeScriptNko"
-		case UnicodeScriptNushu: return "UnicodeScriptNushu"
-		case UnicodeScriptNyiakengPuachueHmong: return "UnicodeScriptNyiakengPuachueHmong"
-		case UnicodeScriptOgham: return "UnicodeScriptOgham"
-		case UnicodeScriptOlChiki: return "UnicodeScriptOlChiki"
-		case UnicodeScriptOlOnal: return "UnicodeScriptOlOnal"
-		case UnicodeScriptOldHungarian: return "UnicodeScriptOldHungarian"
-		case UnicodeScriptOldItalic: return "UnicodeScriptOldItalic"
-		case UnicodeScriptOldNorthArabian: return "UnicodeScriptOldNorthArabian"
-		case UnicodeScriptOldPermic: return "UnicodeScriptOldPermic"
-		case UnicodeScriptOldPersian: return "UnicodeScriptOldPersian"
-		case UnicodeScriptOldSogdian: return "UnicodeScriptOldSogdian"
-		case UnicodeScriptOldSouthArabian: return "UnicodeScriptOldSouthArabian"
-		case UnicodeScriptOldTurkic: return "UnicodeScriptOldTurkic"
-		case UnicodeScriptOldUyghur: return "UnicodeScriptOldUyghur"
-		case UnicodeScriptOriya: return "UnicodeScriptOriya"
-		case UnicodeScriptOsage: return "UnicodeScriptOsage"
-		case UnicodeScriptOsmanya: return "UnicodeScriptOsmanya"
-		case UnicodeScriptPahawhHmong: return "UnicodeScriptPahawhHmong"
-		case UnicodeScriptPalmyrene: return "UnicodeScriptPalmyrene"
-		case UnicodeScriptPauCinHau: return "UnicodeScriptPauCinHau"
-		case UnicodeScriptPhagsPa: return "UnicodeScriptPhagsPa"
-		case UnicodeScriptPhoenician: return "UnicodeScriptPhoenician"
-		case UnicodeScriptPsalterPahlavi: return "UnicodeScriptPsalterPahlavi"
-		case UnicodeScriptRejang: return "UnicodeScriptRejang"
-		case UnicodeScriptRunic: return "UnicodeScriptRunic"
-		case UnicodeScriptSamaritan: return "UnicodeScriptSamaritan"
-		case UnicodeScriptSaurashtra: return "UnicodeScriptSaurashtra"
-		case UnicodeScriptSharada: return "UnicodeScriptSharada"
-		case UnicodeScriptShavian: return "UnicodeScriptShavian"
-		case UnicodeScriptSiddham: return "UnicodeScriptSiddham"
-		case UnicodeScriptSignwriting: return "UnicodeScriptSignwriting"
-		case UnicodeScriptSinhala: return "UnicodeScriptSinhala"
-		case UnicodeScriptSogdian: return "UnicodeScriptSogdian"
-		case UnicodeScriptSoraSompeng: return "UnicodeScriptSoraSompeng"
-		case UnicodeScriptSoyombo: return "UnicodeScriptSoyombo"
-		case UnicodeScriptSundanese: return "UnicodeScriptSundanese"
-		case UnicodeScriptSunuwar: return "UnicodeScriptSunuwar"
-		case UnicodeScriptSylotiNagri: return "UnicodeScriptSylotiNagri"
-		case UnicodeScriptSyriac: return "UnicodeScriptSyriac"
-		case UnicodeScriptTagalog: return "UnicodeScriptTagalog"
-		case UnicodeScriptTagbanwa: return "UnicodeScriptTagbanwa"
-		case UnicodeScriptTaiLe: return "UnicodeScriptTaiLe"
-		case UnicodeScriptTaiTham: return "UnicodeScriptTaiTham"
-		case UnicodeScriptTaiViet: return "UnicodeScriptTaiViet"
-		case UnicodeScriptTakri: return "UnicodeScriptTakri"
-		case UnicodeScriptTamil: return "UnicodeScriptTamil"
-		case UnicodeScriptTangsa: return "UnicodeScriptTangsa"
-		case UnicodeScriptTangut: return "UnicodeScriptTangut"
-		case UnicodeScriptTelugu: return "UnicodeScriptTelugu"
-		case UnicodeScriptThaana: return "UnicodeScriptThaana"
-		case UnicodeScriptThai: return "UnicodeScriptThai"
-		case UnicodeScriptTibetan: return "UnicodeScriptTibetan"
-		case UnicodeScriptTifinagh: return "UnicodeScriptTifinagh"
-		case UnicodeScriptTirhuta: return "UnicodeScriptTirhuta"
-		case UnicodeScriptTodhri: return "UnicodeScriptTodhri"
-		case UnicodeScriptToto: return "UnicodeScriptToto"
-		case UnicodeScriptTuluTigalari: return "UnicodeScriptTuluTigalari"
-		case UnicodeScriptUgaritic: return "UnicodeScriptUgaritic"
-		case UnicodeScriptUnknown: return "UnicodeScriptUnknown"
-		case UnicodeScriptVai: return "UnicodeScriptVai"
-		case UnicodeScriptVithkuqi: return "UnicodeScriptVithkuqi"
-		case UnicodeScriptWancho: return "UnicodeScriptWancho"
-		case UnicodeScriptWarangCiti: return "UnicodeScriptWarangCiti"
-		case UnicodeScriptYezidi: return "UnicodeScriptYezidi"
-		case UnicodeScriptYi: return "UnicodeScriptYi"
-		case UnicodeScriptZanabazarSquare: return "UnicodeScriptZanabazarSquare"
-		default: return fmt.Sprintf("UnicodeScript(%d)", e)
+	case UnicodeScriptAdlam:
+		return "UnicodeScriptAdlam"
+	case UnicodeScriptAhom:
+		return "UnicodeScriptAhom"
+	case UnicodeScriptAnatolianHieroglyphs:
+		return "UnicodeScriptAnatolianHieroglyphs"
+	case UnicodeScriptArabic:
+		return "UnicodeScriptArabic"
+	case UnicodeScriptArmenian:
+		return "UnicodeScriptArmenian"
+	case UnicodeScriptAvestan:
+		return "UnicodeScriptAvestan"
+	case UnicodeScriptBalinese:
+		return "UnicodeScriptBalinese"
+	case UnicodeScriptBamum:
+		return "UnicodeScriptBamum"
+	case UnicodeScriptBassaVah:
+		return "UnicodeScriptBassaVah"
+	case UnicodeScriptBatak:
+		return "UnicodeScriptBatak"
+	case UnicodeScriptBengali:
+		return "UnicodeScriptBengali"
+	case UnicodeScriptBhaiksuki:
+		return "UnicodeScriptBhaiksuki"
+	case UnicodeScriptBopomofo:
+		return "UnicodeScriptBopomofo"
+	case UnicodeScriptBrahmi:
+		return "UnicodeScriptBrahmi"
+	case UnicodeScriptBraille:
+		return "UnicodeScriptBraille"
+	case UnicodeScriptBuginese:
+		return "UnicodeScriptBuginese"
+	case UnicodeScriptBuhid:
+		return "UnicodeScriptBuhid"
+	case UnicodeScriptCanadianAboriginal:
+		return "UnicodeScriptCanadianAboriginal"
+	case UnicodeScriptCarian:
+		return "UnicodeScriptCarian"
+	case UnicodeScriptCaucasianAlbanian:
+		return "UnicodeScriptCaucasianAlbanian"
+	case UnicodeScriptChakma:
+		return "UnicodeScriptChakma"
+	case UnicodeScriptCham:
+		return "UnicodeScriptCham"
+	case UnicodeScriptCherokee:
+		return "UnicodeScriptCherokee"
+	case UnicodeScriptChorasmian:
+		return "UnicodeScriptChorasmian"
+	case UnicodeScriptCommon:
+		return "UnicodeScriptCommon"
+	case UnicodeScriptCoptic:
+		return "UnicodeScriptCoptic"
+	case UnicodeScriptCuneiform:
+		return "UnicodeScriptCuneiform"
+	case UnicodeScriptCypriot:
+		return "UnicodeScriptCypriot"
+	case UnicodeScriptCyproMinoan:
+		return "UnicodeScriptCyproMinoan"
+	case UnicodeScriptCyrillic:
+		return "UnicodeScriptCyrillic"
+	case UnicodeScriptDeseret:
+		return "UnicodeScriptDeseret"
+	case UnicodeScriptDevanagari:
+		return "UnicodeScriptDevanagari"
+	case UnicodeScriptDivesAkuru:
+		return "UnicodeScriptDivesAkuru"
+	case UnicodeScriptDogra:
+		return "UnicodeScriptDogra"
+	case UnicodeScriptDuployan:
+		return "UnicodeScriptDuployan"
+	case UnicodeScriptEgyptianHieroglyphs:
+		return "UnicodeScriptEgyptianHieroglyphs"
+	case UnicodeScriptElbasan:
+		return "UnicodeScriptElbasan"
+	case UnicodeScriptElymaic:
+		return "UnicodeScriptElymaic"
+	case UnicodeScriptEthiopic:
+		return "UnicodeScriptEthiopic"
+	case UnicodeScriptGaray:
+		return "UnicodeScriptGaray"
+	case UnicodeScriptGeorgian:
+		return "UnicodeScriptGeorgian"
+	case UnicodeScriptGlagolitic:
+		return "UnicodeScriptGlagolitic"
+	case UnicodeScriptGothic:
+		return "UnicodeScriptGothic"
+	case UnicodeScriptGrantha:
+		return "UnicodeScriptGrantha"
+	case UnicodeScriptGreek:
+		return "UnicodeScriptGreek"
+	case UnicodeScriptGujarati:
+		return "UnicodeScriptGujarati"
+	case UnicodeScriptGunjalaGondi:
+		return "UnicodeScriptGunjalaGondi"
+	case UnicodeScriptGurmukhi:
+		return "UnicodeScriptGurmukhi"
+	case UnicodeScriptGurungKhema:
+		return "UnicodeScriptGurungKhema"
+	case UnicodeScriptHan:
+		return "UnicodeScriptHan"
+	case UnicodeScriptHangul:
+		return "UnicodeScriptHangul"
+	case UnicodeScriptHanifiRohingya:
+		return "UnicodeScriptHanifiRohingya"
+	case UnicodeScriptHanunoo:
+		return "UnicodeScriptHanunoo"
+	case UnicodeScriptHatran:
+		return "UnicodeScriptHatran"
+	case UnicodeScriptHebrew:
+		return "UnicodeScriptHebrew"
+	case UnicodeScriptHiragana:
+		return "UnicodeScriptHiragana"
+	case UnicodeScriptImperialAramaic:
+		return "UnicodeScriptImperialAramaic"
+	case UnicodeScriptInherited:
+		return "UnicodeScriptInherited"
+	case UnicodeScriptInscriptionalPahlavi:
+		return "UnicodeScriptInscriptionalPahlavi"
+	case UnicodeScriptInscriptionalParthian:
+		return "UnicodeScriptInscriptionalParthian"
+	case UnicodeScriptInvalidCode:
+		return "UnicodeScriptInvalidCode"
+	case UnicodeScriptJavanese:
+		return "UnicodeScriptJavanese"
+	case UnicodeScriptKaithi:
+		return "UnicodeScriptKaithi"
+	case UnicodeScriptKannada:
+		return "UnicodeScriptKannada"
+	case UnicodeScriptKatakana:
+		return "UnicodeScriptKatakana"
+	case UnicodeScriptKawi:
+		return "UnicodeScriptKawi"
+	case UnicodeScriptKayahLi:
+		return "UnicodeScriptKayahLi"
+	case UnicodeScriptKharoshthi:
+		return "UnicodeScriptKharoshthi"
+	case UnicodeScriptKhitanSmallScript:
+		return "UnicodeScriptKhitanSmallScript"
+	case UnicodeScriptKhmer:
+		return "UnicodeScriptKhmer"
+	case UnicodeScriptKhojki:
+		return "UnicodeScriptKhojki"
+	case UnicodeScriptKhudawadi:
+		return "UnicodeScriptKhudawadi"
+	case UnicodeScriptKiratRai:
+		return "UnicodeScriptKiratRai"
+	case UnicodeScriptLao:
+		return "UnicodeScriptLao"
+	case UnicodeScriptLatin:
+		return "UnicodeScriptLatin"
+	case UnicodeScriptLepcha:
+		return "UnicodeScriptLepcha"
+	case UnicodeScriptLimbu:
+		return "UnicodeScriptLimbu"
+	case UnicodeScriptLinearA:
+		return "UnicodeScriptLinearA"
+	case UnicodeScriptLinearB:
+		return "UnicodeScriptLinearB"
+	case UnicodeScriptLisu:
+		return "UnicodeScriptLisu"
+	case UnicodeScriptLycian:
+		return "UnicodeScriptLycian"
+	case UnicodeScriptLydian:
+		return "UnicodeScriptLydian"
+	case UnicodeScriptMahajani:
+		return "UnicodeScriptMahajani"
+	case UnicodeScriptMakasar:
+		return "UnicodeScriptMakasar"
+	case UnicodeScriptMalayalam:
+		return "UnicodeScriptMalayalam"
+	case UnicodeScriptMandaic:
+		return "UnicodeScriptMandaic"
+	case UnicodeScriptManichaean:
+		return "UnicodeScriptManichaean"
+	case UnicodeScriptMarchen:
+		return "UnicodeScriptMarchen"
+	case UnicodeScriptMasaramGondi:
+		return "UnicodeScriptMasaramGondi"
+	case UnicodeScriptMath:
+		return "UnicodeScriptMath"
+	case UnicodeScriptMedefaidrin:
+		return "UnicodeScriptMedefaidrin"
+	case UnicodeScriptMeeteiMayek:
+		return "UnicodeScriptMeeteiMayek"
+	case UnicodeScriptMendeKikakui:
+		return "UnicodeScriptMendeKikakui"
+	case UnicodeScriptMeroiticCursive:
+		return "UnicodeScriptMeroiticCursive"
+	case UnicodeScriptMeroiticHieroglyphs:
+		return "UnicodeScriptMeroiticHieroglyphs"
+	case UnicodeScriptMiao:
+		return "UnicodeScriptMiao"
+	case UnicodeScriptModi:
+		return "UnicodeScriptModi"
+	case UnicodeScriptMongolian:
+		return "UnicodeScriptMongolian"
+	case UnicodeScriptMro:
+		return "UnicodeScriptMro"
+	case UnicodeScriptMultani:
+		return "UnicodeScriptMultani"
+	case UnicodeScriptMyanmar:
+		return "UnicodeScriptMyanmar"
+	case UnicodeScriptNabataean:
+		return "UnicodeScriptNabataean"
+	case UnicodeScriptNagMundari:
+		return "UnicodeScriptNagMundari"
+	case UnicodeScriptNandinagari:
+		return "UnicodeScriptNandinagari"
+	case UnicodeScriptNewTaiLue:
+		return "UnicodeScriptNewTaiLue"
+	case UnicodeScriptNewa:
+		return "UnicodeScriptNewa"
+	case UnicodeScriptNko:
+		return "UnicodeScriptNko"
+	case UnicodeScriptNushu:
+		return "UnicodeScriptNushu"
+	case UnicodeScriptNyiakengPuachueHmong:
+		return "UnicodeScriptNyiakengPuachueHmong"
+	case UnicodeScriptOgham:
+		return "UnicodeScriptOgham"
+	case UnicodeScriptOlChiki:
+		return "UnicodeScriptOlChiki"
+	case UnicodeScriptOlOnal:
+		return "UnicodeScriptOlOnal"
+	case UnicodeScriptOldHungarian:
+		return "UnicodeScriptOldHungarian"
+	case UnicodeScriptOldItalic:
+		return "UnicodeScriptOldItalic"
+	case UnicodeScriptOldNorthArabian:
+		return "UnicodeScriptOldNorthArabian"
+	case UnicodeScriptOldPermic:
+		return "UnicodeScriptOldPermic"
+	case UnicodeScriptOldPersian:
+		return "UnicodeScriptOldPersian"
+	case UnicodeScriptOldSogdian:
+		return "UnicodeScriptOldSogdian"
+	case UnicodeScriptOldSouthArabian:
+		return "UnicodeScriptOldSouthArabian"
+	case UnicodeScriptOldTurkic:
+		return "UnicodeScriptOldTurkic"
+	case UnicodeScriptOldUyghur:
+		return "UnicodeScriptOldUyghur"
+	case UnicodeScriptOriya:
+		return "UnicodeScriptOriya"
+	case UnicodeScriptOsage:
+		return "UnicodeScriptOsage"
+	case UnicodeScriptOsmanya:
+		return "UnicodeScriptOsmanya"
+	case UnicodeScriptPahawhHmong:
+		return "UnicodeScriptPahawhHmong"
+	case UnicodeScriptPalmyrene:
+		return "UnicodeScriptPalmyrene"
+	case UnicodeScriptPauCinHau:
+		return "UnicodeScriptPauCinHau"
+	case UnicodeScriptPhagsPa:
+		return "UnicodeScriptPhagsPa"
+	case UnicodeScriptPhoenician:
+		return "UnicodeScriptPhoenician"
+	case UnicodeScriptPsalterPahlavi:
+		return "UnicodeScriptPsalterPahlavi"
+	case UnicodeScriptRejang:
+		return "UnicodeScriptRejang"
+	case UnicodeScriptRunic:
+		return "UnicodeScriptRunic"
+	case UnicodeScriptSamaritan:
+		return "UnicodeScriptSamaritan"
+	case UnicodeScriptSaurashtra:
+		return "UnicodeScriptSaurashtra"
+	case UnicodeScriptSharada:
+		return "UnicodeScriptSharada"
+	case UnicodeScriptShavian:
+		return "UnicodeScriptShavian"
+	case UnicodeScriptSiddham:
+		return "UnicodeScriptSiddham"
+	case UnicodeScriptSignwriting:
+		return "UnicodeScriptSignwriting"
+	case UnicodeScriptSinhala:
+		return "UnicodeScriptSinhala"
+	case UnicodeScriptSogdian:
+		return "UnicodeScriptSogdian"
+	case UnicodeScriptSoraSompeng:
+		return "UnicodeScriptSoraSompeng"
+	case UnicodeScriptSoyombo:
+		return "UnicodeScriptSoyombo"
+	case UnicodeScriptSundanese:
+		return "UnicodeScriptSundanese"
+	case UnicodeScriptSunuwar:
+		return "UnicodeScriptSunuwar"
+	case UnicodeScriptSylotiNagri:
+		return "UnicodeScriptSylotiNagri"
+	case UnicodeScriptSyriac:
+		return "UnicodeScriptSyriac"
+	case UnicodeScriptTagalog:
+		return "UnicodeScriptTagalog"
+	case UnicodeScriptTagbanwa:
+		return "UnicodeScriptTagbanwa"
+	case UnicodeScriptTaiLe:
+		return "UnicodeScriptTaiLe"
+	case UnicodeScriptTaiTham:
+		return "UnicodeScriptTaiTham"
+	case UnicodeScriptTaiViet:
+		return "UnicodeScriptTaiViet"
+	case UnicodeScriptTakri:
+		return "UnicodeScriptTakri"
+	case UnicodeScriptTamil:
+		return "UnicodeScriptTamil"
+	case UnicodeScriptTangsa:
+		return "UnicodeScriptTangsa"
+	case UnicodeScriptTangut:
+		return "UnicodeScriptTangut"
+	case UnicodeScriptTelugu:
+		return "UnicodeScriptTelugu"
+	case UnicodeScriptThaana:
+		return "UnicodeScriptThaana"
+	case UnicodeScriptThai:
+		return "UnicodeScriptThai"
+	case UnicodeScriptTibetan:
+		return "UnicodeScriptTibetan"
+	case UnicodeScriptTifinagh:
+		return "UnicodeScriptTifinagh"
+	case UnicodeScriptTirhuta:
+		return "UnicodeScriptTirhuta"
+	case UnicodeScriptTodhri:
+		return "UnicodeScriptTodhri"
+	case UnicodeScriptToto:
+		return "UnicodeScriptToto"
+	case UnicodeScriptTuluTigalari:
+		return "UnicodeScriptTuluTigalari"
+	case UnicodeScriptUgaritic:
+		return "UnicodeScriptUgaritic"
+	case UnicodeScriptUnknown:
+		return "UnicodeScriptUnknown"
+	case UnicodeScriptVai:
+		return "UnicodeScriptVai"
+	case UnicodeScriptVithkuqi:
+		return "UnicodeScriptVithkuqi"
+	case UnicodeScriptWancho:
+		return "UnicodeScriptWancho"
+	case UnicodeScriptWarangCiti:
+		return "UnicodeScriptWarangCiti"
+	case UnicodeScriptYezidi:
+		return "UnicodeScriptYezidi"
+	case UnicodeScriptYi:
+		return "UnicodeScriptYi"
+	case UnicodeScriptZanabazarSquare:
+		return "UnicodeScriptZanabazarSquare"
+	default:
+		return fmt.Sprintf("UnicodeScript(%d)", e)
 	}
 }
 
 // UnicodeScriptFromIso15924 wraps g_unicode_script_from_iso15924
-// 
+//
 // see also https://docs.gtk.org/glib/func.g_unicode_script_from_iso15924.html
 func UnicodeScriptFromIso15924(iso15924 uint32) UnicodeScript {
-	var carg1 C.guint32        // in, none, casted
-	var cret  C.GUnicodeScript // return, none, casted
+	var carg1 C.guint32       // in, none, casted
+	var cret C.GUnicodeScript // return, none, casted
 
 	carg1 = C.guint32(iso15924)
 
@@ -3158,11 +3701,11 @@ func UnicodeScriptFromIso15924(iso15924 uint32) UnicodeScript {
 }
 
 // UnicodeScriptToIso15924 wraps g_unicode_script_to_iso15924
-// 
+//
 // see also https://docs.gtk.org/glib/func.g_unicode_script_to_iso15924.html
 func UnicodeScriptToIso15924(script UnicodeScript) uint32 {
 	var carg1 C.GUnicodeScript // in, none, casted
-	var cret  C.guint32        // return, none, casted
+	var cret C.guint32         // return, none, casted
 
 	carg1 = C.GUnicodeScript(script)
 
@@ -3177,558 +3720,644 @@ func UnicodeScriptToIso15924(script UnicodeScript) uint32 {
 }
 
 // UnicodeType wraps GUnicodeType
-// 
+//
 // see also https://docs.gtk.org/glib/enum.UnicodeType.html
 type UnicodeType C.int
 
 const (
 	// UnicodeControl wraps G_UNICODE_CONTROL
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.UnicodeType.html#control
 	UnicodeControl UnicodeType = 0
 	// UnicodeFormat wraps G_UNICODE_FORMAT
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.UnicodeType.html#format
 	UnicodeFormat UnicodeType = 1
 	// UnicodeUnassigned wraps G_UNICODE_UNASSIGNED
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.UnicodeType.html#unassigned
 	UnicodeUnassigned UnicodeType = 2
 	// UnicodePrivateUse wraps G_UNICODE_PRIVATE_USE
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.UnicodeType.html#private_use
 	UnicodePrivateUse UnicodeType = 3
 	// UnicodeSurrogate wraps G_UNICODE_SURROGATE
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.UnicodeType.html#surrogate
 	UnicodeSurrogate UnicodeType = 4
 	// UnicodeLowercaseLetter wraps G_UNICODE_LOWERCASE_LETTER
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.UnicodeType.html#lowercase_letter
 	UnicodeLowercaseLetter UnicodeType = 5
 	// UnicodeModifierLetter wraps G_UNICODE_MODIFIER_LETTER
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.UnicodeType.html#modifier_letter
 	UnicodeModifierLetter UnicodeType = 6
 	// UnicodeOtherLetter wraps G_UNICODE_OTHER_LETTER
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.UnicodeType.html#other_letter
 	UnicodeOtherLetter UnicodeType = 7
 	// UnicodeTitlecaseLetter wraps G_UNICODE_TITLECASE_LETTER
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.UnicodeType.html#titlecase_letter
 	UnicodeTitlecaseLetter UnicodeType = 8
 	// UnicodeUppercaseLetter wraps G_UNICODE_UPPERCASE_LETTER
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.UnicodeType.html#uppercase_letter
 	UnicodeUppercaseLetter UnicodeType = 9
 	// UnicodeSpacingMark wraps G_UNICODE_SPACING_MARK
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.UnicodeType.html#spacing_mark
 	UnicodeSpacingMark UnicodeType = 10
 	// UnicodeEnclosingMark wraps G_UNICODE_ENCLOSING_MARK
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.UnicodeType.html#enclosing_mark
 	UnicodeEnclosingMark UnicodeType = 11
 	// UnicodeNonSpacingMark wraps G_UNICODE_NON_SPACING_MARK
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.UnicodeType.html#non_spacing_mark
 	UnicodeNonSpacingMark UnicodeType = 12
 	// UnicodeDecimalNumber wraps G_UNICODE_DECIMAL_NUMBER
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.UnicodeType.html#decimal_number
 	UnicodeDecimalNumber UnicodeType = 13
 	// UnicodeLetterNumber wraps G_UNICODE_LETTER_NUMBER
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.UnicodeType.html#letter_number
 	UnicodeLetterNumber UnicodeType = 14
 	// UnicodeOtherNumber wraps G_UNICODE_OTHER_NUMBER
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.UnicodeType.html#other_number
 	UnicodeOtherNumber UnicodeType = 15
 	// UnicodeConnectPunctuation wraps G_UNICODE_CONNECT_PUNCTUATION
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.UnicodeType.html#connect_punctuation
 	UnicodeConnectPunctuation UnicodeType = 16
 	// UnicodeDashPunctuation wraps G_UNICODE_DASH_PUNCTUATION
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.UnicodeType.html#dash_punctuation
 	UnicodeDashPunctuation UnicodeType = 17
 	// UnicodeClosePunctuation wraps G_UNICODE_CLOSE_PUNCTUATION
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.UnicodeType.html#close_punctuation
 	UnicodeClosePunctuation UnicodeType = 18
 	// UnicodeFinalPunctuation wraps G_UNICODE_FINAL_PUNCTUATION
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.UnicodeType.html#final_punctuation
 	UnicodeFinalPunctuation UnicodeType = 19
 	// UnicodeInitialPunctuation wraps G_UNICODE_INITIAL_PUNCTUATION
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.UnicodeType.html#initial_punctuation
 	UnicodeInitialPunctuation UnicodeType = 20
 	// UnicodeOtherPunctuation wraps G_UNICODE_OTHER_PUNCTUATION
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.UnicodeType.html#other_punctuation
 	UnicodeOtherPunctuation UnicodeType = 21
 	// UnicodeOpenPunctuation wraps G_UNICODE_OPEN_PUNCTUATION
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.UnicodeType.html#open_punctuation
 	UnicodeOpenPunctuation UnicodeType = 22
 	// UnicodeCurrencySymbol wraps G_UNICODE_CURRENCY_SYMBOL
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.UnicodeType.html#currency_symbol
 	UnicodeCurrencySymbol UnicodeType = 23
 	// UnicodeModifierSymbol wraps G_UNICODE_MODIFIER_SYMBOL
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.UnicodeType.html#modifier_symbol
 	UnicodeModifierSymbol UnicodeType = 24
 	// UnicodeMathSymbol wraps G_UNICODE_MATH_SYMBOL
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.UnicodeType.html#math_symbol
 	UnicodeMathSymbol UnicodeType = 25
 	// UnicodeOtherSymbol wraps G_UNICODE_OTHER_SYMBOL
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.UnicodeType.html#other_symbol
 	UnicodeOtherSymbol UnicodeType = 26
 	// UnicodeLineSeparator wraps G_UNICODE_LINE_SEPARATOR
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.UnicodeType.html#line_separator
 	UnicodeLineSeparator UnicodeType = 27
 	// UnicodeParagraphSeparator wraps G_UNICODE_PARAGRAPH_SEPARATOR
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.UnicodeType.html#paragraph_separator
 	UnicodeParagraphSeparator UnicodeType = 28
 	// UnicodeSpaceSeparator wraps G_UNICODE_SPACE_SEPARATOR
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.UnicodeType.html#space_separator
 	UnicodeSpaceSeparator UnicodeType = 29
 )
 
-
 func (e UnicodeType) String() string {
 	switch e {
-		case UnicodeClosePunctuation: return "UnicodeClosePunctuation"
-		case UnicodeConnectPunctuation: return "UnicodeConnectPunctuation"
-		case UnicodeControl: return "UnicodeControl"
-		case UnicodeCurrencySymbol: return "UnicodeCurrencySymbol"
-		case UnicodeDashPunctuation: return "UnicodeDashPunctuation"
-		case UnicodeDecimalNumber: return "UnicodeDecimalNumber"
-		case UnicodeEnclosingMark: return "UnicodeEnclosingMark"
-		case UnicodeFinalPunctuation: return "UnicodeFinalPunctuation"
-		case UnicodeFormat: return "UnicodeFormat"
-		case UnicodeInitialPunctuation: return "UnicodeInitialPunctuation"
-		case UnicodeLetterNumber: return "UnicodeLetterNumber"
-		case UnicodeLineSeparator: return "UnicodeLineSeparator"
-		case UnicodeLowercaseLetter: return "UnicodeLowercaseLetter"
-		case UnicodeMathSymbol: return "UnicodeMathSymbol"
-		case UnicodeModifierLetter: return "UnicodeModifierLetter"
-		case UnicodeModifierSymbol: return "UnicodeModifierSymbol"
-		case UnicodeNonSpacingMark: return "UnicodeNonSpacingMark"
-		case UnicodeOpenPunctuation: return "UnicodeOpenPunctuation"
-		case UnicodeOtherLetter: return "UnicodeOtherLetter"
-		case UnicodeOtherNumber: return "UnicodeOtherNumber"
-		case UnicodeOtherPunctuation: return "UnicodeOtherPunctuation"
-		case UnicodeOtherSymbol: return "UnicodeOtherSymbol"
-		case UnicodeParagraphSeparator: return "UnicodeParagraphSeparator"
-		case UnicodePrivateUse: return "UnicodePrivateUse"
-		case UnicodeSpaceSeparator: return "UnicodeSpaceSeparator"
-		case UnicodeSpacingMark: return "UnicodeSpacingMark"
-		case UnicodeSurrogate: return "UnicodeSurrogate"
-		case UnicodeTitlecaseLetter: return "UnicodeTitlecaseLetter"
-		case UnicodeUnassigned: return "UnicodeUnassigned"
-		case UnicodeUppercaseLetter: return "UnicodeUppercaseLetter"
-		default: return fmt.Sprintf("UnicodeType(%d)", e)
+	case UnicodeClosePunctuation:
+		return "UnicodeClosePunctuation"
+	case UnicodeConnectPunctuation:
+		return "UnicodeConnectPunctuation"
+	case UnicodeControl:
+		return "UnicodeControl"
+	case UnicodeCurrencySymbol:
+		return "UnicodeCurrencySymbol"
+	case UnicodeDashPunctuation:
+		return "UnicodeDashPunctuation"
+	case UnicodeDecimalNumber:
+		return "UnicodeDecimalNumber"
+	case UnicodeEnclosingMark:
+		return "UnicodeEnclosingMark"
+	case UnicodeFinalPunctuation:
+		return "UnicodeFinalPunctuation"
+	case UnicodeFormat:
+		return "UnicodeFormat"
+	case UnicodeInitialPunctuation:
+		return "UnicodeInitialPunctuation"
+	case UnicodeLetterNumber:
+		return "UnicodeLetterNumber"
+	case UnicodeLineSeparator:
+		return "UnicodeLineSeparator"
+	case UnicodeLowercaseLetter:
+		return "UnicodeLowercaseLetter"
+	case UnicodeMathSymbol:
+		return "UnicodeMathSymbol"
+	case UnicodeModifierLetter:
+		return "UnicodeModifierLetter"
+	case UnicodeModifierSymbol:
+		return "UnicodeModifierSymbol"
+	case UnicodeNonSpacingMark:
+		return "UnicodeNonSpacingMark"
+	case UnicodeOpenPunctuation:
+		return "UnicodeOpenPunctuation"
+	case UnicodeOtherLetter:
+		return "UnicodeOtherLetter"
+	case UnicodeOtherNumber:
+		return "UnicodeOtherNumber"
+	case UnicodeOtherPunctuation:
+		return "UnicodeOtherPunctuation"
+	case UnicodeOtherSymbol:
+		return "UnicodeOtherSymbol"
+	case UnicodeParagraphSeparator:
+		return "UnicodeParagraphSeparator"
+	case UnicodePrivateUse:
+		return "UnicodePrivateUse"
+	case UnicodeSpaceSeparator:
+		return "UnicodeSpaceSeparator"
+	case UnicodeSpacingMark:
+		return "UnicodeSpacingMark"
+	case UnicodeSurrogate:
+		return "UnicodeSurrogate"
+	case UnicodeTitlecaseLetter:
+		return "UnicodeTitlecaseLetter"
+	case UnicodeUnassigned:
+		return "UnicodeUnassigned"
+	case UnicodeUppercaseLetter:
+		return "UnicodeUppercaseLetter"
+	default:
+		return fmt.Sprintf("UnicodeType(%d)", e)
 	}
 }
 
 // UriError wraps GUriError
-// 
+//
 // see also https://docs.gtk.org/glib/enum.UriError.html
 type UriError C.int
 
 const (
 	// URIErrorFailed wraps G_URI_ERROR_FAILED
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.UriError.html#failed
 	URIErrorFailed UriError = 0
 	// URIErrorBadScheme wraps G_URI_ERROR_BAD_SCHEME
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.UriError.html#bad_scheme
 	URIErrorBadScheme UriError = 1
 	// URIErrorBadUser wraps G_URI_ERROR_BAD_USER
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.UriError.html#bad_user
 	URIErrorBadUser UriError = 2
 	// URIErrorBadPassword wraps G_URI_ERROR_BAD_PASSWORD
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.UriError.html#bad_password
 	URIErrorBadPassword UriError = 3
 	// URIErrorBadAuthParams wraps G_URI_ERROR_BAD_AUTH_PARAMS
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.UriError.html#bad_auth_params
 	URIErrorBadAuthParams UriError = 4
 	// URIErrorBadHost wraps G_URI_ERROR_BAD_HOST
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.UriError.html#bad_host
 	URIErrorBadHost UriError = 5
 	// URIErrorBadPort wraps G_URI_ERROR_BAD_PORT
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.UriError.html#bad_port
 	URIErrorBadPort UriError = 6
 	// URIErrorBadPath wraps G_URI_ERROR_BAD_PATH
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.UriError.html#bad_path
 	URIErrorBadPath UriError = 7
 	// URIErrorBadQuery wraps G_URI_ERROR_BAD_QUERY
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.UriError.html#bad_query
 	URIErrorBadQuery UriError = 8
 	// URIErrorBadFragment wraps G_URI_ERROR_BAD_FRAGMENT
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.UriError.html#bad_fragment
 	URIErrorBadFragment UriError = 9
 )
 
-
 func (e UriError) String() string {
 	switch e {
-		case URIErrorBadAuthParams: return "URIErrorBadAuthParams"
-		case URIErrorBadFragment: return "URIErrorBadFragment"
-		case URIErrorBadHost: return "URIErrorBadHost"
-		case URIErrorBadPassword: return "URIErrorBadPassword"
-		case URIErrorBadPath: return "URIErrorBadPath"
-		case URIErrorBadPort: return "URIErrorBadPort"
-		case URIErrorBadQuery: return "URIErrorBadQuery"
-		case URIErrorBadScheme: return "URIErrorBadScheme"
-		case URIErrorBadUser: return "URIErrorBadUser"
-		case URIErrorFailed: return "URIErrorFailed"
-		default: return fmt.Sprintf("UriError(%d)", e)
+	case URIErrorBadAuthParams:
+		return "URIErrorBadAuthParams"
+	case URIErrorBadFragment:
+		return "URIErrorBadFragment"
+	case URIErrorBadHost:
+		return "URIErrorBadHost"
+	case URIErrorBadPassword:
+		return "URIErrorBadPassword"
+	case URIErrorBadPath:
+		return "URIErrorBadPath"
+	case URIErrorBadPort:
+		return "URIErrorBadPort"
+	case URIErrorBadQuery:
+		return "URIErrorBadQuery"
+	case URIErrorBadScheme:
+		return "URIErrorBadScheme"
+	case URIErrorBadUser:
+		return "URIErrorBadUser"
+	case URIErrorFailed:
+		return "URIErrorFailed"
+	default:
+		return fmt.Sprintf("UriError(%d)", e)
 	}
 }
 
 // UserDirectory wraps GUserDirectory
-// 
+//
 // see also https://docs.gtk.org/glib/enum.UserDirectory.html
 type UserDirectory C.int
 
 const (
 	// UserDirectoryDesktop wraps G_USER_DIRECTORY_DESKTOP
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.UserDirectory.html#directory_desktop
 	UserDirectoryDesktop UserDirectory = 0
 	// UserDirectoryDocuments wraps G_USER_DIRECTORY_DOCUMENTS
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.UserDirectory.html#directory_documents
 	UserDirectoryDocuments UserDirectory = 1
 	// UserDirectoryDownload wraps G_USER_DIRECTORY_DOWNLOAD
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.UserDirectory.html#directory_download
 	UserDirectoryDownload UserDirectory = 2
 	// UserDirectoryMusic wraps G_USER_DIRECTORY_MUSIC
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.UserDirectory.html#directory_music
 	UserDirectoryMusic UserDirectory = 3
 	// UserDirectoryPictures wraps G_USER_DIRECTORY_PICTURES
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.UserDirectory.html#directory_pictures
 	UserDirectoryPictures UserDirectory = 4
 	// UserDirectoryPublicShare wraps G_USER_DIRECTORY_PUBLIC_SHARE
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.UserDirectory.html#directory_public_share
 	UserDirectoryPublicShare UserDirectory = 5
 	// UserDirectoryTemplates wraps G_USER_DIRECTORY_TEMPLATES
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.UserDirectory.html#directory_templates
 	UserDirectoryTemplates UserDirectory = 6
 	// UserDirectoryVideos wraps G_USER_DIRECTORY_VIDEOS
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.UserDirectory.html#directory_videos
 	UserDirectoryVideos UserDirectory = 7
 	// UserNDirectories wraps G_USER_N_DIRECTORIES
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.UserDirectory.html#n_directories
 	UserNDirectories UserDirectory = 8
 )
 
-
 func (e UserDirectory) String() string {
 	switch e {
-		case UserDirectoryDesktop: return "UserDirectoryDesktop"
-		case UserDirectoryDocuments: return "UserDirectoryDocuments"
-		case UserDirectoryDownload: return "UserDirectoryDownload"
-		case UserDirectoryMusic: return "UserDirectoryMusic"
-		case UserDirectoryPictures: return "UserDirectoryPictures"
-		case UserDirectoryPublicShare: return "UserDirectoryPublicShare"
-		case UserDirectoryTemplates: return "UserDirectoryTemplates"
-		case UserDirectoryVideos: return "UserDirectoryVideos"
-		case UserNDirectories: return "UserNDirectories"
-		default: return fmt.Sprintf("UserDirectory(%d)", e)
+	case UserDirectoryDesktop:
+		return "UserDirectoryDesktop"
+	case UserDirectoryDocuments:
+		return "UserDirectoryDocuments"
+	case UserDirectoryDownload:
+		return "UserDirectoryDownload"
+	case UserDirectoryMusic:
+		return "UserDirectoryMusic"
+	case UserDirectoryPictures:
+		return "UserDirectoryPictures"
+	case UserDirectoryPublicShare:
+		return "UserDirectoryPublicShare"
+	case UserDirectoryTemplates:
+		return "UserDirectoryTemplates"
+	case UserDirectoryVideos:
+		return "UserDirectoryVideos"
+	case UserNDirectories:
+		return "UserNDirectories"
+	default:
+		return fmt.Sprintf("UserDirectory(%d)", e)
 	}
 }
 
 // VariantClass wraps GVariantClass
-// 
+//
 // see also https://docs.gtk.org/glib/enum.VariantClass.html
 type VariantClass C.int
 
 const (
 	// VariantClassBoolean wraps G_VARIANT_CLASS_BOOLEAN
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.VariantClass.html#boolean
 	VariantClassBoolean VariantClass = 98
 	// VariantClassByte wraps G_VARIANT_CLASS_BYTE
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.VariantClass.html#byte
 	VariantClassByte VariantClass = 121
 	// VariantClassInt16 wraps G_VARIANT_CLASS_INT16
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.VariantClass.html#int16
 	VariantClassInt16 VariantClass = 110
 	// VariantClassUint16 wraps G_VARIANT_CLASS_UINT16
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.VariantClass.html#uint16
 	VariantClassUint16 VariantClass = 113
 	// VariantClassInt32 wraps G_VARIANT_CLASS_INT32
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.VariantClass.html#int32
 	VariantClassInt32 VariantClass = 105
 	// VariantClassUint32 wraps G_VARIANT_CLASS_UINT32
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.VariantClass.html#uint32
 	VariantClassUint32 VariantClass = 117
 	// VariantClassInt64 wraps G_VARIANT_CLASS_INT64
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.VariantClass.html#int64
 	VariantClassInt64 VariantClass = 120
 	// VariantClassUint64 wraps G_VARIANT_CLASS_UINT64
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.VariantClass.html#uint64
 	VariantClassUint64 VariantClass = 116
 	// VariantClassHandle wraps G_VARIANT_CLASS_HANDLE
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.VariantClass.html#handle
 	VariantClassHandle VariantClass = 104
 	// VariantClassDouble wraps G_VARIANT_CLASS_DOUBLE
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.VariantClass.html#double
 	VariantClassDouble VariantClass = 100
 	// VariantClassString wraps G_VARIANT_CLASS_STRING
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.VariantClass.html#string
 	VariantClassString VariantClass = 115
 	// VariantClassObjectPath wraps G_VARIANT_CLASS_OBJECT_PATH
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.VariantClass.html#object_path
 	VariantClassObjectPath VariantClass = 111
 	// VariantClassSignature wraps G_VARIANT_CLASS_SIGNATURE
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.VariantClass.html#signature
 	VariantClassSignature VariantClass = 103
 	// VariantClassVariant wraps G_VARIANT_CLASS_VARIANT
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.VariantClass.html#variant
 	VariantClassVariant VariantClass = 118
 	// VariantClassMaybe wraps G_VARIANT_CLASS_MAYBE
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.VariantClass.html#maybe
 	VariantClassMaybe VariantClass = 109
 	// VariantClassArray wraps G_VARIANT_CLASS_ARRAY
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.VariantClass.html#array
 	VariantClassArray VariantClass = 97
 	// VariantClassTuple wraps G_VARIANT_CLASS_TUPLE
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.VariantClass.html#tuple
 	VariantClassTuple VariantClass = 40
 	// VariantClassDictEntry wraps G_VARIANT_CLASS_DICT_ENTRY
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.VariantClass.html#dict_entry
 	VariantClassDictEntry VariantClass = 123
 )
 
-
 func (e VariantClass) String() string {
 	switch e {
-		case VariantClassArray: return "VariantClassArray"
-		case VariantClassBoolean: return "VariantClassBoolean"
-		case VariantClassByte: return "VariantClassByte"
-		case VariantClassDictEntry: return "VariantClassDictEntry"
-		case VariantClassDouble: return "VariantClassDouble"
-		case VariantClassHandle: return "VariantClassHandle"
-		case VariantClassInt16: return "VariantClassInt16"
-		case VariantClassInt32: return "VariantClassInt32"
-		case VariantClassInt64: return "VariantClassInt64"
-		case VariantClassMaybe: return "VariantClassMaybe"
-		case VariantClassObjectPath: return "VariantClassObjectPath"
-		case VariantClassSignature: return "VariantClassSignature"
-		case VariantClassString: return "VariantClassString"
-		case VariantClassTuple: return "VariantClassTuple"
-		case VariantClassUint16: return "VariantClassUint16"
-		case VariantClassUint32: return "VariantClassUint32"
-		case VariantClassUint64: return "VariantClassUint64"
-		case VariantClassVariant: return "VariantClassVariant"
-		default: return fmt.Sprintf("VariantClass(%d)", e)
+	case VariantClassArray:
+		return "VariantClassArray"
+	case VariantClassBoolean:
+		return "VariantClassBoolean"
+	case VariantClassByte:
+		return "VariantClassByte"
+	case VariantClassDictEntry:
+		return "VariantClassDictEntry"
+	case VariantClassDouble:
+		return "VariantClassDouble"
+	case VariantClassHandle:
+		return "VariantClassHandle"
+	case VariantClassInt16:
+		return "VariantClassInt16"
+	case VariantClassInt32:
+		return "VariantClassInt32"
+	case VariantClassInt64:
+		return "VariantClassInt64"
+	case VariantClassMaybe:
+		return "VariantClassMaybe"
+	case VariantClassObjectPath:
+		return "VariantClassObjectPath"
+	case VariantClassSignature:
+		return "VariantClassSignature"
+	case VariantClassString:
+		return "VariantClassString"
+	case VariantClassTuple:
+		return "VariantClassTuple"
+	case VariantClassUint16:
+		return "VariantClassUint16"
+	case VariantClassUint32:
+		return "VariantClassUint32"
+	case VariantClassUint64:
+		return "VariantClassUint64"
+	case VariantClassVariant:
+		return "VariantClassVariant"
+	default:
+		return fmt.Sprintf("VariantClass(%d)", e)
 	}
 }
 
 // VariantParseError wraps GVariantParseError
-// 
+//
 // see also https://docs.gtk.org/glib/enum.VariantParseError.html
 type VariantParseError C.int
 
 const (
 	// VariantParseErrorFailed wraps G_VARIANT_PARSE_ERROR_FAILED
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.VariantParseError.html#failed
 	VariantParseErrorFailed VariantParseError = 0
 	// VariantParseErrorBasicTypeExpected wraps G_VARIANT_PARSE_ERROR_BASIC_TYPE_EXPECTED
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.VariantParseError.html#basic_type_expected
 	VariantParseErrorBasicTypeExpected VariantParseError = 1
 	// VariantParseErrorCannotInferType wraps G_VARIANT_PARSE_ERROR_CANNOT_INFER_TYPE
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.VariantParseError.html#cannot_infer_type
 	VariantParseErrorCannotInferType VariantParseError = 2
 	// VariantParseErrorDefiniteTypeExpected wraps G_VARIANT_PARSE_ERROR_DEFINITE_TYPE_EXPECTED
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.VariantParseError.html#definite_type_expected
 	VariantParseErrorDefiniteTypeExpected VariantParseError = 3
 	// VariantParseErrorInputNotAtEnd wraps G_VARIANT_PARSE_ERROR_INPUT_NOT_AT_END
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.VariantParseError.html#input_not_at_end
 	VariantParseErrorInputNotAtEnd VariantParseError = 4
 	// VariantParseErrorInvalidCharacter wraps G_VARIANT_PARSE_ERROR_INVALID_CHARACTER
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.VariantParseError.html#invalid_character
 	VariantParseErrorInvalidCharacter VariantParseError = 5
 	// VariantParseErrorInvalidFormatString wraps G_VARIANT_PARSE_ERROR_INVALID_FORMAT_STRING
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.VariantParseError.html#invalid_format_string
 	VariantParseErrorInvalidFormatString VariantParseError = 6
 	// VariantParseErrorInvalidObjectPath wraps G_VARIANT_PARSE_ERROR_INVALID_OBJECT_PATH
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.VariantParseError.html#invalid_object_path
 	VariantParseErrorInvalidObjectPath VariantParseError = 7
 	// VariantParseErrorInvalidSignature wraps G_VARIANT_PARSE_ERROR_INVALID_SIGNATURE
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.VariantParseError.html#invalid_signature
 	VariantParseErrorInvalidSignature VariantParseError = 8
 	// VariantParseErrorInvalidTypeString wraps G_VARIANT_PARSE_ERROR_INVALID_TYPE_STRING
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.VariantParseError.html#invalid_type_string
 	VariantParseErrorInvalidTypeString VariantParseError = 9
 	// VariantParseErrorNoCommonType wraps G_VARIANT_PARSE_ERROR_NO_COMMON_TYPE
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.VariantParseError.html#no_common_type
 	VariantParseErrorNoCommonType VariantParseError = 10
 	// VariantParseErrorNumberOutOfRange wraps G_VARIANT_PARSE_ERROR_NUMBER_OUT_OF_RANGE
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.VariantParseError.html#number_out_of_range
 	VariantParseErrorNumberOutOfRange VariantParseError = 11
 	// VariantParseErrorNumberTooBig wraps G_VARIANT_PARSE_ERROR_NUMBER_TOO_BIG
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.VariantParseError.html#number_too_big
 	VariantParseErrorNumberTooBig VariantParseError = 12
 	// VariantParseErrorTypeError wraps G_VARIANT_PARSE_ERROR_TYPE_ERROR
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.VariantParseError.html#type_error
 	VariantParseErrorTypeError VariantParseError = 13
 	// VariantParseErrorUnexpectedToken wraps G_VARIANT_PARSE_ERROR_UNEXPECTED_TOKEN
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.VariantParseError.html#unexpected_token
 	VariantParseErrorUnexpectedToken VariantParseError = 14
 	// VariantParseErrorUnknownKeyword wraps G_VARIANT_PARSE_ERROR_UNKNOWN_KEYWORD
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.VariantParseError.html#unknown_keyword
 	VariantParseErrorUnknownKeyword VariantParseError = 15
 	// VariantParseErrorUnterminatedStringConstant wraps G_VARIANT_PARSE_ERROR_UNTERMINATED_STRING_CONSTANT
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.VariantParseError.html#unterminated_string_constant
 	VariantParseErrorUnterminatedStringConstant VariantParseError = 16
 	// VariantParseErrorValueExpected wraps G_VARIANT_PARSE_ERROR_VALUE_EXPECTED
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.VariantParseError.html#value_expected
 	VariantParseErrorValueExpected VariantParseError = 17
 	// VariantParseErrorRecursion wraps G_VARIANT_PARSE_ERROR_RECURSION
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.VariantParseError.html#recursion
 	VariantParseErrorRecursion VariantParseError = 18
 )
 
-
 func (e VariantParseError) String() string {
 	switch e {
-		case VariantParseErrorBasicTypeExpected: return "VariantParseErrorBasicTypeExpected"
-		case VariantParseErrorCannotInferType: return "VariantParseErrorCannotInferType"
-		case VariantParseErrorDefiniteTypeExpected: return "VariantParseErrorDefiniteTypeExpected"
-		case VariantParseErrorFailed: return "VariantParseErrorFailed"
-		case VariantParseErrorInputNotAtEnd: return "VariantParseErrorInputNotAtEnd"
-		case VariantParseErrorInvalidCharacter: return "VariantParseErrorInvalidCharacter"
-		case VariantParseErrorInvalidFormatString: return "VariantParseErrorInvalidFormatString"
-		case VariantParseErrorInvalidObjectPath: return "VariantParseErrorInvalidObjectPath"
-		case VariantParseErrorInvalidSignature: return "VariantParseErrorInvalidSignature"
-		case VariantParseErrorInvalidTypeString: return "VariantParseErrorInvalidTypeString"
-		case VariantParseErrorNoCommonType: return "VariantParseErrorNoCommonType"
-		case VariantParseErrorNumberOutOfRange: return "VariantParseErrorNumberOutOfRange"
-		case VariantParseErrorNumberTooBig: return "VariantParseErrorNumberTooBig"
-		case VariantParseErrorRecursion: return "VariantParseErrorRecursion"
-		case VariantParseErrorTypeError: return "VariantParseErrorTypeError"
-		case VariantParseErrorUnexpectedToken: return "VariantParseErrorUnexpectedToken"
-		case VariantParseErrorUnknownKeyword: return "VariantParseErrorUnknownKeyword"
-		case VariantParseErrorUnterminatedStringConstant: return "VariantParseErrorUnterminatedStringConstant"
-		case VariantParseErrorValueExpected: return "VariantParseErrorValueExpected"
-		default: return fmt.Sprintf("VariantParseError(%d)", e)
+	case VariantParseErrorBasicTypeExpected:
+		return "VariantParseErrorBasicTypeExpected"
+	case VariantParseErrorCannotInferType:
+		return "VariantParseErrorCannotInferType"
+	case VariantParseErrorDefiniteTypeExpected:
+		return "VariantParseErrorDefiniteTypeExpected"
+	case VariantParseErrorFailed:
+		return "VariantParseErrorFailed"
+	case VariantParseErrorInputNotAtEnd:
+		return "VariantParseErrorInputNotAtEnd"
+	case VariantParseErrorInvalidCharacter:
+		return "VariantParseErrorInvalidCharacter"
+	case VariantParseErrorInvalidFormatString:
+		return "VariantParseErrorInvalidFormatString"
+	case VariantParseErrorInvalidObjectPath:
+		return "VariantParseErrorInvalidObjectPath"
+	case VariantParseErrorInvalidSignature:
+		return "VariantParseErrorInvalidSignature"
+	case VariantParseErrorInvalidTypeString:
+		return "VariantParseErrorInvalidTypeString"
+	case VariantParseErrorNoCommonType:
+		return "VariantParseErrorNoCommonType"
+	case VariantParseErrorNumberOutOfRange:
+		return "VariantParseErrorNumberOutOfRange"
+	case VariantParseErrorNumberTooBig:
+		return "VariantParseErrorNumberTooBig"
+	case VariantParseErrorRecursion:
+		return "VariantParseErrorRecursion"
+	case VariantParseErrorTypeError:
+		return "VariantParseErrorTypeError"
+	case VariantParseErrorUnexpectedToken:
+		return "VariantParseErrorUnexpectedToken"
+	case VariantParseErrorUnknownKeyword:
+		return "VariantParseErrorUnknownKeyword"
+	case VariantParseErrorUnterminatedStringConstant:
+		return "VariantParseErrorUnterminatedStringConstant"
+	case VariantParseErrorValueExpected:
+		return "VariantParseErrorValueExpected"
+	default:
+		return fmt.Sprintf("VariantParseError(%d)", e)
 	}
 }
 
 // AsciiType wraps GAsciiType
-// 
+//
 // see also https://docs.gtk.org/glib/flags.AsciiType.html
 type AsciiType C.gint
 
 const (
 	// ASCIIAlnum wraps G_ASCII_ALNUM
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.AsciiType.html#alnum
 	ASCIIAlnum AsciiType = 1
 	// ASCIIAlpha wraps G_ASCII_ALPHA
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.AsciiType.html#alpha
 	ASCIIAlpha AsciiType = 2
 	// ASCIICntrl wraps G_ASCII_CNTRL
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.AsciiType.html#cntrl
 	ASCIICntrl AsciiType = 4
 	// ASCIIDigit wraps G_ASCII_DIGIT
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.AsciiType.html#digit
 	ASCIIDigit AsciiType = 8
 	// ASCIIGraph wraps G_ASCII_GRAPH
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.AsciiType.html#graph
 	ASCIIGraph AsciiType = 16
 	// ASCIILower wraps G_ASCII_LOWER
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.AsciiType.html#lower
 	ASCIILower AsciiType = 32
 	// ASCIIPrint wraps G_ASCII_PRINT
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.AsciiType.html#print
 	ASCIIPrint AsciiType = 64
 	// ASCIIPunct wraps G_ASCII_PUNCT
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.AsciiType.html#punct
 	ASCIIPunct AsciiType = 128
 	// ASCIISpace wraps G_ASCII_SPACE
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.AsciiType.html#space
 	ASCIISpace AsciiType = 256
 	// ASCIIUpper wraps G_ASCII_UPPER
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.AsciiType.html#upper
 	ASCIIUpper AsciiType = 512
 	// ASCIIXdigit wraps G_ASCII_XDIGIT
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.AsciiType.html#xdigit
 	ASCIIXdigit AsciiType = 1024
 )
@@ -3781,25 +4410,25 @@ func (f AsciiType) String() string {
 }
 
 // FileSetContentsFlags wraps GFileSetContentsFlags
-// 
+//
 // see also https://docs.gtk.org/glib/flags.FileSetContentsFlags.html
 type FileSetContentsFlags C.gint
 
 const (
 	// FileSetContentsNone wraps G_FILE_SET_CONTENTS_NONE
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.FileSetContentsFlags.html#none
 	FileSetContentsNone FileSetContentsFlags = 0
 	// FileSetContentsConsistent wraps G_FILE_SET_CONTENTS_CONSISTENT
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.FileSetContentsFlags.html#consistent
 	FileSetContentsConsistent FileSetContentsFlags = 1
 	// FileSetContentsDurable wraps G_FILE_SET_CONTENTS_DURABLE
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.FileSetContentsFlags.html#durable
 	FileSetContentsDurable FileSetContentsFlags = 2
 	// FileSetContentsOnlyExisting wraps G_FILE_SET_CONTENTS_ONLY_EXISTING
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.FileSetContentsFlags.html#only_existing
 	FileSetContentsOnlyExisting FileSetContentsFlags = 4
 )
@@ -3831,29 +4460,29 @@ func (f FileSetContentsFlags) String() string {
 }
 
 // FileTest wraps GFileTest
-// 
+//
 // see also https://docs.gtk.org/glib/flags.FileTest.html
 type FileTest C.gint
 
 const (
 	// FileTestIsRegular wraps G_FILE_TEST_IS_REGULAR
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.FileTest.html#is_regular
 	FileTestIsRegular FileTest = 1
 	// FileTestIsSymlink wraps G_FILE_TEST_IS_SYMLINK
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.FileTest.html#is_symlink
 	FileTestIsSymlink FileTest = 2
 	// FileTestIsDir wraps G_FILE_TEST_IS_DIR
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.FileTest.html#is_dir
 	FileTestIsDir FileTest = 4
 	// FileTestIsExecutable wraps G_FILE_TEST_IS_EXECUTABLE
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.FileTest.html#is_executable
 	FileTestIsExecutable FileTest = 8
 	// FileTestExists wraps G_FILE_TEST_EXISTS
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.FileTest.html#exists
 	FileTestExists FileTest = 16
 )
@@ -3888,33 +4517,33 @@ func (f FileTest) String() string {
 }
 
 // FormatSizeFlags wraps GFormatSizeFlags
-// 
+//
 // see also https://docs.gtk.org/glib/flags.FormatSizeFlags.html
 type FormatSizeFlags C.gint
 
 const (
 	// FormatSizeDefault wraps G_FORMAT_SIZE_DEFAULT
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.FormatSizeFlags.html#default
 	FormatSizeDefault FormatSizeFlags = 0
 	// FormatSizeLongFormat wraps G_FORMAT_SIZE_LONG_FORMAT
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.FormatSizeFlags.html#long_format
 	FormatSizeLongFormat FormatSizeFlags = 1
 	// FormatSizeIecUnits wraps G_FORMAT_SIZE_IEC_UNITS
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.FormatSizeFlags.html#iec_units
 	FormatSizeIecUnits FormatSizeFlags = 2
 	// FormatSizeBits wraps G_FORMAT_SIZE_BITS
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.FormatSizeFlags.html#bits
 	FormatSizeBits FormatSizeFlags = 4
 	// FormatSizeOnlyValue wraps G_FORMAT_SIZE_ONLY_VALUE
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.FormatSizeFlags.html#only_value
 	FormatSizeOnlyValue FormatSizeFlags = 8
 	// FormatSizeOnlyUnit wraps G_FORMAT_SIZE_ONLY_UNIT
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.FormatSizeFlags.html#only_unit
 	FormatSizeOnlyUnit FormatSizeFlags = 16
 )
@@ -3952,33 +4581,33 @@ func (f FormatSizeFlags) String() string {
 }
 
 // IOCondition wraps GIOCondition
-// 
+//
 // see also https://docs.gtk.org/glib/flags.IOCondition.html
 type IOCondition C.gint
 
 const (
 	// IOIn wraps G_IO_IN
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.IOCondition.html#in
 	IOIn IOCondition = 1
 	// IOOut wraps G_IO_OUT
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.IOCondition.html#out
 	IOOut IOCondition = 4
 	// IOPri wraps G_IO_PRI
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.IOCondition.html#pri
 	IOPri IOCondition = 2
 	// IOErr wraps G_IO_ERR
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.IOCondition.html#err
 	IOErr IOCondition = 8
 	// IOHup wraps G_IO_HUP
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.IOCondition.html#hup
 	IOHup IOCondition = 16
 	// IONval wraps G_IO_NVAL
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.IOCondition.html#nval
 	IONval IOCondition = 32
 )
@@ -4016,49 +4645,49 @@ func (f IOCondition) String() string {
 }
 
 // IOFlags wraps GIOFlags
-// 
+//
 // see also https://docs.gtk.org/glib/flags.IOFlags.html
 type IOFlags C.gint
 
 const (
 	// IOFlagNone wraps G_IO_FLAG_NONE
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.IOFlags.html#none
 	IOFlagNone IOFlags = 0
 	// IOFlagAppend wraps G_IO_FLAG_APPEND
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.IOFlags.html#append
 	IOFlagAppend IOFlags = 1
 	// IOFlagNonblock wraps G_IO_FLAG_NONBLOCK
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.IOFlags.html#nonblock
 	IOFlagNonblock IOFlags = 2
 	// IOFlagIsReadable wraps G_IO_FLAG_IS_READABLE
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.IOFlags.html#is_readable
 	IOFlagIsReadable IOFlags = 4
 	// IOFlagIsWritable wraps G_IO_FLAG_IS_WRITABLE
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.IOFlags.html#is_writable
 	IOFlagIsWritable IOFlags = 8
 	// IOFlagIsWriteable wraps G_IO_FLAG_IS_WRITEABLE
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.IOFlags.html#is_writeable
 	IOFlagIsWriteable IOFlags = 8
 	// IOFlagIsSeekable wraps G_IO_FLAG_IS_SEEKABLE
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.IOFlags.html#is_seekable
 	IOFlagIsSeekable IOFlags = 16
 	// IOFlagMask wraps G_IO_FLAG_MASK
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.IOFlags.html#mask
 	IOFlagMask IOFlags = 31
 	// IOFlagGetMask wraps G_IO_FLAG_GET_MASK
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.IOFlags.html#get_mask
 	IOFlagGetMask IOFlags = 31
 	// IOFlagSetMask wraps G_IO_FLAG_SET_MASK
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.IOFlags.html#set_mask
 	IOFlagSetMask IOFlags = 3
 )
@@ -4108,21 +4737,21 @@ func (f IOFlags) String() string {
 }
 
 // KeyFileFlags wraps GKeyFileFlags
-// 
+//
 // see also https://docs.gtk.org/glib/flags.KeyFileFlags.html
 type KeyFileFlags C.gint
 
 const (
 	// KeyFileNone wraps G_KEY_FILE_NONE
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.KeyFileFlags.html#none
 	KeyFileNone KeyFileFlags = 0
 	// KeyFileKeepComments wraps G_KEY_FILE_KEEP_COMMENTS
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.KeyFileFlags.html#keep_comments
 	KeyFileKeepComments KeyFileFlags = 1
 	// KeyFileKeepTranslations wraps G_KEY_FILE_KEEP_TRANSLATIONS
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.KeyFileFlags.html#keep_translations
 	KeyFileKeepTranslations KeyFileFlags = 2
 )
@@ -4151,45 +4780,45 @@ func (f KeyFileFlags) String() string {
 }
 
 // LogLevelFlags wraps GLogLevelFlags
-// 
+//
 // see also https://docs.gtk.org/glib/flags.LogLevelFlags.html
 type LogLevelFlags C.gint
 
 const (
 	// LogFlagRecursion wraps G_LOG_FLAG_RECURSION
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.LogLevelFlags.html#flag_recursion
 	LogFlagRecursion LogLevelFlags = 1
 	// LogFlagFatal wraps G_LOG_FLAG_FATAL
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.LogLevelFlags.html#flag_fatal
 	LogFlagFatal LogLevelFlags = 2
 	// LogLevelError wraps G_LOG_LEVEL_ERROR
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.LogLevelFlags.html#level_error
 	LogLevelError LogLevelFlags = 4
 	// LogLevelCritical wraps G_LOG_LEVEL_CRITICAL
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.LogLevelFlags.html#level_critical
 	LogLevelCritical LogLevelFlags = 8
 	// LogLevelWarning wraps G_LOG_LEVEL_WARNING
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.LogLevelFlags.html#level_warning
 	LogLevelWarning LogLevelFlags = 16
 	// LogLevelMessage wraps G_LOG_LEVEL_MESSAGE
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.LogLevelFlags.html#level_message
 	LogLevelMessage LogLevelFlags = 32
 	// LogLevelInfo wraps G_LOG_LEVEL_INFO
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.LogLevelFlags.html#level_info
 	LogLevelInfo LogLevelFlags = 64
 	// LogLevelDebug wraps G_LOG_LEVEL_DEBUG
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.LogLevelFlags.html#level_debug
 	LogLevelDebug LogLevelFlags = 128
 	// LogLevelMask wraps G_LOG_LEVEL_MASK
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.LogLevelFlags.html#level_mask
 	LogLevelMask LogLevelFlags = -4
 )
@@ -4236,17 +4865,17 @@ func (f LogLevelFlags) String() string {
 }
 
 // MainContextFlags wraps GMainContextFlags
-// 
+//
 // see also https://docs.gtk.org/glib/flags.MainContextFlags.html
 type MainContextFlags C.gint
 
 const (
 	// MainContextFlagsNone wraps G_MAIN_CONTEXT_FLAGS_NONE
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.MainContextFlags.html#none
 	MainContextFlagsNone MainContextFlags = 0
 	// MainContextFlagsOwnerlessPolling wraps G_MAIN_CONTEXT_FLAGS_OWNERLESS_POLLING
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.MainContextFlags.html#ownerless_polling
 	MainContextFlagsOwnerlessPolling MainContextFlags = 1
 )
@@ -4272,33 +4901,33 @@ func (f MainContextFlags) String() string {
 }
 
 // MarkupCollectType wraps GMarkupCollectType
-// 
+//
 // see also https://docs.gtk.org/glib/flags.MarkupCollectType.html
 type MarkupCollectType C.gint
 
 const (
 	// MarkupCollectInvalid wraps G_MARKUP_COLLECT_INVALID
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.MarkupCollectType.html#invalid
 	MarkupCollectInvalid MarkupCollectType = 0
 	// MarkupCollectString wraps G_MARKUP_COLLECT_STRING
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.MarkupCollectType.html#string
 	MarkupCollectString MarkupCollectType = 1
 	// MarkupCollectStrdup wraps G_MARKUP_COLLECT_STRDUP
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.MarkupCollectType.html#strdup
 	MarkupCollectStrdup MarkupCollectType = 2
 	// MarkupCollectBoolean wraps G_MARKUP_COLLECT_BOOLEAN
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.MarkupCollectType.html#boolean
 	MarkupCollectBoolean MarkupCollectType = 3
 	// MarkupCollectTristate wraps G_MARKUP_COLLECT_TRISTATE
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.MarkupCollectType.html#tristate
 	MarkupCollectTristate MarkupCollectType = 4
 	// MarkupCollectOptional wraps G_MARKUP_COLLECT_OPTIONAL
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.MarkupCollectType.html#optional
 	MarkupCollectOptional MarkupCollectType = 65536
 )
@@ -4336,29 +4965,29 @@ func (f MarkupCollectType) String() string {
 }
 
 // MarkupParseFlags wraps GMarkupParseFlags
-// 
+//
 // see also https://docs.gtk.org/glib/flags.MarkupParseFlags.html
 type MarkupParseFlags C.gint
 
 const (
 	// MarkupDefaultFlags wraps G_MARKUP_DEFAULT_FLAGS
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.MarkupParseFlags.html#default_flags
 	MarkupDefaultFlags MarkupParseFlags = 0
 	// MarkupDoNotUseThisUnsupportedFlag wraps G_MARKUP_DO_NOT_USE_THIS_UNSUPPORTED_FLAG
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.MarkupParseFlags.html#do_not_use_this_unsupported_flag
 	MarkupDoNotUseThisUnsupportedFlag MarkupParseFlags = 1
 	// MarkupTreatCdataAsText wraps G_MARKUP_TREAT_CDATA_AS_TEXT
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.MarkupParseFlags.html#treat_cdata_as_text
 	MarkupTreatCdataAsText MarkupParseFlags = 2
 	// MarkupPrefixErrorPosition wraps G_MARKUP_PREFIX_ERROR_POSITION
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.MarkupParseFlags.html#prefix_error_position
 	MarkupPrefixErrorPosition MarkupParseFlags = 4
 	// MarkupIgnoreQualified wraps G_MARKUP_IGNORE_QUALIFIED
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.MarkupParseFlags.html#ignore_qualified
 	MarkupIgnoreQualified MarkupParseFlags = 8
 )
@@ -4393,45 +5022,45 @@ func (f MarkupParseFlags) String() string {
 }
 
 // OptionFlags wraps GOptionFlags
-// 
+//
 // see also https://docs.gtk.org/glib/flags.OptionFlags.html
 type OptionFlags C.gint
 
 const (
 	// OptionFlagNone wraps G_OPTION_FLAG_NONE
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.OptionFlags.html#none
 	OptionFlagNone OptionFlags = 0
 	// OptionFlagHidden wraps G_OPTION_FLAG_HIDDEN
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.OptionFlags.html#hidden
 	OptionFlagHidden OptionFlags = 1
 	// OptionFlagInMain wraps G_OPTION_FLAG_IN_MAIN
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.OptionFlags.html#in_main
 	OptionFlagInMain OptionFlags = 2
 	// OptionFlagReverse wraps G_OPTION_FLAG_REVERSE
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.OptionFlags.html#reverse
 	OptionFlagReverse OptionFlags = 4
 	// OptionFlagNoArg wraps G_OPTION_FLAG_NO_ARG
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.OptionFlags.html#no_arg
 	OptionFlagNoArg OptionFlags = 8
 	// OptionFlagFilename wraps G_OPTION_FLAG_FILENAME
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.OptionFlags.html#filename
 	OptionFlagFilename OptionFlags = 16
 	// OptionFlagOptionalArg wraps G_OPTION_FLAG_OPTIONAL_ARG
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.OptionFlags.html#optional_arg
 	OptionFlagOptionalArg OptionFlags = 32
 	// OptionFlagNoalias wraps G_OPTION_FLAG_NOALIAS
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.OptionFlags.html#noalias
 	OptionFlagNoalias OptionFlags = 64
 	// OptionFlagDeprecated wraps G_OPTION_FLAG_DEPRECATED
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.OptionFlags.html#deprecated
 	OptionFlagDeprecated OptionFlags = 128
 )
@@ -4478,85 +5107,85 @@ func (f OptionFlags) String() string {
 }
 
 // RegexCompileFlags wraps GRegexCompileFlags
-// 
+//
 // see also https://docs.gtk.org/glib/flags.RegexCompileFlags.html
 type RegexCompileFlags C.gint
 
 const (
 	// RegexDefault wraps G_REGEX_DEFAULT
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.RegexCompileFlags.html#default
 	RegexDefault RegexCompileFlags = 0
 	// RegexCaseless wraps G_REGEX_CASELESS
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.RegexCompileFlags.html#caseless
 	RegexCaseless RegexCompileFlags = 1
 	// RegexMultiline wraps G_REGEX_MULTILINE
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.RegexCompileFlags.html#multiline
 	RegexMultiline RegexCompileFlags = 2
 	// RegexDotall wraps G_REGEX_DOTALL
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.RegexCompileFlags.html#dotall
 	RegexDotall RegexCompileFlags = 4
 	// RegexExtended wraps G_REGEX_EXTENDED
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.RegexCompileFlags.html#extended
 	RegexExtended RegexCompileFlags = 8
 	// RegexAnchored wraps G_REGEX_ANCHORED
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.RegexCompileFlags.html#anchored
 	RegexAnchored RegexCompileFlags = 16
 	// RegexDollarEndonly wraps G_REGEX_DOLLAR_ENDONLY
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.RegexCompileFlags.html#dollar_endonly
 	RegexDollarEndonly RegexCompileFlags = 32
 	// RegexUngreedy wraps G_REGEX_UNGREEDY
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.RegexCompileFlags.html#ungreedy
 	RegexUngreedy RegexCompileFlags = 512
 	// RegexRaw wraps G_REGEX_RAW
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.RegexCompileFlags.html#raw
 	RegexRaw RegexCompileFlags = 2048
 	// RegexNoAutoCapture wraps G_REGEX_NO_AUTO_CAPTURE
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.RegexCompileFlags.html#no_auto_capture
 	RegexNoAutoCapture RegexCompileFlags = 4096
 	// RegexOptimize wraps G_REGEX_OPTIMIZE
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.RegexCompileFlags.html#optimize
 	RegexOptimize RegexCompileFlags = 8192
 	// RegexFirstline wraps G_REGEX_FIRSTLINE
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.RegexCompileFlags.html#firstline
 	RegexFirstline RegexCompileFlags = 262144
 	// RegexDupnames wraps G_REGEX_DUPNAMES
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.RegexCompileFlags.html#dupnames
 	RegexDupnames RegexCompileFlags = 524288
 	// RegexNewlineCr wraps G_REGEX_NEWLINE_CR
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.RegexCompileFlags.html#newline_cr
 	RegexNewlineCr RegexCompileFlags = 1048576
 	// RegexNewlineLf wraps G_REGEX_NEWLINE_LF
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.RegexCompileFlags.html#newline_lf
 	RegexNewlineLf RegexCompileFlags = 2097152
 	// RegexNewlineCrlf wraps G_REGEX_NEWLINE_CRLF
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.RegexCompileFlags.html#newline_crlf
 	RegexNewlineCrlf RegexCompileFlags = 3145728
 	// RegexNewlineAnycrlf wraps G_REGEX_NEWLINE_ANYCRLF
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.RegexCompileFlags.html#newline_anycrlf
 	RegexNewlineAnycrlf RegexCompileFlags = 5242880
 	// RegexBsrAnycrlf wraps G_REGEX_BSR_ANYCRLF
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.RegexCompileFlags.html#bsr_anycrlf
 	RegexBsrAnycrlf RegexCompileFlags = 8388608
 	// RegexJavascriptCompat wraps G_REGEX_JAVASCRIPT_COMPAT
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.RegexCompileFlags.html#javascript_compat
 	RegexJavascriptCompat RegexCompileFlags = 33554432
 )
@@ -4633,73 +5262,73 @@ func (f RegexCompileFlags) String() string {
 }
 
 // RegexMatchFlags wraps GRegexMatchFlags
-// 
+//
 // see also https://docs.gtk.org/glib/flags.RegexMatchFlags.html
 type RegexMatchFlags C.gint
 
 const (
 	// RegexMatchDefault wraps G_REGEX_MATCH_DEFAULT
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.RegexMatchFlags.html#default
 	RegexMatchDefault RegexMatchFlags = 0
 	// RegexMatchAnchored wraps G_REGEX_MATCH_ANCHORED
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.RegexMatchFlags.html#anchored
 	RegexMatchAnchored RegexMatchFlags = 16
 	// RegexMatchNotbol wraps G_REGEX_MATCH_NOTBOL
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.RegexMatchFlags.html#notbol
 	RegexMatchNotbol RegexMatchFlags = 128
 	// RegexMatchNoteol wraps G_REGEX_MATCH_NOTEOL
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.RegexMatchFlags.html#noteol
 	RegexMatchNoteol RegexMatchFlags = 256
 	// RegexMatchNotempty wraps G_REGEX_MATCH_NOTEMPTY
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.RegexMatchFlags.html#notempty
 	RegexMatchNotempty RegexMatchFlags = 1024
 	// RegexMatchPartial wraps G_REGEX_MATCH_PARTIAL
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.RegexMatchFlags.html#partial
 	RegexMatchPartial RegexMatchFlags = 32768
 	// RegexMatchNewlineCr wraps G_REGEX_MATCH_NEWLINE_CR
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.RegexMatchFlags.html#newline_cr
 	RegexMatchNewlineCr RegexMatchFlags = 1048576
 	// RegexMatchNewlineLf wraps G_REGEX_MATCH_NEWLINE_LF
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.RegexMatchFlags.html#newline_lf
 	RegexMatchNewlineLf RegexMatchFlags = 2097152
 	// RegexMatchNewlineCrlf wraps G_REGEX_MATCH_NEWLINE_CRLF
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.RegexMatchFlags.html#newline_crlf
 	RegexMatchNewlineCrlf RegexMatchFlags = 3145728
 	// RegexMatchNewlineAny wraps G_REGEX_MATCH_NEWLINE_ANY
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.RegexMatchFlags.html#newline_any
 	RegexMatchNewlineAny RegexMatchFlags = 4194304
 	// RegexMatchNewlineAnycrlf wraps G_REGEX_MATCH_NEWLINE_ANYCRLF
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.RegexMatchFlags.html#newline_anycrlf
 	RegexMatchNewlineAnycrlf RegexMatchFlags = 5242880
 	// RegexMatchBsrAnycrlf wraps G_REGEX_MATCH_BSR_ANYCRLF
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.RegexMatchFlags.html#bsr_anycrlf
 	RegexMatchBsrAnycrlf RegexMatchFlags = 8388608
 	// RegexMatchBsrAny wraps G_REGEX_MATCH_BSR_ANY
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.RegexMatchFlags.html#bsr_any
 	RegexMatchBsrAny RegexMatchFlags = 16777216
 	// RegexMatchPartialSoft wraps G_REGEX_MATCH_PARTIAL_SOFT
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.RegexMatchFlags.html#partial_soft
 	RegexMatchPartialSoft RegexMatchFlags = 32768
 	// RegexMatchPartialHard wraps G_REGEX_MATCH_PARTIAL_HARD
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.RegexMatchFlags.html#partial_hard
 	RegexMatchPartialHard RegexMatchFlags = 134217728
 	// RegexMatchNotemptyAtstart wraps G_REGEX_MATCH_NOTEMPTY_ATSTART
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.RegexMatchFlags.html#notempty_atstart
 	RegexMatchNotemptyAtstart RegexMatchFlags = 268435456
 )
@@ -4767,61 +5396,61 @@ func (f RegexMatchFlags) String() string {
 }
 
 // SpawnFlags wraps GSpawnFlags
-// 
+//
 // see also https://docs.gtk.org/glib/flags.SpawnFlags.html
 type SpawnFlags C.gint
 
 const (
 	// SpawnDefault wraps G_SPAWN_DEFAULT
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.SpawnFlags.html#default
 	SpawnDefault SpawnFlags = 0
 	// SpawnLeaveDescriptorsOpen wraps G_SPAWN_LEAVE_DESCRIPTORS_OPEN
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.SpawnFlags.html#leave_descriptors_open
 	SpawnLeaveDescriptorsOpen SpawnFlags = 1
 	// SpawnDoNotReapChild wraps G_SPAWN_DO_NOT_REAP_CHILD
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.SpawnFlags.html#do_not_reap_child
 	SpawnDoNotReapChild SpawnFlags = 2
 	// SpawnSearchPath wraps G_SPAWN_SEARCH_PATH
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.SpawnFlags.html#search_path
 	SpawnSearchPath SpawnFlags = 4
 	// SpawnStdoutToDevNull wraps G_SPAWN_STDOUT_TO_DEV_NULL
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.SpawnFlags.html#stdout_to_dev_null
 	SpawnStdoutToDevNull SpawnFlags = 8
 	// SpawnStderrToDevNull wraps G_SPAWN_STDERR_TO_DEV_NULL
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.SpawnFlags.html#stderr_to_dev_null
 	SpawnStderrToDevNull SpawnFlags = 16
 	// SpawnChildInheritsStdin wraps G_SPAWN_CHILD_INHERITS_STDIN
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.SpawnFlags.html#child_inherits_stdin
 	SpawnChildInheritsStdin SpawnFlags = 32
 	// SpawnFileAndArgvZero wraps G_SPAWN_FILE_AND_ARGV_ZERO
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.SpawnFlags.html#file_and_argv_zero
 	SpawnFileAndArgvZero SpawnFlags = 64
 	// SpawnSearchPathFromEnvp wraps G_SPAWN_SEARCH_PATH_FROM_ENVP
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.SpawnFlags.html#search_path_from_envp
 	SpawnSearchPathFromEnvp SpawnFlags = 128
 	// SpawnCloexecPipes wraps G_SPAWN_CLOEXEC_PIPES
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.SpawnFlags.html#cloexec_pipes
 	SpawnCloexecPipes SpawnFlags = 256
 	// SpawnChildInheritsStdout wraps G_SPAWN_CHILD_INHERITS_STDOUT
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.SpawnFlags.html#child_inherits_stdout
 	SpawnChildInheritsStdout SpawnFlags = 512
 	// SpawnChildInheritsStderr wraps G_SPAWN_CHILD_INHERITS_STDERR
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.SpawnFlags.html#child_inherits_stderr
 	SpawnChildInheritsStderr SpawnFlags = 1024
 	// SpawnStdinFromDevNull wraps G_SPAWN_STDIN_FROM_DEV_NULL
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.SpawnFlags.html#stdin_from_dev_null
 	SpawnStdinFromDevNull SpawnFlags = 2048
 )
@@ -4880,25 +5509,25 @@ func (f SpawnFlags) String() string {
 }
 
 // TestSubprocessFlags wraps GTestSubprocessFlags
-// 
+//
 // see also https://docs.gtk.org/glib/flags.TestSubprocessFlags.html
 type TestSubprocessFlags C.gint
 
 const (
 	// TestSubprocessDefault wraps G_TEST_SUBPROCESS_DEFAULT
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.TestSubprocessFlags.html#default
 	TestSubprocessDefault TestSubprocessFlags = 0
 	// TestSubprocessInheritStdin wraps G_TEST_SUBPROCESS_INHERIT_STDIN
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.TestSubprocessFlags.html#inherit_stdin
 	TestSubprocessInheritStdin TestSubprocessFlags = 1
 	// TestSubprocessInheritStdout wraps G_TEST_SUBPROCESS_INHERIT_STDOUT
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.TestSubprocessFlags.html#inherit_stdout
 	TestSubprocessInheritStdout TestSubprocessFlags = 2
 	// TestSubprocessInheritStderr wraps G_TEST_SUBPROCESS_INHERIT_STDERR
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.TestSubprocessFlags.html#inherit_stderr
 	TestSubprocessInheritStderr TestSubprocessFlags = 4
 )
@@ -4930,33 +5559,33 @@ func (f TestSubprocessFlags) String() string {
 }
 
 // TraverseFlags wraps GTraverseFlags
-// 
+//
 // see also https://docs.gtk.org/glib/flags.TraverseFlags.html
 type TraverseFlags C.gint
 
 const (
 	// TraverseLeaves wraps G_TRAVERSE_LEAVES
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.TraverseFlags.html#leaves
 	TraverseLeaves TraverseFlags = 1
 	// TraverseNonLeaves wraps G_TRAVERSE_NON_LEAVES
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.TraverseFlags.html#non_leaves
 	TraverseNonLeaves TraverseFlags = 2
 	// TraverseAll wraps G_TRAVERSE_ALL
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.TraverseFlags.html#all
 	TraverseAll TraverseFlags = 3
 	// TraverseMask wraps G_TRAVERSE_MASK
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.TraverseFlags.html#mask
 	TraverseMask TraverseFlags = 3
 	// TraverseLeafs wraps G_TRAVERSE_LEAFS
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.TraverseFlags.html#leafs
 	TraverseLeafs TraverseFlags = 1
 	// TraverseNonLeafs wraps G_TRAVERSE_NON_LEAFS
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.TraverseFlags.html#non_leafs
 	TraverseNonLeafs TraverseFlags = 2
 )
@@ -4994,49 +5623,49 @@ func (f TraverseFlags) String() string {
 }
 
 // UriFlags wraps GUriFlags
-// 
+//
 // see also https://docs.gtk.org/glib/flags.UriFlags.html
 type UriFlags C.gint
 
 const (
 	// URIFlagsNone wraps G_URI_FLAGS_NONE
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.UriFlags.html#none
 	URIFlagsNone UriFlags = 0
 	// URIFlagsParseRelaxed wraps G_URI_FLAGS_PARSE_RELAXED
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.UriFlags.html#parse_relaxed
 	URIFlagsParseRelaxed UriFlags = 1
 	// URIFlagsHasPassword wraps G_URI_FLAGS_HAS_PASSWORD
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.UriFlags.html#has_password
 	URIFlagsHasPassword UriFlags = 2
 	// URIFlagsHasAuthParams wraps G_URI_FLAGS_HAS_AUTH_PARAMS
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.UriFlags.html#has_auth_params
 	URIFlagsHasAuthParams UriFlags = 4
 	// URIFlagsEncoded wraps G_URI_FLAGS_ENCODED
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.UriFlags.html#encoded
 	URIFlagsEncoded UriFlags = 8
 	// URIFlagsNonDns wraps G_URI_FLAGS_NON_DNS
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.UriFlags.html#non_dns
 	URIFlagsNonDns UriFlags = 16
 	// URIFlagsEncodedQuery wraps G_URI_FLAGS_ENCODED_QUERY
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.UriFlags.html#encoded_query
 	URIFlagsEncodedQuery UriFlags = 32
 	// URIFlagsEncodedPath wraps G_URI_FLAGS_ENCODED_PATH
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.UriFlags.html#encoded_path
 	URIFlagsEncodedPath UriFlags = 64
 	// URIFlagsEncodedFragment wraps G_URI_FLAGS_ENCODED_FRAGMENT
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.UriFlags.html#encoded_fragment
 	URIFlagsEncodedFragment UriFlags = 128
 	// URIFlagsSchemeNormalize wraps G_URI_FLAGS_SCHEME_NORMALIZE
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.UriFlags.html#scheme_normalize
 	URIFlagsSchemeNormalize UriFlags = 256
 )
@@ -5086,33 +5715,33 @@ func (f UriFlags) String() string {
 }
 
 // UriHideFlags wraps GUriHideFlags
-// 
+//
 // see also https://docs.gtk.org/glib/flags.UriHideFlags.html
 type UriHideFlags C.gint
 
 const (
 	// URIHideNone wraps G_URI_HIDE_NONE
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.UriHideFlags.html#none
 	URIHideNone UriHideFlags = 0
 	// URIHideUserinfo wraps G_URI_HIDE_USERINFO
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.UriHideFlags.html#userinfo
 	URIHideUserinfo UriHideFlags = 1
 	// URIHidePassword wraps G_URI_HIDE_PASSWORD
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.UriHideFlags.html#password
 	URIHidePassword UriHideFlags = 2
 	// URIHideAuthParams wraps G_URI_HIDE_AUTH_PARAMS
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.UriHideFlags.html#auth_params
 	URIHideAuthParams UriHideFlags = 4
 	// URIHideQuery wraps G_URI_HIDE_QUERY
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.UriHideFlags.html#query
 	URIHideQuery UriHideFlags = 8
 	// URIHideFragment wraps G_URI_HIDE_FRAGMENT
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.UriHideFlags.html#fragment
 	URIHideFragment UriHideFlags = 16
 )
@@ -5150,25 +5779,25 @@ func (f UriHideFlags) String() string {
 }
 
 // UriParamsFlags wraps GUriParamsFlags
-// 
+//
 // see also https://docs.gtk.org/glib/flags.UriParamsFlags.html
 type UriParamsFlags C.gint
 
 const (
 	// URIParamsNone wraps G_URI_PARAMS_NONE
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.UriParamsFlags.html#none
 	URIParamsNone UriParamsFlags = 0
 	// URIParamsCaseInsensitive wraps G_URI_PARAMS_CASE_INSENSITIVE
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.UriParamsFlags.html#case_insensitive
 	URIParamsCaseInsensitive UriParamsFlags = 1
 	// URIParamsWwwForm wraps G_URI_PARAMS_WWW_FORM
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.UriParamsFlags.html#www_form
 	URIParamsWwwForm UriParamsFlags = 2
 	// URIParamsParseRelaxed wraps G_URI_PARAMS_PARSE_RELAXED
-	// 
+	//
 	// see also https://docs.gtk.org/glib/flags.UriParamsFlags.html#parse_relaxed
 	URIParamsParseRelaxed UriParamsFlags = 4
 )
@@ -5200,36 +5829,36 @@ func (f UriParamsFlags) String() string {
 }
 
 // LogFunc wraps GLogFunc
-// 
+//
 // see also https://docs.gtk.org/glib/callback.LogFunc.html
 type LogFunc func(logDomain string, logLevel LogLevelFlags, message string)
 
 // SourceFunc wraps GSourceFunc
-// 
+//
 // see also https://docs.gtk.org/glib/callback.SourceFunc.html
 type SourceFunc func() (goret bool)
 
 // SourceOnceFunc wraps GSourceOnceFunc
-// 
+//
 // see also https://docs.gtk.org/glib/callback.SourceOnceFunc.html
 type SourceOnceFunc func()
 
 // TestDataFunc wraps GTestDataFunc
-// 
+//
 // see also https://docs.gtk.org/glib/callback.TestDataFunc.html
 type TestDataFunc func()
 
 // TestLogFatalFunc wraps GTestLogFatalFunc
-// 
+//
 // see also https://docs.gtk.org/glib/callback.TestLogFatalFunc.html
 type TestLogFatalFunc func(logDomain string, logLevel LogLevelFlags, message string) (goret bool)
 
 // ASCIIDigitValue wraps g_ascii_digit_value
-// 
+//
 // see also https://docs.gtk.org/glib/func.g_ascii_digit_value.html
 func ASCIIDigitValue(c byte) int32 {
 	var carg1 C.gchar // in, none, casted
-	var cret  C.gint  // return, none, casted
+	var cret C.gint   // return, none, casted
 
 	carg1 = C.gchar(c)
 
@@ -5244,13 +5873,13 @@ func ASCIIDigitValue(c byte) int32 {
 }
 
 // ASCIIDtostr wraps g_ascii_dtostr
-// 
+//
 // see also https://docs.gtk.org/glib/func.g_ascii_dtostr.html
 func ASCIIDtostr(buffer string, bufLen int32, d float64) string {
 	var carg1 *C.gchar  // in, none, string
 	var carg2 C.gint    // in, none, casted
 	var carg3 C.gdouble // in, none, casted
-	var cret  *C.gchar  // return, full, string
+	var cret *C.gchar   // return, full, string
 
 	carg1 = (*C.gchar)(transfer.GLibString(buffer))
 	defer C.g_free(C.gpointer(carg1))
@@ -5271,14 +5900,14 @@ func ASCIIDtostr(buffer string, bufLen int32, d float64) string {
 }
 
 // ASCIIFormatd wraps g_ascii_formatd
-// 
+//
 // see also https://docs.gtk.org/glib/func.g_ascii_formatd.html
 func ASCIIFormatd(buffer string, bufLen int32, format string, d float64) string {
 	var carg1 *C.gchar  // in, none, string
 	var carg2 C.gint    // in, none, casted
 	var carg3 *C.gchar  // in, none, string
 	var carg4 C.gdouble // in, none, casted
-	var cret  *C.gchar  // return, full, string
+	var cret *C.gchar   // return, full, string
 
 	carg1 = (*C.gchar)(transfer.GLibString(buffer))
 	defer C.g_free(C.gpointer(carg1))
@@ -5302,12 +5931,12 @@ func ASCIIFormatd(buffer string, bufLen int32, format string, d float64) string 
 }
 
 // ASCIIStrcasecmp wraps g_ascii_strcasecmp
-// 
+//
 // see also https://docs.gtk.org/glib/func.g_ascii_strcasecmp.html
 func ASCIIStrcasecmp(s1 string, s2 string) int32 {
 	var carg1 *C.gchar // in, none, string
 	var carg2 *C.gchar // in, none, string
-	var cret  C.gint   // return, none, casted
+	var cret C.gint    // return, none, casted
 
 	carg1 = (*C.gchar)(transfer.GLibString(s1))
 	defer C.g_free(C.gpointer(carg1))
@@ -5326,12 +5955,12 @@ func ASCIIStrcasecmp(s1 string, s2 string) int32 {
 }
 
 // ASCIIStrdown wraps g_ascii_strdown
-// 
+//
 // see also https://docs.gtk.org/glib/func.g_ascii_strdown.html
 func ASCIIStrdown(str string, len int) string {
 	var carg1 *C.gchar // in, none, string
 	var carg2 C.gssize // in, none, casted
-	var cret  *C.gchar // return, full, string
+	var cret *C.gchar  // return, full, string
 
 	carg1 = (*C.gchar)(transfer.GLibString(str))
 	defer C.g_free(C.gpointer(carg1))
@@ -5350,16 +5979,16 @@ func ASCIIStrdown(str string, len int) string {
 }
 
 // ASCIIStringToSigned wraps g_ascii_string_to_signed
-// 
+//
 // see also https://docs.gtk.org/glib/func.g_ascii_string_to_signed.html
 func ASCIIStringToSigned(str string, base uint32, min int64, max int64) (int64, bool, error) {
-	var carg1 *C.gchar   // in, none, string
-	var carg2 C.guint    // in, none, casted
-	var carg3 C.gint64   // in, none, casted
-	var carg4 C.gint64   // in, none, casted
-	var carg5 C.gint64   // out, full, casted
-	var cret  C.gboolean // return
-	var _cerr *C.GError  // out, full, converted, nullable
+	var carg1 *C.gchar  // in, none, string
+	var carg2 C.guint   // in, none, casted
+	var carg3 C.gint64  // in, none, casted
+	var carg4 C.gint64  // in, none, casted
+	var carg5 C.gint64  // out, full, casted
+	var cret C.gboolean // return
+	var _cerr *C.GError // out, full, converted, nullable
 
 	carg1 = (*C.gchar)(transfer.GLibString(str))
 	defer C.g_free(C.gpointer(carg1))
@@ -5374,7 +6003,7 @@ func ASCIIStringToSigned(str string, base uint32, min int64, max int64) (int64, 
 	runtime.KeepAlive(max)
 
 	var outNum int64
-	var goret  bool
+	var goret bool
 	var _goerr error
 
 	outNum = int64(carg5)
@@ -5389,16 +6018,16 @@ func ASCIIStringToSigned(str string, base uint32, min int64, max int64) (int64, 
 }
 
 // ASCIIStringToUnsigned wraps g_ascii_string_to_unsigned
-// 
+//
 // see also https://docs.gtk.org/glib/func.g_ascii_string_to_unsigned.html
 func ASCIIStringToUnsigned(str string, base uint32, min uint64, max uint64) (uint64, bool, error) {
-	var carg1 *C.gchar   // in, none, string
-	var carg2 C.guint    // in, none, casted
-	var carg3 C.guint64  // in, none, casted
-	var carg4 C.guint64  // in, none, casted
-	var carg5 C.guint64  // out, full, casted
-	var cret  C.gboolean // return
-	var _cerr *C.GError  // out, full, converted, nullable
+	var carg1 *C.gchar  // in, none, string
+	var carg2 C.guint   // in, none, casted
+	var carg3 C.guint64 // in, none, casted
+	var carg4 C.guint64 // in, none, casted
+	var carg5 C.guint64 // out, full, casted
+	var cret C.gboolean // return
+	var _cerr *C.GError // out, full, converted, nullable
 
 	carg1 = (*C.gchar)(transfer.GLibString(str))
 	defer C.g_free(C.gpointer(carg1))
@@ -5413,7 +6042,7 @@ func ASCIIStringToUnsigned(str string, base uint32, min uint64, max uint64) (uin
 	runtime.KeepAlive(max)
 
 	var outNum uint64
-	var goret  bool
+	var goret bool
 	var _goerr error
 
 	outNum = uint64(carg5)
@@ -5428,13 +6057,13 @@ func ASCIIStringToUnsigned(str string, base uint32, min uint64, max uint64) (uin
 }
 
 // ASCIIStrncasecmp wraps g_ascii_strncasecmp
-// 
+//
 // see also https://docs.gtk.org/glib/func.g_ascii_strncasecmp.html
 func ASCIIStrncasecmp(s1 string, s2 string, n uint) int32 {
 	var carg1 *C.gchar // in, none, string
 	var carg2 *C.gchar // in, none, string
 	var carg3 C.gsize  // in, none, casted
-	var cret  C.gint   // return, none, casted
+	var cret C.gint    // return, none, casted
 
 	carg1 = (*C.gchar)(transfer.GLibString(s1))
 	defer C.g_free(C.gpointer(carg1))
@@ -5455,12 +6084,12 @@ func ASCIIStrncasecmp(s1 string, s2 string, n uint) int32 {
 }
 
 // ASCIIStrtod wraps g_ascii_strtod
-// 
+//
 // see also https://docs.gtk.org/glib/func.g_ascii_strtod.html
 func ASCIIStrtod(nptr string) (string, float64) {
-	var carg1 *C.gchar  // in, none, string
-	var carg2 *C.gchar  // out, none, string
-	var cret  C.gdouble // return, none, casted
+	var carg1 *C.gchar // in, none, string
+	var carg2 *C.gchar // out, none, string
+	var cret C.gdouble // return, none, casted
 
 	carg1 = (*C.gchar)(transfer.GLibString(nptr))
 	defer C.g_free(C.gpointer(carg1))
@@ -5469,7 +6098,7 @@ func ASCIIStrtod(nptr string) (string, float64) {
 	runtime.KeepAlive(nptr)
 
 	var endptr string
-	var goret  float64
+	var goret float64
 
 	endptr = C.GoString((*C.char)(unsafe.Pointer(carg2)))
 	goret = float64(cret)
@@ -5478,13 +6107,13 @@ func ASCIIStrtod(nptr string) (string, float64) {
 }
 
 // ASCIIStrtoll wraps g_ascii_strtoll
-// 
+//
 // see also https://docs.gtk.org/glib/func.g_ascii_strtoll.html
 func ASCIIStrtoll(nptr string, base uint32) (string, int64) {
 	var carg1 *C.gchar // in, none, string
 	var carg3 C.guint  // in, none, casted
 	var carg2 *C.gchar // out, none, string
-	var cret  C.gint64 // return, none, casted
+	var cret C.gint64  // return, none, casted
 
 	carg1 = (*C.gchar)(transfer.GLibString(nptr))
 	defer C.g_free(C.gpointer(carg1))
@@ -5495,7 +6124,7 @@ func ASCIIStrtoll(nptr string, base uint32) (string, int64) {
 	runtime.KeepAlive(base)
 
 	var endptr string
-	var goret  int64
+	var goret int64
 
 	endptr = C.GoString((*C.char)(unsafe.Pointer(carg2)))
 	goret = int64(cret)
@@ -5504,13 +6133,13 @@ func ASCIIStrtoll(nptr string, base uint32) (string, int64) {
 }
 
 // ASCIIStrtoull wraps g_ascii_strtoull
-// 
+//
 // see also https://docs.gtk.org/glib/func.g_ascii_strtoull.html
 func ASCIIStrtoull(nptr string, base uint32) (string, uint64) {
-	var carg1 *C.gchar  // in, none, string
-	var carg3 C.guint   // in, none, casted
-	var carg2 *C.gchar  // out, none, string
-	var cret  C.guint64 // return, none, casted
+	var carg1 *C.gchar // in, none, string
+	var carg3 C.guint  // in, none, casted
+	var carg2 *C.gchar // out, none, string
+	var cret C.guint64 // return, none, casted
 
 	carg1 = (*C.gchar)(transfer.GLibString(nptr))
 	defer C.g_free(C.gpointer(carg1))
@@ -5521,7 +6150,7 @@ func ASCIIStrtoull(nptr string, base uint32) (string, uint64) {
 	runtime.KeepAlive(base)
 
 	var endptr string
-	var goret  uint64
+	var goret uint64
 
 	endptr = C.GoString((*C.char)(unsafe.Pointer(carg2)))
 	goret = uint64(cret)
@@ -5530,12 +6159,12 @@ func ASCIIStrtoull(nptr string, base uint32) (string, uint64) {
 }
 
 // ASCIIStrup wraps g_ascii_strup
-// 
+//
 // see also https://docs.gtk.org/glib/func.g_ascii_strup.html
 func ASCIIStrup(str string, len int) string {
 	var carg1 *C.gchar // in, none, string
 	var carg2 C.gssize // in, none, casted
-	var cret  *C.gchar // return, full, string
+	var cret *C.gchar  // return, full, string
 
 	carg1 = (*C.gchar)(transfer.GLibString(str))
 	defer C.g_free(C.gpointer(carg1))
@@ -5554,11 +6183,11 @@ func ASCIIStrup(str string, len int) string {
 }
 
 // ASCIITolower wraps g_ascii_tolower
-// 
+//
 // see also https://docs.gtk.org/glib/func.g_ascii_tolower.html
 func ASCIITolower(c byte) byte {
 	var carg1 C.gchar // in, none, casted
-	var cret  C.gchar // return, none, casted
+	var cret C.gchar  // return, none, casted
 
 	carg1 = C.gchar(c)
 
@@ -5573,11 +6202,11 @@ func ASCIITolower(c byte) byte {
 }
 
 // ASCIIToupper wraps g_ascii_toupper
-// 
+//
 // see also https://docs.gtk.org/glib/func.g_ascii_toupper.html
 func ASCIIToupper(c byte) byte {
 	var carg1 C.gchar // in, none, casted
-	var cret  C.gchar // return, none, casted
+	var cret C.gchar  // return, none, casted
 
 	carg1 = C.gchar(c)
 
@@ -5592,11 +6221,11 @@ func ASCIIToupper(c byte) byte {
 }
 
 // ASCIIXdigitValue wraps g_ascii_xdigit_value
-// 
+//
 // see also https://docs.gtk.org/glib/func.g_ascii_xdigit_value.html
 func ASCIIXdigitValue(c byte) int32 {
 	var carg1 C.gchar // in, none, casted
-	var cret  C.gint  // return, none, casted
+	var cret C.gint   // return, none, casted
 
 	carg1 = C.gchar(c)
 
@@ -5611,7 +6240,7 @@ func ASCIIXdigitValue(c byte) int32 {
 }
 
 // AssertWarning wraps g_assert_warning
-// 
+//
 // see also https://docs.gtk.org/glib/func.g_assert_warning.html
 func AssertWarning(logDomain string, file string, line int32, prettyFunction string, expression string) {
 	var carg1 *C.char // in, none, string
@@ -5639,7 +6268,7 @@ func AssertWarning(logDomain string, file string, line int32, prettyFunction str
 }
 
 // AssertionMessage wraps g_assertion_message
-// 
+//
 // see also https://docs.gtk.org/glib/func.g_assertion_message.html
 func AssertionMessage(domain string, file string, line int32, fn string, message string) {
 	var carg1 *C.char // in, none, string
@@ -5667,7 +6296,7 @@ func AssertionMessage(domain string, file string, line int32, fn string, message
 }
 
 // AssertionMessageCmpint wraps g_assertion_message_cmpint
-// 
+//
 // see also https://docs.gtk.org/glib/func.g_assertion_message_cmpint.html
 func AssertionMessageCmpint(domain string, file string, line int32, fn string, expr string, arg1 uint64, cmp string, arg2 uint64, numtype byte) {
 	var carg1 *C.char   // in, none, string
@@ -5708,7 +6337,7 @@ func AssertionMessageCmpint(domain string, file string, line int32, fn string, e
 }
 
 // AssertionMessageCmpstr wraps g_assertion_message_cmpstr
-// 
+//
 // see also https://docs.gtk.org/glib/func.g_assertion_message_cmpstr.html
 func AssertionMessageCmpstr(domain string, file string, line int32, fn string, expr string, arg1 string, cmp string, arg2 string) {
 	var carg1 *C.char // in, none, string
@@ -5748,12 +6377,12 @@ func AssertionMessageCmpstr(domain string, file string, line int32, fn string, e
 }
 
 // Base64Decode wraps g_base64_decode
-// 
+//
 // see also https://docs.gtk.org/glib/func.g_base64_decode.html
 func Base64Decode(text string) (uint, []uint8) {
-	var carg1 *C.gchar  // in, none, string
-	var carg2 C.gsize   // out, full, casted
-	var cret  *C.guchar // return, transfer: full, C Pointers: 1, Name: array[guint8], scope: , array (inner guint8 (*typesystem.CastablePrimitive))
+	var carg1 *C.gchar // in, none, string
+	var carg2 C.gsize  // out, full, casted
+	var cret *C.guchar // return, transfer: full, C Pointers: 1, Name: array[guint8], array (inner guint8 (*typesystem.CastablePrimitive))
 
 	carg1 = (*C.gchar)(transfer.GLibString(text))
 	defer C.g_free(C.gpointer(carg1))
@@ -5762,7 +6391,7 @@ func Base64Decode(text string) (uint, []uint8) {
 	runtime.KeepAlive(text)
 
 	var outLen uint
-	var goret  []uint8
+	var goret []uint8
 
 	outLen = uint(carg2)
 	_ = goret
@@ -5773,12 +6402,12 @@ func Base64Decode(text string) (uint, []uint8) {
 }
 
 // Base64Encode wraps g_base64_encode
-// 
+//
 // see also https://docs.gtk.org/glib/func.g_base64_encode.html
 func Base64Encode(data []uint8) string {
 	var carg1 *C.guchar // in, transfer: none, C Pointers: 1, Name: array[guint8], nullable, array (inner guint8 (*typesystem.CastablePrimitive), length-by: carg2)
 	var carg2 C.gsize   // implicit
-	var cret  *C.gchar  // return, full, string
+	var cret *C.gchar   // return, full, string
 
 	_ = data
 	_ = carg1
@@ -5797,12 +6426,12 @@ func Base64Encode(data []uint8) string {
 }
 
 // BitNthLsf wraps g_bit_nth_lsf
-// 
+//
 // see also https://docs.gtk.org/glib/func.g_bit_nth_lsf.html
 func BitNthLsf(mask uint64, nthBit int32) int32 {
 	var carg1 C.gulong // in, none, casted
 	var carg2 C.gint   // in, none, casted
-	var cret  C.gint   // return, none, casted
+	var cret C.gint    // return, none, casted
 
 	carg1 = C.gulong(mask)
 	carg2 = C.gint(nthBit)
@@ -5819,12 +6448,12 @@ func BitNthLsf(mask uint64, nthBit int32) int32 {
 }
 
 // BitNthMsf wraps g_bit_nth_msf
-// 
+//
 // see also https://docs.gtk.org/glib/func.g_bit_nth_msf.html
 func BitNthMsf(mask uint64, nthBit int32) int32 {
 	var carg1 C.gulong // in, none, casted
 	var carg2 C.gint   // in, none, casted
-	var cret  C.gint   // return, none, casted
+	var cret C.gint    // return, none, casted
 
 	carg1 = C.gulong(mask)
 	carg2 = C.gint(nthBit)
@@ -5841,11 +6470,11 @@ func BitNthMsf(mask uint64, nthBit int32) int32 {
 }
 
 // BitStorage wraps g_bit_storage
-// 
+//
 // see also https://docs.gtk.org/glib/func.g_bit_storage.html
 func BitStorage(number uint64) uint32 {
 	var carg1 C.gulong // in, none, casted
-	var cret  C.guint  // return, none, casted
+	var cret C.guint   // return, none, casted
 
 	carg1 = C.gulong(number)
 
@@ -5860,11 +6489,11 @@ func BitStorage(number uint64) uint32 {
 }
 
 // BuildFilenamev wraps g_build_filenamev
-// 
+//
 // see also https://docs.gtk.org/glib/func.g_build_filenamev.html
 func BuildFilenamev(args []string) string {
 	var carg1 **C.gchar // in, transfer: none, C Pointers: 2, Name: array[filename], array (inner gchar* (*typesystem.StringPrimitive), zero-terminated)
-	var cret  *C.gchar  // return, full, string
+	var cret *C.gchar   // return, full, string
 
 	_ = args
 	_ = carg1
@@ -5882,12 +6511,12 @@ func BuildFilenamev(args []string) string {
 }
 
 // BuildPathv wraps g_build_pathv
-// 
+//
 // see also https://docs.gtk.org/glib/func.g_build_pathv.html
 func BuildPathv(separator string, args []string) string {
 	var carg1 *C.gchar  // in, none, string
 	var carg2 **C.gchar // in, transfer: none, C Pointers: 2, Name: array[filename], array (inner gchar* (*typesystem.StringPrimitive), zero-terminated)
-	var cret  *C.gchar  // return, full, string
+	var cret *C.gchar   // return, full, string
 
 	carg1 = (*C.gchar)(transfer.GLibString(separator))
 	defer C.g_free(C.gpointer(carg1))
@@ -5908,12 +6537,12 @@ func BuildPathv(separator string, args []string) string {
 }
 
 // CanonicalizeFilename wraps g_canonicalize_filename
-// 
+//
 // see also https://docs.gtk.org/glib/func.g_canonicalize_filename.html
 func CanonicalizeFilename(filename string, relativeTo string) string {
 	var carg1 *C.gchar // in, none, string
 	var carg2 *C.gchar // in, none, string, nullable-string
-	var cret  *C.gchar // return, full, string
+	var cret *C.gchar  // return, full, string
 
 	carg1 = (*C.gchar)(transfer.GLibString(filename))
 	defer C.g_free(C.gpointer(carg1))
@@ -5935,13 +6564,13 @@ func CanonicalizeFilename(filename string, relativeTo string) string {
 }
 
 // CheckVersion wraps glib_check_version
-// 
+//
 // see also https://docs.gtk.org/glib/func.glib_check_version.html
 func CheckVersion(requiredMajor uint32, requiredMinor uint32, requiredMicro uint32) string {
-	var carg1 C.guint  // in, none, casted
-	var carg2 C.guint  // in, none, casted
-	var carg3 C.guint  // in, none, casted
-	var cret  *C.gchar // return, none, string, nullable-string
+	var carg1 C.guint // in, none, casted
+	var carg2 C.guint // in, none, casted
+	var carg3 C.guint // in, none, casted
+	var cret *C.gchar // return, none, string, nullable-string
 
 	carg1 = C.guint(requiredMajor)
 	carg2 = C.guint(requiredMinor)
@@ -5962,7 +6591,7 @@ func CheckVersion(requiredMajor uint32, requiredMinor uint32, requiredMicro uint
 }
 
 // ClearError wraps g_clear_error
-// 
+//
 // see also https://docs.gtk.org/glib/func.g_clear_error.html
 func ClearError() error {
 	var _cerr *C.GError // out, full, converted, nullable
@@ -5979,12 +6608,12 @@ func ClearError() error {
 }
 
 // ComputeChecksumForBytes wraps g_compute_checksum_for_bytes
-// 
+//
 // see also https://docs.gtk.org/glib/func.g_compute_checksum_for_bytes.html
 func ComputeChecksumForBytes(checksumType ChecksumType, data *Bytes) string {
 	var carg1 C.GChecksumType // in, none, casted
 	var carg2 *C.GBytes       // in, none, converted
-	var cret  *C.gchar        // return, full, string, nullable-string
+	var cret *C.gchar         // return, full, string, nullable-string
 
 	carg1 = C.GChecksumType(checksumType)
 	carg2 = (*C.GBytes)(UnsafeBytesToGlibNone(data))
@@ -6004,13 +6633,13 @@ func ComputeChecksumForBytes(checksumType ChecksumType, data *Bytes) string {
 }
 
 // ComputeChecksumForData wraps g_compute_checksum_for_data
-// 
+//
 // see also https://docs.gtk.org/glib/func.g_compute_checksum_for_data.html
 func ComputeChecksumForData(checksumType ChecksumType, data []uint8) string {
 	var carg1 C.GChecksumType // in, none, casted
 	var carg2 *C.guchar       // in, transfer: none, C Pointers: 1, Name: array[guint8], array (inner guint8 (*typesystem.CastablePrimitive), length-by: carg3)
 	var carg3 C.gsize         // implicit
-	var cret  *C.gchar        // return, full, string, nullable-string
+	var cret *C.gchar         // return, full, string, nullable-string
 
 	carg1 = C.GChecksumType(checksumType)
 	_ = data
@@ -6033,13 +6662,13 @@ func ComputeChecksumForData(checksumType ChecksumType, data []uint8) string {
 }
 
 // ComputeChecksumForString wraps g_compute_checksum_for_string
-// 
+//
 // see also https://docs.gtk.org/glib/func.g_compute_checksum_for_string.html
 func ComputeChecksumForString(checksumType ChecksumType, str string, length int) string {
 	var carg1 C.GChecksumType // in, none, casted
 	var carg2 *C.gchar        // in, none, string
 	var carg3 C.gssize        // in, none, casted
-	var cret  *C.gchar        // return, full, string, nullable-string
+	var cret *C.gchar         // return, full, string, nullable-string
 
 	carg1 = C.GChecksumType(checksumType)
 	carg2 = (*C.gchar)(transfer.GLibString(str))
@@ -6062,13 +6691,13 @@ func ComputeChecksumForString(checksumType ChecksumType, str string, length int)
 }
 
 // ComputeHmacForBytes wraps g_compute_hmac_for_bytes
-// 
+//
 // see also https://docs.gtk.org/glib/func.g_compute_hmac_for_bytes.html
 func ComputeHmacForBytes(digestType ChecksumType, key *Bytes, data *Bytes) string {
 	var carg1 C.GChecksumType // in, none, casted
 	var carg2 *C.GBytes       // in, none, converted
 	var carg3 *C.GBytes       // in, none, converted
-	var cret  *C.gchar        // return, full, string
+	var cret *C.gchar         // return, full, string
 
 	carg1 = C.GChecksumType(digestType)
 	carg2 = (*C.GBytes)(UnsafeBytesToGlibNone(key))
@@ -6088,7 +6717,7 @@ func ComputeHmacForBytes(digestType ChecksumType, key *Bytes, data *Bytes) strin
 }
 
 // ComputeHmacForData wraps g_compute_hmac_for_data
-// 
+//
 // see also https://docs.gtk.org/glib/func.g_compute_hmac_for_data.html
 func ComputeHmacForData(digestType ChecksumType, key []byte, data []byte) string {
 	var carg1 C.GChecksumType // in, none, casted
@@ -6096,7 +6725,7 @@ func ComputeHmacForData(digestType ChecksumType, key []byte, data []byte) string
 	var carg3 C.gsize         // implicit
 	var carg4 *C.guchar       // in, transfer: none, C Pointers: 1, Name: array[guchar], array (inner guchar (*typesystem.CastablePrimitive), length-by: carg5)
 	var carg5 C.gsize         // implicit
-	var cret  *C.gchar        // return, full, string
+	var cret *C.gchar         // return, full, string
 
 	carg1 = C.GChecksumType(digestType)
 	_ = key
@@ -6122,7 +6751,7 @@ func ComputeHmacForData(digestType ChecksumType, key []byte, data []byte) string
 }
 
 // ComputeHmacForString wraps g_compute_hmac_for_string
-// 
+//
 // see also https://docs.gtk.org/glib/func.g_compute_hmac_for_string.html
 func ComputeHmacForString(digestType ChecksumType, key []byte, str string, length int) string {
 	var carg1 C.GChecksumType // in, none, casted
@@ -6130,7 +6759,7 @@ func ComputeHmacForString(digestType ChecksumType, key []byte, str string, lengt
 	var carg3 C.gsize         // implicit
 	var carg4 *C.gchar        // in, none, string
 	var carg5 C.gssize        // in, none, casted
-	var cret  *C.gchar        // return, full, string
+	var cret *C.gchar         // return, full, string
 
 	carg1 = C.GChecksumType(digestType)
 	_ = key
@@ -6156,7 +6785,7 @@ func ComputeHmacForString(digestType ChecksumType, key []byte, str string, lengt
 }
 
 // Convert wraps g_convert
-// 
+//
 // see also https://docs.gtk.org/glib/func.g_convert.html
 func Convert(str string, toCodeset string, fromCodeset string) (uint, uint, string, error) {
 	var carg1 *C.gchar  // in, transfer: none, C Pointers: 1, Name: array[unknown], array (inner unknown, length-by: carg2)
@@ -6165,7 +6794,7 @@ func Convert(str string, toCodeset string, fromCodeset string) (uint, uint, stri
 	var carg4 *C.gchar  // in, none, string
 	var carg5 C.gsize   // out, full, casted
 	var carg6 C.gsize   // out, full, casted
-	var cret  *C.gchar  // return, transfer: full, C Pointers: 1, Name: array[unknown], scope: , nullable, array (inner unknown)
+	var cret *C.gchar   // return, transfer: full, C Pointers: 1, Name: array[unknown], nullable, array (inner unknown)
 	var _cerr *C.GError // out, full, converted, nullable
 
 	_ = str
@@ -6182,10 +6811,10 @@ func Convert(str string, toCodeset string, fromCodeset string) (uint, uint, stri
 	runtime.KeepAlive(toCodeset)
 	runtime.KeepAlive(fromCodeset)
 
-	var bytesRead    uint
+	var bytesRead uint
 	var bytesWritten uint
-	var goret        string
-	var _goerr       error
+	var goret string
+	var _goerr error
 
 	bytesRead = uint(carg5)
 	bytesWritten = uint(carg6)
@@ -6200,7 +6829,7 @@ func Convert(str string, toCodeset string, fromCodeset string) (uint, uint, stri
 }
 
 // ConvertErrorQuark wraps g_convert_error_quark
-// 
+//
 // see also https://docs.gtk.org/glib/func.g_convert_error_quark.html
 func ConvertErrorQuark() Quark {
 	var cret C.GQuark // return, none, casted, alias
@@ -6215,7 +6844,7 @@ func ConvertErrorQuark() Quark {
 }
 
 // ConvertWithFallback wraps g_convert_with_fallback
-// 
+//
 // see also https://docs.gtk.org/glib/func.g_convert_with_fallback.html
 func ConvertWithFallback(str string, toCodeset string, fromCodeset string, fallback string) (uint, uint, string, error) {
 	var carg1 *C.gchar  // in, transfer: none, C Pointers: 1, Name: array[unknown], array (inner unknown, length-by: carg2)
@@ -6225,7 +6854,7 @@ func ConvertWithFallback(str string, toCodeset string, fromCodeset string, fallb
 	var carg5 *C.gchar  // in, none, string
 	var carg6 C.gsize   // out, full, casted
 	var carg7 C.gsize   // out, full, casted
-	var cret  *C.gchar  // return, transfer: full, C Pointers: 1, Name: array[unknown], scope: , nullable, array (inner unknown)
+	var cret *C.gchar   // return, transfer: full, C Pointers: 1, Name: array[unknown], nullable, array (inner unknown)
 	var _cerr *C.GError // out, full, converted, nullable
 
 	_ = str
@@ -6245,10 +6874,10 @@ func ConvertWithFallback(str string, toCodeset string, fromCodeset string, fallb
 	runtime.KeepAlive(fromCodeset)
 	runtime.KeepAlive(fallback)
 
-	var bytesRead    uint
+	var bytesRead uint
 	var bytesWritten uint
-	var goret        string
-	var _goerr       error
+	var goret string
+	var _goerr error
 
 	bytesRead = uint(carg6)
 	bytesWritten = uint(carg7)
@@ -6263,13 +6892,13 @@ func ConvertWithFallback(str string, toCodeset string, fromCodeset string, fallb
 }
 
 // Dcgettext wraps g_dcgettext
-// 
+//
 // see also https://docs.gtk.org/glib/func.g_dcgettext.html
 func Dcgettext(domain string, msgid string, category int32) string {
 	var carg1 *C.gchar // in, none, string, nullable-string
 	var carg2 *C.gchar // in, none, string
 	var carg3 C.gint   // in, none, casted
-	var cret  *C.gchar // return, none, string
+	var cret *C.gchar  // return, none, string
 
 	if domain != "" {
 		carg1 = (*C.gchar)(transfer.GLibString(domain))
@@ -6292,12 +6921,12 @@ func Dcgettext(domain string, msgid string, category int32) string {
 }
 
 // Dgettext wraps g_dgettext
-// 
+//
 // see also https://docs.gtk.org/glib/func.g_dgettext.html
 func Dgettext(domain string, msgid string) string {
 	var carg1 *C.gchar // in, none, string, nullable-string
 	var carg2 *C.gchar // in, none, string
-	var cret  *C.gchar // return, none, string
+	var cret *C.gchar  // return, none, string
 
 	if domain != "" {
 		carg1 = (*C.gchar)(transfer.GLibString(domain))
@@ -6318,14 +6947,14 @@ func Dgettext(domain string, msgid string) string {
 }
 
 // Dngettext wraps g_dngettext
-// 
+//
 // see also https://docs.gtk.org/glib/func.g_dngettext.html
 func Dngettext(domain string, msgid string, msgidPlural string, n uint64) string {
 	var carg1 *C.gchar // in, none, string, nullable-string
 	var carg2 *C.gchar // in, none, string
 	var carg3 *C.gchar // in, none, string
 	var carg4 C.gulong // in, none, casted
-	var cret  *C.gchar // return, none, string
+	var cret *C.gchar  // return, none, string
 
 	if domain != "" {
 		carg1 = (*C.gchar)(transfer.GLibString(domain))
@@ -6351,13 +6980,13 @@ func Dngettext(domain string, msgid string, msgidPlural string, n uint64) string
 }
 
 // Dpgettext wraps g_dpgettext
-// 
+//
 // see also https://docs.gtk.org/glib/func.g_dpgettext.html
 func Dpgettext(domain string, msgctxtid string, msgidoffset uint) string {
 	var carg1 *C.gchar // in, none, string, nullable-string
 	var carg2 *C.gchar // in, none, string
 	var carg3 C.gsize  // in, none, casted
-	var cret  *C.gchar // return, none, string
+	var cret *C.gchar  // return, none, string
 
 	if domain != "" {
 		carg1 = (*C.gchar)(transfer.GLibString(domain))
@@ -6380,13 +7009,13 @@ func Dpgettext(domain string, msgctxtid string, msgidoffset uint) string {
 }
 
 // Dpgettext2 wraps g_dpgettext2
-// 
+//
 // see also https://docs.gtk.org/glib/func.g_dpgettext2.html
 func Dpgettext2(domain string, _context string, msgid string) string {
 	var carg1 *C.gchar // in, none, string, nullable-string
 	var carg2 *C.gchar // in, none, string
 	var carg3 *C.gchar // in, none, string
-	var cret  *C.gchar // return, none, string
+	var cret *C.gchar  // return, none, string
 
 	if domain != "" {
 		carg1 = (*C.gchar)(transfer.GLibString(domain))
@@ -6410,12 +7039,12 @@ func Dpgettext2(domain string, _context string, msgid string) string {
 }
 
 // EnvironGetenv wraps g_environ_getenv
-// 
+//
 // see also https://docs.gtk.org/glib/func.g_environ_getenv.html
 func EnvironGetenv(envp []string, variable string) string {
 	var carg1 **C.gchar // in, transfer: none, C Pointers: 2, Name: array[filename], nullable, array (inner gchar* (*typesystem.StringPrimitive), zero-terminated)
 	var carg2 *C.gchar  // in, none, string
-	var cret  *C.gchar  // return, none, string, nullable
+	var cret *C.gchar   // return, none, string, nullable
 
 	_ = envp
 	_ = carg1
@@ -6437,14 +7066,14 @@ func EnvironGetenv(envp []string, variable string) string {
 }
 
 // EnvironSetenv wraps g_environ_setenv
-// 
+//
 // see also https://docs.gtk.org/glib/func.g_environ_setenv.html
 func EnvironSetenv(envp []string, variable string, value string, overwrite bool) []string {
 	var carg1 **C.gchar  // in, transfer: full, C Pointers: 2, Name: array[filename], nullable, array (inner gchar* (*typesystem.StringPrimitive), zero-terminated)
 	var carg2 *C.gchar   // in, none, string
 	var carg3 *C.gchar   // in, none, string
 	var carg4 C.gboolean // in
-	var cret  **C.gchar  // return, transfer: full, C Pointers: 2, Name: array[filename], scope: , array (inner gchar* (*typesystem.StringPrimitive), zero-terminated)
+	var cret **C.gchar   // return, transfer: full, C Pointers: 2, Name: array[filename], array (inner gchar* (*typesystem.StringPrimitive), zero-terminated)
 
 	_ = envp
 	_ = carg1
@@ -6473,12 +7102,12 @@ func EnvironSetenv(envp []string, variable string, value string, overwrite bool)
 }
 
 // EnvironUnsetenv wraps g_environ_unsetenv
-// 
+//
 // see also https://docs.gtk.org/glib/func.g_environ_unsetenv.html
 func EnvironUnsetenv(envp []string, variable string) []string {
 	var carg1 **C.gchar // in, transfer: full, C Pointers: 2, Name: array[filename], nullable, array (inner gchar* (*typesystem.StringPrimitive), zero-terminated)
 	var carg2 *C.gchar  // in, none, string
-	var cret  **C.gchar // return, transfer: full, C Pointers: 2, Name: array[filename], scope: , array (inner gchar* (*typesystem.StringPrimitive), zero-terminated)
+	var cret **C.gchar  // return, transfer: full, C Pointers: 2, Name: array[filename], array (inner gchar* (*typesystem.StringPrimitive), zero-terminated)
 
 	_ = envp
 	_ = carg1
@@ -6500,11 +7129,11 @@ func EnvironUnsetenv(envp []string, variable string) []string {
 }
 
 // FileErrorFromErrno wraps g_file_error_from_errno
-// 
+//
 // see also https://docs.gtk.org/glib/func.g_file_error_from_errno.html
 func FileErrorFromErrno(errNo int32) FileError {
-	var carg1 C.gint       // in, none, casted
-	var cret  C.GFileError // return, none, casted
+	var carg1 C.gint      // in, none, casted
+	var cret C.GFileError // return, none, casted
 
 	carg1 = C.gint(errNo)
 
@@ -6519,7 +7148,7 @@ func FileErrorFromErrno(errNo int32) FileError {
 }
 
 // FileErrorQuark wraps g_file_error_quark
-// 
+//
 // see also https://docs.gtk.org/glib/func.g_file_error_quark.html
 func FileErrorQuark() Quark {
 	var cret C.GQuark // return, none, casted, alias
@@ -6534,14 +7163,14 @@ func FileErrorQuark() Quark {
 }
 
 // FileGetContents wraps g_file_get_contents
-// 
+//
 // see also https://docs.gtk.org/glib/func.g_file_get_contents.html
 func FileGetContents(filename string) (string, bool, error) {
-	var carg1 *C.gchar   // in, none, string
-	var carg2 *C.gchar   // out, transfer: full, C Pointers: 1, Name: array[unknown], array (inner unknown, length-by: carg3)
-	var carg3 C.gsize    // implicit
-	var cret  C.gboolean // return
-	var _cerr *C.GError  // out, full, converted, nullable
+	var carg1 *C.gchar  // in, none, string
+	var carg2 *C.gchar  // out, transfer: full, C Pointers: 1, Name: array[unknown], array (inner unknown, length-by: carg3)
+	var carg3 C.gsize   // implicit
+	var cret C.gboolean // return
+	var _cerr *C.GError // out, full, converted, nullable
 
 	carg1 = (*C.gchar)(transfer.GLibString(filename))
 	defer C.g_free(C.gpointer(carg1))
@@ -6550,8 +7179,8 @@ func FileGetContents(filename string) (string, bool, error) {
 	runtime.KeepAlive(filename)
 
 	var contents string
-	var goret    bool
-	var _goerr   error
+	var goret bool
+	var _goerr error
 
 	_ = contents
 	_ = carg2
@@ -6568,12 +7197,12 @@ func FileGetContents(filename string) (string, bool, error) {
 }
 
 // FileOpenTmp wraps g_file_open_tmp
-// 
+//
 // see also https://docs.gtk.org/glib/func.g_file_open_tmp.html
 func FileOpenTmp(tmpl string) (string, int32, error) {
 	var carg1 *C.gchar  // in, none, string, nullable-string
 	var carg2 *C.gchar  // out, full, string
-	var cret  C.gint    // return, none, casted
+	var cret C.gint     // return, none, casted
 	var _cerr *C.GError // out, full, converted, nullable
 
 	if tmpl != "" {
@@ -6585,8 +7214,8 @@ func FileOpenTmp(tmpl string) (string, int32, error) {
 	runtime.KeepAlive(tmpl)
 
 	var nameUsed string
-	var goret    int32
-	var _goerr   error
+	var goret int32
+	var _goerr error
 
 	nameUsed = C.GoString((*C.char)(unsafe.Pointer(carg2)))
 	defer C.g_free(C.gpointer(carg2))
@@ -6599,11 +7228,11 @@ func FileOpenTmp(tmpl string) (string, int32, error) {
 }
 
 // FileReadLink wraps g_file_read_link
-// 
+//
 // see also https://docs.gtk.org/glib/func.g_file_read_link.html
 func FileReadLink(filename string) (string, error) {
 	var carg1 *C.gchar  // in, none, string
-	var cret  *C.gchar  // return, full, string, nullable-string
+	var cret *C.gchar   // return, full, string, nullable-string
 	var _cerr *C.GError // out, full, converted, nullable
 
 	carg1 = (*C.gchar)(transfer.GLibString(filename))
@@ -6612,7 +7241,7 @@ func FileReadLink(filename string) (string, error) {
 	cret = C.g_file_read_link(carg1, &_cerr)
 	runtime.KeepAlive(filename)
 
-	var goret  string
+	var goret string
 	var _goerr error
 
 	if cret != nil {
@@ -6627,14 +7256,14 @@ func FileReadLink(filename string) (string, error) {
 }
 
 // FileSetContents wraps g_file_set_contents
-// 
+//
 // see also https://docs.gtk.org/glib/func.g_file_set_contents.html
 func FileSetContents(filename string, contents string) (bool, error) {
-	var carg1 *C.gchar   // in, none, string
-	var carg2 *C.gchar   // in, transfer: none, C Pointers: 1, Name: array[unknown], array (inner unknown, length-by: carg3)
-	var carg3 C.gssize   // implicit
-	var cret  C.gboolean // return
-	var _cerr *C.GError  // out, full, converted, nullable
+	var carg1 *C.gchar  // in, none, string
+	var carg2 *C.gchar  // in, transfer: none, C Pointers: 1, Name: array[unknown], array (inner unknown, length-by: carg3)
+	var carg3 C.gssize  // implicit
+	var cret C.gboolean // return
+	var _cerr *C.GError // out, full, converted, nullable
 
 	carg1 = (*C.gchar)(transfer.GLibString(filename))
 	defer C.g_free(C.gpointer(carg1))
@@ -6647,7 +7276,7 @@ func FileSetContents(filename string, contents string) (bool, error) {
 	runtime.KeepAlive(filename)
 	runtime.KeepAlive(contents)
 
-	var goret  bool
+	var goret bool
 	var _goerr error
 
 	if cret != 0 {
@@ -6661,7 +7290,7 @@ func FileSetContents(filename string, contents string) (bool, error) {
 }
 
 // FileSetContentsFull wraps g_file_set_contents_full
-// 
+//
 // see also https://docs.gtk.org/glib/func.g_file_set_contents_full.html
 func FileSetContentsFull(filename string, contents string, flags FileSetContentsFlags, mode int32) (bool, error) {
 	var carg1 *C.gchar                // in, none, string
@@ -6669,7 +7298,7 @@ func FileSetContentsFull(filename string, contents string, flags FileSetContents
 	var carg3 C.gssize                // implicit
 	var carg4 C.GFileSetContentsFlags // in, none, casted
 	var carg5 C.int                   // in, none, casted
-	var cret  C.gboolean              // return
+	var cret C.gboolean               // return
 	var _cerr *C.GError               // out, full, converted, nullable
 
 	carg1 = (*C.gchar)(transfer.GLibString(filename))
@@ -6687,7 +7316,7 @@ func FileSetContentsFull(filename string, contents string, flags FileSetContents
 	runtime.KeepAlive(flags)
 	runtime.KeepAlive(mode)
 
-	var goret  bool
+	var goret bool
 	var _goerr error
 
 	if cret != 0 {
@@ -6701,12 +7330,12 @@ func FileSetContentsFull(filename string, contents string, flags FileSetContents
 }
 
 // TestFile wraps g_file_test
-// 
+//
 // see also https://docs.gtk.org/glib/func.g_file_test.html
 func TestFile(filename string, test FileTest) bool {
 	var carg1 *C.gchar    // in, none, string
 	var carg2 C.GFileTest // in, none, casted
-	var cret  C.gboolean  // return
+	var cret C.gboolean   // return
 
 	carg1 = (*C.gchar)(transfer.GLibString(filename))
 	defer C.g_free(C.gpointer(carg1))
@@ -6726,11 +7355,11 @@ func TestFile(filename string, test FileTest) bool {
 }
 
 // FilenameDisplayBasename wraps g_filename_display_basename
-// 
+//
 // see also https://docs.gtk.org/glib/func.g_filename_display_basename.html
 func FilenameDisplayBasename(filename string) string {
 	var carg1 *C.gchar // in, none, string
-	var cret  *C.gchar // return, full, string
+	var cret *C.gchar  // return, full, string
 
 	carg1 = (*C.gchar)(transfer.GLibString(filename))
 	defer C.g_free(C.gpointer(carg1))
@@ -6747,11 +7376,11 @@ func FilenameDisplayBasename(filename string) string {
 }
 
 // FilenameDisplayName wraps g_filename_display_name
-// 
+//
 // see also https://docs.gtk.org/glib/func.g_filename_display_name.html
 func FilenameDisplayName(filename string) string {
 	var carg1 *C.gchar // in, none, string
-	var cret  *C.gchar // return, full, string
+	var cret *C.gchar  // return, full, string
 
 	carg1 = (*C.gchar)(transfer.GLibString(filename))
 	defer C.g_free(C.gpointer(carg1))
@@ -6768,12 +7397,12 @@ func FilenameDisplayName(filename string) string {
 }
 
 // FilenameFromURI wraps g_filename_from_uri
-// 
+//
 // see also https://docs.gtk.org/glib/func.g_filename_from_uri.html
 func FilenameFromURI(uri string) (string, string, error) {
 	var carg1 *C.gchar  // in, none, string
 	var carg2 *C.gchar  // out, full, string, nullable-string
-	var cret  *C.gchar  // return, full, string, nullable-string
+	var cret *C.gchar   // return, full, string, nullable-string
 	var _cerr *C.GError // out, full, converted, nullable
 
 	carg1 = (*C.gchar)(transfer.GLibString(uri))
@@ -6783,8 +7412,8 @@ func FilenameFromURI(uri string) (string, string, error) {
 	runtime.KeepAlive(uri)
 
 	var hostname string
-	var goret    string
-	var _goerr   error
+	var goret string
+	var _goerr error
 
 	if carg2 != nil {
 		hostname = C.GoString((*C.char)(unsafe.Pointer(carg2)))
@@ -6802,14 +7431,14 @@ func FilenameFromURI(uri string) (string, string, error) {
 }
 
 // FilenameFromUTF8 wraps g_filename_from_utf8
-// 
+//
 // see also https://docs.gtk.org/glib/func.g_filename_from_utf8.html
 func FilenameFromUTF8(utf8string string, len int) (uint, uint, string, error) {
 	var carg1 *C.gchar  // in, none, string
 	var carg2 C.gssize  // in, none, casted
 	var carg3 C.gsize   // out, full, casted
 	var carg4 C.gsize   // out, full, casted
-	var cret  *C.gchar  // return, full, string, nullable-string
+	var cret *C.gchar   // return, full, string, nullable-string
 	var _cerr *C.GError // out, full, converted, nullable
 
 	carg1 = (*C.gchar)(transfer.GLibString(utf8string))
@@ -6820,10 +7449,10 @@ func FilenameFromUTF8(utf8string string, len int) (uint, uint, string, error) {
 	runtime.KeepAlive(utf8string)
 	runtime.KeepAlive(len)
 
-	var bytesRead    uint
+	var bytesRead uint
 	var bytesWritten uint
-	var goret        string
-	var _goerr       error
+	var goret string
+	var _goerr error
 
 	bytesRead = uint(carg3)
 	bytesWritten = uint(carg4)
@@ -6839,12 +7468,12 @@ func FilenameFromUTF8(utf8string string, len int) (uint, uint, string, error) {
 }
 
 // FilenameToURI wraps g_filename_to_uri
-// 
+//
 // see also https://docs.gtk.org/glib/func.g_filename_to_uri.html
 func FilenameToURI(filename string, hostname string) (string, error) {
 	var carg1 *C.gchar  // in, none, string
 	var carg2 *C.gchar  // in, none, string, nullable-string
-	var cret  *C.gchar  // return, full, string, nullable-string
+	var cret *C.gchar   // return, full, string, nullable-string
 	var _cerr *C.GError // out, full, converted, nullable
 
 	carg1 = (*C.gchar)(transfer.GLibString(filename))
@@ -6858,7 +7487,7 @@ func FilenameToURI(filename string, hostname string) (string, error) {
 	runtime.KeepAlive(filename)
 	runtime.KeepAlive(hostname)
 
-	var goret  string
+	var goret string
 	var _goerr error
 
 	if cret != nil {
@@ -6873,14 +7502,14 @@ func FilenameToURI(filename string, hostname string) (string, error) {
 }
 
 // FilenameToUTF8 wraps g_filename_to_utf8
-// 
+//
 // see also https://docs.gtk.org/glib/func.g_filename_to_utf8.html
 func FilenameToUTF8(opsysstring string, len int) (uint, uint, string, error) {
 	var carg1 *C.gchar  // in, none, string
 	var carg2 C.gssize  // in, none, casted
 	var carg3 C.gsize   // out, full, casted
 	var carg4 C.gsize   // out, full, casted
-	var cret  *C.gchar  // return, full, string, nullable-string
+	var cret *C.gchar   // return, full, string, nullable-string
 	var _cerr *C.GError // out, full, converted, nullable
 
 	carg1 = (*C.gchar)(transfer.GLibString(opsysstring))
@@ -6891,10 +7520,10 @@ func FilenameToUTF8(opsysstring string, len int) (uint, uint, string, error) {
 	runtime.KeepAlive(opsysstring)
 	runtime.KeepAlive(len)
 
-	var bytesRead    uint
+	var bytesRead uint
 	var bytesWritten uint
-	var goret        string
-	var _goerr       error
+	var goret string
+	var _goerr error
 
 	bytesRead = uint(carg3)
 	bytesWritten = uint(carg4)
@@ -6910,11 +7539,11 @@ func FilenameToUTF8(opsysstring string, len int) (uint, uint, string, error) {
 }
 
 // FindProgramInPath wraps g_find_program_in_path
-// 
+//
 // see also https://docs.gtk.org/glib/func.g_find_program_in_path.html
 func FindProgramInPath(program string) string {
 	var carg1 *C.gchar // in, none, string
-	var cret  *C.gchar // return, full, string, nullable-string
+	var cret *C.gchar  // return, full, string, nullable-string
 
 	carg1 = (*C.gchar)(transfer.GLibString(program))
 	defer C.g_free(C.gpointer(carg1))
@@ -6933,11 +7562,11 @@ func FindProgramInPath(program string) string {
 }
 
 // FormatSize wraps g_format_size
-// 
+//
 // see also https://docs.gtk.org/glib/func.g_format_size.html
 func FormatSize(size uint64) string {
 	var carg1 C.guint64 // in, none, casted
-	var cret  *C.gchar  // return, full, string
+	var cret *C.gchar   // return, full, string
 
 	carg1 = C.guint64(size)
 
@@ -6953,12 +7582,12 @@ func FormatSize(size uint64) string {
 }
 
 // FormatSizeFull wraps g_format_size_full
-// 
+//
 // see also https://docs.gtk.org/glib/func.g_format_size_full.html
 func FormatSizeFull(size uint64, flags FormatSizeFlags) string {
 	var carg1 C.guint64          // in, none, casted
 	var carg2 C.GFormatSizeFlags // in, none, casted
-	var cret  *C.gchar           // return, full, string
+	var cret *C.gchar            // return, full, string
 
 	carg1 = C.guint64(size)
 	carg2 = C.GFormatSizeFlags(flags)
@@ -6976,7 +7605,7 @@ func FormatSizeFull(size uint64, flags FormatSizeFlags) string {
 }
 
 // GetApplicationName wraps g_get_application_name
-// 
+//
 // see also https://docs.gtk.org/glib/func.g_get_application_name.html
 func GetApplicationName() string {
 	var cret *C.gchar // return, none, string, nullable-string
@@ -6993,16 +7622,16 @@ func GetApplicationName() string {
 }
 
 // GetCharset wraps g_get_charset
-// 
+//
 // see also https://docs.gtk.org/glib/func.g_get_charset.html
 func GetCharset() (string, bool) {
-	var carg1 *C.char    // out, none, string
-	var cret  C.gboolean // return
+	var carg1 *C.char   // out, none, string
+	var cret C.gboolean // return
 
 	cret = C.g_get_charset(&carg1)
 
 	var charset string
-	var goret   bool
+	var goret bool
 
 	charset = C.GoString((*C.char)(unsafe.Pointer(carg1)))
 	if cret != 0 {
@@ -7013,7 +7642,7 @@ func GetCharset() (string, bool) {
 }
 
 // GetCodeset wraps g_get_codeset
-// 
+//
 // see also https://docs.gtk.org/glib/func.g_get_codeset.html
 func GetCodeset() string {
 	var cret *C.gchar // return, full, string
@@ -7029,16 +7658,16 @@ func GetCodeset() string {
 }
 
 // GetConsoleCharset wraps g_get_console_charset
-// 
+//
 // see also https://docs.gtk.org/glib/func.g_get_console_charset.html
 func GetConsoleCharset() (string, bool) {
-	var carg1 *C.char    // out, none, string
-	var cret  C.gboolean // return
+	var carg1 *C.char   // out, none, string
+	var cret C.gboolean // return
 
 	cret = C.g_get_console_charset(&carg1)
 
 	var charset string
-	var goret   bool
+	var goret bool
 
 	charset = C.GoString((*C.char)(unsafe.Pointer(carg1)))
 	if cret != 0 {
@@ -7049,7 +7678,7 @@ func GetConsoleCharset() (string, bool) {
 }
 
 // GetCurrentDir wraps g_get_current_dir
-// 
+//
 // see also https://docs.gtk.org/glib/func.g_get_current_dir.html
 func GetCurrentDir() string {
 	var cret *C.gchar // return, full, string
@@ -7065,10 +7694,10 @@ func GetCurrentDir() string {
 }
 
 // GetEnviron wraps g_get_environ
-// 
+//
 // see also https://docs.gtk.org/glib/func.g_get_environ.html
 func GetEnviron() []string {
-	var cret **C.gchar // return, transfer: full, C Pointers: 2, Name: array[filename], scope: , array (inner gchar* (*typesystem.StringPrimitive), zero-terminated)
+	var cret **C.gchar // return, transfer: full, C Pointers: 2, Name: array[filename], array (inner gchar* (*typesystem.StringPrimitive), zero-terminated)
 
 	cret = C.g_get_environ()
 
@@ -7082,7 +7711,7 @@ func GetEnviron() []string {
 }
 
 // GetHomeDir wraps g_get_home_dir
-// 
+//
 // see also https://docs.gtk.org/glib/func.g_get_home_dir.html
 func GetHomeDir() string {
 	var cret *C.gchar // return, none, string
@@ -7097,7 +7726,7 @@ func GetHomeDir() string {
 }
 
 // GetHostName wraps g_get_host_name
-// 
+//
 // see also https://docs.gtk.org/glib/func.g_get_host_name.html
 func GetHostName() string {
 	var cret *C.gchar // return, none, string
@@ -7112,10 +7741,10 @@ func GetHostName() string {
 }
 
 // GetLanguageNames wraps g_get_language_names
-// 
+//
 // see also https://docs.gtk.org/glib/func.g_get_language_names.html
 func GetLanguageNames() []string {
-	var cret **C.gchar // return, transfer: none, C Pointers: 2, Name: array[utf8], scope: , array (inner gchar* (*typesystem.StringPrimitive), zero-terminated)
+	var cret **C.gchar // return, transfer: none, C Pointers: 2, Name: array[utf8], array (inner gchar* (*typesystem.StringPrimitive), zero-terminated)
 
 	cret = C.g_get_language_names()
 
@@ -7129,11 +7758,11 @@ func GetLanguageNames() []string {
 }
 
 // GetLanguageNamesWithCategory wraps g_get_language_names_with_category
-// 
+//
 // see also https://docs.gtk.org/glib/func.g_get_language_names_with_category.html
 func GetLanguageNamesWithCategory(categoryName string) []string {
-	var carg1 *C.gchar  // in, none, string
-	var cret  **C.gchar // return, transfer: none, C Pointers: 2, Name: array[utf8], scope: , array (inner gchar* (*typesystem.StringPrimitive), zero-terminated)
+	var carg1 *C.gchar // in, none, string
+	var cret **C.gchar // return, transfer: none, C Pointers: 2, Name: array[utf8], array (inner gchar* (*typesystem.StringPrimitive), zero-terminated)
 
 	carg1 = (*C.gchar)(transfer.GLibString(categoryName))
 	defer C.g_free(C.gpointer(carg1))
@@ -7151,11 +7780,11 @@ func GetLanguageNamesWithCategory(categoryName string) []string {
 }
 
 // GetLocaleVariants wraps g_get_locale_variants
-// 
+//
 // see also https://docs.gtk.org/glib/func.g_get_locale_variants.html
 func GetLocaleVariants(locale string) []string {
-	var carg1 *C.gchar  // in, none, string
-	var cret  **C.gchar // return, transfer: full, C Pointers: 2, Name: array[utf8], scope: , array (inner gchar* (*typesystem.StringPrimitive), zero-terminated)
+	var carg1 *C.gchar // in, none, string
+	var cret **C.gchar // return, transfer: full, C Pointers: 2, Name: array[utf8], array (inner gchar* (*typesystem.StringPrimitive), zero-terminated)
 
 	carg1 = (*C.gchar)(transfer.GLibString(locale))
 	defer C.g_free(C.gpointer(carg1))
@@ -7173,7 +7802,7 @@ func GetLocaleVariants(locale string) []string {
 }
 
 // GetMonotonicTime wraps g_get_monotonic_time
-// 
+//
 // see also https://docs.gtk.org/glib/func.g_get_monotonic_time.html
 func GetMonotonicTime() int64 {
 	var cret C.gint64 // return, none, casted
@@ -7188,7 +7817,7 @@ func GetMonotonicTime() int64 {
 }
 
 // GetNumProcessors wraps g_get_num_processors
-// 
+//
 // see also https://docs.gtk.org/glib/func.g_get_num_processors.html
 func GetNumProcessors() uint32 {
 	var cret C.guint // return, none, casted
@@ -7203,11 +7832,11 @@ func GetNumProcessors() uint32 {
 }
 
 // GetOsInfo wraps g_get_os_info
-// 
+//
 // see also https://docs.gtk.org/glib/func.g_get_os_info.html
 func GetOsInfo(keyName string) string {
 	var carg1 *C.gchar // in, none, string
-	var cret  *C.gchar // return, full, string, nullable-string
+	var cret *C.gchar  // return, full, string, nullable-string
 
 	carg1 = (*C.gchar)(transfer.GLibString(keyName))
 	defer C.g_free(C.gpointer(carg1))
@@ -7226,7 +7855,7 @@ func GetOsInfo(keyName string) string {
 }
 
 // GetPrgname wraps g_get_prgname
-// 
+//
 // see also https://docs.gtk.org/glib/func.g_get_prgname.html
 func GetPrgname() string {
 	var cret *C.gchar // return, none, string, nullable-string
@@ -7243,7 +7872,7 @@ func GetPrgname() string {
 }
 
 // GetRealName wraps g_get_real_name
-// 
+//
 // see also https://docs.gtk.org/glib/func.g_get_real_name.html
 func GetRealName() string {
 	var cret *C.gchar // return, none, string
@@ -7258,7 +7887,7 @@ func GetRealName() string {
 }
 
 // GetRealTime wraps g_get_real_time
-// 
+//
 // see also https://docs.gtk.org/glib/func.g_get_real_time.html
 func GetRealTime() int64 {
 	var cret C.gint64 // return, none, casted
@@ -7273,10 +7902,10 @@ func GetRealTime() int64 {
 }
 
 // GetSystemConfigDirs wraps g_get_system_config_dirs
-// 
+//
 // see also https://docs.gtk.org/glib/func.g_get_system_config_dirs.html
 func GetSystemConfigDirs() []string {
-	var cret **C.gchar // return, transfer: none, C Pointers: 2, Name: array[filename], scope: , array (inner gchar* (*typesystem.StringPrimitive), zero-terminated)
+	var cret **C.gchar // return, transfer: none, C Pointers: 2, Name: array[filename], array (inner gchar* (*typesystem.StringPrimitive), zero-terminated)
 
 	cret = C.g_get_system_config_dirs()
 
@@ -7290,10 +7919,10 @@ func GetSystemConfigDirs() []string {
 }
 
 // GetSystemDataDirs wraps g_get_system_data_dirs
-// 
+//
 // see also https://docs.gtk.org/glib/func.g_get_system_data_dirs.html
 func GetSystemDataDirs() []string {
-	var cret **C.gchar // return, transfer: none, C Pointers: 2, Name: array[filename], scope: , array (inner gchar* (*typesystem.StringPrimitive), zero-terminated)
+	var cret **C.gchar // return, transfer: none, C Pointers: 2, Name: array[filename], array (inner gchar* (*typesystem.StringPrimitive), zero-terminated)
 
 	cret = C.g_get_system_data_dirs()
 
@@ -7307,7 +7936,7 @@ func GetSystemDataDirs() []string {
 }
 
 // GetTmpDir wraps g_get_tmp_dir
-// 
+//
 // see also https://docs.gtk.org/glib/func.g_get_tmp_dir.html
 func GetTmpDir() string {
 	var cret *C.gchar // return, none, string
@@ -7322,7 +7951,7 @@ func GetTmpDir() string {
 }
 
 // GetUserCacheDir wraps g_get_user_cache_dir
-// 
+//
 // see also https://docs.gtk.org/glib/func.g_get_user_cache_dir.html
 func GetUserCacheDir() string {
 	var cret *C.gchar // return, none, string
@@ -7337,7 +7966,7 @@ func GetUserCacheDir() string {
 }
 
 // GetUserConfigDir wraps g_get_user_config_dir
-// 
+//
 // see also https://docs.gtk.org/glib/func.g_get_user_config_dir.html
 func GetUserConfigDir() string {
 	var cret *C.gchar // return, none, string
@@ -7352,7 +7981,7 @@ func GetUserConfigDir() string {
 }
 
 // GetUserDataDir wraps g_get_user_data_dir
-// 
+//
 // see also https://docs.gtk.org/glib/func.g_get_user_data_dir.html
 func GetUserDataDir() string {
 	var cret *C.gchar // return, none, string
@@ -7367,7 +7996,7 @@ func GetUserDataDir() string {
 }
 
 // GetUserName wraps g_get_user_name
-// 
+//
 // see also https://docs.gtk.org/glib/func.g_get_user_name.html
 func GetUserName() string {
 	var cret *C.gchar // return, none, string
@@ -7382,7 +8011,7 @@ func GetUserName() string {
 }
 
 // GetUserRuntimeDir wraps g_get_user_runtime_dir
-// 
+//
 // see also https://docs.gtk.org/glib/func.g_get_user_runtime_dir.html
 func GetUserRuntimeDir() string {
 	var cret *C.gchar // return, none, string
@@ -7397,11 +8026,11 @@ func GetUserRuntimeDir() string {
 }
 
 // GetUserSpecialDir wraps g_get_user_special_dir
-// 
+//
 // see also https://docs.gtk.org/glib/func.g_get_user_special_dir.html
 func GetUserSpecialDir(directory UserDirectory) string {
 	var carg1 C.GUserDirectory // in, none, casted
-	var cret  *C.gchar         // return, none, string, nullable
+	var cret *C.gchar          // return, none, string, nullable
 
 	carg1 = C.GUserDirectory(directory)
 
@@ -7418,7 +8047,7 @@ func GetUserSpecialDir(directory UserDirectory) string {
 }
 
 // GetUserStateDir wraps g_get_user_state_dir
-// 
+//
 // see also https://docs.gtk.org/glib/func.g_get_user_state_dir.html
 func GetUserStateDir() string {
 	var cret *C.gchar // return, none, string
@@ -7433,11 +8062,11 @@ func GetUserStateDir() string {
 }
 
 // Getenv wraps g_getenv
-// 
+//
 // see also https://docs.gtk.org/glib/func.g_getenv.html
 func Getenv(variable string) string {
 	var carg1 *C.gchar // in, none, string
-	var cret  *C.gchar // return, none, string, nullable
+	var cret *C.gchar  // return, none, string, nullable
 
 	carg1 = (*C.gchar)(transfer.GLibString(variable))
 	defer C.g_free(C.gpointer(carg1))
@@ -7455,11 +8084,11 @@ func Getenv(variable string) string {
 }
 
 // HostnameIsASCIIEncoded wraps g_hostname_is_ascii_encoded
-// 
+//
 // see also https://docs.gtk.org/glib/func.g_hostname_is_ascii_encoded.html
 func HostnameIsASCIIEncoded(hostname string) bool {
-	var carg1 *C.gchar   // in, none, string
-	var cret  C.gboolean // return
+	var carg1 *C.gchar  // in, none, string
+	var cret C.gboolean // return
 
 	carg1 = (*C.gchar)(transfer.GLibString(hostname))
 	defer C.g_free(C.gpointer(carg1))
@@ -7477,11 +8106,11 @@ func HostnameIsASCIIEncoded(hostname string) bool {
 }
 
 // HostnameIsIpAddress wraps g_hostname_is_ip_address
-// 
+//
 // see also https://docs.gtk.org/glib/func.g_hostname_is_ip_address.html
 func HostnameIsIpAddress(hostname string) bool {
-	var carg1 *C.gchar   // in, none, string
-	var cret  C.gboolean // return
+	var carg1 *C.gchar  // in, none, string
+	var cret C.gboolean // return
 
 	carg1 = (*C.gchar)(transfer.GLibString(hostname))
 	defer C.g_free(C.gpointer(carg1))
@@ -7499,11 +8128,11 @@ func HostnameIsIpAddress(hostname string) bool {
 }
 
 // HostnameIsNonASCII wraps g_hostname_is_non_ascii
-// 
+//
 // see also https://docs.gtk.org/glib/func.g_hostname_is_non_ascii.html
 func HostnameIsNonASCII(hostname string) bool {
-	var carg1 *C.gchar   // in, none, string
-	var cret  C.gboolean // return
+	var carg1 *C.gchar  // in, none, string
+	var cret C.gboolean // return
 
 	carg1 = (*C.gchar)(transfer.GLibString(hostname))
 	defer C.g_free(C.gpointer(carg1))
@@ -7521,11 +8150,11 @@ func HostnameIsNonASCII(hostname string) bool {
 }
 
 // HostnameToASCII wraps g_hostname_to_ascii
-// 
+//
 // see also https://docs.gtk.org/glib/func.g_hostname_to_ascii.html
 func HostnameToASCII(hostname string) string {
 	var carg1 *C.gchar // in, none, string
-	var cret  *C.gchar // return, full, string, nullable-string
+	var cret *C.gchar  // return, full, string, nullable-string
 
 	carg1 = (*C.gchar)(transfer.GLibString(hostname))
 	defer C.g_free(C.gpointer(carg1))
@@ -7544,11 +8173,11 @@ func HostnameToASCII(hostname string) string {
 }
 
 // HostnameToUnicode wraps g_hostname_to_unicode
-// 
+//
 // see also https://docs.gtk.org/glib/func.g_hostname_to_unicode.html
 func HostnameToUnicode(hostname string) string {
 	var carg1 *C.gchar // in, none, string
-	var cret  *C.gchar // return, full, string, nullable-string
+	var cret *C.gchar  // return, full, string, nullable-string
 
 	carg1 = (*C.gchar)(transfer.GLibString(hostname))
 	defer C.g_free(C.gpointer(carg1))
@@ -7567,14 +8196,14 @@ func HostnameToUnicode(hostname string) string {
 }
 
 // IdleAddFull wraps g_idle_add_full
-// 
+//
 // see also https://docs.gtk.org/glib/func.g_idle_add_full.html
 func IdleAddFull(priority int32, function SourceFunc) uint32 {
 	var carg1 C.gint           // in, none, casted
 	var carg2 C.GSourceFunc    // callback, scope: notified, closure: carg3, destroy: carg4
 	var carg3 C.gpointer       // implicit
 	var carg4 C.GDestroyNotify // implicit
-	var cret  C.guint          // return, none, casted
+	var cret C.guint           // return, none, casted
 
 	carg1 = C.gint(priority)
 	carg2 = (*[0]byte)(C._goglib_glib2_SourceFunc)
@@ -7593,11 +8222,11 @@ func IdleAddFull(priority int32, function SourceFunc) uint32 {
 }
 
 // InternStaticString wraps g_intern_static_string
-// 
+//
 // see also https://docs.gtk.org/glib/func.g_intern_static_string.html
 func InternStaticString(str string) string {
 	var carg1 *C.gchar // in, none, string, nullable-string
-	var cret  *C.gchar // return, none, string
+	var cret *C.gchar  // return, none, string
 
 	if str != "" {
 		carg1 = (*C.gchar)(transfer.GLibString(str))
@@ -7615,11 +8244,11 @@ func InternStaticString(str string) string {
 }
 
 // InternString wraps g_intern_string
-// 
+//
 // see also https://docs.gtk.org/glib/func.g_intern_string.html
 func InternString(str string) string {
 	var carg1 *C.gchar // in, none, string, nullable-string
-	var cret  *C.gchar // return, none, string
+	var cret *C.gchar  // return, none, string
 
 	if str != "" {
 		carg1 = (*C.gchar)(transfer.GLibString(str))
@@ -7637,10 +8266,10 @@ func InternString(str string) string {
 }
 
 // Listenv wraps g_listenv
-// 
+//
 // see also https://docs.gtk.org/glib/func.g_listenv.html
 func Listenv() []string {
-	var cret **C.gchar // return, transfer: full, C Pointers: 2, Name: array[filename], scope: , array (inner gchar* (*typesystem.StringPrimitive), zero-terminated)
+	var cret **C.gchar // return, transfer: full, C Pointers: 2, Name: array[filename], array (inner gchar* (*typesystem.StringPrimitive), zero-terminated)
 
 	cret = C.g_listenv()
 
@@ -7654,14 +8283,14 @@ func Listenv() []string {
 }
 
 // LocaleFromUTF8 wraps g_locale_from_utf8
-// 
+//
 // see also https://docs.gtk.org/glib/func.g_locale_from_utf8.html
 func LocaleFromUTF8(utf8string string, len int) (uint, uint, string, error) {
 	var carg1 *C.gchar  // in, none, string
 	var carg2 C.gssize  // in, none, casted
 	var carg3 C.gsize   // out, full, casted
 	var carg4 C.gsize   // out, full, casted
-	var cret  *C.gchar  // return, transfer: full, C Pointers: 1, Name: array[unknown], scope: , nullable, array (inner unknown)
+	var cret *C.gchar   // return, transfer: full, C Pointers: 1, Name: array[unknown], nullable, array (inner unknown)
 	var _cerr *C.GError // out, full, converted, nullable
 
 	carg1 = (*C.gchar)(transfer.GLibString(utf8string))
@@ -7672,10 +8301,10 @@ func LocaleFromUTF8(utf8string string, len int) (uint, uint, string, error) {
 	runtime.KeepAlive(utf8string)
 	runtime.KeepAlive(len)
 
-	var bytesRead    uint
+	var bytesRead uint
 	var bytesWritten uint
-	var goret        string
-	var _goerr       error
+	var goret string
+	var _goerr error
 
 	bytesRead = uint(carg3)
 	bytesWritten = uint(carg4)
@@ -7690,14 +8319,14 @@ func LocaleFromUTF8(utf8string string, len int) (uint, uint, string, error) {
 }
 
 // LocaleToUTF8 wraps g_locale_to_utf8
-// 
+//
 // see also https://docs.gtk.org/glib/func.g_locale_to_utf8.html
 func LocaleToUTF8(opsysstring string) (uint, uint, string, error) {
 	var carg1 *C.gchar  // in, transfer: none, C Pointers: 1, Name: array[unknown], array (inner unknown, length-by: carg2)
 	var carg2 C.gssize  // implicit
 	var carg3 C.gsize   // out, full, casted
 	var carg4 C.gsize   // out, full, casted
-	var cret  *C.gchar  // return, full, string, nullable-string
+	var cret *C.gchar   // return, full, string, nullable-string
 	var _cerr *C.GError // out, full, converted, nullable
 
 	_ = opsysstring
@@ -7708,10 +8337,10 @@ func LocaleToUTF8(opsysstring string) (uint, uint, string, error) {
 	cret = C.g_locale_to_utf8(carg1, carg2, &carg3, &carg4, &_cerr)
 	runtime.KeepAlive(opsysstring)
 
-	var bytesRead    uint
+	var bytesRead uint
 	var bytesWritten uint
-	var goret        string
-	var _goerr       error
+	var goret string
+	var _goerr error
 
 	bytesRead = uint(carg3)
 	bytesWritten = uint(carg4)
@@ -7727,7 +8356,7 @@ func LocaleToUTF8(opsysstring string) (uint, uint, string, error) {
 }
 
 // LogGetDebugEnabled wraps g_log_get_debug_enabled
-// 
+//
 // see also https://docs.gtk.org/glib/func.g_log_get_debug_enabled.html
 func LogGetDebugEnabled() bool {
 	var cret C.gboolean // return
@@ -7744,7 +8373,7 @@ func LogGetDebugEnabled() bool {
 }
 
 // LogRemoveHandler wraps g_log_remove_handler
-// 
+//
 // see also https://docs.gtk.org/glib/func.g_log_remove_handler.html
 func LogRemoveHandler(logDomain string, handlerId uint32) {
 	var carg1 *C.gchar // in, none, string
@@ -7760,11 +8389,11 @@ func LogRemoveHandler(logDomain string, handlerId uint32) {
 }
 
 // LogSetAlwaysFatal wraps g_log_set_always_fatal
-// 
+//
 // see also https://docs.gtk.org/glib/func.g_log_set_always_fatal.html
 func LogSetAlwaysFatal(fatalMask LogLevelFlags) LogLevelFlags {
 	var carg1 C.GLogLevelFlags // in, none, casted
-	var cret  C.GLogLevelFlags // return, none, casted
+	var cret C.GLogLevelFlags  // return, none, casted
 
 	carg1 = C.GLogLevelFlags(fatalMask)
 
@@ -7779,7 +8408,7 @@ func LogSetAlwaysFatal(fatalMask LogLevelFlags) LogLevelFlags {
 }
 
 // LogSetDebugEnabled wraps g_log_set_debug_enabled
-// 
+//
 // see also https://docs.gtk.org/glib/func.g_log_set_debug_enabled.html
 func LogSetDebugEnabled(enabled bool) {
 	var carg1 C.gboolean // in
@@ -7793,12 +8422,12 @@ func LogSetDebugEnabled(enabled bool) {
 }
 
 // LogSetFatalMask wraps g_log_set_fatal_mask
-// 
+//
 // see also https://docs.gtk.org/glib/func.g_log_set_fatal_mask.html
 func LogSetFatalMask(logDomain string, fatalMask LogLevelFlags) LogLevelFlags {
 	var carg1 *C.gchar         // in, none, string
 	var carg2 C.GLogLevelFlags // in, none, casted
-	var cret  C.GLogLevelFlags // return, none, casted
+	var cret C.GLogLevelFlags  // return, none, casted
 
 	carg1 = (*C.gchar)(transfer.GLibString(logDomain))
 	defer C.g_free(C.gpointer(carg1))
@@ -7816,7 +8445,7 @@ func LogSetFatalMask(logDomain string, fatalMask LogLevelFlags) LogLevelFlags {
 }
 
 // LogSetHandlerFull wraps g_log_set_handler_full
-// 
+//
 // see also https://docs.gtk.org/glib/func.g_log_set_handler_full.html
 func LogSetHandlerFull(logDomain string, logLevels LogLevelFlags, logFunc LogFunc) uint32 {
 	var carg1 *C.gchar         // in, none, string, nullable-string
@@ -7824,7 +8453,7 @@ func LogSetHandlerFull(logDomain string, logLevels LogLevelFlags, logFunc LogFun
 	var carg3 C.GLogFunc       // callback, scope: notified, closure: carg4, destroy: carg5
 	var carg4 C.gpointer       // implicit
 	var carg5 C.GDestroyNotify // implicit
-	var cret  C.guint          // return, none, casted
+	var cret C.guint           // return, none, casted
 
 	if logDomain != "" {
 		carg1 = (*C.gchar)(transfer.GLibString(logDomain))
@@ -7848,7 +8477,7 @@ func LogSetHandlerFull(logDomain string, logLevels LogLevelFlags, logFunc LogFun
 }
 
 // LogWriterDefaultSetUseStderr wraps g_log_writer_default_set_use_stderr
-// 
+//
 // see also https://docs.gtk.org/glib/func.g_log_writer_default_set_use_stderr.html
 func LogWriterDefaultSetUseStderr(useStderr bool) {
 	var carg1 C.gboolean // in
@@ -7862,12 +8491,12 @@ func LogWriterDefaultSetUseStderr(useStderr bool) {
 }
 
 // LogWriterDefaultWouldDrop wraps g_log_writer_default_would_drop
-// 
+//
 // see also https://docs.gtk.org/glib/func.g_log_writer_default_would_drop.html
 func LogWriterDefaultWouldDrop(logLevel LogLevelFlags, logDomain string) bool {
 	var carg1 C.GLogLevelFlags // in, none, casted
 	var carg2 *C.char          // in, none, string, nullable-string
-	var cret  C.gboolean       // return
+	var cret C.gboolean        // return
 
 	carg1 = C.GLogLevelFlags(logLevel)
 	if logDomain != "" {
@@ -7889,11 +8518,11 @@ func LogWriterDefaultWouldDrop(logLevel LogLevelFlags, logDomain string) bool {
 }
 
 // LogWriterIsJournald wraps g_log_writer_is_journald
-// 
+//
 // see also https://docs.gtk.org/glib/func.g_log_writer_is_journald.html
 func LogWriterIsJournald(outputFd int32) bool {
-	var carg1 C.gint     // in, none, casted
-	var cret  C.gboolean // return
+	var carg1 C.gint    // in, none, casted
+	var cret C.gboolean // return
 
 	carg1 = C.gint(outputFd)
 
@@ -7910,11 +8539,11 @@ func LogWriterIsJournald(outputFd int32) bool {
 }
 
 // LogWriterSupportsColor wraps g_log_writer_supports_color
-// 
+//
 // see also https://docs.gtk.org/glib/func.g_log_writer_supports_color.html
 func LogWriterSupportsColor(outputFd int32) bool {
-	var carg1 C.gint     // in, none, casted
-	var cret  C.gboolean // return
+	var carg1 C.gint    // in, none, casted
+	var cret C.gboolean // return
 
 	carg1 = C.gint(outputFd)
 
@@ -7931,7 +8560,7 @@ func LogWriterSupportsColor(outputFd int32) bool {
 }
 
 // MainDepth wraps g_main_depth
-// 
+//
 // see also https://docs.gtk.org/glib/func.g_main_depth.html
 func MainDepth() int32 {
 	var cret C.gint // return, none, casted
@@ -7946,7 +8575,7 @@ func MainDepth() int32 {
 }
 
 // MarkupErrorQuark wraps g_markup_error_quark
-// 
+//
 // see also https://docs.gtk.org/glib/func.g_markup_error_quark.html
 func MarkupErrorQuark() Quark {
 	var cret C.GQuark // return, none, casted, alias
@@ -7961,12 +8590,12 @@ func MarkupErrorQuark() Quark {
 }
 
 // MarkupEscapeText wraps g_markup_escape_text
-// 
+//
 // see also https://docs.gtk.org/glib/func.g_markup_escape_text.html
 func MarkupEscapeText(text string, length int) string {
 	var carg1 *C.gchar // in, none, string
 	var carg2 C.gssize // in, none, casted
-	var cret  *C.gchar // return, full, string
+	var cret *C.gchar  // return, full, string
 
 	carg1 = (*C.gchar)(transfer.GLibString(text))
 	defer C.g_free(C.gpointer(carg1))
@@ -7985,12 +8614,12 @@ func MarkupEscapeText(text string, length int) string {
 }
 
 // MkdirWithParents wraps g_mkdir_with_parents
-// 
+//
 // see also https://docs.gtk.org/glib/func.g_mkdir_with_parents.html
 func MkdirWithParents(pathname string, mode int32) int32 {
 	var carg1 *C.gchar // in, none, string
 	var carg2 C.gint   // in, none, casted
-	var cret  C.gint   // return, none, casted
+	var cret C.gint    // return, none, casted
 
 	carg1 = (*C.gchar)(transfer.GLibString(pathname))
 	defer C.g_free(C.gpointer(carg1))
@@ -8008,7 +8637,7 @@ func MkdirWithParents(pathname string, mode int32) int32 {
 }
 
 // NumberParserErrorQuark wraps g_number_parser_error_quark
-// 
+//
 // see also https://docs.gtk.org/glib/func.g_number_parser_error_quark.html
 func NumberParserErrorQuark() Quark {
 	var cret C.GQuark // return, none, casted, alias
@@ -8023,7 +8652,7 @@ func NumberParserErrorQuark() Quark {
 }
 
 // OnErrorQuery wraps g_on_error_query
-// 
+//
 // see also https://docs.gtk.org/glib/func.g_on_error_query.html
 func OnErrorQuery(prgName string) {
 	var carg1 *C.gchar // in, none, string
@@ -8036,7 +8665,7 @@ func OnErrorQuery(prgName string) {
 }
 
 // OnErrorStackTrace wraps g_on_error_stack_trace
-// 
+//
 // see also https://docs.gtk.org/glib/func.g_on_error_stack_trace.html
 func OnErrorStackTrace(prgName string) {
 	var carg1 *C.gchar // in, none, string, nullable-string
@@ -8051,7 +8680,7 @@ func OnErrorStackTrace(prgName string) {
 }
 
 // OptionErrorQuark wraps g_option_error_quark
-// 
+//
 // see also https://docs.gtk.org/glib/func.g_option_error_quark.html
 func OptionErrorQuark() Quark {
 	var cret C.GQuark // return, none, casted, alias
@@ -8066,11 +8695,11 @@ func OptionErrorQuark() Quark {
 }
 
 // PathGetBasename wraps g_path_get_basename
-// 
+//
 // see also https://docs.gtk.org/glib/func.g_path_get_basename.html
 func PathGetBasename(fileName string) string {
 	var carg1 *C.gchar // in, none, string
-	var cret  *C.gchar // return, full, string
+	var cret *C.gchar  // return, full, string
 
 	carg1 = (*C.gchar)(transfer.GLibString(fileName))
 	defer C.g_free(C.gpointer(carg1))
@@ -8087,11 +8716,11 @@ func PathGetBasename(fileName string) string {
 }
 
 // PathGetDirname wraps g_path_get_dirname
-// 
+//
 // see also https://docs.gtk.org/glib/func.g_path_get_dirname.html
 func PathGetDirname(fileName string) string {
 	var carg1 *C.gchar // in, none, string
-	var cret  *C.gchar // return, full, string
+	var cret *C.gchar  // return, full, string
 
 	carg1 = (*C.gchar)(transfer.GLibString(fileName))
 	defer C.g_free(C.gpointer(carg1))
@@ -8108,11 +8737,11 @@ func PathGetDirname(fileName string) string {
 }
 
 // PathIsAbsolute wraps g_path_is_absolute
-// 
+//
 // see also https://docs.gtk.org/glib/func.g_path_is_absolute.html
 func PathIsAbsolute(fileName string) bool {
-	var carg1 *C.gchar   // in, none, string
-	var cret  C.gboolean // return
+	var carg1 *C.gchar  // in, none, string
+	var cret C.gboolean // return
 
 	carg1 = (*C.gchar)(transfer.GLibString(fileName))
 	defer C.g_free(C.gpointer(carg1))
@@ -8130,11 +8759,11 @@ func PathIsAbsolute(fileName string) bool {
 }
 
 // PathSkipRoot wraps g_path_skip_root
-// 
+//
 // see also https://docs.gtk.org/glib/func.g_path_skip_root.html
 func PathSkipRoot(fileName string) string {
 	var carg1 *C.gchar // in, none, string
-	var cret  *C.gchar // return, none, string, nullable
+	var cret *C.gchar  // return, none, string, nullable
 
 	carg1 = (*C.gchar)(transfer.GLibString(fileName))
 	defer C.g_free(C.gpointer(carg1))
@@ -8152,12 +8781,12 @@ func PathSkipRoot(fileName string) string {
 }
 
 // PatternMatchSimple wraps g_pattern_match_simple
-// 
+//
 // see also https://docs.gtk.org/glib/func.g_pattern_match_simple.html
 func PatternMatchSimple(pattern string, str string) bool {
-	var carg1 *C.gchar   // in, none, string
-	var carg2 *C.gchar   // in, none, string
-	var cret  C.gboolean // return
+	var carg1 *C.gchar  // in, none, string
+	var carg2 *C.gchar  // in, none, string
+	var cret C.gboolean // return
 
 	carg1 = (*C.gchar)(transfer.GLibString(pattern))
 	defer C.g_free(C.gpointer(carg1))
@@ -8178,13 +8807,13 @@ func PatternMatchSimple(pattern string, str string) bool {
 }
 
 // Poll wraps g_poll
-// 
+//
 // see also https://docs.gtk.org/glib/func.g_poll.html
 func Poll(fds *PollFD, nfds uint32, timeout int32) int32 {
 	var carg1 *C.GPollFD // in, none, converted
 	var carg2 C.guint    // in, none, casted
 	var carg3 C.gint     // in, none, casted
-	var cret  C.gint     // return, none, casted
+	var cret C.gint      // return, none, casted
 
 	carg1 = (*C.GPollFD)(UnsafePollFDToGlibNone(fds))
 	carg2 = C.guint(nfds)
@@ -8203,7 +8832,7 @@ func Poll(fds *PollFD, nfds uint32, timeout int32) int32 {
 }
 
 // PropagateError wraps g_propagate_error
-// 
+//
 // see also https://docs.gtk.org/glib/func.g_propagate_error.html
 func PropagateError(src error) error {
 	var carg2 *C.GError // in, full, converted
@@ -8224,11 +8853,11 @@ func PropagateError(src error) error {
 }
 
 // QuarkFromStaticString wraps g_quark_from_static_string
-// 
+//
 // see also https://docs.gtk.org/glib/func.g_quark_from_static_string.html
 func QuarkFromStaticString(str string) Quark {
 	var carg1 *C.gchar // in, none, string, nullable-string
-	var cret  C.GQuark // return, none, casted, alias
+	var cret C.GQuark  // return, none, casted, alias
 
 	if str != "" {
 		carg1 = (*C.gchar)(transfer.GLibString(str))
@@ -8246,11 +8875,11 @@ func QuarkFromStaticString(str string) Quark {
 }
 
 // QuarkFromString wraps g_quark_from_string
-// 
+//
 // see also https://docs.gtk.org/glib/func.g_quark_from_string.html
 func QuarkFromString(str string) Quark {
 	var carg1 *C.gchar // in, none, string, nullable-string
-	var cret  C.GQuark // return, none, casted, alias
+	var cret C.GQuark  // return, none, casted, alias
 
 	if str != "" {
 		carg1 = (*C.gchar)(transfer.GLibString(str))
@@ -8268,11 +8897,11 @@ func QuarkFromString(str string) Quark {
 }
 
 // QuarkToString wraps g_quark_to_string
-// 
+//
 // see also https://docs.gtk.org/glib/func.g_quark_to_string.html
 func QuarkToString(quark Quark) string {
 	var carg1 C.GQuark // in, none, casted, alias
-	var cret  *C.gchar // return, none, string
+	var cret *C.gchar  // return, none, string
 
 	carg1 = C.GQuark(quark)
 
@@ -8287,11 +8916,11 @@ func QuarkToString(quark Quark) string {
 }
 
 // QuarkTryString wraps g_quark_try_string
-// 
+//
 // see also https://docs.gtk.org/glib/func.g_quark_try_string.html
 func QuarkTryString(str string) Quark {
 	var carg1 *C.gchar // in, none, string, nullable-string
-	var cret  C.GQuark // return, none, casted, alias
+	var cret C.GQuark  // return, none, casted, alias
 
 	if str != "" {
 		carg1 = (*C.gchar)(transfer.GLibString(str))
@@ -8309,7 +8938,7 @@ func QuarkTryString(str string) Quark {
 }
 
 // RandomDouble wraps g_random_double
-// 
+//
 // see also https://docs.gtk.org/glib/func.g_random_double.html
 func RandomDouble() float64 {
 	var cret C.gdouble // return, none, casted
@@ -8324,12 +8953,12 @@ func RandomDouble() float64 {
 }
 
 // RandomDoubleRange wraps g_random_double_range
-// 
+//
 // see also https://docs.gtk.org/glib/func.g_random_double_range.html
 func RandomDoubleRange(begin float64, end float64) float64 {
 	var carg1 C.gdouble // in, none, casted
 	var carg2 C.gdouble // in, none, casted
-	var cret  C.gdouble // return, none, casted
+	var cret C.gdouble  // return, none, casted
 
 	carg1 = C.gdouble(begin)
 	carg2 = C.gdouble(end)
@@ -8346,7 +8975,7 @@ func RandomDoubleRange(begin float64, end float64) float64 {
 }
 
 // RandomInt wraps g_random_int
-// 
+//
 // see also https://docs.gtk.org/glib/func.g_random_int.html
 func RandomInt() uint32 {
 	var cret C.guint32 // return, none, casted
@@ -8361,12 +8990,12 @@ func RandomInt() uint32 {
 }
 
 // RandomIntRange wraps g_random_int_range
-// 
+//
 // see also https://docs.gtk.org/glib/func.g_random_int_range.html
 func RandomIntRange(begin int32, end int32) int32 {
 	var carg1 C.gint32 // in, none, casted
 	var carg2 C.gint32 // in, none, casted
-	var cret  C.gint32 // return, none, casted
+	var cret C.gint32  // return, none, casted
 
 	carg1 = C.gint32(begin)
 	carg2 = C.gint32(end)
@@ -8383,7 +9012,7 @@ func RandomIntRange(begin int32, end int32) int32 {
 }
 
 // RandomSetSeed wraps g_random_set_seed
-// 
+//
 // see also https://docs.gtk.org/glib/func.g_random_set_seed.html
 func RandomSetSeed(seed uint32) {
 	var carg1 C.guint32 // in, none, casted
@@ -8395,12 +9024,12 @@ func RandomSetSeed(seed uint32) {
 }
 
 // RefCountCompare wraps g_ref_count_compare
-// 
+//
 // see also https://docs.gtk.org/glib/func.g_ref_count_compare.html
 func RefCountCompare(rc *int32, val int32) bool {
 	var carg1 *C.grefcount // in, transfer: none, C Pointers: 1, Name: gint
 	var carg2 C.gint       // in, none, casted
-	var cret  C.gboolean   // return
+	var cret C.gboolean    // return
 
 	_ = rc
 	_ = carg1
@@ -8421,7 +9050,7 @@ func RefCountCompare(rc *int32, val int32) bool {
 }
 
 // RefCountInit wraps g_ref_count_init
-// 
+//
 // see also https://docs.gtk.org/glib/func.g_ref_count_init.html
 func RefCountInit() int32 {
 	var carg1 C.grefcount // out, full, casted
@@ -8436,11 +9065,11 @@ func RefCountInit() int32 {
 }
 
 // RefStringAcquire wraps g_ref_string_acquire
-// 
+//
 // see also https://docs.gtk.org/glib/func.g_ref_string_acquire.html
 func RefStringAcquire(str string) string {
 	var carg1 *C.char // in, none, string
-	var cret  *C.char // return, full, string
+	var cret *C.char  // return, full, string
 
 	carg1 = (*C.char)(transfer.GLibString(str))
 	defer C.g_free(C.gpointer(carg1))
@@ -8457,11 +9086,11 @@ func RefStringAcquire(str string) string {
 }
 
 // RefStringLength wraps g_ref_string_length
-// 
+//
 // see also https://docs.gtk.org/glib/func.g_ref_string_length.html
 func RefStringLength(str string) uint {
 	var carg1 *C.char // in, none, string
-	var cret  C.gsize // return, none, casted
+	var cret C.gsize  // return, none, casted
 
 	carg1 = (*C.char)(transfer.GLibString(str))
 	defer C.g_free(C.gpointer(carg1))
@@ -8477,11 +9106,11 @@ func RefStringLength(str string) uint {
 }
 
 // NewRefString wraps g_ref_string_new
-// 
+//
 // see also https://docs.gtk.org/glib/func.g_ref_string_new.html
 func NewRefString(str string) string {
 	var carg1 *C.char // in, none, string
-	var cret  *C.char // return, full, string
+	var cret *C.char  // return, full, string
 
 	carg1 = (*C.char)(transfer.GLibString(str))
 	defer C.g_free(C.gpointer(carg1))
@@ -8498,11 +9127,11 @@ func NewRefString(str string) string {
 }
 
 // RefStringNewIntern wraps g_ref_string_new_intern
-// 
+//
 // see also https://docs.gtk.org/glib/func.g_ref_string_new_intern.html
 func RefStringNewIntern(str string) string {
 	var carg1 *C.char // in, none, string
-	var cret  *C.char // return, full, string
+	var cret *C.char  // return, full, string
 
 	carg1 = (*C.char)(transfer.GLibString(str))
 	defer C.g_free(C.gpointer(carg1))
@@ -8519,12 +9148,12 @@ func RefStringNewIntern(str string) string {
 }
 
 // RefStringNewLen wraps g_ref_string_new_len
-// 
+//
 // see also https://docs.gtk.org/glib/func.g_ref_string_new_len.html
 func RefStringNewLen(str string, len int) string {
 	var carg1 *C.char  // in, none, string
 	var carg2 C.gssize // in, none, casted
-	var cret  *C.char  // return, full, string
+	var cret *C.char   // return, full, string
 
 	carg1 = (*C.char)(transfer.GLibString(str))
 	defer C.g_free(C.gpointer(carg1))
@@ -8543,7 +9172,7 @@ func RefStringNewLen(str string, len int) string {
 }
 
 // RefStringRelease wraps g_ref_string_release
-// 
+//
 // see also https://docs.gtk.org/glib/func.g_ref_string_release.html
 func RefStringRelease(str string) {
 	var carg1 *C.char // in, none, string
@@ -8556,7 +9185,7 @@ func RefStringRelease(str string) {
 }
 
 // ReloadUserSpecialDirsCache wraps g_reload_user_special_dirs_cache
-// 
+//
 // see also https://docs.gtk.org/glib/func.g_reload_user_special_dirs_cache.html
 func ReloadUserSpecialDirsCache() {
 
@@ -8564,7 +9193,7 @@ func ReloadUserSpecialDirsCache() {
 }
 
 // SetApplicationName wraps g_set_application_name
-// 
+//
 // see also https://docs.gtk.org/glib/func.g_set_application_name.html
 func SetApplicationName(applicationName string) {
 	var carg1 *C.gchar // in, none, string
@@ -8577,7 +9206,7 @@ func SetApplicationName(applicationName string) {
 }
 
 // SetErrorLiteral wraps g_set_error_literal
-// 
+//
 // see also https://docs.gtk.org/glib/func.g_set_error_literal.html
 func SetErrorLiteral(domain Quark, code int32, message string) error {
 	var carg2 C.GQuark  // in, none, casted, alias
@@ -8603,7 +9232,7 @@ func SetErrorLiteral(domain Quark, code int32, message string) error {
 }
 
 // SetPrgname wraps g_set_prgname
-// 
+//
 // see also https://docs.gtk.org/glib/func.g_set_prgname.html
 func SetPrgname(prgname string) {
 	var carg1 *C.gchar // in, none, string
@@ -8616,13 +9245,13 @@ func SetPrgname(prgname string) {
 }
 
 // Setenv wraps g_setenv
-// 
+//
 // see also https://docs.gtk.org/glib/func.g_setenv.html
 func Setenv(variable string, value string, overwrite bool) bool {
 	var carg1 *C.gchar   // in, none, string
 	var carg2 *C.gchar   // in, none, string
 	var carg3 C.gboolean // in
-	var cret  C.gboolean // return
+	var cret C.gboolean  // return
 
 	carg1 = (*C.gchar)(transfer.GLibString(variable))
 	defer C.g_free(C.gpointer(carg1))
@@ -8647,7 +9276,7 @@ func Setenv(variable string, value string, overwrite bool) bool {
 }
 
 // ShellErrorQuark wraps g_shell_error_quark
-// 
+//
 // see also https://docs.gtk.org/glib/func.g_shell_error_quark.html
 func ShellErrorQuark() Quark {
 	var cret C.GQuark // return, none, casted, alias
@@ -8662,14 +9291,14 @@ func ShellErrorQuark() Quark {
 }
 
 // ShellParseArgv wraps g_shell_parse_argv
-// 
+//
 // see also https://docs.gtk.org/glib/func.g_shell_parse_argv.html
 func ShellParseArgv(commandLine string) ([]string, bool, error) {
-	var carg1 *C.gchar   // in, none, string
-	var carg2 C.gint     // implicit
-	var carg3 **C.gchar  // out, transfer: full, C Pointers: 2, Name: array[filename], optional, array (inner gchar* (*typesystem.StringPrimitive), zero-terminated, length-by: carg2)
-	var cret  C.gboolean // return
-	var _cerr *C.GError  // out, full, converted, nullable
+	var carg1 *C.gchar  // in, none, string
+	var carg2 C.gint    // implicit
+	var carg3 **C.gchar // out, transfer: full, C Pointers: 2, Name: array[filename], optional, array (inner gchar* (*typesystem.StringPrimitive), zero-terminated, length-by: carg2)
+	var cret C.gboolean // return
+	var _cerr *C.GError // out, full, converted, nullable
 
 	carg1 = (*C.gchar)(transfer.GLibString(commandLine))
 	defer C.g_free(C.gpointer(carg1))
@@ -8677,8 +9306,8 @@ func ShellParseArgv(commandLine string) ([]string, bool, error) {
 	cret = C.g_shell_parse_argv(carg1, &carg2, &carg3, &_cerr)
 	runtime.KeepAlive(commandLine)
 
-	var argvp  []string
-	var goret  bool
+	var argvp []string
+	var goret bool
 	var _goerr error
 
 	_ = argvp
@@ -8696,11 +9325,11 @@ func ShellParseArgv(commandLine string) ([]string, bool, error) {
 }
 
 // ShellQuote wraps g_shell_quote
-// 
+//
 // see also https://docs.gtk.org/glib/func.g_shell_quote.html
 func ShellQuote(unquotedString string) string {
 	var carg1 *C.gchar // in, none, string
-	var cret  *C.gchar // return, full, string
+	var cret *C.gchar  // return, full, string
 
 	carg1 = (*C.gchar)(transfer.GLibString(unquotedString))
 	defer C.g_free(C.gpointer(carg1))
@@ -8717,11 +9346,11 @@ func ShellQuote(unquotedString string) string {
 }
 
 // ShellUnquote wraps g_shell_unquote
-// 
+//
 // see also https://docs.gtk.org/glib/func.g_shell_unquote.html
 func ShellUnquote(quotedString string) (string, error) {
 	var carg1 *C.gchar  // in, none, string
-	var cret  *C.gchar  // return, full, string, nullable-string
+	var cret *C.gchar   // return, full, string, nullable-string
 	var _cerr *C.GError // out, full, converted, nullable
 
 	carg1 = (*C.gchar)(transfer.GLibString(quotedString))
@@ -8730,7 +9359,7 @@ func ShellUnquote(quotedString string) (string, error) {
 	cret = C.g_shell_unquote(carg1, &_cerr)
 	runtime.KeepAlive(quotedString)
 
-	var goret  string
+	var goret string
 	var _goerr error
 
 	if cret != nil {
@@ -8745,11 +9374,11 @@ func ShellUnquote(quotedString string) (string, error) {
 }
 
 // SliceGetConfig wraps g_slice_get_config
-// 
+//
 // see also https://docs.gtk.org/glib/func.g_slice_get_config.html
 func SliceGetConfig(ckey SliceConfig) int64 {
 	var carg1 C.GSliceConfig // in, none, casted
-	var cret  C.gint64       // return, none, casted
+	var cret C.gint64        // return, none, casted
 
 	carg1 = C.GSliceConfig(ckey)
 
@@ -8764,13 +9393,13 @@ func SliceGetConfig(ckey SliceConfig) int64 {
 }
 
 // SliceGetConfigState wraps g_slice_get_config_state
-// 
+//
 // see also https://docs.gtk.org/glib/func.g_slice_get_config_state.html
 func SliceGetConfigState(ckey SliceConfig, address int64, nValues *uint32) *int64 {
 	var carg1 C.GSliceConfig // in, none, casted
 	var carg2 C.gint64       // in, none, casted
 	var carg3 *C.guint       // in, transfer: none, C Pointers: 1, Name: guint
-	var cret  *C.gint64      // return, transfer: none, C Pointers: 1, Name: gint64, scope: 
+	var cret *C.gint64       // return, transfer: none, C Pointers: 1, Name: gint64
 
 	carg1 = C.GSliceConfig(ckey)
 	carg2 = C.gint64(address)
@@ -8793,7 +9422,7 @@ func SliceGetConfigState(ckey SliceConfig, address int64, nValues *uint32) *int6
 }
 
 // SliceSetConfig wraps g_slice_set_config
-// 
+//
 // see also https://docs.gtk.org/glib/func.g_slice_set_config.html
 func SliceSetConfig(ckey SliceConfig, value int64) {
 	var carg1 C.GSliceConfig // in, none, casted
@@ -8808,11 +9437,11 @@ func SliceSetConfig(ckey SliceConfig, value int64) {
 }
 
 // SpacedPrimesClosest wraps g_spaced_primes_closest
-// 
+//
 // see also https://docs.gtk.org/glib/func.g_spaced_primes_closest.html
 func SpacedPrimesClosest(num uint32) uint32 {
 	var carg1 C.guint // in, none, casted
-	var cret  C.guint // return, none, casted
+	var cret C.guint  // return, none, casted
 
 	carg1 = C.guint(num)
 
@@ -8827,19 +9456,19 @@ func SpacedPrimesClosest(num uint32) uint32 {
 }
 
 // SpawnCheckWaitStatus wraps g_spawn_check_wait_status
-// 
+//
 // see also https://docs.gtk.org/glib/func.g_spawn_check_wait_status.html
 func SpawnCheckWaitStatus(waitStatus int32) (bool, error) {
-	var carg1 C.gint     // in, none, casted
-	var cret  C.gboolean // return
-	var _cerr *C.GError  // out, full, converted, nullable
+	var carg1 C.gint    // in, none, casted
+	var cret C.gboolean // return
+	var _cerr *C.GError // out, full, converted, nullable
 
 	carg1 = C.gint(waitStatus)
 
 	cret = C.g_spawn_check_wait_status(carg1, &_cerr)
 	runtime.KeepAlive(waitStatus)
 
-	var goret  bool
+	var goret bool
 	var _goerr error
 
 	if cret != 0 {
@@ -8853,12 +9482,12 @@ func SpawnCheckWaitStatus(waitStatus int32) (bool, error) {
 }
 
 // SpawnCommandLineAsync wraps g_spawn_command_line_async
-// 
+//
 // see also https://docs.gtk.org/glib/func.g_spawn_command_line_async.html
 func SpawnCommandLineAsync(commandLine string) (bool, error) {
-	var carg1 *C.gchar   // in, none, string
-	var cret  C.gboolean // return
-	var _cerr *C.GError  // out, full, converted, nullable
+	var carg1 *C.gchar  // in, none, string
+	var cret C.gboolean // return
+	var _cerr *C.GError // out, full, converted, nullable
 
 	carg1 = (*C.gchar)(transfer.GLibString(commandLine))
 	defer C.g_free(C.gpointer(carg1))
@@ -8866,7 +9495,7 @@ func SpawnCommandLineAsync(commandLine string) (bool, error) {
 	cret = C.g_spawn_command_line_async(carg1, &_cerr)
 	runtime.KeepAlive(commandLine)
 
-	var goret  bool
+	var goret bool
 	var _goerr error
 
 	if cret != 0 {
@@ -8880,15 +9509,15 @@ func SpawnCommandLineAsync(commandLine string) (bool, error) {
 }
 
 // SpawnCommandLineSync wraps g_spawn_command_line_sync
-// 
+//
 // see also https://docs.gtk.org/glib/func.g_spawn_command_line_sync.html
 func SpawnCommandLineSync(commandLine string) (string, string, int32, bool, error) {
-	var carg1 *C.gchar   // in, none, string
-	var carg2 *C.gchar   // out, transfer: full, C Pointers: 1, Name: array[unknown], optional, array (inner unknown, zero-terminated)
-	var carg3 *C.gchar   // out, transfer: full, C Pointers: 1, Name: array[unknown], optional, array (inner unknown, zero-terminated)
-	var carg4 C.gint     // out, full, casted
-	var cret  C.gboolean // return
-	var _cerr *C.GError  // out, full, converted, nullable
+	var carg1 *C.gchar  // in, none, string
+	var carg2 *C.gchar  // out, transfer: full, C Pointers: 1, Name: array[unknown], optional, array (inner unknown, zero-terminated)
+	var carg3 *C.gchar  // out, transfer: full, C Pointers: 1, Name: array[unknown], optional, array (inner unknown, zero-terminated)
+	var carg4 C.gint    // out, full, casted
+	var cret C.gboolean // return
+	var _cerr *C.GError // out, full, converted, nullable
 
 	carg1 = (*C.gchar)(transfer.GLibString(commandLine))
 	defer C.g_free(C.gpointer(carg1))
@@ -8897,10 +9526,10 @@ func SpawnCommandLineSync(commandLine string) (string, string, int32, bool, erro
 	runtime.KeepAlive(commandLine)
 
 	var standardOutput string
-	var standardError  string
-	var waitStatus     int32
-	var goret          bool
-	var _goerr         error
+	var standardError string
+	var waitStatus int32
+	var goret bool
+	var _goerr error
 
 	_ = standardOutput
 	_ = carg2
@@ -8920,7 +9549,7 @@ func SpawnCommandLineSync(commandLine string) (string, string, int32, bool, erro
 }
 
 // SpawnErrorQuark wraps g_spawn_error_quark
-// 
+//
 // see also https://docs.gtk.org/glib/func.g_spawn_error_quark.html
 func SpawnErrorQuark() Quark {
 	var cret C.GQuark // return, none, casted, alias
@@ -8935,7 +9564,7 @@ func SpawnErrorQuark() Quark {
 }
 
 // SpawnExitErrorQuark wraps g_spawn_exit_error_quark
-// 
+//
 // see also https://docs.gtk.org/glib/func.g_spawn_exit_error_quark.html
 func SpawnExitErrorQuark() Quark {
 	var cret C.GQuark // return, none, casted, alias
@@ -8950,12 +9579,12 @@ func SpawnExitErrorQuark() Quark {
 }
 
 // Stpcpy wraps g_stpcpy
-// 
+//
 // see also https://docs.gtk.org/glib/func.g_stpcpy.html
 func Stpcpy(dest string, src string) string {
 	var carg1 *C.gchar // in, none, string
 	var carg2 *C.char  // in, none, string
-	var cret  *C.gchar // return, full, string
+	var cret *C.gchar  // return, full, string
 
 	carg1 = (*C.gchar)(transfer.GLibString(dest))
 	defer C.g_free(C.gpointer(carg1))
@@ -8975,12 +9604,12 @@ func Stpcpy(dest string, src string) string {
 }
 
 // StrHasPrefix wraps g_str_has_prefix
-// 
+//
 // see also https://docs.gtk.org/glib/func.g_str_has_prefix.html
 func StrHasPrefix(str string, prefix string) bool {
-	var carg1 *C.gchar   // in, none, string
-	var carg2 *C.gchar   // in, none, string
-	var cret  C.gboolean // return
+	var carg1 *C.gchar  // in, none, string
+	var carg2 *C.gchar  // in, none, string
+	var cret C.gboolean // return
 
 	carg1 = (*C.gchar)(transfer.GLibString(str))
 	defer C.g_free(C.gpointer(carg1))
@@ -9001,12 +9630,12 @@ func StrHasPrefix(str string, prefix string) bool {
 }
 
 // StrHasSuffix wraps g_str_has_suffix
-// 
+//
 // see also https://docs.gtk.org/glib/func.g_str_has_suffix.html
 func StrHasSuffix(str string, suffix string) bool {
-	var carg1 *C.gchar   // in, none, string
-	var carg2 *C.gchar   // in, none, string
-	var cret  C.gboolean // return
+	var carg1 *C.gchar  // in, none, string
+	var carg2 *C.gchar  // in, none, string
+	var cret C.gboolean // return
 
 	carg1 = (*C.gchar)(transfer.GLibString(str))
 	defer C.g_free(C.gpointer(carg1))
@@ -9027,11 +9656,11 @@ func StrHasSuffix(str string, suffix string) bool {
 }
 
 // StrIsASCII wraps g_str_is_ascii
-// 
+//
 // see also https://docs.gtk.org/glib/func.g_str_is_ascii.html
 func StrIsASCII(str string) bool {
-	var carg1 *C.gchar   // in, none, string
-	var cret  C.gboolean // return
+	var carg1 *C.gchar  // in, none, string
+	var cret C.gboolean // return
 
 	carg1 = (*C.gchar)(transfer.GLibString(str))
 	defer C.g_free(C.gpointer(carg1))
@@ -9049,13 +9678,13 @@ func StrIsASCII(str string) bool {
 }
 
 // StrMatchString wraps g_str_match_string
-// 
+//
 // see also https://docs.gtk.org/glib/func.g_str_match_string.html
 func StrMatchString(searchTerm string, potentialHit string, acceptAlternates bool) bool {
 	var carg1 *C.gchar   // in, none, string
 	var carg2 *C.gchar   // in, none, string
 	var carg3 C.gboolean // in
-	var cret  C.gboolean // return
+	var cret C.gboolean  // return
 
 	carg1 = (*C.gchar)(transfer.GLibString(searchTerm))
 	defer C.g_free(C.gpointer(carg1))
@@ -9080,12 +9709,12 @@ func StrMatchString(searchTerm string, potentialHit string, acceptAlternates boo
 }
 
 // StrToASCII wraps g_str_to_ascii
-// 
+//
 // see also https://docs.gtk.org/glib/func.g_str_to_ascii.html
 func StrToASCII(str string, fromLocale string) string {
 	var carg1 *C.gchar // in, none, string
 	var carg2 *C.gchar // in, none, string, nullable-string
-	var cret  *C.gchar // return, full, string
+	var cret *C.gchar  // return, full, string
 
 	carg1 = (*C.gchar)(transfer.GLibString(str))
 	defer C.g_free(C.gpointer(carg1))
@@ -9107,13 +9736,13 @@ func StrToASCII(str string, fromLocale string) string {
 }
 
 // Strcanon wraps g_strcanon
-// 
+//
 // see also https://docs.gtk.org/glib/func.g_strcanon.html
 func Strcanon(str string, validChars string, substitutor byte) string {
 	var carg1 *C.gchar // in, none, string
 	var carg2 *C.gchar // in, none, string
 	var carg3 C.gchar  // in, none, casted
-	var cret  *C.gchar // return, full, string
+	var cret *C.gchar  // return, full, string
 
 	carg1 = (*C.gchar)(transfer.GLibString(str))
 	defer C.g_free(C.gpointer(carg1))
@@ -9135,11 +9764,11 @@ func Strcanon(str string, validChars string, substitutor byte) string {
 }
 
 // Strchomp wraps g_strchomp
-// 
+//
 // see also https://docs.gtk.org/glib/func.g_strchomp.html
 func Strchomp(str string) string {
 	var carg1 *C.gchar // in, none, string
-	var cret  *C.gchar // return, full, string
+	var cret *C.gchar  // return, full, string
 
 	carg1 = (*C.gchar)(transfer.GLibString(str))
 	defer C.g_free(C.gpointer(carg1))
@@ -9156,11 +9785,11 @@ func Strchomp(str string) string {
 }
 
 // Strchug wraps g_strchug
-// 
+//
 // see also https://docs.gtk.org/glib/func.g_strchug.html
 func Strchug(str string) string {
 	var carg1 *C.gchar // in, none, string
-	var cret  *C.gchar // return, full, string
+	var cret *C.gchar  // return, full, string
 
 	carg1 = (*C.gchar)(transfer.GLibString(str))
 	defer C.g_free(C.gpointer(carg1))
@@ -9177,12 +9806,12 @@ func Strchug(str string) string {
 }
 
 // Strcmp0 wraps g_strcmp0
-// 
+//
 // see also https://docs.gtk.org/glib/func.g_strcmp0.html
 func Strcmp0(str1 string, str2 string) int32 {
 	var carg1 *C.char // in, none, string, nullable-string
 	var carg2 *C.char // in, none, string, nullable-string
-	var cret  C.int   // return, none, casted
+	var cret C.int    // return, none, casted
 
 	if str1 != "" {
 		carg1 = (*C.char)(transfer.GLibString(str1))
@@ -9205,11 +9834,11 @@ func Strcmp0(str1 string, str2 string) int32 {
 }
 
 // Strcompress wraps g_strcompress
-// 
+//
 // see also https://docs.gtk.org/glib/func.g_strcompress.html
 func Strcompress(source string) string {
 	var carg1 *C.gchar // in, none, string
-	var cret  *C.gchar // return, full, string
+	var cret *C.gchar  // return, full, string
 
 	carg1 = (*C.gchar)(transfer.GLibString(source))
 	defer C.g_free(C.gpointer(carg1))
@@ -9226,13 +9855,13 @@ func Strcompress(source string) string {
 }
 
 // Strdelimit wraps g_strdelimit
-// 
+//
 // see also https://docs.gtk.org/glib/func.g_strdelimit.html
 func Strdelimit(str string, delimiters string, newDelimiter byte) string {
 	var carg1 *C.gchar // in, none, string
 	var carg2 *C.gchar // in, none, string, nullable-string
 	var carg3 C.gchar  // in, none, casted
-	var cret  *C.gchar // return, full, string
+	var cret *C.gchar  // return, full, string
 
 	carg1 = (*C.gchar)(transfer.GLibString(str))
 	defer C.g_free(C.gpointer(carg1))
@@ -9256,11 +9885,11 @@ func Strdelimit(str string, delimiters string, newDelimiter byte) string {
 }
 
 // Strdup wraps g_strdup
-// 
+//
 // see also https://docs.gtk.org/glib/func.g_strdup.html
 func Strdup(str string) string {
 	var carg1 *C.gchar // in, none, string, nullable-string
-	var cret  *C.gchar // return, full, string
+	var cret *C.gchar  // return, full, string
 
 	if str != "" {
 		carg1 = (*C.gchar)(transfer.GLibString(str))
@@ -9279,11 +9908,11 @@ func Strdup(str string) string {
 }
 
 // Strdupv wraps g_strdupv
-// 
+//
 // see also https://docs.gtk.org/glib/func.g_strdupv.html
 func Strdupv(strArray []string) []string {
 	var carg1 **C.gchar // in, transfer: none, C Pointers: 2, Name: array[utf8], nullable, array (inner gchar* (*typesystem.StringPrimitive), zero-terminated)
-	var cret  **C.gchar // return, transfer: full, C Pointers: 2, Name: array[utf8], scope: , nullable, array (inner gchar* (*typesystem.StringPrimitive), zero-terminated)
+	var cret **C.gchar  // return, transfer: full, C Pointers: 2, Name: array[utf8], nullable, array (inner gchar* (*typesystem.StringPrimitive), zero-terminated)
 
 	_ = strArray
 	_ = carg1
@@ -9302,11 +9931,11 @@ func Strdupv(strArray []string) []string {
 }
 
 // Strerror wraps g_strerror
-// 
+//
 // see also https://docs.gtk.org/glib/func.g_strerror.html
 func Strerror(errnum int32) string {
-	var carg1 C.gint   // in, none, casted
-	var cret  *C.gchar // return, none, string
+	var carg1 C.gint  // in, none, casted
+	var cret *C.gchar // return, none, string
 
 	carg1 = C.gint(errnum)
 
@@ -9321,12 +9950,12 @@ func Strerror(errnum int32) string {
 }
 
 // Strescape wraps g_strescape
-// 
+//
 // see also https://docs.gtk.org/glib/func.g_strescape.html
 func Strescape(source string, exceptions string) string {
 	var carg1 *C.gchar // in, none, string
 	var carg2 *C.gchar // in, none, string, nullable-string
-	var cret  *C.gchar // return, full, string
+	var cret *C.gchar  // return, full, string
 
 	carg1 = (*C.gchar)(transfer.GLibString(source))
 	defer C.g_free(C.gpointer(carg1))
@@ -9348,7 +9977,7 @@ func Strescape(source string, exceptions string) string {
 }
 
 // Strfreev wraps g_strfreev
-// 
+//
 // see also https://docs.gtk.org/glib/func.g_strfreev.html
 func Strfreev(strArray []string) {
 	var carg1 **C.gchar // in, transfer: full, C Pointers: 2, Name: array[utf8], nullable, array (inner gchar* (*typesystem.StringPrimitive), zero-terminated)
@@ -9362,12 +9991,12 @@ func Strfreev(strArray []string) {
 }
 
 // StripContext wraps g_strip_context
-// 
+//
 // see also https://docs.gtk.org/glib/func.g_strip_context.html
 func StripContext(msgid string, msgval string) string {
 	var carg1 *C.gchar // in, none, string
 	var carg2 *C.gchar // in, none, string
-	var cret  *C.gchar // return, none, string
+	var cret *C.gchar  // return, none, string
 
 	carg1 = (*C.gchar)(transfer.GLibString(msgid))
 	defer C.g_free(C.gpointer(carg1))
@@ -9386,12 +10015,12 @@ func StripContext(msgid string, msgval string) string {
 }
 
 // Strjoinv wraps g_strjoinv
-// 
+//
 // see also https://docs.gtk.org/glib/func.g_strjoinv.html
 func Strjoinv(separator string, strArray []string) string {
 	var carg1 *C.gchar  // in, none, string, nullable-string
 	var carg2 **C.gchar // in, transfer: none, C Pointers: 2, Name: array[utf8], array (inner gchar* (*typesystem.StringPrimitive), zero-terminated)
-	var cret  *C.gchar  // return, full, string
+	var cret *C.gchar   // return, full, string
 
 	if separator != "" {
 		carg1 = (*C.gchar)(transfer.GLibString(separator))
@@ -9414,13 +10043,13 @@ func Strjoinv(separator string, strArray []string) string {
 }
 
 // Strlcat wraps g_strlcat
-// 
+//
 // see also https://docs.gtk.org/glib/func.g_strlcat.html
 func Strlcat(dest string, src string, destSize uint) uint {
 	var carg1 *C.gchar // in, none, string
 	var carg2 *C.gchar // in, none, string
 	var carg3 C.gsize  // in, none, casted
-	var cret  C.gsize  // return, none, casted
+	var cret C.gsize   // return, none, casted
 
 	carg1 = (*C.gchar)(transfer.GLibString(dest))
 	defer C.g_free(C.gpointer(carg1))
@@ -9441,13 +10070,13 @@ func Strlcat(dest string, src string, destSize uint) uint {
 }
 
 // Strlcpy wraps g_strlcpy
-// 
+//
 // see also https://docs.gtk.org/glib/func.g_strlcpy.html
 func Strlcpy(dest string, src string, destSize uint) uint {
 	var carg1 *C.gchar // in, none, string
 	var carg2 *C.gchar // in, none, string
 	var carg3 C.gsize  // in, none, casted
-	var cret  C.gsize  // return, none, casted
+	var cret C.gsize   // return, none, casted
 
 	carg1 = (*C.gchar)(transfer.GLibString(dest))
 	defer C.g_free(C.gpointer(carg1))
@@ -9468,12 +10097,12 @@ func Strlcpy(dest string, src string, destSize uint) uint {
 }
 
 // Strndup wraps g_strndup
-// 
+//
 // see also https://docs.gtk.org/glib/func.g_strndup.html
 func Strndup(str string, n uint) string {
 	var carg1 *C.gchar // in, none, string, nullable-string
 	var carg2 C.gsize  // in, none, casted
-	var cret  *C.gchar // return, full, string, nullable-string
+	var cret *C.gchar  // return, full, string, nullable-string
 
 	if str != "" {
 		carg1 = (*C.gchar)(transfer.GLibString(str))
@@ -9496,12 +10125,12 @@ func Strndup(str string, n uint) string {
 }
 
 // Strnfill wraps g_strnfill
-// 
+//
 // see also https://docs.gtk.org/glib/func.g_strnfill.html
 func Strnfill(length uint, fillChar byte) string {
-	var carg1 C.gsize  // in, none, casted
-	var carg2 C.gchar  // in, none, casted
-	var cret  *C.gchar // return, full, string
+	var carg1 C.gsize // in, none, casted
+	var carg2 C.gchar // in, none, casted
+	var cret *C.gchar // return, full, string
 
 	carg1 = C.gsize(length)
 	carg2 = C.gchar(fillChar)
@@ -9519,11 +10148,11 @@ func Strnfill(length uint, fillChar byte) string {
 }
 
 // Strreverse wraps g_strreverse
-// 
+//
 // see also https://docs.gtk.org/glib/func.g_strreverse.html
 func Strreverse(str string) string {
 	var carg1 *C.gchar // in, none, string
-	var cret  *C.gchar // return, full, string
+	var cret *C.gchar  // return, full, string
 
 	carg1 = (*C.gchar)(transfer.GLibString(str))
 	defer C.g_free(C.gpointer(carg1))
@@ -9540,12 +10169,12 @@ func Strreverse(str string) string {
 }
 
 // Strrstr wraps g_strrstr
-// 
+//
 // see also https://docs.gtk.org/glib/func.g_strrstr.html
 func Strrstr(haystack string, needle string) string {
 	var carg1 *C.gchar // in, none, string
 	var carg2 *C.gchar // in, none, string
-	var cret  *C.gchar // return, none, string, nullable-string
+	var cret *C.gchar  // return, none, string, nullable-string
 
 	carg1 = (*C.gchar)(transfer.GLibString(haystack))
 	defer C.g_free(C.gpointer(carg1))
@@ -9566,13 +10195,13 @@ func Strrstr(haystack string, needle string) string {
 }
 
 // StrrstrLen wraps g_strrstr_len
-// 
+//
 // see also https://docs.gtk.org/glib/func.g_strrstr_len.html
 func StrrstrLen(haystack string, haystackLen int, needle string) string {
 	var carg1 *C.gchar // in, none, string
 	var carg2 C.gssize // in, none, casted
 	var carg3 *C.gchar // in, none, string
-	var cret  *C.gchar // return, none, string, nullable-string
+	var cret *C.gchar  // return, none, string, nullable-string
 
 	carg1 = (*C.gchar)(transfer.GLibString(haystack))
 	defer C.g_free(C.gpointer(carg1))
@@ -9595,11 +10224,11 @@ func StrrstrLen(haystack string, haystackLen int, needle string) string {
 }
 
 // Strsignal wraps g_strsignal
-// 
+//
 // see also https://docs.gtk.org/glib/func.g_strsignal.html
 func Strsignal(signum int32) string {
-	var carg1 C.gint   // in, none, casted
-	var cret  *C.gchar // return, none, string
+	var carg1 C.gint  // in, none, casted
+	var cret *C.gchar // return, none, string
 
 	carg1 = C.gint(signum)
 
@@ -9614,13 +10243,13 @@ func Strsignal(signum int32) string {
 }
 
 // Strsplit wraps g_strsplit
-// 
+//
 // see also https://docs.gtk.org/glib/func.g_strsplit.html
 func Strsplit(str string, delimiter string, maxTokens int32) []string {
-	var carg1 *C.gchar  // in, none, string
-	var carg2 *C.gchar  // in, none, string
-	var carg3 C.gint    // in, none, casted
-	var cret  **C.gchar // return, transfer: full, C Pointers: 2, Name: array[utf8], scope: , array (inner gchar* (*typesystem.StringPrimitive), zero-terminated)
+	var carg1 *C.gchar // in, none, string
+	var carg2 *C.gchar // in, none, string
+	var carg3 C.gint   // in, none, casted
+	var cret **C.gchar // return, transfer: full, C Pointers: 2, Name: array[utf8], array (inner gchar* (*typesystem.StringPrimitive), zero-terminated)
 
 	carg1 = (*C.gchar)(transfer.GLibString(str))
 	defer C.g_free(C.gpointer(carg1))
@@ -9643,13 +10272,13 @@ func Strsplit(str string, delimiter string, maxTokens int32) []string {
 }
 
 // StrsplitSet wraps g_strsplit_set
-// 
+//
 // see also https://docs.gtk.org/glib/func.g_strsplit_set.html
 func StrsplitSet(str string, delimiters string, maxTokens int32) []string {
-	var carg1 *C.gchar  // in, none, string
-	var carg2 *C.gchar  // in, none, string
-	var carg3 C.gint    // in, none, casted
-	var cret  **C.gchar // return, transfer: full, C Pointers: 2, Name: array[utf8], scope: , array (inner gchar* (*typesystem.StringPrimitive), zero-terminated)
+	var carg1 *C.gchar // in, none, string
+	var carg2 *C.gchar // in, none, string
+	var carg3 C.gint   // in, none, casted
+	var cret **C.gchar // return, transfer: full, C Pointers: 2, Name: array[utf8], array (inner gchar* (*typesystem.StringPrimitive), zero-terminated)
 
 	carg1 = (*C.gchar)(transfer.GLibString(str))
 	defer C.g_free(C.gpointer(carg1))
@@ -9672,13 +10301,13 @@ func StrsplitSet(str string, delimiters string, maxTokens int32) []string {
 }
 
 // StrstrLen wraps g_strstr_len
-// 
+//
 // see also https://docs.gtk.org/glib/func.g_strstr_len.html
 func StrstrLen(haystack string, haystackLen int, needle string) string {
 	var carg1 *C.gchar // in, none, string
 	var carg2 C.gssize // in, none, casted
 	var carg3 *C.gchar // in, none, string
-	var cret  *C.gchar // return, none, string, nullable-string
+	var cret *C.gchar  // return, none, string, nullable-string
 
 	carg1 = (*C.gchar)(transfer.GLibString(haystack))
 	defer C.g_free(C.gpointer(carg1))
@@ -9701,12 +10330,12 @@ func StrstrLen(haystack string, haystackLen int, needle string) string {
 }
 
 // Strtod wraps g_strtod
-// 
+//
 // see also https://docs.gtk.org/glib/func.g_strtod.html
 func Strtod(nptr string) (string, float64) {
-	var carg1 *C.gchar  // in, none, string
-	var carg2 *C.gchar  // out, none, string
-	var cret  C.gdouble // return, none, casted
+	var carg1 *C.gchar // in, none, string
+	var carg2 *C.gchar // out, none, string
+	var cret C.gdouble // return, none, casted
 
 	carg1 = (*C.gchar)(transfer.GLibString(nptr))
 	defer C.g_free(C.gpointer(carg1))
@@ -9715,7 +10344,7 @@ func Strtod(nptr string) (string, float64) {
 	runtime.KeepAlive(nptr)
 
 	var endptr string
-	var goret  float64
+	var goret float64
 
 	endptr = C.GoString((*C.char)(unsafe.Pointer(carg2)))
 	goret = float64(cret)
@@ -9724,12 +10353,12 @@ func Strtod(nptr string) (string, float64) {
 }
 
 // StrvContains wraps g_strv_contains
-// 
+//
 // see also https://docs.gtk.org/glib/func.g_strv_contains.html
 func StrvContains(strv []string, str string) bool {
-	var carg1 **C.gchar  // in, transfer: none, C Pointers: 2, Name: array[utf8], array (inner gchar* (*typesystem.StringPrimitive), zero-terminated)
-	var carg2 *C.gchar   // in, none, string
-	var cret  C.gboolean // return
+	var carg1 **C.gchar // in, transfer: none, C Pointers: 2, Name: array[utf8], array (inner gchar* (*typesystem.StringPrimitive), zero-terminated)
+	var carg2 *C.gchar  // in, none, string
+	var cret C.gboolean // return
 
 	_ = strv
 	_ = carg1
@@ -9751,12 +10380,12 @@ func StrvContains(strv []string, str string) bool {
 }
 
 // StrvEqual wraps g_strv_equal
-// 
+//
 // see also https://docs.gtk.org/glib/func.g_strv_equal.html
 func StrvEqual(strv1 []string, strv2 []string) bool {
-	var carg1 **C.gchar  // in, transfer: none, C Pointers: 2, Name: array[utf8], array (inner gchar* (*typesystem.StringPrimitive), zero-terminated)
-	var carg2 **C.gchar  // in, transfer: none, C Pointers: 2, Name: array[utf8], array (inner gchar* (*typesystem.StringPrimitive), zero-terminated)
-	var cret  C.gboolean // return
+	var carg1 **C.gchar // in, transfer: none, C Pointers: 2, Name: array[utf8], array (inner gchar* (*typesystem.StringPrimitive), zero-terminated)
+	var carg2 **C.gchar // in, transfer: none, C Pointers: 2, Name: array[utf8], array (inner gchar* (*typesystem.StringPrimitive), zero-terminated)
+	var cret C.gboolean // return
 
 	_ = strv1
 	_ = carg1
@@ -9779,11 +10408,11 @@ func StrvEqual(strv1 []string, strv2 []string) bool {
 }
 
 // StrvLength wraps g_strv_length
-// 
+//
 // see also https://docs.gtk.org/glib/func.g_strv_length.html
 func StrvLength(strArray []string) uint32 {
 	var carg1 **C.gchar // in, transfer: none, C Pointers: 2, Name: array[utf8], array (inner gchar* (*typesystem.StringPrimitive), zero-terminated)
-	var cret  C.guint   // return, none, casted
+	var cret C.guint    // return, none, casted
 
 	_ = strArray
 	_ = carg1
@@ -9800,7 +10429,7 @@ func StrvLength(strArray []string) uint32 {
 }
 
 // TestAssertExpectedMessagesInternal wraps g_test_assert_expected_messages_internal
-// 
+//
 // see also https://docs.gtk.org/glib/func.g_test_assert_expected_messages_internal.html
 func TestAssertExpectedMessagesInternal(domain string, file string, line int32, fn string) {
 	var carg1 *C.char // in, none, string
@@ -9824,7 +10453,7 @@ func TestAssertExpectedMessagesInternal(domain string, file string, line int32, 
 }
 
 // TestBug wraps g_test_bug
-// 
+//
 // see also https://docs.gtk.org/glib/func.g_test_bug.html
 func TestBug(bugUriSnippet string) {
 	var carg1 *C.char // in, none, string
@@ -9837,7 +10466,7 @@ func TestBug(bugUriSnippet string) {
 }
 
 // TestBugBase wraps g_test_bug_base
-// 
+//
 // see also https://docs.gtk.org/glib/func.g_test_bug_base.html
 func TestBugBase(uriPattern string) {
 	var carg1 *C.char // in, none, string
@@ -9850,7 +10479,7 @@ func TestBugBase(uriPattern string) {
 }
 
 // TestDisableCrashReporting wraps g_test_disable_crash_reporting
-// 
+//
 // see also https://docs.gtk.org/glib/func.g_test_disable_crash_reporting.html
 func TestDisableCrashReporting() {
 
@@ -9858,7 +10487,7 @@ func TestDisableCrashReporting() {
 }
 
 // TestExpectMessage wraps g_test_expect_message
-// 
+//
 // see also https://docs.gtk.org/glib/func.g_test_expect_message.html
 func TestExpectMessage(logDomain string, logLevel LogLevelFlags, pattern string) {
 	var carg1 *C.gchar         // in, none, string, nullable-string
@@ -9880,7 +10509,7 @@ func TestExpectMessage(logDomain string, logLevel LogLevelFlags, pattern string)
 }
 
 // TestFail wraps g_test_fail
-// 
+//
 // see also https://docs.gtk.org/glib/func.g_test_fail.html
 func TestFail() {
 
@@ -9888,7 +10517,7 @@ func TestFail() {
 }
 
 // TestFailed wraps g_test_failed
-// 
+//
 // see also https://docs.gtk.org/glib/func.g_test_failed.html
 func TestFailed() bool {
 	var cret C.gboolean // return
@@ -9905,11 +10534,11 @@ func TestFailed() bool {
 }
 
 // TestGetDir wraps g_test_get_dir
-// 
+//
 // see also https://docs.gtk.org/glib/func.g_test_get_dir.html
 func TestGetDir(fileType TestFileType) string {
 	var carg1 C.GTestFileType // in, none, casted
-	var cret  *C.gchar        // return, none, string
+	var cret *C.gchar         // return, none, string
 
 	carg1 = C.GTestFileType(fileType)
 
@@ -9924,7 +10553,7 @@ func TestGetDir(fileType TestFileType) string {
 }
 
 // TestGetPath wraps g_test_get_path
-// 
+//
 // see also https://docs.gtk.org/glib/func.g_test_get_path.html
 func TestGetPath() string {
 	var cret *C.char // return, none, string
@@ -9939,7 +10568,7 @@ func TestGetPath() string {
 }
 
 // TestIncomplete wraps g_test_incomplete
-// 
+//
 // see also https://docs.gtk.org/glib/func.g_test_incomplete.html
 func TestIncomplete(msg string) {
 	var carg1 *C.gchar // in, none, string, nullable-string
@@ -9954,11 +10583,11 @@ func TestIncomplete(msg string) {
 }
 
 // TestLogTypeName wraps g_test_log_type_name
-// 
+//
 // see also https://docs.gtk.org/glib/func.g_test_log_type_name.html
 func TestLogTypeName(logType TestLogType) string {
 	var carg1 C.GTestLogType // in, none, casted
-	var cret  *C.char        // return, none, string
+	var cret *C.char         // return, none, string
 
 	carg1 = C.GTestLogType(logType)
 
@@ -9973,7 +10602,7 @@ func TestLogTypeName(logType TestLogType) string {
 }
 
 // TestRandDouble wraps g_test_rand_double
-// 
+//
 // see also https://docs.gtk.org/glib/func.g_test_rand_double.html
 func TestRandDouble() float64 {
 	var cret C.double // return, none, casted
@@ -9988,12 +10617,12 @@ func TestRandDouble() float64 {
 }
 
 // TestRandDoubleRange wraps g_test_rand_double_range
-// 
+//
 // see also https://docs.gtk.org/glib/func.g_test_rand_double_range.html
 func TestRandDoubleRange(rangeStart float64, rangeEnd float64) float64 {
 	var carg1 C.double // in, none, casted
 	var carg2 C.double // in, none, casted
-	var cret  C.double // return, none, casted
+	var cret C.double  // return, none, casted
 
 	carg1 = C.double(rangeStart)
 	carg2 = C.double(rangeEnd)
@@ -10010,7 +10639,7 @@ func TestRandDoubleRange(rangeStart float64, rangeEnd float64) float64 {
 }
 
 // TestRandInt wraps g_test_rand_int
-// 
+//
 // see also https://docs.gtk.org/glib/func.g_test_rand_int.html
 func TestRandInt() int32 {
 	var cret C.gint32 // return, none, casted
@@ -10025,12 +10654,12 @@ func TestRandInt() int32 {
 }
 
 // TestRandIntRange wraps g_test_rand_int_range
-// 
+//
 // see also https://docs.gtk.org/glib/func.g_test_rand_int_range.html
 func TestRandIntRange(begin int32, end int32) int32 {
 	var carg1 C.gint32 // in, none, casted
 	var carg2 C.gint32 // in, none, casted
-	var cret  C.gint32 // return, none, casted
+	var cret C.gint32  // return, none, casted
 
 	carg1 = C.gint32(begin)
 	carg2 = C.gint32(end)
@@ -10047,7 +10676,7 @@ func TestRandIntRange(begin int32, end int32) int32 {
 }
 
 // TestRun wraps g_test_run
-// 
+//
 // see also https://docs.gtk.org/glib/func.g_test_run.html
 func TestRun() int32 {
 	var cret C.int // return, none, casted
@@ -10062,11 +10691,11 @@ func TestRun() int32 {
 }
 
 // TestRunSuite wraps g_test_run_suite
-// 
+//
 // see also https://docs.gtk.org/glib/func.g_test_run_suite.html
 func TestRunSuite(suite *TestSuite) int32 {
 	var carg1 *C.GTestSuite // in, none, converted
-	var cret  C.int         // return, none, casted
+	var cret C.int          // return, none, casted
 
 	carg1 = (*C.GTestSuite)(UnsafeTestSuiteToGlibNone(suite))
 
@@ -10081,7 +10710,7 @@ func TestRunSuite(suite *TestSuite) int32 {
 }
 
 // TestSetNonfatalAssertions wraps g_test_set_nonfatal_assertions
-// 
+//
 // see also https://docs.gtk.org/glib/func.g_test_set_nonfatal_assertions.html
 func TestSetNonfatalAssertions() {
 
@@ -10089,7 +10718,7 @@ func TestSetNonfatalAssertions() {
 }
 
 // TestSkip wraps g_test_skip
-// 
+//
 // see also https://docs.gtk.org/glib/func.g_test_skip.html
 func TestSkip(msg string) {
 	var carg1 *C.gchar // in, none, string, nullable-string
@@ -10104,7 +10733,7 @@ func TestSkip(msg string) {
 }
 
 // TestSubprocess wraps g_test_subprocess
-// 
+//
 // see also https://docs.gtk.org/glib/func.g_test_subprocess.html
 func TestSubprocess() bool {
 	var cret C.gboolean // return
@@ -10121,7 +10750,7 @@ func TestSubprocess() bool {
 }
 
 // TestSummary wraps g_test_summary
-// 
+//
 // see also https://docs.gtk.org/glib/func.g_test_summary.html
 func TestSummary(summary string) {
 	var carg1 *C.char // in, none, string
@@ -10134,7 +10763,7 @@ func TestSummary(summary string) {
 }
 
 // TestTimerElapsed wraps g_test_timer_elapsed
-// 
+//
 // see also https://docs.gtk.org/glib/func.g_test_timer_elapsed.html
 func TestTimerElapsed() float64 {
 	var cret C.double // return, none, casted
@@ -10149,7 +10778,7 @@ func TestTimerElapsed() float64 {
 }
 
 // TestTimerLast wraps g_test_timer_last
-// 
+//
 // see also https://docs.gtk.org/glib/func.g_test_timer_last.html
 func TestTimerLast() float64 {
 	var cret C.double // return, none, casted
@@ -10164,7 +10793,7 @@ func TestTimerLast() float64 {
 }
 
 // TestTimerStart wraps g_test_timer_start
-// 
+//
 // see also https://docs.gtk.org/glib/func.g_test_timer_start.html
 func TestTimerStart() {
 
@@ -10172,7 +10801,7 @@ func TestTimerStart() {
 }
 
 // TestTrapAssertions wraps g_test_trap_assertions
-// 
+//
 // see also https://docs.gtk.org/glib/func.g_test_trap_assertions.html
 func TestTrapAssertions(domain string, file string, line int32, fn string, assertionFlags uint64, pattern string) {
 	var carg1 *C.char   // in, none, string
@@ -10203,7 +10832,7 @@ func TestTrapAssertions(domain string, file string, line int32, fn string, asser
 }
 
 // TestTrapHasPassed wraps g_test_trap_has_passed
-// 
+//
 // see also https://docs.gtk.org/glib/func.g_test_trap_has_passed.html
 func TestTrapHasPassed() bool {
 	var cret C.gboolean // return
@@ -10220,7 +10849,7 @@ func TestTrapHasPassed() bool {
 }
 
 // TestTrapReachedTimeout wraps g_test_trap_reached_timeout
-// 
+//
 // see also https://docs.gtk.org/glib/func.g_test_trap_reached_timeout.html
 func TestTrapReachedTimeout() bool {
 	var cret C.gboolean // return
@@ -10237,7 +10866,7 @@ func TestTrapReachedTimeout() bool {
 }
 
 // TestTrapSubprocess wraps g_test_trap_subprocess
-// 
+//
 // see also https://docs.gtk.org/glib/func.g_test_trap_subprocess.html
 func TestTrapSubprocess(testPath string, usecTimeout uint64, testFlags TestSubprocessFlags) {
 	var carg1 *C.char                // in, none, string, nullable-string
@@ -10258,7 +10887,7 @@ func TestTrapSubprocess(testPath string, usecTimeout uint64, testFlags TestSubpr
 }
 
 // TestTrapSubprocessWithEnvp wraps g_test_trap_subprocess_with_envp
-// 
+//
 // see also https://docs.gtk.org/glib/func.g_test_trap_subprocess_with_envp.html
 func TestTrapSubprocessWithEnvp(testPath string, envp []string, usecTimeout uint64, testFlags TestSubprocessFlags) {
 	var carg1 *C.char                // in, none, string, nullable-string
@@ -10284,7 +10913,7 @@ func TestTrapSubprocessWithEnvp(testPath string, envp []string, usecTimeout uint
 }
 
 // TimeoutAddFull wraps g_timeout_add_full
-// 
+//
 // see also https://docs.gtk.org/glib/func.g_timeout_add_full.html
 func TimeoutAddFull(priority int32, interval uint32, function SourceFunc) uint32 {
 	var carg1 C.gint           // in, none, casted
@@ -10292,7 +10921,7 @@ func TimeoutAddFull(priority int32, interval uint32, function SourceFunc) uint32
 	var carg3 C.GSourceFunc    // callback, scope: notified, closure: carg4, destroy: carg5
 	var carg4 C.gpointer       // implicit
 	var carg5 C.GDestroyNotify // implicit
-	var cret  C.guint          // return, none, casted
+	var cret C.guint           // return, none, casted
 
 	carg1 = C.gint(priority)
 	carg2 = C.guint(interval)
@@ -10313,7 +10942,7 @@ func TimeoutAddFull(priority int32, interval uint32, function SourceFunc) uint32
 }
 
 // TimeoutAddSecondsFull wraps g_timeout_add_seconds_full
-// 
+//
 // see also https://docs.gtk.org/glib/func.g_timeout_add_seconds_full.html
 func TimeoutAddSecondsFull(priority int32, interval uint32, function SourceFunc) uint32 {
 	var carg1 C.gint           // in, none, casted
@@ -10321,7 +10950,7 @@ func TimeoutAddSecondsFull(priority int32, interval uint32, function SourceFunc)
 	var carg3 C.GSourceFunc    // callback, scope: notified, closure: carg4, destroy: carg5
 	var carg4 C.gpointer       // implicit
 	var carg5 C.GDestroyNotify // implicit
-	var cret  C.guint          // return, none, casted
+	var cret C.guint           // return, none, casted
 
 	carg1 = C.gint(priority)
 	carg2 = C.guint(interval)
@@ -10342,14 +10971,14 @@ func TimeoutAddSecondsFull(priority int32, interval uint32, function SourceFunc)
 }
 
 // UCS4ToUTF8 wraps g_ucs4_to_utf8
-// 
+//
 // see also https://docs.gtk.org/glib/func.g_ucs4_to_utf8.html
 func UCS4ToUTF8(str []uint32) (int64, int64, string, error) {
 	var carg1 *C.gunichar // in, transfer: none, C Pointers: 1, Name: array[gunichar], array (inner gunichar (*typesystem.CastablePrimitive), length-by: carg2)
 	var carg2 C.glong     // implicit
 	var carg3 C.glong     // out, full, casted
 	var carg4 C.glong     // out, full, casted
-	var cret  *C.gchar    // return, full, string, nullable-string
+	var cret *C.gchar     // return, full, string, nullable-string
 	var _cerr *C.GError   // out, full, converted, nullable
 
 	_ = str
@@ -10360,10 +10989,10 @@ func UCS4ToUTF8(str []uint32) (int64, int64, string, error) {
 	cret = C.g_ucs4_to_utf8(carg1, carg2, &carg3, &carg4, &_cerr)
 	runtime.KeepAlive(str)
 
-	var itemsRead    int64
+	var itemsRead int64
 	var itemsWritten int64
-	var goret        string
-	var _goerr       error
+	var goret string
+	var _goerr error
 
 	itemsRead = int64(carg3)
 	itemsWritten = int64(carg4)
@@ -10379,11 +11008,11 @@ func UCS4ToUTF8(str []uint32) (int64, int64, string, error) {
 }
 
 // UnicharBreakType wraps g_unichar_break_type
-// 
+//
 // see also https://docs.gtk.org/glib/func.g_unichar_break_type.html
 func UnicharBreakType(c uint32) UnicodeBreakType {
-	var carg1 C.gunichar          // in, none, casted
-	var cret  C.GUnicodeBreakType // return, none, casted
+	var carg1 C.gunichar         // in, none, casted
+	var cret C.GUnicodeBreakType // return, none, casted
 
 	carg1 = C.gunichar(c)
 
@@ -10398,11 +11027,11 @@ func UnicharBreakType(c uint32) UnicodeBreakType {
 }
 
 // UnicharCombiningClass wraps g_unichar_combining_class
-// 
+//
 // see also https://docs.gtk.org/glib/func.g_unichar_combining_class.html
 func UnicharCombiningClass(uc uint32) int32 {
 	var carg1 C.gunichar // in, none, casted
-	var cret  C.gint     // return, none, casted
+	var cret C.gint      // return, none, casted
 
 	carg1 = C.gunichar(uc)
 
@@ -10417,13 +11046,13 @@ func UnicharCombiningClass(uc uint32) int32 {
 }
 
 // UnicharCompose wraps g_unichar_compose
-// 
+//
 // see also https://docs.gtk.org/glib/func.g_unichar_compose.html
 func UnicharCompose(a uint32, b uint32) (uint32, bool) {
 	var carg1 C.gunichar // in, none, casted
 	var carg2 C.gunichar // in, none, casted
 	var carg3 C.gunichar // out, full, casted
-	var cret  C.gboolean // return
+	var cret C.gboolean  // return
 
 	carg1 = C.gunichar(a)
 	carg2 = C.gunichar(b)
@@ -10432,7 +11061,7 @@ func UnicharCompose(a uint32, b uint32) (uint32, bool) {
 	runtime.KeepAlive(a)
 	runtime.KeepAlive(b)
 
-	var ch    uint32
+	var ch uint32
 	var goret bool
 
 	ch = uint32(carg3)
@@ -10444,21 +11073,21 @@ func UnicharCompose(a uint32, b uint32) (uint32, bool) {
 }
 
 // UnicharDecompose wraps g_unichar_decompose
-// 
+//
 // see also https://docs.gtk.org/glib/func.g_unichar_decompose.html
 func UnicharDecompose(ch uint32) (uint32, uint32, bool) {
 	var carg1 C.gunichar // in, none, casted
 	var carg2 C.gunichar // out, full, casted
 	var carg3 C.gunichar // out, full, casted
-	var cret  C.gboolean // return
+	var cret C.gboolean  // return
 
 	carg1 = C.gunichar(ch)
 
 	cret = C.g_unichar_decompose(carg1, &carg2, &carg3)
 	runtime.KeepAlive(ch)
 
-	var a     uint32
-	var b     uint32
+	var a uint32
+	var b uint32
 	var goret bool
 
 	a = uint32(carg2)
@@ -10471,11 +11100,11 @@ func UnicharDecompose(ch uint32) (uint32, uint32, bool) {
 }
 
 // UnicharDigitValue wraps g_unichar_digit_value
-// 
+//
 // see also https://docs.gtk.org/glib/func.g_unichar_digit_value.html
 func UnicharDigitValue(c uint32) int32 {
 	var carg1 C.gunichar // in, none, casted
-	var cret  C.gint     // return, none, casted
+	var cret C.gint      // return, none, casted
 
 	carg1 = C.gunichar(c)
 
@@ -10490,14 +11119,14 @@ func UnicharDigitValue(c uint32) int32 {
 }
 
 // UnicharFullyDecompose wraps g_unichar_fully_decompose
-// 
+//
 // see also https://docs.gtk.org/glib/func.g_unichar_fully_decompose.html
 func UnicharFullyDecompose(ch uint32, compat bool, resultLen uint) (uint32, uint) {
 	var carg1 C.gunichar // in, none, casted
 	var carg2 C.gboolean // in
 	var carg4 C.gsize    // in, none, casted
 	var carg3 C.gunichar // out, transfer: none, C Pointers: 0, Name: gunichar, optional, caller-allocates
-	var cret  C.gsize    // return, none, casted
+	var cret C.gsize     // return, none, casted
 
 	carg1 = C.gunichar(ch)
 	if compat {
@@ -10511,7 +11140,7 @@ func UnicharFullyDecompose(ch uint32, compat bool, resultLen uint) (uint32, uint
 	runtime.KeepAlive(resultLen)
 
 	var result uint32
-	var goret  uint
+	var goret uint
 
 	_ = result
 	_ = carg3
@@ -10522,12 +11151,12 @@ func UnicharFullyDecompose(ch uint32, compat bool, resultLen uint) (uint32, uint
 }
 
 // UnicharGetMirrorChar wraps g_unichar_get_mirror_char
-// 
+//
 // see also https://docs.gtk.org/glib/func.g_unichar_get_mirror_char.html
 func UnicharGetMirrorChar(ch uint32) (uint32, bool) {
 	var carg1 C.gunichar // in, none, casted
 	var carg2 C.gunichar // out, full, casted
-	var cret  C.gboolean // return
+	var cret C.gboolean  // return
 
 	carg1 = C.gunichar(ch)
 
@@ -10535,7 +11164,7 @@ func UnicharGetMirrorChar(ch uint32) (uint32, bool) {
 	runtime.KeepAlive(ch)
 
 	var mirroredCh uint32
-	var goret      bool
+	var goret bool
 
 	mirroredCh = uint32(carg2)
 	if cret != 0 {
@@ -10546,11 +11175,11 @@ func UnicharGetMirrorChar(ch uint32) (uint32, bool) {
 }
 
 // UnicharGetScript wraps g_unichar_get_script
-// 
+//
 // see also https://docs.gtk.org/glib/func.g_unichar_get_script.html
 func UnicharGetScript(ch uint32) UnicodeScript {
-	var carg1 C.gunichar       // in, none, casted
-	var cret  C.GUnicodeScript // return, none, casted
+	var carg1 C.gunichar      // in, none, casted
+	var cret C.GUnicodeScript // return, none, casted
 
 	carg1 = C.gunichar(ch)
 
@@ -10565,11 +11194,11 @@ func UnicharGetScript(ch uint32) UnicodeScript {
 }
 
 // UnicharIsalnum wraps g_unichar_isalnum
-// 
+//
 // see also https://docs.gtk.org/glib/func.g_unichar_isalnum.html
 func UnicharIsalnum(c uint32) bool {
 	var carg1 C.gunichar // in, none, casted
-	var cret  C.gboolean // return
+	var cret C.gboolean  // return
 
 	carg1 = C.gunichar(c)
 
@@ -10586,11 +11215,11 @@ func UnicharIsalnum(c uint32) bool {
 }
 
 // UnicharIsalpha wraps g_unichar_isalpha
-// 
+//
 // see also https://docs.gtk.org/glib/func.g_unichar_isalpha.html
 func UnicharIsalpha(c uint32) bool {
 	var carg1 C.gunichar // in, none, casted
-	var cret  C.gboolean // return
+	var cret C.gboolean  // return
 
 	carg1 = C.gunichar(c)
 
@@ -10607,11 +11236,11 @@ func UnicharIsalpha(c uint32) bool {
 }
 
 // UnicharIscntrl wraps g_unichar_iscntrl
-// 
+//
 // see also https://docs.gtk.org/glib/func.g_unichar_iscntrl.html
 func UnicharIscntrl(c uint32) bool {
 	var carg1 C.gunichar // in, none, casted
-	var cret  C.gboolean // return
+	var cret C.gboolean  // return
 
 	carg1 = C.gunichar(c)
 
@@ -10628,11 +11257,11 @@ func UnicharIscntrl(c uint32) bool {
 }
 
 // UnicharIsdefined wraps g_unichar_isdefined
-// 
+//
 // see also https://docs.gtk.org/glib/func.g_unichar_isdefined.html
 func UnicharIsdefined(c uint32) bool {
 	var carg1 C.gunichar // in, none, casted
-	var cret  C.gboolean // return
+	var cret C.gboolean  // return
 
 	carg1 = C.gunichar(c)
 
@@ -10649,11 +11278,11 @@ func UnicharIsdefined(c uint32) bool {
 }
 
 // UnicharIsdigit wraps g_unichar_isdigit
-// 
+//
 // see also https://docs.gtk.org/glib/func.g_unichar_isdigit.html
 func UnicharIsdigit(c uint32) bool {
 	var carg1 C.gunichar // in, none, casted
-	var cret  C.gboolean // return
+	var cret C.gboolean  // return
 
 	carg1 = C.gunichar(c)
 
@@ -10670,11 +11299,11 @@ func UnicharIsdigit(c uint32) bool {
 }
 
 // UnicharIsgraph wraps g_unichar_isgraph
-// 
+//
 // see also https://docs.gtk.org/glib/func.g_unichar_isgraph.html
 func UnicharIsgraph(c uint32) bool {
 	var carg1 C.gunichar // in, none, casted
-	var cret  C.gboolean // return
+	var cret C.gboolean  // return
 
 	carg1 = C.gunichar(c)
 
@@ -10691,11 +11320,11 @@ func UnicharIsgraph(c uint32) bool {
 }
 
 // UnicharIslower wraps g_unichar_islower
-// 
+//
 // see also https://docs.gtk.org/glib/func.g_unichar_islower.html
 func UnicharIslower(c uint32) bool {
 	var carg1 C.gunichar // in, none, casted
-	var cret  C.gboolean // return
+	var cret C.gboolean  // return
 
 	carg1 = C.gunichar(c)
 
@@ -10712,11 +11341,11 @@ func UnicharIslower(c uint32) bool {
 }
 
 // UnicharIsmark wraps g_unichar_ismark
-// 
+//
 // see also https://docs.gtk.org/glib/func.g_unichar_ismark.html
 func UnicharIsmark(c uint32) bool {
 	var carg1 C.gunichar // in, none, casted
-	var cret  C.gboolean // return
+	var cret C.gboolean  // return
 
 	carg1 = C.gunichar(c)
 
@@ -10733,11 +11362,11 @@ func UnicharIsmark(c uint32) bool {
 }
 
 // UnicharIsprint wraps g_unichar_isprint
-// 
+//
 // see also https://docs.gtk.org/glib/func.g_unichar_isprint.html
 func UnicharIsprint(c uint32) bool {
 	var carg1 C.gunichar // in, none, casted
-	var cret  C.gboolean // return
+	var cret C.gboolean  // return
 
 	carg1 = C.gunichar(c)
 
@@ -10754,11 +11383,11 @@ func UnicharIsprint(c uint32) bool {
 }
 
 // UnicharIspunct wraps g_unichar_ispunct
-// 
+//
 // see also https://docs.gtk.org/glib/func.g_unichar_ispunct.html
 func UnicharIspunct(c uint32) bool {
 	var carg1 C.gunichar // in, none, casted
-	var cret  C.gboolean // return
+	var cret C.gboolean  // return
 
 	carg1 = C.gunichar(c)
 
@@ -10775,11 +11404,11 @@ func UnicharIspunct(c uint32) bool {
 }
 
 // UnicharIsspace wraps g_unichar_isspace
-// 
+//
 // see also https://docs.gtk.org/glib/func.g_unichar_isspace.html
 func UnicharIsspace(c uint32) bool {
 	var carg1 C.gunichar // in, none, casted
-	var cret  C.gboolean // return
+	var cret C.gboolean  // return
 
 	carg1 = C.gunichar(c)
 
@@ -10796,11 +11425,11 @@ func UnicharIsspace(c uint32) bool {
 }
 
 // UnicharIstitle wraps g_unichar_istitle
-// 
+//
 // see also https://docs.gtk.org/glib/func.g_unichar_istitle.html
 func UnicharIstitle(c uint32) bool {
 	var carg1 C.gunichar // in, none, casted
-	var cret  C.gboolean // return
+	var cret C.gboolean  // return
 
 	carg1 = C.gunichar(c)
 
@@ -10817,11 +11446,11 @@ func UnicharIstitle(c uint32) bool {
 }
 
 // UnicharIsupper wraps g_unichar_isupper
-// 
+//
 // see also https://docs.gtk.org/glib/func.g_unichar_isupper.html
 func UnicharIsupper(c uint32) bool {
 	var carg1 C.gunichar // in, none, casted
-	var cret  C.gboolean // return
+	var cret C.gboolean  // return
 
 	carg1 = C.gunichar(c)
 
@@ -10838,11 +11467,11 @@ func UnicharIsupper(c uint32) bool {
 }
 
 // UnicharIswide wraps g_unichar_iswide
-// 
+//
 // see also https://docs.gtk.org/glib/func.g_unichar_iswide.html
 func UnicharIswide(c uint32) bool {
 	var carg1 C.gunichar // in, none, casted
-	var cret  C.gboolean // return
+	var cret C.gboolean  // return
 
 	carg1 = C.gunichar(c)
 
@@ -10859,11 +11488,11 @@ func UnicharIswide(c uint32) bool {
 }
 
 // UnicharIswideCjk wraps g_unichar_iswide_cjk
-// 
+//
 // see also https://docs.gtk.org/glib/func.g_unichar_iswide_cjk.html
 func UnicharIswideCjk(c uint32) bool {
 	var carg1 C.gunichar // in, none, casted
-	var cret  C.gboolean // return
+	var cret C.gboolean  // return
 
 	carg1 = C.gunichar(c)
 
@@ -10880,11 +11509,11 @@ func UnicharIswideCjk(c uint32) bool {
 }
 
 // UnicharIsxdigit wraps g_unichar_isxdigit
-// 
+//
 // see also https://docs.gtk.org/glib/func.g_unichar_isxdigit.html
 func UnicharIsxdigit(c uint32) bool {
 	var carg1 C.gunichar // in, none, casted
-	var cret  C.gboolean // return
+	var cret C.gboolean  // return
 
 	carg1 = C.gunichar(c)
 
@@ -10901,11 +11530,11 @@ func UnicharIsxdigit(c uint32) bool {
 }
 
 // UnicharIszerowidth wraps g_unichar_iszerowidth
-// 
+//
 // see also https://docs.gtk.org/glib/func.g_unichar_iszerowidth.html
 func UnicharIszerowidth(c uint32) bool {
 	var carg1 C.gunichar // in, none, casted
-	var cret  C.gboolean // return
+	var cret C.gboolean  // return
 
 	carg1 = C.gunichar(c)
 
@@ -10922,12 +11551,12 @@ func UnicharIszerowidth(c uint32) bool {
 }
 
 // UnicharToUTF8 wraps g_unichar_to_utf8
-// 
+//
 // see also https://docs.gtk.org/glib/func.g_unichar_to_utf8.html
 func UnicharToUTF8(c uint32) (byte, int32) {
 	var carg1 C.gunichar // in, none, casted
 	var carg2 C.gchar    // out, transfer: none, C Pointers: 0, Name: gchar, optional, caller-allocates
-	var cret  C.gint     // return, none, casted
+	var cret C.gint      // return, none, casted
 
 	carg1 = C.gunichar(c)
 
@@ -10935,7 +11564,7 @@ func UnicharToUTF8(c uint32) (byte, int32) {
 	runtime.KeepAlive(c)
 
 	var outbuf byte
-	var goret  int32
+	var goret int32
 
 	_ = outbuf
 	_ = carg2
@@ -10946,11 +11575,11 @@ func UnicharToUTF8(c uint32) (byte, int32) {
 }
 
 // UnicharTolower wraps g_unichar_tolower
-// 
+//
 // see also https://docs.gtk.org/glib/func.g_unichar_tolower.html
 func UnicharTolower(c uint32) uint32 {
 	var carg1 C.gunichar // in, none, casted
-	var cret  C.gunichar // return, none, casted
+	var cret C.gunichar  // return, none, casted
 
 	carg1 = C.gunichar(c)
 
@@ -10965,11 +11594,11 @@ func UnicharTolower(c uint32) uint32 {
 }
 
 // UnicharTotitle wraps g_unichar_totitle
-// 
+//
 // see also https://docs.gtk.org/glib/func.g_unichar_totitle.html
 func UnicharTotitle(c uint32) uint32 {
 	var carg1 C.gunichar // in, none, casted
-	var cret  C.gunichar // return, none, casted
+	var cret C.gunichar  // return, none, casted
 
 	carg1 = C.gunichar(c)
 
@@ -10984,11 +11613,11 @@ func UnicharTotitle(c uint32) uint32 {
 }
 
 // UnicharToupper wraps g_unichar_toupper
-// 
+//
 // see also https://docs.gtk.org/glib/func.g_unichar_toupper.html
 func UnicharToupper(c uint32) uint32 {
 	var carg1 C.gunichar // in, none, casted
-	var cret  C.gunichar // return, none, casted
+	var cret C.gunichar  // return, none, casted
 
 	carg1 = C.gunichar(c)
 
@@ -11003,11 +11632,11 @@ func UnicharToupper(c uint32) uint32 {
 }
 
 // UnicharType wraps g_unichar_type
-// 
+//
 // see also https://docs.gtk.org/glib/func.g_unichar_type.html
 func UnicharType(c uint32) UnicodeType {
-	var carg1 C.gunichar     // in, none, casted
-	var cret  C.GUnicodeType // return, none, casted
+	var carg1 C.gunichar    // in, none, casted
+	var cret C.GUnicodeType // return, none, casted
 
 	carg1 = C.gunichar(c)
 
@@ -11022,11 +11651,11 @@ func UnicharType(c uint32) UnicodeType {
 }
 
 // UnicharValidate wraps g_unichar_validate
-// 
+//
 // see also https://docs.gtk.org/glib/func.g_unichar_validate.html
 func UnicharValidate(ch uint32) bool {
 	var carg1 C.gunichar // in, none, casted
-	var cret  C.gboolean // return
+	var cret C.gboolean  // return
 
 	carg1 = C.gunichar(ch)
 
@@ -11043,11 +11672,11 @@ func UnicharValidate(ch uint32) bool {
 }
 
 // UnicharXdigitValue wraps g_unichar_xdigit_value
-// 
+//
 // see also https://docs.gtk.org/glib/func.g_unichar_xdigit_value.html
 func UnicharXdigitValue(c uint32) int32 {
 	var carg1 C.gunichar // in, none, casted
-	var cret  C.gint     // return, none, casted
+	var cret C.gint      // return, none, casted
 
 	carg1 = C.gunichar(c)
 
@@ -11062,7 +11691,7 @@ func UnicharXdigitValue(c uint32) int32 {
 }
 
 // UnicodeCanonicalOrdering wraps g_unicode_canonical_ordering
-// 
+//
 // see also https://docs.gtk.org/glib/func.g_unicode_canonical_ordering.html
 func UnicodeCanonicalOrdering(str []uint32) {
 	var carg1 *C.gunichar // in, transfer: none, C Pointers: 1, Name: array[gunichar], array (inner gunichar (*typesystem.CastablePrimitive), length-by: carg2)
@@ -11078,7 +11707,7 @@ func UnicodeCanonicalOrdering(str []uint32) {
 }
 
 // Unsetenv wraps g_unsetenv
-// 
+//
 // see also https://docs.gtk.org/glib/func.g_unsetenv.html
 func Unsetenv(variable string) {
 	var carg1 *C.gchar // in, none, string
@@ -11091,7 +11720,7 @@ func Unsetenv(variable string) {
 }
 
 // Usleep wraps g_usleep
-// 
+//
 // see also https://docs.gtk.org/glib/func.g_usleep.html
 func Usleep(microseconds uint64) {
 	var carg1 C.gulong // in, none, casted
@@ -11103,14 +11732,14 @@ func Usleep(microseconds uint64) {
 }
 
 // UTF16ToUCS4 wraps g_utf16_to_ucs4
-// 
+//
 // see also https://docs.gtk.org/glib/func.g_utf16_to_ucs4.html
 func UTF16ToUCS4(str []uint16) (int64, int64, *uint32, error) {
 	var carg1 *C.gunichar2 // in, transfer: none, C Pointers: 1, Name: array[guint16], array (inner guint16 (*typesystem.CastablePrimitive), length-by: carg2)
 	var carg2 C.glong      // implicit
 	var carg3 C.glong      // out, full, casted
 	var carg4 C.glong      // out, full, casted
-	var cret  *C.gunichar  // return, transfer: full, C Pointers: 1, Name: gunichar, scope: , nullable, nullable
+	var cret *C.gunichar   // return, transfer: full, C Pointers: 1, Name: gunichar, nullable, nullable
 	var _cerr *C.GError    // out, full, converted, nullable
 
 	_ = str
@@ -11121,10 +11750,10 @@ func UTF16ToUCS4(str []uint16) (int64, int64, *uint32, error) {
 	cret = C.g_utf16_to_ucs4(carg1, carg2, &carg3, &carg4, &_cerr)
 	runtime.KeepAlive(str)
 
-	var itemsRead    int64
+	var itemsRead int64
 	var itemsWritten int64
-	var goret        *uint32
-	var _goerr       error
+	var goret *uint32
+	var _goerr error
 
 	itemsRead = int64(carg3)
 	itemsWritten = int64(carg4)
@@ -11141,14 +11770,14 @@ func UTF16ToUCS4(str []uint16) (int64, int64, *uint32, error) {
 }
 
 // UTF16ToUTF8 wraps g_utf16_to_utf8
-// 
+//
 // see also https://docs.gtk.org/glib/func.g_utf16_to_utf8.html
 func UTF16ToUTF8(str []uint16) (int64, int64, string, error) {
 	var carg1 *C.gunichar2 // in, transfer: none, C Pointers: 1, Name: array[guint16], array (inner guint16 (*typesystem.CastablePrimitive), length-by: carg2)
 	var carg2 C.glong      // implicit
 	var carg3 C.glong      // out, full, casted
 	var carg4 C.glong      // out, full, casted
-	var cret  *C.gchar     // return, full, string, nullable-string
+	var cret *C.gchar      // return, full, string, nullable-string
 	var _cerr *C.GError    // out, full, converted, nullable
 
 	_ = str
@@ -11159,10 +11788,10 @@ func UTF16ToUTF8(str []uint16) (int64, int64, string, error) {
 	cret = C.g_utf16_to_utf8(carg1, carg2, &carg3, &carg4, &_cerr)
 	runtime.KeepAlive(str)
 
-	var itemsRead    int64
+	var itemsRead int64
 	var itemsWritten int64
-	var goret        string
-	var _goerr       error
+	var goret string
+	var _goerr error
 
 	itemsRead = int64(carg3)
 	itemsWritten = int64(carg4)
@@ -11178,12 +11807,12 @@ func UTF16ToUTF8(str []uint16) (int64, int64, string, error) {
 }
 
 // UTF8Casefold wraps g_utf8_casefold
-// 
+//
 // see also https://docs.gtk.org/glib/func.g_utf8_casefold.html
 func UTF8Casefold(str string, len int) string {
 	var carg1 *C.gchar // in, none, string
 	var carg2 C.gssize // in, none, casted
-	var cret  *C.gchar // return, full, string
+	var cret *C.gchar  // return, full, string
 
 	carg1 = (*C.gchar)(transfer.GLibString(str))
 	defer C.g_free(C.gpointer(carg1))
@@ -11202,12 +11831,12 @@ func UTF8Casefold(str string, len int) string {
 }
 
 // UTF8Collate wraps g_utf8_collate
-// 
+//
 // see also https://docs.gtk.org/glib/func.g_utf8_collate.html
 func UTF8Collate(str1 string, str2 string) int32 {
 	var carg1 *C.gchar // in, none, string
 	var carg2 *C.gchar // in, none, string
-	var cret  C.gint   // return, none, casted
+	var cret C.gint    // return, none, casted
 
 	carg1 = (*C.gchar)(transfer.GLibString(str1))
 	defer C.g_free(C.gpointer(carg1))
@@ -11226,12 +11855,12 @@ func UTF8Collate(str1 string, str2 string) int32 {
 }
 
 // UTF8CollateKey wraps g_utf8_collate_key
-// 
+//
 // see also https://docs.gtk.org/glib/func.g_utf8_collate_key.html
 func UTF8CollateKey(str string, len int) string {
 	var carg1 *C.gchar // in, none, string
 	var carg2 C.gssize // in, none, casted
-	var cret  *C.gchar // return, full, string
+	var cret *C.gchar  // return, full, string
 
 	carg1 = (*C.gchar)(transfer.GLibString(str))
 	defer C.g_free(C.gpointer(carg1))
@@ -11250,12 +11879,12 @@ func UTF8CollateKey(str string, len int) string {
 }
 
 // UTF8CollateKeyForFilename wraps g_utf8_collate_key_for_filename
-// 
+//
 // see also https://docs.gtk.org/glib/func.g_utf8_collate_key_for_filename.html
 func UTF8CollateKeyForFilename(str string, len int) string {
 	var carg1 *C.gchar // in, none, string
 	var carg2 C.gssize // in, none, casted
-	var cret  *C.gchar // return, full, string
+	var cret *C.gchar  // return, full, string
 
 	carg1 = (*C.gchar)(transfer.GLibString(str))
 	defer C.g_free(C.gpointer(carg1))
@@ -11274,12 +11903,12 @@ func UTF8CollateKeyForFilename(str string, len int) string {
 }
 
 // UTF8FindNextChar wraps g_utf8_find_next_char
-// 
+//
 // see also https://docs.gtk.org/glib/func.g_utf8_find_next_char.html
 func UTF8FindNextChar(p string, end string) string {
 	var carg1 *C.gchar // in, none, string
 	var carg2 *C.gchar // in, none, string, nullable-string
-	var cret  *C.gchar // return, none, string, nullable-string
+	var cret *C.gchar  // return, none, string, nullable-string
 
 	carg1 = (*C.gchar)(transfer.GLibString(p))
 	defer C.g_free(C.gpointer(carg1))
@@ -11302,12 +11931,12 @@ func UTF8FindNextChar(p string, end string) string {
 }
 
 // UTF8FindPrevChar wraps g_utf8_find_prev_char
-// 
+//
 // see also https://docs.gtk.org/glib/func.g_utf8_find_prev_char.html
 func UTF8FindPrevChar(str string, p string) string {
 	var carg1 *C.gchar // in, none, string
 	var carg2 *C.gchar // in, none, string
-	var cret  *C.gchar // return, none, string, nullable-string
+	var cret *C.gchar  // return, none, string, nullable-string
 
 	carg1 = (*C.gchar)(transfer.GLibString(str))
 	defer C.g_free(C.gpointer(carg1))
@@ -11328,11 +11957,11 @@ func UTF8FindPrevChar(str string, p string) string {
 }
 
 // UTF8GetChar wraps g_utf8_get_char
-// 
+//
 // see also https://docs.gtk.org/glib/func.g_utf8_get_char.html
 func UTF8GetChar(p string) uint32 {
-	var carg1 *C.gchar   // in, none, string
-	var cret  C.gunichar // return, none, casted
+	var carg1 *C.gchar  // in, none, string
+	var cret C.gunichar // return, none, casted
 
 	carg1 = (*C.gchar)(transfer.GLibString(p))
 	defer C.g_free(C.gpointer(carg1))
@@ -11348,12 +11977,12 @@ func UTF8GetChar(p string) uint32 {
 }
 
 // UTF8GetCharValidated wraps g_utf8_get_char_validated
-// 
+//
 // see also https://docs.gtk.org/glib/func.g_utf8_get_char_validated.html
 func UTF8GetCharValidated(p string, maxLen int) uint32 {
-	var carg1 *C.gchar   // in, none, string
-	var carg2 C.gssize   // in, none, casted
-	var cret  C.gunichar // return, none, casted
+	var carg1 *C.gchar  // in, none, string
+	var carg2 C.gssize  // in, none, casted
+	var cret C.gunichar // return, none, casted
 
 	carg1 = (*C.gchar)(transfer.GLibString(p))
 	defer C.g_free(C.gpointer(carg1))
@@ -11371,12 +12000,12 @@ func UTF8GetCharValidated(p string, maxLen int) uint32 {
 }
 
 // UTF8MakeValid wraps g_utf8_make_valid
-// 
+//
 // see also https://docs.gtk.org/glib/func.g_utf8_make_valid.html
 func UTF8MakeValid(str string, len int) string {
 	var carg1 *C.gchar // in, none, string
 	var carg2 C.gssize // in, none, casted
-	var cret  *C.gchar // return, full, string
+	var cret *C.gchar  // return, full, string
 
 	carg1 = (*C.gchar)(transfer.GLibString(str))
 	defer C.g_free(C.gpointer(carg1))
@@ -11395,13 +12024,13 @@ func UTF8MakeValid(str string, len int) string {
 }
 
 // UTF8Normalize wraps g_utf8_normalize
-// 
+//
 // see also https://docs.gtk.org/glib/func.g_utf8_normalize.html
 func UTF8Normalize(str string, len int, mode NormalizeMode) string {
 	var carg1 *C.gchar         // in, none, string
 	var carg2 C.gssize         // in, none, casted
 	var carg3 C.GNormalizeMode // in, none, casted
-	var cret  *C.gchar         // return, full, string, nullable-string
+	var cret *C.gchar          // return, full, string, nullable-string
 
 	carg1 = (*C.gchar)(transfer.GLibString(str))
 	defer C.g_free(C.gpointer(carg1))
@@ -11424,12 +12053,12 @@ func UTF8Normalize(str string, len int, mode NormalizeMode) string {
 }
 
 // UTF8OffsetToPointer wraps g_utf8_offset_to_pointer
-// 
+//
 // see also https://docs.gtk.org/glib/func.g_utf8_offset_to_pointer.html
 func UTF8OffsetToPointer(str string, offset int64) string {
 	var carg1 *C.gchar // in, none, string
 	var carg2 C.glong  // in, none, casted
-	var cret  *C.gchar // return, none, string
+	var cret *C.gchar  // return, none, string
 
 	carg1 = (*C.gchar)(transfer.GLibString(str))
 	defer C.g_free(C.gpointer(carg1))
@@ -11447,12 +12076,12 @@ func UTF8OffsetToPointer(str string, offset int64) string {
 }
 
 // UTF8PointerToOffset wraps g_utf8_pointer_to_offset
-// 
+//
 // see also https://docs.gtk.org/glib/func.g_utf8_pointer_to_offset.html
 func UTF8PointerToOffset(str string, pos string) int64 {
 	var carg1 *C.gchar // in, none, string
 	var carg2 *C.gchar // in, none, string
-	var cret  C.glong  // return, none, casted
+	var cret C.glong   // return, none, casted
 
 	carg1 = (*C.gchar)(transfer.GLibString(str))
 	defer C.g_free(C.gpointer(carg1))
@@ -11471,11 +12100,11 @@ func UTF8PointerToOffset(str string, pos string) int64 {
 }
 
 // UTF8PrevChar wraps g_utf8_prev_char
-// 
+//
 // see also https://docs.gtk.org/glib/func.g_utf8_prev_char.html
 func UTF8PrevChar(p string) string {
 	var carg1 *C.gchar // in, none, string
-	var cret  *C.gchar // return, none, string
+	var cret *C.gchar  // return, none, string
 
 	carg1 = (*C.gchar)(transfer.GLibString(p))
 	defer C.g_free(C.gpointer(carg1))
@@ -11491,13 +12120,13 @@ func UTF8PrevChar(p string) string {
 }
 
 // UTF8Strchr wraps g_utf8_strchr
-// 
+//
 // see also https://docs.gtk.org/glib/func.g_utf8_strchr.html
 func UTF8Strchr(p string, len int, c uint32) string {
 	var carg1 *C.gchar   // in, none, string
 	var carg2 C.gssize   // in, none, casted
 	var carg3 C.gunichar // in, none, casted
-	var cret  *C.gchar   // return, none, string, nullable-string
+	var cret *C.gchar    // return, none, string, nullable-string
 
 	carg1 = (*C.gchar)(transfer.GLibString(p))
 	defer C.g_free(C.gpointer(carg1))
@@ -11519,12 +12148,12 @@ func UTF8Strchr(p string, len int, c uint32) string {
 }
 
 // UTF8Strdown wraps g_utf8_strdown
-// 
+//
 // see also https://docs.gtk.org/glib/func.g_utf8_strdown.html
 func UTF8Strdown(str string, len int) string {
 	var carg1 *C.gchar // in, none, string
 	var carg2 C.gssize // in, none, casted
-	var cret  *C.gchar // return, full, string
+	var cret *C.gchar  // return, full, string
 
 	carg1 = (*C.gchar)(transfer.GLibString(str))
 	defer C.g_free(C.gpointer(carg1))
@@ -11543,12 +12172,12 @@ func UTF8Strdown(str string, len int) string {
 }
 
 // UTF8Strlen wraps g_utf8_strlen
-// 
+//
 // see also https://docs.gtk.org/glib/func.g_utf8_strlen.html
 func UTF8Strlen(p string, max int) int64 {
 	var carg1 *C.gchar // in, none, string
 	var carg2 C.gssize // in, none, casted
-	var cret  C.glong  // return, none, casted
+	var cret C.glong   // return, none, casted
 
 	carg1 = (*C.gchar)(transfer.GLibString(p))
 	defer C.g_free(C.gpointer(carg1))
@@ -11566,13 +12195,13 @@ func UTF8Strlen(p string, max int) int64 {
 }
 
 // UTF8Strncpy wraps g_utf8_strncpy
-// 
+//
 // see also https://docs.gtk.org/glib/func.g_utf8_strncpy.html
 func UTF8Strncpy(dest string, src string, n uint) string {
 	var carg1 *C.gchar // in, none, string
 	var carg2 *C.gchar // in, none, string
 	var carg3 C.gsize  // in, none, casted
-	var cret  *C.gchar // return, none, string
+	var cret *C.gchar  // return, none, string
 
 	carg1 = (*C.gchar)(transfer.GLibString(dest))
 	defer C.g_free(C.gpointer(carg1))
@@ -11593,13 +12222,13 @@ func UTF8Strncpy(dest string, src string, n uint) string {
 }
 
 // UTF8Strrchr wraps g_utf8_strrchr
-// 
+//
 // see also https://docs.gtk.org/glib/func.g_utf8_strrchr.html
 func UTF8Strrchr(p string, len int, c uint32) string {
 	var carg1 *C.gchar   // in, none, string
 	var carg2 C.gssize   // in, none, casted
 	var carg3 C.gunichar // in, none, casted
-	var cret  *C.gchar   // return, none, string, nullable-string
+	var cret *C.gchar    // return, none, string, nullable-string
 
 	carg1 = (*C.gchar)(transfer.GLibString(p))
 	defer C.g_free(C.gpointer(carg1))
@@ -11621,12 +12250,12 @@ func UTF8Strrchr(p string, len int, c uint32) string {
 }
 
 // UTF8Strreverse wraps g_utf8_strreverse
-// 
+//
 // see also https://docs.gtk.org/glib/func.g_utf8_strreverse.html
 func UTF8Strreverse(str string, len int) string {
 	var carg1 *C.gchar // in, none, string
 	var carg2 C.gssize // in, none, casted
-	var cret  *C.gchar // return, full, string
+	var cret *C.gchar  // return, full, string
 
 	carg1 = (*C.gchar)(transfer.GLibString(str))
 	defer C.g_free(C.gpointer(carg1))
@@ -11645,12 +12274,12 @@ func UTF8Strreverse(str string, len int) string {
 }
 
 // UTF8Strup wraps g_utf8_strup
-// 
+//
 // see also https://docs.gtk.org/glib/func.g_utf8_strup.html
 func UTF8Strup(str string, len int) string {
 	var carg1 *C.gchar // in, none, string
 	var carg2 C.gssize // in, none, casted
-	var cret  *C.gchar // return, full, string
+	var cret *C.gchar  // return, full, string
 
 	carg1 = (*C.gchar)(transfer.GLibString(str))
 	defer C.g_free(C.gpointer(carg1))
@@ -11669,13 +12298,13 @@ func UTF8Strup(str string, len int) string {
 }
 
 // UTF8Substring wraps g_utf8_substring
-// 
+//
 // see also https://docs.gtk.org/glib/func.g_utf8_substring.html
 func UTF8Substring(str string, startPos int64, endPos int64) string {
 	var carg1 *C.gchar // in, none, string
 	var carg2 C.glong  // in, none, casted
 	var carg3 C.glong  // in, none, casted
-	var cret  *C.gchar // return, full, string
+	var cret *C.gchar  // return, full, string
 
 	carg1 = (*C.gchar)(transfer.GLibString(str))
 	defer C.g_free(C.gpointer(carg1))
@@ -11696,15 +12325,15 @@ func UTF8Substring(str string, startPos int64, endPos int64) string {
 }
 
 // UTF8ToUCS4 wraps g_utf8_to_ucs4
-// 
+//
 // see also https://docs.gtk.org/glib/func.g_utf8_to_ucs4.html
 func UTF8ToUCS4(str string, len int64) (int64, int64, *uint32, error) {
-	var carg1 *C.gchar    // in, none, string
-	var carg2 C.glong     // in, none, casted
-	var carg3 C.glong     // out, full, casted
-	var carg4 C.glong     // out, full, casted
-	var cret  *C.gunichar // return, transfer: full, C Pointers: 1, Name: gunichar, scope: , nullable, nullable
-	var _cerr *C.GError   // out, full, converted, nullable
+	var carg1 *C.gchar   // in, none, string
+	var carg2 C.glong    // in, none, casted
+	var carg3 C.glong    // out, full, casted
+	var carg4 C.glong    // out, full, casted
+	var cret *C.gunichar // return, transfer: full, C Pointers: 1, Name: gunichar, nullable, nullable
+	var _cerr *C.GError  // out, full, converted, nullable
 
 	carg1 = (*C.gchar)(transfer.GLibString(str))
 	defer C.g_free(C.gpointer(carg1))
@@ -11714,10 +12343,10 @@ func UTF8ToUCS4(str string, len int64) (int64, int64, *uint32, error) {
 	runtime.KeepAlive(str)
 	runtime.KeepAlive(len)
 
-	var itemsRead    int64
+	var itemsRead int64
 	var itemsWritten int64
-	var goret        *uint32
-	var _goerr       error
+	var goret *uint32
+	var _goerr error
 
 	itemsRead = int64(carg3)
 	itemsWritten = int64(carg4)
@@ -11734,13 +12363,13 @@ func UTF8ToUCS4(str string, len int64) (int64, int64, *uint32, error) {
 }
 
 // UTF8ToUCS4Fast wraps g_utf8_to_ucs4_fast
-// 
+//
 // see also https://docs.gtk.org/glib/func.g_utf8_to_ucs4_fast.html
 func UTF8ToUCS4Fast(str string, len int64) (int64, *uint32) {
-	var carg1 *C.gchar    // in, none, string
-	var carg2 C.glong     // in, none, casted
-	var carg3 C.glong     // out, full, casted
-	var cret  *C.gunichar // return, transfer: full, C Pointers: 1, Name: gunichar, scope: 
+	var carg1 *C.gchar   // in, none, string
+	var carg2 C.glong    // in, none, casted
+	var carg3 C.glong    // out, full, casted
+	var cret *C.gunichar // return, transfer: full, C Pointers: 1, Name: gunichar
 
 	carg1 = (*C.gchar)(transfer.GLibString(str))
 	defer C.g_free(C.gpointer(carg1))
@@ -11751,7 +12380,7 @@ func UTF8ToUCS4Fast(str string, len int64) (int64, *uint32) {
 	runtime.KeepAlive(len)
 
 	var itemsWritten int64
-	var goret        *uint32
+	var goret *uint32
 
 	itemsWritten = int64(carg3)
 	_ = goret
@@ -11762,15 +12391,15 @@ func UTF8ToUCS4Fast(str string, len int64) (int64, *uint32) {
 }
 
 // UTF8ToUTF16 wraps g_utf8_to_utf16
-// 
+//
 // see also https://docs.gtk.org/glib/func.g_utf8_to_utf16.html
 func UTF8ToUTF16(str string, len int64) (int64, int64, *uint16, error) {
-	var carg1 *C.gchar     // in, none, string
-	var carg2 C.glong      // in, none, casted
-	var carg3 C.glong      // out, full, casted
-	var carg4 C.glong      // out, full, casted
-	var cret  *C.gunichar2 // return, transfer: full, C Pointers: 1, Name: guint16, scope: , nullable, nullable
-	var _cerr *C.GError    // out, full, converted, nullable
+	var carg1 *C.gchar    // in, none, string
+	var carg2 C.glong     // in, none, casted
+	var carg3 C.glong     // out, full, casted
+	var carg4 C.glong     // out, full, casted
+	var cret *C.gunichar2 // return, transfer: full, C Pointers: 1, Name: guint16, nullable, nullable
+	var _cerr *C.GError   // out, full, converted, nullable
 
 	carg1 = (*C.gchar)(transfer.GLibString(str))
 	defer C.g_free(C.gpointer(carg1))
@@ -11780,10 +12409,10 @@ func UTF8ToUTF16(str string, len int64) (int64, int64, *uint16, error) {
 	runtime.KeepAlive(str)
 	runtime.KeepAlive(len)
 
-	var itemsRead    int64
+	var itemsRead int64
 	var itemsWritten int64
-	var goret        *uint16
-	var _goerr       error
+	var goret *uint16
+	var _goerr error
 
 	itemsRead = int64(carg3)
 	itemsWritten = int64(carg4)
@@ -11800,12 +12429,12 @@ func UTF8ToUTF16(str string, len int64) (int64, int64, *uint16, error) {
 }
 
 // UTF8TruncateMiddle wraps g_utf8_truncate_middle
-// 
+//
 // see also https://docs.gtk.org/glib/func.g_utf8_truncate_middle.html
 func UTF8TruncateMiddle(str string, truncateLength uint) string {
 	var carg1 *C.gchar // in, none, string
 	var carg2 C.gsize  // in, none, casted
-	var cret  *C.gchar // return, full, string
+	var cret *C.gchar  // return, full, string
 
 	carg1 = (*C.gchar)(transfer.GLibString(str))
 	defer C.g_free(C.gpointer(carg1))
@@ -11824,13 +12453,13 @@ func UTF8TruncateMiddle(str string, truncateLength uint) string {
 }
 
 // UTF8Validate wraps g_utf8_validate
-// 
+//
 // see also https://docs.gtk.org/glib/func.g_utf8_validate.html
 func UTF8Validate(str string) (string, bool) {
-	var carg1 *C.gchar   // in, transfer: none, C Pointers: 1, Name: array[unknown], array (inner unknown, length-by: carg2)
-	var carg2 C.gssize   // implicit
-	var carg3 *C.gchar   // out, none, string
-	var cret  C.gboolean // return
+	var carg1 *C.gchar  // in, transfer: none, C Pointers: 1, Name: array[unknown], array (inner unknown, length-by: carg2)
+	var carg2 C.gssize  // implicit
+	var carg3 *C.gchar  // out, none, string
+	var cret C.gboolean // return
 
 	_ = str
 	_ = carg1
@@ -11840,7 +12469,7 @@ func UTF8Validate(str string) (string, bool) {
 	cret = C.g_utf8_validate(carg1, carg2, &carg3)
 	runtime.KeepAlive(str)
 
-	var end   string
+	var end string
 	var goret bool
 
 	end = C.GoString((*C.char)(unsafe.Pointer(carg3)))
@@ -11852,13 +12481,13 @@ func UTF8Validate(str string) (string, bool) {
 }
 
 // UTF8ValidateLen wraps g_utf8_validate_len
-// 
+//
 // see also https://docs.gtk.org/glib/func.g_utf8_validate_len.html
 func UTF8ValidateLen(str string) (string, bool) {
-	var carg1 *C.gchar   // in, transfer: none, C Pointers: 1, Name: array[unknown], array (inner unknown, length-by: carg2)
-	var carg2 C.gsize    // implicit
-	var carg3 *C.gchar   // out, none, string
-	var cret  C.gboolean // return
+	var carg1 *C.gchar  // in, transfer: none, C Pointers: 1, Name: array[unknown], array (inner unknown, length-by: carg2)
+	var carg2 C.gsize   // implicit
+	var carg3 *C.gchar  // out, none, string
+	var cret C.gboolean // return
 
 	_ = str
 	_ = carg1
@@ -11868,7 +12497,7 @@ func UTF8ValidateLen(str string) (string, bool) {
 	cret = C.g_utf8_validate_len(carg1, carg2, &carg3)
 	runtime.KeepAlive(str)
 
-	var end   string
+	var end string
 	var goret bool
 
 	end = C.GoString((*C.char)(unsafe.Pointer(carg3)))
@@ -11880,11 +12509,11 @@ func UTF8ValidateLen(str string) (string, bool) {
 }
 
 // UuidStringIsValid wraps g_uuid_string_is_valid
-// 
+//
 // see also https://docs.gtk.org/glib/func.g_uuid_string_is_valid.html
 func UuidStringIsValid(str string) bool {
-	var carg1 *C.gchar   // in, none, string
-	var cret  C.gboolean // return
+	var carg1 *C.gchar  // in, none, string
+	var cret C.gboolean // return
 
 	carg1 = (*C.gchar)(transfer.GLibString(str))
 	defer C.g_free(C.gpointer(carg1))
@@ -11902,7 +12531,7 @@ func UuidStringIsValid(str string) bool {
 }
 
 // UuidStringRandom wraps g_uuid_string_random
-// 
+//
 // see also https://docs.gtk.org/glib/func.g_uuid_string_random.html
 func UuidStringRandom() string {
 	var cret *C.gchar // return, full, string
@@ -11918,7 +12547,7 @@ func UuidStringRandom() string {
 }
 
 // AsyncQueue wraps GAsyncQueue
-// 
+//
 // see also https://docs.gtk.org/glib/struct.AsyncQueue.html
 type AsyncQueue struct {
 	*asyncQueue
@@ -11955,7 +12584,7 @@ func UnsafeAsyncQueueFromGlibNone(p unsafe.Pointer) *AsyncQueue {
 
 	runtime.SetFinalizer(
 		wrapped.asyncQueue,
-		func (intern *asyncQueue) {
+		func(intern *asyncQueue) {
 			C.g_async_queue_unref(intern.native)
 		},
 	)
@@ -11970,7 +12599,7 @@ func UnsafeAsyncQueueFromGlibFull(p unsafe.Pointer) *AsyncQueue {
 	}
 	runtime.SetFinalizer(
 		wrapped.asyncQueue,
-		func (intern *asyncQueue) {
+		func(intern *asyncQueue) {
 			C.g_async_queue_unref(intern.native)
 		},
 	)
@@ -11978,14 +12607,14 @@ func UnsafeAsyncQueueFromGlibFull(p unsafe.Pointer) *AsyncQueue {
 }
 
 // UnsafeAsyncQueueRef increases the refcount on the underlying resource.
-// 
+//
 // When this is called without an associated call to [AsyncQueue.UnsafeAsyncQueueUnref], then [AsyncQueue] will leak memory.
 func UnsafeAsyncQueueRef(a *AsyncQueue) {
 	C.g_async_queue_ref((*C.GAsyncQueue)(a.native))
 }
 
 // UnsafeAsyncQueueUnref unrefs/frees the underlying resource. This can be used to remove the instance before the GC decides to do so.
-// 
+//
 // After this is called, no other method on [AsyncQueue] is expected to work anymore.
 func UnsafeAsyncQueueUnref(a *AsyncQueue) {
 	C.g_async_queue_unref(a.native)
@@ -12013,7 +12642,7 @@ func UnsafeAsyncQueueToGlibFull(a *AsyncQueue) unsafe.Pointer {
 }
 
 // NewAsyncQueue wraps g_async_queue_new
-// 
+//
 // see also https://docs.gtk.org/glib/func.g_async_queue_new.html
 func NewAsyncQueue() *AsyncQueue {
 	var cret *C.GAsyncQueue // return, full, converted
@@ -12028,11 +12657,11 @@ func NewAsyncQueue() *AsyncQueue {
 }
 
 // Length wraps g_async_queue_length
-// 
+//
 // see also https://docs.gtk.org/glib/method.g_async_queue_length.g_async_queue_length.html
 func (queue *AsyncQueue) Length() int32 {
 	var carg0 *C.GAsyncQueue // in, none, converted
-	var cret  C.gint         // return, none, casted
+	var cret C.gint          // return, none, casted
 
 	carg0 = (*C.GAsyncQueue)(UnsafeAsyncQueueToGlibNone(queue))
 
@@ -12047,11 +12676,11 @@ func (queue *AsyncQueue) Length() int32 {
 }
 
 // LengthUnlocked wraps g_async_queue_length_unlocked
-// 
+//
 // see also https://docs.gtk.org/glib/method.g_async_queue_length_unlocked.g_async_queue_length_unlocked.html
 func (queue *AsyncQueue) LengthUnlocked() int32 {
 	var carg0 *C.GAsyncQueue // in, none, converted
-	var cret  C.gint         // return, none, casted
+	var cret C.gint          // return, none, casted
 
 	carg0 = (*C.GAsyncQueue)(UnsafeAsyncQueueToGlibNone(queue))
 
@@ -12066,7 +12695,7 @@ func (queue *AsyncQueue) LengthUnlocked() int32 {
 }
 
 // Lock wraps g_async_queue_lock
-// 
+//
 // see also https://docs.gtk.org/glib/method.g_async_queue_lock.g_async_queue_lock.html
 func (queue *AsyncQueue) Lock() {
 	var carg0 *C.GAsyncQueue // in, none, converted
@@ -12078,7 +12707,7 @@ func (queue *AsyncQueue) Lock() {
 }
 
 // Unlock wraps g_async_queue_unlock
-// 
+//
 // see also https://docs.gtk.org/glib/method.g_async_queue_unlock.g_async_queue_unlock.html
 func (queue *AsyncQueue) Unlock() {
 	var carg0 *C.GAsyncQueue // in, none, converted
@@ -12090,7 +12719,7 @@ func (queue *AsyncQueue) Unlock() {
 }
 
 // BookmarkFile wraps GBookmarkFile
-// 
+//
 // see also https://docs.gtk.org/glib/struct.BookmarkFile.html
 type BookmarkFile struct {
 	*bookmarkFile
@@ -12125,7 +12754,6 @@ func UnsafeBookmarkFileFromGlibNone(p unsafe.Pointer) *BookmarkFile {
 	}
 
 	return wrapped.Copy() // create an owned copy
-
 }
 
 // UnsafeBookmarkFileFromGlibFull is used to convert raw C.GBookmarkFile pointers to go while taking ownership. This is used by the bindings internally.
@@ -12136,7 +12764,7 @@ func UnsafeBookmarkFileFromGlibFull(p unsafe.Pointer) *BookmarkFile {
 	}
 	runtime.SetFinalizer(
 		wrapped.bookmarkFile,
-		func (intern *bookmarkFile) {
+		func(intern *bookmarkFile) {
 			C.g_bookmark_file_free(intern.native)
 		},
 	)
@@ -12144,7 +12772,7 @@ func UnsafeBookmarkFileFromGlibFull(p unsafe.Pointer) *BookmarkFile {
 }
 
 // UnsafeBookmarkFileFree unrefs/frees the underlying resource. This can be used to remove the instance before the GC decides to do so.
-// 
+//
 // After this is called, no other method on [BookmarkFile] is expected to work anymore.
 func UnsafeBookmarkFileFree(b *BookmarkFile) {
 	C.g_bookmark_file_free(b.native)
@@ -12172,7 +12800,7 @@ func UnsafeBookmarkFileToGlibFull(b *BookmarkFile) unsafe.Pointer {
 }
 
 // NewBookmarkFile wraps g_bookmark_file_new
-// 
+//
 // see also https://docs.gtk.org/glib/func.g_bookmark_file_new.html
 func NewBookmarkFile() *BookmarkFile {
 	var cret *C.GBookmarkFile // return, full, converted
@@ -12187,7 +12815,7 @@ func NewBookmarkFile() *BookmarkFile {
 }
 
 // BookmarkFileErrorQuark wraps g_bookmark_file_error_quark
-// 
+//
 // see also https://docs.gtk.org/glib/func.g_bookmark_file_error_quark.html
 func BookmarkFileErrorQuark() Quark {
 	var cret C.GQuark // return, none, casted, alias
@@ -12202,7 +12830,7 @@ func BookmarkFileErrorQuark() Quark {
 }
 
 // AddApplication wraps g_bookmark_file_add_application
-// 
+//
 // see also https://docs.gtk.org/glib/method.g_bookmark_file_add_application.g_bookmark_file_add_application.html
 func (bookmark *BookmarkFile) AddApplication(uri string, name string, exec string) {
 	var carg0 *C.GBookmarkFile // in, none, converted
@@ -12230,7 +12858,7 @@ func (bookmark *BookmarkFile) AddApplication(uri string, name string, exec strin
 }
 
 // AddGroup wraps g_bookmark_file_add_group
-// 
+//
 // see also https://docs.gtk.org/glib/method.g_bookmark_file_add_group.g_bookmark_file_add_group.html
 func (bookmark *BookmarkFile) AddGroup(uri string, group string) {
 	var carg0 *C.GBookmarkFile // in, none, converted
@@ -12250,11 +12878,11 @@ func (bookmark *BookmarkFile) AddGroup(uri string, group string) {
 }
 
 // Copy wraps g_bookmark_file_copy
-// 
+//
 // see also https://docs.gtk.org/glib/method.g_bookmark_file_copy.g_bookmark_file_copy.html
 func (bookmark *BookmarkFile) Copy() *BookmarkFile {
 	var carg0 *C.GBookmarkFile // in, none, converted
-	var cret  *C.GBookmarkFile // return, full, converted
+	var cret *C.GBookmarkFile  // return, full, converted
 
 	carg0 = (*C.GBookmarkFile)(UnsafeBookmarkFileToGlibNone(bookmark))
 
@@ -12269,13 +12897,13 @@ func (bookmark *BookmarkFile) Copy() *BookmarkFile {
 }
 
 // GetApplications wraps g_bookmark_file_get_applications
-// 
+//
 // see also https://docs.gtk.org/glib/method.g_bookmark_file_get_applications.g_bookmark_file_get_applications.html
 func (bookmark *BookmarkFile) GetApplications(uri string) (uint, []string, error) {
 	var carg0 *C.GBookmarkFile // in, none, converted
 	var carg1 *C.gchar         // in, none, string
 	var carg2 C.gsize          // out, full, casted
-	var cret  **C.gchar        // return, transfer: full, C Pointers: 2, Name: array[utf8], scope: , nullable, array (inner gchar* (*typesystem.StringPrimitive))
+	var cret **C.gchar         // return, transfer: full, C Pointers: 2, Name: array[utf8], nullable, array (inner gchar* (*typesystem.StringPrimitive))
 	var _cerr *C.GError        // out, full, converted, nullable
 
 	carg0 = (*C.GBookmarkFile)(UnsafeBookmarkFileToGlibNone(bookmark))
@@ -12287,7 +12915,7 @@ func (bookmark *BookmarkFile) GetApplications(uri string) (uint, []string, error
 	runtime.KeepAlive(uri)
 
 	var length uint
-	var goret  []string
+	var goret []string
 	var _goerr error
 
 	length = uint(carg2)
@@ -12302,12 +12930,12 @@ func (bookmark *BookmarkFile) GetApplications(uri string) (uint, []string, error
 }
 
 // GetDescription wraps g_bookmark_file_get_description
-// 
+//
 // see also https://docs.gtk.org/glib/method.g_bookmark_file_get_description.g_bookmark_file_get_description.html
 func (bookmark *BookmarkFile) GetDescription(uri string) (string, error) {
 	var carg0 *C.GBookmarkFile // in, none, converted
 	var carg1 *C.gchar         // in, none, string
-	var cret  *C.gchar         // return, full, string, nullable-string
+	var cret *C.gchar          // return, full, string, nullable-string
 	var _cerr *C.GError        // out, full, converted, nullable
 
 	carg0 = (*C.GBookmarkFile)(UnsafeBookmarkFileToGlibNone(bookmark))
@@ -12318,7 +12946,7 @@ func (bookmark *BookmarkFile) GetDescription(uri string) (string, error) {
 	runtime.KeepAlive(bookmark)
 	runtime.KeepAlive(uri)
 
-	var goret  string
+	var goret string
 	var _goerr error
 
 	if cret != nil {
@@ -12333,13 +12961,13 @@ func (bookmark *BookmarkFile) GetDescription(uri string) (string, error) {
 }
 
 // GetGroups wraps g_bookmark_file_get_groups
-// 
+//
 // see also https://docs.gtk.org/glib/method.g_bookmark_file_get_groups.g_bookmark_file_get_groups.html
 func (bookmark *BookmarkFile) GetGroups(uri string) (uint, []string, error) {
 	var carg0 *C.GBookmarkFile // in, none, converted
 	var carg1 *C.gchar         // in, none, string
 	var carg2 C.gsize          // out, full, casted
-	var cret  **C.gchar        // return, transfer: full, C Pointers: 2, Name: array[utf8], scope: , nullable, array (inner gchar* (*typesystem.StringPrimitive))
+	var cret **C.gchar         // return, transfer: full, C Pointers: 2, Name: array[utf8], nullable, array (inner gchar* (*typesystem.StringPrimitive))
 	var _cerr *C.GError        // out, full, converted, nullable
 
 	carg0 = (*C.GBookmarkFile)(UnsafeBookmarkFileToGlibNone(bookmark))
@@ -12351,7 +12979,7 @@ func (bookmark *BookmarkFile) GetGroups(uri string) (uint, []string, error) {
 	runtime.KeepAlive(uri)
 
 	var length uint
-	var goret  []string
+	var goret []string
 	var _goerr error
 
 	length = uint(carg2)
@@ -12366,14 +12994,14 @@ func (bookmark *BookmarkFile) GetGroups(uri string) (uint, []string, error) {
 }
 
 // GetIcon wraps g_bookmark_file_get_icon
-// 
+//
 // see also https://docs.gtk.org/glib/method.g_bookmark_file_get_icon.g_bookmark_file_get_icon.html
 func (bookmark *BookmarkFile) GetIcon(uri string) (string, string, bool, error) {
 	var carg0 *C.GBookmarkFile // in, none, converted
 	var carg1 *C.gchar         // in, none, string
 	var carg2 *C.gchar         // out, full, string
 	var carg3 *C.gchar         // out, full, string
-	var cret  C.gboolean       // return
+	var cret C.gboolean        // return
 	var _cerr *C.GError        // out, full, converted, nullable
 
 	carg0 = (*C.GBookmarkFile)(UnsafeBookmarkFileToGlibNone(bookmark))
@@ -12384,10 +13012,10 @@ func (bookmark *BookmarkFile) GetIcon(uri string) (string, string, bool, error) 
 	runtime.KeepAlive(bookmark)
 	runtime.KeepAlive(uri)
 
-	var href     string
+	var href string
 	var mimeType string
-	var goret    bool
-	var _goerr   error
+	var goret bool
+	var _goerr error
 
 	href = C.GoString((*C.char)(unsafe.Pointer(carg2)))
 	defer C.g_free(C.gpointer(carg2))
@@ -12404,12 +13032,12 @@ func (bookmark *BookmarkFile) GetIcon(uri string) (string, string, bool, error) 
 }
 
 // GetIsPrivate wraps g_bookmark_file_get_is_private
-// 
+//
 // see also https://docs.gtk.org/glib/method.g_bookmark_file_get_is_private.g_bookmark_file_get_is_private.html
 func (bookmark *BookmarkFile) GetIsPrivate(uri string) (bool, error) {
 	var carg0 *C.GBookmarkFile // in, none, converted
 	var carg1 *C.gchar         // in, none, string
-	var cret  C.gboolean       // return
+	var cret C.gboolean        // return
 	var _cerr *C.GError        // out, full, converted, nullable
 
 	carg0 = (*C.GBookmarkFile)(UnsafeBookmarkFileToGlibNone(bookmark))
@@ -12420,7 +13048,7 @@ func (bookmark *BookmarkFile) GetIsPrivate(uri string) (bool, error) {
 	runtime.KeepAlive(bookmark)
 	runtime.KeepAlive(uri)
 
-	var goret  bool
+	var goret bool
 	var _goerr error
 
 	if cret != 0 {
@@ -12434,12 +13062,12 @@ func (bookmark *BookmarkFile) GetIsPrivate(uri string) (bool, error) {
 }
 
 // GetMimeType wraps g_bookmark_file_get_mime_type
-// 
+//
 // see also https://docs.gtk.org/glib/method.g_bookmark_file_get_mime_type.g_bookmark_file_get_mime_type.html
 func (bookmark *BookmarkFile) GetMimeType(uri string) (string, error) {
 	var carg0 *C.GBookmarkFile // in, none, converted
 	var carg1 *C.gchar         // in, none, string
-	var cret  *C.gchar         // return, full, string, nullable-string
+	var cret *C.gchar          // return, full, string, nullable-string
 	var _cerr *C.GError        // out, full, converted, nullable
 
 	carg0 = (*C.GBookmarkFile)(UnsafeBookmarkFileToGlibNone(bookmark))
@@ -12450,7 +13078,7 @@ func (bookmark *BookmarkFile) GetMimeType(uri string) (string, error) {
 	runtime.KeepAlive(bookmark)
 	runtime.KeepAlive(uri)
 
-	var goret  string
+	var goret string
 	var _goerr error
 
 	if cret != nil {
@@ -12465,11 +13093,11 @@ func (bookmark *BookmarkFile) GetMimeType(uri string) (string, error) {
 }
 
 // GetSize wraps g_bookmark_file_get_size
-// 
+//
 // see also https://docs.gtk.org/glib/method.g_bookmark_file_get_size.g_bookmark_file_get_size.html
 func (bookmark *BookmarkFile) GetSize() int32 {
 	var carg0 *C.GBookmarkFile // in, none, converted
-	var cret  C.gint           // return, none, casted
+	var cret C.gint            // return, none, casted
 
 	carg0 = (*C.GBookmarkFile)(UnsafeBookmarkFileToGlibNone(bookmark))
 
@@ -12484,12 +13112,12 @@ func (bookmark *BookmarkFile) GetSize() int32 {
 }
 
 // GetTitle wraps g_bookmark_file_get_title
-// 
+//
 // see also https://docs.gtk.org/glib/method.g_bookmark_file_get_title.g_bookmark_file_get_title.html
 func (bookmark *BookmarkFile) GetTitle(uri string) (string, error) {
 	var carg0 *C.GBookmarkFile // in, none, converted
 	var carg1 *C.gchar         // in, none, string, nullable-string
-	var cret  *C.gchar         // return, full, string, nullable-string
+	var cret *C.gchar          // return, full, string, nullable-string
 	var _cerr *C.GError        // out, full, converted, nullable
 
 	carg0 = (*C.GBookmarkFile)(UnsafeBookmarkFileToGlibNone(bookmark))
@@ -12502,7 +13130,7 @@ func (bookmark *BookmarkFile) GetTitle(uri string) (string, error) {
 	runtime.KeepAlive(bookmark)
 	runtime.KeepAlive(uri)
 
-	var goret  string
+	var goret string
 	var _goerr error
 
 	if cret != nil {
@@ -12517,12 +13145,12 @@ func (bookmark *BookmarkFile) GetTitle(uri string) (string, error) {
 }
 
 // GetUris wraps g_bookmark_file_get_uris
-// 
+//
 // see also https://docs.gtk.org/glib/method.g_bookmark_file_get_uris.g_bookmark_file_get_uris.html
 func (bookmark *BookmarkFile) GetUris() (uint, []string) {
 	var carg0 *C.GBookmarkFile // in, none, converted
 	var carg1 C.gsize          // out, full, casted
-	var cret  **C.gchar        // return, transfer: full, C Pointers: 2, Name: array[utf8], scope: , array (inner gchar* (*typesystem.StringPrimitive))
+	var cret **C.gchar         // return, transfer: full, C Pointers: 2, Name: array[utf8], array (inner gchar* (*typesystem.StringPrimitive))
 
 	carg0 = (*C.GBookmarkFile)(UnsafeBookmarkFileToGlibNone(bookmark))
 
@@ -12530,7 +13158,7 @@ func (bookmark *BookmarkFile) GetUris() (uint, []string) {
 	runtime.KeepAlive(bookmark)
 
 	var length uint
-	var goret  []string
+	var goret []string
 
 	length = uint(carg1)
 	_ = goret
@@ -12541,13 +13169,13 @@ func (bookmark *BookmarkFile) GetUris() (uint, []string) {
 }
 
 // HasApplication wraps g_bookmark_file_has_application
-// 
+//
 // see also https://docs.gtk.org/glib/method.g_bookmark_file_has_application.g_bookmark_file_has_application.html
 func (bookmark *BookmarkFile) HasApplication(uri string, name string) (bool, error) {
 	var carg0 *C.GBookmarkFile // in, none, converted
 	var carg1 *C.gchar         // in, none, string
 	var carg2 *C.gchar         // in, none, string
-	var cret  C.gboolean       // return
+	var cret C.gboolean        // return
 	var _cerr *C.GError        // out, full, converted, nullable
 
 	carg0 = (*C.GBookmarkFile)(UnsafeBookmarkFileToGlibNone(bookmark))
@@ -12561,7 +13189,7 @@ func (bookmark *BookmarkFile) HasApplication(uri string, name string) (bool, err
 	runtime.KeepAlive(uri)
 	runtime.KeepAlive(name)
 
-	var goret  bool
+	var goret bool
 	var _goerr error
 
 	if cret != 0 {
@@ -12575,13 +13203,13 @@ func (bookmark *BookmarkFile) HasApplication(uri string, name string) (bool, err
 }
 
 // HasGroup wraps g_bookmark_file_has_group
-// 
+//
 // see also https://docs.gtk.org/glib/method.g_bookmark_file_has_group.g_bookmark_file_has_group.html
 func (bookmark *BookmarkFile) HasGroup(uri string, group string) (bool, error) {
 	var carg0 *C.GBookmarkFile // in, none, converted
 	var carg1 *C.gchar         // in, none, string
 	var carg2 *C.gchar         // in, none, string
-	var cret  C.gboolean       // return
+	var cret C.gboolean        // return
 	var _cerr *C.GError        // out, full, converted, nullable
 
 	carg0 = (*C.GBookmarkFile)(UnsafeBookmarkFileToGlibNone(bookmark))
@@ -12595,7 +13223,7 @@ func (bookmark *BookmarkFile) HasGroup(uri string, group string) (bool, error) {
 	runtime.KeepAlive(uri)
 	runtime.KeepAlive(group)
 
-	var goret  bool
+	var goret bool
 	var _goerr error
 
 	if cret != 0 {
@@ -12609,12 +13237,12 @@ func (bookmark *BookmarkFile) HasGroup(uri string, group string) (bool, error) {
 }
 
 // HasItem wraps g_bookmark_file_has_item
-// 
+//
 // see also https://docs.gtk.org/glib/method.g_bookmark_file_has_item.g_bookmark_file_has_item.html
 func (bookmark *BookmarkFile) HasItem(uri string) bool {
 	var carg0 *C.GBookmarkFile // in, none, converted
 	var carg1 *C.gchar         // in, none, string
-	var cret  C.gboolean       // return
+	var cret C.gboolean        // return
 
 	carg0 = (*C.GBookmarkFile)(UnsafeBookmarkFileToGlibNone(bookmark))
 	carg1 = (*C.gchar)(transfer.GLibString(uri))
@@ -12634,13 +13262,13 @@ func (bookmark *BookmarkFile) HasItem(uri string) bool {
 }
 
 // LoadFromData wraps g_bookmark_file_load_from_data
-// 
+//
 // see also https://docs.gtk.org/glib/method.g_bookmark_file_load_from_data.g_bookmark_file_load_from_data.html
 func (bookmark *BookmarkFile) LoadFromData(data string) (bool, error) {
 	var carg0 *C.GBookmarkFile // in, none, converted
 	var carg1 *C.gchar         // in, transfer: none, C Pointers: 1, Name: array[unknown], array (inner unknown, length-by: carg2)
 	var carg2 C.gsize          // implicit
-	var cret  C.gboolean       // return
+	var cret C.gboolean        // return
 	var _cerr *C.GError        // out, full, converted, nullable
 
 	carg0 = (*C.GBookmarkFile)(UnsafeBookmarkFileToGlibNone(bookmark))
@@ -12653,7 +13281,7 @@ func (bookmark *BookmarkFile) LoadFromData(data string) (bool, error) {
 	runtime.KeepAlive(bookmark)
 	runtime.KeepAlive(data)
 
-	var goret  bool
+	var goret bool
 	var _goerr error
 
 	if cret != 0 {
@@ -12667,13 +13295,13 @@ func (bookmark *BookmarkFile) LoadFromData(data string) (bool, error) {
 }
 
 // LoadFromDataDirs wraps g_bookmark_file_load_from_data_dirs
-// 
+//
 // see also https://docs.gtk.org/glib/method.g_bookmark_file_load_from_data_dirs.g_bookmark_file_load_from_data_dirs.html
 func (bookmark *BookmarkFile) LoadFromDataDirs(file string) (string, bool, error) {
 	var carg0 *C.GBookmarkFile // in, none, converted
 	var carg1 *C.gchar         // in, none, string
 	var carg2 *C.gchar         // out, full, string
-	var cret  C.gboolean       // return
+	var cret C.gboolean        // return
 	var _cerr *C.GError        // out, full, converted, nullable
 
 	carg0 = (*C.GBookmarkFile)(UnsafeBookmarkFileToGlibNone(bookmark))
@@ -12685,8 +13313,8 @@ func (bookmark *BookmarkFile) LoadFromDataDirs(file string) (string, bool, error
 	runtime.KeepAlive(file)
 
 	var fullPath string
-	var goret    bool
-	var _goerr   error
+	var goret bool
+	var _goerr error
 
 	fullPath = C.GoString((*C.char)(unsafe.Pointer(carg2)))
 	defer C.g_free(C.gpointer(carg2))
@@ -12701,12 +13329,12 @@ func (bookmark *BookmarkFile) LoadFromDataDirs(file string) (string, bool, error
 }
 
 // LoadFromFile wraps g_bookmark_file_load_from_file
-// 
+//
 // see also https://docs.gtk.org/glib/method.g_bookmark_file_load_from_file.g_bookmark_file_load_from_file.html
 func (bookmark *BookmarkFile) LoadFromFile(filename string) (bool, error) {
 	var carg0 *C.GBookmarkFile // in, none, converted
 	var carg1 *C.gchar         // in, none, string
-	var cret  C.gboolean       // return
+	var cret C.gboolean        // return
 	var _cerr *C.GError        // out, full, converted, nullable
 
 	carg0 = (*C.GBookmarkFile)(UnsafeBookmarkFileToGlibNone(bookmark))
@@ -12717,7 +13345,7 @@ func (bookmark *BookmarkFile) LoadFromFile(filename string) (bool, error) {
 	runtime.KeepAlive(bookmark)
 	runtime.KeepAlive(filename)
 
-	var goret  bool
+	var goret bool
 	var _goerr error
 
 	if cret != 0 {
@@ -12731,13 +13359,13 @@ func (bookmark *BookmarkFile) LoadFromFile(filename string) (bool, error) {
 }
 
 // MoveItem wraps g_bookmark_file_move_item
-// 
+//
 // see also https://docs.gtk.org/glib/method.g_bookmark_file_move_item.g_bookmark_file_move_item.html
 func (bookmark *BookmarkFile) MoveItem(oldUri string, newUri string) (bool, error) {
 	var carg0 *C.GBookmarkFile // in, none, converted
 	var carg1 *C.gchar         // in, none, string
 	var carg2 *C.gchar         // in, none, string, nullable-string
-	var cret  C.gboolean       // return
+	var cret C.gboolean        // return
 	var _cerr *C.GError        // out, full, converted, nullable
 
 	carg0 = (*C.GBookmarkFile)(UnsafeBookmarkFileToGlibNone(bookmark))
@@ -12753,7 +13381,7 @@ func (bookmark *BookmarkFile) MoveItem(oldUri string, newUri string) (bool, erro
 	runtime.KeepAlive(oldUri)
 	runtime.KeepAlive(newUri)
 
-	var goret  bool
+	var goret bool
 	var _goerr error
 
 	if cret != 0 {
@@ -12767,13 +13395,13 @@ func (bookmark *BookmarkFile) MoveItem(oldUri string, newUri string) (bool, erro
 }
 
 // RemoveApplication wraps g_bookmark_file_remove_application
-// 
+//
 // see also https://docs.gtk.org/glib/method.g_bookmark_file_remove_application.g_bookmark_file_remove_application.html
 func (bookmark *BookmarkFile) RemoveApplication(uri string, name string) (bool, error) {
 	var carg0 *C.GBookmarkFile // in, none, converted
 	var carg1 *C.gchar         // in, none, string
 	var carg2 *C.gchar         // in, none, string
-	var cret  C.gboolean       // return
+	var cret C.gboolean        // return
 	var _cerr *C.GError        // out, full, converted, nullable
 
 	carg0 = (*C.GBookmarkFile)(UnsafeBookmarkFileToGlibNone(bookmark))
@@ -12787,7 +13415,7 @@ func (bookmark *BookmarkFile) RemoveApplication(uri string, name string) (bool, 
 	runtime.KeepAlive(uri)
 	runtime.KeepAlive(name)
 
-	var goret  bool
+	var goret bool
 	var _goerr error
 
 	if cret != 0 {
@@ -12801,13 +13429,13 @@ func (bookmark *BookmarkFile) RemoveApplication(uri string, name string) (bool, 
 }
 
 // RemoveGroup wraps g_bookmark_file_remove_group
-// 
+//
 // see also https://docs.gtk.org/glib/method.g_bookmark_file_remove_group.g_bookmark_file_remove_group.html
 func (bookmark *BookmarkFile) RemoveGroup(uri string, group string) (bool, error) {
 	var carg0 *C.GBookmarkFile // in, none, converted
 	var carg1 *C.gchar         // in, none, string
 	var carg2 *C.gchar         // in, none, string
-	var cret  C.gboolean       // return
+	var cret C.gboolean        // return
 	var _cerr *C.GError        // out, full, converted, nullable
 
 	carg0 = (*C.GBookmarkFile)(UnsafeBookmarkFileToGlibNone(bookmark))
@@ -12821,7 +13449,7 @@ func (bookmark *BookmarkFile) RemoveGroup(uri string, group string) (bool, error
 	runtime.KeepAlive(uri)
 	runtime.KeepAlive(group)
 
-	var goret  bool
+	var goret bool
 	var _goerr error
 
 	if cret != 0 {
@@ -12835,12 +13463,12 @@ func (bookmark *BookmarkFile) RemoveGroup(uri string, group string) (bool, error
 }
 
 // RemoveItem wraps g_bookmark_file_remove_item
-// 
+//
 // see also https://docs.gtk.org/glib/method.g_bookmark_file_remove_item.g_bookmark_file_remove_item.html
 func (bookmark *BookmarkFile) RemoveItem(uri string) (bool, error) {
 	var carg0 *C.GBookmarkFile // in, none, converted
 	var carg1 *C.gchar         // in, none, string
-	var cret  C.gboolean       // return
+	var cret C.gboolean        // return
 	var _cerr *C.GError        // out, full, converted, nullable
 
 	carg0 = (*C.GBookmarkFile)(UnsafeBookmarkFileToGlibNone(bookmark))
@@ -12851,7 +13479,7 @@ func (bookmark *BookmarkFile) RemoveItem(uri string) (bool, error) {
 	runtime.KeepAlive(bookmark)
 	runtime.KeepAlive(uri)
 
-	var goret  bool
+	var goret bool
 	var _goerr error
 
 	if cret != 0 {
@@ -12865,7 +13493,7 @@ func (bookmark *BookmarkFile) RemoveItem(uri string) (bool, error) {
 }
 
 // SetDescription wraps g_bookmark_file_set_description
-// 
+//
 // see also https://docs.gtk.org/glib/method.g_bookmark_file_set_description.g_bookmark_file_set_description.html
 func (bookmark *BookmarkFile) SetDescription(uri string, description string) {
 	var carg0 *C.GBookmarkFile // in, none, converted
@@ -12887,7 +13515,7 @@ func (bookmark *BookmarkFile) SetDescription(uri string, description string) {
 }
 
 // SetGroups wraps g_bookmark_file_set_groups
-// 
+//
 // see also https://docs.gtk.org/glib/method.g_bookmark_file_set_groups.g_bookmark_file_set_groups.html
 func (bookmark *BookmarkFile) SetGroups(uri string, groups []string) {
 	var carg0 *C.GBookmarkFile // in, none, converted
@@ -12910,7 +13538,7 @@ func (bookmark *BookmarkFile) SetGroups(uri string, groups []string) {
 }
 
 // SetIcon wraps g_bookmark_file_set_icon
-// 
+//
 // see also https://docs.gtk.org/glib/method.g_bookmark_file_set_icon.g_bookmark_file_set_icon.html
 func (bookmark *BookmarkFile) SetIcon(uri string, href string, mimeType string) {
 	var carg0 *C.GBookmarkFile // in, none, converted
@@ -12936,7 +13564,7 @@ func (bookmark *BookmarkFile) SetIcon(uri string, href string, mimeType string) 
 }
 
 // SetIsPrivate wraps g_bookmark_file_set_is_private
-// 
+//
 // see also https://docs.gtk.org/glib/method.g_bookmark_file_set_is_private.g_bookmark_file_set_is_private.html
 func (bookmark *BookmarkFile) SetIsPrivate(uri string, isPrivate bool) {
 	var carg0 *C.GBookmarkFile // in, none, converted
@@ -12957,7 +13585,7 @@ func (bookmark *BookmarkFile) SetIsPrivate(uri string, isPrivate bool) {
 }
 
 // SetMimeType wraps g_bookmark_file_set_mime_type
-// 
+//
 // see also https://docs.gtk.org/glib/method.g_bookmark_file_set_mime_type.g_bookmark_file_set_mime_type.html
 func (bookmark *BookmarkFile) SetMimeType(uri string, mimeType string) {
 	var carg0 *C.GBookmarkFile // in, none, converted
@@ -12977,7 +13605,7 @@ func (bookmark *BookmarkFile) SetMimeType(uri string, mimeType string) {
 }
 
 // SetTitle wraps g_bookmark_file_set_title
-// 
+//
 // see also https://docs.gtk.org/glib/method.g_bookmark_file_set_title.g_bookmark_file_set_title.html
 func (bookmark *BookmarkFile) SetTitle(uri string, title string) {
 	var carg0 *C.GBookmarkFile // in, none, converted
@@ -12999,12 +13627,12 @@ func (bookmark *BookmarkFile) SetTitle(uri string, title string) {
 }
 
 // ToData wraps g_bookmark_file_to_data
-// 
+//
 // see also https://docs.gtk.org/glib/method.g_bookmark_file_to_data.g_bookmark_file_to_data.html
 func (bookmark *BookmarkFile) ToData() (uint, string, error) {
 	var carg0 *C.GBookmarkFile // in, none, converted
 	var carg1 C.gsize          // out, full, casted
-	var cret  *C.gchar         // return, transfer: full, C Pointers: 1, Name: array[unknown], scope: , nullable, array (inner unknown)
+	var cret *C.gchar          // return, transfer: full, C Pointers: 1, Name: array[unknown], nullable, array (inner unknown)
 	var _cerr *C.GError        // out, full, converted, nullable
 
 	carg0 = (*C.GBookmarkFile)(UnsafeBookmarkFileToGlibNone(bookmark))
@@ -13013,7 +13641,7 @@ func (bookmark *BookmarkFile) ToData() (uint, string, error) {
 	runtime.KeepAlive(bookmark)
 
 	var length uint
-	var goret  string
+	var goret string
 	var _goerr error
 
 	length = uint(carg1)
@@ -13028,12 +13656,12 @@ func (bookmark *BookmarkFile) ToData() (uint, string, error) {
 }
 
 // ToFile wraps g_bookmark_file_to_file
-// 
+//
 // see also https://docs.gtk.org/glib/method.g_bookmark_file_to_file.g_bookmark_file_to_file.html
 func (bookmark *BookmarkFile) ToFile(filename string) (bool, error) {
 	var carg0 *C.GBookmarkFile // in, none, converted
 	var carg1 *C.gchar         // in, none, string
-	var cret  C.gboolean       // return
+	var cret C.gboolean        // return
 	var _cerr *C.GError        // out, full, converted, nullable
 
 	carg0 = (*C.GBookmarkFile)(UnsafeBookmarkFileToGlibNone(bookmark))
@@ -13044,7 +13672,7 @@ func (bookmark *BookmarkFile) ToFile(filename string) (bool, error) {
 	runtime.KeepAlive(bookmark)
 	runtime.KeepAlive(filename)
 
-	var goret  bool
+	var goret bool
 	var _goerr error
 
 	if cret != 0 {
@@ -13058,7 +13686,7 @@ func (bookmark *BookmarkFile) ToFile(filename string) (bool, error) {
 }
 
 // ByteArray wraps GByteArray
-// 
+//
 // see also https://docs.gtk.org/glib/struct.ByteArray.html
 type ByteArray struct {
 	*byteArray
@@ -13104,7 +13732,7 @@ func UnsafeByteArrayFromGlibFull(p unsafe.Pointer) *ByteArray {
 	}
 	runtime.SetFinalizer(
 		wrapped.byteArray,
-		func (intern *byteArray) {
+		func(intern *byteArray) {
 			C.free(unsafe.Pointer(intern.native))
 		},
 	)
@@ -13112,7 +13740,7 @@ func UnsafeByteArrayFromGlibFull(p unsafe.Pointer) *ByteArray {
 }
 
 // UnsafeByteArrayFree unrefs/frees the underlying resource. This can be used to remove the instance before the GC decides to do so.
-// 
+//
 // After this is called, no other method on [ByteArray] is expected to work anymore.
 func UnsafeByteArrayFree(b *ByteArray) {
 	C.free(unsafe.Pointer(b.native))
@@ -13140,7 +13768,7 @@ func UnsafeByteArrayToGlibFull(b *ByteArray) unsafe.Pointer {
 }
 
 // Bytes wraps GBytes
-// 
+//
 // see also https://docs.gtk.org/glib/struct.Bytes.html
 type Bytes struct {
 	*bytes
@@ -13177,7 +13805,7 @@ func UnsafeBytesFromGlibNone(p unsafe.Pointer) *Bytes {
 
 	runtime.SetFinalizer(
 		wrapped.bytes,
-		func (intern *bytes) {
+		func(intern *bytes) {
 			C.g_bytes_unref(intern.native)
 		},
 	)
@@ -13192,7 +13820,7 @@ func UnsafeBytesFromGlibFull(p unsafe.Pointer) *Bytes {
 	}
 	runtime.SetFinalizer(
 		wrapped.bytes,
-		func (intern *bytes) {
+		func(intern *bytes) {
 			C.g_bytes_unref(intern.native)
 		},
 	)
@@ -13200,14 +13828,14 @@ func UnsafeBytesFromGlibFull(p unsafe.Pointer) *Bytes {
 }
 
 // UnsafeBytesRef increases the refcount on the underlying resource.
-// 
+//
 // When this is called without an associated call to [Bytes.UnsafeBytesUnref], then [Bytes] will leak memory.
 func UnsafeBytesRef(b *Bytes) {
 	C.g_bytes_ref((*C.GBytes)(b.native))
 }
 
 // UnsafeBytesUnref unrefs/frees the underlying resource. This can be used to remove the instance before the GC decides to do so.
-// 
+//
 // After this is called, no other method on [Bytes] is expected to work anymore.
 func UnsafeBytesUnref(b *Bytes) {
 	C.g_bytes_unref(b.native)
@@ -13235,11 +13863,11 @@ func UnsafeBytesToGlibFull(b *Bytes) unsafe.Pointer {
 }
 
 // GetSize wraps g_bytes_get_size
-// 
+//
 // see also https://docs.gtk.org/glib/method.g_bytes_get_size.g_bytes_get_size.html
 func (bytes *Bytes) GetSize() uint {
 	var carg0 *C.GBytes // in, none, converted
-	var cret  C.gsize   // return, none, casted
+	var cret C.gsize    // return, none, casted
 
 	carg0 = (*C.GBytes)(UnsafeBytesToGlibNone(bytes))
 
@@ -13254,13 +13882,13 @@ func (bytes *Bytes) GetSize() uint {
 }
 
 // NewFromBytes wraps g_bytes_new_from_bytes
-// 
+//
 // see also https://docs.gtk.org/glib/method.g_bytes_new_from_bytes.g_bytes_new_from_bytes.html
 func (bytes *Bytes) NewFromBytes(offset uint, length uint) *Bytes {
 	var carg0 *C.GBytes // in, none, converted
 	var carg1 C.gsize   // in, none, casted
 	var carg2 C.gsize   // in, none, casted
-	var cret  *C.GBytes // return, full, converted
+	var cret *C.GBytes  // return, full, converted
 
 	carg0 = (*C.GBytes)(UnsafeBytesToGlibNone(bytes))
 	carg1 = C.gsize(offset)
@@ -13279,7 +13907,7 @@ func (bytes *Bytes) NewFromBytes(offset uint, length uint) *Bytes {
 }
 
 // Checksum wraps GChecksum
-// 
+//
 // see also https://docs.gtk.org/glib/struct.Checksum.html
 type Checksum struct {
 	*checksum
@@ -13314,7 +13942,6 @@ func UnsafeChecksumFromGlibNone(p unsafe.Pointer) *Checksum {
 	}
 
 	return wrapped.Copy() // create an owned copy
-
 }
 
 // UnsafeChecksumFromGlibFull is used to convert raw C.GChecksum pointers to go while taking ownership. This is used by the bindings internally.
@@ -13325,7 +13952,7 @@ func UnsafeChecksumFromGlibFull(p unsafe.Pointer) *Checksum {
 	}
 	runtime.SetFinalizer(
 		wrapped.checksum,
-		func (intern *checksum) {
+		func(intern *checksum) {
 			C.g_checksum_free(intern.native)
 		},
 	)
@@ -13333,7 +13960,7 @@ func UnsafeChecksumFromGlibFull(p unsafe.Pointer) *Checksum {
 }
 
 // UnsafeChecksumFree unrefs/frees the underlying resource. This can be used to remove the instance before the GC decides to do so.
-// 
+//
 // After this is called, no other method on [Checksum] is expected to work anymore.
 func UnsafeChecksumFree(c *Checksum) {
 	C.g_checksum_free(c.native)
@@ -13361,11 +13988,11 @@ func UnsafeChecksumToGlibFull(c *Checksum) unsafe.Pointer {
 }
 
 // NewChecksum wraps g_checksum_new
-// 
+//
 // see also https://docs.gtk.org/glib/func.g_checksum_new.html
 func NewChecksum(checksumType ChecksumType) *Checksum {
 	var carg1 C.GChecksumType // in, none, casted
-	var cret  *C.GChecksum    // return, full, converted, nullable
+	var cret *C.GChecksum     // return, full, converted, nullable
 
 	carg1 = C.GChecksumType(checksumType)
 
@@ -13382,11 +14009,11 @@ func NewChecksum(checksumType ChecksumType) *Checksum {
 }
 
 // ChecksumTypeGetLength wraps g_checksum_type_get_length
-// 
+//
 // see also https://docs.gtk.org/glib/func.g_checksum_type_get_length.html
 func ChecksumTypeGetLength(checksumType ChecksumType) int {
 	var carg1 C.GChecksumType // in, none, casted
-	var cret  C.gssize        // return, none, casted
+	var cret C.gssize         // return, none, casted
 
 	carg1 = C.GChecksumType(checksumType)
 
@@ -13401,11 +14028,11 @@ func ChecksumTypeGetLength(checksumType ChecksumType) int {
 }
 
 // Copy wraps g_checksum_copy
-// 
+//
 // see also https://docs.gtk.org/glib/method.g_checksum_copy.g_checksum_copy.html
 func (checksum *Checksum) Copy() *Checksum {
 	var carg0 *C.GChecksum // in, none, converted
-	var cret  *C.GChecksum // return, full, converted
+	var cret *C.GChecksum  // return, full, converted
 
 	carg0 = (*C.GChecksum)(UnsafeChecksumToGlibNone(checksum))
 
@@ -13420,11 +14047,11 @@ func (checksum *Checksum) Copy() *Checksum {
 }
 
 // GetString wraps g_checksum_get_string
-// 
+//
 // see also https://docs.gtk.org/glib/method.g_checksum_get_string.g_checksum_get_string.html
 func (checksum *Checksum) GetString() string {
 	var carg0 *C.GChecksum // in, none, converted
-	var cret  *C.gchar     // return, none, string
+	var cret *C.gchar      // return, none, string
 
 	carg0 = (*C.GChecksum)(UnsafeChecksumToGlibNone(checksum))
 
@@ -13439,7 +14066,7 @@ func (checksum *Checksum) GetString() string {
 }
 
 // Reset wraps g_checksum_reset
-// 
+//
 // see also https://docs.gtk.org/glib/method.g_checksum_reset.g_checksum_reset.html
 func (checksum *Checksum) Reset() {
 	var carg0 *C.GChecksum // in, none, converted
@@ -13451,7 +14078,7 @@ func (checksum *Checksum) Reset() {
 }
 
 // Update wraps g_checksum_update
-// 
+//
 // see also https://docs.gtk.org/glib/method.g_checksum_update.g_checksum_update.html
 func (checksum *Checksum) Update(data []uint8) {
 	var carg0 *C.GChecksum // in, none, converted
@@ -13470,7 +14097,7 @@ func (checksum *Checksum) Update(data []uint8) {
 }
 
 // Cond wraps GCond
-// 
+//
 // see also https://docs.gtk.org/glib/struct.Cond.html
 type Cond struct {
 	*cond
@@ -13516,7 +14143,7 @@ func UnsafeCondFromGlibFull(p unsafe.Pointer) *Cond {
 	}
 	runtime.SetFinalizer(
 		wrapped.cond,
-		func (intern *cond) {
+		func(intern *cond) {
 			C.g_cond_free(intern.native)
 		},
 	)
@@ -13524,7 +14151,7 @@ func UnsafeCondFromGlibFull(p unsafe.Pointer) *Cond {
 }
 
 // UnsafeCondFree unrefs/frees the underlying resource. This can be used to remove the instance before the GC decides to do so.
-// 
+//
 // After this is called, no other method on [Cond] is expected to work anymore.
 func UnsafeCondFree(c *Cond) {
 	C.g_cond_free(c.native)
@@ -13552,7 +14179,7 @@ func UnsafeCondToGlibFull(c *Cond) unsafe.Pointer {
 }
 
 // Broadcast wraps g_cond_broadcast
-// 
+//
 // see also https://docs.gtk.org/glib/method.g_cond_broadcast.g_cond_broadcast.html
 func (cond *Cond) Broadcast() {
 	var carg0 *C.GCond // in, none, converted
@@ -13564,7 +14191,7 @@ func (cond *Cond) Broadcast() {
 }
 
 // Clear wraps g_cond_clear
-// 
+//
 // see also https://docs.gtk.org/glib/method.g_cond_clear.g_cond_clear.html
 func (cond *Cond) Clear() {
 	var carg0 *C.GCond // in, none, converted
@@ -13576,7 +14203,7 @@ func (cond *Cond) Clear() {
 }
 
 // Init wraps g_cond_init
-// 
+//
 // see also https://docs.gtk.org/glib/method.g_cond_init.g_cond_init.html
 func (cond *Cond) Init() {
 	var carg0 *C.GCond // in, none, converted
@@ -13588,7 +14215,7 @@ func (cond *Cond) Init() {
 }
 
 // Signal wraps g_cond_signal
-// 
+//
 // see also https://docs.gtk.org/glib/method.g_cond_signal.g_cond_signal.html
 func (cond *Cond) Signal() {
 	var carg0 *C.GCond // in, none, converted
@@ -13600,7 +14227,7 @@ func (cond *Cond) Signal() {
 }
 
 // Data wraps GData
-// 
+//
 // see also https://docs.gtk.org/glib/struct.Data.html
 type Data struct {
 	*data
@@ -13646,7 +14273,7 @@ func UnsafeDataFromGlibFull(p unsafe.Pointer) *Data {
 	}
 	runtime.SetFinalizer(
 		wrapped.data,
-		func (intern *data) {
+		func(intern *data) {
 			C.free(unsafe.Pointer(intern.native))
 		},
 	)
@@ -13654,7 +14281,7 @@ func UnsafeDataFromGlibFull(p unsafe.Pointer) *Data {
 }
 
 // UnsafeDataFree unrefs/frees the underlying resource. This can be used to remove the instance before the GC decides to do so.
-// 
+//
 // After this is called, no other method on [Data] is expected to work anymore.
 func UnsafeDataFree(d *Data) {
 	C.free(unsafe.Pointer(d.native))
@@ -13682,7 +14309,7 @@ func UnsafeDataToGlibFull(d *Data) unsafe.Pointer {
 }
 
 // DebugKey wraps GDebugKey
-// 
+//
 // see also https://docs.gtk.org/glib/struct.DebugKey.html
 type DebugKey struct {
 	*debugKey
@@ -13728,7 +14355,7 @@ func UnsafeDebugKeyFromGlibFull(p unsafe.Pointer) *DebugKey {
 	}
 	runtime.SetFinalizer(
 		wrapped.debugKey,
-		func (intern *debugKey) {
+		func(intern *debugKey) {
 			C.free(unsafe.Pointer(intern.native))
 		},
 	)
@@ -13736,7 +14363,7 @@ func UnsafeDebugKeyFromGlibFull(p unsafe.Pointer) *DebugKey {
 }
 
 // UnsafeDebugKeyFree unrefs/frees the underlying resource. This can be used to remove the instance before the GC decides to do so.
-// 
+//
 // After this is called, no other method on [DebugKey] is expected to work anymore.
 func UnsafeDebugKeyFree(d *DebugKey) {
 	C.free(unsafe.Pointer(d.native))
@@ -13764,7 +14391,7 @@ func UnsafeDebugKeyToGlibFull(d *DebugKey) unsafe.Pointer {
 }
 
 // Dir wraps GDir
-// 
+//
 // see also https://docs.gtk.org/glib/struct.Dir.html
 type Dir struct {
 	*dir
@@ -13801,7 +14428,7 @@ func UnsafeDirFromGlibNone(p unsafe.Pointer) *Dir {
 
 	runtime.SetFinalizer(
 		wrapped.dir,
-		func (intern *dir) {
+		func(intern *dir) {
 			C.g_dir_unref(intern.native)
 		},
 	)
@@ -13816,7 +14443,7 @@ func UnsafeDirFromGlibFull(p unsafe.Pointer) *Dir {
 	}
 	runtime.SetFinalizer(
 		wrapped.dir,
-		func (intern *dir) {
+		func(intern *dir) {
 			C.g_dir_unref(intern.native)
 		},
 	)
@@ -13824,14 +14451,14 @@ func UnsafeDirFromGlibFull(p unsafe.Pointer) *Dir {
 }
 
 // UnsafeDirRef increases the refcount on the underlying resource.
-// 
+//
 // When this is called without an associated call to [Dir.UnsafeDirUnref], then [Dir] will leak memory.
 func UnsafeDirRef(d *Dir) {
 	C.g_dir_ref((*C.GDir)(d.native))
 }
 
 // UnsafeDirUnref unrefs/frees the underlying resource. This can be used to remove the instance before the GC decides to do so.
-// 
+//
 // After this is called, no other method on [Dir] is expected to work anymore.
 func UnsafeDirUnref(d *Dir) {
 	C.g_dir_unref(d.native)
@@ -13859,12 +14486,12 @@ func UnsafeDirToGlibFull(d *Dir) unsafe.Pointer {
 }
 
 // DirOpen wraps g_dir_open
-// 
+//
 // see also https://docs.gtk.org/glib/func.g_dir_open.html
 func DirOpen(path string, flags uint32) (*Dir, error) {
 	var carg1 *C.gchar  // in, none, string
 	var carg2 C.guint   // in, none, casted
-	var cret  *C.GDir   // return, full, converted, nullable
+	var cret *C.GDir    // return, full, converted, nullable
 	var _cerr *C.GError // out, full, converted, nullable
 
 	carg1 = (*C.gchar)(transfer.GLibString(path))
@@ -13875,7 +14502,7 @@ func DirOpen(path string, flags uint32) (*Dir, error) {
 	runtime.KeepAlive(path)
 	runtime.KeepAlive(flags)
 
-	var goret  *Dir
+	var goret *Dir
 	var _goerr error
 
 	if cret != nil {
@@ -13889,11 +14516,11 @@ func DirOpen(path string, flags uint32) (*Dir, error) {
 }
 
 // DirMakeTmp wraps g_dir_make_tmp
-// 
+//
 // see also https://docs.gtk.org/glib/func.g_dir_make_tmp.html
 func DirMakeTmp(tmpl string) (string, error) {
 	var carg1 *C.gchar  // in, none, string, nullable-string
-	var cret  *C.gchar  // return, full, string, nullable-string
+	var cret *C.gchar   // return, full, string, nullable-string
 	var _cerr *C.GError // out, full, converted, nullable
 
 	if tmpl != "" {
@@ -13904,7 +14531,7 @@ func DirMakeTmp(tmpl string) (string, error) {
 	cret = C.g_dir_make_tmp(carg1, &_cerr)
 	runtime.KeepAlive(tmpl)
 
-	var goret  string
+	var goret string
 	var _goerr error
 
 	if cret != nil {
@@ -13919,7 +14546,7 @@ func DirMakeTmp(tmpl string) (string, error) {
 }
 
 // Close wraps g_dir_close
-// 
+//
 // see also https://docs.gtk.org/glib/method.g_dir_close.g_dir_close.html
 func (dir *Dir) Close() {
 	var carg0 *C.GDir // in, none, converted
@@ -13931,11 +14558,11 @@ func (dir *Dir) Close() {
 }
 
 // ReadName wraps g_dir_read_name
-// 
+//
 // see also https://docs.gtk.org/glib/method.g_dir_read_name.g_dir_read_name.html
 func (dir *Dir) ReadName() string {
-	var carg0 *C.GDir  // in, none, converted
-	var cret  *C.gchar // return, none, string
+	var carg0 *C.GDir // in, none, converted
+	var cret *C.gchar // return, none, string
 
 	carg0 = (*C.GDir)(UnsafeDirToGlibNone(dir))
 
@@ -13950,7 +14577,7 @@ func (dir *Dir) ReadName() string {
 }
 
 // Rewind wraps g_dir_rewind
-// 
+//
 // see also https://docs.gtk.org/glib/method.g_dir_rewind.g_dir_rewind.html
 func (dir *Dir) Rewind() {
 	var carg0 *C.GDir // in, none, converted
@@ -13962,7 +14589,7 @@ func (dir *Dir) Rewind() {
 }
 
 // HashTableIter wraps GHashTableIter
-// 
+//
 // see also https://docs.gtk.org/glib/struct.HashTableIter.html
 type HashTableIter struct {
 	*hashTableIter
@@ -14008,7 +14635,7 @@ func UnsafeHashTableIterFromGlibFull(p unsafe.Pointer) *HashTableIter {
 	}
 	runtime.SetFinalizer(
 		wrapped.hashTableIter,
-		func (intern *hashTableIter) {
+		func(intern *hashTableIter) {
 			C.free(unsafe.Pointer(intern.native))
 		},
 	)
@@ -14016,7 +14643,7 @@ func UnsafeHashTableIterFromGlibFull(p unsafe.Pointer) *HashTableIter {
 }
 
 // UnsafeHashTableIterFree unrefs/frees the underlying resource. This can be used to remove the instance before the GC decides to do so.
-// 
+//
 // After this is called, no other method on [HashTableIter] is expected to work anymore.
 func UnsafeHashTableIterFree(h *HashTableIter) {
 	C.free(unsafe.Pointer(h.native))
@@ -14044,7 +14671,7 @@ func UnsafeHashTableIterToGlibFull(h *HashTableIter) unsafe.Pointer {
 }
 
 // Remove wraps g_hash_table_iter_remove
-// 
+//
 // see also https://docs.gtk.org/glib/method.g_hash_table_iter_remove.g_hash_table_iter_remove.html
 func (iter *HashTableIter) Remove() {
 	var carg0 *C.GHashTableIter // in, none, converted
@@ -14056,7 +14683,7 @@ func (iter *HashTableIter) Remove() {
 }
 
 // Steal wraps g_hash_table_iter_steal
-// 
+//
 // see also https://docs.gtk.org/glib/method.g_hash_table_iter_steal.g_hash_table_iter_steal.html
 func (iter *HashTableIter) Steal() {
 	var carg0 *C.GHashTableIter // in, none, converted
@@ -14068,7 +14695,7 @@ func (iter *HashTableIter) Steal() {
 }
 
 // Hmac wraps GHmac
-// 
+//
 // see also https://docs.gtk.org/glib/struct.Hmac.html
 type Hmac struct {
 	*hmac
@@ -14105,7 +14732,7 @@ func UnsafeHmacFromGlibNone(p unsafe.Pointer) *Hmac {
 
 	runtime.SetFinalizer(
 		wrapped.hmac,
-		func (intern *hmac) {
+		func(intern *hmac) {
 			C.g_hmac_unref(intern.native)
 		},
 	)
@@ -14120,7 +14747,7 @@ func UnsafeHmacFromGlibFull(p unsafe.Pointer) *Hmac {
 	}
 	runtime.SetFinalizer(
 		wrapped.hmac,
-		func (intern *hmac) {
+		func(intern *hmac) {
 			C.g_hmac_unref(intern.native)
 		},
 	)
@@ -14128,14 +14755,14 @@ func UnsafeHmacFromGlibFull(p unsafe.Pointer) *Hmac {
 }
 
 // UnsafeHmacRef increases the refcount on the underlying resource.
-// 
+//
 // When this is called without an associated call to [Hmac.UnsafeHmacUnref], then [Hmac] will leak memory.
 func UnsafeHmacRef(h *Hmac) {
 	C.g_hmac_ref((*C.GHmac)(h.native))
 }
 
 // UnsafeHmacUnref unrefs/frees the underlying resource. This can be used to remove the instance before the GC decides to do so.
-// 
+//
 // After this is called, no other method on [Hmac] is expected to work anymore.
 func UnsafeHmacUnref(h *Hmac) {
 	C.g_hmac_unref(h.native)
@@ -14163,13 +14790,13 @@ func UnsafeHmacToGlibFull(h *Hmac) unsafe.Pointer {
 }
 
 // NewHmac wraps g_hmac_new
-// 
+//
 // see also https://docs.gtk.org/glib/func.g_hmac_new.html
 func NewHmac(digestType ChecksumType, key []byte) *Hmac {
 	var carg1 C.GChecksumType // in, none, casted
 	var carg2 *C.guchar       // in, transfer: none, C Pointers: 1, Name: array[guchar], array (inner guchar (*typesystem.CastablePrimitive), length-by: carg3)
 	var carg3 C.gsize         // implicit
-	var cret  *C.GHmac        // return, full, converted, nullable
+	var cret *C.GHmac         // return, full, converted, nullable
 
 	carg1 = C.GChecksumType(digestType)
 	_ = key
@@ -14191,11 +14818,11 @@ func NewHmac(digestType ChecksumType, key []byte) *Hmac {
 }
 
 // Copy wraps g_hmac_copy
-// 
+//
 // see also https://docs.gtk.org/glib/method.g_hmac_copy.g_hmac_copy.html
 func (hmac *Hmac) Copy() *Hmac {
 	var carg0 *C.GHmac // in, none, converted
-	var cret  *C.GHmac // return, full, converted
+	var cret *C.GHmac  // return, full, converted
 
 	carg0 = (*C.GHmac)(UnsafeHmacToGlibNone(hmac))
 
@@ -14210,11 +14837,11 @@ func (hmac *Hmac) Copy() *Hmac {
 }
 
 // GetString wraps g_hmac_get_string
-// 
+//
 // see also https://docs.gtk.org/glib/method.g_hmac_get_string.g_hmac_get_string.html
 func (hmac *Hmac) GetString() string {
 	var carg0 *C.GHmac // in, none, converted
-	var cret  *C.gchar // return, none, string
+	var cret *C.gchar  // return, none, string
 
 	carg0 = (*C.GHmac)(UnsafeHmacToGlibNone(hmac))
 
@@ -14229,7 +14856,7 @@ func (hmac *Hmac) GetString() string {
 }
 
 // Update wraps g_hmac_update
-// 
+//
 // see also https://docs.gtk.org/glib/method.g_hmac_update.g_hmac_update.html
 func (hmac *Hmac) Update(data []byte) {
 	var carg0 *C.GHmac  // in, none, converted
@@ -14248,7 +14875,7 @@ func (hmac *Hmac) Update(data []byte) {
 }
 
 // Hook wraps GHook
-// 
+//
 // see also https://docs.gtk.org/glib/struct.Hook.html
 type Hook struct {
 	*hook
@@ -14294,7 +14921,7 @@ func UnsafeHookFromGlibFull(p unsafe.Pointer) *Hook {
 	}
 	runtime.SetFinalizer(
 		wrapped.hook,
-		func (intern *hook) {
+		func(intern *hook) {
 			C.free(unsafe.Pointer(intern.native))
 		},
 	)
@@ -14302,7 +14929,7 @@ func UnsafeHookFromGlibFull(p unsafe.Pointer) *Hook {
 }
 
 // UnsafeHookFree unrefs/frees the underlying resource. This can be used to remove the instance before the GC decides to do so.
-// 
+//
 // After this is called, no other method on [Hook] is expected to work anymore.
 func UnsafeHookFree(h *Hook) {
 	C.free(unsafe.Pointer(h.native))
@@ -14330,12 +14957,12 @@ func UnsafeHookToGlibFull(h *Hook) unsafe.Pointer {
 }
 
 // HookDestroy wraps g_hook_destroy
-// 
+//
 // see also https://docs.gtk.org/glib/func.g_hook_destroy.html
 func HookDestroy(hookList *HookList, hookId uint64) bool {
 	var carg1 *C.GHookList // in, none, converted
 	var carg2 C.gulong     // in, none, casted
-	var cret  C.gboolean   // return
+	var cret C.gboolean    // return
 
 	carg1 = (*C.GHookList)(UnsafeHookListToGlibNone(hookList))
 	carg2 = C.gulong(hookId)
@@ -14354,7 +14981,7 @@ func HookDestroy(hookList *HookList, hookId uint64) bool {
 }
 
 // HookDestroyLink wraps g_hook_destroy_link
-// 
+//
 // see also https://docs.gtk.org/glib/func.g_hook_destroy_link.html
 func HookDestroyLink(hookList *HookList, hook *Hook) {
 	var carg1 *C.GHookList // in, none, converted
@@ -14369,7 +14996,7 @@ func HookDestroyLink(hookList *HookList, hook *Hook) {
 }
 
 // HookFree wraps g_hook_free
-// 
+//
 // see also https://docs.gtk.org/glib/func.g_hook_free.html
 func HookFree(hookList *HookList, hook *Hook) {
 	var carg1 *C.GHookList // in, none, converted
@@ -14384,7 +15011,7 @@ func HookFree(hookList *HookList, hook *Hook) {
 }
 
 // HookInsertBefore wraps g_hook_insert_before
-// 
+//
 // see also https://docs.gtk.org/glib/func.g_hook_insert_before.html
 func HookInsertBefore(hookList *HookList, sibling *Hook, hook *Hook) {
 	var carg1 *C.GHookList // in, none, converted
@@ -14404,7 +15031,7 @@ func HookInsertBefore(hookList *HookList, sibling *Hook, hook *Hook) {
 }
 
 // HookPrepend wraps g_hook_prepend
-// 
+//
 // see also https://docs.gtk.org/glib/func.g_hook_prepend.html
 func HookPrepend(hookList *HookList, hook *Hook) {
 	var carg1 *C.GHookList // in, none, converted
@@ -14419,7 +15046,7 @@ func HookPrepend(hookList *HookList, hook *Hook) {
 }
 
 // HookUnref wraps g_hook_unref
-// 
+//
 // see also https://docs.gtk.org/glib/func.g_hook_unref.html
 func HookUnref(hookList *HookList, hook *Hook) {
 	var carg1 *C.GHookList // in, none, converted
@@ -14434,12 +15061,12 @@ func HookUnref(hookList *HookList, hook *Hook) {
 }
 
 // CompareIDs wraps g_hook_compare_ids
-// 
+//
 // see also https://docs.gtk.org/glib/method.g_hook_compare_ids.g_hook_compare_ids.html
 func (newHook *Hook) CompareIDs(sibling *Hook) int32 {
 	var carg0 *C.GHook // in, none, converted
 	var carg1 *C.GHook // in, none, converted
-	var cret  C.gint   // return, none, casted
+	var cret C.gint    // return, none, casted
 
 	carg0 = (*C.GHook)(UnsafeHookToGlibNone(newHook))
 	carg1 = (*C.GHook)(UnsafeHookToGlibNone(sibling))
@@ -14456,7 +15083,7 @@ func (newHook *Hook) CompareIDs(sibling *Hook) int32 {
 }
 
 // HookList wraps GHookList
-// 
+//
 // see also https://docs.gtk.org/glib/struct.HookList.html
 type HookList struct {
 	*hookList
@@ -14502,7 +15129,7 @@ func UnsafeHookListFromGlibFull(p unsafe.Pointer) *HookList {
 	}
 	runtime.SetFinalizer(
 		wrapped.hookList,
-		func (intern *hookList) {
+		func(intern *hookList) {
 			C.free(unsafe.Pointer(intern.native))
 		},
 	)
@@ -14510,7 +15137,7 @@ func UnsafeHookListFromGlibFull(p unsafe.Pointer) *HookList {
 }
 
 // UnsafeHookListFree unrefs/frees the underlying resource. This can be used to remove the instance before the GC decides to do so.
-// 
+//
 // After this is called, no other method on [HookList] is expected to work anymore.
 func UnsafeHookListFree(h *HookList) {
 	C.free(unsafe.Pointer(h.native))
@@ -14538,7 +15165,7 @@ func UnsafeHookListToGlibFull(h *HookList) unsafe.Pointer {
 }
 
 // Clear wraps g_hook_list_clear
-// 
+//
 // see also https://docs.gtk.org/glib/method.g_hook_list_clear.g_hook_list_clear.html
 func (hookList *HookList) Clear() {
 	var carg0 *C.GHookList // in, none, converted
@@ -14550,7 +15177,7 @@ func (hookList *HookList) Clear() {
 }
 
 // Init wraps g_hook_list_init
-// 
+//
 // see also https://docs.gtk.org/glib/method.g_hook_list_init.g_hook_list_init.html
 func (hookList *HookList) Init(hookSize uint32) {
 	var carg0 *C.GHookList // in, none, converted
@@ -14565,7 +15192,7 @@ func (hookList *HookList) Init(hookSize uint32) {
 }
 
 // Invoke wraps g_hook_list_invoke
-// 
+//
 // see also https://docs.gtk.org/glib/method.g_hook_list_invoke.g_hook_list_invoke.html
 func (hookList *HookList) Invoke(mayRecurse bool) {
 	var carg0 *C.GHookList // in, none, converted
@@ -14582,7 +15209,7 @@ func (hookList *HookList) Invoke(mayRecurse bool) {
 }
 
 // InvokeCheck wraps g_hook_list_invoke_check
-// 
+//
 // see also https://docs.gtk.org/glib/method.g_hook_list_invoke_check.g_hook_list_invoke_check.html
 func (hookList *HookList) InvokeCheck(mayRecurse bool) {
 	var carg0 *C.GHookList // in, none, converted
@@ -14599,7 +15226,7 @@ func (hookList *HookList) InvokeCheck(mayRecurse bool) {
 }
 
 // IOChannel wraps GIOChannel
-// 
+//
 // see also https://docs.gtk.org/glib/struct.IOChannel.html
 type IOChannel struct {
 	*iOChannel
@@ -14636,7 +15263,7 @@ func UnsafeIOChannelFromGlibNone(p unsafe.Pointer) *IOChannel {
 
 	runtime.SetFinalizer(
 		wrapped.iOChannel,
-		func (intern *iOChannel) {
+		func(intern *iOChannel) {
 			C.g_io_channel_unref(intern.native)
 		},
 	)
@@ -14651,7 +15278,7 @@ func UnsafeIOChannelFromGlibFull(p unsafe.Pointer) *IOChannel {
 	}
 	runtime.SetFinalizer(
 		wrapped.iOChannel,
-		func (intern *iOChannel) {
+		func(intern *iOChannel) {
 			C.g_io_channel_unref(intern.native)
 		},
 	)
@@ -14659,14 +15286,14 @@ func UnsafeIOChannelFromGlibFull(p unsafe.Pointer) *IOChannel {
 }
 
 // UnsafeIOChannelRef increases the refcount on the underlying resource.
-// 
+//
 // When this is called without an associated call to [IOChannel.UnsafeIOChannelUnref], then [IOChannel] will leak memory.
 func UnsafeIOChannelRef(i *IOChannel) {
 	C.g_io_channel_ref((*C.GIOChannel)(i.native))
 }
 
 // UnsafeIOChannelUnref unrefs/frees the underlying resource. This can be used to remove the instance before the GC decides to do so.
-// 
+//
 // After this is called, no other method on [IOChannel] is expected to work anymore.
 func UnsafeIOChannelUnref(i *IOChannel) {
 	C.g_io_channel_unref(i.native)
@@ -14694,13 +15321,13 @@ func UnsafeIOChannelToGlibFull(i *IOChannel) unsafe.Pointer {
 }
 
 // NewIOChannelFile wraps g_io_channel_new_file
-// 
+//
 // see also https://docs.gtk.org/glib/func.g_io_channel_new_file.html
 func NewIOChannelFile(filename string, mode string) (*IOChannel, error) {
-	var carg1 *C.gchar      // in, none, string
-	var carg2 *C.gchar      // in, none, string
-	var cret  *C.GIOChannel // return, full, converted, nullable
-	var _cerr *C.GError     // out, full, converted, nullable
+	var carg1 *C.gchar     // in, none, string
+	var carg2 *C.gchar     // in, none, string
+	var cret *C.GIOChannel // return, full, converted, nullable
+	var _cerr *C.GError    // out, full, converted, nullable
 
 	carg1 = (*C.gchar)(transfer.GLibString(filename))
 	defer C.g_free(C.gpointer(carg1))
@@ -14711,7 +15338,7 @@ func NewIOChannelFile(filename string, mode string) (*IOChannel, error) {
 	runtime.KeepAlive(filename)
 	runtime.KeepAlive(mode)
 
-	var goret  *IOChannel
+	var goret *IOChannel
 	var _goerr error
 
 	if cret != nil {
@@ -14725,11 +15352,11 @@ func NewIOChannelFile(filename string, mode string) (*IOChannel, error) {
 }
 
 // IOChannelErrorFromErrno wraps g_io_channel_error_from_errno
-// 
+//
 // see also https://docs.gtk.org/glib/func.g_io_channel_error_from_errno.html
 func IOChannelErrorFromErrno(en int32) IOChannelError {
-	var carg1 C.gint            // in, none, casted
-	var cret  C.GIOChannelError // return, none, casted
+	var carg1 C.gint           // in, none, casted
+	var cret C.GIOChannelError // return, none, casted
 
 	carg1 = C.gint(en)
 
@@ -14744,7 +15371,7 @@ func IOChannelErrorFromErrno(en int32) IOChannelError {
 }
 
 // IOChannelErrorQuark wraps g_io_channel_error_quark
-// 
+//
 // see also https://docs.gtk.org/glib/func.g_io_channel_error_quark.html
 func IOChannelErrorQuark() Quark {
 	var cret C.GQuark // return, none, casted, alias
@@ -14759,11 +15386,11 @@ func IOChannelErrorQuark() Quark {
 }
 
 // Flush wraps g_io_channel_flush
-// 
+//
 // see also https://docs.gtk.org/glib/method.g_io_channel_flush.g_io_channel_flush.html
 func (channel *IOChannel) Flush() (IOStatus, error) {
 	var carg0 *C.GIOChannel // in, none, converted
-	var cret  C.GIOStatus   // return, none, casted
+	var cret C.GIOStatus    // return, none, casted
 	var _cerr *C.GError     // out, full, converted, nullable
 
 	carg0 = (*C.GIOChannel)(UnsafeIOChannelToGlibNone(channel))
@@ -14771,7 +15398,7 @@ func (channel *IOChannel) Flush() (IOStatus, error) {
 	cret = C.g_io_channel_flush(carg0, &_cerr)
 	runtime.KeepAlive(channel)
 
-	var goret  IOStatus
+	var goret IOStatus
 	var _goerr error
 
 	goret = IOStatus(cret)
@@ -14783,11 +15410,11 @@ func (channel *IOChannel) Flush() (IOStatus, error) {
 }
 
 // GetBufferCondition wraps g_io_channel_get_buffer_condition
-// 
+//
 // see also https://docs.gtk.org/glib/method.g_io_channel_get_buffer_condition.g_io_channel_get_buffer_condition.html
 func (channel *IOChannel) GetBufferCondition() IOCondition {
-	var carg0 *C.GIOChannel  // in, none, converted
-	var cret  C.GIOCondition // return, none, casted
+	var carg0 *C.GIOChannel // in, none, converted
+	var cret C.GIOCondition // return, none, casted
 
 	carg0 = (*C.GIOChannel)(UnsafeIOChannelToGlibNone(channel))
 
@@ -14802,11 +15429,11 @@ func (channel *IOChannel) GetBufferCondition() IOCondition {
 }
 
 // GetBufferSize wraps g_io_channel_get_buffer_size
-// 
+//
 // see also https://docs.gtk.org/glib/method.g_io_channel_get_buffer_size.g_io_channel_get_buffer_size.html
 func (channel *IOChannel) GetBufferSize() uint {
 	var carg0 *C.GIOChannel // in, none, converted
-	var cret  C.gsize       // return, none, casted
+	var cret C.gsize        // return, none, casted
 
 	carg0 = (*C.GIOChannel)(UnsafeIOChannelToGlibNone(channel))
 
@@ -14821,11 +15448,11 @@ func (channel *IOChannel) GetBufferSize() uint {
 }
 
 // GetBuffered wraps g_io_channel_get_buffered
-// 
+//
 // see also https://docs.gtk.org/glib/method.g_io_channel_get_buffered.g_io_channel_get_buffered.html
 func (channel *IOChannel) GetBuffered() bool {
 	var carg0 *C.GIOChannel // in, none, converted
-	var cret  C.gboolean    // return
+	var cret C.gboolean     // return
 
 	carg0 = (*C.GIOChannel)(UnsafeIOChannelToGlibNone(channel))
 
@@ -14842,11 +15469,11 @@ func (channel *IOChannel) GetBuffered() bool {
 }
 
 // GetCloseOnUnref wraps g_io_channel_get_close_on_unref
-// 
+//
 // see also https://docs.gtk.org/glib/method.g_io_channel_get_close_on_unref.g_io_channel_get_close_on_unref.html
 func (channel *IOChannel) GetCloseOnUnref() bool {
 	var carg0 *C.GIOChannel // in, none, converted
-	var cret  C.gboolean    // return
+	var cret C.gboolean     // return
 
 	carg0 = (*C.GIOChannel)(UnsafeIOChannelToGlibNone(channel))
 
@@ -14863,11 +15490,11 @@ func (channel *IOChannel) GetCloseOnUnref() bool {
 }
 
 // GetEncoding wraps g_io_channel_get_encoding
-// 
+//
 // see also https://docs.gtk.org/glib/method.g_io_channel_get_encoding.g_io_channel_get_encoding.html
 func (channel *IOChannel) GetEncoding() string {
 	var carg0 *C.GIOChannel // in, none, converted
-	var cret  *C.gchar      // return, none, string
+	var cret *C.gchar       // return, none, string
 
 	carg0 = (*C.GIOChannel)(UnsafeIOChannelToGlibNone(channel))
 
@@ -14882,11 +15509,11 @@ func (channel *IOChannel) GetEncoding() string {
 }
 
 // GetFlags wraps g_io_channel_get_flags
-// 
+//
 // see also https://docs.gtk.org/glib/method.g_io_channel_get_flags.g_io_channel_get_flags.html
 func (channel *IOChannel) GetFlags() IOFlags {
 	var carg0 *C.GIOChannel // in, none, converted
-	var cret  C.GIOFlags    // return, none, casted
+	var cret C.GIOFlags     // return, none, casted
 
 	carg0 = (*C.GIOChannel)(UnsafeIOChannelToGlibNone(channel))
 
@@ -14901,12 +15528,12 @@ func (channel *IOChannel) GetFlags() IOFlags {
 }
 
 // GetLineTerm wraps g_io_channel_get_line_term
-// 
+//
 // see also https://docs.gtk.org/glib/method.g_io_channel_get_line_term.g_io_channel_get_line_term.html
 func (channel *IOChannel) GetLineTerm() (int32, string) {
 	var carg0 *C.GIOChannel // in, none, converted
 	var carg1 C.gint        // out, full, casted
-	var cret  *C.gchar      // return, none, string
+	var cret *C.gchar       // return, none, string
 
 	carg0 = (*C.GIOChannel)(UnsafeIOChannelToGlibNone(channel))
 
@@ -14914,7 +15541,7 @@ func (channel *IOChannel) GetLineTerm() (int32, string) {
 	runtime.KeepAlive(channel)
 
 	var length int32
-	var goret  string
+	var goret string
 
 	length = int32(carg1)
 	goret = C.GoString((*C.char)(unsafe.Pointer(cret)))
@@ -14923,7 +15550,7 @@ func (channel *IOChannel) GetLineTerm() (int32, string) {
 }
 
 // Init wraps g_io_channel_init
-// 
+//
 // see also https://docs.gtk.org/glib/method.g_io_channel_init.g_io_channel_init.html
 func (channel *IOChannel) Init() {
 	var carg0 *C.GIOChannel // in, none, converted
@@ -14935,14 +15562,14 @@ func (channel *IOChannel) Init() {
 }
 
 // ReadLine wraps g_io_channel_read_line
-// 
+//
 // see also https://docs.gtk.org/glib/method.g_io_channel_read_line.g_io_channel_read_line.html
 func (channel *IOChannel) ReadLine() (string, uint, uint, IOStatus, error) {
 	var carg0 *C.GIOChannel // in, none, converted
 	var carg1 *C.gchar      // out, full, string
 	var carg2 C.gsize       // out, full, casted
 	var carg3 C.gsize       // out, full, casted
-	var cret  C.GIOStatus   // return, none, casted
+	var cret C.GIOStatus    // return, none, casted
 	var _cerr *C.GError     // out, full, converted, nullable
 
 	carg0 = (*C.GIOChannel)(UnsafeIOChannelToGlibNone(channel))
@@ -14950,11 +15577,11 @@ func (channel *IOChannel) ReadLine() (string, uint, uint, IOStatus, error) {
 	cret = C.g_io_channel_read_line(carg0, &carg1, &carg2, &carg3, &_cerr)
 	runtime.KeepAlive(channel)
 
-	var strReturn     string
-	var length        uint
+	var strReturn string
+	var length uint
 	var terminatorPos uint
-	var goret         IOStatus
-	var _goerr        error
+	var goret IOStatus
+	var _goerr error
 
 	strReturn = C.GoString((*C.char)(unsafe.Pointer(carg1)))
 	defer C.g_free(C.gpointer(carg1))
@@ -14969,13 +15596,13 @@ func (channel *IOChannel) ReadLine() (string, uint, uint, IOStatus, error) {
 }
 
 // ReadToEnd wraps g_io_channel_read_to_end
-// 
+//
 // see also https://docs.gtk.org/glib/method.g_io_channel_read_to_end.g_io_channel_read_to_end.html
 func (channel *IOChannel) ReadToEnd() (string, IOStatus, error) {
 	var carg0 *C.GIOChannel // in, none, converted
 	var carg1 *C.gchar      // out, transfer: full, C Pointers: 1, Name: array[unknown], array (inner unknown, length-by: carg2)
 	var carg2 C.gsize       // implicit
-	var cret  C.GIOStatus   // return, none, casted
+	var cret C.GIOStatus    // return, none, casted
 	var _cerr *C.GError     // out, full, converted, nullable
 
 	carg0 = (*C.GIOChannel)(UnsafeIOChannelToGlibNone(channel))
@@ -14984,8 +15611,8 @@ func (channel *IOChannel) ReadToEnd() (string, IOStatus, error) {
 	runtime.KeepAlive(channel)
 
 	var strReturn string
-	var goret     IOStatus
-	var _goerr    error
+	var goret IOStatus
+	var _goerr error
 
 	_ = strReturn
 	_ = carg1
@@ -15000,12 +15627,12 @@ func (channel *IOChannel) ReadToEnd() (string, IOStatus, error) {
 }
 
 // ReadUnichar wraps g_io_channel_read_unichar
-// 
+//
 // see also https://docs.gtk.org/glib/method.g_io_channel_read_unichar.g_io_channel_read_unichar.html
 func (channel *IOChannel) ReadUnichar() (uint32, IOStatus, error) {
 	var carg0 *C.GIOChannel // in, none, converted
 	var carg1 C.gunichar    // out, full, casted
-	var cret  C.GIOStatus   // return, none, casted
+	var cret C.GIOStatus    // return, none, casted
 	var _cerr *C.GError     // out, full, converted, nullable
 
 	carg0 = (*C.GIOChannel)(UnsafeIOChannelToGlibNone(channel))
@@ -15014,8 +15641,8 @@ func (channel *IOChannel) ReadUnichar() (uint32, IOStatus, error) {
 	runtime.KeepAlive(channel)
 
 	var thechar uint32
-	var goret   IOStatus
-	var _goerr  error
+	var goret IOStatus
+	var _goerr error
 
 	thechar = uint32(carg1)
 	goret = IOStatus(cret)
@@ -15027,13 +15654,13 @@ func (channel *IOChannel) ReadUnichar() (uint32, IOStatus, error) {
 }
 
 // SeekPosition wraps g_io_channel_seek_position
-// 
+//
 // see also https://docs.gtk.org/glib/method.g_io_channel_seek_position.g_io_channel_seek_position.html
 func (channel *IOChannel) SeekPosition(offset int64, typ SeekType) (IOStatus, error) {
 	var carg0 *C.GIOChannel // in, none, converted
 	var carg1 C.gint64      // in, none, casted
 	var carg2 C.GSeekType   // in, none, casted
-	var cret  C.GIOStatus   // return, none, casted
+	var cret C.GIOStatus    // return, none, casted
 	var _cerr *C.GError     // out, full, converted, nullable
 
 	carg0 = (*C.GIOChannel)(UnsafeIOChannelToGlibNone(channel))
@@ -15045,7 +15672,7 @@ func (channel *IOChannel) SeekPosition(offset int64, typ SeekType) (IOStatus, er
 	runtime.KeepAlive(offset)
 	runtime.KeepAlive(typ)
 
-	var goret  IOStatus
+	var goret IOStatus
 	var _goerr error
 
 	goret = IOStatus(cret)
@@ -15057,7 +15684,7 @@ func (channel *IOChannel) SeekPosition(offset int64, typ SeekType) (IOStatus, er
 }
 
 // SetBufferSize wraps g_io_channel_set_buffer_size
-// 
+//
 // see also https://docs.gtk.org/glib/method.g_io_channel_set_buffer_size.g_io_channel_set_buffer_size.html
 func (channel *IOChannel) SetBufferSize(size uint) {
 	var carg0 *C.GIOChannel // in, none, converted
@@ -15072,7 +15699,7 @@ func (channel *IOChannel) SetBufferSize(size uint) {
 }
 
 // SetBuffered wraps g_io_channel_set_buffered
-// 
+//
 // see also https://docs.gtk.org/glib/method.g_io_channel_set_buffered.g_io_channel_set_buffered.html
 func (channel *IOChannel) SetBuffered(buffered bool) {
 	var carg0 *C.GIOChannel // in, none, converted
@@ -15089,7 +15716,7 @@ func (channel *IOChannel) SetBuffered(buffered bool) {
 }
 
 // SetCloseOnUnref wraps g_io_channel_set_close_on_unref
-// 
+//
 // see also https://docs.gtk.org/glib/method.g_io_channel_set_close_on_unref.g_io_channel_set_close_on_unref.html
 func (channel *IOChannel) SetCloseOnUnref(doClose bool) {
 	var carg0 *C.GIOChannel // in, none, converted
@@ -15106,12 +15733,12 @@ func (channel *IOChannel) SetCloseOnUnref(doClose bool) {
 }
 
 // SetEncoding wraps g_io_channel_set_encoding
-// 
+//
 // see also https://docs.gtk.org/glib/method.g_io_channel_set_encoding.g_io_channel_set_encoding.html
 func (channel *IOChannel) SetEncoding(encoding string) (IOStatus, error) {
 	var carg0 *C.GIOChannel // in, none, converted
 	var carg1 *C.gchar      // in, none, string, nullable-string
-	var cret  C.GIOStatus   // return, none, casted
+	var cret C.GIOStatus    // return, none, casted
 	var _cerr *C.GError     // out, full, converted, nullable
 
 	carg0 = (*C.GIOChannel)(UnsafeIOChannelToGlibNone(channel))
@@ -15124,7 +15751,7 @@ func (channel *IOChannel) SetEncoding(encoding string) (IOStatus, error) {
 	runtime.KeepAlive(channel)
 	runtime.KeepAlive(encoding)
 
-	var goret  IOStatus
+	var goret IOStatus
 	var _goerr error
 
 	goret = IOStatus(cret)
@@ -15136,12 +15763,12 @@ func (channel *IOChannel) SetEncoding(encoding string) (IOStatus, error) {
 }
 
 // SetFlags wraps g_io_channel_set_flags
-// 
+//
 // see also https://docs.gtk.org/glib/method.g_io_channel_set_flags.g_io_channel_set_flags.html
 func (channel *IOChannel) SetFlags(flags IOFlags) (IOStatus, error) {
 	var carg0 *C.GIOChannel // in, none, converted
 	var carg1 C.GIOFlags    // in, none, casted
-	var cret  C.GIOStatus   // return, none, casted
+	var cret C.GIOStatus    // return, none, casted
 	var _cerr *C.GError     // out, full, converted, nullable
 
 	carg0 = (*C.GIOChannel)(UnsafeIOChannelToGlibNone(channel))
@@ -15151,7 +15778,7 @@ func (channel *IOChannel) SetFlags(flags IOFlags) (IOStatus, error) {
 	runtime.KeepAlive(channel)
 	runtime.KeepAlive(flags)
 
-	var goret  IOStatus
+	var goret IOStatus
 	var _goerr error
 
 	goret = IOStatus(cret)
@@ -15163,7 +15790,7 @@ func (channel *IOChannel) SetFlags(flags IOFlags) (IOStatus, error) {
 }
 
 // SetLineTerm wraps g_io_channel_set_line_term
-// 
+//
 // see also https://docs.gtk.org/glib/method.g_io_channel_set_line_term.g_io_channel_set_line_term.html
 func (channel *IOChannel) SetLineTerm(lineTerm string, length int32) {
 	var carg0 *C.GIOChannel // in, none, converted
@@ -15184,12 +15811,12 @@ func (channel *IOChannel) SetLineTerm(lineTerm string, length int32) {
 }
 
 // Shutdown wraps g_io_channel_shutdown
-// 
+//
 // see also https://docs.gtk.org/glib/method.g_io_channel_shutdown.g_io_channel_shutdown.html
 func (channel *IOChannel) Shutdown(flush bool) (IOStatus, error) {
 	var carg0 *C.GIOChannel // in, none, converted
 	var carg1 C.gboolean    // in
-	var cret  C.GIOStatus   // return, none, casted
+	var cret C.GIOStatus    // return, none, casted
 	var _cerr *C.GError     // out, full, converted, nullable
 
 	carg0 = (*C.GIOChannel)(UnsafeIOChannelToGlibNone(channel))
@@ -15201,7 +15828,7 @@ func (channel *IOChannel) Shutdown(flush bool) (IOStatus, error) {
 	runtime.KeepAlive(channel)
 	runtime.KeepAlive(flush)
 
-	var goret  IOStatus
+	var goret IOStatus
 	var _goerr error
 
 	goret = IOStatus(cret)
@@ -15213,12 +15840,12 @@ func (channel *IOChannel) Shutdown(flush bool) (IOStatus, error) {
 }
 
 // WriteUnichar wraps g_io_channel_write_unichar
-// 
+//
 // see also https://docs.gtk.org/glib/method.g_io_channel_write_unichar.g_io_channel_write_unichar.html
 func (channel *IOChannel) WriteUnichar(thechar uint32) (IOStatus, error) {
 	var carg0 *C.GIOChannel // in, none, converted
 	var carg1 C.gunichar    // in, none, casted
-	var cret  C.GIOStatus   // return, none, casted
+	var cret C.GIOStatus    // return, none, casted
 	var _cerr *C.GError     // out, full, converted, nullable
 
 	carg0 = (*C.GIOChannel)(UnsafeIOChannelToGlibNone(channel))
@@ -15228,7 +15855,7 @@ func (channel *IOChannel) WriteUnichar(thechar uint32) (IOStatus, error) {
 	runtime.KeepAlive(channel)
 	runtime.KeepAlive(thechar)
 
-	var goret  IOStatus
+	var goret IOStatus
 	var _goerr error
 
 	goret = IOStatus(cret)
@@ -15240,7 +15867,7 @@ func (channel *IOChannel) WriteUnichar(thechar uint32) (IOStatus, error) {
 }
 
 // IOFuncs wraps GIOFuncs
-// 
+//
 // see also https://docs.gtk.org/glib/struct.IOFuncs.html
 type IOFuncs struct {
 	*iOFuncs
@@ -15286,7 +15913,7 @@ func UnsafeIOFuncsFromGlibFull(p unsafe.Pointer) *IOFuncs {
 	}
 	runtime.SetFinalizer(
 		wrapped.iOFuncs,
-		func (intern *iOFuncs) {
+		func(intern *iOFuncs) {
 			C.free(unsafe.Pointer(intern.native))
 		},
 	)
@@ -15294,7 +15921,7 @@ func UnsafeIOFuncsFromGlibFull(p unsafe.Pointer) *IOFuncs {
 }
 
 // UnsafeIOFuncsFree unrefs/frees the underlying resource. This can be used to remove the instance before the GC decides to do so.
-// 
+//
 // After this is called, no other method on [IOFuncs] is expected to work anymore.
 func UnsafeIOFuncsFree(i *IOFuncs) {
 	C.free(unsafe.Pointer(i.native))
@@ -15322,7 +15949,7 @@ func UnsafeIOFuncsToGlibFull(i *IOFuncs) unsafe.Pointer {
 }
 
 // KeyFile wraps GKeyFile
-// 
+//
 // see also https://docs.gtk.org/glib/struct.KeyFile.html
 type KeyFile struct {
 	*keyFile
@@ -15359,7 +15986,7 @@ func UnsafeKeyFileFromGlibNone(p unsafe.Pointer) *KeyFile {
 
 	runtime.SetFinalizer(
 		wrapped.keyFile,
-		func (intern *keyFile) {
+		func(intern *keyFile) {
 			C.g_key_file_unref(intern.native)
 		},
 	)
@@ -15374,7 +16001,7 @@ func UnsafeKeyFileFromGlibFull(p unsafe.Pointer) *KeyFile {
 	}
 	runtime.SetFinalizer(
 		wrapped.keyFile,
-		func (intern *keyFile) {
+		func(intern *keyFile) {
 			C.g_key_file_unref(intern.native)
 		},
 	)
@@ -15382,14 +16009,14 @@ func UnsafeKeyFileFromGlibFull(p unsafe.Pointer) *KeyFile {
 }
 
 // UnsafeKeyFileRef increases the refcount on the underlying resource.
-// 
+//
 // When this is called without an associated call to [KeyFile.UnsafeKeyFileUnref], then [KeyFile] will leak memory.
 func UnsafeKeyFileRef(k *KeyFile) {
 	C.g_key_file_ref((*C.GKeyFile)(k.native))
 }
 
 // UnsafeKeyFileUnref unrefs/frees the underlying resource. This can be used to remove the instance before the GC decides to do so.
-// 
+//
 // After this is called, no other method on [KeyFile] is expected to work anymore.
 func UnsafeKeyFileUnref(k *KeyFile) {
 	C.g_key_file_unref(k.native)
@@ -15417,7 +16044,7 @@ func UnsafeKeyFileToGlibFull(k *KeyFile) unsafe.Pointer {
 }
 
 // NewKeyFile wraps g_key_file_new
-// 
+//
 // see also https://docs.gtk.org/glib/func.g_key_file_new.html
 func NewKeyFile() *KeyFile {
 	var cret *C.GKeyFile // return, full, converted
@@ -15432,7 +16059,7 @@ func NewKeyFile() *KeyFile {
 }
 
 // KeyFileErrorQuark wraps g_key_file_error_quark
-// 
+//
 // see also https://docs.gtk.org/glib/func.g_key_file_error_quark.html
 func KeyFileErrorQuark() Quark {
 	var cret C.GQuark // return, none, casted, alias
@@ -15447,13 +16074,13 @@ func KeyFileErrorQuark() Quark {
 }
 
 // GetBoolean wraps g_key_file_get_boolean
-// 
+//
 // see also https://docs.gtk.org/glib/method.g_key_file_get_boolean.g_key_file_get_boolean.html
 func (keyFile *KeyFile) GetBoolean(groupName string, key string) (bool, error) {
 	var carg0 *C.GKeyFile // in, none, converted
 	var carg1 *C.gchar    // in, none, string
 	var carg2 *C.gchar    // in, none, string
-	var cret  C.gboolean  // return
+	var cret C.gboolean   // return
 	var _cerr *C.GError   // out, full, converted, nullable
 
 	carg0 = (*C.GKeyFile)(UnsafeKeyFileToGlibNone(keyFile))
@@ -15467,7 +16094,7 @@ func (keyFile *KeyFile) GetBoolean(groupName string, key string) (bool, error) {
 	runtime.KeepAlive(groupName)
 	runtime.KeepAlive(key)
 
-	var goret  bool
+	var goret bool
 	var _goerr error
 
 	if cret != 0 {
@@ -15481,14 +16108,14 @@ func (keyFile *KeyFile) GetBoolean(groupName string, key string) (bool, error) {
 }
 
 // GetBooleanList wraps g_key_file_get_boolean_list
-// 
+//
 // see also https://docs.gtk.org/glib/method.g_key_file_get_boolean_list.g_key_file_get_boolean_list.html
 func (keyFile *KeyFile) GetBooleanList(groupName string, key string) (uint, []bool, error) {
 	var carg0 *C.GKeyFile // in, none, converted
 	var carg1 *C.gchar    // in, none, string
 	var carg2 *C.gchar    // in, none, string
 	var carg3 C.gsize     // out, full, casted
-	var cret  *C.gboolean // return, transfer: container, C Pointers: 1, Name: array[gboolean], scope: , nullable, array (inner gboolean (*typesystem.BooleanPrimitive))
+	var cret *C.gboolean  // return, transfer: container, C Pointers: 1, Name: array[gboolean], nullable, array (inner gboolean (*typesystem.BooleanPrimitive))
 	var _cerr *C.GError   // out, full, converted, nullable
 
 	carg0 = (*C.GKeyFile)(UnsafeKeyFileToGlibNone(keyFile))
@@ -15503,7 +16130,7 @@ func (keyFile *KeyFile) GetBooleanList(groupName string, key string) (uint, []bo
 	runtime.KeepAlive(key)
 
 	var length uint
-	var goret  []bool
+	var goret []bool
 	var _goerr error
 
 	length = uint(carg3)
@@ -15518,13 +16145,13 @@ func (keyFile *KeyFile) GetBooleanList(groupName string, key string) (uint, []bo
 }
 
 // GetComment wraps g_key_file_get_comment
-// 
+//
 // see also https://docs.gtk.org/glib/method.g_key_file_get_comment.g_key_file_get_comment.html
 func (keyFile *KeyFile) GetComment(groupName string, key string) (string, error) {
 	var carg0 *C.GKeyFile // in, none, converted
 	var carg1 *C.gchar    // in, none, string, nullable-string
 	var carg2 *C.gchar    // in, none, string, nullable-string
-	var cret  *C.gchar    // return, full, string, nullable-string
+	var cret *C.gchar     // return, full, string, nullable-string
 	var _cerr *C.GError   // out, full, converted, nullable
 
 	carg0 = (*C.GKeyFile)(UnsafeKeyFileToGlibNone(keyFile))
@@ -15542,7 +16169,7 @@ func (keyFile *KeyFile) GetComment(groupName string, key string) (string, error)
 	runtime.KeepAlive(groupName)
 	runtime.KeepAlive(key)
 
-	var goret  string
+	var goret string
 	var _goerr error
 
 	if cret != nil {
@@ -15557,13 +16184,13 @@ func (keyFile *KeyFile) GetComment(groupName string, key string) (string, error)
 }
 
 // GetDouble wraps g_key_file_get_double
-// 
+//
 // see also https://docs.gtk.org/glib/method.g_key_file_get_double.g_key_file_get_double.html
 func (keyFile *KeyFile) GetDouble(groupName string, key string) (float64, error) {
 	var carg0 *C.GKeyFile // in, none, converted
 	var carg1 *C.gchar    // in, none, string
 	var carg2 *C.gchar    // in, none, string
-	var cret  C.gdouble   // return, none, casted
+	var cret C.gdouble    // return, none, casted
 	var _cerr *C.GError   // out, full, converted, nullable
 
 	carg0 = (*C.GKeyFile)(UnsafeKeyFileToGlibNone(keyFile))
@@ -15577,7 +16204,7 @@ func (keyFile *KeyFile) GetDouble(groupName string, key string) (float64, error)
 	runtime.KeepAlive(groupName)
 	runtime.KeepAlive(key)
 
-	var goret  float64
+	var goret float64
 	var _goerr error
 
 	goret = float64(cret)
@@ -15589,14 +16216,14 @@ func (keyFile *KeyFile) GetDouble(groupName string, key string) (float64, error)
 }
 
 // GetDoubleList wraps g_key_file_get_double_list
-// 
+//
 // see also https://docs.gtk.org/glib/method.g_key_file_get_double_list.g_key_file_get_double_list.html
 func (keyFile *KeyFile) GetDoubleList(groupName string, key string) (uint, []float64, error) {
 	var carg0 *C.GKeyFile // in, none, converted
 	var carg1 *C.gchar    // in, none, string
 	var carg2 *C.gchar    // in, none, string
 	var carg3 C.gsize     // out, full, casted
-	var cret  *C.gdouble  // return, transfer: container, C Pointers: 1, Name: array[gdouble], scope: , nullable, array (inner gdouble (*typesystem.CastablePrimitive))
+	var cret *C.gdouble   // return, transfer: container, C Pointers: 1, Name: array[gdouble], nullable, array (inner gdouble (*typesystem.CastablePrimitive))
 	var _cerr *C.GError   // out, full, converted, nullable
 
 	carg0 = (*C.GKeyFile)(UnsafeKeyFileToGlibNone(keyFile))
@@ -15611,7 +16238,7 @@ func (keyFile *KeyFile) GetDoubleList(groupName string, key string) (uint, []flo
 	runtime.KeepAlive(key)
 
 	var length uint
-	var goret  []float64
+	var goret []float64
 	var _goerr error
 
 	length = uint(carg3)
@@ -15626,12 +16253,12 @@ func (keyFile *KeyFile) GetDoubleList(groupName string, key string) (uint, []flo
 }
 
 // GetGroups wraps g_key_file_get_groups
-// 
+//
 // see also https://docs.gtk.org/glib/method.g_key_file_get_groups.g_key_file_get_groups.html
 func (keyFile *KeyFile) GetGroups() (uint, []string) {
 	var carg0 *C.GKeyFile // in, none, converted
 	var carg1 C.gsize     // out, full, casted
-	var cret  **C.gchar   // return, transfer: full, C Pointers: 2, Name: array[utf8], scope: , array (inner gchar* (*typesystem.StringPrimitive), zero-terminated)
+	var cret **C.gchar    // return, transfer: full, C Pointers: 2, Name: array[utf8], array (inner gchar* (*typesystem.StringPrimitive), zero-terminated)
 
 	carg0 = (*C.GKeyFile)(UnsafeKeyFileToGlibNone(keyFile))
 
@@ -15639,7 +16266,7 @@ func (keyFile *KeyFile) GetGroups() (uint, []string) {
 	runtime.KeepAlive(keyFile)
 
 	var length uint
-	var goret  []string
+	var goret []string
 
 	length = uint(carg1)
 	_ = goret
@@ -15650,13 +16277,13 @@ func (keyFile *KeyFile) GetGroups() (uint, []string) {
 }
 
 // GetInt64 wraps g_key_file_get_int64
-// 
+//
 // see also https://docs.gtk.org/glib/method.g_key_file_get_int64.g_key_file_get_int64.html
 func (keyFile *KeyFile) GetInt64(groupName string, key string) (int64, error) {
 	var carg0 *C.GKeyFile // in, none, converted
 	var carg1 *C.gchar    // in, none, string
 	var carg2 *C.gchar    // in, none, string
-	var cret  C.gint64    // return, none, casted
+	var cret C.gint64     // return, none, casted
 	var _cerr *C.GError   // out, full, converted, nullable
 
 	carg0 = (*C.GKeyFile)(UnsafeKeyFileToGlibNone(keyFile))
@@ -15670,7 +16297,7 @@ func (keyFile *KeyFile) GetInt64(groupName string, key string) (int64, error) {
 	runtime.KeepAlive(groupName)
 	runtime.KeepAlive(key)
 
-	var goret  int64
+	var goret int64
 	var _goerr error
 
 	goret = int64(cret)
@@ -15682,13 +16309,13 @@ func (keyFile *KeyFile) GetInt64(groupName string, key string) (int64, error) {
 }
 
 // GetInteger wraps g_key_file_get_integer
-// 
+//
 // see also https://docs.gtk.org/glib/method.g_key_file_get_integer.g_key_file_get_integer.html
 func (keyFile *KeyFile) GetInteger(groupName string, key string) (int32, error) {
 	var carg0 *C.GKeyFile // in, none, converted
 	var carg1 *C.gchar    // in, none, string
 	var carg2 *C.gchar    // in, none, string
-	var cret  C.gint      // return, none, casted
+	var cret C.gint       // return, none, casted
 	var _cerr *C.GError   // out, full, converted, nullable
 
 	carg0 = (*C.GKeyFile)(UnsafeKeyFileToGlibNone(keyFile))
@@ -15702,7 +16329,7 @@ func (keyFile *KeyFile) GetInteger(groupName string, key string) (int32, error) 
 	runtime.KeepAlive(groupName)
 	runtime.KeepAlive(key)
 
-	var goret  int32
+	var goret int32
 	var _goerr error
 
 	goret = int32(cret)
@@ -15714,14 +16341,14 @@ func (keyFile *KeyFile) GetInteger(groupName string, key string) (int32, error) 
 }
 
 // GetIntegerList wraps g_key_file_get_integer_list
-// 
+//
 // see also https://docs.gtk.org/glib/method.g_key_file_get_integer_list.g_key_file_get_integer_list.html
 func (keyFile *KeyFile) GetIntegerList(groupName string, key string) (uint, []int32, error) {
 	var carg0 *C.GKeyFile // in, none, converted
 	var carg1 *C.gchar    // in, none, string
 	var carg2 *C.gchar    // in, none, string
 	var carg3 C.gsize     // out, full, casted
-	var cret  *C.gint     // return, transfer: container, C Pointers: 1, Name: array[gint], scope: , nullable, array (inner gint (*typesystem.CastablePrimitive))
+	var cret *C.gint      // return, transfer: container, C Pointers: 1, Name: array[gint], nullable, array (inner gint (*typesystem.CastablePrimitive))
 	var _cerr *C.GError   // out, full, converted, nullable
 
 	carg0 = (*C.GKeyFile)(UnsafeKeyFileToGlibNone(keyFile))
@@ -15736,7 +16363,7 @@ func (keyFile *KeyFile) GetIntegerList(groupName string, key string) (uint, []in
 	runtime.KeepAlive(key)
 
 	var length uint
-	var goret  []int32
+	var goret []int32
 	var _goerr error
 
 	length = uint(carg3)
@@ -15751,13 +16378,13 @@ func (keyFile *KeyFile) GetIntegerList(groupName string, key string) (uint, []in
 }
 
 // GetKeys wraps g_key_file_get_keys
-// 
+//
 // see also https://docs.gtk.org/glib/method.g_key_file_get_keys.g_key_file_get_keys.html
 func (keyFile *KeyFile) GetKeys(groupName string) (uint, []string, error) {
 	var carg0 *C.GKeyFile // in, none, converted
 	var carg1 *C.gchar    // in, none, string
 	var carg2 C.gsize     // out, full, casted
-	var cret  **C.gchar   // return, transfer: full, C Pointers: 2, Name: array[utf8], scope: , nullable, array (inner gchar* (*typesystem.StringPrimitive), zero-terminated)
+	var cret **C.gchar    // return, transfer: full, C Pointers: 2, Name: array[utf8], nullable, array (inner gchar* (*typesystem.StringPrimitive), zero-terminated)
 	var _cerr *C.GError   // out, full, converted, nullable
 
 	carg0 = (*C.GKeyFile)(UnsafeKeyFileToGlibNone(keyFile))
@@ -15769,7 +16396,7 @@ func (keyFile *KeyFile) GetKeys(groupName string) (uint, []string, error) {
 	runtime.KeepAlive(groupName)
 
 	var length uint
-	var goret  []string
+	var goret []string
 	var _goerr error
 
 	length = uint(carg2)
@@ -15784,14 +16411,14 @@ func (keyFile *KeyFile) GetKeys(groupName string) (uint, []string, error) {
 }
 
 // GetLocaleForKey wraps g_key_file_get_locale_for_key
-// 
+//
 // see also https://docs.gtk.org/glib/method.g_key_file_get_locale_for_key.g_key_file_get_locale_for_key.html
 func (keyFile *KeyFile) GetLocaleForKey(groupName string, key string, locale string) string {
 	var carg0 *C.GKeyFile // in, none, converted
 	var carg1 *C.gchar    // in, none, string
 	var carg2 *C.gchar    // in, none, string
 	var carg3 *C.gchar    // in, none, string, nullable-string
-	var cret  *C.gchar    // return, full, string, nullable-string
+	var cret *C.gchar     // return, full, string, nullable-string
 
 	carg0 = (*C.GKeyFile)(UnsafeKeyFileToGlibNone(keyFile))
 	carg1 = (*C.gchar)(transfer.GLibString(groupName))
@@ -15820,14 +16447,14 @@ func (keyFile *KeyFile) GetLocaleForKey(groupName string, key string, locale str
 }
 
 // GetLocaleString wraps g_key_file_get_locale_string
-// 
+//
 // see also https://docs.gtk.org/glib/method.g_key_file_get_locale_string.g_key_file_get_locale_string.html
 func (keyFile *KeyFile) GetLocaleString(groupName string, key string, locale string) (string, error) {
 	var carg0 *C.GKeyFile // in, none, converted
 	var carg1 *C.gchar    // in, none, string
 	var carg2 *C.gchar    // in, none, string
 	var carg3 *C.gchar    // in, none, string, nullable-string
-	var cret  *C.gchar    // return, full, string, nullable-string
+	var cret *C.gchar     // return, full, string, nullable-string
 	var _cerr *C.GError   // out, full, converted, nullable
 
 	carg0 = (*C.GKeyFile)(UnsafeKeyFileToGlibNone(keyFile))
@@ -15846,7 +16473,7 @@ func (keyFile *KeyFile) GetLocaleString(groupName string, key string, locale str
 	runtime.KeepAlive(key)
 	runtime.KeepAlive(locale)
 
-	var goret  string
+	var goret string
 	var _goerr error
 
 	if cret != nil {
@@ -15861,7 +16488,7 @@ func (keyFile *KeyFile) GetLocaleString(groupName string, key string, locale str
 }
 
 // GetLocaleStringList wraps g_key_file_get_locale_string_list
-// 
+//
 // see also https://docs.gtk.org/glib/method.g_key_file_get_locale_string_list.g_key_file_get_locale_string_list.html
 func (keyFile *KeyFile) GetLocaleStringList(groupName string, key string, locale string) (uint, []string, error) {
 	var carg0 *C.GKeyFile // in, none, converted
@@ -15869,7 +16496,7 @@ func (keyFile *KeyFile) GetLocaleStringList(groupName string, key string, locale
 	var carg2 *C.gchar    // in, none, string
 	var carg3 *C.gchar    // in, none, string, nullable-string
 	var carg4 C.gsize     // out, full, casted
-	var cret  **C.gchar   // return, transfer: full, C Pointers: 2, Name: array[utf8], scope: , nullable, array (inner gchar* (*typesystem.StringPrimitive), zero-terminated)
+	var cret **C.gchar    // return, transfer: full, C Pointers: 2, Name: array[utf8], nullable, array (inner gchar* (*typesystem.StringPrimitive), zero-terminated)
 	var _cerr *C.GError   // out, full, converted, nullable
 
 	carg0 = (*C.GKeyFile)(UnsafeKeyFileToGlibNone(keyFile))
@@ -15889,7 +16516,7 @@ func (keyFile *KeyFile) GetLocaleStringList(groupName string, key string, locale
 	runtime.KeepAlive(locale)
 
 	var length uint
-	var goret  []string
+	var goret []string
 	var _goerr error
 
 	length = uint(carg4)
@@ -15904,11 +16531,11 @@ func (keyFile *KeyFile) GetLocaleStringList(groupName string, key string, locale
 }
 
 // GetStartGroup wraps g_key_file_get_start_group
-// 
+//
 // see also https://docs.gtk.org/glib/method.g_key_file_get_start_group.g_key_file_get_start_group.html
 func (keyFile *KeyFile) GetStartGroup() string {
 	var carg0 *C.GKeyFile // in, none, converted
-	var cret  *C.gchar    // return, full, string, nullable-string
+	var cret *C.gchar     // return, full, string, nullable-string
 
 	carg0 = (*C.GKeyFile)(UnsafeKeyFileToGlibNone(keyFile))
 
@@ -15926,13 +16553,13 @@ func (keyFile *KeyFile) GetStartGroup() string {
 }
 
 // GetString wraps g_key_file_get_string
-// 
+//
 // see also https://docs.gtk.org/glib/method.g_key_file_get_string.g_key_file_get_string.html
 func (keyFile *KeyFile) GetString(groupName string, key string) (string, error) {
 	var carg0 *C.GKeyFile // in, none, converted
 	var carg1 *C.gchar    // in, none, string
 	var carg2 *C.gchar    // in, none, string
-	var cret  *C.gchar    // return, full, string, nullable-string
+	var cret *C.gchar     // return, full, string, nullable-string
 	var _cerr *C.GError   // out, full, converted, nullable
 
 	carg0 = (*C.GKeyFile)(UnsafeKeyFileToGlibNone(keyFile))
@@ -15946,7 +16573,7 @@ func (keyFile *KeyFile) GetString(groupName string, key string) (string, error) 
 	runtime.KeepAlive(groupName)
 	runtime.KeepAlive(key)
 
-	var goret  string
+	var goret string
 	var _goerr error
 
 	if cret != nil {
@@ -15961,14 +16588,14 @@ func (keyFile *KeyFile) GetString(groupName string, key string) (string, error) 
 }
 
 // GetStringList wraps g_key_file_get_string_list
-// 
+//
 // see also https://docs.gtk.org/glib/method.g_key_file_get_string_list.g_key_file_get_string_list.html
 func (keyFile *KeyFile) GetStringList(groupName string, key string) (uint, []string, error) {
 	var carg0 *C.GKeyFile // in, none, converted
 	var carg1 *C.gchar    // in, none, string
 	var carg2 *C.gchar    // in, none, string
 	var carg3 C.gsize     // out, full, casted
-	var cret  **C.gchar   // return, transfer: full, C Pointers: 2, Name: array[utf8], scope: , nullable, array (inner gchar* (*typesystem.StringPrimitive), zero-terminated)
+	var cret **C.gchar    // return, transfer: full, C Pointers: 2, Name: array[utf8], nullable, array (inner gchar* (*typesystem.StringPrimitive), zero-terminated)
 	var _cerr *C.GError   // out, full, converted, nullable
 
 	carg0 = (*C.GKeyFile)(UnsafeKeyFileToGlibNone(keyFile))
@@ -15983,7 +16610,7 @@ func (keyFile *KeyFile) GetStringList(groupName string, key string) (uint, []str
 	runtime.KeepAlive(key)
 
 	var length uint
-	var goret  []string
+	var goret []string
 	var _goerr error
 
 	length = uint(carg3)
@@ -15998,13 +16625,13 @@ func (keyFile *KeyFile) GetStringList(groupName string, key string) (uint, []str
 }
 
 // GetUint64 wraps g_key_file_get_uint64
-// 
+//
 // see also https://docs.gtk.org/glib/method.g_key_file_get_uint64.g_key_file_get_uint64.html
 func (keyFile *KeyFile) GetUint64(groupName string, key string) (uint64, error) {
 	var carg0 *C.GKeyFile // in, none, converted
 	var carg1 *C.gchar    // in, none, string
 	var carg2 *C.gchar    // in, none, string
-	var cret  C.guint64   // return, none, casted
+	var cret C.guint64    // return, none, casted
 	var _cerr *C.GError   // out, full, converted, nullable
 
 	carg0 = (*C.GKeyFile)(UnsafeKeyFileToGlibNone(keyFile))
@@ -16018,7 +16645,7 @@ func (keyFile *KeyFile) GetUint64(groupName string, key string) (uint64, error) 
 	runtime.KeepAlive(groupName)
 	runtime.KeepAlive(key)
 
-	var goret  uint64
+	var goret uint64
 	var _goerr error
 
 	goret = uint64(cret)
@@ -16030,13 +16657,13 @@ func (keyFile *KeyFile) GetUint64(groupName string, key string) (uint64, error) 
 }
 
 // GetValue wraps g_key_file_get_value
-// 
+//
 // see also https://docs.gtk.org/glib/method.g_key_file_get_value.g_key_file_get_value.html
 func (keyFile *KeyFile) GetValue(groupName string, key string) (string, error) {
 	var carg0 *C.GKeyFile // in, none, converted
 	var carg1 *C.gchar    // in, none, string
 	var carg2 *C.gchar    // in, none, string
-	var cret  *C.gchar    // return, full, string, nullable-string
+	var cret *C.gchar     // return, full, string, nullable-string
 	var _cerr *C.GError   // out, full, converted, nullable
 
 	carg0 = (*C.GKeyFile)(UnsafeKeyFileToGlibNone(keyFile))
@@ -16050,7 +16677,7 @@ func (keyFile *KeyFile) GetValue(groupName string, key string) (string, error) {
 	runtime.KeepAlive(groupName)
 	runtime.KeepAlive(key)
 
-	var goret  string
+	var goret string
 	var _goerr error
 
 	if cret != nil {
@@ -16065,12 +16692,12 @@ func (keyFile *KeyFile) GetValue(groupName string, key string) (string, error) {
 }
 
 // HasGroup wraps g_key_file_has_group
-// 
+//
 // see also https://docs.gtk.org/glib/method.g_key_file_has_group.g_key_file_has_group.html
 func (keyFile *KeyFile) HasGroup(groupName string) bool {
 	var carg0 *C.GKeyFile // in, none, converted
 	var carg1 *C.gchar    // in, none, string
-	var cret  C.gboolean  // return
+	var cret C.gboolean   // return
 
 	carg0 = (*C.GKeyFile)(UnsafeKeyFileToGlibNone(keyFile))
 	carg1 = (*C.gchar)(transfer.GLibString(groupName))
@@ -16090,13 +16717,13 @@ func (keyFile *KeyFile) HasGroup(groupName string) bool {
 }
 
 // LoadFromBytes wraps g_key_file_load_from_bytes
-// 
+//
 // see also https://docs.gtk.org/glib/method.g_key_file_load_from_bytes.g_key_file_load_from_bytes.html
 func (keyFile *KeyFile) LoadFromBytes(bytes *Bytes, flags KeyFileFlags) (bool, error) {
 	var carg0 *C.GKeyFile     // in, none, converted
 	var carg1 *C.GBytes       // in, none, converted
 	var carg2 C.GKeyFileFlags // in, none, casted
-	var cret  C.gboolean      // return
+	var cret C.gboolean       // return
 	var _cerr *C.GError       // out, full, converted, nullable
 
 	carg0 = (*C.GKeyFile)(UnsafeKeyFileToGlibNone(keyFile))
@@ -16108,7 +16735,7 @@ func (keyFile *KeyFile) LoadFromBytes(bytes *Bytes, flags KeyFileFlags) (bool, e
 	runtime.KeepAlive(bytes)
 	runtime.KeepAlive(flags)
 
-	var goret  bool
+	var goret bool
 	var _goerr error
 
 	if cret != 0 {
@@ -16122,14 +16749,14 @@ func (keyFile *KeyFile) LoadFromBytes(bytes *Bytes, flags KeyFileFlags) (bool, e
 }
 
 // LoadFromData wraps g_key_file_load_from_data
-// 
+//
 // see also https://docs.gtk.org/glib/method.g_key_file_load_from_data.g_key_file_load_from_data.html
 func (keyFile *KeyFile) LoadFromData(data string, length uint, flags KeyFileFlags) (bool, error) {
 	var carg0 *C.GKeyFile     // in, none, converted
 	var carg1 *C.gchar        // in, none, string
 	var carg2 C.gsize         // in, none, casted
 	var carg3 C.GKeyFileFlags // in, none, casted
-	var cret  C.gboolean      // return
+	var cret C.gboolean       // return
 	var _cerr *C.GError       // out, full, converted, nullable
 
 	carg0 = (*C.GKeyFile)(UnsafeKeyFileToGlibNone(keyFile))
@@ -16144,7 +16771,7 @@ func (keyFile *KeyFile) LoadFromData(data string, length uint, flags KeyFileFlag
 	runtime.KeepAlive(length)
 	runtime.KeepAlive(flags)
 
-	var goret  bool
+	var goret bool
 	var _goerr error
 
 	if cret != 0 {
@@ -16158,14 +16785,14 @@ func (keyFile *KeyFile) LoadFromData(data string, length uint, flags KeyFileFlag
 }
 
 // LoadFromDataDirs wraps g_key_file_load_from_data_dirs
-// 
+//
 // see also https://docs.gtk.org/glib/method.g_key_file_load_from_data_dirs.g_key_file_load_from_data_dirs.html
 func (keyFile *KeyFile) LoadFromDataDirs(file string, flags KeyFileFlags) (string, bool, error) {
 	var carg0 *C.GKeyFile     // in, none, converted
 	var carg1 *C.gchar        // in, none, string
 	var carg3 C.GKeyFileFlags // in, none, casted
 	var carg2 *C.gchar        // out, full, string
-	var cret  C.gboolean      // return
+	var cret C.gboolean       // return
 	var _cerr *C.GError       // out, full, converted, nullable
 
 	carg0 = (*C.GKeyFile)(UnsafeKeyFileToGlibNone(keyFile))
@@ -16179,8 +16806,8 @@ func (keyFile *KeyFile) LoadFromDataDirs(file string, flags KeyFileFlags) (strin
 	runtime.KeepAlive(flags)
 
 	var fullPath string
-	var goret    bool
-	var _goerr   error
+	var goret bool
+	var _goerr error
 
 	fullPath = C.GoString((*C.char)(unsafe.Pointer(carg2)))
 	defer C.g_free(C.gpointer(carg2))
@@ -16195,7 +16822,7 @@ func (keyFile *KeyFile) LoadFromDataDirs(file string, flags KeyFileFlags) (strin
 }
 
 // LoadFromDirs wraps g_key_file_load_from_dirs
-// 
+//
 // see also https://docs.gtk.org/glib/method.g_key_file_load_from_dirs.g_key_file_load_from_dirs.html
 func (keyFile *KeyFile) LoadFromDirs(file string, searchDirs []string, flags KeyFileFlags) (string, bool, error) {
 	var carg0 *C.GKeyFile     // in, none, converted
@@ -16203,7 +16830,7 @@ func (keyFile *KeyFile) LoadFromDirs(file string, searchDirs []string, flags Key
 	var carg2 **C.gchar       // in, transfer: none, C Pointers: 2, Name: array[filename], array (inner gchar* (*typesystem.StringPrimitive), zero-terminated)
 	var carg4 C.GKeyFileFlags // in, none, casted
 	var carg3 *C.gchar        // out, full, string
-	var cret  C.gboolean      // return
+	var cret C.gboolean       // return
 	var _cerr *C.GError       // out, full, converted, nullable
 
 	carg0 = (*C.GKeyFile)(UnsafeKeyFileToGlibNone(keyFile))
@@ -16221,8 +16848,8 @@ func (keyFile *KeyFile) LoadFromDirs(file string, searchDirs []string, flags Key
 	runtime.KeepAlive(flags)
 
 	var fullPath string
-	var goret    bool
-	var _goerr   error
+	var goret bool
+	var _goerr error
 
 	fullPath = C.GoString((*C.char)(unsafe.Pointer(carg3)))
 	defer C.g_free(C.gpointer(carg3))
@@ -16237,13 +16864,13 @@ func (keyFile *KeyFile) LoadFromDirs(file string, searchDirs []string, flags Key
 }
 
 // LoadFromFile wraps g_key_file_load_from_file
-// 
+//
 // see also https://docs.gtk.org/glib/method.g_key_file_load_from_file.g_key_file_load_from_file.html
 func (keyFile *KeyFile) LoadFromFile(file string, flags KeyFileFlags) (bool, error) {
 	var carg0 *C.GKeyFile     // in, none, converted
 	var carg1 *C.gchar        // in, none, string
 	var carg2 C.GKeyFileFlags // in, none, casted
-	var cret  C.gboolean      // return
+	var cret C.gboolean       // return
 	var _cerr *C.GError       // out, full, converted, nullable
 
 	carg0 = (*C.GKeyFile)(UnsafeKeyFileToGlibNone(keyFile))
@@ -16256,7 +16883,7 @@ func (keyFile *KeyFile) LoadFromFile(file string, flags KeyFileFlags) (bool, err
 	runtime.KeepAlive(file)
 	runtime.KeepAlive(flags)
 
-	var goret  bool
+	var goret bool
 	var _goerr error
 
 	if cret != 0 {
@@ -16270,13 +16897,13 @@ func (keyFile *KeyFile) LoadFromFile(file string, flags KeyFileFlags) (bool, err
 }
 
 // RemoveComment wraps g_key_file_remove_comment
-// 
+//
 // see also https://docs.gtk.org/glib/method.g_key_file_remove_comment.g_key_file_remove_comment.html
 func (keyFile *KeyFile) RemoveComment(groupName string, key string) (bool, error) {
 	var carg0 *C.GKeyFile // in, none, converted
 	var carg1 *C.gchar    // in, none, string, nullable-string
 	var carg2 *C.gchar    // in, none, string, nullable-string
-	var cret  C.gboolean  // return
+	var cret C.gboolean   // return
 	var _cerr *C.GError   // out, full, converted, nullable
 
 	carg0 = (*C.GKeyFile)(UnsafeKeyFileToGlibNone(keyFile))
@@ -16294,7 +16921,7 @@ func (keyFile *KeyFile) RemoveComment(groupName string, key string) (bool, error
 	runtime.KeepAlive(groupName)
 	runtime.KeepAlive(key)
 
-	var goret  bool
+	var goret bool
 	var _goerr error
 
 	if cret != 0 {
@@ -16308,12 +16935,12 @@ func (keyFile *KeyFile) RemoveComment(groupName string, key string) (bool, error
 }
 
 // RemoveGroup wraps g_key_file_remove_group
-// 
+//
 // see also https://docs.gtk.org/glib/method.g_key_file_remove_group.g_key_file_remove_group.html
 func (keyFile *KeyFile) RemoveGroup(groupName string) (bool, error) {
 	var carg0 *C.GKeyFile // in, none, converted
 	var carg1 *C.gchar    // in, none, string
-	var cret  C.gboolean  // return
+	var cret C.gboolean   // return
 	var _cerr *C.GError   // out, full, converted, nullable
 
 	carg0 = (*C.GKeyFile)(UnsafeKeyFileToGlibNone(keyFile))
@@ -16324,7 +16951,7 @@ func (keyFile *KeyFile) RemoveGroup(groupName string) (bool, error) {
 	runtime.KeepAlive(keyFile)
 	runtime.KeepAlive(groupName)
 
-	var goret  bool
+	var goret bool
 	var _goerr error
 
 	if cret != 0 {
@@ -16338,13 +16965,13 @@ func (keyFile *KeyFile) RemoveGroup(groupName string) (bool, error) {
 }
 
 // RemoveKey wraps g_key_file_remove_key
-// 
+//
 // see also https://docs.gtk.org/glib/method.g_key_file_remove_key.g_key_file_remove_key.html
 func (keyFile *KeyFile) RemoveKey(groupName string, key string) (bool, error) {
 	var carg0 *C.GKeyFile // in, none, converted
 	var carg1 *C.gchar    // in, none, string
 	var carg2 *C.gchar    // in, none, string
-	var cret  C.gboolean  // return
+	var cret C.gboolean   // return
 	var _cerr *C.GError   // out, full, converted, nullable
 
 	carg0 = (*C.GKeyFile)(UnsafeKeyFileToGlibNone(keyFile))
@@ -16358,7 +16985,7 @@ func (keyFile *KeyFile) RemoveKey(groupName string, key string) (bool, error) {
 	runtime.KeepAlive(groupName)
 	runtime.KeepAlive(key)
 
-	var goret  bool
+	var goret bool
 	var _goerr error
 
 	if cret != 0 {
@@ -16372,12 +16999,12 @@ func (keyFile *KeyFile) RemoveKey(groupName string, key string) (bool, error) {
 }
 
 // SaveToFile wraps g_key_file_save_to_file
-// 
+//
 // see also https://docs.gtk.org/glib/method.g_key_file_save_to_file.g_key_file_save_to_file.html
 func (keyFile *KeyFile) SaveToFile(filename string) (bool, error) {
 	var carg0 *C.GKeyFile // in, none, converted
 	var carg1 *C.gchar    // in, none, string
-	var cret  C.gboolean  // return
+	var cret C.gboolean   // return
 	var _cerr *C.GError   // out, full, converted, nullable
 
 	carg0 = (*C.GKeyFile)(UnsafeKeyFileToGlibNone(keyFile))
@@ -16388,7 +17015,7 @@ func (keyFile *KeyFile) SaveToFile(filename string) (bool, error) {
 	runtime.KeepAlive(keyFile)
 	runtime.KeepAlive(filename)
 
-	var goret  bool
+	var goret bool
 	var _goerr error
 
 	if cret != 0 {
@@ -16402,7 +17029,7 @@ func (keyFile *KeyFile) SaveToFile(filename string) (bool, error) {
 }
 
 // SetBoolean wraps g_key_file_set_boolean
-// 
+//
 // see also https://docs.gtk.org/glib/method.g_key_file_set_boolean.g_key_file_set_boolean.html
 func (keyFile *KeyFile) SetBoolean(groupName string, key string, value bool) {
 	var carg0 *C.GKeyFile // in, none, converted
@@ -16427,7 +17054,7 @@ func (keyFile *KeyFile) SetBoolean(groupName string, key string, value bool) {
 }
 
 // SetBooleanList wraps g_key_file_set_boolean_list
-// 
+//
 // see also https://docs.gtk.org/glib/method.g_key_file_set_boolean_list.g_key_file_set_boolean_list.html
 func (keyFile *KeyFile) SetBooleanList(groupName string, key string, list []bool) {
 	var carg0 *C.GKeyFile // in, none, converted
@@ -16454,14 +17081,14 @@ func (keyFile *KeyFile) SetBooleanList(groupName string, key string, list []bool
 }
 
 // SetComment wraps g_key_file_set_comment
-// 
+//
 // see also https://docs.gtk.org/glib/method.g_key_file_set_comment.g_key_file_set_comment.html
 func (keyFile *KeyFile) SetComment(groupName string, key string, comment string) (bool, error) {
 	var carg0 *C.GKeyFile // in, none, converted
 	var carg1 *C.gchar    // in, none, string, nullable-string
 	var carg2 *C.gchar    // in, none, string, nullable-string
 	var carg3 *C.gchar    // in, none, string
-	var cret  C.gboolean  // return
+	var cret C.gboolean   // return
 	var _cerr *C.GError   // out, full, converted, nullable
 
 	carg0 = (*C.GKeyFile)(UnsafeKeyFileToGlibNone(keyFile))
@@ -16482,7 +17109,7 @@ func (keyFile *KeyFile) SetComment(groupName string, key string, comment string)
 	runtime.KeepAlive(key)
 	runtime.KeepAlive(comment)
 
-	var goret  bool
+	var goret bool
 	var _goerr error
 
 	if cret != 0 {
@@ -16496,7 +17123,7 @@ func (keyFile *KeyFile) SetComment(groupName string, key string, comment string)
 }
 
 // SetDouble wraps g_key_file_set_double
-// 
+//
 // see also https://docs.gtk.org/glib/method.g_key_file_set_double.g_key_file_set_double.html
 func (keyFile *KeyFile) SetDouble(groupName string, key string, value float64) {
 	var carg0 *C.GKeyFile // in, none, converted
@@ -16519,7 +17146,7 @@ func (keyFile *KeyFile) SetDouble(groupName string, key string, value float64) {
 }
 
 // SetDoubleList wraps g_key_file_set_double_list
-// 
+//
 // see also https://docs.gtk.org/glib/method.g_key_file_set_double_list.g_key_file_set_double_list.html
 func (keyFile *KeyFile) SetDoubleList(groupName string, key string, list []float64) {
 	var carg0 *C.GKeyFile // in, none, converted
@@ -16546,7 +17173,7 @@ func (keyFile *KeyFile) SetDoubleList(groupName string, key string, list []float
 }
 
 // SetInt64 wraps g_key_file_set_int64
-// 
+//
 // see also https://docs.gtk.org/glib/method.g_key_file_set_int64.g_key_file_set_int64.html
 func (keyFile *KeyFile) SetInt64(groupName string, key string, value int64) {
 	var carg0 *C.GKeyFile // in, none, converted
@@ -16569,7 +17196,7 @@ func (keyFile *KeyFile) SetInt64(groupName string, key string, value int64) {
 }
 
 // SetInteger wraps g_key_file_set_integer
-// 
+//
 // see also https://docs.gtk.org/glib/method.g_key_file_set_integer.g_key_file_set_integer.html
 func (keyFile *KeyFile) SetInteger(groupName string, key string, value int32) {
 	var carg0 *C.GKeyFile // in, none, converted
@@ -16592,7 +17219,7 @@ func (keyFile *KeyFile) SetInteger(groupName string, key string, value int32) {
 }
 
 // SetIntegerList wraps g_key_file_set_integer_list
-// 
+//
 // see also https://docs.gtk.org/glib/method.g_key_file_set_integer_list.g_key_file_set_integer_list.html
 func (keyFile *KeyFile) SetIntegerList(groupName string, key string, list []int32) {
 	var carg0 *C.GKeyFile // in, none, converted
@@ -16619,7 +17246,7 @@ func (keyFile *KeyFile) SetIntegerList(groupName string, key string, list []int3
 }
 
 // SetListSeparator wraps g_key_file_set_list_separator
-// 
+//
 // see also https://docs.gtk.org/glib/method.g_key_file_set_list_separator.g_key_file_set_list_separator.html
 func (keyFile *KeyFile) SetListSeparator(separator byte) {
 	var carg0 *C.GKeyFile // in, none, converted
@@ -16634,7 +17261,7 @@ func (keyFile *KeyFile) SetListSeparator(separator byte) {
 }
 
 // SetLocaleString wraps g_key_file_set_locale_string
-// 
+//
 // see also https://docs.gtk.org/glib/method.g_key_file_set_locale_string.g_key_file_set_locale_string.html
 func (keyFile *KeyFile) SetLocaleString(groupName string, key string, locale string, str string) {
 	var carg0 *C.GKeyFile // in, none, converted
@@ -16662,7 +17289,7 @@ func (keyFile *KeyFile) SetLocaleString(groupName string, key string, locale str
 }
 
 // SetLocaleStringList wraps g_key_file_set_locale_string_list
-// 
+//
 // see also https://docs.gtk.org/glib/method.g_key_file_set_locale_string_list.g_key_file_set_locale_string_list.html
 func (keyFile *KeyFile) SetLocaleStringList(groupName string, key string, locale string, list []string) {
 	var carg0 *C.GKeyFile // in, none, converted
@@ -16693,7 +17320,7 @@ func (keyFile *KeyFile) SetLocaleStringList(groupName string, key string, locale
 }
 
 // SetString wraps g_key_file_set_string
-// 
+//
 // see also https://docs.gtk.org/glib/method.g_key_file_set_string.g_key_file_set_string.html
 func (keyFile *KeyFile) SetString(groupName string, key string, str string) {
 	var carg0 *C.GKeyFile // in, none, converted
@@ -16717,7 +17344,7 @@ func (keyFile *KeyFile) SetString(groupName string, key string, str string) {
 }
 
 // SetStringList wraps g_key_file_set_string_list
-// 
+//
 // see also https://docs.gtk.org/glib/method.g_key_file_set_string_list.g_key_file_set_string_list.html
 func (keyFile *KeyFile) SetStringList(groupName string, key string, list []string) {
 	var carg0 *C.GKeyFile // in, none, converted
@@ -16744,7 +17371,7 @@ func (keyFile *KeyFile) SetStringList(groupName string, key string, list []strin
 }
 
 // SetUint64 wraps g_key_file_set_uint64
-// 
+//
 // see also https://docs.gtk.org/glib/method.g_key_file_set_uint64.g_key_file_set_uint64.html
 func (keyFile *KeyFile) SetUint64(groupName string, key string, value uint64) {
 	var carg0 *C.GKeyFile // in, none, converted
@@ -16767,7 +17394,7 @@ func (keyFile *KeyFile) SetUint64(groupName string, key string, value uint64) {
 }
 
 // SetValue wraps g_key_file_set_value
-// 
+//
 // see also https://docs.gtk.org/glib/method.g_key_file_set_value.g_key_file_set_value.html
 func (keyFile *KeyFile) SetValue(groupName string, key string, value string) {
 	var carg0 *C.GKeyFile // in, none, converted
@@ -16791,12 +17418,12 @@ func (keyFile *KeyFile) SetValue(groupName string, key string, value string) {
 }
 
 // ToData wraps g_key_file_to_data
-// 
+//
 // see also https://docs.gtk.org/glib/method.g_key_file_to_data.g_key_file_to_data.html
 func (keyFile *KeyFile) ToData() (uint, string, error) {
 	var carg0 *C.GKeyFile // in, none, converted
 	var carg1 C.gsize     // out, full, casted
-	var cret  *C.gchar    // return, full, string, nullable-string
+	var cret *C.gchar     // return, full, string, nullable-string
 	var _cerr *C.GError   // out, full, converted, nullable
 
 	carg0 = (*C.GKeyFile)(UnsafeKeyFileToGlibNone(keyFile))
@@ -16805,7 +17432,7 @@ func (keyFile *KeyFile) ToData() (uint, string, error) {
 	runtime.KeepAlive(keyFile)
 
 	var length uint
-	var goret  string
+	var goret string
 	var _goerr error
 
 	length = uint(carg1)
@@ -16821,7 +17448,7 @@ func (keyFile *KeyFile) ToData() (uint, string, error) {
 }
 
 // LogField wraps GLogField
-// 
+//
 // see also https://docs.gtk.org/glib/struct.LogField.html
 type LogField struct {
 	*logField
@@ -16867,7 +17494,7 @@ func UnsafeLogFieldFromGlibFull(p unsafe.Pointer) *LogField {
 	}
 	runtime.SetFinalizer(
 		wrapped.logField,
-		func (intern *logField) {
+		func(intern *logField) {
 			C.free(unsafe.Pointer(intern.native))
 		},
 	)
@@ -16875,7 +17502,7 @@ func UnsafeLogFieldFromGlibFull(p unsafe.Pointer) *LogField {
 }
 
 // UnsafeLogFieldFree unrefs/frees the underlying resource. This can be used to remove the instance before the GC decides to do so.
-// 
+//
 // After this is called, no other method on [LogField] is expected to work anymore.
 func UnsafeLogFieldFree(l *LogField) {
 	C.free(unsafe.Pointer(l.native))
@@ -16903,7 +17530,7 @@ func UnsafeLogFieldToGlibFull(l *LogField) unsafe.Pointer {
 }
 
 // MainContext wraps GMainContext
-// 
+//
 // see also https://docs.gtk.org/glib/struct.MainContext.html
 type MainContext struct {
 	*mainContext
@@ -16940,7 +17567,7 @@ func UnsafeMainContextFromGlibNone(p unsafe.Pointer) *MainContext {
 
 	runtime.SetFinalizer(
 		wrapped.mainContext,
-		func (intern *mainContext) {
+		func(intern *mainContext) {
 			C.g_main_context_unref(intern.native)
 		},
 	)
@@ -16955,7 +17582,7 @@ func UnsafeMainContextFromGlibFull(p unsafe.Pointer) *MainContext {
 	}
 	runtime.SetFinalizer(
 		wrapped.mainContext,
-		func (intern *mainContext) {
+		func(intern *mainContext) {
 			C.g_main_context_unref(intern.native)
 		},
 	)
@@ -16963,14 +17590,14 @@ func UnsafeMainContextFromGlibFull(p unsafe.Pointer) *MainContext {
 }
 
 // UnsafeMainContextRef increases the refcount on the underlying resource.
-// 
+//
 // When this is called without an associated call to [MainContext.UnsafeMainContextUnref], then [MainContext] will leak memory.
 func UnsafeMainContextRef(m *MainContext) {
 	C.g_main_context_ref((*C.GMainContext)(m.native))
 }
 
 // UnsafeMainContextUnref unrefs/frees the underlying resource. This can be used to remove the instance before the GC decides to do so.
-// 
+//
 // After this is called, no other method on [MainContext] is expected to work anymore.
 func UnsafeMainContextUnref(m *MainContext) {
 	C.g_main_context_unref(m.native)
@@ -16998,7 +17625,7 @@ func UnsafeMainContextToGlibFull(m *MainContext) unsafe.Pointer {
 }
 
 // NewMainContext wraps g_main_context_new
-// 
+//
 // see also https://docs.gtk.org/glib/func.g_main_context_new.html
 func NewMainContext() *MainContext {
 	var cret *C.GMainContext // return, full, converted
@@ -17013,11 +17640,11 @@ func NewMainContext() *MainContext {
 }
 
 // NewMainContextWithFlags wraps g_main_context_new_with_flags
-// 
+//
 // see also https://docs.gtk.org/glib/func.g_main_context_new_with_flags.html
 func NewMainContextWithFlags(flags MainContextFlags) *MainContext {
 	var carg1 C.GMainContextFlags // in, none, casted
-	var cret  *C.GMainContext     // return, full, converted
+	var cret *C.GMainContext      // return, full, converted
 
 	carg1 = C.GMainContextFlags(flags)
 
@@ -17032,7 +17659,7 @@ func NewMainContextWithFlags(flags MainContextFlags) *MainContext {
 }
 
 // MainContextDefault wraps g_main_context_default
-// 
+//
 // see also https://docs.gtk.org/glib/func.g_main_context_default.html
 func MainContextDefault() *MainContext {
 	var cret *C.GMainContext // return, none, converted
@@ -17047,7 +17674,7 @@ func MainContextDefault() *MainContext {
 }
 
 // MainContextGetThreadDefault wraps g_main_context_get_thread_default
-// 
+//
 // see also https://docs.gtk.org/glib/func.g_main_context_get_thread_default.html
 func MainContextGetThreadDefault() *MainContext {
 	var cret *C.GMainContext // return, none, converted, nullable
@@ -17064,7 +17691,7 @@ func MainContextGetThreadDefault() *MainContext {
 }
 
 // MainContextRefThreadDefault wraps g_main_context_ref_thread_default
-// 
+//
 // see also https://docs.gtk.org/glib/func.g_main_context_ref_thread_default.html
 func MainContextRefThreadDefault() *MainContext {
 	var cret *C.GMainContext // return, full, converted
@@ -17079,11 +17706,11 @@ func MainContextRefThreadDefault() *MainContext {
 }
 
 // Acquire wraps g_main_context_acquire
-// 
+//
 // see also https://docs.gtk.org/glib/method.g_main_context_acquire.g_main_context_acquire.html
 func (_context *MainContext) Acquire() bool {
 	var carg0 *C.GMainContext // in, none, converted
-	var cret  C.gboolean      // return
+	var cret C.gboolean       // return
 
 	carg0 = (*C.GMainContext)(UnsafeMainContextToGlibNone(_context))
 
@@ -17100,7 +17727,7 @@ func (_context *MainContext) Acquire() bool {
 }
 
 // AddPoll wraps g_main_context_add_poll
-// 
+//
 // see also https://docs.gtk.org/glib/method.g_main_context_add_poll.g_main_context_add_poll.html
 func (_context *MainContext) AddPoll(fd *PollFD, priority int32) {
 	var carg0 *C.GMainContext // in, none, converted
@@ -17118,7 +17745,7 @@ func (_context *MainContext) AddPoll(fd *PollFD, priority int32) {
 }
 
 // Dispatch wraps g_main_context_dispatch
-// 
+//
 // see also https://docs.gtk.org/glib/method.g_main_context_dispatch.g_main_context_dispatch.html
 func (_context *MainContext) Dispatch() {
 	var carg0 *C.GMainContext // in, none, converted
@@ -17130,7 +17757,7 @@ func (_context *MainContext) Dispatch() {
 }
 
 // InvokeFull wraps g_main_context_invoke_full
-// 
+//
 // see also https://docs.gtk.org/glib/method.g_main_context_invoke_full.g_main_context_invoke_full.html
 func (_context *MainContext) InvokeFull(priority int32, function SourceFunc) {
 	var carg0 *C.GMainContext  // in, none, converted
@@ -17152,11 +17779,11 @@ func (_context *MainContext) InvokeFull(priority int32, function SourceFunc) {
 }
 
 // IsOwner wraps g_main_context_is_owner
-// 
+//
 // see also https://docs.gtk.org/glib/method.g_main_context_is_owner.g_main_context_is_owner.html
 func (_context *MainContext) IsOwner() bool {
 	var carg0 *C.GMainContext // in, none, converted
-	var cret  C.gboolean      // return
+	var cret C.gboolean       // return
 
 	carg0 = (*C.GMainContext)(UnsafeMainContextToGlibNone(_context))
 
@@ -17173,12 +17800,12 @@ func (_context *MainContext) IsOwner() bool {
 }
 
 // Iteration wraps g_main_context_iteration
-// 
+//
 // see also https://docs.gtk.org/glib/method.g_main_context_iteration.g_main_context_iteration.html
 func (_context *MainContext) Iteration(mayBlock bool) bool {
 	var carg0 *C.GMainContext // in, none, converted
 	var carg1 C.gboolean      // in
-	var cret  C.gboolean      // return
+	var cret C.gboolean       // return
 
 	carg0 = (*C.GMainContext)(UnsafeMainContextToGlibNone(_context))
 	if mayBlock {
@@ -17199,11 +17826,11 @@ func (_context *MainContext) Iteration(mayBlock bool) bool {
 }
 
 // Pending wraps g_main_context_pending
-// 
+//
 // see also https://docs.gtk.org/glib/method.g_main_context_pending.g_main_context_pending.html
 func (_context *MainContext) Pending() bool {
 	var carg0 *C.GMainContext // in, none, converted
-	var cret  C.gboolean      // return
+	var cret C.gboolean       // return
 
 	carg0 = (*C.GMainContext)(UnsafeMainContextToGlibNone(_context))
 
@@ -17220,7 +17847,7 @@ func (_context *MainContext) Pending() bool {
 }
 
 // PopThreadDefault wraps g_main_context_pop_thread_default
-// 
+//
 // see also https://docs.gtk.org/glib/method.g_main_context_pop_thread_default.g_main_context_pop_thread_default.html
 func (_context *MainContext) PopThreadDefault() {
 	var carg0 *C.GMainContext // in, none, converted
@@ -17232,12 +17859,12 @@ func (_context *MainContext) PopThreadDefault() {
 }
 
 // Prepare wraps g_main_context_prepare
-// 
+//
 // see also https://docs.gtk.org/glib/method.g_main_context_prepare.g_main_context_prepare.html
 func (_context *MainContext) Prepare() (int32, bool) {
 	var carg0 *C.GMainContext // in, none, converted
 	var carg1 C.gint          // out, full, casted
-	var cret  C.gboolean      // return
+	var cret C.gboolean       // return
 
 	carg0 = (*C.GMainContext)(UnsafeMainContextToGlibNone(_context))
 
@@ -17245,7 +17872,7 @@ func (_context *MainContext) Prepare() (int32, bool) {
 	runtime.KeepAlive(_context)
 
 	var priority int32
-	var goret    bool
+	var goret bool
 
 	priority = int32(carg1)
 	if cret != 0 {
@@ -17256,7 +17883,7 @@ func (_context *MainContext) Prepare() (int32, bool) {
 }
 
 // PushThreadDefault wraps g_main_context_push_thread_default
-// 
+//
 // see also https://docs.gtk.org/glib/method.g_main_context_push_thread_default.g_main_context_push_thread_default.html
 func (_context *MainContext) PushThreadDefault() {
 	var carg0 *C.GMainContext // in, none, converted
@@ -17268,7 +17895,7 @@ func (_context *MainContext) PushThreadDefault() {
 }
 
 // Release wraps g_main_context_release
-// 
+//
 // see also https://docs.gtk.org/glib/method.g_main_context_release.g_main_context_release.html
 func (_context *MainContext) Release() {
 	var carg0 *C.GMainContext // in, none, converted
@@ -17280,7 +17907,7 @@ func (_context *MainContext) Release() {
 }
 
 // RemovePoll wraps g_main_context_remove_poll
-// 
+//
 // see also https://docs.gtk.org/glib/method.g_main_context_remove_poll.g_main_context_remove_poll.html
 func (_context *MainContext) RemovePoll(fd *PollFD) {
 	var carg0 *C.GMainContext // in, none, converted
@@ -17295,7 +17922,7 @@ func (_context *MainContext) RemovePoll(fd *PollFD) {
 }
 
 // Wakeup wraps g_main_context_wakeup
-// 
+//
 // see also https://docs.gtk.org/glib/method.g_main_context_wakeup.g_main_context_wakeup.html
 func (_context *MainContext) Wakeup() {
 	var carg0 *C.GMainContext // in, none, converted
@@ -17307,7 +17934,7 @@ func (_context *MainContext) Wakeup() {
 }
 
 // MainLoop wraps GMainLoop
-// 
+//
 // see also https://docs.gtk.org/glib/struct.MainLoop.html
 type MainLoop struct {
 	*mainLoop
@@ -17344,7 +17971,7 @@ func UnsafeMainLoopFromGlibNone(p unsafe.Pointer) *MainLoop {
 
 	runtime.SetFinalizer(
 		wrapped.mainLoop,
-		func (intern *mainLoop) {
+		func(intern *mainLoop) {
 			C.g_main_loop_unref(intern.native)
 		},
 	)
@@ -17359,7 +17986,7 @@ func UnsafeMainLoopFromGlibFull(p unsafe.Pointer) *MainLoop {
 	}
 	runtime.SetFinalizer(
 		wrapped.mainLoop,
-		func (intern *mainLoop) {
+		func(intern *mainLoop) {
 			C.g_main_loop_unref(intern.native)
 		},
 	)
@@ -17367,14 +17994,14 @@ func UnsafeMainLoopFromGlibFull(p unsafe.Pointer) *MainLoop {
 }
 
 // UnsafeMainLoopRef increases the refcount on the underlying resource.
-// 
+//
 // When this is called without an associated call to [MainLoop.UnsafeMainLoopUnref], then [MainLoop] will leak memory.
 func UnsafeMainLoopRef(m *MainLoop) {
 	C.g_main_loop_ref((*C.GMainLoop)(m.native))
 }
 
 // UnsafeMainLoopUnref unrefs/frees the underlying resource. This can be used to remove the instance before the GC decides to do so.
-// 
+//
 // After this is called, no other method on [MainLoop] is expected to work anymore.
 func UnsafeMainLoopUnref(m *MainLoop) {
 	C.g_main_loop_unref(m.native)
@@ -17402,12 +18029,12 @@ func UnsafeMainLoopToGlibFull(m *MainLoop) unsafe.Pointer {
 }
 
 // NewMainLoop wraps g_main_loop_new
-// 
+//
 // see also https://docs.gtk.org/glib/func.g_main_loop_new.html
 func NewMainLoop(_context *MainContext, isRunning bool) *MainLoop {
 	var carg1 *C.GMainContext // in, none, converted, nullable
 	var carg2 C.gboolean      // in
-	var cret  *C.GMainLoop    // return, full, converted
+	var cret *C.GMainLoop     // return, full, converted
 
 	if _context != nil {
 		carg1 = (*C.GMainContext)(UnsafeMainContextToGlibNone(_context))
@@ -17428,11 +18055,11 @@ func NewMainLoop(_context *MainContext, isRunning bool) *MainLoop {
 }
 
 // GetContext wraps g_main_loop_get_context
-// 
+//
 // see also https://docs.gtk.org/glib/method.g_main_loop_get_context.g_main_loop_get_context.html
 func (loop *MainLoop) GetContext() *MainContext {
-	var carg0 *C.GMainLoop    // in, none, converted
-	var cret  *C.GMainContext // return, none, converted
+	var carg0 *C.GMainLoop   // in, none, converted
+	var cret *C.GMainContext // return, none, converted
 
 	carg0 = (*C.GMainLoop)(UnsafeMainLoopToGlibNone(loop))
 
@@ -17447,11 +18074,11 @@ func (loop *MainLoop) GetContext() *MainContext {
 }
 
 // IsRunning wraps g_main_loop_is_running
-// 
+//
 // see also https://docs.gtk.org/glib/method.g_main_loop_is_running.g_main_loop_is_running.html
 func (loop *MainLoop) IsRunning() bool {
 	var carg0 *C.GMainLoop // in, none, converted
-	var cret  C.gboolean   // return
+	var cret C.gboolean    // return
 
 	carg0 = (*C.GMainLoop)(UnsafeMainLoopToGlibNone(loop))
 
@@ -17468,7 +18095,7 @@ func (loop *MainLoop) IsRunning() bool {
 }
 
 // Quit wraps g_main_loop_quit
-// 
+//
 // see also https://docs.gtk.org/glib/method.g_main_loop_quit.g_main_loop_quit.html
 func (loop *MainLoop) Quit() {
 	var carg0 *C.GMainLoop // in, none, converted
@@ -17480,7 +18107,7 @@ func (loop *MainLoop) Quit() {
 }
 
 // Run wraps g_main_loop_run
-// 
+//
 // see also https://docs.gtk.org/glib/method.g_main_loop_run.g_main_loop_run.html
 func (loop *MainLoop) Run() {
 	var carg0 *C.GMainLoop // in, none, converted
@@ -17492,7 +18119,7 @@ func (loop *MainLoop) Run() {
 }
 
 // MappedFile wraps GMappedFile
-// 
+//
 // see also https://docs.gtk.org/glib/struct.MappedFile.html
 type MappedFile struct {
 	*mappedFile
@@ -17529,7 +18156,7 @@ func UnsafeMappedFileFromGlibNone(p unsafe.Pointer) *MappedFile {
 
 	runtime.SetFinalizer(
 		wrapped.mappedFile,
-		func (intern *mappedFile) {
+		func(intern *mappedFile) {
 			C.g_mapped_file_unref(intern.native)
 		},
 	)
@@ -17544,7 +18171,7 @@ func UnsafeMappedFileFromGlibFull(p unsafe.Pointer) *MappedFile {
 	}
 	runtime.SetFinalizer(
 		wrapped.mappedFile,
-		func (intern *mappedFile) {
+		func(intern *mappedFile) {
 			C.g_mapped_file_unref(intern.native)
 		},
 	)
@@ -17552,14 +18179,14 @@ func UnsafeMappedFileFromGlibFull(p unsafe.Pointer) *MappedFile {
 }
 
 // UnsafeMappedFileRef increases the refcount on the underlying resource.
-// 
+//
 // When this is called without an associated call to [MappedFile.UnsafeMappedFileUnref], then [MappedFile] will leak memory.
 func UnsafeMappedFileRef(m *MappedFile) {
 	C.g_mapped_file_ref((*C.GMappedFile)(m.native))
 }
 
 // UnsafeMappedFileUnref unrefs/frees the underlying resource. This can be used to remove the instance before the GC decides to do so.
-// 
+//
 // After this is called, no other method on [MappedFile] is expected to work anymore.
 func UnsafeMappedFileUnref(m *MappedFile) {
 	C.g_mapped_file_unref(m.native)
@@ -17587,13 +18214,13 @@ func UnsafeMappedFileToGlibFull(m *MappedFile) unsafe.Pointer {
 }
 
 // NewMappedFile wraps g_mapped_file_new
-// 
+//
 // see also https://docs.gtk.org/glib/func.g_mapped_file_new.html
 func NewMappedFile(filename string, writable bool) (*MappedFile, error) {
-	var carg1 *C.gchar       // in, none, string
-	var carg2 C.gboolean     // in
-	var cret  *C.GMappedFile // return, full, converted, nullable
-	var _cerr *C.GError      // out, full, converted, nullable
+	var carg1 *C.gchar      // in, none, string
+	var carg2 C.gboolean    // in
+	var cret *C.GMappedFile // return, full, converted, nullable
+	var _cerr *C.GError     // out, full, converted, nullable
 
 	carg1 = (*C.gchar)(transfer.GLibString(filename))
 	defer C.g_free(C.gpointer(carg1))
@@ -17605,7 +18232,7 @@ func NewMappedFile(filename string, writable bool) (*MappedFile, error) {
 	runtime.KeepAlive(filename)
 	runtime.KeepAlive(writable)
 
-	var goret  *MappedFile
+	var goret *MappedFile
 	var _goerr error
 
 	if cret != nil {
@@ -17619,13 +18246,13 @@ func NewMappedFile(filename string, writable bool) (*MappedFile, error) {
 }
 
 // NewMappedFileFromFd wraps g_mapped_file_new_from_fd
-// 
+//
 // see also https://docs.gtk.org/glib/func.g_mapped_file_new_from_fd.html
 func NewMappedFileFromFd(fd int32, writable bool) (*MappedFile, error) {
-	var carg1 C.gint         // in, none, casted
-	var carg2 C.gboolean     // in
-	var cret  *C.GMappedFile // return, full, converted, nullable
-	var _cerr *C.GError      // out, full, converted, nullable
+	var carg1 C.gint        // in, none, casted
+	var carg2 C.gboolean    // in
+	var cret *C.GMappedFile // return, full, converted, nullable
+	var _cerr *C.GError     // out, full, converted, nullable
 
 	carg1 = C.gint(fd)
 	if writable {
@@ -17636,7 +18263,7 @@ func NewMappedFileFromFd(fd int32, writable bool) (*MappedFile, error) {
 	runtime.KeepAlive(fd)
 	runtime.KeepAlive(writable)
 
-	var goret  *MappedFile
+	var goret *MappedFile
 	var _goerr error
 
 	if cret != nil {
@@ -17650,11 +18277,11 @@ func NewMappedFileFromFd(fd int32, writable bool) (*MappedFile, error) {
 }
 
 // GetBytes wraps g_mapped_file_get_bytes
-// 
+//
 // see also https://docs.gtk.org/glib/method.g_mapped_file_get_bytes.g_mapped_file_get_bytes.html
 func (file *MappedFile) GetBytes() *Bytes {
 	var carg0 *C.GMappedFile // in, none, converted
-	var cret  *C.GBytes      // return, full, converted
+	var cret *C.GBytes       // return, full, converted
 
 	carg0 = (*C.GMappedFile)(UnsafeMappedFileToGlibNone(file))
 
@@ -17669,11 +18296,11 @@ func (file *MappedFile) GetBytes() *Bytes {
 }
 
 // GetContents wraps g_mapped_file_get_contents
-// 
+//
 // see also https://docs.gtk.org/glib/method.g_mapped_file_get_contents.g_mapped_file_get_contents.html
 func (file *MappedFile) GetContents() string {
 	var carg0 *C.GMappedFile // in, none, converted
-	var cret  *C.gchar       // return, none, string, nullable-string
+	var cret *C.gchar        // return, none, string, nullable-string
 
 	carg0 = (*C.GMappedFile)(UnsafeMappedFileToGlibNone(file))
 
@@ -17690,11 +18317,11 @@ func (file *MappedFile) GetContents() string {
 }
 
 // GetLength wraps g_mapped_file_get_length
-// 
+//
 // see also https://docs.gtk.org/glib/method.g_mapped_file_get_length.g_mapped_file_get_length.html
 func (file *MappedFile) GetLength() uint {
 	var carg0 *C.GMappedFile // in, none, converted
-	var cret  C.gsize        // return, none, casted
+	var cret C.gsize         // return, none, casted
 
 	carg0 = (*C.GMappedFile)(UnsafeMappedFileToGlibNone(file))
 
@@ -17709,7 +18336,7 @@ func (file *MappedFile) GetLength() uint {
 }
 
 // MarkupParseContext wraps GMarkupParseContext
-// 
+//
 // see also https://docs.gtk.org/glib/struct.MarkupParseContext.html
 type MarkupParseContext struct {
 	*markupParseContext
@@ -17746,7 +18373,7 @@ func UnsafeMarkupParseContextFromGlibNone(p unsafe.Pointer) *MarkupParseContext 
 
 	runtime.SetFinalizer(
 		wrapped.markupParseContext,
-		func (intern *markupParseContext) {
+		func(intern *markupParseContext) {
 			C.g_markup_parse_context_unref(intern.native)
 		},
 	)
@@ -17761,7 +18388,7 @@ func UnsafeMarkupParseContextFromGlibFull(p unsafe.Pointer) *MarkupParseContext 
 	}
 	runtime.SetFinalizer(
 		wrapped.markupParseContext,
-		func (intern *markupParseContext) {
+		func(intern *markupParseContext) {
 			C.g_markup_parse_context_unref(intern.native)
 		},
 	)
@@ -17769,14 +18396,14 @@ func UnsafeMarkupParseContextFromGlibFull(p unsafe.Pointer) *MarkupParseContext 
 }
 
 // UnsafeMarkupParseContextRef increases the refcount on the underlying resource.
-// 
+//
 // When this is called without an associated call to [MarkupParseContext.UnsafeMarkupParseContextUnref], then [MarkupParseContext] will leak memory.
 func UnsafeMarkupParseContextRef(m *MarkupParseContext) {
 	C.g_markup_parse_context_ref((*C.GMarkupParseContext)(m.native))
 }
 
 // UnsafeMarkupParseContextUnref unrefs/frees the underlying resource. This can be used to remove the instance before the GC decides to do so.
-// 
+//
 // After this is called, no other method on [MarkupParseContext] is expected to work anymore.
 func UnsafeMarkupParseContextUnref(m *MarkupParseContext) {
 	C.g_markup_parse_context_unref(m.native)
@@ -17804,11 +18431,11 @@ func UnsafeMarkupParseContextToGlibFull(m *MarkupParseContext) unsafe.Pointer {
 }
 
 // EndParse wraps g_markup_parse_context_end_parse
-// 
+//
 // see also https://docs.gtk.org/glib/method.g_markup_parse_context_end_parse.g_markup_parse_context_end_parse.html
 func (_context *MarkupParseContext) EndParse() (bool, error) {
 	var carg0 *C.GMarkupParseContext // in, none, converted
-	var cret  C.gboolean             // return
+	var cret C.gboolean              // return
 	var _cerr *C.GError              // out, full, converted, nullable
 
 	carg0 = (*C.GMarkupParseContext)(UnsafeMarkupParseContextToGlibNone(_context))
@@ -17816,7 +18443,7 @@ func (_context *MarkupParseContext) EndParse() (bool, error) {
 	cret = C.g_markup_parse_context_end_parse(carg0, &_cerr)
 	runtime.KeepAlive(_context)
 
-	var goret  bool
+	var goret bool
 	var _goerr error
 
 	if cret != 0 {
@@ -17830,11 +18457,11 @@ func (_context *MarkupParseContext) EndParse() (bool, error) {
 }
 
 // GetElement wraps g_markup_parse_context_get_element
-// 
+//
 // see also https://docs.gtk.org/glib/method.g_markup_parse_context_get_element.g_markup_parse_context_get_element.html
 func (_context *MarkupParseContext) GetElement() string {
 	var carg0 *C.GMarkupParseContext // in, none, converted
-	var cret  *C.gchar               // return, none, string
+	var cret *C.gchar                // return, none, string
 
 	carg0 = (*C.GMarkupParseContext)(UnsafeMarkupParseContextToGlibNone(_context))
 
@@ -17849,11 +18476,11 @@ func (_context *MarkupParseContext) GetElement() string {
 }
 
 // GetElementStack wraps g_markup_parse_context_get_element_stack
-// 
+//
 // see also https://docs.gtk.org/glib/method.g_markup_parse_context_get_element_stack.g_markup_parse_context_get_element_stack.html
 func (_context *MarkupParseContext) GetElementStack() []string {
 	var carg0 *C.GMarkupParseContext // in, none, converted
-	var cret  *C.GSList              // container, transfer: none
+	var cret *C.GSList               // container, transfer: none
 
 	carg0 = (*C.GMarkupParseContext)(UnsafeMarkupParseContextToGlibNone(_context))
 
@@ -17875,7 +18502,7 @@ func (_context *MarkupParseContext) GetElementStack() []string {
 }
 
 // GetPosition wraps g_markup_parse_context_get_position
-// 
+//
 // see also https://docs.gtk.org/glib/method.g_markup_parse_context_get_position.g_markup_parse_context_get_position.html
 func (_context *MarkupParseContext) GetPosition() (int32, int32) {
 	var carg0 *C.GMarkupParseContext // in, none, converted
@@ -17897,13 +18524,13 @@ func (_context *MarkupParseContext) GetPosition() (int32, int32) {
 }
 
 // Parse wraps g_markup_parse_context_parse
-// 
+//
 // see also https://docs.gtk.org/glib/method.g_markup_parse_context_parse.g_markup_parse_context_parse.html
 func (_context *MarkupParseContext) Parse(text string, textLen int) (bool, error) {
 	var carg0 *C.GMarkupParseContext // in, none, converted
 	var carg1 *C.gchar               // in, none, string
 	var carg2 C.gssize               // in, none, casted
-	var cret  C.gboolean             // return
+	var cret C.gboolean              // return
 	var _cerr *C.GError              // out, full, converted, nullable
 
 	carg0 = (*C.GMarkupParseContext)(UnsafeMarkupParseContextToGlibNone(_context))
@@ -17916,7 +18543,7 @@ func (_context *MarkupParseContext) Parse(text string, textLen int) (bool, error
 	runtime.KeepAlive(text)
 	runtime.KeepAlive(textLen)
 
-	var goret  bool
+	var goret bool
 	var _goerr error
 
 	if cret != 0 {
@@ -17930,7 +18557,7 @@ func (_context *MarkupParseContext) Parse(text string, textLen int) (bool, error
 }
 
 // MarkupParser wraps GMarkupParser
-// 
+//
 // see also https://docs.gtk.org/glib/struct.MarkupParser.html
 type MarkupParser struct {
 	*markupParser
@@ -17976,7 +18603,7 @@ func UnsafeMarkupParserFromGlibFull(p unsafe.Pointer) *MarkupParser {
 	}
 	runtime.SetFinalizer(
 		wrapped.markupParser,
-		func (intern *markupParser) {
+		func(intern *markupParser) {
 			C.free(unsafe.Pointer(intern.native))
 		},
 	)
@@ -17984,7 +18611,7 @@ func UnsafeMarkupParserFromGlibFull(p unsafe.Pointer) *MarkupParser {
 }
 
 // UnsafeMarkupParserFree unrefs/frees the underlying resource. This can be used to remove the instance before the GC decides to do so.
-// 
+//
 // After this is called, no other method on [MarkupParser] is expected to work anymore.
 func UnsafeMarkupParserFree(m *MarkupParser) {
 	C.free(unsafe.Pointer(m.native))
@@ -18012,7 +18639,7 @@ func UnsafeMarkupParserToGlibFull(m *MarkupParser) unsafe.Pointer {
 }
 
 // MatchInfo wraps GMatchInfo
-// 
+//
 // see also https://docs.gtk.org/glib/struct.MatchInfo.html
 type MatchInfo struct {
 	*matchInfo
@@ -18049,7 +18676,7 @@ func UnsafeMatchInfoFromGlibNone(p unsafe.Pointer) *MatchInfo {
 
 	runtime.SetFinalizer(
 		wrapped.matchInfo,
-		func (intern *matchInfo) {
+		func(intern *matchInfo) {
 			C.g_match_info_unref(intern.native)
 		},
 	)
@@ -18064,7 +18691,7 @@ func UnsafeMatchInfoFromGlibFull(p unsafe.Pointer) *MatchInfo {
 	}
 	runtime.SetFinalizer(
 		wrapped.matchInfo,
-		func (intern *matchInfo) {
+		func(intern *matchInfo) {
 			C.g_match_info_unref(intern.native)
 		},
 	)
@@ -18072,14 +18699,14 @@ func UnsafeMatchInfoFromGlibFull(p unsafe.Pointer) *MatchInfo {
 }
 
 // UnsafeMatchInfoRef increases the refcount on the underlying resource.
-// 
+//
 // When this is called without an associated call to [MatchInfo.UnsafeMatchInfoUnref], then [MatchInfo] will leak memory.
 func UnsafeMatchInfoRef(m *MatchInfo) {
 	C.g_match_info_ref((*C.GMatchInfo)(m.native))
 }
 
 // UnsafeMatchInfoUnref unrefs/frees the underlying resource. This can be used to remove the instance before the GC decides to do so.
-// 
+//
 // After this is called, no other method on [MatchInfo] is expected to work anymore.
 func UnsafeMatchInfoUnref(m *MatchInfo) {
 	C.g_match_info_unref(m.native)
@@ -18107,12 +18734,12 @@ func UnsafeMatchInfoToGlibFull(m *MatchInfo) unsafe.Pointer {
 }
 
 // ExpandReferences wraps g_match_info_expand_references
-// 
+//
 // see also https://docs.gtk.org/glib/method.g_match_info_expand_references.g_match_info_expand_references.html
 func (matchInfo *MatchInfo) ExpandReferences(stringToExpand string) (string, error) {
 	var carg0 *C.GMatchInfo // in, none, converted
 	var carg1 *C.gchar      // in, none, string
-	var cret  *C.gchar      // return, full, string, nullable-string
+	var cret *C.gchar       // return, full, string, nullable-string
 	var _cerr *C.GError     // out, full, converted, nullable
 
 	carg0 = (*C.GMatchInfo)(UnsafeMatchInfoToGlibNone(matchInfo))
@@ -18123,7 +18750,7 @@ func (matchInfo *MatchInfo) ExpandReferences(stringToExpand string) (string, err
 	runtime.KeepAlive(matchInfo)
 	runtime.KeepAlive(stringToExpand)
 
-	var goret  string
+	var goret string
 	var _goerr error
 
 	if cret != nil {
@@ -18138,12 +18765,12 @@ func (matchInfo *MatchInfo) ExpandReferences(stringToExpand string) (string, err
 }
 
 // Fetch wraps g_match_info_fetch
-// 
+//
 // see also https://docs.gtk.org/glib/method.g_match_info_fetch.g_match_info_fetch.html
 func (matchInfo *MatchInfo) Fetch(matchNum int32) string {
 	var carg0 *C.GMatchInfo // in, none, converted
 	var carg1 C.gint        // in, none, casted
-	var cret  *C.gchar      // return, full, string, nullable-string
+	var cret *C.gchar       // return, full, string, nullable-string
 
 	carg0 = (*C.GMatchInfo)(UnsafeMatchInfoToGlibNone(matchInfo))
 	carg1 = C.gint(matchNum)
@@ -18163,11 +18790,11 @@ func (matchInfo *MatchInfo) Fetch(matchNum int32) string {
 }
 
 // FetchAll wraps g_match_info_fetch_all
-// 
+//
 // see also https://docs.gtk.org/glib/method.g_match_info_fetch_all.g_match_info_fetch_all.html
 func (matchInfo *MatchInfo) FetchAll() []string {
 	var carg0 *C.GMatchInfo // in, none, converted
-	var cret  **C.gchar     // return, transfer: full, C Pointers: 2, Name: array[utf8], scope: , array (inner gchar* (*typesystem.StringPrimitive), zero-terminated)
+	var cret **C.gchar      // return, transfer: full, C Pointers: 2, Name: array[utf8], array (inner gchar* (*typesystem.StringPrimitive), zero-terminated)
 
 	carg0 = (*C.GMatchInfo)(UnsafeMatchInfoToGlibNone(matchInfo))
 
@@ -18184,12 +18811,12 @@ func (matchInfo *MatchInfo) FetchAll() []string {
 }
 
 // FetchNamed wraps g_match_info_fetch_named
-// 
+//
 // see also https://docs.gtk.org/glib/method.g_match_info_fetch_named.g_match_info_fetch_named.html
 func (matchInfo *MatchInfo) FetchNamed(name string) string {
 	var carg0 *C.GMatchInfo // in, none, converted
 	var carg1 *C.gchar      // in, none, string
-	var cret  *C.gchar      // return, full, string, nullable-string
+	var cret *C.gchar       // return, full, string, nullable-string
 
 	carg0 = (*C.GMatchInfo)(UnsafeMatchInfoToGlibNone(matchInfo))
 	carg1 = (*C.gchar)(transfer.GLibString(name))
@@ -18210,14 +18837,14 @@ func (matchInfo *MatchInfo) FetchNamed(name string) string {
 }
 
 // FetchNamedPos wraps g_match_info_fetch_named_pos
-// 
+//
 // see also https://docs.gtk.org/glib/method.g_match_info_fetch_named_pos.g_match_info_fetch_named_pos.html
 func (matchInfo *MatchInfo) FetchNamedPos(name string) (int32, int32, bool) {
 	var carg0 *C.GMatchInfo // in, none, converted
 	var carg1 *C.gchar      // in, none, string
 	var carg2 C.gint        // out, full, casted
 	var carg3 C.gint        // out, full, casted
-	var cret  C.gboolean    // return
+	var cret C.gboolean     // return
 
 	carg0 = (*C.GMatchInfo)(UnsafeMatchInfoToGlibNone(matchInfo))
 	carg1 = (*C.gchar)(transfer.GLibString(name))
@@ -18228,8 +18855,8 @@ func (matchInfo *MatchInfo) FetchNamedPos(name string) (int32, int32, bool) {
 	runtime.KeepAlive(name)
 
 	var startPos int32
-	var endPos   int32
-	var goret    bool
+	var endPos int32
+	var goret bool
 
 	startPos = int32(carg2)
 	endPos = int32(carg3)
@@ -18241,14 +18868,14 @@ func (matchInfo *MatchInfo) FetchNamedPos(name string) (int32, int32, bool) {
 }
 
 // FetchPos wraps g_match_info_fetch_pos
-// 
+//
 // see also https://docs.gtk.org/glib/method.g_match_info_fetch_pos.g_match_info_fetch_pos.html
 func (matchInfo *MatchInfo) FetchPos(matchNum int32) (int32, int32, bool) {
 	var carg0 *C.GMatchInfo // in, none, converted
 	var carg1 C.gint        // in, none, casted
 	var carg2 C.gint        // out, full, casted
 	var carg3 C.gint        // out, full, casted
-	var cret  C.gboolean    // return
+	var cret C.gboolean     // return
 
 	carg0 = (*C.GMatchInfo)(UnsafeMatchInfoToGlibNone(matchInfo))
 	carg1 = C.gint(matchNum)
@@ -18258,8 +18885,8 @@ func (matchInfo *MatchInfo) FetchPos(matchNum int32) (int32, int32, bool) {
 	runtime.KeepAlive(matchNum)
 
 	var startPos int32
-	var endPos   int32
-	var goret    bool
+	var endPos int32
+	var goret bool
 
 	startPos = int32(carg2)
 	endPos = int32(carg3)
@@ -18271,11 +18898,11 @@ func (matchInfo *MatchInfo) FetchPos(matchNum int32) (int32, int32, bool) {
 }
 
 // GetMatchCount wraps g_match_info_get_match_count
-// 
+//
 // see also https://docs.gtk.org/glib/method.g_match_info_get_match_count.g_match_info_get_match_count.html
 func (matchInfo *MatchInfo) GetMatchCount() int32 {
 	var carg0 *C.GMatchInfo // in, none, converted
-	var cret  C.gint        // return, none, casted
+	var cret C.gint         // return, none, casted
 
 	carg0 = (*C.GMatchInfo)(UnsafeMatchInfoToGlibNone(matchInfo))
 
@@ -18290,11 +18917,11 @@ func (matchInfo *MatchInfo) GetMatchCount() int32 {
 }
 
 // GetRegex wraps g_match_info_get_regex
-// 
+//
 // see also https://docs.gtk.org/glib/method.g_match_info_get_regex.g_match_info_get_regex.html
 func (matchInfo *MatchInfo) GetRegex() *Regex {
 	var carg0 *C.GMatchInfo // in, none, converted
-	var cret  *C.GRegex     // return, none, converted
+	var cret *C.GRegex      // return, none, converted
 
 	carg0 = (*C.GMatchInfo)(UnsafeMatchInfoToGlibNone(matchInfo))
 
@@ -18309,11 +18936,11 @@ func (matchInfo *MatchInfo) GetRegex() *Regex {
 }
 
 // GetString wraps g_match_info_get_string
-// 
+//
 // see also https://docs.gtk.org/glib/method.g_match_info_get_string.g_match_info_get_string.html
 func (matchInfo *MatchInfo) GetString() string {
 	var carg0 *C.GMatchInfo // in, none, converted
-	var cret  *C.gchar      // return, none, string
+	var cret *C.gchar       // return, none, string
 
 	carg0 = (*C.GMatchInfo)(UnsafeMatchInfoToGlibNone(matchInfo))
 
@@ -18328,11 +18955,11 @@ func (matchInfo *MatchInfo) GetString() string {
 }
 
 // IsPartialMatch wraps g_match_info_is_partial_match
-// 
+//
 // see also https://docs.gtk.org/glib/method.g_match_info_is_partial_match.g_match_info_is_partial_match.html
 func (matchInfo *MatchInfo) IsPartialMatch() bool {
 	var carg0 *C.GMatchInfo // in, none, converted
-	var cret  C.gboolean    // return
+	var cret C.gboolean     // return
 
 	carg0 = (*C.GMatchInfo)(UnsafeMatchInfoToGlibNone(matchInfo))
 
@@ -18349,11 +18976,11 @@ func (matchInfo *MatchInfo) IsPartialMatch() bool {
 }
 
 // Matches wraps g_match_info_matches
-// 
+//
 // see also https://docs.gtk.org/glib/method.g_match_info_matches.g_match_info_matches.html
 func (matchInfo *MatchInfo) Matches() bool {
 	var carg0 *C.GMatchInfo // in, none, converted
-	var cret  C.gboolean    // return
+	var cret C.gboolean     // return
 
 	carg0 = (*C.GMatchInfo)(UnsafeMatchInfoToGlibNone(matchInfo))
 
@@ -18370,11 +18997,11 @@ func (matchInfo *MatchInfo) Matches() bool {
 }
 
 // Next wraps g_match_info_next
-// 
+//
 // see also https://docs.gtk.org/glib/method.g_match_info_next.g_match_info_next.html
 func (matchInfo *MatchInfo) Next() (bool, error) {
 	var carg0 *C.GMatchInfo // in, none, converted
-	var cret  C.gboolean    // return
+	var cret C.gboolean     // return
 	var _cerr *C.GError     // out, full, converted, nullable
 
 	carg0 = (*C.GMatchInfo)(UnsafeMatchInfoToGlibNone(matchInfo))
@@ -18382,7 +19009,7 @@ func (matchInfo *MatchInfo) Next() (bool, error) {
 	cret = C.g_match_info_next(carg0, &_cerr)
 	runtime.KeepAlive(matchInfo)
 
-	var goret  bool
+	var goret bool
 	var _goerr error
 
 	if cret != 0 {
@@ -18396,7 +19023,7 @@ func (matchInfo *MatchInfo) Next() (bool, error) {
 }
 
 // MemVTable wraps GMemVTable
-// 
+//
 // see also https://docs.gtk.org/glib/struct.MemVTable.html
 type MemVTable struct {
 	*memVTable
@@ -18442,7 +19069,7 @@ func UnsafeMemVTableFromGlibFull(p unsafe.Pointer) *MemVTable {
 	}
 	runtime.SetFinalizer(
 		wrapped.memVTable,
-		func (intern *memVTable) {
+		func(intern *memVTable) {
 			C.free(unsafe.Pointer(intern.native))
 		},
 	)
@@ -18450,7 +19077,7 @@ func UnsafeMemVTableFromGlibFull(p unsafe.Pointer) *MemVTable {
 }
 
 // UnsafeMemVTableFree unrefs/frees the underlying resource. This can be used to remove the instance before the GC decides to do so.
-// 
+//
 // After this is called, no other method on [MemVTable] is expected to work anymore.
 func UnsafeMemVTableFree(m *MemVTable) {
 	C.free(unsafe.Pointer(m.native))
@@ -18478,7 +19105,7 @@ func UnsafeMemVTableToGlibFull(m *MemVTable) unsafe.Pointer {
 }
 
 // Node wraps GNode
-// 
+//
 // see also https://docs.gtk.org/glib/struct.Node.html
 type Node struct {
 	*node
@@ -18524,7 +19151,7 @@ func UnsafeNodeFromGlibFull(p unsafe.Pointer) *Node {
 	}
 	runtime.SetFinalizer(
 		wrapped.node,
-		func (intern *node) {
+		func(intern *node) {
 			C.g_node_destroy(intern.native)
 		},
 	)
@@ -18532,7 +19159,7 @@ func UnsafeNodeFromGlibFull(p unsafe.Pointer) *Node {
 }
 
 // UnsafeNodeDestroy unrefs/frees the underlying resource. This can be used to remove the instance before the GC decides to do so.
-// 
+//
 // After this is called, no other method on [Node] is expected to work anymore.
 func UnsafeNodeDestroy(n *Node) {
 	C.g_node_destroy(n.native)
@@ -18560,12 +19187,12 @@ func UnsafeNodeToGlibFull(n *Node) unsafe.Pointer {
 }
 
 // ChildPosition wraps g_node_child_position
-// 
+//
 // see also https://docs.gtk.org/glib/method.g_node_child_position.g_node_child_position.html
 func (node *Node) ChildPosition(child *Node) int32 {
 	var carg0 *C.GNode // in, none, converted
 	var carg1 *C.GNode // in, none, converted
-	var cret  C.gint   // return, none, casted
+	var cret C.gint    // return, none, casted
 
 	carg0 = (*C.GNode)(UnsafeNodeToGlibNone(node))
 	carg1 = (*C.GNode)(UnsafeNodeToGlibNone(child))
@@ -18582,11 +19209,11 @@ func (node *Node) ChildPosition(child *Node) int32 {
 }
 
 // Depth wraps g_node_depth
-// 
+//
 // see also https://docs.gtk.org/glib/method.g_node_depth.g_node_depth.html
 func (node *Node) Depth() uint32 {
 	var carg0 *C.GNode // in, none, converted
-	var cret  C.guint  // return, none, casted
+	var cret C.guint   // return, none, casted
 
 	carg0 = (*C.GNode)(UnsafeNodeToGlibNone(node))
 
@@ -18601,12 +19228,12 @@ func (node *Node) Depth() uint32 {
 }
 
 // IsAncestor wraps g_node_is_ancestor
-// 
+//
 // see also https://docs.gtk.org/glib/method.g_node_is_ancestor.g_node_is_ancestor.html
 func (node *Node) IsAncestor(descendant *Node) bool {
-	var carg0 *C.GNode   // in, none, converted
-	var carg1 *C.GNode   // in, none, converted
-	var cret  C.gboolean // return
+	var carg0 *C.GNode  // in, none, converted
+	var carg1 *C.GNode  // in, none, converted
+	var cret C.gboolean // return
 
 	carg0 = (*C.GNode)(UnsafeNodeToGlibNone(node))
 	carg1 = (*C.GNode)(UnsafeNodeToGlibNone(descendant))
@@ -18625,11 +19252,11 @@ func (node *Node) IsAncestor(descendant *Node) bool {
 }
 
 // MaxHeight wraps g_node_max_height
-// 
+//
 // see also https://docs.gtk.org/glib/method.g_node_max_height.g_node_max_height.html
 func (root *Node) MaxHeight() uint32 {
 	var carg0 *C.GNode // in, none, converted
-	var cret  C.guint  // return, none, casted
+	var cret C.guint   // return, none, casted
 
 	carg0 = (*C.GNode)(UnsafeNodeToGlibNone(root))
 
@@ -18644,11 +19271,11 @@ func (root *Node) MaxHeight() uint32 {
 }
 
 // NChildren wraps g_node_n_children
-// 
+//
 // see also https://docs.gtk.org/glib/method.g_node_n_children.g_node_n_children.html
 func (node *Node) NChildren() uint32 {
 	var carg0 *C.GNode // in, none, converted
-	var cret  C.guint  // return, none, casted
+	var cret C.guint   // return, none, casted
 
 	carg0 = (*C.GNode)(UnsafeNodeToGlibNone(node))
 
@@ -18663,12 +19290,12 @@ func (node *Node) NChildren() uint32 {
 }
 
 // NNodes wraps g_node_n_nodes
-// 
+//
 // see also https://docs.gtk.org/glib/method.g_node_n_nodes.g_node_n_nodes.html
 func (root *Node) NNodes(flags TraverseFlags) uint32 {
 	var carg0 *C.GNode         // in, none, converted
 	var carg1 C.GTraverseFlags // in, none, casted
-	var cret  C.guint          // return, none, casted
+	var cret C.guint           // return, none, casted
 
 	carg0 = (*C.GNode)(UnsafeNodeToGlibNone(root))
 	carg1 = C.GTraverseFlags(flags)
@@ -18685,7 +19312,7 @@ func (root *Node) NNodes(flags TraverseFlags) uint32 {
 }
 
 // ReverseChildren wraps g_node_reverse_children
-// 
+//
 // see also https://docs.gtk.org/glib/method.g_node_reverse_children.g_node_reverse_children.html
 func (node *Node) ReverseChildren() {
 	var carg0 *C.GNode // in, none, converted
@@ -18697,7 +19324,7 @@ func (node *Node) ReverseChildren() {
 }
 
 // Unlink wraps g_node_unlink
-// 
+//
 // see also https://docs.gtk.org/glib/method.g_node_unlink.g_node_unlink.html
 func (node *Node) Unlink() {
 	var carg0 *C.GNode // in, none, converted
@@ -18709,7 +19336,7 @@ func (node *Node) Unlink() {
 }
 
 // Once wraps GOnce
-// 
+//
 // see also https://docs.gtk.org/glib/struct.Once.html
 type Once struct {
 	*once
@@ -18755,7 +19382,7 @@ func UnsafeOnceFromGlibFull(p unsafe.Pointer) *Once {
 	}
 	runtime.SetFinalizer(
 		wrapped.once,
-		func (intern *once) {
+		func(intern *once) {
 			C.free(unsafe.Pointer(intern.native))
 		},
 	)
@@ -18763,7 +19390,7 @@ func UnsafeOnceFromGlibFull(p unsafe.Pointer) *Once {
 }
 
 // UnsafeOnceFree unrefs/frees the underlying resource. This can be used to remove the instance before the GC decides to do so.
-// 
+//
 // After this is called, no other method on [Once] is expected to work anymore.
 func UnsafeOnceFree(o *Once) {
 	C.free(unsafe.Pointer(o.native))
@@ -18791,11 +19418,11 @@ func UnsafeOnceToGlibFull(o *Once) unsafe.Pointer {
 }
 
 // OnceInitEnterImpl wraps g_once_init_enter_impl
-// 
+//
 // see also https://docs.gtk.org/glib/func.g_once_init_enter_impl.html
 func OnceInitEnterImpl(location *uint) bool {
-	var carg1 *C.gsize   // in, transfer: none, C Pointers: 1, Name: gsize
-	var cret  C.gboolean // return
+	var carg1 *C.gsize  // in, transfer: none, C Pointers: 1, Name: gsize
+	var cret C.gboolean // return
 
 	_ = location
 	_ = carg1
@@ -18814,7 +19441,7 @@ func OnceInitEnterImpl(location *uint) bool {
 }
 
 // OptionContext wraps GOptionContext
-// 
+//
 // see also https://docs.gtk.org/glib/struct.OptionContext.html
 type OptionContext struct {
 	*optionContext
@@ -18860,7 +19487,7 @@ func UnsafeOptionContextFromGlibFull(p unsafe.Pointer) *OptionContext {
 	}
 	runtime.SetFinalizer(
 		wrapped.optionContext,
-		func (intern *optionContext) {
+		func(intern *optionContext) {
 			C.g_option_context_free(intern.native)
 		},
 	)
@@ -18868,7 +19495,7 @@ func UnsafeOptionContextFromGlibFull(p unsafe.Pointer) *OptionContext {
 }
 
 // UnsafeOptionContextFree unrefs/frees the underlying resource. This can be used to remove the instance before the GC decides to do so.
-// 
+//
 // After this is called, no other method on [OptionContext] is expected to work anymore.
 func UnsafeOptionContextFree(o *OptionContext) {
 	C.g_option_context_free(o.native)
@@ -18896,7 +19523,7 @@ func UnsafeOptionContextToGlibFull(o *OptionContext) unsafe.Pointer {
 }
 
 // AddGroup wraps g_option_context_add_group
-// 
+//
 // see also https://docs.gtk.org/glib/method.g_option_context_add_group.g_option_context_add_group.html
 func (_context *OptionContext) AddGroup(group *OptionGroup) {
 	var carg0 *C.GOptionContext // in, none, converted
@@ -18911,11 +19538,11 @@ func (_context *OptionContext) AddGroup(group *OptionGroup) {
 }
 
 // GetDescription wraps g_option_context_get_description
-// 
+//
 // see also https://docs.gtk.org/glib/method.g_option_context_get_description.g_option_context_get_description.html
 func (_context *OptionContext) GetDescription() string {
 	var carg0 *C.GOptionContext // in, none, converted
-	var cret  *C.gchar          // return, none, string
+	var cret *C.gchar           // return, none, string
 
 	carg0 = (*C.GOptionContext)(UnsafeOptionContextToGlibNone(_context))
 
@@ -18930,13 +19557,13 @@ func (_context *OptionContext) GetDescription() string {
 }
 
 // GetHelp wraps g_option_context_get_help
-// 
+//
 // see also https://docs.gtk.org/glib/method.g_option_context_get_help.g_option_context_get_help.html
 func (_context *OptionContext) GetHelp(mainHelp bool, group *OptionGroup) string {
 	var carg0 *C.GOptionContext // in, none, converted
 	var carg1 C.gboolean        // in
 	var carg2 *C.GOptionGroup   // in, none, converted, nullable
-	var cret  *C.gchar          // return, full, string
+	var cret *C.gchar           // return, full, string
 
 	carg0 = (*C.GOptionContext)(UnsafeOptionContextToGlibNone(_context))
 	if mainHelp {
@@ -18960,11 +19587,11 @@ func (_context *OptionContext) GetHelp(mainHelp bool, group *OptionGroup) string
 }
 
 // GetHelpEnabled wraps g_option_context_get_help_enabled
-// 
+//
 // see also https://docs.gtk.org/glib/method.g_option_context_get_help_enabled.g_option_context_get_help_enabled.html
 func (_context *OptionContext) GetHelpEnabled() bool {
 	var carg0 *C.GOptionContext // in, none, converted
-	var cret  C.gboolean        // return
+	var cret C.gboolean         // return
 
 	carg0 = (*C.GOptionContext)(UnsafeOptionContextToGlibNone(_context))
 
@@ -18981,11 +19608,11 @@ func (_context *OptionContext) GetHelpEnabled() bool {
 }
 
 // GetIgnoreUnknownOptions wraps g_option_context_get_ignore_unknown_options
-// 
+//
 // see also https://docs.gtk.org/glib/method.g_option_context_get_ignore_unknown_options.g_option_context_get_ignore_unknown_options.html
 func (_context *OptionContext) GetIgnoreUnknownOptions() bool {
 	var carg0 *C.GOptionContext // in, none, converted
-	var cret  C.gboolean        // return
+	var cret C.gboolean         // return
 
 	carg0 = (*C.GOptionContext)(UnsafeOptionContextToGlibNone(_context))
 
@@ -19002,11 +19629,11 @@ func (_context *OptionContext) GetIgnoreUnknownOptions() bool {
 }
 
 // GetMainGroup wraps g_option_context_get_main_group
-// 
+//
 // see also https://docs.gtk.org/glib/method.g_option_context_get_main_group.g_option_context_get_main_group.html
 func (_context *OptionContext) GetMainGroup() *OptionGroup {
 	var carg0 *C.GOptionContext // in, none, converted
-	var cret  *C.GOptionGroup   // return, none, converted
+	var cret *C.GOptionGroup    // return, none, converted
 
 	carg0 = (*C.GOptionContext)(UnsafeOptionContextToGlibNone(_context))
 
@@ -19021,11 +19648,11 @@ func (_context *OptionContext) GetMainGroup() *OptionGroup {
 }
 
 // GetStrictPosix wraps g_option_context_get_strict_posix
-// 
+//
 // see also https://docs.gtk.org/glib/method.g_option_context_get_strict_posix.g_option_context_get_strict_posix.html
 func (_context *OptionContext) GetStrictPosix() bool {
 	var carg0 *C.GOptionContext // in, none, converted
-	var cret  C.gboolean        // return
+	var cret C.gboolean         // return
 
 	carg0 = (*C.GOptionContext)(UnsafeOptionContextToGlibNone(_context))
 
@@ -19042,11 +19669,11 @@ func (_context *OptionContext) GetStrictPosix() bool {
 }
 
 // GetSummary wraps g_option_context_get_summary
-// 
+//
 // see also https://docs.gtk.org/glib/method.g_option_context_get_summary.g_option_context_get_summary.html
 func (_context *OptionContext) GetSummary() string {
 	var carg0 *C.GOptionContext // in, none, converted
-	var cret  *C.gchar          // return, none, string
+	var cret *C.gchar           // return, none, string
 
 	carg0 = (*C.GOptionContext)(UnsafeOptionContextToGlibNone(_context))
 
@@ -19061,7 +19688,7 @@ func (_context *OptionContext) GetSummary() string {
 }
 
 // SetDescription wraps g_option_context_set_description
-// 
+//
 // see also https://docs.gtk.org/glib/method.g_option_context_set_description.g_option_context_set_description.html
 func (_context *OptionContext) SetDescription(description string) {
 	var carg0 *C.GOptionContext // in, none, converted
@@ -19079,7 +19706,7 @@ func (_context *OptionContext) SetDescription(description string) {
 }
 
 // SetHelpEnabled wraps g_option_context_set_help_enabled
-// 
+//
 // see also https://docs.gtk.org/glib/method.g_option_context_set_help_enabled.g_option_context_set_help_enabled.html
 func (_context *OptionContext) SetHelpEnabled(helpEnabled bool) {
 	var carg0 *C.GOptionContext // in, none, converted
@@ -19096,7 +19723,7 @@ func (_context *OptionContext) SetHelpEnabled(helpEnabled bool) {
 }
 
 // SetIgnoreUnknownOptions wraps g_option_context_set_ignore_unknown_options
-// 
+//
 // see also https://docs.gtk.org/glib/method.g_option_context_set_ignore_unknown_options.g_option_context_set_ignore_unknown_options.html
 func (_context *OptionContext) SetIgnoreUnknownOptions(ignoreUnknown bool) {
 	var carg0 *C.GOptionContext // in, none, converted
@@ -19113,7 +19740,7 @@ func (_context *OptionContext) SetIgnoreUnknownOptions(ignoreUnknown bool) {
 }
 
 // SetMainGroup wraps g_option_context_set_main_group
-// 
+//
 // see also https://docs.gtk.org/glib/method.g_option_context_set_main_group.g_option_context_set_main_group.html
 func (_context *OptionContext) SetMainGroup(group *OptionGroup) {
 	var carg0 *C.GOptionContext // in, none, converted
@@ -19128,7 +19755,7 @@ func (_context *OptionContext) SetMainGroup(group *OptionGroup) {
 }
 
 // SetStrictPosix wraps g_option_context_set_strict_posix
-// 
+//
 // see also https://docs.gtk.org/glib/method.g_option_context_set_strict_posix.g_option_context_set_strict_posix.html
 func (_context *OptionContext) SetStrictPosix(strictPosix bool) {
 	var carg0 *C.GOptionContext // in, none, converted
@@ -19145,7 +19772,7 @@ func (_context *OptionContext) SetStrictPosix(strictPosix bool) {
 }
 
 // SetSummary wraps g_option_context_set_summary
-// 
+//
 // see also https://docs.gtk.org/glib/method.g_option_context_set_summary.g_option_context_set_summary.html
 func (_context *OptionContext) SetSummary(summary string) {
 	var carg0 *C.GOptionContext // in, none, converted
@@ -19163,7 +19790,7 @@ func (_context *OptionContext) SetSummary(summary string) {
 }
 
 // SetTranslationDomain wraps g_option_context_set_translation_domain
-// 
+//
 // see also https://docs.gtk.org/glib/method.g_option_context_set_translation_domain.g_option_context_set_translation_domain.html
 func (_context *OptionContext) SetTranslationDomain(domain string) {
 	var carg0 *C.GOptionContext // in, none, converted
@@ -19179,7 +19806,7 @@ func (_context *OptionContext) SetTranslationDomain(domain string) {
 }
 
 // OptionEntry wraps GOptionEntry
-// 
+//
 // see also https://docs.gtk.org/glib/struct.OptionEntry.html
 type OptionEntry struct {
 	*optionEntry
@@ -19225,7 +19852,7 @@ func UnsafeOptionEntryFromGlibFull(p unsafe.Pointer) *OptionEntry {
 	}
 	runtime.SetFinalizer(
 		wrapped.optionEntry,
-		func (intern *optionEntry) {
+		func(intern *optionEntry) {
 			C.free(unsafe.Pointer(intern.native))
 		},
 	)
@@ -19233,7 +19860,7 @@ func UnsafeOptionEntryFromGlibFull(p unsafe.Pointer) *OptionEntry {
 }
 
 // UnsafeOptionEntryFree unrefs/frees the underlying resource. This can be used to remove the instance before the GC decides to do so.
-// 
+//
 // After this is called, no other method on [OptionEntry] is expected to work anymore.
 func UnsafeOptionEntryFree(o *OptionEntry) {
 	C.free(unsafe.Pointer(o.native))
@@ -19261,7 +19888,7 @@ func UnsafeOptionEntryToGlibFull(o *OptionEntry) unsafe.Pointer {
 }
 
 // OptionGroup wraps GOptionGroup
-// 
+//
 // see also https://docs.gtk.org/glib/struct.OptionGroup.html
 type OptionGroup struct {
 	*optionGroup
@@ -19298,7 +19925,7 @@ func UnsafeOptionGroupFromGlibNone(p unsafe.Pointer) *OptionGroup {
 
 	runtime.SetFinalizer(
 		wrapped.optionGroup,
-		func (intern *optionGroup) {
+		func(intern *optionGroup) {
 			C.g_option_group_unref(intern.native)
 		},
 	)
@@ -19313,7 +19940,7 @@ func UnsafeOptionGroupFromGlibFull(p unsafe.Pointer) *OptionGroup {
 	}
 	runtime.SetFinalizer(
 		wrapped.optionGroup,
-		func (intern *optionGroup) {
+		func(intern *optionGroup) {
 			C.g_option_group_unref(intern.native)
 		},
 	)
@@ -19321,14 +19948,14 @@ func UnsafeOptionGroupFromGlibFull(p unsafe.Pointer) *OptionGroup {
 }
 
 // UnsafeOptionGroupRef increases the refcount on the underlying resource.
-// 
+//
 // When this is called without an associated call to [OptionGroup.UnsafeOptionGroupUnref], then [OptionGroup] will leak memory.
 func UnsafeOptionGroupRef(o *OptionGroup) {
 	C.g_option_group_ref((*C.GOptionGroup)(o.native))
 }
 
 // UnsafeOptionGroupUnref unrefs/frees the underlying resource. This can be used to remove the instance before the GC decides to do so.
-// 
+//
 // After this is called, no other method on [OptionGroup] is expected to work anymore.
 func UnsafeOptionGroupUnref(o *OptionGroup) {
 	C.g_option_group_unref(o.native)
@@ -19356,7 +19983,7 @@ func UnsafeOptionGroupToGlibFull(o *OptionGroup) unsafe.Pointer {
 }
 
 // SetTranslationDomain wraps g_option_group_set_translation_domain
-// 
+//
 // see also https://docs.gtk.org/glib/method.g_option_group_set_translation_domain.g_option_group_set_translation_domain.html
 func (group *OptionGroup) SetTranslationDomain(domain string) {
 	var carg0 *C.GOptionGroup // in, none, converted
@@ -19372,7 +19999,7 @@ func (group *OptionGroup) SetTranslationDomain(domain string) {
 }
 
 // PathBuf wraps GPathBuf
-// 
+//
 // see also https://docs.gtk.org/glib/struct.PathBuf.html
 type PathBuf struct {
 	*pathBuf
@@ -19418,7 +20045,7 @@ func UnsafePathBufFromGlibFull(p unsafe.Pointer) *PathBuf {
 	}
 	runtime.SetFinalizer(
 		wrapped.pathBuf,
-		func (intern *pathBuf) {
+		func(intern *pathBuf) {
 			C.g_path_buf_free(intern.native)
 		},
 	)
@@ -19426,7 +20053,7 @@ func UnsafePathBufFromGlibFull(p unsafe.Pointer) *PathBuf {
 }
 
 // UnsafePathBufFree unrefs/frees the underlying resource. This can be used to remove the instance before the GC decides to do so.
-// 
+//
 // After this is called, no other method on [PathBuf] is expected to work anymore.
 func UnsafePathBufFree(p *PathBuf) {
 	C.g_path_buf_free(p.native)
@@ -19454,7 +20081,7 @@ func UnsafePathBufToGlibFull(p *PathBuf) unsafe.Pointer {
 }
 
 // Clear wraps g_path_buf_clear
-// 
+//
 // see also https://docs.gtk.org/glib/method.g_path_buf_clear.g_path_buf_clear.html
 func (buf *PathBuf) Clear() {
 	var carg0 *C.GPathBuf // in, none, converted
@@ -19466,11 +20093,11 @@ func (buf *PathBuf) Clear() {
 }
 
 // ClearToPath wraps g_path_buf_clear_to_path
-// 
+//
 // see also https://docs.gtk.org/glib/method.g_path_buf_clear_to_path.g_path_buf_clear_to_path.html
 func (buf *PathBuf) ClearToPath() string {
 	var carg0 *C.GPathBuf // in, none, converted
-	var cret  *C.char     // return, full, string, nullable
+	var cret *C.char      // return, full, string, nullable
 
 	carg0 = (*C.GPathBuf)(UnsafePathBufToGlibNone(buf))
 
@@ -19488,11 +20115,11 @@ func (buf *PathBuf) ClearToPath() string {
 }
 
 // FreeToPath wraps g_path_buf_free_to_path
-// 
+//
 // see also https://docs.gtk.org/glib/method.g_path_buf_free_to_path.g_path_buf_free_to_path.html
 func (buf *PathBuf) FreeToPath() string {
 	var carg0 *C.GPathBuf // in, none, converted
-	var cret  *C.char     // return, full, string, nullable
+	var cret *C.char      // return, full, string, nullable
 
 	carg0 = (*C.GPathBuf)(UnsafePathBufToGlibNone(buf))
 
@@ -19510,11 +20137,11 @@ func (buf *PathBuf) FreeToPath() string {
 }
 
 // Init wraps g_path_buf_init
-// 
+//
 // see also https://docs.gtk.org/glib/method.g_path_buf_init.g_path_buf_init.html
 func (buf *PathBuf) Init() *PathBuf {
 	var carg0 *C.GPathBuf // in, none, converted
-	var cret  *C.GPathBuf // return, none, converted
+	var cret *C.GPathBuf  // return, none, converted
 
 	carg0 = (*C.GPathBuf)(UnsafePathBufToGlibNone(buf))
 
@@ -19529,12 +20156,12 @@ func (buf *PathBuf) Init() *PathBuf {
 }
 
 // InitFromPath wraps g_path_buf_init_from_path
-// 
+//
 // see also https://docs.gtk.org/glib/method.g_path_buf_init_from_path.g_path_buf_init_from_path.html
 func (buf *PathBuf) InitFromPath(path string) *PathBuf {
 	var carg0 *C.GPathBuf // in, none, converted
 	var carg1 *C.char     // in, none, string, nullable-string
-	var cret  *C.GPathBuf // return, none, converted
+	var cret *C.GPathBuf  // return, none, converted
 
 	carg0 = (*C.GPathBuf)(UnsafePathBufToGlibNone(buf))
 	if path != "" {
@@ -19554,11 +20181,11 @@ func (buf *PathBuf) InitFromPath(path string) *PathBuf {
 }
 
 // Pop wraps g_path_buf_pop
-// 
+//
 // see also https://docs.gtk.org/glib/method.g_path_buf_pop.g_path_buf_pop.html
 func (buf *PathBuf) Pop() bool {
 	var carg0 *C.GPathBuf // in, none, converted
-	var cret  C.gboolean  // return
+	var cret C.gboolean   // return
 
 	carg0 = (*C.GPathBuf)(UnsafePathBufToGlibNone(buf))
 
@@ -19575,12 +20202,12 @@ func (buf *PathBuf) Pop() bool {
 }
 
 // Push wraps g_path_buf_push
-// 
+//
 // see also https://docs.gtk.org/glib/method.g_path_buf_push.g_path_buf_push.html
 func (buf *PathBuf) Push(path string) *PathBuf {
 	var carg0 *C.GPathBuf // in, none, converted
 	var carg1 *C.char     // in, none, string
-	var cret  *C.GPathBuf // return, none, converted
+	var cret *C.GPathBuf  // return, none, converted
 
 	carg0 = (*C.GPathBuf)(UnsafePathBufToGlibNone(buf))
 	carg1 = (*C.char)(transfer.GLibString(path))
@@ -19598,12 +20225,12 @@ func (buf *PathBuf) Push(path string) *PathBuf {
 }
 
 // SetExtension wraps g_path_buf_set_extension
-// 
+//
 // see also https://docs.gtk.org/glib/method.g_path_buf_set_extension.g_path_buf_set_extension.html
 func (buf *PathBuf) SetExtension(extension string) bool {
 	var carg0 *C.GPathBuf // in, none, converted
 	var carg1 *C.char     // in, none, string, nullable-string
-	var cret  C.gboolean  // return
+	var cret C.gboolean   // return
 
 	carg0 = (*C.GPathBuf)(UnsafePathBufToGlibNone(buf))
 	if extension != "" {
@@ -19625,12 +20252,12 @@ func (buf *PathBuf) SetExtension(extension string) bool {
 }
 
 // SetFilename wraps g_path_buf_set_filename
-// 
+//
 // see also https://docs.gtk.org/glib/method.g_path_buf_set_filename.g_path_buf_set_filename.html
 func (buf *PathBuf) SetFilename(fileName string) bool {
 	var carg0 *C.GPathBuf // in, none, converted
 	var carg1 *C.char     // in, none, string
-	var cret  C.gboolean  // return
+	var cret C.gboolean   // return
 
 	carg0 = (*C.GPathBuf)(UnsafePathBufToGlibNone(buf))
 	carg1 = (*C.char)(transfer.GLibString(fileName))
@@ -19650,11 +20277,11 @@ func (buf *PathBuf) SetFilename(fileName string) bool {
 }
 
 // ToPath wraps g_path_buf_to_path
-// 
+//
 // see also https://docs.gtk.org/glib/method.g_path_buf_to_path.g_path_buf_to_path.html
 func (buf *PathBuf) ToPath() string {
 	var carg0 *C.GPathBuf // in, none, converted
-	var cret  *C.char     // return, full, string, nullable
+	var cret *C.char      // return, full, string, nullable
 
 	carg0 = (*C.GPathBuf)(UnsafePathBufToGlibNone(buf))
 
@@ -19672,7 +20299,7 @@ func (buf *PathBuf) ToPath() string {
 }
 
 // PatternSpec wraps GPatternSpec
-// 
+//
 // see also https://docs.gtk.org/glib/struct.PatternSpec.html
 type PatternSpec struct {
 	*patternSpec
@@ -19707,7 +20334,6 @@ func UnsafePatternSpecFromGlibNone(p unsafe.Pointer) *PatternSpec {
 	}
 
 	return wrapped.Copy() // create an owned copy
-
 }
 
 // UnsafePatternSpecFromGlibFull is used to convert raw C.GPatternSpec pointers to go while taking ownership. This is used by the bindings internally.
@@ -19718,7 +20344,7 @@ func UnsafePatternSpecFromGlibFull(p unsafe.Pointer) *PatternSpec {
 	}
 	runtime.SetFinalizer(
 		wrapped.patternSpec,
-		func (intern *patternSpec) {
+		func(intern *patternSpec) {
 			C.g_pattern_spec_free(intern.native)
 		},
 	)
@@ -19726,7 +20352,7 @@ func UnsafePatternSpecFromGlibFull(p unsafe.Pointer) *PatternSpec {
 }
 
 // UnsafePatternSpecFree unrefs/frees the underlying resource. This can be used to remove the instance before the GC decides to do so.
-// 
+//
 // After this is called, no other method on [PatternSpec] is expected to work anymore.
 func UnsafePatternSpecFree(p *PatternSpec) {
 	C.g_pattern_spec_free(p.native)
@@ -19754,11 +20380,11 @@ func UnsafePatternSpecToGlibFull(p *PatternSpec) unsafe.Pointer {
 }
 
 // NewPatternSpec wraps g_pattern_spec_new
-// 
+//
 // see also https://docs.gtk.org/glib/func.g_pattern_spec_new.html
 func NewPatternSpec(pattern string) *PatternSpec {
-	var carg1 *C.gchar        // in, none, string
-	var cret  *C.GPatternSpec // return, full, converted
+	var carg1 *C.gchar       // in, none, string
+	var cret *C.GPatternSpec // return, full, converted
 
 	carg1 = (*C.gchar)(transfer.GLibString(pattern))
 	defer C.g_free(C.gpointer(carg1))
@@ -19774,11 +20400,11 @@ func NewPatternSpec(pattern string) *PatternSpec {
 }
 
 // Copy wraps g_pattern_spec_copy
-// 
+//
 // see also https://docs.gtk.org/glib/method.g_pattern_spec_copy.g_pattern_spec_copy.html
 func (pspec *PatternSpec) Copy() *PatternSpec {
 	var carg0 *C.GPatternSpec // in, none, converted
-	var cret  *C.GPatternSpec // return, full, converted
+	var cret *C.GPatternSpec  // return, full, converted
 
 	carg0 = (*C.GPatternSpec)(UnsafePatternSpecToGlibNone(pspec))
 
@@ -19793,12 +20419,12 @@ func (pspec *PatternSpec) Copy() *PatternSpec {
 }
 
 // Equal wraps g_pattern_spec_equal
-// 
+//
 // see also https://docs.gtk.org/glib/method.g_pattern_spec_equal.g_pattern_spec_equal.html
 func (pspec1 *PatternSpec) Equal(pspec2 *PatternSpec) bool {
 	var carg0 *C.GPatternSpec // in, none, converted
 	var carg1 *C.GPatternSpec // in, none, converted
-	var cret  C.gboolean      // return
+	var cret C.gboolean       // return
 
 	carg0 = (*C.GPatternSpec)(UnsafePatternSpecToGlibNone(pspec1))
 	carg1 = (*C.GPatternSpec)(UnsafePatternSpecToGlibNone(pspec2))
@@ -19817,14 +20443,14 @@ func (pspec1 *PatternSpec) Equal(pspec2 *PatternSpec) bool {
 }
 
 // Match wraps g_pattern_spec_match
-// 
+//
 // see also https://docs.gtk.org/glib/method.g_pattern_spec_match.g_pattern_spec_match.html
 func (pspec *PatternSpec) Match(stringLength uint, str string, stringReversed string) bool {
 	var carg0 *C.GPatternSpec // in, none, converted
 	var carg1 C.gsize         // in, none, casted
 	var carg2 *C.gchar        // in, none, string
 	var carg3 *C.gchar        // in, none, string, nullable-string
-	var cret  C.gboolean      // return
+	var cret C.gboolean       // return
 
 	carg0 = (*C.GPatternSpec)(UnsafePatternSpecToGlibNone(pspec))
 	carg1 = C.gsize(stringLength)
@@ -19851,12 +20477,12 @@ func (pspec *PatternSpec) Match(stringLength uint, str string, stringReversed st
 }
 
 // MatchString wraps g_pattern_spec_match_string
-// 
+//
 // see also https://docs.gtk.org/glib/method.g_pattern_spec_match_string.g_pattern_spec_match_string.html
 func (pspec *PatternSpec) MatchString(str string) bool {
 	var carg0 *C.GPatternSpec // in, none, converted
 	var carg1 *C.gchar        // in, none, string
-	var cret  C.gboolean      // return
+	var cret C.gboolean       // return
 
 	carg0 = (*C.GPatternSpec)(UnsafePatternSpecToGlibNone(pspec))
 	carg1 = (*C.gchar)(transfer.GLibString(str))
@@ -19876,7 +20502,7 @@ func (pspec *PatternSpec) MatchString(str string) bool {
 }
 
 // PollFD wraps GPollFD
-// 
+//
 // see also https://docs.gtk.org/glib/struct.PollFD.html
 type PollFD struct {
 	*pollFD
@@ -19922,7 +20548,7 @@ func UnsafePollFDFromGlibFull(p unsafe.Pointer) *PollFD {
 	}
 	runtime.SetFinalizer(
 		wrapped.pollFD,
-		func (intern *pollFD) {
+		func(intern *pollFD) {
 			C.free(unsafe.Pointer(intern.native))
 		},
 	)
@@ -19930,7 +20556,7 @@ func UnsafePollFDFromGlibFull(p unsafe.Pointer) *PollFD {
 }
 
 // UnsafePollFDFree unrefs/frees the underlying resource. This can be used to remove the instance before the GC decides to do so.
-// 
+//
 // After this is called, no other method on [PollFD] is expected to work anymore.
 func UnsafePollFDFree(p *PollFD) {
 	C.free(unsafe.Pointer(p.native))
@@ -19958,7 +20584,7 @@ func UnsafePollFDToGlibFull(p *PollFD) unsafe.Pointer {
 }
 
 // RWLock wraps GRWLock
-// 
+//
 // see also https://docs.gtk.org/glib/struct.RWLock.html
 type RWLock struct {
 	*rWLock
@@ -20004,7 +20630,7 @@ func UnsafeRWLockFromGlibFull(p unsafe.Pointer) *RWLock {
 	}
 	runtime.SetFinalizer(
 		wrapped.rWLock,
-		func (intern *rWLock) {
+		func(intern *rWLock) {
 			C.free(unsafe.Pointer(intern.native))
 		},
 	)
@@ -20012,7 +20638,7 @@ func UnsafeRWLockFromGlibFull(p unsafe.Pointer) *RWLock {
 }
 
 // UnsafeRWLockFree unrefs/frees the underlying resource. This can be used to remove the instance before the GC decides to do so.
-// 
+//
 // After this is called, no other method on [RWLock] is expected to work anymore.
 func UnsafeRWLockFree(r *RWLock) {
 	C.free(unsafe.Pointer(r.native))
@@ -20040,7 +20666,7 @@ func UnsafeRWLockToGlibFull(r *RWLock) unsafe.Pointer {
 }
 
 // Clear wraps g_rw_lock_clear
-// 
+//
 // see also https://docs.gtk.org/glib/method.g_rw_lock_clear.g_rw_lock_clear.html
 func (rwLock *RWLock) Clear() {
 	var carg0 *C.GRWLock // in, none, converted
@@ -20052,7 +20678,7 @@ func (rwLock *RWLock) Clear() {
 }
 
 // Init wraps g_rw_lock_init
-// 
+//
 // see also https://docs.gtk.org/glib/method.g_rw_lock_init.g_rw_lock_init.html
 func (rwLock *RWLock) Init() {
 	var carg0 *C.GRWLock // in, none, converted
@@ -20064,7 +20690,7 @@ func (rwLock *RWLock) Init() {
 }
 
 // ReaderLock wraps g_rw_lock_reader_lock
-// 
+//
 // see also https://docs.gtk.org/glib/method.g_rw_lock_reader_lock.g_rw_lock_reader_lock.html
 func (rwLock *RWLock) ReaderLock() {
 	var carg0 *C.GRWLock // in, none, converted
@@ -20076,11 +20702,11 @@ func (rwLock *RWLock) ReaderLock() {
 }
 
 // ReaderTrylock wraps g_rw_lock_reader_trylock
-// 
+//
 // see also https://docs.gtk.org/glib/method.g_rw_lock_reader_trylock.g_rw_lock_reader_trylock.html
 func (rwLock *RWLock) ReaderTrylock() bool {
 	var carg0 *C.GRWLock // in, none, converted
-	var cret  C.gboolean // return
+	var cret C.gboolean  // return
 
 	carg0 = (*C.GRWLock)(UnsafeRWLockToGlibNone(rwLock))
 
@@ -20097,7 +20723,7 @@ func (rwLock *RWLock) ReaderTrylock() bool {
 }
 
 // ReaderUnlock wraps g_rw_lock_reader_unlock
-// 
+//
 // see also https://docs.gtk.org/glib/method.g_rw_lock_reader_unlock.g_rw_lock_reader_unlock.html
 func (rwLock *RWLock) ReaderUnlock() {
 	var carg0 *C.GRWLock // in, none, converted
@@ -20109,7 +20735,7 @@ func (rwLock *RWLock) ReaderUnlock() {
 }
 
 // WriterLock wraps g_rw_lock_writer_lock
-// 
+//
 // see also https://docs.gtk.org/glib/method.g_rw_lock_writer_lock.g_rw_lock_writer_lock.html
 func (rwLock *RWLock) WriterLock() {
 	var carg0 *C.GRWLock // in, none, converted
@@ -20121,11 +20747,11 @@ func (rwLock *RWLock) WriterLock() {
 }
 
 // WriterTrylock wraps g_rw_lock_writer_trylock
-// 
+//
 // see also https://docs.gtk.org/glib/method.g_rw_lock_writer_trylock.g_rw_lock_writer_trylock.html
 func (rwLock *RWLock) WriterTrylock() bool {
 	var carg0 *C.GRWLock // in, none, converted
-	var cret  C.gboolean // return
+	var cret C.gboolean  // return
 
 	carg0 = (*C.GRWLock)(UnsafeRWLockToGlibNone(rwLock))
 
@@ -20142,7 +20768,7 @@ func (rwLock *RWLock) WriterTrylock() bool {
 }
 
 // WriterUnlock wraps g_rw_lock_writer_unlock
-// 
+//
 // see also https://docs.gtk.org/glib/method.g_rw_lock_writer_unlock.g_rw_lock_writer_unlock.html
 func (rwLock *RWLock) WriterUnlock() {
 	var carg0 *C.GRWLock // in, none, converted
@@ -20154,7 +20780,7 @@ func (rwLock *RWLock) WriterUnlock() {
 }
 
 // Rand wraps GRand
-// 
+//
 // see also https://docs.gtk.org/glib/struct.Rand.html
 type Rand struct {
 	*rand
@@ -20189,7 +20815,6 @@ func UnsafeRandFromGlibNone(p unsafe.Pointer) *Rand {
 	}
 
 	return wrapped.Copy() // create an owned copy
-
 }
 
 // UnsafeRandFromGlibFull is used to convert raw C.GRand pointers to go while taking ownership. This is used by the bindings internally.
@@ -20200,7 +20825,7 @@ func UnsafeRandFromGlibFull(p unsafe.Pointer) *Rand {
 	}
 	runtime.SetFinalizer(
 		wrapped.rand,
-		func (intern *rand) {
+		func(intern *rand) {
 			C.g_rand_free(intern.native)
 		},
 	)
@@ -20208,7 +20833,7 @@ func UnsafeRandFromGlibFull(p unsafe.Pointer) *Rand {
 }
 
 // UnsafeRandFree unrefs/frees the underlying resource. This can be used to remove the instance before the GC decides to do so.
-// 
+//
 // After this is called, no other method on [Rand] is expected to work anymore.
 func UnsafeRandFree(r *Rand) {
 	C.g_rand_free(r.native)
@@ -20236,7 +20861,7 @@ func UnsafeRandToGlibFull(r *Rand) unsafe.Pointer {
 }
 
 // NewRand wraps g_rand_new
-// 
+//
 // see also https://docs.gtk.org/glib/func.g_rand_new.html
 func NewRand() *Rand {
 	var cret *C.GRand // return, full, converted
@@ -20251,11 +20876,11 @@ func NewRand() *Rand {
 }
 
 // NewRandWithSeed wraps g_rand_new_with_seed
-// 
+//
 // see also https://docs.gtk.org/glib/func.g_rand_new_with_seed.html
 func NewRandWithSeed(seed uint32) *Rand {
 	var carg1 C.guint32 // in, none, casted
-	var cret  *C.GRand  // return, full, converted
+	var cret *C.GRand   // return, full, converted
 
 	carg1 = C.guint32(seed)
 
@@ -20270,12 +20895,12 @@ func NewRandWithSeed(seed uint32) *Rand {
 }
 
 // NewRandWithSeedArray wraps g_rand_new_with_seed_array
-// 
+//
 // see also https://docs.gtk.org/glib/func.g_rand_new_with_seed_array.html
 func NewRandWithSeedArray(seed *uint32, seedLength uint32) *Rand {
 	var carg1 *C.guint32 // in, transfer: none, C Pointers: 1, Name: guint32
 	var carg2 C.guint    // in, none, casted
-	var cret  *C.GRand   // return, full, converted
+	var cret *C.GRand    // return, full, converted
 
 	_ = seed
 	_ = carg1
@@ -20294,11 +20919,11 @@ func NewRandWithSeedArray(seed *uint32, seedLength uint32) *Rand {
 }
 
 // Copy wraps g_rand_copy
-// 
+//
 // see also https://docs.gtk.org/glib/method.g_rand_copy.g_rand_copy.html
 func (rand *Rand) Copy() *Rand {
 	var carg0 *C.GRand // in, none, converted
-	var cret  *C.GRand // return, full, converted
+	var cret *C.GRand  // return, full, converted
 
 	carg0 = (*C.GRand)(UnsafeRandToGlibNone(rand))
 
@@ -20313,11 +20938,11 @@ func (rand *Rand) Copy() *Rand {
 }
 
 // Double wraps g_rand_double
-// 
+//
 // see also https://docs.gtk.org/glib/method.g_rand_double.g_rand_double.html
 func (rand *Rand) Double() float64 {
-	var carg0 *C.GRand  // in, none, converted
-	var cret  C.gdouble // return, none, casted
+	var carg0 *C.GRand // in, none, converted
+	var cret C.gdouble // return, none, casted
 
 	carg0 = (*C.GRand)(UnsafeRandToGlibNone(rand))
 
@@ -20332,13 +20957,13 @@ func (rand *Rand) Double() float64 {
 }
 
 // DoubleRange wraps g_rand_double_range
-// 
+//
 // see also https://docs.gtk.org/glib/method.g_rand_double_range.g_rand_double_range.html
 func (rand *Rand) DoubleRange(begin float64, end float64) float64 {
 	var carg0 *C.GRand  // in, none, converted
 	var carg1 C.gdouble // in, none, casted
 	var carg2 C.gdouble // in, none, casted
-	var cret  C.gdouble // return, none, casted
+	var cret C.gdouble  // return, none, casted
 
 	carg0 = (*C.GRand)(UnsafeRandToGlibNone(rand))
 	carg1 = C.gdouble(begin)
@@ -20357,11 +20982,11 @@ func (rand *Rand) DoubleRange(begin float64, end float64) float64 {
 }
 
 // Int wraps g_rand_int
-// 
+//
 // see also https://docs.gtk.org/glib/method.g_rand_int.g_rand_int.html
 func (rand *Rand) Int() uint32 {
-	var carg0 *C.GRand  // in, none, converted
-	var cret  C.guint32 // return, none, casted
+	var carg0 *C.GRand // in, none, converted
+	var cret C.guint32 // return, none, casted
 
 	carg0 = (*C.GRand)(UnsafeRandToGlibNone(rand))
 
@@ -20376,13 +21001,13 @@ func (rand *Rand) Int() uint32 {
 }
 
 // IntRange wraps g_rand_int_range
-// 
+//
 // see also https://docs.gtk.org/glib/method.g_rand_int_range.g_rand_int_range.html
 func (rand *Rand) IntRange(begin int32, end int32) int32 {
 	var carg0 *C.GRand // in, none, converted
 	var carg1 C.gint32 // in, none, casted
 	var carg2 C.gint32 // in, none, casted
-	var cret  C.gint32 // return, none, casted
+	var cret C.gint32  // return, none, casted
 
 	carg0 = (*C.GRand)(UnsafeRandToGlibNone(rand))
 	carg1 = C.gint32(begin)
@@ -20401,7 +21026,7 @@ func (rand *Rand) IntRange(begin int32, end int32) int32 {
 }
 
 // SetSeed wraps g_rand_set_seed
-// 
+//
 // see also https://docs.gtk.org/glib/method.g_rand_set_seed.g_rand_set_seed.html
 func (rand *Rand) SetSeed(seed uint32) {
 	var carg0 *C.GRand  // in, none, converted
@@ -20416,7 +21041,7 @@ func (rand *Rand) SetSeed(seed uint32) {
 }
 
 // SetSeedArray wraps g_rand_set_seed_array
-// 
+//
 // see also https://docs.gtk.org/glib/method.g_rand_set_seed_array.g_rand_set_seed_array.html
 func (rand *Rand) SetSeedArray(seed *uint32, seedLength uint32) {
 	var carg0 *C.GRand   // in, none, converted
@@ -20436,7 +21061,7 @@ func (rand *Rand) SetSeedArray(seed *uint32, seedLength uint32) {
 }
 
 // RecMutex wraps GRecMutex
-// 
+//
 // see also https://docs.gtk.org/glib/struct.RecMutex.html
 type RecMutex struct {
 	*recMutex
@@ -20482,7 +21107,7 @@ func UnsafeRecMutexFromGlibFull(p unsafe.Pointer) *RecMutex {
 	}
 	runtime.SetFinalizer(
 		wrapped.recMutex,
-		func (intern *recMutex) {
+		func(intern *recMutex) {
 			C.free(unsafe.Pointer(intern.native))
 		},
 	)
@@ -20490,7 +21115,7 @@ func UnsafeRecMutexFromGlibFull(p unsafe.Pointer) *RecMutex {
 }
 
 // UnsafeRecMutexFree unrefs/frees the underlying resource. This can be used to remove the instance before the GC decides to do so.
-// 
+//
 // After this is called, no other method on [RecMutex] is expected to work anymore.
 func UnsafeRecMutexFree(r *RecMutex) {
 	C.free(unsafe.Pointer(r.native))
@@ -20518,7 +21143,7 @@ func UnsafeRecMutexToGlibFull(r *RecMutex) unsafe.Pointer {
 }
 
 // Clear wraps g_rec_mutex_clear
-// 
+//
 // see also https://docs.gtk.org/glib/method.g_rec_mutex_clear.g_rec_mutex_clear.html
 func (recMutex *RecMutex) Clear() {
 	var carg0 *C.GRecMutex // in, none, converted
@@ -20530,7 +21155,7 @@ func (recMutex *RecMutex) Clear() {
 }
 
 // Init wraps g_rec_mutex_init
-// 
+//
 // see also https://docs.gtk.org/glib/method.g_rec_mutex_init.g_rec_mutex_init.html
 func (recMutex *RecMutex) Init() {
 	var carg0 *C.GRecMutex // in, none, converted
@@ -20542,7 +21167,7 @@ func (recMutex *RecMutex) Init() {
 }
 
 // Lock wraps g_rec_mutex_lock
-// 
+//
 // see also https://docs.gtk.org/glib/method.g_rec_mutex_lock.g_rec_mutex_lock.html
 func (recMutex *RecMutex) Lock() {
 	var carg0 *C.GRecMutex // in, none, converted
@@ -20554,11 +21179,11 @@ func (recMutex *RecMutex) Lock() {
 }
 
 // Trylock wraps g_rec_mutex_trylock
-// 
+//
 // see also https://docs.gtk.org/glib/method.g_rec_mutex_trylock.g_rec_mutex_trylock.html
 func (recMutex *RecMutex) Trylock() bool {
 	var carg0 *C.GRecMutex // in, none, converted
-	var cret  C.gboolean   // return
+	var cret C.gboolean    // return
 
 	carg0 = (*C.GRecMutex)(UnsafeRecMutexToGlibNone(recMutex))
 
@@ -20575,7 +21200,7 @@ func (recMutex *RecMutex) Trylock() bool {
 }
 
 // Unlock wraps g_rec_mutex_unlock
-// 
+//
 // see also https://docs.gtk.org/glib/method.g_rec_mutex_unlock.g_rec_mutex_unlock.html
 func (recMutex *RecMutex) Unlock() {
 	var carg0 *C.GRecMutex // in, none, converted
@@ -20587,7 +21212,7 @@ func (recMutex *RecMutex) Unlock() {
 }
 
 // Regex wraps GRegex
-// 
+//
 // see also https://docs.gtk.org/glib/struct.Regex.html
 type Regex struct {
 	*regex
@@ -20624,7 +21249,7 @@ func UnsafeRegexFromGlibNone(p unsafe.Pointer) *Regex {
 
 	runtime.SetFinalizer(
 		wrapped.regex,
-		func (intern *regex) {
+		func(intern *regex) {
 			C.g_regex_unref(intern.native)
 		},
 	)
@@ -20639,7 +21264,7 @@ func UnsafeRegexFromGlibFull(p unsafe.Pointer) *Regex {
 	}
 	runtime.SetFinalizer(
 		wrapped.regex,
-		func (intern *regex) {
+		func(intern *regex) {
 			C.g_regex_unref(intern.native)
 		},
 	)
@@ -20647,14 +21272,14 @@ func UnsafeRegexFromGlibFull(p unsafe.Pointer) *Regex {
 }
 
 // UnsafeRegexRef increases the refcount on the underlying resource.
-// 
+//
 // When this is called without an associated call to [Regex.UnsafeRegexUnref], then [Regex] will leak memory.
 func UnsafeRegexRef(r *Regex) {
 	C.g_regex_ref((*C.GRegex)(r.native))
 }
 
 // UnsafeRegexUnref unrefs/frees the underlying resource. This can be used to remove the instance before the GC decides to do so.
-// 
+//
 // After this is called, no other method on [Regex] is expected to work anymore.
 func UnsafeRegexUnref(r *Regex) {
 	C.g_regex_unref(r.native)
@@ -20682,13 +21307,13 @@ func UnsafeRegexToGlibFull(r *Regex) unsafe.Pointer {
 }
 
 // NewRegex wraps g_regex_new
-// 
+//
 // see also https://docs.gtk.org/glib/func.g_regex_new.html
 func NewRegex(pattern string, compileOptions RegexCompileFlags, matchOptions RegexMatchFlags) (*Regex, error) {
 	var carg1 *C.gchar             // in, none, string
 	var carg2 C.GRegexCompileFlags // in, none, casted
 	var carg3 C.GRegexMatchFlags   // in, none, casted
-	var cret  *C.GRegex            // return, full, converted, nullable
+	var cret *C.GRegex             // return, full, converted, nullable
 	var _cerr *C.GError            // out, full, converted, nullable
 
 	carg1 = (*C.gchar)(transfer.GLibString(pattern))
@@ -20701,7 +21326,7 @@ func NewRegex(pattern string, compileOptions RegexCompileFlags, matchOptions Reg
 	runtime.KeepAlive(compileOptions)
 	runtime.KeepAlive(matchOptions)
 
-	var goret  *Regex
+	var goret *Regex
 	var _goerr error
 
 	if cret != nil {
@@ -20715,12 +21340,12 @@ func NewRegex(pattern string, compileOptions RegexCompileFlags, matchOptions Reg
 }
 
 // RegexCheckReplacement wraps g_regex_check_replacement
-// 
+//
 // see also https://docs.gtk.org/glib/func.g_regex_check_replacement.html
 func RegexCheckReplacement(replacement string) (bool, bool, error) {
 	var carg1 *C.gchar   // in, none, string
 	var carg2 C.gboolean // out
-	var cret  C.gboolean // return
+	var cret C.gboolean  // return
 	var _cerr *C.GError  // out, full, converted, nullable
 
 	carg1 = (*C.gchar)(transfer.GLibString(replacement))
@@ -20730,8 +21355,8 @@ func RegexCheckReplacement(replacement string) (bool, bool, error) {
 	runtime.KeepAlive(replacement)
 
 	var hasReferences bool
-	var goret         bool
-	var _goerr        error
+	var goret bool
+	var _goerr error
 
 	if carg2 != 0 {
 		hasReferences = true
@@ -20747,7 +21372,7 @@ func RegexCheckReplacement(replacement string) (bool, bool, error) {
 }
 
 // RegexErrorQuark wraps g_regex_error_quark
-// 
+//
 // see also https://docs.gtk.org/glib/func.g_regex_error_quark.html
 func RegexErrorQuark() Quark {
 	var cret C.GQuark // return, none, casted, alias
@@ -20762,12 +21387,12 @@ func RegexErrorQuark() Quark {
 }
 
 // RegexEscapeNul wraps g_regex_escape_nul
-// 
+//
 // see also https://docs.gtk.org/glib/func.g_regex_escape_nul.html
 func RegexEscapeNul(str string, length int32) string {
 	var carg1 *C.gchar // in, none, string
 	var carg2 C.gint   // in, none, casted
-	var cret  *C.gchar // return, full, string
+	var cret *C.gchar  // return, full, string
 
 	carg1 = (*C.gchar)(transfer.GLibString(str))
 	defer C.g_free(C.gpointer(carg1))
@@ -20786,12 +21411,12 @@ func RegexEscapeNul(str string, length int32) string {
 }
 
 // RegexEscapeString wraps g_regex_escape_string
-// 
+//
 // see also https://docs.gtk.org/glib/func.g_regex_escape_string.html
 func RegexEscapeString(str string, length int32) string {
 	var carg1 *C.gchar // in, none, string
 	var carg2 C.gint   // in, none, casted
-	var cret  *C.gchar // return, full, string
+	var cret *C.gchar  // return, full, string
 
 	carg1 = (*C.gchar)(transfer.GLibString(str))
 	defer C.g_free(C.gpointer(carg1))
@@ -20810,14 +21435,14 @@ func RegexEscapeString(str string, length int32) string {
 }
 
 // RegexMatchSimple wraps g_regex_match_simple
-// 
+//
 // see also https://docs.gtk.org/glib/func.g_regex_match_simple.html
 func RegexMatchSimple(pattern string, str string, compileOptions RegexCompileFlags, matchOptions RegexMatchFlags) bool {
 	var carg1 *C.gchar             // in, none, string
 	var carg2 *C.gchar             // in, none, string
 	var carg3 C.GRegexCompileFlags // in, none, casted
 	var carg4 C.GRegexMatchFlags   // in, none, casted
-	var cret  C.gboolean           // return
+	var cret C.gboolean            // return
 
 	carg1 = (*C.gchar)(transfer.GLibString(pattern))
 	defer C.g_free(C.gpointer(carg1))
@@ -20842,14 +21467,14 @@ func RegexMatchSimple(pattern string, str string, compileOptions RegexCompileFla
 }
 
 // RegexSplitSimple wraps g_regex_split_simple
-// 
+//
 // see also https://docs.gtk.org/glib/func.g_regex_split_simple.html
 func RegexSplitSimple(pattern string, str string, compileOptions RegexCompileFlags, matchOptions RegexMatchFlags) []string {
 	var carg1 *C.gchar             // in, none, string
 	var carg2 *C.gchar             // in, none, string
 	var carg3 C.GRegexCompileFlags // in, none, casted
 	var carg4 C.GRegexMatchFlags   // in, none, casted
-	var cret  **C.gchar            // return, transfer: full, C Pointers: 2, Name: array[utf8], scope: , array (inner gchar* (*typesystem.StringPrimitive), zero-terminated)
+	var cret **C.gchar             // return, transfer: full, C Pointers: 2, Name: array[utf8], array (inner gchar* (*typesystem.StringPrimitive), zero-terminated)
 
 	carg1 = (*C.gchar)(transfer.GLibString(pattern))
 	defer C.g_free(C.gpointer(carg1))
@@ -20874,11 +21499,11 @@ func RegexSplitSimple(pattern string, str string, compileOptions RegexCompileFla
 }
 
 // GetCaptureCount wraps g_regex_get_capture_count
-// 
+//
 // see also https://docs.gtk.org/glib/method.g_regex_get_capture_count.g_regex_get_capture_count.html
 func (regex *Regex) GetCaptureCount() int32 {
 	var carg0 *C.GRegex // in, none, converted
-	var cret  C.gint    // return, none, casted
+	var cret C.gint     // return, none, casted
 
 	carg0 = (*C.GRegex)(UnsafeRegexToGlibNone(regex))
 
@@ -20893,11 +21518,11 @@ func (regex *Regex) GetCaptureCount() int32 {
 }
 
 // GetCompileFlags wraps g_regex_get_compile_flags
-// 
+//
 // see also https://docs.gtk.org/glib/method.g_regex_get_compile_flags.g_regex_get_compile_flags.html
 func (regex *Regex) GetCompileFlags() RegexCompileFlags {
-	var carg0 *C.GRegex            // in, none, converted
-	var cret  C.GRegexCompileFlags // return, none, casted
+	var carg0 *C.GRegex           // in, none, converted
+	var cret C.GRegexCompileFlags // return, none, casted
 
 	carg0 = (*C.GRegex)(UnsafeRegexToGlibNone(regex))
 
@@ -20912,11 +21537,11 @@ func (regex *Regex) GetCompileFlags() RegexCompileFlags {
 }
 
 // GetHasCrOrLf wraps g_regex_get_has_cr_or_lf
-// 
+//
 // see also https://docs.gtk.org/glib/method.g_regex_get_has_cr_or_lf.g_regex_get_has_cr_or_lf.html
 func (regex *Regex) GetHasCrOrLf() bool {
-	var carg0 *C.GRegex  // in, none, converted
-	var cret  C.gboolean // return
+	var carg0 *C.GRegex // in, none, converted
+	var cret C.gboolean // return
 
 	carg0 = (*C.GRegex)(UnsafeRegexToGlibNone(regex))
 
@@ -20933,11 +21558,11 @@ func (regex *Regex) GetHasCrOrLf() bool {
 }
 
 // GetMatchFlags wraps g_regex_get_match_flags
-// 
+//
 // see also https://docs.gtk.org/glib/method.g_regex_get_match_flags.g_regex_get_match_flags.html
 func (regex *Regex) GetMatchFlags() RegexMatchFlags {
-	var carg0 *C.GRegex          // in, none, converted
-	var cret  C.GRegexMatchFlags // return, none, casted
+	var carg0 *C.GRegex         // in, none, converted
+	var cret C.GRegexMatchFlags // return, none, casted
 
 	carg0 = (*C.GRegex)(UnsafeRegexToGlibNone(regex))
 
@@ -20952,11 +21577,11 @@ func (regex *Regex) GetMatchFlags() RegexMatchFlags {
 }
 
 // GetMaxBackref wraps g_regex_get_max_backref
-// 
+//
 // see also https://docs.gtk.org/glib/method.g_regex_get_max_backref.g_regex_get_max_backref.html
 func (regex *Regex) GetMaxBackref() int32 {
 	var carg0 *C.GRegex // in, none, converted
-	var cret  C.gint    // return, none, casted
+	var cret C.gint     // return, none, casted
 
 	carg0 = (*C.GRegex)(UnsafeRegexToGlibNone(regex))
 
@@ -20971,11 +21596,11 @@ func (regex *Regex) GetMaxBackref() int32 {
 }
 
 // GetMaxLookbehind wraps g_regex_get_max_lookbehind
-// 
+//
 // see also https://docs.gtk.org/glib/method.g_regex_get_max_lookbehind.g_regex_get_max_lookbehind.html
 func (regex *Regex) GetMaxLookbehind() int32 {
 	var carg0 *C.GRegex // in, none, converted
-	var cret  C.gint    // return, none, casted
+	var cret C.gint     // return, none, casted
 
 	carg0 = (*C.GRegex)(UnsafeRegexToGlibNone(regex))
 
@@ -20990,11 +21615,11 @@ func (regex *Regex) GetMaxLookbehind() int32 {
 }
 
 // GetPattern wraps g_regex_get_pattern
-// 
+//
 // see also https://docs.gtk.org/glib/method.g_regex_get_pattern.g_regex_get_pattern.html
 func (regex *Regex) GetPattern() string {
 	var carg0 *C.GRegex // in, none, converted
-	var cret  *C.gchar  // return, none, string
+	var cret *C.gchar   // return, none, string
 
 	carg0 = (*C.GRegex)(UnsafeRegexToGlibNone(regex))
 
@@ -21009,12 +21634,12 @@ func (regex *Regex) GetPattern() string {
 }
 
 // GetStringNumber wraps g_regex_get_string_number
-// 
+//
 // see also https://docs.gtk.org/glib/method.g_regex_get_string_number.g_regex_get_string_number.html
 func (regex *Regex) GetStringNumber(name string) int32 {
 	var carg0 *C.GRegex // in, none, converted
 	var carg1 *C.gchar  // in, none, string
-	var cret  C.gint    // return, none, casted
+	var cret C.gint     // return, none, casted
 
 	carg0 = (*C.GRegex)(UnsafeRegexToGlibNone(regex))
 	carg1 = (*C.gchar)(transfer.GLibString(name))
@@ -21032,14 +21657,14 @@ func (regex *Regex) GetStringNumber(name string) int32 {
 }
 
 // Match wraps g_regex_match
-// 
+//
 // see also https://docs.gtk.org/glib/method.g_regex_match.g_regex_match.html
 func (regex *Regex) Match(str string, matchOptions RegexMatchFlags) (*MatchInfo, bool) {
 	var carg0 *C.GRegex          // in, none, converted
 	var carg1 *C.gchar           // in, none, string
 	var carg2 C.GRegexMatchFlags // in, none, casted
 	var carg3 *C.GMatchInfo      // out, full, converted
-	var cret  C.gboolean         // return
+	var cret C.gboolean          // return
 
 	carg0 = (*C.GRegex)(UnsafeRegexToGlibNone(regex))
 	carg1 = (*C.gchar)(transfer.GLibString(str))
@@ -21052,7 +21677,7 @@ func (regex *Regex) Match(str string, matchOptions RegexMatchFlags) (*MatchInfo,
 	runtime.KeepAlive(matchOptions)
 
 	var matchInfo *MatchInfo
-	var goret     bool
+	var goret bool
 
 	matchInfo = UnsafeMatchInfoFromGlibFull(unsafe.Pointer(carg3))
 	if cret != 0 {
@@ -21063,14 +21688,14 @@ func (regex *Regex) Match(str string, matchOptions RegexMatchFlags) (*MatchInfo,
 }
 
 // MatchAll wraps g_regex_match_all
-// 
+//
 // see also https://docs.gtk.org/glib/method.g_regex_match_all.g_regex_match_all.html
 func (regex *Regex) MatchAll(str string, matchOptions RegexMatchFlags) (*MatchInfo, bool) {
 	var carg0 *C.GRegex          // in, none, converted
 	var carg1 *C.gchar           // in, none, string
 	var carg2 C.GRegexMatchFlags // in, none, casted
 	var carg3 *C.GMatchInfo      // out, full, converted
-	var cret  C.gboolean         // return
+	var cret C.gboolean          // return
 
 	carg0 = (*C.GRegex)(UnsafeRegexToGlibNone(regex))
 	carg1 = (*C.gchar)(transfer.GLibString(str))
@@ -21083,7 +21708,7 @@ func (regex *Regex) MatchAll(str string, matchOptions RegexMatchFlags) (*MatchIn
 	runtime.KeepAlive(matchOptions)
 
 	var matchInfo *MatchInfo
-	var goret     bool
+	var goret bool
 
 	matchInfo = UnsafeMatchInfoFromGlibFull(unsafe.Pointer(carg3))
 	if cret != 0 {
@@ -21094,7 +21719,7 @@ func (regex *Regex) MatchAll(str string, matchOptions RegexMatchFlags) (*MatchIn
 }
 
 // MatchAllFull wraps g_regex_match_all_full
-// 
+//
 // see also https://docs.gtk.org/glib/method.g_regex_match_all_full.g_regex_match_all_full.html
 func (regex *Regex) MatchAllFull(str string, startPosition int32, matchOptions RegexMatchFlags) (*MatchInfo, bool, error) {
 	var carg0 *C.GRegex          // in, none, converted
@@ -21103,7 +21728,7 @@ func (regex *Regex) MatchAllFull(str string, startPosition int32, matchOptions R
 	var carg3 C.gint             // in, none, casted
 	var carg4 C.GRegexMatchFlags // in, none, casted
 	var carg5 *C.GMatchInfo      // out, full, converted
-	var cret  C.gboolean         // return
+	var cret C.gboolean          // return
 	var _cerr *C.GError          // out, full, converted, nullable
 
 	carg0 = (*C.GRegex)(UnsafeRegexToGlibNone(regex))
@@ -21121,8 +21746,8 @@ func (regex *Regex) MatchAllFull(str string, startPosition int32, matchOptions R
 	runtime.KeepAlive(matchOptions)
 
 	var matchInfo *MatchInfo
-	var goret     bool
-	var _goerr    error
+	var goret bool
+	var _goerr error
 
 	matchInfo = UnsafeMatchInfoFromGlibFull(unsafe.Pointer(carg5))
 	if cret != 0 {
@@ -21136,7 +21761,7 @@ func (regex *Regex) MatchAllFull(str string, startPosition int32, matchOptions R
 }
 
 // MatchFull wraps g_regex_match_full
-// 
+//
 // see also https://docs.gtk.org/glib/method.g_regex_match_full.g_regex_match_full.html
 func (regex *Regex) MatchFull(str string, startPosition int32, matchOptions RegexMatchFlags) (*MatchInfo, bool, error) {
 	var carg0 *C.GRegex          // in, none, converted
@@ -21145,7 +21770,7 @@ func (regex *Regex) MatchFull(str string, startPosition int32, matchOptions Rege
 	var carg3 C.gint             // in, none, casted
 	var carg4 C.GRegexMatchFlags // in, none, casted
 	var carg5 *C.GMatchInfo      // out, full, converted
-	var cret  C.gboolean         // return
+	var cret C.gboolean          // return
 	var _cerr *C.GError          // out, full, converted, nullable
 
 	carg0 = (*C.GRegex)(UnsafeRegexToGlibNone(regex))
@@ -21163,8 +21788,8 @@ func (regex *Regex) MatchFull(str string, startPosition int32, matchOptions Rege
 	runtime.KeepAlive(matchOptions)
 
 	var matchInfo *MatchInfo
-	var goret     bool
-	var _goerr    error
+	var goret bool
+	var _goerr error
 
 	matchInfo = UnsafeMatchInfoFromGlibFull(unsafe.Pointer(carg5))
 	if cret != 0 {
@@ -21178,7 +21803,7 @@ func (regex *Regex) MatchFull(str string, startPosition int32, matchOptions Rege
 }
 
 // Replace wraps g_regex_replace
-// 
+//
 // see also https://docs.gtk.org/glib/method.g_regex_replace.g_regex_replace.html
 func (regex *Regex) Replace(str string, startPosition int32, replacement string, matchOptions RegexMatchFlags) (string, error) {
 	var carg0 *C.GRegex          // in, none, converted
@@ -21187,7 +21812,7 @@ func (regex *Regex) Replace(str string, startPosition int32, replacement string,
 	var carg3 C.gint             // in, none, casted
 	var carg4 *C.gchar           // in, none, string
 	var carg5 C.GRegexMatchFlags // in, none, casted
-	var cret  *C.gchar           // return, full, string, nullable-string
+	var cret *C.gchar            // return, full, string, nullable-string
 	var _cerr *C.GError          // out, full, converted, nullable
 
 	carg0 = (*C.GRegex)(UnsafeRegexToGlibNone(regex))
@@ -21207,7 +21832,7 @@ func (regex *Regex) Replace(str string, startPosition int32, replacement string,
 	runtime.KeepAlive(replacement)
 	runtime.KeepAlive(matchOptions)
 
-	var goret  string
+	var goret string
 	var _goerr error
 
 	if cret != nil {
@@ -21222,7 +21847,7 @@ func (regex *Regex) Replace(str string, startPosition int32, replacement string,
 }
 
 // ReplaceLiteral wraps g_regex_replace_literal
-// 
+//
 // see also https://docs.gtk.org/glib/method.g_regex_replace_literal.g_regex_replace_literal.html
 func (regex *Regex) ReplaceLiteral(str string, startPosition int32, replacement string, matchOptions RegexMatchFlags) (string, error) {
 	var carg0 *C.GRegex          // in, none, converted
@@ -21231,7 +21856,7 @@ func (regex *Regex) ReplaceLiteral(str string, startPosition int32, replacement 
 	var carg3 C.gint             // in, none, casted
 	var carg4 *C.gchar           // in, none, string
 	var carg5 C.GRegexMatchFlags // in, none, casted
-	var cret  *C.gchar           // return, full, string, nullable-string
+	var cret *C.gchar            // return, full, string, nullable-string
 	var _cerr *C.GError          // out, full, converted, nullable
 
 	carg0 = (*C.GRegex)(UnsafeRegexToGlibNone(regex))
@@ -21251,7 +21876,7 @@ func (regex *Regex) ReplaceLiteral(str string, startPosition int32, replacement 
 	runtime.KeepAlive(replacement)
 	runtime.KeepAlive(matchOptions)
 
-	var goret  string
+	var goret string
 	var _goerr error
 
 	if cret != nil {
@@ -21266,13 +21891,13 @@ func (regex *Regex) ReplaceLiteral(str string, startPosition int32, replacement 
 }
 
 // Split wraps g_regex_split
-// 
+//
 // see also https://docs.gtk.org/glib/method.g_regex_split.g_regex_split.html
 func (regex *Regex) Split(str string, matchOptions RegexMatchFlags) []string {
 	var carg0 *C.GRegex          // in, none, converted
 	var carg1 *C.gchar           // in, none, string
 	var carg2 C.GRegexMatchFlags // in, none, casted
-	var cret  **C.gchar          // return, transfer: full, C Pointers: 2, Name: array[utf8], scope: , array (inner gchar* (*typesystem.StringPrimitive), zero-terminated)
+	var cret **C.gchar           // return, transfer: full, C Pointers: 2, Name: array[utf8], array (inner gchar* (*typesystem.StringPrimitive), zero-terminated)
 
 	carg0 = (*C.GRegex)(UnsafeRegexToGlibNone(regex))
 	carg1 = (*C.gchar)(transfer.GLibString(str))
@@ -21294,7 +21919,7 @@ func (regex *Regex) Split(str string, matchOptions RegexMatchFlags) []string {
 }
 
 // SplitFull wraps g_regex_split_full
-// 
+//
 // see also https://docs.gtk.org/glib/method.g_regex_split_full.g_regex_split_full.html
 func (regex *Regex) SplitFull(str string, startPosition int32, matchOptions RegexMatchFlags, maxTokens int32) ([]string, error) {
 	var carg0 *C.GRegex          // in, none, converted
@@ -21303,7 +21928,7 @@ func (regex *Regex) SplitFull(str string, startPosition int32, matchOptions Rege
 	var carg3 C.gint             // in, none, casted
 	var carg4 C.GRegexMatchFlags // in, none, casted
 	var carg5 C.gint             // in, none, casted
-	var cret  **C.gchar          // return, transfer: full, C Pointers: 2, Name: array[utf8], scope: , nullable, array (inner gchar* (*typesystem.StringPrimitive), zero-terminated)
+	var cret **C.gchar           // return, transfer: full, C Pointers: 2, Name: array[utf8], nullable, array (inner gchar* (*typesystem.StringPrimitive), zero-terminated)
 	var _cerr *C.GError          // out, full, converted, nullable
 
 	carg0 = (*C.GRegex)(UnsafeRegexToGlibNone(regex))
@@ -21322,7 +21947,7 @@ func (regex *Regex) SplitFull(str string, startPosition int32, matchOptions Rege
 	runtime.KeepAlive(matchOptions)
 	runtime.KeepAlive(maxTokens)
 
-	var goret  []string
+	var goret []string
 	var _goerr error
 
 	_ = goret
@@ -21336,7 +21961,7 @@ func (regex *Regex) SplitFull(str string, startPosition int32, matchOptions Rege
 }
 
 // Scanner wraps GScanner
-// 
+//
 // see also https://docs.gtk.org/glib/struct.Scanner.html
 type Scanner struct {
 	*scanner
@@ -21382,7 +22007,7 @@ func UnsafeScannerFromGlibFull(p unsafe.Pointer) *Scanner {
 	}
 	runtime.SetFinalizer(
 		wrapped.scanner,
-		func (intern *scanner) {
+		func(intern *scanner) {
 			C.g_scanner_destroy(intern.native)
 		},
 	)
@@ -21390,7 +22015,7 @@ func UnsafeScannerFromGlibFull(p unsafe.Pointer) *Scanner {
 }
 
 // UnsafeScannerDestroy unrefs/frees the underlying resource. This can be used to remove the instance before the GC decides to do so.
-// 
+//
 // After this is called, no other method on [Scanner] is expected to work anymore.
 func UnsafeScannerDestroy(s *Scanner) {
 	C.g_scanner_destroy(s.native)
@@ -21418,11 +22043,11 @@ func UnsafeScannerToGlibFull(s *Scanner) unsafe.Pointer {
 }
 
 // CurLine wraps g_scanner_cur_line
-// 
+//
 // see also https://docs.gtk.org/glib/method.g_scanner_cur_line.g_scanner_cur_line.html
 func (scanner *Scanner) CurLine() uint32 {
 	var carg0 *C.GScanner // in, none, converted
-	var cret  C.guint     // return, none, casted
+	var cret C.guint      // return, none, casted
 
 	carg0 = (*C.GScanner)(UnsafeScannerToGlibNone(scanner))
 
@@ -21437,11 +22062,11 @@ func (scanner *Scanner) CurLine() uint32 {
 }
 
 // CurPosition wraps g_scanner_cur_position
-// 
+//
 // see also https://docs.gtk.org/glib/method.g_scanner_cur_position.g_scanner_cur_position.html
 func (scanner *Scanner) CurPosition() uint32 {
 	var carg0 *C.GScanner // in, none, converted
-	var cret  C.guint     // return, none, casted
+	var cret C.guint      // return, none, casted
 
 	carg0 = (*C.GScanner)(UnsafeScannerToGlibNone(scanner))
 
@@ -21456,11 +22081,11 @@ func (scanner *Scanner) CurPosition() uint32 {
 }
 
 // CurToken wraps g_scanner_cur_token
-// 
+//
 // see also https://docs.gtk.org/glib/method.g_scanner_cur_token.g_scanner_cur_token.html
 func (scanner *Scanner) CurToken() TokenType {
-	var carg0 *C.GScanner  // in, none, converted
-	var cret  C.GTokenType // return, none, casted
+	var carg0 *C.GScanner // in, none, converted
+	var cret C.GTokenType // return, none, casted
 
 	carg0 = (*C.GScanner)(UnsafeScannerToGlibNone(scanner))
 
@@ -21475,11 +22100,11 @@ func (scanner *Scanner) CurToken() TokenType {
 }
 
 // EOF wraps g_scanner_eof
-// 
+//
 // see also https://docs.gtk.org/glib/method.g_scanner_eof.g_scanner_eof.html
 func (scanner *Scanner) EOF() bool {
 	var carg0 *C.GScanner // in, none, converted
-	var cret  C.gboolean  // return
+	var cret C.gboolean   // return
 
 	carg0 = (*C.GScanner)(UnsafeScannerToGlibNone(scanner))
 
@@ -21496,11 +22121,11 @@ func (scanner *Scanner) EOF() bool {
 }
 
 // GetNextToken wraps g_scanner_get_next_token
-// 
+//
 // see also https://docs.gtk.org/glib/method.g_scanner_get_next_token.g_scanner_get_next_token.html
 func (scanner *Scanner) GetNextToken() TokenType {
-	var carg0 *C.GScanner  // in, none, converted
-	var cret  C.GTokenType // return, none, casted
+	var carg0 *C.GScanner // in, none, converted
+	var cret C.GTokenType // return, none, casted
 
 	carg0 = (*C.GScanner)(UnsafeScannerToGlibNone(scanner))
 
@@ -21515,7 +22140,7 @@ func (scanner *Scanner) GetNextToken() TokenType {
 }
 
 // InputFile wraps g_scanner_input_file
-// 
+//
 // see also https://docs.gtk.org/glib/method.g_scanner_input_file.g_scanner_input_file.html
 func (scanner *Scanner) InputFile(inputFd int32) {
 	var carg0 *C.GScanner // in, none, converted
@@ -21530,7 +22155,7 @@ func (scanner *Scanner) InputFile(inputFd int32) {
 }
 
 // InputText wraps g_scanner_input_text
-// 
+//
 // see also https://docs.gtk.org/glib/method.g_scanner_input_text.g_scanner_input_text.html
 func (scanner *Scanner) InputText(text string, textLen uint32) {
 	var carg0 *C.GScanner // in, none, converted
@@ -21549,11 +22174,11 @@ func (scanner *Scanner) InputText(text string, textLen uint32) {
 }
 
 // PeekNextToken wraps g_scanner_peek_next_token
-// 
+//
 // see also https://docs.gtk.org/glib/method.g_scanner_peek_next_token.g_scanner_peek_next_token.html
 func (scanner *Scanner) PeekNextToken() TokenType {
-	var carg0 *C.GScanner  // in, none, converted
-	var cret  C.GTokenType // return, none, casted
+	var carg0 *C.GScanner // in, none, converted
+	var cret C.GTokenType // return, none, casted
 
 	carg0 = (*C.GScanner)(UnsafeScannerToGlibNone(scanner))
 
@@ -21568,7 +22193,7 @@ func (scanner *Scanner) PeekNextToken() TokenType {
 }
 
 // ScopeRemoveSymbol wraps g_scanner_scope_remove_symbol
-// 
+//
 // see also https://docs.gtk.org/glib/method.g_scanner_scope_remove_symbol.g_scanner_scope_remove_symbol.html
 func (scanner *Scanner) ScopeRemoveSymbol(scopeId uint32, symbol string) {
 	var carg0 *C.GScanner // in, none, converted
@@ -21587,12 +22212,12 @@ func (scanner *Scanner) ScopeRemoveSymbol(scopeId uint32, symbol string) {
 }
 
 // SetScope wraps g_scanner_set_scope
-// 
+//
 // see also https://docs.gtk.org/glib/method.g_scanner_set_scope.g_scanner_set_scope.html
 func (scanner *Scanner) SetScope(scopeId uint32) uint32 {
 	var carg0 *C.GScanner // in, none, converted
 	var carg1 C.guint     // in, none, casted
-	var cret  C.guint     // return, none, casted
+	var cret C.guint      // return, none, casted
 
 	carg0 = (*C.GScanner)(UnsafeScannerToGlibNone(scanner))
 	carg1 = C.guint(scopeId)
@@ -21609,7 +22234,7 @@ func (scanner *Scanner) SetScope(scopeId uint32) uint32 {
 }
 
 // SyncFileOffset wraps g_scanner_sync_file_offset
-// 
+//
 // see also https://docs.gtk.org/glib/method.g_scanner_sync_file_offset.g_scanner_sync_file_offset.html
 func (scanner *Scanner) SyncFileOffset() {
 	var carg0 *C.GScanner // in, none, converted
@@ -21621,7 +22246,7 @@ func (scanner *Scanner) SyncFileOffset() {
 }
 
 // UnexpToken wraps g_scanner_unexp_token
-// 
+//
 // see also https://docs.gtk.org/glib/method.g_scanner_unexp_token.g_scanner_unexp_token.html
 func (scanner *Scanner) UnexpToken(expectedToken TokenType, identifierSpec string, symbolSpec string, symbolName string, message string, isError int32) {
 	var carg0 *C.GScanner  // in, none, converted
@@ -21655,7 +22280,7 @@ func (scanner *Scanner) UnexpToken(expectedToken TokenType, identifierSpec strin
 }
 
 // ScannerConfig wraps GScannerConfig
-// 
+//
 // see also https://docs.gtk.org/glib/struct.ScannerConfig.html
 type ScannerConfig struct {
 	*scannerConfig
@@ -21701,7 +22326,7 @@ func UnsafeScannerConfigFromGlibFull(p unsafe.Pointer) *ScannerConfig {
 	}
 	runtime.SetFinalizer(
 		wrapped.scannerConfig,
-		func (intern *scannerConfig) {
+		func(intern *scannerConfig) {
 			C.free(unsafe.Pointer(intern.native))
 		},
 	)
@@ -21709,7 +22334,7 @@ func UnsafeScannerConfigFromGlibFull(p unsafe.Pointer) *ScannerConfig {
 }
 
 // UnsafeScannerConfigFree unrefs/frees the underlying resource. This can be used to remove the instance before the GC decides to do so.
-// 
+//
 // After this is called, no other method on [ScannerConfig] is expected to work anymore.
 func UnsafeScannerConfigFree(s *ScannerConfig) {
 	C.free(unsafe.Pointer(s.native))
@@ -21737,7 +22362,7 @@ func UnsafeScannerConfigToGlibFull(s *ScannerConfig) unsafe.Pointer {
 }
 
 // Sequence wraps GSequence
-// 
+//
 // see also https://docs.gtk.org/glib/struct.Sequence.html
 type Sequence struct {
 	*sequence
@@ -21783,7 +22408,7 @@ func UnsafeSequenceFromGlibFull(p unsafe.Pointer) *Sequence {
 	}
 	runtime.SetFinalizer(
 		wrapped.sequence,
-		func (intern *sequence) {
+		func(intern *sequence) {
 			C.g_sequence_free(intern.native)
 		},
 	)
@@ -21791,7 +22416,7 @@ func UnsafeSequenceFromGlibFull(p unsafe.Pointer) *Sequence {
 }
 
 // UnsafeSequenceFree unrefs/frees the underlying resource. This can be used to remove the instance before the GC decides to do so.
-// 
+//
 // After this is called, no other method on [Sequence] is expected to work anymore.
 func UnsafeSequenceFree(s *Sequence) {
 	C.g_sequence_free(s.native)
@@ -21819,7 +22444,7 @@ func UnsafeSequenceToGlibFull(s *Sequence) unsafe.Pointer {
 }
 
 // SequenceMove wraps g_sequence_move
-// 
+//
 // see also https://docs.gtk.org/glib/func.g_sequence_move.html
 func SequenceMove(src *SequenceIter, dest *SequenceIter) {
 	var carg1 *C.GSequenceIter // in, none, converted
@@ -21834,7 +22459,7 @@ func SequenceMove(src *SequenceIter, dest *SequenceIter) {
 }
 
 // SequenceMoveRange wraps g_sequence_move_range
-// 
+//
 // see also https://docs.gtk.org/glib/func.g_sequence_move_range.html
 func SequenceMoveRange(dest *SequenceIter, begin *SequenceIter, end *SequenceIter) {
 	var carg1 *C.GSequenceIter // in, none, converted
@@ -21852,12 +22477,12 @@ func SequenceMoveRange(dest *SequenceIter, begin *SequenceIter, end *SequenceIte
 }
 
 // SequenceRangeGetMidpoint wraps g_sequence_range_get_midpoint
-// 
+//
 // see also https://docs.gtk.org/glib/func.g_sequence_range_get_midpoint.html
 func SequenceRangeGetMidpoint(begin *SequenceIter, end *SequenceIter) *SequenceIter {
 	var carg1 *C.GSequenceIter // in, none, converted
 	var carg2 *C.GSequenceIter // in, none, converted
-	var cret  *C.GSequenceIter // return, none, converted
+	var cret *C.GSequenceIter  // return, none, converted
 
 	carg1 = (*C.GSequenceIter)(UnsafeSequenceIterToGlibNone(begin))
 	carg2 = (*C.GSequenceIter)(UnsafeSequenceIterToGlibNone(end))
@@ -21874,7 +22499,7 @@ func SequenceRangeGetMidpoint(begin *SequenceIter, end *SequenceIter) *SequenceI
 }
 
 // SequenceRemove wraps g_sequence_remove
-// 
+//
 // see also https://docs.gtk.org/glib/func.g_sequence_remove.html
 func SequenceRemove(iter *SequenceIter) {
 	var carg1 *C.GSequenceIter // in, none, converted
@@ -21886,7 +22511,7 @@ func SequenceRemove(iter *SequenceIter) {
 }
 
 // SequenceRemoveRange wraps g_sequence_remove_range
-// 
+//
 // see also https://docs.gtk.org/glib/func.g_sequence_remove_range.html
 func SequenceRemoveRange(begin *SequenceIter, end *SequenceIter) {
 	var carg1 *C.GSequenceIter // in, none, converted
@@ -21901,7 +22526,7 @@ func SequenceRemoveRange(begin *SequenceIter, end *SequenceIter) {
 }
 
 // SequenceSwap wraps g_sequence_swap
-// 
+//
 // see also https://docs.gtk.org/glib/func.g_sequence_swap.html
 func SequenceSwap(a *SequenceIter, b *SequenceIter) {
 	var carg1 *C.GSequenceIter // in, none, converted
@@ -21916,11 +22541,11 @@ func SequenceSwap(a *SequenceIter, b *SequenceIter) {
 }
 
 // GetBeginIter wraps g_sequence_get_begin_iter
-// 
+//
 // see also https://docs.gtk.org/glib/method.g_sequence_get_begin_iter.g_sequence_get_begin_iter.html
 func (seq *Sequence) GetBeginIter() *SequenceIter {
-	var carg0 *C.GSequence     // in, none, converted
-	var cret  *C.GSequenceIter // return, none, converted
+	var carg0 *C.GSequence    // in, none, converted
+	var cret *C.GSequenceIter // return, none, converted
 
 	carg0 = (*C.GSequence)(UnsafeSequenceToGlibNone(seq))
 
@@ -21935,11 +22560,11 @@ func (seq *Sequence) GetBeginIter() *SequenceIter {
 }
 
 // GetEndIter wraps g_sequence_get_end_iter
-// 
+//
 // see also https://docs.gtk.org/glib/method.g_sequence_get_end_iter.g_sequence_get_end_iter.html
 func (seq *Sequence) GetEndIter() *SequenceIter {
-	var carg0 *C.GSequence     // in, none, converted
-	var cret  *C.GSequenceIter // return, none, converted
+	var carg0 *C.GSequence    // in, none, converted
+	var cret *C.GSequenceIter // return, none, converted
 
 	carg0 = (*C.GSequence)(UnsafeSequenceToGlibNone(seq))
 
@@ -21954,12 +22579,12 @@ func (seq *Sequence) GetEndIter() *SequenceIter {
 }
 
 // GetIterAtPos wraps g_sequence_get_iter_at_pos
-// 
+//
 // see also https://docs.gtk.org/glib/method.g_sequence_get_iter_at_pos.g_sequence_get_iter_at_pos.html
 func (seq *Sequence) GetIterAtPos(pos int32) *SequenceIter {
-	var carg0 *C.GSequence     // in, none, converted
-	var carg1 C.gint           // in, none, casted
-	var cret  *C.GSequenceIter // return, none, converted
+	var carg0 *C.GSequence    // in, none, converted
+	var carg1 C.gint          // in, none, casted
+	var cret *C.GSequenceIter // return, none, converted
 
 	carg0 = (*C.GSequence)(UnsafeSequenceToGlibNone(seq))
 	carg1 = C.gint(pos)
@@ -21976,11 +22601,11 @@ func (seq *Sequence) GetIterAtPos(pos int32) *SequenceIter {
 }
 
 // GetLength wraps g_sequence_get_length
-// 
+//
 // see also https://docs.gtk.org/glib/method.g_sequence_get_length.g_sequence_get_length.html
 func (seq *Sequence) GetLength() int32 {
 	var carg0 *C.GSequence // in, none, converted
-	var cret  C.gint       // return, none, casted
+	var cret C.gint        // return, none, casted
 
 	carg0 = (*C.GSequence)(UnsafeSequenceToGlibNone(seq))
 
@@ -21995,11 +22620,11 @@ func (seq *Sequence) GetLength() int32 {
 }
 
 // IsEmpty wraps g_sequence_is_empty
-// 
+//
 // see also https://docs.gtk.org/glib/method.g_sequence_is_empty.g_sequence_is_empty.html
 func (seq *Sequence) IsEmpty() bool {
 	var carg0 *C.GSequence // in, none, converted
-	var cret  C.gboolean   // return
+	var cret C.gboolean    // return
 
 	carg0 = (*C.GSequence)(UnsafeSequenceToGlibNone(seq))
 
@@ -22016,7 +22641,7 @@ func (seq *Sequence) IsEmpty() bool {
 }
 
 // SequenceIter wraps GSequenceIter
-// 
+//
 // see also https://docs.gtk.org/glib/struct.SequenceIter.html
 type SequenceIter struct {
 	*sequenceIter
@@ -22062,7 +22687,7 @@ func UnsafeSequenceIterFromGlibFull(p unsafe.Pointer) *SequenceIter {
 	}
 	runtime.SetFinalizer(
 		wrapped.sequenceIter,
-		func (intern *sequenceIter) {
+		func(intern *sequenceIter) {
 			C.free(unsafe.Pointer(intern.native))
 		},
 	)
@@ -22070,7 +22695,7 @@ func UnsafeSequenceIterFromGlibFull(p unsafe.Pointer) *SequenceIter {
 }
 
 // UnsafeSequenceIterFree unrefs/frees the underlying resource. This can be used to remove the instance before the GC decides to do so.
-// 
+//
 // After this is called, no other method on [SequenceIter] is expected to work anymore.
 func UnsafeSequenceIterFree(s *SequenceIter) {
 	C.free(unsafe.Pointer(s.native))
@@ -22098,12 +22723,12 @@ func UnsafeSequenceIterToGlibFull(s *SequenceIter) unsafe.Pointer {
 }
 
 // Compare wraps g_sequence_iter_compare
-// 
+//
 // see also https://docs.gtk.org/glib/method.g_sequence_iter_compare.g_sequence_iter_compare.html
 func (a *SequenceIter) Compare(b *SequenceIter) int32 {
 	var carg0 *C.GSequenceIter // in, none, converted
 	var carg1 *C.GSequenceIter // in, none, converted
-	var cret  C.gint           // return, none, casted
+	var cret C.gint            // return, none, casted
 
 	carg0 = (*C.GSequenceIter)(UnsafeSequenceIterToGlibNone(a))
 	carg1 = (*C.GSequenceIter)(UnsafeSequenceIterToGlibNone(b))
@@ -22120,11 +22745,11 @@ func (a *SequenceIter) Compare(b *SequenceIter) int32 {
 }
 
 // GetPosition wraps g_sequence_iter_get_position
-// 
+//
 // see also https://docs.gtk.org/glib/method.g_sequence_iter_get_position.g_sequence_iter_get_position.html
 func (iter *SequenceIter) GetPosition() int32 {
 	var carg0 *C.GSequenceIter // in, none, converted
-	var cret  C.gint           // return, none, casted
+	var cret C.gint            // return, none, casted
 
 	carg0 = (*C.GSequenceIter)(UnsafeSequenceIterToGlibNone(iter))
 
@@ -22139,11 +22764,11 @@ func (iter *SequenceIter) GetPosition() int32 {
 }
 
 // GetSequence wraps g_sequence_iter_get_sequence
-// 
+//
 // see also https://docs.gtk.org/glib/method.g_sequence_iter_get_sequence.g_sequence_iter_get_sequence.html
 func (iter *SequenceIter) GetSequence() *Sequence {
 	var carg0 *C.GSequenceIter // in, none, converted
-	var cret  *C.GSequence     // return, none, converted
+	var cret *C.GSequence      // return, none, converted
 
 	carg0 = (*C.GSequenceIter)(UnsafeSequenceIterToGlibNone(iter))
 
@@ -22158,11 +22783,11 @@ func (iter *SequenceIter) GetSequence() *Sequence {
 }
 
 // IsBegin wraps g_sequence_iter_is_begin
-// 
+//
 // see also https://docs.gtk.org/glib/method.g_sequence_iter_is_begin.g_sequence_iter_is_begin.html
 func (iter *SequenceIter) IsBegin() bool {
 	var carg0 *C.GSequenceIter // in, none, converted
-	var cret  C.gboolean       // return
+	var cret C.gboolean        // return
 
 	carg0 = (*C.GSequenceIter)(UnsafeSequenceIterToGlibNone(iter))
 
@@ -22179,11 +22804,11 @@ func (iter *SequenceIter) IsBegin() bool {
 }
 
 // IsEnd wraps g_sequence_iter_is_end
-// 
+//
 // see also https://docs.gtk.org/glib/method.g_sequence_iter_is_end.g_sequence_iter_is_end.html
 func (iter *SequenceIter) IsEnd() bool {
 	var carg0 *C.GSequenceIter // in, none, converted
-	var cret  C.gboolean       // return
+	var cret C.gboolean        // return
 
 	carg0 = (*C.GSequenceIter)(UnsafeSequenceIterToGlibNone(iter))
 
@@ -22200,12 +22825,12 @@ func (iter *SequenceIter) IsEnd() bool {
 }
 
 // Move wraps g_sequence_iter_move
-// 
+//
 // see also https://docs.gtk.org/glib/method.g_sequence_iter_move.g_sequence_iter_move.html
 func (iter *SequenceIter) Move(delta int32) *SequenceIter {
 	var carg0 *C.GSequenceIter // in, none, converted
 	var carg1 C.gint           // in, none, casted
-	var cret  *C.GSequenceIter // return, none, converted
+	var cret *C.GSequenceIter  // return, none, converted
 
 	carg0 = (*C.GSequenceIter)(UnsafeSequenceIterToGlibNone(iter))
 	carg1 = C.gint(delta)
@@ -22222,11 +22847,11 @@ func (iter *SequenceIter) Move(delta int32) *SequenceIter {
 }
 
 // Next wraps g_sequence_iter_next
-// 
+//
 // see also https://docs.gtk.org/glib/method.g_sequence_iter_next.g_sequence_iter_next.html
 func (iter *SequenceIter) Next() *SequenceIter {
 	var carg0 *C.GSequenceIter // in, none, converted
-	var cret  *C.GSequenceIter // return, none, converted
+	var cret *C.GSequenceIter  // return, none, converted
 
 	carg0 = (*C.GSequenceIter)(UnsafeSequenceIterToGlibNone(iter))
 
@@ -22241,11 +22866,11 @@ func (iter *SequenceIter) Next() *SequenceIter {
 }
 
 // Prev wraps g_sequence_iter_prev
-// 
+//
 // see also https://docs.gtk.org/glib/method.g_sequence_iter_prev.g_sequence_iter_prev.html
 func (iter *SequenceIter) Prev() *SequenceIter {
 	var carg0 *C.GSequenceIter // in, none, converted
-	var cret  *C.GSequenceIter // return, none, converted
+	var cret *C.GSequenceIter  // return, none, converted
 
 	carg0 = (*C.GSequenceIter)(UnsafeSequenceIterToGlibNone(iter))
 
@@ -22260,7 +22885,7 @@ func (iter *SequenceIter) Prev() *SequenceIter {
 }
 
 // SourceCallbackFuncs wraps GSourceCallbackFuncs
-// 
+//
 // see also https://docs.gtk.org/glib/struct.SourceCallbackFuncs.html
 type SourceCallbackFuncs struct {
 	*sourceCallbackFuncs
@@ -22306,7 +22931,7 @@ func UnsafeSourceCallbackFuncsFromGlibFull(p unsafe.Pointer) *SourceCallbackFunc
 	}
 	runtime.SetFinalizer(
 		wrapped.sourceCallbackFuncs,
-		func (intern *sourceCallbackFuncs) {
+		func(intern *sourceCallbackFuncs) {
 			C.free(unsafe.Pointer(intern.native))
 		},
 	)
@@ -22314,7 +22939,7 @@ func UnsafeSourceCallbackFuncsFromGlibFull(p unsafe.Pointer) *SourceCallbackFunc
 }
 
 // UnsafeSourceCallbackFuncsFree unrefs/frees the underlying resource. This can be used to remove the instance before the GC decides to do so.
-// 
+//
 // After this is called, no other method on [SourceCallbackFuncs] is expected to work anymore.
 func UnsafeSourceCallbackFuncsFree(s *SourceCallbackFuncs) {
 	C.free(unsafe.Pointer(s.native))
@@ -22342,7 +22967,7 @@ func UnsafeSourceCallbackFuncsToGlibFull(s *SourceCallbackFuncs) unsafe.Pointer 
 }
 
 // SourceFuncs wraps GSourceFuncs
-// 
+//
 // see also https://docs.gtk.org/glib/struct.SourceFuncs.html
 type SourceFuncs struct {
 	*sourceFuncs
@@ -22388,7 +23013,7 @@ func UnsafeSourceFuncsFromGlibFull(p unsafe.Pointer) *SourceFuncs {
 	}
 	runtime.SetFinalizer(
 		wrapped.sourceFuncs,
-		func (intern *sourceFuncs) {
+		func(intern *sourceFuncs) {
 			C.free(unsafe.Pointer(intern.native))
 		},
 	)
@@ -22396,7 +23021,7 @@ func UnsafeSourceFuncsFromGlibFull(p unsafe.Pointer) *SourceFuncs {
 }
 
 // UnsafeSourceFuncsFree unrefs/frees the underlying resource. This can be used to remove the instance before the GC decides to do so.
-// 
+//
 // After this is called, no other method on [SourceFuncs] is expected to work anymore.
 func UnsafeSourceFuncsFree(s *SourceFuncs) {
 	C.free(unsafe.Pointer(s.native))
@@ -22424,7 +23049,7 @@ func UnsafeSourceFuncsToGlibFull(s *SourceFuncs) unsafe.Pointer {
 }
 
 // StringChunk wraps GStringChunk
-// 
+//
 // see also https://docs.gtk.org/glib/struct.StringChunk.html
 type StringChunk struct {
 	*stringChunk
@@ -22470,7 +23095,7 @@ func UnsafeStringChunkFromGlibFull(p unsafe.Pointer) *StringChunk {
 	}
 	runtime.SetFinalizer(
 		wrapped.stringChunk,
-		func (intern *stringChunk) {
+		func(intern *stringChunk) {
 			C.g_string_chunk_free(intern.native)
 		},
 	)
@@ -22478,7 +23103,7 @@ func UnsafeStringChunkFromGlibFull(p unsafe.Pointer) *StringChunk {
 }
 
 // UnsafeStringChunkFree unrefs/frees the underlying resource. This can be used to remove the instance before the GC decides to do so.
-// 
+//
 // After this is called, no other method on [StringChunk] is expected to work anymore.
 func UnsafeStringChunkFree(s *StringChunk) {
 	C.g_string_chunk_free(s.native)
@@ -22506,7 +23131,7 @@ func UnsafeStringChunkToGlibFull(s *StringChunk) unsafe.Pointer {
 }
 
 // Clear wraps g_string_chunk_clear
-// 
+//
 // see also https://docs.gtk.org/glib/method.g_string_chunk_clear.g_string_chunk_clear.html
 func (chunk *StringChunk) Clear() {
 	var carg0 *C.GStringChunk // in, none, converted
@@ -22518,12 +23143,12 @@ func (chunk *StringChunk) Clear() {
 }
 
 // Insert wraps g_string_chunk_insert
-// 
+//
 // see also https://docs.gtk.org/glib/method.g_string_chunk_insert.g_string_chunk_insert.html
 func (chunk *StringChunk) Insert(str string) string {
 	var carg0 *C.GStringChunk // in, none, converted
 	var carg1 *C.gchar        // in, none, string
-	var cret  *C.gchar        // return, full, string
+	var cret *C.gchar         // return, full, string
 
 	carg0 = (*C.GStringChunk)(UnsafeStringChunkToGlibNone(chunk))
 	carg1 = (*C.gchar)(transfer.GLibString(str))
@@ -22542,12 +23167,12 @@ func (chunk *StringChunk) Insert(str string) string {
 }
 
 // InsertConst wraps g_string_chunk_insert_const
-// 
+//
 // see also https://docs.gtk.org/glib/method.g_string_chunk_insert_const.g_string_chunk_insert_const.html
 func (chunk *StringChunk) InsertConst(str string) string {
 	var carg0 *C.GStringChunk // in, none, converted
 	var carg1 *C.gchar        // in, none, string
-	var cret  *C.gchar        // return, full, string
+	var cret *C.gchar         // return, full, string
 
 	carg0 = (*C.GStringChunk)(UnsafeStringChunkToGlibNone(chunk))
 	carg1 = (*C.gchar)(transfer.GLibString(str))
@@ -22566,13 +23191,13 @@ func (chunk *StringChunk) InsertConst(str string) string {
 }
 
 // InsertLen wraps g_string_chunk_insert_len
-// 
+//
 // see also https://docs.gtk.org/glib/method.g_string_chunk_insert_len.g_string_chunk_insert_len.html
 func (chunk *StringChunk) InsertLen(str string, len int) string {
 	var carg0 *C.GStringChunk // in, none, converted
 	var carg1 *C.gchar        // in, none, string
 	var carg2 C.gssize        // in, none, casted
-	var cret  *C.gchar        // return, full, string
+	var cret *C.gchar         // return, full, string
 
 	carg0 = (*C.GStringChunk)(UnsafeStringChunkToGlibNone(chunk))
 	carg1 = (*C.gchar)(transfer.GLibString(str))
@@ -22593,7 +23218,7 @@ func (chunk *StringChunk) InsertLen(str string, len int) string {
 }
 
 // StrvBuilder wraps GStrvBuilder
-// 
+//
 // see also https://docs.gtk.org/glib/struct.StrvBuilder.html
 type StrvBuilder struct {
 	*strvBuilder
@@ -22630,7 +23255,7 @@ func UnsafeStrvBuilderFromGlibNone(p unsafe.Pointer) *StrvBuilder {
 
 	runtime.SetFinalizer(
 		wrapped.strvBuilder,
-		func (intern *strvBuilder) {
+		func(intern *strvBuilder) {
 			C.g_strv_builder_unref(intern.native)
 		},
 	)
@@ -22645,7 +23270,7 @@ func UnsafeStrvBuilderFromGlibFull(p unsafe.Pointer) *StrvBuilder {
 	}
 	runtime.SetFinalizer(
 		wrapped.strvBuilder,
-		func (intern *strvBuilder) {
+		func(intern *strvBuilder) {
 			C.g_strv_builder_unref(intern.native)
 		},
 	)
@@ -22653,14 +23278,14 @@ func UnsafeStrvBuilderFromGlibFull(p unsafe.Pointer) *StrvBuilder {
 }
 
 // UnsafeStrvBuilderRef increases the refcount on the underlying resource.
-// 
+//
 // When this is called without an associated call to [StrvBuilder.UnsafeStrvBuilderUnref], then [StrvBuilder] will leak memory.
 func UnsafeStrvBuilderRef(s *StrvBuilder) {
 	C.g_strv_builder_ref((*C.GStrvBuilder)(s.native))
 }
 
 // UnsafeStrvBuilderUnref unrefs/frees the underlying resource. This can be used to remove the instance before the GC decides to do so.
-// 
+//
 // After this is called, no other method on [StrvBuilder] is expected to work anymore.
 func UnsafeStrvBuilderUnref(s *StrvBuilder) {
 	C.g_strv_builder_unref(s.native)
@@ -22688,7 +23313,7 @@ func UnsafeStrvBuilderToGlibFull(s *StrvBuilder) unsafe.Pointer {
 }
 
 // NewStrvBuilder wraps g_strv_builder_new
-// 
+//
 // see also https://docs.gtk.org/glib/func.g_strv_builder_new.html
 func NewStrvBuilder() *StrvBuilder {
 	var cret *C.GStrvBuilder // return, full, converted
@@ -22703,7 +23328,7 @@ func NewStrvBuilder() *StrvBuilder {
 }
 
 // Add wraps g_strv_builder_add
-// 
+//
 // see also https://docs.gtk.org/glib/method.g_strv_builder_add.g_strv_builder_add.html
 func (builder *StrvBuilder) Add(value string) {
 	var carg0 *C.GStrvBuilder // in, none, converted
@@ -22719,7 +23344,7 @@ func (builder *StrvBuilder) Add(value string) {
 }
 
 // Addv wraps g_strv_builder_addv
-// 
+//
 // see also https://docs.gtk.org/glib/method.g_strv_builder_addv.g_strv_builder_addv.html
 func (builder *StrvBuilder) Addv(value []string) {
 	var carg0 *C.GStrvBuilder // in, none, converted
@@ -22736,7 +23361,7 @@ func (builder *StrvBuilder) Addv(value []string) {
 }
 
 // Take wraps g_strv_builder_take
-// 
+//
 // see also https://docs.gtk.org/glib/method.g_strv_builder_take.g_strv_builder_take.html
 func (builder *StrvBuilder) Take(value string) {
 	var carg0 *C.GStrvBuilder // in, none, converted
@@ -22751,7 +23376,7 @@ func (builder *StrvBuilder) Take(value string) {
 }
 
 // TestCase wraps GTestCase
-// 
+//
 // see also https://docs.gtk.org/glib/struct.TestCase.html
 type TestCase struct {
 	*testCase
@@ -22797,7 +23422,7 @@ func UnsafeTestCaseFromGlibFull(p unsafe.Pointer) *TestCase {
 	}
 	runtime.SetFinalizer(
 		wrapped.testCase,
-		func (intern *testCase) {
+		func(intern *testCase) {
 			C.g_test_case_free(intern.native)
 		},
 	)
@@ -22805,7 +23430,7 @@ func UnsafeTestCaseFromGlibFull(p unsafe.Pointer) *TestCase {
 }
 
 // UnsafeTestCaseFree unrefs/frees the underlying resource. This can be used to remove the instance before the GC decides to do so.
-// 
+//
 // After this is called, no other method on [TestCase] is expected to work anymore.
 func UnsafeTestCaseFree(t *TestCase) {
 	C.g_test_case_free(t.native)
@@ -22833,7 +23458,7 @@ func UnsafeTestCaseToGlibFull(t *TestCase) unsafe.Pointer {
 }
 
 // TestConfig wraps GTestConfig
-// 
+//
 // see also https://docs.gtk.org/glib/struct.TestConfig.html
 type TestConfig struct {
 	*testConfig
@@ -22879,7 +23504,7 @@ func UnsafeTestConfigFromGlibFull(p unsafe.Pointer) *TestConfig {
 	}
 	runtime.SetFinalizer(
 		wrapped.testConfig,
-		func (intern *testConfig) {
+		func(intern *testConfig) {
 			C.free(unsafe.Pointer(intern.native))
 		},
 	)
@@ -22887,7 +23512,7 @@ func UnsafeTestConfigFromGlibFull(p unsafe.Pointer) *TestConfig {
 }
 
 // UnsafeTestConfigFree unrefs/frees the underlying resource. This can be used to remove the instance before the GC decides to do so.
-// 
+//
 // After this is called, no other method on [TestConfig] is expected to work anymore.
 func UnsafeTestConfigFree(t *TestConfig) {
 	C.free(unsafe.Pointer(t.native))
@@ -22915,7 +23540,7 @@ func UnsafeTestConfigToGlibFull(t *TestConfig) unsafe.Pointer {
 }
 
 // TestLogBuffer wraps GTestLogBuffer
-// 
+//
 // see also https://docs.gtk.org/glib/struct.TestLogBuffer.html
 type TestLogBuffer struct {
 	*testLogBuffer
@@ -22961,7 +23586,7 @@ func UnsafeTestLogBufferFromGlibFull(p unsafe.Pointer) *TestLogBuffer {
 	}
 	runtime.SetFinalizer(
 		wrapped.testLogBuffer,
-		func (intern *testLogBuffer) {
+		func(intern *testLogBuffer) {
 			C.g_test_log_buffer_free(intern.native)
 		},
 	)
@@ -22969,7 +23594,7 @@ func UnsafeTestLogBufferFromGlibFull(p unsafe.Pointer) *TestLogBuffer {
 }
 
 // UnsafeTestLogBufferFree unrefs/frees the underlying resource. This can be used to remove the instance before the GC decides to do so.
-// 
+//
 // After this is called, no other method on [TestLogBuffer] is expected to work anymore.
 func UnsafeTestLogBufferFree(t *TestLogBuffer) {
 	C.g_test_log_buffer_free(t.native)
@@ -22997,7 +23622,7 @@ func UnsafeTestLogBufferToGlibFull(t *TestLogBuffer) unsafe.Pointer {
 }
 
 // Push wraps g_test_log_buffer_push
-// 
+//
 // see also https://docs.gtk.org/glib/method.g_test_log_buffer_push.g_test_log_buffer_push.html
 func (tbuffer *TestLogBuffer) Push(nBytes uint32, bytes *uint8) {
 	var carg0 *C.GTestLogBuffer // in, none, converted
@@ -23017,7 +23642,7 @@ func (tbuffer *TestLogBuffer) Push(nBytes uint32, bytes *uint8) {
 }
 
 // TestSuite wraps GTestSuite
-// 
+//
 // see also https://docs.gtk.org/glib/struct.TestSuite.html
 type TestSuite struct {
 	*testSuite
@@ -23063,7 +23688,7 @@ func UnsafeTestSuiteFromGlibFull(p unsafe.Pointer) *TestSuite {
 	}
 	runtime.SetFinalizer(
 		wrapped.testSuite,
-		func (intern *testSuite) {
+		func(intern *testSuite) {
 			C.g_test_suite_free(intern.native)
 		},
 	)
@@ -23071,7 +23696,7 @@ func UnsafeTestSuiteFromGlibFull(p unsafe.Pointer) *TestSuite {
 }
 
 // UnsafeTestSuiteFree unrefs/frees the underlying resource. This can be used to remove the instance before the GC decides to do so.
-// 
+//
 // After this is called, no other method on [TestSuite] is expected to work anymore.
 func UnsafeTestSuiteFree(t *TestSuite) {
 	C.g_test_suite_free(t.native)
@@ -23099,7 +23724,7 @@ func UnsafeTestSuiteToGlibFull(t *TestSuite) unsafe.Pointer {
 }
 
 // Add wraps g_test_suite_add
-// 
+//
 // see also https://docs.gtk.org/glib/method.g_test_suite_add.g_test_suite_add.html
 func (suite *TestSuite) Add(testCase *TestCase) {
 	var carg0 *C.GTestSuite // in, none, converted
@@ -23114,7 +23739,7 @@ func (suite *TestSuite) Add(testCase *TestCase) {
 }
 
 // AddSuite wraps g_test_suite_add_suite
-// 
+//
 // see also https://docs.gtk.org/glib/method.g_test_suite_add_suite.g_test_suite_add_suite.html
 func (suite *TestSuite) AddSuite(nestedsuite *TestSuite) {
 	var carg0 *C.GTestSuite // in, none, converted
@@ -23129,7 +23754,7 @@ func (suite *TestSuite) AddSuite(nestedsuite *TestSuite) {
 }
 
 // TimeZone wraps GTimeZone
-// 
+//
 // see also https://docs.gtk.org/glib/struct.TimeZone.html
 type TimeZone struct {
 	*timeZone
@@ -23166,7 +23791,7 @@ func UnsafeTimeZoneFromGlibNone(p unsafe.Pointer) *TimeZone {
 
 	runtime.SetFinalizer(
 		wrapped.timeZone,
-		func (intern *timeZone) {
+		func(intern *timeZone) {
 			C.g_time_zone_unref(intern.native)
 		},
 	)
@@ -23181,7 +23806,7 @@ func UnsafeTimeZoneFromGlibFull(p unsafe.Pointer) *TimeZone {
 	}
 	runtime.SetFinalizer(
 		wrapped.timeZone,
-		func (intern *timeZone) {
+		func(intern *timeZone) {
 			C.g_time_zone_unref(intern.native)
 		},
 	)
@@ -23189,14 +23814,14 @@ func UnsafeTimeZoneFromGlibFull(p unsafe.Pointer) *TimeZone {
 }
 
 // UnsafeTimeZoneRef increases the refcount on the underlying resource.
-// 
+//
 // When this is called without an associated call to [TimeZone.UnsafeTimeZoneUnref], then [TimeZone] will leak memory.
 func UnsafeTimeZoneRef(t *TimeZone) {
 	C.g_time_zone_ref((*C.GTimeZone)(t.native))
 }
 
 // UnsafeTimeZoneUnref unrefs/frees the underlying resource. This can be used to remove the instance before the GC decides to do so.
-// 
+//
 // After this is called, no other method on [TimeZone] is expected to work anymore.
 func UnsafeTimeZoneUnref(t *TimeZone) {
 	C.g_time_zone_unref(t.native)
@@ -23224,11 +23849,11 @@ func UnsafeTimeZoneToGlibFull(t *TimeZone) unsafe.Pointer {
 }
 
 // NewTimeZoneIdentifier wraps g_time_zone_new_identifier
-// 
+//
 // see also https://docs.gtk.org/glib/func.g_time_zone_new_identifier.html
 func NewTimeZoneIdentifier(identifier string) *TimeZone {
-	var carg1 *C.gchar     // in, none, string, nullable-string
-	var cret  *C.GTimeZone // return, full, converted, nullable
+	var carg1 *C.gchar    // in, none, string, nullable-string
+	var cret *C.GTimeZone // return, full, converted, nullable
 
 	if identifier != "" {
 		carg1 = (*C.gchar)(transfer.GLibString(identifier))
@@ -23248,7 +23873,7 @@ func NewTimeZoneIdentifier(identifier string) *TimeZone {
 }
 
 // NewTimeZoneLocal wraps g_time_zone_new_local
-// 
+//
 // see also https://docs.gtk.org/glib/func.g_time_zone_new_local.html
 func NewTimeZoneLocal() *TimeZone {
 	var cret *C.GTimeZone // return, full, converted
@@ -23263,11 +23888,11 @@ func NewTimeZoneLocal() *TimeZone {
 }
 
 // NewTimeZoneOffset wraps g_time_zone_new_offset
-// 
+//
 // see also https://docs.gtk.org/glib/func.g_time_zone_new_offset.html
 func NewTimeZoneOffset(seconds int32) *TimeZone {
-	var carg1 C.gint32     // in, none, casted
-	var cret  *C.GTimeZone // return, full, converted
+	var carg1 C.gint32    // in, none, casted
+	var cret *C.GTimeZone // return, full, converted
 
 	carg1 = C.gint32(seconds)
 
@@ -23282,7 +23907,7 @@ func NewTimeZoneOffset(seconds int32) *TimeZone {
 }
 
 // NewTimeZoneUtc wraps g_time_zone_new_utc
-// 
+//
 // see also https://docs.gtk.org/glib/func.g_time_zone_new_utc.html
 func NewTimeZoneUtc() *TimeZone {
 	var cret *C.GTimeZone // return, full, converted
@@ -23297,13 +23922,13 @@ func NewTimeZoneUtc() *TimeZone {
 }
 
 // FindInterval wraps g_time_zone_find_interval
-// 
+//
 // see also https://docs.gtk.org/glib/method.g_time_zone_find_interval.g_time_zone_find_interval.html
 func (tz *TimeZone) FindInterval(typ TimeType, time int64) int32 {
 	var carg0 *C.GTimeZone // in, none, converted
 	var carg1 C.GTimeType  // in, none, casted
 	var carg2 C.gint64     // in, none, casted
-	var cret  C.gint       // return, none, casted
+	var cret C.gint        // return, none, casted
 
 	carg0 = (*C.GTimeZone)(UnsafeTimeZoneToGlibNone(tz))
 	carg1 = C.GTimeType(typ)
@@ -23322,12 +23947,12 @@ func (tz *TimeZone) FindInterval(typ TimeType, time int64) int32 {
 }
 
 // GetAbbreviation wraps g_time_zone_get_abbreviation
-// 
+//
 // see also https://docs.gtk.org/glib/method.g_time_zone_get_abbreviation.g_time_zone_get_abbreviation.html
 func (tz *TimeZone) GetAbbreviation(interval int32) string {
 	var carg0 *C.GTimeZone // in, none, converted
 	var carg1 C.gint       // in, none, casted
-	var cret  *C.gchar     // return, none, string
+	var cret *C.gchar      // return, none, string
 
 	carg0 = (*C.GTimeZone)(UnsafeTimeZoneToGlibNone(tz))
 	carg1 = C.gint(interval)
@@ -23344,11 +23969,11 @@ func (tz *TimeZone) GetAbbreviation(interval int32) string {
 }
 
 // GetIdentifier wraps g_time_zone_get_identifier
-// 
+//
 // see also https://docs.gtk.org/glib/method.g_time_zone_get_identifier.g_time_zone_get_identifier.html
 func (tz *TimeZone) GetIdentifier() string {
 	var carg0 *C.GTimeZone // in, none, converted
-	var cret  *C.gchar     // return, none, string
+	var cret *C.gchar      // return, none, string
 
 	carg0 = (*C.GTimeZone)(UnsafeTimeZoneToGlibNone(tz))
 
@@ -23363,12 +23988,12 @@ func (tz *TimeZone) GetIdentifier() string {
 }
 
 // GetOffset wraps g_time_zone_get_offset
-// 
+//
 // see also https://docs.gtk.org/glib/method.g_time_zone_get_offset.g_time_zone_get_offset.html
 func (tz *TimeZone) GetOffset(interval int32) int32 {
 	var carg0 *C.GTimeZone // in, none, converted
 	var carg1 C.gint       // in, none, casted
-	var cret  C.gint32     // return, none, casted
+	var cret C.gint32      // return, none, casted
 
 	carg0 = (*C.GTimeZone)(UnsafeTimeZoneToGlibNone(tz))
 	carg1 = C.gint(interval)
@@ -23385,12 +24010,12 @@ func (tz *TimeZone) GetOffset(interval int32) int32 {
 }
 
 // IsDst wraps g_time_zone_is_dst
-// 
+//
 // see also https://docs.gtk.org/glib/method.g_time_zone_is_dst.g_time_zone_is_dst.html
 func (tz *TimeZone) IsDst(interval int32) bool {
 	var carg0 *C.GTimeZone // in, none, converted
 	var carg1 C.gint       // in, none, casted
-	var cret  C.gboolean   // return
+	var cret C.gboolean    // return
 
 	carg0 = (*C.GTimeZone)(UnsafeTimeZoneToGlibNone(tz))
 	carg1 = C.gint(interval)
@@ -23409,7 +24034,7 @@ func (tz *TimeZone) IsDst(interval int32) bool {
 }
 
 // Timer wraps GTimer
-// 
+//
 // see also https://docs.gtk.org/glib/struct.Timer.html
 type Timer struct {
 	*timer
@@ -23455,7 +24080,7 @@ func UnsafeTimerFromGlibFull(p unsafe.Pointer) *Timer {
 	}
 	runtime.SetFinalizer(
 		wrapped.timer,
-		func (intern *timer) {
+		func(intern *timer) {
 			C.g_timer_destroy(intern.native)
 		},
 	)
@@ -23463,7 +24088,7 @@ func UnsafeTimerFromGlibFull(p unsafe.Pointer) *Timer {
 }
 
 // UnsafeTimerDestroy unrefs/frees the underlying resource. This can be used to remove the instance before the GC decides to do so.
-// 
+//
 // After this is called, no other method on [Timer] is expected to work anymore.
 func UnsafeTimerDestroy(t *Timer) {
 	C.g_timer_destroy(t.native)
@@ -23491,7 +24116,7 @@ func UnsafeTimerToGlibFull(t *Timer) unsafe.Pointer {
 }
 
 // Continue wraps g_timer_continue
-// 
+//
 // see also https://docs.gtk.org/glib/method.g_timer_continue.g_timer_continue.html
 func (timer *Timer) Continue() {
 	var carg0 *C.GTimer // in, none, converted
@@ -23503,12 +24128,12 @@ func (timer *Timer) Continue() {
 }
 
 // Elapsed wraps g_timer_elapsed
-// 
+//
 // see also https://docs.gtk.org/glib/method.g_timer_elapsed.g_timer_elapsed.html
 func (timer *Timer) Elapsed(microseconds *uint64) float64 {
 	var carg0 *C.GTimer // in, none, converted
 	var carg1 *C.gulong // in, transfer: none, C Pointers: 1, Name: gulong
-	var cret  C.gdouble // return, none, casted
+	var cret C.gdouble  // return, none, casted
 
 	carg0 = (*C.GTimer)(UnsafeTimerToGlibNone(timer))
 	_ = microseconds
@@ -23527,11 +24152,11 @@ func (timer *Timer) Elapsed(microseconds *uint64) float64 {
 }
 
 // IsActive wraps g_timer_is_active
-// 
+//
 // see also https://docs.gtk.org/glib/method.g_timer_is_active.g_timer_is_active.html
 func (timer *Timer) IsActive() bool {
-	var carg0 *C.GTimer  // in, none, converted
-	var cret  C.gboolean // return
+	var carg0 *C.GTimer // in, none, converted
+	var cret C.gboolean // return
 
 	carg0 = (*C.GTimer)(UnsafeTimerToGlibNone(timer))
 
@@ -23548,7 +24173,7 @@ func (timer *Timer) IsActive() bool {
 }
 
 // Reset wraps g_timer_reset
-// 
+//
 // see also https://docs.gtk.org/glib/method.g_timer_reset.g_timer_reset.html
 func (timer *Timer) Reset() {
 	var carg0 *C.GTimer // in, none, converted
@@ -23560,7 +24185,7 @@ func (timer *Timer) Reset() {
 }
 
 // Start wraps g_timer_start
-// 
+//
 // see also https://docs.gtk.org/glib/method.g_timer_start.g_timer_start.html
 func (timer *Timer) Start() {
 	var carg0 *C.GTimer // in, none, converted
@@ -23572,7 +24197,7 @@ func (timer *Timer) Start() {
 }
 
 // Stop wraps g_timer_stop
-// 
+//
 // see also https://docs.gtk.org/glib/method.g_timer_stop.g_timer_stop.html
 func (timer *Timer) Stop() {
 	var carg0 *C.GTimer // in, none, converted
@@ -23584,7 +24209,7 @@ func (timer *Timer) Stop() {
 }
 
 // TreeNode wraps GTreeNode
-// 
+//
 // see also https://docs.gtk.org/glib/struct.TreeNode.html
 type TreeNode struct {
 	*treeNode
@@ -23630,7 +24255,7 @@ func UnsafeTreeNodeFromGlibFull(p unsafe.Pointer) *TreeNode {
 	}
 	runtime.SetFinalizer(
 		wrapped.treeNode,
-		func (intern *treeNode) {
+		func(intern *treeNode) {
 			C.free(unsafe.Pointer(intern.native))
 		},
 	)
@@ -23638,7 +24263,7 @@ func UnsafeTreeNodeFromGlibFull(p unsafe.Pointer) *TreeNode {
 }
 
 // UnsafeTreeNodeFree unrefs/frees the underlying resource. This can be used to remove the instance before the GC decides to do so.
-// 
+//
 // After this is called, no other method on [TreeNode] is expected to work anymore.
 func UnsafeTreeNodeFree(t *TreeNode) {
 	C.free(unsafe.Pointer(t.native))
@@ -23666,11 +24291,11 @@ func UnsafeTreeNodeToGlibFull(t *TreeNode) unsafe.Pointer {
 }
 
 // Next wraps g_tree_node_next
-// 
+//
 // see also https://docs.gtk.org/glib/method.g_tree_node_next.g_tree_node_next.html
 func (node *TreeNode) Next() *TreeNode {
 	var carg0 *C.GTreeNode // in, none, converted
-	var cret  *C.GTreeNode // return, none, converted, nullable
+	var cret *C.GTreeNode  // return, none, converted, nullable
 
 	carg0 = (*C.GTreeNode)(UnsafeTreeNodeToGlibNone(node))
 
@@ -23687,11 +24312,11 @@ func (node *TreeNode) Next() *TreeNode {
 }
 
 // Previous wraps g_tree_node_previous
-// 
+//
 // see also https://docs.gtk.org/glib/method.g_tree_node_previous.g_tree_node_previous.html
 func (node *TreeNode) Previous() *TreeNode {
 	var carg0 *C.GTreeNode // in, none, converted
-	var cret  *C.GTreeNode // return, none, converted, nullable
+	var cret *C.GTreeNode  // return, none, converted, nullable
 
 	carg0 = (*C.GTreeNode)(UnsafeTreeNodeToGlibNone(node))
 
@@ -23708,7 +24333,7 @@ func (node *TreeNode) Previous() *TreeNode {
 }
 
 // Uri wraps GUri
-// 
+//
 // see also https://docs.gtk.org/glib/struct.Uri.html
 type Uri struct {
 	*uri
@@ -23745,7 +24370,7 @@ func UnsafeUriFromGlibNone(p unsafe.Pointer) *Uri {
 
 	runtime.SetFinalizer(
 		wrapped.uri,
-		func (intern *uri) {
+		func(intern *uri) {
 			C.g_uri_unref(intern.native)
 		},
 	)
@@ -23760,7 +24385,7 @@ func UnsafeUriFromGlibFull(p unsafe.Pointer) *Uri {
 	}
 	runtime.SetFinalizer(
 		wrapped.uri,
-		func (intern *uri) {
+		func(intern *uri) {
 			C.g_uri_unref(intern.native)
 		},
 	)
@@ -23768,14 +24393,14 @@ func UnsafeUriFromGlibFull(p unsafe.Pointer) *Uri {
 }
 
 // UnsafeUriRef increases the refcount on the underlying resource.
-// 
+//
 // When this is called without an associated call to [Uri.UnsafeUriUnref], then [Uri] will leak memory.
 func UnsafeUriRef(u *Uri) {
 	C.g_uri_ref((*C.GUri)(u.native))
 }
 
 // UnsafeUriUnref unrefs/frees the underlying resource. This can be used to remove the instance before the GC decides to do so.
-// 
+//
 // After this is called, no other method on [Uri] is expected to work anymore.
 func UnsafeUriUnref(u *Uri) {
 	C.g_uri_unref(u.native)
@@ -23803,7 +24428,7 @@ func UnsafeUriToGlibFull(u *Uri) unsafe.Pointer {
 }
 
 // UriBuild wraps g_uri_build
-// 
+//
 // see also https://docs.gtk.org/glib/func.g_uri_build.html
 func UriBuild(flags UriFlags, scheme string, userinfo string, host string, port int32, path string, query string, fragment string) *Uri {
 	var carg1 C.GUriFlags // in, none, casted
@@ -23814,7 +24439,7 @@ func UriBuild(flags UriFlags, scheme string, userinfo string, host string, port 
 	var carg6 *C.gchar    // in, none, string
 	var carg7 *C.gchar    // in, none, string, nullable-string
 	var carg8 *C.gchar    // in, none, string, nullable-string
-	var cret  *C.GUri     // return, full, converted
+	var cret *C.GUri      // return, full, converted
 
 	carg1 = C.GUriFlags(flags)
 	carg2 = (*C.gchar)(transfer.GLibString(scheme))
@@ -23857,20 +24482,20 @@ func UriBuild(flags UriFlags, scheme string, userinfo string, host string, port 
 }
 
 // UriBuildWithUser wraps g_uri_build_with_user
-// 
+//
 // see also https://docs.gtk.org/glib/func.g_uri_build_with_user.html
 func UriBuildWithUser(flags UriFlags, scheme string, user string, password string, authParams string, host string, port int32, path string, query string, fragment string) *Uri {
-	var carg1  C.GUriFlags // in, none, casted
-	var carg2  *C.gchar    // in, none, string
-	var carg3  *C.gchar    // in, none, string, nullable-string
-	var carg4  *C.gchar    // in, none, string, nullable-string
-	var carg5  *C.gchar    // in, none, string, nullable-string
-	var carg6  *C.gchar    // in, none, string, nullable-string
-	var carg7  C.gint      // in, none, casted
-	var carg8  *C.gchar    // in, none, string
-	var carg9  *C.gchar    // in, none, string, nullable-string
-	var carg10 *C.gchar    // in, none, string, nullable-string
-	var cret   *C.GUri     // return, full, converted
+	var carg1 C.GUriFlags // in, none, casted
+	var carg2 *C.gchar    // in, none, string
+	var carg3 *C.gchar    // in, none, string, nullable-string
+	var carg4 *C.gchar    // in, none, string, nullable-string
+	var carg5 *C.gchar    // in, none, string, nullable-string
+	var carg6 *C.gchar    // in, none, string, nullable-string
+	var carg7 C.gint      // in, none, casted
+	var carg8 *C.gchar    // in, none, string
+	var carg9 *C.gchar    // in, none, string, nullable-string
+	var carg10 *C.gchar   // in, none, string, nullable-string
+	var cret *C.GUri      // return, full, converted
 
 	carg1 = C.GUriFlags(flags)
 	carg2 = (*C.gchar)(transfer.GLibString(scheme))
@@ -23923,7 +24548,7 @@ func UriBuildWithUser(flags UriFlags, scheme string, user string, password strin
 }
 
 // UriErrorQuark wraps g_uri_error_quark
-// 
+//
 // see also https://docs.gtk.org/glib/func.g_uri_error_quark.html
 func UriErrorQuark() Quark {
 	var cret C.GQuark // return, none, casted, alias
@@ -23938,13 +24563,13 @@ func UriErrorQuark() Quark {
 }
 
 // UriEscapeBytes wraps g_uri_escape_bytes
-// 
+//
 // see also https://docs.gtk.org/glib/func.g_uri_escape_bytes.html
 func UriEscapeBytes(unescaped []uint8, reservedCharsAllowed string) string {
 	var carg1 *C.guint8 // in, transfer: none, C Pointers: 1, Name: array[guint8], array (inner guint8 (*typesystem.CastablePrimitive), length-by: carg2)
 	var carg2 C.gsize   // implicit
 	var carg3 *C.char   // in, none, string, nullable-string
-	var cret  *C.char   // return, full, string
+	var cret *C.char    // return, full, string
 
 	_ = unescaped
 	_ = carg1
@@ -23968,13 +24593,13 @@ func UriEscapeBytes(unescaped []uint8, reservedCharsAllowed string) string {
 }
 
 // UriEscapeString wraps g_uri_escape_string
-// 
+//
 // see also https://docs.gtk.org/glib/func.g_uri_escape_string.html
 func UriEscapeString(unescaped string, reservedCharsAllowed string, allowUtf8 bool) string {
 	var carg1 *C.char    // in, none, string
 	var carg2 *C.char    // in, none, string, nullable-string
 	var carg3 C.gboolean // in
-	var cret  *C.char    // return, full, string
+	var cret *C.char     // return, full, string
 
 	carg1 = (*C.char)(transfer.GLibString(unescaped))
 	defer C.g_free(C.gpointer(carg1))
@@ -24000,12 +24625,12 @@ func UriEscapeString(unescaped string, reservedCharsAllowed string, allowUtf8 bo
 }
 
 // UriIsValid wraps g_uri_is_valid
-// 
+//
 // see also https://docs.gtk.org/glib/func.g_uri_is_valid.html
 func UriIsValid(uriString string, flags UriFlags) (bool, error) {
 	var carg1 *C.gchar    // in, none, string
 	var carg2 C.GUriFlags // in, none, casted
-	var cret  C.gboolean  // return
+	var cret C.gboolean   // return
 	var _cerr *C.GError   // out, full, converted, nullable
 
 	carg1 = (*C.gchar)(transfer.GLibString(uriString))
@@ -24016,7 +24641,7 @@ func UriIsValid(uriString string, flags UriFlags) (bool, error) {
 	runtime.KeepAlive(uriString)
 	runtime.KeepAlive(flags)
 
-	var goret  bool
+	var goret bool
 	var _goerr error
 
 	if cret != 0 {
@@ -24030,7 +24655,7 @@ func UriIsValid(uriString string, flags UriFlags) (bool, error) {
 }
 
 // UriJoin wraps g_uri_join
-// 
+//
 // see also https://docs.gtk.org/glib/func.g_uri_join.html
 func UriJoin(flags UriFlags, scheme string, userinfo string, host string, port int32, path string, query string, fragment string) string {
 	var carg1 C.GUriFlags // in, none, casted
@@ -24041,7 +24666,7 @@ func UriJoin(flags UriFlags, scheme string, userinfo string, host string, port i
 	var carg6 *C.gchar    // in, none, string
 	var carg7 *C.gchar    // in, none, string, nullable-string
 	var carg8 *C.gchar    // in, none, string, nullable-string
-	var cret  *C.gchar    // return, full, string
+	var cret *C.gchar     // return, full, string
 
 	carg1 = C.GUriFlags(flags)
 	if scheme != "" {
@@ -24087,20 +24712,20 @@ func UriJoin(flags UriFlags, scheme string, userinfo string, host string, port i
 }
 
 // UriJoinWithUser wraps g_uri_join_with_user
-// 
+//
 // see also https://docs.gtk.org/glib/func.g_uri_join_with_user.html
 func UriJoinWithUser(flags UriFlags, scheme string, user string, password string, authParams string, host string, port int32, path string, query string, fragment string) string {
-	var carg1  C.GUriFlags // in, none, casted
-	var carg2  *C.gchar    // in, none, string, nullable-string
-	var carg3  *C.gchar    // in, none, string, nullable-string
-	var carg4  *C.gchar    // in, none, string, nullable-string
-	var carg5  *C.gchar    // in, none, string, nullable-string
-	var carg6  *C.gchar    // in, none, string, nullable-string
-	var carg7  C.gint      // in, none, casted
-	var carg8  *C.gchar    // in, none, string
-	var carg9  *C.gchar    // in, none, string, nullable-string
-	var carg10 *C.gchar    // in, none, string, nullable-string
-	var cret   *C.gchar    // return, full, string
+	var carg1 C.GUriFlags // in, none, casted
+	var carg2 *C.gchar    // in, none, string, nullable-string
+	var carg3 *C.gchar    // in, none, string, nullable-string
+	var carg4 *C.gchar    // in, none, string, nullable-string
+	var carg5 *C.gchar    // in, none, string, nullable-string
+	var carg6 *C.gchar    // in, none, string, nullable-string
+	var carg7 C.gint      // in, none, casted
+	var carg8 *C.gchar    // in, none, string
+	var carg9 *C.gchar    // in, none, string, nullable-string
+	var carg10 *C.gchar   // in, none, string, nullable-string
+	var cret *C.gchar     // return, full, string
 
 	carg1 = C.GUriFlags(flags)
 	if scheme != "" {
@@ -24156,11 +24781,11 @@ func UriJoinWithUser(flags UriFlags, scheme string, user string, password string
 }
 
 // UriListExtractUris wraps g_uri_list_extract_uris
-// 
+//
 // see also https://docs.gtk.org/glib/func.g_uri_list_extract_uris.html
 func UriListExtractUris(uriList string) []string {
-	var carg1 *C.gchar  // in, none, string
-	var cret  **C.gchar // return, transfer: full, C Pointers: 2, Name: array[utf8], scope: , array (inner gchar* (*typesystem.StringPrimitive), zero-terminated)
+	var carg1 *C.gchar // in, none, string
+	var cret **C.gchar // return, transfer: full, C Pointers: 2, Name: array[utf8], array (inner gchar* (*typesystem.StringPrimitive), zero-terminated)
 
 	carg1 = (*C.gchar)(transfer.GLibString(uriList))
 	defer C.g_free(C.gpointer(carg1))
@@ -24178,12 +24803,12 @@ func UriListExtractUris(uriList string) []string {
 }
 
 // UriParse wraps g_uri_parse
-// 
+//
 // see also https://docs.gtk.org/glib/func.g_uri_parse.html
 func UriParse(uriString string, flags UriFlags) (*Uri, error) {
 	var carg1 *C.gchar    // in, none, string
 	var carg2 C.GUriFlags // in, none, casted
-	var cret  *C.GUri     // return, full, converted, nullable
+	var cret *C.GUri      // return, full, converted, nullable
 	var _cerr *C.GError   // out, full, converted, nullable
 
 	carg1 = (*C.gchar)(transfer.GLibString(uriString))
@@ -24194,7 +24819,7 @@ func UriParse(uriString string, flags UriFlags) (*Uri, error) {
 	runtime.KeepAlive(uriString)
 	runtime.KeepAlive(flags)
 
-	var goret  *Uri
+	var goret *Uri
 	var _goerr error
 
 	if cret != nil {
@@ -24208,11 +24833,11 @@ func UriParse(uriString string, flags UriFlags) (*Uri, error) {
 }
 
 // UriParseScheme wraps g_uri_parse_scheme
-// 
+//
 // see also https://docs.gtk.org/glib/func.g_uri_parse_scheme.html
 func UriParseScheme(uri string) string {
 	var carg1 *C.char // in, none, string
-	var cret  *C.char // return, full, string, nullable-string
+	var cret *C.char  // return, full, string, nullable-string
 
 	carg1 = (*C.char)(transfer.GLibString(uri))
 	defer C.g_free(C.gpointer(carg1))
@@ -24231,11 +24856,11 @@ func UriParseScheme(uri string) string {
 }
 
 // UriPeekScheme wraps g_uri_peek_scheme
-// 
+//
 // see also https://docs.gtk.org/glib/func.g_uri_peek_scheme.html
 func UriPeekScheme(uri string) string {
 	var carg1 *C.char // in, none, string
-	var cret  *C.char // return, none, string, nullable-string
+	var cret *C.char  // return, none, string, nullable-string
 
 	carg1 = (*C.char)(transfer.GLibString(uri))
 	defer C.g_free(C.gpointer(carg1))
@@ -24253,13 +24878,13 @@ func UriPeekScheme(uri string) string {
 }
 
 // UriResolveRelative wraps g_uri_resolve_relative
-// 
+//
 // see also https://docs.gtk.org/glib/func.g_uri_resolve_relative.html
 func UriResolveRelative(baseUriString string, uriRef string, flags UriFlags) (string, error) {
 	var carg1 *C.gchar    // in, none, string, nullable-string
 	var carg2 *C.gchar    // in, none, string
 	var carg3 C.GUriFlags // in, none, casted
-	var cret  *C.gchar    // return, full, string, nullable-string
+	var cret *C.gchar     // return, full, string, nullable-string
 	var _cerr *C.GError   // out, full, converted, nullable
 
 	if baseUriString != "" {
@@ -24275,7 +24900,7 @@ func UriResolveRelative(baseUriString string, uriRef string, flags UriFlags) (st
 	runtime.KeepAlive(uriRef)
 	runtime.KeepAlive(flags)
 
-	var goret  string
+	var goret string
 	var _goerr error
 
 	if cret != nil {
@@ -24290,7 +24915,7 @@ func UriResolveRelative(baseUriString string, uriRef string, flags UriFlags) (st
 }
 
 // UriSplit wraps g_uri_split
-// 
+//
 // see also https://docs.gtk.org/glib/func.g_uri_split.html
 func UriSplit(uriRef string, flags UriFlags) (string, string, string, int32, string, string, string, bool, error) {
 	var carg1 *C.gchar    // in, none, string
@@ -24302,7 +24927,7 @@ func UriSplit(uriRef string, flags UriFlags) (string, string, string, int32, str
 	var carg7 *C.gchar    // out, full, string
 	var carg8 *C.gchar    // out, full, string, nullable-string
 	var carg9 *C.gchar    // out, full, string, nullable-string
-	var cret  C.gboolean  // return
+	var cret C.gboolean   // return
 	var _cerr *C.GError   // out, full, converted, nullable
 
 	carg1 = (*C.gchar)(transfer.GLibString(uriRef))
@@ -24313,15 +24938,15 @@ func UriSplit(uriRef string, flags UriFlags) (string, string, string, int32, str
 	runtime.KeepAlive(uriRef)
 	runtime.KeepAlive(flags)
 
-	var scheme   string
+	var scheme string
 	var userinfo string
-	var host     string
-	var port     int32
-	var path     string
-	var query    string
+	var host string
+	var port int32
+	var path string
+	var query string
 	var fragment string
-	var goret    bool
-	var _goerr   error
+	var goret bool
+	var _goerr error
 
 	if carg3 != nil {
 		scheme = C.GoString((*C.char)(unsafe.Pointer(carg3)))
@@ -24357,7 +24982,7 @@ func UriSplit(uriRef string, flags UriFlags) (string, string, string, int32, str
 }
 
 // UriSplitNetwork wraps g_uri_split_network
-// 
+//
 // see also https://docs.gtk.org/glib/func.g_uri_split_network.html
 func UriSplitNetwork(uriString string, flags UriFlags) (string, string, int32, bool, error) {
 	var carg1 *C.gchar    // in, none, string
@@ -24365,7 +24990,7 @@ func UriSplitNetwork(uriString string, flags UriFlags) (string, string, int32, b
 	var carg3 *C.gchar    // out, full, string, nullable-string
 	var carg4 *C.gchar    // out, full, string, nullable-string
 	var carg5 C.gint      // out, full, casted
-	var cret  C.gboolean  // return
+	var cret C.gboolean   // return
 	var _cerr *C.GError   // out, full, converted, nullable
 
 	carg1 = (*C.gchar)(transfer.GLibString(uriString))
@@ -24377,9 +25002,9 @@ func UriSplitNetwork(uriString string, flags UriFlags) (string, string, int32, b
 	runtime.KeepAlive(flags)
 
 	var scheme string
-	var host   string
-	var port   int32
-	var goret  bool
+	var host string
+	var port int32
+	var goret bool
 	var _goerr error
 
 	if carg3 != nil {
@@ -24402,22 +25027,22 @@ func UriSplitNetwork(uriString string, flags UriFlags) (string, string, int32, b
 }
 
 // UriSplitWithUser wraps g_uri_split_with_user
-// 
+//
 // see also https://docs.gtk.org/glib/func.g_uri_split_with_user.html
 func UriSplitWithUser(uriRef string, flags UriFlags) (string, string, string, string, string, int32, string, string, string, bool, error) {
-	var carg1  *C.gchar    // in, none, string
-	var carg2  C.GUriFlags // in, none, casted
-	var carg3  *C.gchar    // out, full, string, nullable-string
-	var carg4  *C.gchar    // out, full, string, nullable-string
-	var carg5  *C.gchar    // out, full, string, nullable-string
-	var carg6  *C.gchar    // out, full, string, nullable-string
-	var carg7  *C.gchar    // out, full, string, nullable-string
-	var carg8  C.gint      // out, full, casted
-	var carg9  *C.gchar    // out, full, string
-	var carg10 *C.gchar    // out, full, string, nullable-string
-	var carg11 *C.gchar    // out, full, string, nullable-string
-	var cret   C.gboolean  // return
-	var _cerr  *C.GError   // out, full, converted, nullable
+	var carg1 *C.gchar    // in, none, string
+	var carg2 C.GUriFlags // in, none, casted
+	var carg3 *C.gchar    // out, full, string, nullable-string
+	var carg4 *C.gchar    // out, full, string, nullable-string
+	var carg5 *C.gchar    // out, full, string, nullable-string
+	var carg6 *C.gchar    // out, full, string, nullable-string
+	var carg7 *C.gchar    // out, full, string, nullable-string
+	var carg8 C.gint      // out, full, casted
+	var carg9 *C.gchar    // out, full, string
+	var carg10 *C.gchar   // out, full, string, nullable-string
+	var carg11 *C.gchar   // out, full, string, nullable-string
+	var cret C.gboolean   // return
+	var _cerr *C.GError   // out, full, converted, nullable
 
 	carg1 = (*C.gchar)(transfer.GLibString(uriRef))
 	defer C.g_free(C.gpointer(carg1))
@@ -24427,17 +25052,17 @@ func UriSplitWithUser(uriRef string, flags UriFlags) (string, string, string, st
 	runtime.KeepAlive(uriRef)
 	runtime.KeepAlive(flags)
 
-	var scheme     string
-	var user       string
-	var password   string
+	var scheme string
+	var user string
+	var password string
 	var authParams string
-	var host       string
-	var port       int32
-	var path       string
-	var query      string
-	var fragment   string
-	var goret      bool
-	var _goerr     error
+	var host string
+	var port int32
+	var path string
+	var query string
+	var fragment string
+	var goret bool
+	var _goerr error
 
 	if carg3 != nil {
 		scheme = C.GoString((*C.char)(unsafe.Pointer(carg3)))
@@ -24481,13 +25106,13 @@ func UriSplitWithUser(uriRef string, flags UriFlags) (string, string, string, st
 }
 
 // UriUnescapeBytes wraps g_uri_unescape_bytes
-// 
+//
 // see also https://docs.gtk.org/glib/func.g_uri_unescape_bytes.html
 func UriUnescapeBytes(escapedString string, length int, illegalCharacters string) (*Bytes, error) {
 	var carg1 *C.char   // in, none, string
 	var carg2 C.gssize  // in, none, casted
 	var carg3 *C.char   // in, none, string, nullable-string
-	var cret  *C.GBytes // return, full, converted, nullable
+	var cret *C.GBytes  // return, full, converted, nullable
 	var _cerr *C.GError // out, full, converted, nullable
 
 	carg1 = (*C.char)(transfer.GLibString(escapedString))
@@ -24503,7 +25128,7 @@ func UriUnescapeBytes(escapedString string, length int, illegalCharacters string
 	runtime.KeepAlive(length)
 	runtime.KeepAlive(illegalCharacters)
 
-	var goret  *Bytes
+	var goret *Bytes
 	var _goerr error
 
 	if cret != nil {
@@ -24517,13 +25142,13 @@ func UriUnescapeBytes(escapedString string, length int, illegalCharacters string
 }
 
 // UriUnescapeSegment wraps g_uri_unescape_segment
-// 
+//
 // see also https://docs.gtk.org/glib/func.g_uri_unescape_segment.html
 func UriUnescapeSegment(escapedString string, escapedStringEnd string, illegalCharacters string) string {
 	var carg1 *C.char // in, none, string, nullable-string
 	var carg2 *C.char // in, none, string, nullable-string
 	var carg3 *C.char // in, none, string, nullable-string
-	var cret  *C.char // return, full, string, nullable-string
+	var cret *C.char  // return, full, string, nullable-string
 
 	if escapedString != "" {
 		carg1 = (*C.char)(transfer.GLibString(escapedString))
@@ -24554,12 +25179,12 @@ func UriUnescapeSegment(escapedString string, escapedStringEnd string, illegalCh
 }
 
 // UriUnescapeString wraps g_uri_unescape_string
-// 
+//
 // see also https://docs.gtk.org/glib/func.g_uri_unescape_string.html
 func UriUnescapeString(escapedString string, illegalCharacters string) string {
 	var carg1 *C.char // in, none, string
 	var carg2 *C.char // in, none, string, nullable-string
-	var cret  *C.char // return, full, string, nullable-string
+	var cret *C.char  // return, full, string, nullable-string
 
 	carg1 = (*C.char)(transfer.GLibString(escapedString))
 	defer C.g_free(C.gpointer(carg1))
@@ -24583,11 +25208,11 @@ func UriUnescapeString(escapedString string, illegalCharacters string) string {
 }
 
 // GetAuthParams wraps g_uri_get_auth_params
-// 
+//
 // see also https://docs.gtk.org/glib/method.g_uri_get_auth_params.g_uri_get_auth_params.html
 func (uri *Uri) GetAuthParams() string {
-	var carg0 *C.GUri  // in, none, converted
-	var cret  *C.gchar // return, none, string, nullable-string
+	var carg0 *C.GUri // in, none, converted
+	var cret *C.gchar // return, none, string, nullable-string
 
 	carg0 = (*C.GUri)(UnsafeUriToGlibNone(uri))
 
@@ -24604,11 +25229,11 @@ func (uri *Uri) GetAuthParams() string {
 }
 
 // GetFlags wraps g_uri_get_flags
-// 
+//
 // see also https://docs.gtk.org/glib/method.g_uri_get_flags.g_uri_get_flags.html
 func (uri *Uri) GetFlags() UriFlags {
-	var carg0 *C.GUri     // in, none, converted
-	var cret  C.GUriFlags // return, none, casted
+	var carg0 *C.GUri    // in, none, converted
+	var cret C.GUriFlags // return, none, casted
 
 	carg0 = (*C.GUri)(UnsafeUriToGlibNone(uri))
 
@@ -24623,11 +25248,11 @@ func (uri *Uri) GetFlags() UriFlags {
 }
 
 // GetFragment wraps g_uri_get_fragment
-// 
+//
 // see also https://docs.gtk.org/glib/method.g_uri_get_fragment.g_uri_get_fragment.html
 func (uri *Uri) GetFragment() string {
-	var carg0 *C.GUri  // in, none, converted
-	var cret  *C.gchar // return, none, string, nullable-string
+	var carg0 *C.GUri // in, none, converted
+	var cret *C.gchar // return, none, string, nullable-string
 
 	carg0 = (*C.GUri)(UnsafeUriToGlibNone(uri))
 
@@ -24644,11 +25269,11 @@ func (uri *Uri) GetFragment() string {
 }
 
 // GetHost wraps g_uri_get_host
-// 
+//
 // see also https://docs.gtk.org/glib/method.g_uri_get_host.g_uri_get_host.html
 func (uri *Uri) GetHost() string {
-	var carg0 *C.GUri  // in, none, converted
-	var cret  *C.gchar // return, none, string, nullable-string
+	var carg0 *C.GUri // in, none, converted
+	var cret *C.gchar // return, none, string, nullable-string
 
 	carg0 = (*C.GUri)(UnsafeUriToGlibNone(uri))
 
@@ -24665,11 +25290,11 @@ func (uri *Uri) GetHost() string {
 }
 
 // GetPassword wraps g_uri_get_password
-// 
+//
 // see also https://docs.gtk.org/glib/method.g_uri_get_password.g_uri_get_password.html
 func (uri *Uri) GetPassword() string {
-	var carg0 *C.GUri  // in, none, converted
-	var cret  *C.gchar // return, none, string, nullable-string
+	var carg0 *C.GUri // in, none, converted
+	var cret *C.gchar // return, none, string, nullable-string
 
 	carg0 = (*C.GUri)(UnsafeUriToGlibNone(uri))
 
@@ -24686,11 +25311,11 @@ func (uri *Uri) GetPassword() string {
 }
 
 // GetPath wraps g_uri_get_path
-// 
+//
 // see also https://docs.gtk.org/glib/method.g_uri_get_path.g_uri_get_path.html
 func (uri *Uri) GetPath() string {
-	var carg0 *C.GUri  // in, none, converted
-	var cret  *C.gchar // return, none, string
+	var carg0 *C.GUri // in, none, converted
+	var cret *C.gchar // return, none, string
 
 	carg0 = (*C.GUri)(UnsafeUriToGlibNone(uri))
 
@@ -24705,11 +25330,11 @@ func (uri *Uri) GetPath() string {
 }
 
 // GetPort wraps g_uri_get_port
-// 
+//
 // see also https://docs.gtk.org/glib/method.g_uri_get_port.g_uri_get_port.html
 func (uri *Uri) GetPort() int32 {
 	var carg0 *C.GUri // in, none, converted
-	var cret  C.gint  // return, none, casted
+	var cret C.gint   // return, none, casted
 
 	carg0 = (*C.GUri)(UnsafeUriToGlibNone(uri))
 
@@ -24724,11 +25349,11 @@ func (uri *Uri) GetPort() int32 {
 }
 
 // GetQuery wraps g_uri_get_query
-// 
+//
 // see also https://docs.gtk.org/glib/method.g_uri_get_query.g_uri_get_query.html
 func (uri *Uri) GetQuery() string {
-	var carg0 *C.GUri  // in, none, converted
-	var cret  *C.gchar // return, none, string, nullable-string
+	var carg0 *C.GUri // in, none, converted
+	var cret *C.gchar // return, none, string, nullable-string
 
 	carg0 = (*C.GUri)(UnsafeUriToGlibNone(uri))
 
@@ -24745,11 +25370,11 @@ func (uri *Uri) GetQuery() string {
 }
 
 // GetScheme wraps g_uri_get_scheme
-// 
+//
 // see also https://docs.gtk.org/glib/method.g_uri_get_scheme.g_uri_get_scheme.html
 func (uri *Uri) GetScheme() string {
-	var carg0 *C.GUri  // in, none, converted
-	var cret  *C.gchar // return, none, string
+	var carg0 *C.GUri // in, none, converted
+	var cret *C.gchar // return, none, string
 
 	carg0 = (*C.GUri)(UnsafeUriToGlibNone(uri))
 
@@ -24764,11 +25389,11 @@ func (uri *Uri) GetScheme() string {
 }
 
 // GetUser wraps g_uri_get_user
-// 
+//
 // see also https://docs.gtk.org/glib/method.g_uri_get_user.g_uri_get_user.html
 func (uri *Uri) GetUser() string {
-	var carg0 *C.GUri  // in, none, converted
-	var cret  *C.gchar // return, none, string, nullable-string
+	var carg0 *C.GUri // in, none, converted
+	var cret *C.gchar // return, none, string, nullable-string
 
 	carg0 = (*C.GUri)(UnsafeUriToGlibNone(uri))
 
@@ -24785,11 +25410,11 @@ func (uri *Uri) GetUser() string {
 }
 
 // GetUserinfo wraps g_uri_get_userinfo
-// 
+//
 // see also https://docs.gtk.org/glib/method.g_uri_get_userinfo.g_uri_get_userinfo.html
 func (uri *Uri) GetUserinfo() string {
-	var carg0 *C.GUri  // in, none, converted
-	var cret  *C.gchar // return, none, string, nullable-string
+	var carg0 *C.GUri // in, none, converted
+	var cret *C.gchar // return, none, string, nullable-string
 
 	carg0 = (*C.GUri)(UnsafeUriToGlibNone(uri))
 
@@ -24806,13 +25431,13 @@ func (uri *Uri) GetUserinfo() string {
 }
 
 // ParseRelative wraps g_uri_parse_relative
-// 
+//
 // see also https://docs.gtk.org/glib/method.g_uri_parse_relative.g_uri_parse_relative.html
 func (baseUri *Uri) ParseRelative(uriRef string, flags UriFlags) (*Uri, error) {
 	var carg0 *C.GUri     // in, none, converted
 	var carg1 *C.gchar    // in, none, string
 	var carg2 C.GUriFlags // in, none, casted
-	var cret  *C.GUri     // return, full, converted, nullable
+	var cret *C.GUri      // return, full, converted, nullable
 	var _cerr *C.GError   // out, full, converted, nullable
 
 	carg0 = (*C.GUri)(UnsafeUriToGlibNone(baseUri))
@@ -24825,7 +25450,7 @@ func (baseUri *Uri) ParseRelative(uriRef string, flags UriFlags) (*Uri, error) {
 	runtime.KeepAlive(uriRef)
 	runtime.KeepAlive(flags)
 
-	var goret  *Uri
+	var goret *Uri
 	var _goerr error
 
 	if cret != nil {
@@ -24839,11 +25464,11 @@ func (baseUri *Uri) ParseRelative(uriRef string, flags UriFlags) (*Uri, error) {
 }
 
 // String wraps g_uri_to_string
-// 
+//
 // see also https://docs.gtk.org/glib/method.g_uri_to_string.g_uri_to_string.html
 func (uri *Uri) String() string {
 	var carg0 *C.GUri // in, none, converted
-	var cret  *C.char // return, full, string
+	var cret *C.char  // return, full, string
 
 	carg0 = (*C.GUri)(UnsafeUriToGlibNone(uri))
 
@@ -24859,12 +25484,12 @@ func (uri *Uri) String() string {
 }
 
 // ToStringPartial wraps g_uri_to_string_partial
-// 
+//
 // see also https://docs.gtk.org/glib/method.g_uri_to_string_partial.g_uri_to_string_partial.html
 func (uri *Uri) ToStringPartial(flags UriHideFlags) string {
 	var carg0 *C.GUri         // in, none, converted
 	var carg1 C.GUriHideFlags // in, none, casted
-	var cret  *C.char         // return, full, string
+	var cret *C.char          // return, full, string
 
 	carg0 = (*C.GUri)(UnsafeUriToGlibNone(uri))
 	carg1 = C.GUriHideFlags(flags)
@@ -24882,7 +25507,7 @@ func (uri *Uri) ToStringPartial(flags UriHideFlags) string {
 }
 
 // UriParamsIter wraps GUriParamsIter
-// 
+//
 // see also https://docs.gtk.org/glib/struct.UriParamsIter.html
 type UriParamsIter struct {
 	*uriParamsIter
@@ -24928,7 +25553,7 @@ func UnsafeUriParamsIterFromGlibFull(p unsafe.Pointer) *UriParamsIter {
 	}
 	runtime.SetFinalizer(
 		wrapped.uriParamsIter,
-		func (intern *uriParamsIter) {
+		func(intern *uriParamsIter) {
 			C.free(unsafe.Pointer(intern.native))
 		},
 	)
@@ -24936,7 +25561,7 @@ func UnsafeUriParamsIterFromGlibFull(p unsafe.Pointer) *UriParamsIter {
 }
 
 // UnsafeUriParamsIterFree unrefs/frees the underlying resource. This can be used to remove the instance before the GC decides to do so.
-// 
+//
 // After this is called, no other method on [UriParamsIter] is expected to work anymore.
 func UnsafeUriParamsIterFree(u *UriParamsIter) {
 	C.free(unsafe.Pointer(u.native))
@@ -24964,7 +25589,7 @@ func UnsafeUriParamsIterToGlibFull(u *UriParamsIter) unsafe.Pointer {
 }
 
 // Init wraps g_uri_params_iter_init
-// 
+//
 // see also https://docs.gtk.org/glib/method.g_uri_params_iter_init.g_uri_params_iter_init.html
 func (iter *UriParamsIter) Init(params string, length int, separators string, flags UriParamsFlags) {
 	var carg0 *C.GUriParamsIter // in, none, converted
@@ -24990,13 +25615,13 @@ func (iter *UriParamsIter) Init(params string, length int, separators string, fl
 }
 
 // Next wraps g_uri_params_iter_next
-// 
+//
 // see also https://docs.gtk.org/glib/method.g_uri_params_iter_next.g_uri_params_iter_next.html
 func (iter *UriParamsIter) Next() (string, string, bool, error) {
 	var carg0 *C.GUriParamsIter // in, none, converted
 	var carg1 *C.gchar          // out, full, string, nullable-string
 	var carg2 *C.gchar          // out, full, string, nullable-string
-	var cret  C.gboolean        // return
+	var cret C.gboolean         // return
 	var _cerr *C.GError         // out, full, converted, nullable
 
 	carg0 = (*C.GUriParamsIter)(UnsafeUriParamsIterToGlibNone(iter))
@@ -25005,9 +25630,9 @@ func (iter *UriParamsIter) Next() (string, string, bool, error) {
 	runtime.KeepAlive(iter)
 
 	var attribute string
-	var value     string
-	var goret     bool
-	var _goerr    error
+	var value string
+	var goret bool
+	var _goerr error
 
 	if carg1 != nil {
 		attribute = C.GoString((*C.char)(unsafe.Pointer(carg1)))
@@ -25028,7 +25653,7 @@ func (iter *UriParamsIter) Next() (string, string, bool, error) {
 }
 
 // VariantBuilder wraps GVariantBuilder
-// 
+//
 // see also https://docs.gtk.org/glib/struct.VariantBuilder.html
 type VariantBuilder struct {
 	*variantBuilder
@@ -25065,7 +25690,7 @@ func UnsafeVariantBuilderFromGlibNone(p unsafe.Pointer) *VariantBuilder {
 
 	runtime.SetFinalizer(
 		wrapped.variantBuilder,
-		func (intern *variantBuilder) {
+		func(intern *variantBuilder) {
 			C.g_variant_builder_unref(intern.native)
 		},
 	)
@@ -25080,7 +25705,7 @@ func UnsafeVariantBuilderFromGlibFull(p unsafe.Pointer) *VariantBuilder {
 	}
 	runtime.SetFinalizer(
 		wrapped.variantBuilder,
-		func (intern *variantBuilder) {
+		func(intern *variantBuilder) {
 			C.g_variant_builder_unref(intern.native)
 		},
 	)
@@ -25088,14 +25713,14 @@ func UnsafeVariantBuilderFromGlibFull(p unsafe.Pointer) *VariantBuilder {
 }
 
 // UnsafeVariantBuilderRef increases the refcount on the underlying resource.
-// 
+//
 // When this is called without an associated call to [VariantBuilder.UnsafeVariantBuilderUnref], then [VariantBuilder] will leak memory.
 func UnsafeVariantBuilderRef(v *VariantBuilder) {
 	C.g_variant_builder_ref((*C.GVariantBuilder)(v.native))
 }
 
 // UnsafeVariantBuilderUnref unrefs/frees the underlying resource. This can be used to remove the instance before the GC decides to do so.
-// 
+//
 // After this is called, no other method on [VariantBuilder] is expected to work anymore.
 func UnsafeVariantBuilderUnref(v *VariantBuilder) {
 	C.g_variant_builder_unref(v.native)
@@ -25123,11 +25748,11 @@ func UnsafeVariantBuilderToGlibFull(v *VariantBuilder) unsafe.Pointer {
 }
 
 // NewVariantBuilder wraps g_variant_builder_new
-// 
+//
 // see also https://docs.gtk.org/glib/func.g_variant_builder_new.html
 func NewVariantBuilder(typ *VariantType) *VariantBuilder {
-	var carg1 *C.GVariantType    // in, none, converted
-	var cret  *C.GVariantBuilder // return, full, converted
+	var carg1 *C.GVariantType   // in, none, converted
+	var cret *C.GVariantBuilder // return, full, converted
 
 	carg1 = (*C.GVariantType)(UnsafeVariantTypeToGlibNone(typ))
 
@@ -25142,7 +25767,7 @@ func NewVariantBuilder(typ *VariantType) *VariantBuilder {
 }
 
 // Close wraps g_variant_builder_close
-// 
+//
 // see also https://docs.gtk.org/glib/method.g_variant_builder_close.g_variant_builder_close.html
 func (builder *VariantBuilder) Close() {
 	var carg0 *C.GVariantBuilder // in, none, converted
@@ -25154,7 +25779,7 @@ func (builder *VariantBuilder) Close() {
 }
 
 // Open wraps g_variant_builder_open
-// 
+//
 // see also https://docs.gtk.org/glib/method.g_variant_builder_open.g_variant_builder_open.html
 func (builder *VariantBuilder) Open(typ *VariantType) {
 	var carg0 *C.GVariantBuilder // in, none, converted
@@ -25169,7 +25794,7 @@ func (builder *VariantBuilder) Open(typ *VariantType) {
 }
 
 // VariantDict wraps GVariantDict
-// 
+//
 // see also https://docs.gtk.org/glib/struct.VariantDict.html
 type VariantDict struct {
 	*variantDict
@@ -25206,7 +25831,7 @@ func UnsafeVariantDictFromGlibNone(p unsafe.Pointer) *VariantDict {
 
 	runtime.SetFinalizer(
 		wrapped.variantDict,
-		func (intern *variantDict) {
+		func(intern *variantDict) {
 			C.g_variant_dict_unref(intern.native)
 		},
 	)
@@ -25221,7 +25846,7 @@ func UnsafeVariantDictFromGlibFull(p unsafe.Pointer) *VariantDict {
 	}
 	runtime.SetFinalizer(
 		wrapped.variantDict,
-		func (intern *variantDict) {
+		func(intern *variantDict) {
 			C.g_variant_dict_unref(intern.native)
 		},
 	)
@@ -25229,14 +25854,14 @@ func UnsafeVariantDictFromGlibFull(p unsafe.Pointer) *VariantDict {
 }
 
 // UnsafeVariantDictRef increases the refcount on the underlying resource.
-// 
+//
 // When this is called without an associated call to [VariantDict.UnsafeVariantDictUnref], then [VariantDict] will leak memory.
 func UnsafeVariantDictRef(v *VariantDict) {
 	C.g_variant_dict_ref((*C.GVariantDict)(v.native))
 }
 
 // UnsafeVariantDictUnref unrefs/frees the underlying resource. This can be used to remove the instance before the GC decides to do so.
-// 
+//
 // After this is called, no other method on [VariantDict] is expected to work anymore.
 func UnsafeVariantDictUnref(v *VariantDict) {
 	C.g_variant_dict_unref(v.native)
@@ -25264,7 +25889,7 @@ func UnsafeVariantDictToGlibFull(v *VariantDict) unsafe.Pointer {
 }
 
 // Clear wraps g_variant_dict_clear
-// 
+//
 // see also https://docs.gtk.org/glib/method.g_variant_dict_clear.g_variant_dict_clear.html
 func (dict *VariantDict) Clear() {
 	var carg0 *C.GVariantDict // in, none, converted
@@ -25276,12 +25901,12 @@ func (dict *VariantDict) Clear() {
 }
 
 // Contains wraps g_variant_dict_contains
-// 
+//
 // see also https://docs.gtk.org/glib/method.g_variant_dict_contains.g_variant_dict_contains.html
 func (dict *VariantDict) Contains(key string) bool {
 	var carg0 *C.GVariantDict // in, none, converted
 	var carg1 *C.gchar        // in, none, string
-	var cret  C.gboolean      // return
+	var cret C.gboolean       // return
 
 	carg0 = (*C.GVariantDict)(UnsafeVariantDictToGlibNone(dict))
 	carg1 = (*C.gchar)(transfer.GLibString(key))
@@ -25301,12 +25926,12 @@ func (dict *VariantDict) Contains(key string) bool {
 }
 
 // Remove wraps g_variant_dict_remove
-// 
+//
 // see also https://docs.gtk.org/glib/method.g_variant_dict_remove.g_variant_dict_remove.html
 func (dict *VariantDict) Remove(key string) bool {
 	var carg0 *C.GVariantDict // in, none, converted
 	var carg1 *C.gchar        // in, none, string
-	var cret  C.gboolean      // return
+	var cret C.gboolean       // return
 
 	carg0 = (*C.GVariantDict)(UnsafeVariantDictToGlibNone(dict))
 	carg1 = (*C.gchar)(transfer.GLibString(key))
@@ -25326,7 +25951,7 @@ func (dict *VariantDict) Remove(key string) bool {
 }
 
 // VariantType wraps GVariantType
-// 
+//
 // see also https://docs.gtk.org/glib/struct.VariantType.html
 type VariantType struct {
 	*variantType
@@ -25361,7 +25986,6 @@ func UnsafeVariantTypeFromGlibNone(p unsafe.Pointer) *VariantType {
 	}
 
 	return wrapped.Copy() // create an owned copy
-
 }
 
 // UnsafeVariantTypeFromGlibFull is used to convert raw C.GVariantType pointers to go while taking ownership. This is used by the bindings internally.
@@ -25372,7 +25996,7 @@ func UnsafeVariantTypeFromGlibFull(p unsafe.Pointer) *VariantType {
 	}
 	runtime.SetFinalizer(
 		wrapped.variantType,
-		func (intern *variantType) {
+		func(intern *variantType) {
 			C.g_variant_type_free(intern.native)
 		},
 	)
@@ -25380,7 +26004,7 @@ func UnsafeVariantTypeFromGlibFull(p unsafe.Pointer) *VariantType {
 }
 
 // UnsafeVariantTypeFree unrefs/frees the underlying resource. This can be used to remove the instance before the GC decides to do so.
-// 
+//
 // After this is called, no other method on [VariantType] is expected to work anymore.
 func UnsafeVariantTypeFree(v *VariantType) {
 	C.g_variant_type_free(v.native)
@@ -25408,11 +26032,11 @@ func UnsafeVariantTypeToGlibFull(v *VariantType) unsafe.Pointer {
 }
 
 // NewVariantType wraps g_variant_type_new
-// 
+//
 // see also https://docs.gtk.org/glib/func.g_variant_type_new.html
 func NewVariantType(typeString string) *VariantType {
-	var carg1 *C.gchar        // in, none, string
-	var cret  *C.GVariantType // return, full, converted
+	var carg1 *C.gchar       // in, none, string
+	var cret *C.GVariantType // return, full, converted
 
 	carg1 = (*C.gchar)(transfer.GLibString(typeString))
 	defer C.g_free(C.gpointer(carg1))
@@ -25428,11 +26052,11 @@ func NewVariantType(typeString string) *VariantType {
 }
 
 // NewVariantTypeArray wraps g_variant_type_new_array
-// 
+//
 // see also https://docs.gtk.org/glib/func.g_variant_type_new_array.html
 func NewVariantTypeArray(element *VariantType) *VariantType {
 	var carg1 *C.GVariantType // in, none, converted
-	var cret  *C.GVariantType // return, full, converted
+	var cret *C.GVariantType  // return, full, converted
 
 	carg1 = (*C.GVariantType)(UnsafeVariantTypeToGlibNone(element))
 
@@ -25447,12 +26071,12 @@ func NewVariantTypeArray(element *VariantType) *VariantType {
 }
 
 // NewVariantTypeDictEntry wraps g_variant_type_new_dict_entry
-// 
+//
 // see also https://docs.gtk.org/glib/func.g_variant_type_new_dict_entry.html
 func NewVariantTypeDictEntry(key *VariantType, value *VariantType) *VariantType {
 	var carg1 *C.GVariantType // in, none, converted
 	var carg2 *C.GVariantType // in, none, converted
-	var cret  *C.GVariantType // return, full, converted
+	var cret *C.GVariantType  // return, full, converted
 
 	carg1 = (*C.GVariantType)(UnsafeVariantTypeToGlibNone(key))
 	carg2 = (*C.GVariantType)(UnsafeVariantTypeToGlibNone(value))
@@ -25469,11 +26093,11 @@ func NewVariantTypeDictEntry(key *VariantType, value *VariantType) *VariantType 
 }
 
 // NewVariantTypeMaybe wraps g_variant_type_new_maybe
-// 
+//
 // see also https://docs.gtk.org/glib/func.g_variant_type_new_maybe.html
 func NewVariantTypeMaybe(element *VariantType) *VariantType {
 	var carg1 *C.GVariantType // in, none, converted
-	var cret  *C.GVariantType // return, full, converted
+	var cret *C.GVariantType  // return, full, converted
 
 	carg1 = (*C.GVariantType)(UnsafeVariantTypeToGlibNone(element))
 
@@ -25488,12 +26112,12 @@ func NewVariantTypeMaybe(element *VariantType) *VariantType {
 }
 
 // NewVariantTypeTuple wraps g_variant_type_new_tuple
-// 
+//
 // see also https://docs.gtk.org/glib/func.g_variant_type_new_tuple.html
 func NewVariantTypeTuple(items []*VariantType) *VariantType {
 	var carg1 **C.GVariantType // in, transfer: none, C Pointers: 2, Name: array[VariantType], array (inner GVariantType* (*typesystem.Record), length-by: carg2)
 	var carg2 C.gint           // implicit
-	var cret  *C.GVariantType  // return, full, converted
+	var cret *C.GVariantType   // return, full, converted
 
 	_ = items
 	_ = carg1
@@ -25511,11 +26135,11 @@ func NewVariantTypeTuple(items []*VariantType) *VariantType {
 }
 
 // VariantTypeChecked wraps g_variant_type_checked_
-// 
+//
 // see also https://docs.gtk.org/glib/func.g_variant_type_checked_.html
 func VariantTypeChecked(typeString string) *VariantType {
-	var carg1 *C.gchar        // in, none, string
-	var cret  *C.GVariantType // return, none, converted
+	var carg1 *C.gchar       // in, none, string
+	var cret *C.GVariantType // return, none, converted
 
 	carg1 = (*C.gchar)(transfer.GLibString(typeString))
 	defer C.g_free(C.gpointer(carg1))
@@ -25531,11 +26155,11 @@ func VariantTypeChecked(typeString string) *VariantType {
 }
 
 // VariantTypeStringGetDepth wraps g_variant_type_string_get_depth_
-// 
+//
 // see also https://docs.gtk.org/glib/func.g_variant_type_string_get_depth_.html
 func VariantTypeStringGetDepth(typeString string) uint {
 	var carg1 *C.gchar // in, none, string
-	var cret  C.gsize  // return, none, casted
+	var cret C.gsize   // return, none, casted
 
 	carg1 = (*C.gchar)(transfer.GLibString(typeString))
 	defer C.g_free(C.gpointer(carg1))
@@ -25551,11 +26175,11 @@ func VariantTypeStringGetDepth(typeString string) uint {
 }
 
 // VariantTypeStringIsValid wraps g_variant_type_string_is_valid
-// 
+//
 // see also https://docs.gtk.org/glib/func.g_variant_type_string_is_valid.html
 func VariantTypeStringIsValid(typeString string) bool {
-	var carg1 *C.gchar   // in, none, string
-	var cret  C.gboolean // return
+	var carg1 *C.gchar  // in, none, string
+	var cret C.gboolean // return
 
 	carg1 = (*C.gchar)(transfer.GLibString(typeString))
 	defer C.g_free(C.gpointer(carg1))
@@ -25573,13 +26197,13 @@ func VariantTypeStringIsValid(typeString string) bool {
 }
 
 // VariantTypeStringScan wraps g_variant_type_string_scan
-// 
+//
 // see also https://docs.gtk.org/glib/func.g_variant_type_string_scan.html
 func VariantTypeStringScan(str string, limit string) (string, bool) {
-	var carg1 *C.gchar   // in, none, string
-	var carg2 *C.gchar   // in, none, string, nullable-string
-	var carg3 *C.gchar   // out, full, string
-	var cret  C.gboolean // return
+	var carg1 *C.gchar  // in, none, string
+	var carg2 *C.gchar  // in, none, string, nullable-string
+	var carg3 *C.gchar  // out, full, string
+	var cret C.gboolean // return
 
 	carg1 = (*C.gchar)(transfer.GLibString(str))
 	defer C.g_free(C.gpointer(carg1))
@@ -25593,7 +26217,7 @@ func VariantTypeStringScan(str string, limit string) (string, bool) {
 	runtime.KeepAlive(limit)
 
 	var endptr string
-	var goret  bool
+	var goret bool
 
 	endptr = C.GoString((*C.char)(unsafe.Pointer(carg3)))
 	defer C.g_free(C.gpointer(carg3))
@@ -25605,11 +26229,11 @@ func VariantTypeStringScan(str string, limit string) (string, bool) {
 }
 
 // Copy wraps g_variant_type_copy
-// 
+//
 // see also https://docs.gtk.org/glib/method.g_variant_type_copy.g_variant_type_copy.html
 func (typ *VariantType) Copy() *VariantType {
 	var carg0 *C.GVariantType // in, none, converted
-	var cret  *C.GVariantType // return, full, converted
+	var cret *C.GVariantType  // return, full, converted
 
 	carg0 = (*C.GVariantType)(UnsafeVariantTypeToGlibNone(typ))
 
@@ -25624,11 +26248,11 @@ func (typ *VariantType) Copy() *VariantType {
 }
 
 // DupString wraps g_variant_type_dup_string
-// 
+//
 // see also https://docs.gtk.org/glib/method.g_variant_type_dup_string.g_variant_type_dup_string.html
 func (typ *VariantType) DupString() string {
 	var carg0 *C.GVariantType // in, none, converted
-	var cret  *C.gchar        // return, full, string
+	var cret *C.gchar         // return, full, string
 
 	carg0 = (*C.GVariantType)(UnsafeVariantTypeToGlibNone(typ))
 
@@ -25644,11 +26268,11 @@ func (typ *VariantType) DupString() string {
 }
 
 // Element wraps g_variant_type_element
-// 
+//
 // see also https://docs.gtk.org/glib/method.g_variant_type_element.g_variant_type_element.html
 func (typ *VariantType) Element() *VariantType {
 	var carg0 *C.GVariantType // in, none, converted
-	var cret  *C.GVariantType // return, none, converted
+	var cret *C.GVariantType  // return, none, converted
 
 	carg0 = (*C.GVariantType)(UnsafeVariantTypeToGlibNone(typ))
 
@@ -25663,11 +26287,11 @@ func (typ *VariantType) Element() *VariantType {
 }
 
 // First wraps g_variant_type_first
-// 
+//
 // see also https://docs.gtk.org/glib/method.g_variant_type_first.g_variant_type_first.html
 func (typ *VariantType) First() *VariantType {
 	var carg0 *C.GVariantType // in, none, converted
-	var cret  *C.GVariantType // return, none, converted, nullable
+	var cret *C.GVariantType  // return, none, converted, nullable
 
 	carg0 = (*C.GVariantType)(UnsafeVariantTypeToGlibNone(typ))
 
@@ -25684,11 +26308,11 @@ func (typ *VariantType) First() *VariantType {
 }
 
 // GetStringLength wraps g_variant_type_get_string_length
-// 
+//
 // see also https://docs.gtk.org/glib/method.g_variant_type_get_string_length.g_variant_type_get_string_length.html
 func (typ *VariantType) GetStringLength() uint {
 	var carg0 *C.GVariantType // in, none, converted
-	var cret  C.gsize         // return, none, casted
+	var cret C.gsize          // return, none, casted
 
 	carg0 = (*C.GVariantType)(UnsafeVariantTypeToGlibNone(typ))
 
@@ -25703,11 +26327,11 @@ func (typ *VariantType) GetStringLength() uint {
 }
 
 // IsArray wraps g_variant_type_is_array
-// 
+//
 // see also https://docs.gtk.org/glib/method.g_variant_type_is_array.g_variant_type_is_array.html
 func (typ *VariantType) IsArray() bool {
 	var carg0 *C.GVariantType // in, none, converted
-	var cret  C.gboolean      // return
+	var cret C.gboolean       // return
 
 	carg0 = (*C.GVariantType)(UnsafeVariantTypeToGlibNone(typ))
 
@@ -25724,11 +26348,11 @@ func (typ *VariantType) IsArray() bool {
 }
 
 // IsBasic wraps g_variant_type_is_basic
-// 
+//
 // see also https://docs.gtk.org/glib/method.g_variant_type_is_basic.g_variant_type_is_basic.html
 func (typ *VariantType) IsBasic() bool {
 	var carg0 *C.GVariantType // in, none, converted
-	var cret  C.gboolean      // return
+	var cret C.gboolean       // return
 
 	carg0 = (*C.GVariantType)(UnsafeVariantTypeToGlibNone(typ))
 
@@ -25745,11 +26369,11 @@ func (typ *VariantType) IsBasic() bool {
 }
 
 // IsContainer wraps g_variant_type_is_container
-// 
+//
 // see also https://docs.gtk.org/glib/method.g_variant_type_is_container.g_variant_type_is_container.html
 func (typ *VariantType) IsContainer() bool {
 	var carg0 *C.GVariantType // in, none, converted
-	var cret  C.gboolean      // return
+	var cret C.gboolean       // return
 
 	carg0 = (*C.GVariantType)(UnsafeVariantTypeToGlibNone(typ))
 
@@ -25766,11 +26390,11 @@ func (typ *VariantType) IsContainer() bool {
 }
 
 // IsDefinite wraps g_variant_type_is_definite
-// 
+//
 // see also https://docs.gtk.org/glib/method.g_variant_type_is_definite.g_variant_type_is_definite.html
 func (typ *VariantType) IsDefinite() bool {
 	var carg0 *C.GVariantType // in, none, converted
-	var cret  C.gboolean      // return
+	var cret C.gboolean       // return
 
 	carg0 = (*C.GVariantType)(UnsafeVariantTypeToGlibNone(typ))
 
@@ -25787,11 +26411,11 @@ func (typ *VariantType) IsDefinite() bool {
 }
 
 // IsDictEntry wraps g_variant_type_is_dict_entry
-// 
+//
 // see also https://docs.gtk.org/glib/method.g_variant_type_is_dict_entry.g_variant_type_is_dict_entry.html
 func (typ *VariantType) IsDictEntry() bool {
 	var carg0 *C.GVariantType // in, none, converted
-	var cret  C.gboolean      // return
+	var cret C.gboolean       // return
 
 	carg0 = (*C.GVariantType)(UnsafeVariantTypeToGlibNone(typ))
 
@@ -25808,11 +26432,11 @@ func (typ *VariantType) IsDictEntry() bool {
 }
 
 // IsMaybe wraps g_variant_type_is_maybe
-// 
+//
 // see also https://docs.gtk.org/glib/method.g_variant_type_is_maybe.g_variant_type_is_maybe.html
 func (typ *VariantType) IsMaybe() bool {
 	var carg0 *C.GVariantType // in, none, converted
-	var cret  C.gboolean      // return
+	var cret C.gboolean       // return
 
 	carg0 = (*C.GVariantType)(UnsafeVariantTypeToGlibNone(typ))
 
@@ -25829,12 +26453,12 @@ func (typ *VariantType) IsMaybe() bool {
 }
 
 // IsSubtypeOf wraps g_variant_type_is_subtype_of
-// 
+//
 // see also https://docs.gtk.org/glib/method.g_variant_type_is_subtype_of.g_variant_type_is_subtype_of.html
 func (typ *VariantType) IsSubtypeOf(supertype *VariantType) bool {
 	var carg0 *C.GVariantType // in, none, converted
 	var carg1 *C.GVariantType // in, none, converted
-	var cret  C.gboolean      // return
+	var cret C.gboolean       // return
 
 	carg0 = (*C.GVariantType)(UnsafeVariantTypeToGlibNone(typ))
 	carg1 = (*C.GVariantType)(UnsafeVariantTypeToGlibNone(supertype))
@@ -25853,11 +26477,11 @@ func (typ *VariantType) IsSubtypeOf(supertype *VariantType) bool {
 }
 
 // IsTuple wraps g_variant_type_is_tuple
-// 
+//
 // see also https://docs.gtk.org/glib/method.g_variant_type_is_tuple.g_variant_type_is_tuple.html
 func (typ *VariantType) IsTuple() bool {
 	var carg0 *C.GVariantType // in, none, converted
-	var cret  C.gboolean      // return
+	var cret C.gboolean       // return
 
 	carg0 = (*C.GVariantType)(UnsafeVariantTypeToGlibNone(typ))
 
@@ -25874,11 +26498,11 @@ func (typ *VariantType) IsTuple() bool {
 }
 
 // IsVariant wraps g_variant_type_is_variant
-// 
+//
 // see also https://docs.gtk.org/glib/method.g_variant_type_is_variant.g_variant_type_is_variant.html
 func (typ *VariantType) IsVariant() bool {
 	var carg0 *C.GVariantType // in, none, converted
-	var cret  C.gboolean      // return
+	var cret C.gboolean       // return
 
 	carg0 = (*C.GVariantType)(UnsafeVariantTypeToGlibNone(typ))
 
@@ -25895,11 +26519,11 @@ func (typ *VariantType) IsVariant() bool {
 }
 
 // Key wraps g_variant_type_key
-// 
+//
 // see also https://docs.gtk.org/glib/method.g_variant_type_key.g_variant_type_key.html
 func (typ *VariantType) Key() *VariantType {
 	var carg0 *C.GVariantType // in, none, converted
-	var cret  *C.GVariantType // return, none, converted
+	var cret *C.GVariantType  // return, none, converted
 
 	carg0 = (*C.GVariantType)(UnsafeVariantTypeToGlibNone(typ))
 
@@ -25914,11 +26538,11 @@ func (typ *VariantType) Key() *VariantType {
 }
 
 // NItems wraps g_variant_type_n_items
-// 
+//
 // see also https://docs.gtk.org/glib/method.g_variant_type_n_items.g_variant_type_n_items.html
 func (typ *VariantType) NItems() uint {
 	var carg0 *C.GVariantType // in, none, converted
-	var cret  C.gsize         // return, none, casted
+	var cret C.gsize          // return, none, casted
 
 	carg0 = (*C.GVariantType)(UnsafeVariantTypeToGlibNone(typ))
 
@@ -25933,11 +26557,11 @@ func (typ *VariantType) NItems() uint {
 }
 
 // Next wraps g_variant_type_next
-// 
+//
 // see also https://docs.gtk.org/glib/method.g_variant_type_next.g_variant_type_next.html
 func (typ *VariantType) Next() *VariantType {
 	var carg0 *C.GVariantType // in, none, converted
-	var cret  *C.GVariantType // return, none, converted, nullable
+	var cret *C.GVariantType  // return, none, converted, nullable
 
 	carg0 = (*C.GVariantType)(UnsafeVariantTypeToGlibNone(typ))
 
@@ -25954,11 +26578,11 @@ func (typ *VariantType) Next() *VariantType {
 }
 
 // Value wraps g_variant_type_value
-// 
+//
 // see also https://docs.gtk.org/glib/method.g_variant_type_value.g_variant_type_value.html
 func (typ *VariantType) Value() *VariantType {
 	var carg0 *C.GVariantType // in, none, converted
-	var cret  *C.GVariantType // return, none, converted
+	var cret *C.GVariantType  // return, none, converted
 
 	carg0 = (*C.GVariantType)(UnsafeVariantTypeToGlibNone(typ))
 
@@ -25971,4 +26595,3 @@ func (typ *VariantType) Value() *VariantType {
 
 	return goret
 }
-

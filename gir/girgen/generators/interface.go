@@ -41,15 +41,18 @@ func (g *InterfaceGenerator) Generate(w *file.Package) {
 	fmt.Fprintf(w.Go(), "// %s is the instance type used by all types implementing %s. It is used internally by the bindings. Users should use the interface [%s] instead.\n", g.GoType(0), g.CType(0), g.GoInterfaceName)
 	fmt.Fprintf(w.Go(), "type %s struct {\n", g.GoType(0))
 	fmt.Fprintf(w.Go(), "\t_ [0]func() // equal guard\n")
+	w.Go().NewSection()
 
 	fmt.Fprintf(w.Go(), "\t%s %s\n", InterfaceInstanceStructFieldName, g.Parent.NamespacedGoType(0))
 
 	// for _, inter := range g.Prerequesite {
 	// 	fmt.Fprintf(w.Go(), "\t*%s\n", inter.GoType(0))
 	// }
-	fmt.Fprintf(w.Go(), "}\n\n")
+	fmt.Fprintf(w.Go(), "}\n")
+	w.Go().NewSection()
 
-	fmt.Fprintf(w.Go(), "var _ %s = (*%s)(nil)\n\n", g.GoInterfaceName, g.GoType(0))
+	fmt.Fprintf(w.Go(), "var _ %s = (*%s)(nil)\n", g.GoInterfaceName, g.GoType(0))
+	w.Go().NewSection()
 
 	g.Doc.Generate(w.Go())
 	fmt.Fprintf(w.Go(), "type %s interface {\n", g.GoInterfaceName)
@@ -80,9 +83,11 @@ func (g *InterfaceGenerator) Generate(w *file.Package) {
 	}
 
 	w.Go().Unindent()
-	fmt.Fprintf(w.Go(), "}\n\n")
+	fmt.Fprintf(w.Go(), "}\n")
+	w.Go().NewSection()
 
-	fmt.Fprintf(w.Go(), "var _ %s = (*%s)(nil)\n\n", g.GoInterfaceName, g.GoType(0))
+	fmt.Fprintf(w.Go(), "var _ %s = (*%s)(nil)\n", g.GoInterfaceName, g.GoType(0))
+	w.Go().NewSection()
 
 	baseClassIdentifier := "base"
 
@@ -97,12 +102,12 @@ func (g *InterfaceGenerator) Generate(w *file.Package) {
 	fmt.Fprintf(w.Go(), "}\n")
 	w.Go().Unindent()
 
-	fmt.Fprintf(w.Go(), "}\n\n")
+	fmt.Fprintf(w.Go(), "}\n")
+	w.Go().NewSection()
 
 	if g.Marshaler != nil {
 		w.RegisterGType(g)
 		g.Marshaler.Generate(w)
-		fmt.Fprintln(w.Go())
 	}
 
 	mkConstructor := func(constructorName, parentConstructorName string) {
@@ -110,12 +115,14 @@ func (g *InterfaceGenerator) Generate(w *file.Package) {
 		w.Go().Indent()
 		fmt.Fprintf(w.Go(), "return %s(c).(%s)\n", parentConstructorName, g.GoInterfaceName)
 		w.Go().Unindent()
-		fmt.Fprintf(w.Go(), "}\n\n")
+		fmt.Fprintf(w.Go(), "}\n")
+		w.Go().NewSection()
 	}
 
 	fmt.Fprintf(w.Go(), "func (%s *%s) %s() *%s {\n", strcases.ReceiverName(g.GoType(0)), g.GoType(0), g.GoPrivateUpcastMethod, g.GoType(0))
 	fmt.Fprintf(w.Go(), "\treturn %s\n", strcases.ReceiverName(g.GoType(0)))
-	fmt.Fprintf(w.Go(), "}\n\n")
+	fmt.Fprintf(w.Go(), "}\n")
+	w.Go().NewSection()
 
 	fmt.Fprintf(w.Go(), "// %s is used to convert raw %s pointers to go while taking a reference and attaching a finalizer. This is used by the bindings internally.\n", g.GoUnsafeFromGlibNoneFunction(), g.CType(0))
 	mkConstructor(g.GoUnsafeFromGlibNoneFunction(), g.Parent.WithForeignNamespace(g.Parent.Type.GoUnsafeFromGlibNoneFunction()))
@@ -128,7 +135,8 @@ func (g *InterfaceGenerator) Generate(w *file.Package) {
 		fmt.Fprintf(w.Go(), "func %s(c %s) unsafe.Pointer {\n", transfername, g.GoInterfaceName)
 		fmt.Fprintf(w.Go(), "\ti := c.%s()\n", g.GoPrivateUpcastMethod)
 		fmt.Fprintf(w.Go(), "\treturn %s(&i.%s)\n", baseTransferName, InterfaceInstanceStructFieldName)
-		fmt.Fprintf(w.Go(), "}\n\n")
+		fmt.Fprintf(w.Go(), "}\n")
+		w.Go().NewSection()
 	}
 
 	fmt.Fprintf(w.Go(), "// %s is used to convert the instance to it's C value %s. This is used by the bindings internally.\n", g.GoUnsafeToGlibNoneFunction(), g.CType(0))

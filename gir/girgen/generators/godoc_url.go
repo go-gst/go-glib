@@ -29,14 +29,12 @@ func (g *UrlGodocGenerator) Generate(w file.CodeWriter) {
 		scanner := bufio.NewScanner(r) // scan lines
 
 		for scanner.Scan() {
-			w.Write([]byte("// "))
-			w.Write(scanner.Bytes())
-			w.Write([]byte("\n"))
+			writeCommentLine(w, scanner.Bytes())
 		}
 
 		// add a blank line between paragraphs
 		if i < len(g.DocParagraphs)-1 {
-			w.Write([]byte("// \n"))
+			w.Write([]byte("//\n"))
 		}
 	}
 

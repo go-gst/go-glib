@@ -50,6 +50,7 @@ func (ts gTypes) reader() io.Reader {
 	fmt.Fprintln(&block, "})")
 	block.Unindent()
 	fmt.Fprintln(&block, "}")
+	fmt.Fprintln(&block)
 
 	return &block
 }

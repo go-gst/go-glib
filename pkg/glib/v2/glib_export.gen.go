@@ -22,9 +22,9 @@ func _goglib_glib2_LogFunc(carg1 *C.gchar, carg2 C.GLogLevelFlags, carg3 *C.gcha
 		fn = v.(LogFunc)
 	}
 
-	var logDomain string        // in, none, string, nullable-string
-	var logLevel  LogLevelFlags // in, none, casted
-	var message   string        // in, none, string
+	var logDomain string       // in, none, string, nullable-string
+	var logLevel LogLevelFlags // in, none, casted
+	var message string         // in, none, string
 
 	if carg1 != nil {
 		logDomain = C.GoString((*C.char)(unsafe.Pointer(carg1)))
@@ -96,10 +96,10 @@ func _goglib_glib2_TestLogFatalFunc(carg1 *C.gchar, carg2 C.GLogLevelFlags, carg
 		fn = v.(TestLogFatalFunc)
 	}
 
-	var logDomain string        // in, none, string
-	var logLevel  LogLevelFlags // in, none, casted
-	var message   string        // in, none, string
-	var goret     bool          // return
+	var logDomain string       // in, none, string
+	var logLevel LogLevelFlags // in, none, casted
+	var message string         // in, none, string
+	var goret bool             // return
 
 	logDomain = C.GoString((*C.char)(unsafe.Pointer(carg1)))
 	logLevel = LogLevelFlags(carg2)
@@ -113,4 +113,3 @@ func _goglib_glib2_TestLogFatalFunc(carg1 *C.gchar, carg2 C.GLogLevelFlags, carg
 
 	return cret
 }
-

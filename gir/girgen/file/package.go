@@ -144,7 +144,6 @@ func (w *Package) mainFileReader() io.Reader {
 		str("import \"C\"\n"),
 		str("\n"),
 		w.registeredTypes.reader(),
-		str("\n"),
 		&w.goContents,
 	)
 }

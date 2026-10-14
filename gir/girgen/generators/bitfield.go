@@ -33,7 +33,8 @@ func (g *BitfieldGenerator) Generate(w *file.Package) {
 
 	w.GoImport("strings")
 
-	fmt.Fprintf(w.Go(), "type %s C.gint\n\n", g.GoType(0))
+	fmt.Fprintf(w.Go(), "type %s C.gint\n", g.GoType(0))
+	w.Go().NewSection()
 
 	fmt.Fprintln(w.Go(), "const (")
 	w.Go().Indent()
@@ -42,7 +43,8 @@ func (g *BitfieldGenerator) Generate(w *file.Package) {
 		fmt.Fprintf(w.Go(), "%s %s = %s\n", m.GoIndentifier(), g.GoType(0), m.Value)
 	}
 	w.Go().Unindent()
-	fmt.Fprint(w.Go(), ")\n\n")
+	fmt.Fprint(w.Go(), ")\n")
+	w.Go().NewSection()
 
 	if g.Marshaler != nil {
 		w.RegisterGType(g)
@@ -52,23 +54,27 @@ func (g *BitfieldGenerator) Generate(w *file.Package) {
 	fmt.Fprintf(w.Go(), "// Has returns true if %s contains other\n", g.MethodReceiver)
 	fmt.Fprintf(w.Go(), "func (%s %s) Has(other %s) bool {\n", g.MethodReceiver, g.GoType(0), g.GoType(0))
 	fmt.Fprintf(w.Go(), "\treturn (%s & other) == other\n", g.MethodReceiver)
-	fmt.Fprintf(w.Go(), "}\n\n")
+	fmt.Fprintf(w.Go(), "}\n")
+	w.Go().NewSection()
 
 	if g.CanMarshal() {
 		// GoValueInitializer assertion:
-		fmt.Fprintf(w.Go(), "var _ %s = %s(0)\n\n", g.Value().WithForeignNamespace("GoValueInitializer"), g.GoType(0))
+		fmt.Fprintf(w.Go(), "var _ %s = %s(0)\n", g.Value().WithForeignNamespace("GoValueInitializer"), g.GoType(0))
+		w.Go().NewSection()
 
 		fmt.Fprintf(w.Go(), "func (f %s) GoValueType() %s {\n", g.GoType(0), g.Type().NamespacedGoType(0))
 		w.Go().Indent()
 		fmt.Fprintf(w.Go(), "return %s\n", g.GoTypeName())
 		w.Go().Unindent()
-		fmt.Fprintf(w.Go(), "}\n\n")
+		fmt.Fprintf(w.Go(), "}\n")
+		w.Go().NewSection()
 
 		fmt.Fprintf(w.Go(), "func (f %s) SetGoValue(v *%s) {\n", g.GoType(0), g.Value().NamespacedGoType(0))
 		w.Go().Indent()
 		fmt.Fprintf(w.Go(), "v.SetFlags(int32(f))\n")
 		w.Go().Unindent()
-		fmt.Fprintf(w.Go(), "}\n\n")
+		fmt.Fprintf(w.Go(), "}\n")
+		w.Go().NewSection()
 	}
 
 	// Stringer:
@@ -76,7 +82,8 @@ func (g *BitfieldGenerator) Generate(w *file.Package) {
 	w.Go().Indent()
 	fmt.Fprintf(w.Go(), "if f == 0 {\n")
 	fmt.Fprintf(w.Go(), "\treturn \"%s(0)\"\n", g.GoType(0))
-	fmt.Fprintf(w.Go(), "}\n\n")
+	fmt.Fprintf(w.Go(), "}\n")
+	w.Go().NewSection()
 	fmt.Fprintf(w.Go(), "var parts []string\n")
 	for _, member := range g.Members {
 		fmt.Fprintf(w.Go(), "if (f & %s) != 0 {\n", member.GoIndentifier())
@@ -85,7 +92,8 @@ func (g *BitfieldGenerator) Generate(w *file.Package) {
 	}
 	fmt.Fprintf(w.Go(), "return \"%s(\" + strings.Join(parts, \"|\") + \")\"\n", g.GoType(0))
 	w.Go().Unindent()
-	fmt.Fprintf(w.Go(), "}\n\n")
+	fmt.Fprintf(w.Go(), "}\n")
+	w.Go().NewSection()
 
 	g.SubGenerators.Generate(w)
 }

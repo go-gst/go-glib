@@ -32,19 +32,21 @@ func (g *RecordGenerator) Generate(w *file.Package) {
 	g.Doc.Generate(w.Go())
 
 	if g.IsTypeStructFor != nil {
-		fmt.Fprintf(w.Go(), "// \n")
+		fmt.Fprintf(w.Go(), "//\n")
 		fmt.Fprintf(w.Go(), "// %s is the type struct for [%s]\n", g.GoType(0), g.IsTypeStructFor.GoType(1))
 	}
 
 	// TODO: attach a cleanup field here of type runtime.Cleanup, and drop the SetFinalizer for AddCleanup
 	fmt.Fprintf(w.Go(), "type %s struct {\n", g.GoType(0))
 	fmt.Fprintf(w.Go(), "\t*%s\n", g.PrivateGoType)
-	fmt.Fprintf(w.Go(), "}\n\n")
+	fmt.Fprintf(w.Go(), "}\n")
+	w.Go().NewSection()
 
 	fmt.Fprintf(w.Go(), "// %s is the struct that's finalized\n", g.PrivateGoType)
 	fmt.Fprintf(w.Go(), "type %s struct {\n", g.PrivateGoType)
 	fmt.Fprintf(w.Go(), "\tnative *%s\n", g.CGoType(0))
-	fmt.Fprintf(w.Go(), "}\n\n")
+	fmt.Fprintf(w.Go(), "}\n")
+	w.Go().NewSection()
 
 	// instance method for returning the c pointer
 	fmt.Fprintf(w.Go(), "// %s returns the underlying C pointer. This is used by the bindings internally.\n", g.ToGlibNoneFunction)
@@ -55,29 +57,34 @@ func (g *RecordGenerator) Generate(w *file.Package) {
 	fmt.Fprintf(w.Go(), "}\n")
 	fmt.Fprintf(w.Go(), "return %s.native\n", g.ReceiverName)
 	w.Go().Unindent()
-	fmt.Fprintf(w.Go(), "}\n\n")
+	fmt.Fprintf(w.Go(), "}\n")
+	w.Go().NewSection()
 
 	if g.GenerateMarshaler {
 		// GoValueInitializer assertion:
-		fmt.Fprintf(w.Go(), "var _ %s = (*%s)(nil)\n\n", g.Value().WithForeignNamespace("GoValueInitializer"), g.GoType(0))
+		fmt.Fprintf(w.Go(), "var _ %s = (*%s)(nil)\n", g.Value().WithForeignNamespace("GoValueInitializer"), g.GoType(0))
+		w.Go().NewSection()
 
 		w.RegisterGType(g.Record)
 		fmt.Fprintf(w.Go(), "func marshal%s(p unsafe.Pointer) (interface{}, error) {\n", g.GoType(0))
 		fmt.Fprintf(w.Go(), "\tb := %s(p).Boxed()\n", g.Value().WithForeignNamespace(g.Value().Type.FromGlibBorrowFunction))
 		fmt.Fprintf(w.Go(), "\treturn %s(b), nil\n", g.GoUnsafeFromGlibNoneFunction())
-		fmt.Fprintf(w.Go(), "}\n\n")
+		fmt.Fprintf(w.Go(), "}\n")
+		w.Go().NewSection()
 
 		fmt.Fprintf(w.Go(), "func (r *%s) GoValueType() %s {\n", g.GoType(0), g.Type().NamespacedGoType(0))
 		w.Go().Indent()
 		fmt.Fprintf(w.Go(), "return %s\n", g.GoTypeName())
 		w.Go().Unindent()
-		fmt.Fprintf(w.Go(), "}\n\n")
+		fmt.Fprintf(w.Go(), "}\n")
+		w.Go().NewSection()
 
 		fmt.Fprintf(w.Go(), "func (r *%s) SetGoValue(v *%s) {\n", g.GoType(0), g.Value().NamespacedGoType(0))
 		w.Go().Indent()
 		fmt.Fprintf(w.Go(), "v.SetBoxed(unsafe.Pointer(r.instance()))\n")
 		w.Go().Unindent()
-		fmt.Fprintf(w.Go(), "}\n\n")
+		fmt.Fprintf(w.Go(), "}\n")
+		w.Go().NewSection()
 	}
 
 	fmt.Fprintf(w.Go(), "// %s is used to convert raw %s pointers to go. This is used by the bindings internally.\n", g.GoUnsafeFromGlibBorrowFunction(), g.CGoType(0))
@@ -86,7 +93,8 @@ func (g *RecordGenerator) Generate(w *file.Package) {
 	fmt.Fprintf(w.Go(), "\t\treturn nil\n")
 	fmt.Fprintf(w.Go(), "\t}\n")
 	fmt.Fprintf(w.Go(), "\treturn &%s{&%s{(*%s)(p)}}\n", g.GoType(0), g.PrivateGoType, g.CGoType(0))
-	fmt.Fprintf(w.Go(), "}\n\n")
+	fmt.Fprintf(w.Go(), "}\n")
+	w.Go().NewSection()
 
 	if g.GoUnsafeFromGlibNoneFunction() != "" {
 		g.transferNoneFunction(w)
@@ -103,29 +111,32 @@ func (g *RecordGenerator) Generate(w *file.Package) {
 		g.mkFinalizer(w)
 		fmt.Fprintf(w.Go(), "return wrapped\n")
 		w.Go().Unindent()
-		fmt.Fprintf(w.Go(), "}\n\n")
+		fmt.Fprintf(w.Go(), "}\n")
+		w.Go().NewSection()
 	}
 
 	if g.CgoRefFunction != "" {
 		fmt.Fprintf(w.Go(), "// %s increases the refcount on the underlying resource.\n", g.GoUnsafeRefFunction)
-		fmt.Fprintf(w.Go(), "// \n")
+		fmt.Fprintf(w.Go(), "//\n")
 		fmt.Fprintf(w.Go(), "// When this is called without an associated call to [%s.%s], then [%s] will leak memory.\n", g.GoType(0), g.GoUnsafeUnrefFunction, g.GoType(0))
 		fmt.Fprintf(w.Go(), "func %s(%s *%s) {\n", g.GoUnsafeRefFunction, g.ReceiverName, g.GoType(0))
 		w.Go().Indent()
 		g.refCall(w.Go(), fmt.Sprintf("%s.native", g.ReceiverName))
 		w.Go().Unindent()
-		fmt.Fprintf(w.Go(), "}\n\n")
+		fmt.Fprintf(w.Go(), "}\n")
+		w.Go().NewSection()
 	}
 
 	fmt.Fprintf(w.Go(), "// %s unrefs/frees the underlying resource. This can be used to remove the instance before the GC decides to do so.\n", g.GoUnsafeUnrefFunction)
-	fmt.Fprintf(w.Go(), "// \n")
+	fmt.Fprintf(w.Go(), "//\n")
 	fmt.Fprintf(w.Go(), "// After this is called, no other method on [%s] is expected to work anymore.\n", g.GoType(0))
 	fmt.Fprintf(w.Go(), "func %s(%s *%s) {\n", g.GoUnsafeUnrefFunction, g.ReceiverName, g.GoType(0))
 	w.Go().Indent()
 	g.unrefCall(w.Go(), g.ReceiverName)
 	fmt.Fprintf(w.Go(), "runtime.SetFinalizer(%s.%s, nil)\n", g.ReceiverName, g.PrivateGoType)
 	w.Go().Unindent()
-	fmt.Fprintf(w.Go(), "}\n\n")
+	fmt.Fprintf(w.Go(), "}\n")
+	w.Go().NewSection()
 
 	fmt.Fprintf(w.Go(), "// %s returns the underlying C pointer. This is used by the bindings internally.\n", g.GoUnsafeToGlibNoneFunction())
 	fmt.Fprintf(w.Go(), "func %s(%s *%s) unsafe.Pointer {\n", g.GoUnsafeToGlibNoneFunction(), g.ReceiverName, g.GoType(0))
@@ -133,7 +144,8 @@ func (g *RecordGenerator) Generate(w *file.Package) {
 	fmt.Fprintf(w.Go(), "\t\treturn nil\n")
 	fmt.Fprintf(w.Go(), "\t}\n")
 	fmt.Fprintf(w.Go(), "\treturn unsafe.Pointer(%s.native)\n", g.ReceiverName)
-	fmt.Fprintf(w.Go(), "}\n\n")
+	fmt.Fprintf(w.Go(), "}\n")
+	w.Go().NewSection()
 
 	if g.GoUnsafeToGlibFullFunction() != "" {
 		fmt.Fprintf(w.Go(), "// %s returns the underlying C pointer and gives up ownership.\n", g.GoUnsafeToGlibFullFunction())
@@ -148,7 +160,8 @@ func (g *RecordGenerator) Generate(w *file.Package) {
 		fmt.Fprintf(w.Go(), "%s.native = nil // %s is invalid from here on\n", g.ReceiverName, g.GoType(0))
 		fmt.Fprintf(w.Go(), "return _p\n")
 		w.Go().Unindent()
-		fmt.Fprintf(w.Go(), "}\n\n")
+		fmt.Fprintf(w.Go(), "}\n")
+		w.Go().NewSection()
 	}
 
 	// for typestructs we need a type cast to the parent type struct
@@ -163,7 +176,8 @@ func (g *RecordGenerator) Generate(w *file.Package) {
 		fmt.Fprintf(w.Go(), "runtime.AddCleanup(parent, func(_ %s) {}, %s)\n", g.GoType(1), g.ReceiverName)
 		fmt.Fprintf(w.Go(), "return parent\n")
 		w.Go().Unindent()
-		fmt.Fprintf(w.Go(), "}\n\n")
+		fmt.Fprintf(w.Go(), "}\n")
+		w.Go().NewSection()
 	}
 
 	GenerateAll(
@@ -177,7 +191,7 @@ func (g *RecordGenerator) mkFinalizer(w *file.Package) {
 	fmt.Fprintf(w.Go(), "runtime.SetFinalizer(\n")
 	w.Go().Indent()
 	fmt.Fprintf(w.Go(), "wrapped.%s,\n", g.PrivateGoType)
-	fmt.Fprintf(w.Go(), "func (intern *%s) {\n", g.PrivateGoType)
+	fmt.Fprintf(w.Go(), "func(intern *%s) {\n", g.PrivateGoType)
 	w.Go().Indent()
 	g.unrefCall(w.Go(), "intern")
 	w.Go().Unindent()
@@ -198,7 +212,8 @@ func (g *RecordGenerator) transferNoneFunction(w *file.Package) {
 	fmt.Fprintf(w.Go(), "wrapped := %s(p)\n", g.GoUnsafeFromGlibBorrowFunction())
 	fmt.Fprintf(w.Go(), "if wrapped == nil {\n")
 	fmt.Fprintf(w.Go(), "\treturn nil\n")
-	fmt.Fprintf(w.Go(), "}\n\n")
+	fmt.Fprintf(w.Go(), "}\n")
+	w.Go().NewSection()
 
 	if g.CgoRefFunction == "" && g.GoCopyMethod == nil {
 		w.GoImport("log")
@@ -206,14 +221,16 @@ func (g *RecordGenerator) transferNoneFunction(w *file.Package) {
 		fmt.Fprintf(w.Go(), "return wrapped\n")
 	} else if g.CgoRefFunction == "" && g.GoCopyMethod != nil {
 		// the copy method already attaches a finalizer
-		fmt.Fprintf(w.Go(), "return wrapped.%s() // create an owned copy\n\n", g.GoCopyMethod.GoIndentifier())
+		fmt.Fprintf(w.Go(), "return wrapped.%s() // create an owned copy\n", g.GoCopyMethod.GoIndentifier())
+		w.Go().NewSection()
 	} else {
 		g.mkFinalizer(w)
 		fmt.Fprintf(w.Go(), "return wrapped\n")
 	}
 	w.Go().Unindent()
 
-	fmt.Fprintf(w.Go(), "}\n\n")
+	fmt.Fprintf(w.Go(), "}\n")
+	w.Go().NewSection()
 }
 
 // refCall writes the ref call, variable is the unsafe pointer of the incoming record

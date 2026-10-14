@@ -25,7 +25,7 @@ func _goglib_gio2_AsyncReadyCallback(carg1 *C.GObject, carg2 *C.GAsyncResult, ca
 	}
 
 	var sourceObject gobject.Object // in, none, converted, nullable
-	var res          AsyncResult    // in, none, converted
+	var res AsyncResult             // in, none, converted
 
 	if carg1 != nil {
 		sourceObject = gobject.UnsafeObjectFromGlibNone(unsafe.Pointer(carg1))
@@ -46,9 +46,9 @@ func _goglib_gio2_VfsFileLookupFunc(carg1 *C.GVfs, carg2 *C.char, carg3 C.gpoint
 		fn = v.(VfsFileLookupFunc)
 	}
 
-	var vfs        Vfs    // in, none, converted
+	var vfs Vfs           // in, none, converted
 	var identifier string // in, none, string
-	var goret      File   // return, full, converted, nullable
+	var goret File        // return, full, converted, nullable
 
 	vfs = UnsafeVfsFromGlibNone(unsafe.Pointer(carg1))
 	identifier = C.GoString((*C.char)(unsafe.Pointer(carg2)))
@@ -1849,4 +1849,3 @@ func _goglib_gio2_BufferedInputStream_fill_finish(carg0 *C.GBufferedInputStream,
 	}
 	return fn(carg0, carg1, _cerr)
 }
-
