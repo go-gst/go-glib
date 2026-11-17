@@ -1,6 +1,7 @@
 package gobject
 
 import (
+	"fmt"
 	"runtime"
 	"unsafe"
 )
@@ -35,6 +36,8 @@ type Object interface {
 	ObjectProperty(string) interface{}
 	SetObjectProperty(string, interface{})
 	SetObjectProperties(props map[string]any)
+	TrySetProperty(string, any) error
+	FindProperty(string) *ParamSpec
 	FreezeNotify()
 	ThawNotify()
 	StopEmission(string)
@@ -277,6 +280,76 @@ func (obj *ObjectInstance) SetObjectProperties(props map[string]any) {
 		runtime.KeepAlive(v)
 	}
 	runtime.KeepAlive(obj)
+}
+
+// TrySetProperty is like SetObjectProperty, but returns an error in the cases where
+// g_object_set_property would only log a warning and leave the property unchanged: the
+// property does not exist, is not writable or is construct-only, the value cannot be
+// converted to the property's type, or the value is out of range.
+func (obj *ObjectInstance) TrySetProperty(name string, value any) error {
+	pspec := obj.FindProperty(name)
+	if pspec == nil {
+		return fmt.Errorf("%s has no property %q", obj.typeFromInstance().Name(), name)
+	}
+
+	flags := pspec.Flags()
+	if flags&ParamWritable == 0 {
+		return fmt.Errorf("property %q of %s is not writable", name, obj.typeFromInstance().Name())
+	}
+	if flags&ParamConstructOnly != 0 {
+		return fmt.Errorf("property %q of %s can only be set at construction", name, obj.typeFromInstance().Name())
+	}
+
+	v, err := tryNewValue(value)
+	if err != nil {
+		return fmt.Errorf("property %q of %s: %w", name, obj.typeFromInstance().Name(), err)
+	}
+
+	converted := InitValue(pspec.ValueType())
+	if C.g_value_transform(v.native(), converted.native()) == 0 {
+		return fmt.Errorf("property %q of %s takes %s, not %s", name, obj.typeFromInstance().Name(), pspec.ValueType().Name(), v.Type().Name())
+	}
+
+	if C.g_param_value_validate((*C.GParamSpec)(UnsafeParamSpecToGlibNone(pspec)), converted.native()) != 0 && flags&ParamLaxValidation == 0 {
+		return fmt.Errorf("value %v is invalid for property %q of %s", value, name, obj.typeFromInstance().Name())
+	}
+
+	cstr := C.CString(name)
+	defer C.free(unsafe.Pointer(cstr))
+
+	C.g_object_set_property(obj.native, (*C.gchar)(cstr), converted.native())
+	runtime.KeepAlive(obj)
+	runtime.KeepAlive(pspec)
+	runtime.KeepAlive(v)
+	runtime.KeepAlive(converted)
+
+	return nil
+}
+
+// tryNewValue is NewValue, returning its panic for unsupported types such as int as an error.
+func tryNewValue(value any) (v *Value, err error) {
+	defer func() {
+		if r := recover(); r != nil {
+			err = fmt.Errorf("%v", r)
+		}
+	}()
+	return NewValue(value), nil
+}
+
+// FindProperty is a wrapper around g_object_class_find_property(). It returns nil if the
+// object has no property with that name.
+func (obj *ObjectInstance) FindProperty(name string) *ParamSpec {
+	cstr := C.CString(name)
+	defer C.free(unsafe.Pointer(cstr))
+
+	pspec := C.g_object_class_find_property(C._g_object_get_class(obj.native), (*C.gchar)(cstr))
+	runtime.KeepAlive(obj)
+	if pspec == nil {
+		return nil
+	}
+
+	C.g_param_spec_ref(pspec)
+	return UnsafeParamSpecFromGlibFull(unsafe.Pointer(pspec))
 }
 
 // NotifyProperty adds a handler that's called when the object's property is
